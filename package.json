@@ -23,10 +23,24 @@
     "dependencies": {
         "next": "16.1.6",
         "react": "19.2.3",
-        "react-dom": "19.2.3"
+        "react-dom": "19.2.3",
+        "akeyless-assets-commons": "^1.0.13",
+        "akeyless-client-commons": "^1.1.113",
+        "akeyless-server-commons": "^1.0.168",
+        "akeyless-types-commons": "^1.0.86",
+        "i18next": "^24.0.2",
+        "react-i18next": "^15.1.4",
+        "zustand": "^5.0.9",
+        "tailwindcss-animate": "^1.0.7",
+        "tailwind-merge": "^2.5.4",
+        "clsx": "^2.1.1",
+        "class-variance-authority": "^0.7.1",
+        "autoprefixer": "^10.4.20"
     },
     "devDependencies": {
         "@tailwindcss/postcss": "^4",
+        "@types/node-fetch": "^2.6.13",
+        "@types/file-saver": "^2.0.7",
         "@types/node": "^20",
         "@types/react": "^19",
         "@types/react-dom": "^19",
@@ -34,6 +48,7 @@
         "eslint": "^9",
         "eslint-config-next": "16.1.6",
         "tailwindcss": "^4",
-        "typescript": "^5"
+        "typescript": "^5",
+        "postcss": "^8"
     }
 }

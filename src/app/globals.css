@@ -5,6 +5,44 @@
   --foreground: #171717;
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  cursor: pointer;
+}
+::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #5f9ea0;
+  height: 80px;
+}
+::-webkit-scrollbar-thumb:hover {
+  cursor: pointer;
+  background: #5acdd1;
+}
+
+._center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+._ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
