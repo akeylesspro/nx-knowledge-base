@@ -1,0 +1,198 @@
+אתה סוכן תכנון/ארכיטקטורה (AI Agent). המשימה שלך: לבנות תוכנית עבודה מלאה להקמת “KB Repository” מרכזי שמכיל תיעוד לכל ה-GitHub Repositories שלי, כולל UI לבני אדם וגם גישה מובנית לסוכני AI.
+
+========================
+0) עובדות והנחות (נעולות)
+========================
+- היקף התחלתי: 2 פרויקטים, לכל אחד 50+ קבצי src בערך.
+- סוגי פרויקטים: Node.js servers, React / Next.js / Vue web apps — כולם TypeScript.
+- KB יהיה Repository חדש בשם "KB" והוא יהיה Next.js + TypeScript.
+- מותר ורצוי: עריכה ידנית של תיעוד בתוך KB. המערכת חייבת לשמר עריכות ידניות ולא לדרוס אותן.
+- גישת יצירה: תיעוד file-level יהיה Fully AI-generated מהקוד ומה-diffs (Approach A), עם PR review לפני merge.
+- Deep links: צריך לתמוך גם בקישור ל-KB view וגם לקובץ המקורי ב-GitHub (ברירת מחדל: להציג בתוך KB, עם כפתור “Open in GitHub”).
+- Branching ב-KB: יש רק main (אין develop docs).
+- API docs: המערכת חייבת לייצר OpenAPI/Swagger אוטומטית (מסריקות/אינפרנס מהקוד/Routes) ולשלב ב-KB.
+- KB יהיה Public לקריאה (אינטרנט פתוח).
+- Agents ירוצו רק בתוך GitHub Actions.
+- Machine-readable docs: “Single source of truth” בפורמט JSON קשיח עם סכימה קבועה לכל קובץ קוד.
+  אין לתחזק MDX ידני במקביל. אם צריך MDX/HTML זה רק Generated מה-JSON.
+- אין monorepos.
+- אין צורך מיוחד בהחרגות מעבר לסטנדרט (אבל עדיין להציע default ignore: tests/build/dist/node_modules וכו').
+
+========================
+1) המטרה
+========================
+להקים KB Repository שמכיל תיעוד לכל Repo:
+- בתוך KB תהיה תיקייה לכל Repo קיים (לפי שם ה-Repo).
+- בכל תיקייה תהיה תת-תיקייה docs שממפה את מבנה src אחד-לאחד (mirroring):
+  לכל קובץ תחת src יהיה קובץ תיעוד JSON תואם תחת docs באותו נתיב יחסי.
+- KB יכיל UI (Next.js) שמרנדר את התיעוד מה-JSON, כולל חיפוש, ניווט, וקישורים עמוקים (deep links).
+- KB יכיל גם שכבת “AI access” — API/endpoint או מבנה קבצים שמאפשר לסוכני AI לצרוך את התיעוד בצורה עקבית.
+
+========================
+2) דרישות תיעוד (Documentation Rules)
+========================
+A) מיפוי תיקיות
+- docs היא “מראה” של src.
+- פורמט קובץ תיעוד: JSON strict בלבד.
+- אם צריך פיצול תיעוד לקובץ קוד אחד:
+  לבצע זאת כייצור נגזר (generated outputs) ולא כשני מקורות אמת ידניים.
+
+B) שלושת רכיבי התיעוד
+1) Project-level summary:
+   - Summary רחב (מפורט)
+   - Summary קצר (תמציתי)
+2) File-level documentation:
+   - תיעוד לכל קובץ קוד לפי הסכימה (בהמשך)
+3) API Documentation:
+   - לכל Node/Next עם endpoints: Swagger מלא, generated, מוצג ב-UI.
+
+========================
+3) סכימת JSON חובה לכל קובץ תיעוד (File Doc Spec)
+========================
+כל JSON תיעוד לקובץ חייב לכלול:
+
+(1) סיכום ברור: מה יש בקובץ ועל איזה צורך/בעיה הוא עונה.
+(2) Dependencies:
+    - פירוט תלויות + הסבר קצר לכל תלות.
+    - לתלות פנימית: חייבים fields שמאפשרים deep link:
+      - linkToKb (נתיב בתוך KB)
+      - linkToGitHub (URL לקובץ המקורי; עדיפות לקישור commit SHA אם אפשר)
+(3) Symbols:
+    - functions / classes / components
+    - variables רק אם הם global ברמת הקובץ.
+(4) Exports:
+    - רשימת כל מה שהקובץ מייצא.
+(5) ליד כל Symbol/Export:
+    - תיאור קצר בשורה אחת.
+(6) פירוט רחב לכל Symbol:
+    - מה עושה
+    - parameters/props (כולל mandatory/optional)
+    - return value (כל אפשרויות ההחזרה)
+    - למחלקות: מתודות + מה מחזירות
+    - לרכיבים: תיאור קצר של ה-UI המוחזר
+    - דוגמאות קוד:
+      - שימוש מינימלי תקין
+      - שימוש “רחב” תקין (אם רלוונטי)
+      - דוגמה לשימוש לא תקין
+
+בנוסף, עליך להציע סכימת JSON מדויקת (עם שדות, טיפוסים, דוגמאות), כולל versioning של schema וולידציה ב-CI.
+
+========================
+4) החלטות פורמט ו-UI
+========================
+עליך להמליץ על:
+- מבנה תיקיות מלא של KB (כולל /repos/<name>/docs, /repos/<name>/openapi, /ui, /schemas וכו').
+- איך Next.js מרנדר JSON לדפים:
+  - routing לפי repo/path
+  - search index
+  - symbol pages + deep links
+- איך ליישם deep links:
+  - בתוך KB: לקובץ/לסמל
+  - ל-GitHub: לקובץ המקורי (רצוי לפי commit SHA שממנו נוצר התיעוד)
+- איך לנהל “manual edits” בלי להידרס:
+  - מנגנון patch/overrides
+  - סימון “generated vs human”
+  - merge strategy ו-conflict handling
+
+========================
+5) שני Agents בתוך KB
+========================
+Agent #1: Sync Agent
+- מאזין לשינויים ב-Repos האחרים (טריגר מ-GitHub Actions בכל Repo על merge ל-develop).
+- מעדכן תיעוד ב-KB: add/update/delete.
+- עובד תמיד בענף נפרד.
+- בסיום פותח PR ל-KB עם כל השינויים.
+- חייב להימנע מדריסת עריכות ידניות; לשלב overrides/patches.
+
+Agent #2: Review & Merge Agent
+- עושה review ל-PR של Sync Agent.
+- מתקֵן אם צריך (אוטומטית).
+- מבצע merge ל-main רק אם:
+  - סכימה תקינה
+  - לינקים תקינים
+  - אין דריסת manual edits
+  - בדיקות עברו
+
+דרישה: לשני הסוכנים יהיו קבצי הגדרות/הוראות נפרדים (editable) ללא שינוי קוד:
+- instructions/
+- skills/
+- commands/
+- style/
+- format/
+עליך להציע מבנה ותוכן קונקרטי לקבצים הללו.
+
+
+
+========================
+6) CI/CD בכל Repo מתועד (GitHub Actions)
+========================
+בכל Repo:
+- Action שרץ על merge ל-branch develop
+- שולח ל-KB/Sync Agent את השינויים:
+  - רשימת קבצים ששונו + diff/patch
+  - מטאדאטה: repo, branch, commit SHA, timestamp
+- להציע את הדרך הטובה: dispatch event / repository_dispatch / workflow_call / artifacts וכו'.
+
+========================
+7) אבטחה והרשאות
+========================
+- KB public: להגן על secrets, למנוע דליפות.
+- להגדיר מינימום scopes לטוקנים:
+  - repo permissions מדויקים
+  - permissions ל-PR creation, contents write, actions read וכו'
+- להציע threat model בסיסי: מי יכול להזרים payloadים ל-sync, איך מאמתים מקור.
+
+========================
+8) QA ובדיקות
+========================
+עליך להציע אסטרטגיית בדיקות/אכיפה:
+- JSON schema validation ב-CI
+- link checker (KB + GitHub)
+- “manual edit preservation” checks
+- smoke tests ל-UI
+- OpenAPI validation + lint (spectral וכו')
+- gates ל-merge
+
+========================
+9) מה להחזיר (Output חובה)
+========================
+החזר תוכנית עבודה מלאה הכוללת:
+
+A) החלטות ארכיטקטוניות מומלצות:
+- פורמט JSON + סכימה (מפורט)
+- מבנה תיקיות KB
+- deep links (KB/GitHub)
+- מנגנון manual edits (מפורט)
+- OpenAPI generation approach
+
+B) שלבים, משימות, ואבני דרך:
+- שלב 0: POC
+- שלב 1: KB בסיסי + schema + UI בסיסי
+- שלב 2: Sync Agent + PR flow
+- שלב 3: Review/Merge Agent + gates
+- שלב 4: OpenAPI generation + UI
+- שלב 5: hardening (security/QA/perf)
+
+C) חלוקת אחריות בין רכיבים:
+- KB UI
+- Doc store & schema
+- Agents
+- GitHub Actions בכל Repo
+
+D) סיכונים ופתרונות (Risk register):
+- drift בין code/docs
+- דריסת manual edits
+- אבטחה ב-KB public
+- עלויות/זמן ריצה ב-Actions
+- איכות תיעוד AI + hallucinations
+- יציבות deep links
+
+========================
+10) כללי סגנון לתשובה שלך
+========================
+- תן החלטות חדות (לא “זה תלוי”), עם ברירת מחדל מומלצת.
+- תן גם חלופות כשזה קריטי, אבל בחר אחת כהמלצה.
+- השתמש בטבלאות איפה שזה עוזר: milestones, tasks, permissions, risks.
+- כל סעיף צריך להיות actionable וברמת יישום.
+
+התחל עכשיו והחזר את התוכנית בפורמט מסודר לפי הסעיפים לעיל.
