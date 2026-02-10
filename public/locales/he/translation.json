@@ -1,0 +1,16 @@
+{
+    "length_error": "{entity} חייב להיות בן {length} תווים לפחות",
+    "select_entity": "בחר {entity}",
+    "server_error": "שגיאת שרת בעת \"{action}\"",
+    "delete_entity": "מחיקת {entity}",
+    "edit_entity": "עריכת {entity} - {name}",
+    "add_entity": "הוספת {entity}",
+    "create_entity": "יצירת {entity}",
+    "action_entity": "פעולת {entity}",
+    "entity_not_found": "{entity} לא נמצא",
+    "change_language": "שנה שפה ",
+    "hebrew": "עברית",
+    "english": "אנגלית",
+    "logout": "התנתק"
+    
+}

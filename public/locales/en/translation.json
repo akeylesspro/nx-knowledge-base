@@ -1,0 +1,15 @@
+{
+    "length_error": "{entity} Length must be at least {length} characters",
+    "select_entity": "Select {entity}",
+    "server_error": "Server error during \"{action}\"",
+    "add_entity": "Add {entity}",
+    "delete_entity": "Delete {entity}",
+    "create_entity": "Create {entity}",
+    "action_entity": "{entity} Action",
+    "edit_entity": "Edit {entity} - {name}",
+    "entity_not_found": "{entity} not found",
+    "change_language": "Change Language",
+    "hebrew": "Hebrew",
+    "english": "English",
+    "logout": "Logout"
+}
