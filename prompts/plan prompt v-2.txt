@@ -1,17 +1,17 @@
-אתה סוכן תכנון/ארכיטקטורה (AI Agent). המשימה שלך: לבנות תוכנית עבודה מלאה להקמת “KB Repository” מרכזי שמכיל תיעוד לכל ה-GitHub Repositories שלי, כולל UI לבני אדם וגם גישה מובנית לסוכני AI.
+אתה סוכן תכנון/ארכיטקטורה (AI Agent). המשימה שלך: לבנות תוכנית עבודה מלאה להקמת “NX-KNOWLEDGE-BASE Repository” מרכזי שמכיל תיעוד לכל ה-GitHub Repositories שלי, כולל UI לבני אדם וגם גישה מובנית לסוכני AI.
 
 ========================
 0) עובדות והנחות (נעולות)
 ========================
 - היקף התחלתי: 2 פרויקטים, לכל אחד 50+ קבצי src בערך.
 - סוגי פרויקטים: Node.js servers, React / Next.js / Vue web apps — כולם TypeScript.
-- KB יהיה Repository חדש בשם "KB" והוא יהיה Next.js + TypeScript.
-- מותר ורצוי: עריכה ידנית של תיעוד בתוך KB. המערכת חייבת לשמר עריכות ידניות ולא לדרוס אותן.
+- NX-KNOWLEDGE-BASE יהיה Repository חדש בשם "NX-KNOWLEDGE-BASE" והוא יהיה Next.js + TypeScript.
+- מותר ורצוי: עריכה ידנית של תיעוד בתוך NX-KNOWLEDGE-BASE. המערכת חייבת לשמר עריכות ידניות ולא לדרוס אותן.
 - גישת יצירה: תיעוד file-level יהיה Fully AI-generated מהקוד ומה-diffs (Approach A), עם PR review לפני merge.
-- Deep links: צריך לתמוך גם בקישור ל-KB view וגם לקובץ המקורי ב-GitHub (ברירת מחדל: להציג בתוך KB, עם כפתור “Open in GitHub”).
-- Branching ב-KB: יש רק main (אין develop docs).
-- API docs: המערכת חייבת לייצר OpenAPI/Swagger אוטומטית (מסריקות/אינפרנס מהקוד/Routes) ולשלב ב-KB.
-- KB יהיה Public לקריאה (אינטרנט פתוח).
+- Deep links: צריך לתמוך גם בקישור ל-NX-KNOWLEDGE-BASE view וגם לקובץ המקורי ב-GitHub (ברירת מחדל: להציג בתוך NX-KNOWLEDGE-BASE, עם כפתור “Open in GitHub”).
+- Branching ב-NX-KNOWLEDGE-BASE: יש רק main (אין develop docs).
+- API docs: המערכת חייבת לייצר OpenAPI/Swagger אוטומטית (מסריקות/אינפרנס מהקוד/Routes) ולשלב ב-NX-KNOWLEDGE-BASE.
+- NX-KNOWLEDGE-BASE יהיה Public לקריאה (אינטרנט פתוח).
 - Agents ירוצו רק בתוך GitHub Actions.
 - Machine-readable docs: “Single source of truth” בפורמט JSON קשיח עם סכימה קבועה לכל קובץ קוד.
   אין לתחזק MDX ידני במקביל. אם צריך MDX/HTML זה רק Generated מה-JSON.
@@ -21,12 +21,12 @@
 ========================
 1) המטרה
 ========================
-להקים KB Repository שמכיל תיעוד לכל Repo:
-- בתוך KB תהיה תיקייה לכל Repo קיים (לפי שם ה-Repo).
+להקים NX-KNOWLEDGE-BASE Repository שמכיל תיעוד לכל Repo:
+- בתוך NX-KNOWLEDGE-BASE תהיה תיקייה לכל Repo קיים (לפי שם ה-Repo).
 - בכל תיקייה תהיה תת-תיקייה docs שממפה את מבנה src אחד-לאחד (mirroring):
   לכל קובץ תחת src יהיה קובץ תיעוד JSON תואם תחת docs באותו נתיב יחסי.
-- KB יכיל UI (Next.js) שמרנדר את התיעוד מה-JSON, כולל חיפוש, ניווט, וקישורים עמוקים (deep links).
-- KB יכיל גם שכבת “AI access” — API/endpoint או מבנה קבצים שמאפשר לסוכני AI לצרוך את התיעוד בצורה עקבית.
+- NX-KNOWLEDGE-BASE יכיל UI (Next.js) שמרנדר את התיעוד מה-JSON, כולל חיפוש, ניווט, וקישורים עמוקים (deep links).
+- NX-KNOWLEDGE-BASE יכיל גם שכבת “AI access” — API/endpoint או מבנה קבצים שמאפשר לסוכני AI לצרוך את התיעוד בצורה עקבית.
 
 ========================
 2) דרישות תיעוד (Documentation Rules)
@@ -55,7 +55,7 @@ B) שלושת רכיבי התיעוד
 (2) Dependencies:
     - פירוט תלויות + הסבר קצר לכל תלות.
     - לתלות פנימית: חייבים fields שמאפשרים deep link:
-      - linkToKb (נתיב בתוך KB)
+      - linkToNxKnowledgeBase (נתיב בתוך NX-KNOWLEDGE-BASE)
       - linkToGitHub (URL לקובץ המקורי; עדיפות לקישור commit SHA אם אפשר)
 (3) Symbols:
     - functions / classes / components
@@ -81,13 +81,13 @@ B) שלושת רכיבי התיעוד
 4) החלטות פורמט ו-UI
 ========================
 עליך להמליץ על:
-- מבנה תיקיות מלא של KB (כולל /repos/<name>/docs, /repos/<name>/openapi, /ui, /schemas וכו').
+- מבנה תיקיות מלא של NX-KNOWLEDGE-BASE (כולל /repos/<name>/docs, /repos/<name>/openapi, /ui, /schemas וכו').
 - איך Next.js מרנדר JSON לדפים:
   - routing לפי repo/path
   - search index
   - symbol pages + deep links
 - איך ליישם deep links:
-  - בתוך KB: לקובץ/לסמל
+  - בתוך NX-KNOWLEDGE-BASE: לקובץ/לסמל
   - ל-GitHub: לקובץ המקורי (רצוי לפי commit SHA שממנו נוצר התיעוד)
 - איך לנהל “manual edits” בלי להידרס:
   - מנגנון patch/overrides
@@ -95,13 +95,13 @@ B) שלושת רכיבי התיעוד
   - merge strategy ו-conflict handling
 
 ========================
-5) שני Agents בתוך KB
+5) שני Agents בתוך NX-KNOWLEDGE-BASE
 ========================
 Agent #1: Sync Agent
 - מאזין לשינויים ב-Repos האחרים (טריגר מ-GitHub Actions בכל Repo על merge ל-develop).
-- מעדכן תיעוד ב-KB: add/update/delete.
+- מעדכן תיעוד ב-NX-KNOWLEDGE-BASE: add/update/delete.
 - עובד תמיד בענף נפרד.
-- בסיום פותח PR ל-KB עם כל השינויים.
+- בסיום פותח PR ל-NX-KNOWLEDGE-BASE עם כל השינויים.
 - חייב להימנע מדריסת עריכות ידניות; לשלב overrides/patches.
 
 Agent #2: Review & Merge Agent
@@ -128,7 +128,7 @@ Agent #2: Review & Merge Agent
 ========================
 בכל Repo:
 - Action שרץ על merge ל-branch develop
-- שולח ל-KB/Sync Agent את השינויים:
+- שולח ל-NX-KNOWLEDGE-BASE/Sync Agent את השינויים:
   - רשימת קבצים ששונו + diff/patch
   - מטאדאטה: repo, branch, commit SHA, timestamp
 - להציע את הדרך הטובה: dispatch event / repository_dispatch / workflow_call / artifacts וכו'.
@@ -136,7 +136,7 @@ Agent #2: Review & Merge Agent
 ========================
 7) אבטחה והרשאות
 ========================
-- KB public: להגן על secrets, למנוע דליפות.
+- NX-KNOWLEDGE-BASE public: להגן על secrets, למנוע דליפות.
 - להגדיר מינימום scopes לטוקנים:
   - repo permissions מדויקים
   - permissions ל-PR creation, contents write, actions read וכו'
@@ -147,7 +147,7 @@ Agent #2: Review & Merge Agent
 ========================
 עליך להציע אסטרטגיית בדיקות/אכיפה:
 - JSON schema validation ב-CI
-- link checker (KB + GitHub)
+- link checker (NX-KNOWLEDGE-BASE + GitHub)
 - “manual edit preservation” checks
 - smoke tests ל-UI
 - OpenAPI validation + lint (spectral וכו')
@@ -160,21 +160,21 @@ Agent #2: Review & Merge Agent
 
 A) החלטות ארכיטקטוניות מומלצות:
 - פורמט JSON + סכימה (מפורט)
-- מבנה תיקיות KB
-- deep links (KB/GitHub)
+- מבנה תיקיות NX-KNOWLEDGE-BASE
+- deep links (NX-KNOWLEDGE-BASE/GitHub)
 - מנגנון manual edits (מפורט)
 - OpenAPI generation approach
 
 B) שלבים, משימות, ואבני דרך:
 - שלב 0: POC
-- שלב 1: KB בסיסי + schema + UI בסיסי
+- שלב 1: NX-KNOWLEDGE-BASE בסיסי + schema + UI בסיסי
 - שלב 2: Sync Agent + PR flow
 - שלב 3: Review/Merge Agent + gates
 - שלב 4: OpenAPI generation + UI
 - שלב 5: hardening (security/QA/perf)
 
 C) חלוקת אחריות בין רכיבים:
-- KB UI
+- NX-KNOWLEDGE-BASE UI
 - Doc store & schema
 - Agents
 - GitHub Actions בכל Repo
@@ -182,7 +182,7 @@ C) חלוקת אחריות בין רכיבים:
 D) סיכונים ופתרונות (Risk register):
 - drift בין code/docs
 - דריסת manual edits
-- אבטחה ב-KB public
+- אבטחה ב-NX-KNOWLEDGE-BASE public
 - עלויות/זמן ריצה ב-Actions
 - איכות תיעוד AI + hallucinations
 - יציבות deep links

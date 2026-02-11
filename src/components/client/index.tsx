@@ -10,7 +10,7 @@ export const SayHello = () => {
 export const AppLoader = () => {
     return (
         <div className="_full _center">
-            <Loader size={200} />
+            <Loader size={200} color={"#000"} />
         </div>
     );
 };

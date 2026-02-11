@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+pnpm-debug.log*
+npm-debug.log*
+
+
+# Environment
+.env
+.env*.local
+.env.*.local
+
+# Build artifacts
+.next/
+out/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+
+# Testing
+coverage/
+.nyc_output/
+
+# Git & version control
+.git/
+.gitignore
+.gitattributes
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Development
+.cursor/
+.env.local
+.env.development.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PowerShell scripts (local dev)
+ps/

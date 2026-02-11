@@ -5,7 +5,7 @@ export default async function AppLayout({
 }>) {
     return (
         <div className="_full flex h-screen ">
-            <div className="w-96 h-full bg-red-200">aside</div>
+            <div className="w-80 h-full bg-red-200">aside</div>
             <div className="grow flex children_container relative">{children}</div>
         </div>
     );

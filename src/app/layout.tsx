@@ -5,7 +5,7 @@ import { GlobalConfig, TranslationWarper } from "@/components/client/config";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-    title: "nx-kb",
+    title: "nx-knowledge-base",
     description: "code knowledge base for akeyless systems",
 };
 
