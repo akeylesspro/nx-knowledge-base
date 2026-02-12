@@ -1,0 +1,491 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/global_helpers.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/global_helpers.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.954Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/global_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/global_helpers.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "fs",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "axios",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "https",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types"
+      },
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/managers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "init_env_variables",
+      "kind": "constant",
+      "description_one_line": "init_env_variables export in this file.",
+      "symbol_id": "init_env_variables"
+    },
+    {
+      "name": "json_ok",
+      "kind": "constant",
+      "description_one_line": "json_ok export in this file.",
+      "symbol_id": "json_ok"
+    },
+    {
+      "name": "json_failed",
+      "kind": "constant",
+      "description_one_line": "json_failed export in this file.",
+      "symbol_id": "json_failed"
+    },
+    {
+      "name": "parse_error",
+      "kind": "constant",
+      "description_one_line": "parse_error export in this file.",
+      "symbol_id": "parse_error"
+    },
+    {
+      "name": "get_version",
+      "kind": "constant",
+      "description_one_line": "get_version export in this file.",
+      "symbol_id": "get_version"
+    },
+    {
+      "name": "sleep",
+      "kind": "constant",
+      "description_one_line": "sleep export in this file.",
+      "symbol_id": "sleep"
+    },
+    {
+      "name": "get_nx_service_urls",
+      "kind": "function",
+      "description_one_line": "get_nx_service_urls export in this file.",
+      "symbol_id": "get_nx_service_urls"
+    },
+    {
+      "name": "get_address_by_geo",
+      "kind": "constant",
+      "description_one_line": "get_address_by_geo export in this file.",
+      "symbol_id": "get_address_by_geo"
+    },
+    {
+      "name": "validate_and_cast",
+      "kind": "constant",
+      "description_one_line": "validate_and_cast export in this file.",
+      "symbol_id": "validate_and_cast"
+    },
+    {
+      "name": "get_or_default",
+      "kind": "constant",
+      "description_one_line": "get_or_default export in this file.",
+      "symbol_id": "get_or_default"
+    },
+    {
+      "name": "trim_strings",
+      "kind": "constant",
+      "description_one_line": "trim_strings export in this file.",
+      "symbol_id": "trim_strings"
+    },
+    {
+      "name": "remove_nulls_and_undefined",
+      "kind": "constant",
+      "description_one_line": "remove_nulls_and_undefined export in this file.",
+      "symbol_id": "remove_nulls_and_undefined"
+    },
+    {
+      "name": "ignore_ssl_request",
+      "kind": "constant",
+      "description_one_line": "ignore_ssl_request export in this file.",
+      "symbol_id": "ignore_ssl_request"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "init_env_variables",
+      "name": "init_env_variables",
+      "kind": "constant",
+      "description_one_line": "init_env_variables export in this file.",
+      "details": {
+        "what_it_does": "init_env_variables is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { init_env_variables } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missinginit_env_variables } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L8",
+        "nx_kb_anchor": "#init_env_variables"
+      }
+    },
+    {
+      "symbol_id": "json_ok",
+      "name": "json_ok",
+      "kind": "constant",
+      "description_one_line": "json_ok export in this file.",
+      "details": {
+        "what_it_does": "json_ok is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { json_ok } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingjson_ok } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 24,
+        "source_line_end": 24,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L24",
+        "nx_kb_anchor": "#json_ok"
+      }
+    },
+    {
+      "symbol_id": "json_failed",
+      "name": "json_failed",
+      "kind": "constant",
+      "description_one_line": "json_failed export in this file.",
+      "details": {
+        "what_it_does": "json_failed is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { json_failed } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingjson_failed } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 31,
+        "source_line_end": 31,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L31",
+        "nx_kb_anchor": "#json_failed"
+      }
+    },
+    {
+      "symbol_id": "parse_error",
+      "name": "parse_error",
+      "kind": "constant",
+      "description_one_line": "parse_error export in this file.",
+      "details": {
+        "what_it_does": "parse_error is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { parse_error } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingparse_error } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 39,
+        "source_line_end": 39,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L39",
+        "nx_kb_anchor": "#parse_error"
+      }
+    },
+    {
+      "symbol_id": "get_version",
+      "name": "get_version",
+      "kind": "constant",
+      "description_one_line": "get_version export in this file.",
+      "details": {
+        "what_it_does": "get_version is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_version } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_version } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 43,
+        "source_line_end": 43,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L43",
+        "nx_kb_anchor": "#get_version"
+      }
+    },
+    {
+      "symbol_id": "sleep",
+      "name": "sleep",
+      "kind": "constant",
+      "description_one_line": "sleep export in this file.",
+      "details": {
+        "what_it_does": "sleep is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { sleep } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsleep } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 48,
+        "source_line_end": 48,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L48",
+        "nx_kb_anchor": "#sleep"
+      }
+    },
+    {
+      "symbol_id": "get_nx_service_urls",
+      "name": "get_nx_service_urls",
+      "kind": "function",
+      "description_one_line": "get_nx_service_urls export in this file.",
+      "details": {
+        "what_it_does": "get_nx_service_urls is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_nx_service_urls } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_nx_service_urls } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 86,
+        "source_line_end": 86,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L86",
+        "nx_kb_anchor": "#get_nx_service_urls"
+      }
+    },
+    {
+      "symbol_id": "get_address_by_geo",
+      "name": "get_address_by_geo",
+      "kind": "constant",
+      "description_one_line": "get_address_by_geo export in this file.",
+      "details": {
+        "what_it_does": "get_address_by_geo is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_address_by_geo } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_address_by_geo } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 94,
+        "source_line_end": 94,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L94",
+        "nx_kb_anchor": "#get_address_by_geo"
+      }
+    },
+    {
+      "symbol_id": "validate_and_cast",
+      "name": "validate_and_cast",
+      "kind": "constant",
+      "description_one_line": "validate_and_cast export in this file.",
+      "details": {
+        "what_it_does": "validate_and_cast is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { validate_and_cast } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingvalidate_and_cast } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 119,
+        "source_line_end": 119,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L119",
+        "nx_kb_anchor": "#validate_and_cast"
+      }
+    },
+    {
+      "symbol_id": "get_or_default",
+      "name": "get_or_default",
+      "kind": "constant",
+      "description_one_line": "get_or_default export in this file.",
+      "details": {
+        "what_it_does": "get_or_default is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_or_default } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_or_default } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 121,
+        "source_line_end": 121,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L121",
+        "nx_kb_anchor": "#get_or_default"
+      }
+    },
+    {
+      "symbol_id": "trim_strings",
+      "name": "trim_strings",
+      "kind": "constant",
+      "description_one_line": "trim_strings export in this file.",
+      "details": {
+        "what_it_does": "trim_strings is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { trim_strings } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingtrim_strings } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 128,
+        "source_line_end": 128,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L128",
+        "nx_kb_anchor": "#trim_strings"
+      }
+    },
+    {
+      "symbol_id": "remove_nulls_and_undefined",
+      "name": "remove_nulls_and_undefined",
+      "kind": "constant",
+      "description_one_line": "remove_nulls_and_undefined export in this file.",
+      "details": {
+        "what_it_does": "remove_nulls_and_undefined is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { remove_nulls_and_undefined } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingremove_nulls_and_undefined } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 154,
+        "source_line_end": 154,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L154",
+        "nx_kb_anchor": "#remove_nulls_and_undefined"
+      }
+    },
+    {
+      "symbol_id": "ignore_ssl_request",
+      "name": "ignore_ssl_request",
+      "kind": "constant",
+      "description_one_line": "ignore_ssl_request export in this file.",
+      "details": {
+        "what_it_does": "ignore_ssl_request is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ignore_ssl_request } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingignore_ssl_request } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 158,
+        "source_line_end": 158,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers.ts#L158",
+        "nx_kb_anchor": "#ignore_ssl_request"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

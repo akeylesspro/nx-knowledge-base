@@ -1,0 +1,727 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/helpers/forms.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "forms.ts",
+  "source": {
+    "file_path": "src/helpers/forms.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.882Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/helpers/forms.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/forms.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/types",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "xregexp",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "textRegex",
+      "kind": "constant",
+      "description_one_line": "textRegex export in this file.",
+      "symbol_id": "textRegex"
+    },
+    {
+      "name": "numbersRegex",
+      "kind": "constant",
+      "description_one_line": "numbersRegex export in this file.",
+      "symbol_id": "numbersRegex"
+    },
+    {
+      "name": "numbersOnlyRegex",
+      "kind": "constant",
+      "description_one_line": "numbersOnlyRegex export in this file.",
+      "symbol_id": "numbersOnlyRegex"
+    },
+    {
+      "name": "priceRegex",
+      "kind": "constant",
+      "description_one_line": "priceRegex export in this file.",
+      "symbol_id": "priceRegex"
+    },
+    {
+      "name": "emailRegex",
+      "kind": "constant",
+      "description_one_line": "emailRegex export in this file.",
+      "symbol_id": "emailRegex"
+    },
+    {
+      "name": "colorRegex",
+      "kind": "constant",
+      "description_one_line": "colorRegex export in this file.",
+      "symbol_id": "colorRegex"
+    },
+    {
+      "name": "carsRegex",
+      "kind": "constant",
+      "description_one_line": "carsRegex export in this file.",
+      "symbol_id": "carsRegex"
+    },
+    {
+      "name": "textNumbersRegex",
+      "kind": "constant",
+      "description_one_line": "textNumbersRegex export in this file.",
+      "symbol_id": "textNumbersRegex"
+    },
+    {
+      "name": "addressRegex",
+      "kind": "constant",
+      "description_one_line": "addressRegex export in this file.",
+      "symbol_id": "addressRegex"
+    },
+    {
+      "name": "chartsRegex",
+      "kind": "constant",
+      "description_one_line": "chartsRegex export in this file.",
+      "symbol_id": "chartsRegex"
+    },
+    {
+      "name": "ValidationType",
+      "kind": "type",
+      "description_one_line": "ValidationType export in this file.",
+      "symbol_id": "ValidationType"
+    },
+    {
+      "name": "handleChange",
+      "kind": "constant",
+      "description_one_line": "handleChange export in this file.",
+      "symbol_id": "handleChange"
+    },
+    {
+      "name": "handlePaste",
+      "kind": "constant",
+      "description_one_line": "handlePaste export in this file.",
+      "symbol_id": "handlePaste"
+    },
+    {
+      "name": "handleInvalid",
+      "kind": "constant",
+      "description_one_line": "handleInvalid export in this file.",
+      "symbol_id": "handleInvalid"
+    },
+    {
+      "name": "useValidation",
+      "kind": "constant",
+      "description_one_line": "useValidation export in this file.",
+      "symbol_id": "useValidation"
+    },
+    {
+      "name": "getFormElementValue",
+      "kind": "constant",
+      "description_one_line": "getFormElementValue export in this file.",
+      "symbol_id": "getFormElementValue"
+    },
+    {
+      "name": "setFormElementValue",
+      "kind": "constant",
+      "description_one_line": "setFormElementValue export in this file.",
+      "symbol_id": "setFormElementValue"
+    },
+    {
+      "name": "parseMultiSelectInput",
+      "kind": "constant",
+      "description_one_line": "parseMultiSelectInput export in this file.",
+      "symbol_id": "parseMultiSelectInput"
+    },
+    {
+      "name": "getFormCheckboxValue",
+      "kind": "constant",
+      "description_one_line": "getFormCheckboxValue export in this file.",
+      "symbol_id": "getFormCheckboxValue"
+    },
+    {
+      "name": "durationToSeconds",
+      "kind": "constant",
+      "description_one_line": "durationToSeconds export in this file.",
+      "symbol_id": "durationToSeconds"
+    },
+    {
+      "name": "secondsToDuration",
+      "kind": "constant",
+      "description_one_line": "secondsToDuration export in this file.",
+      "symbol_id": "secondsToDuration"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "textRegex",
+      "name": "textRegex",
+      "kind": "constant",
+      "description_one_line": "textRegex export in this file.",
+      "details": {
+        "what_it_does": "textRegex is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { textRegex } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingtextRegex } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 5,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L5",
+        "nx_kb_anchor": "#textRegex"
+      }
+    },
+    {
+      "symbol_id": "numbersRegex",
+      "name": "numbersRegex",
+      "kind": "constant",
+      "description_one_line": "numbersRegex export in this file.",
+      "details": {
+        "what_it_does": "numbersRegex is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { numbersRegex } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingnumbersRegex } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L6",
+        "nx_kb_anchor": "#numbersRegex"
+      }
+    },
+    {
+      "symbol_id": "numbersOnlyRegex",
+      "name": "numbersOnlyRegex",
+      "kind": "constant",
+      "description_one_line": "numbersOnlyRegex export in this file.",
+      "details": {
+        "what_it_does": "numbersOnlyRegex is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { numbersOnlyRegex } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingnumbersOnlyRegex } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 7,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L7",
+        "nx_kb_anchor": "#numbersOnlyRegex"
+      }
+    },
+    {
+      "symbol_id": "priceRegex",
+      "name": "priceRegex",
+      "kind": "constant",
+      "description_one_line": "priceRegex export in this file.",
+      "details": {
+        "what_it_does": "priceRegex is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { priceRegex } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingpriceRegex } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L8",
+        "nx_kb_anchor": "#priceRegex"
+      }
+    },
+    {
+      "symbol_id": "emailRegex",
+      "name": "emailRegex",
+      "kind": "constant",
+      "description_one_line": "emailRegex export in this file.",
+      "details": {
+        "what_it_does": "emailRegex is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { emailRegex } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingemailRegex } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 9,
+        "source_line_end": 9,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L9",
+        "nx_kb_anchor": "#emailRegex"
+      }
+    },
+    {
+      "symbol_id": "colorRegex",
+      "name": "colorRegex",
+      "kind": "constant",
+      "description_one_line": "colorRegex export in this file.",
+      "details": {
+        "what_it_does": "colorRegex is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { colorRegex } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingcolorRegex } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L10",
+        "nx_kb_anchor": "#colorRegex"
+      }
+    },
+    {
+      "symbol_id": "carsRegex",
+      "name": "carsRegex",
+      "kind": "constant",
+      "description_one_line": "carsRegex export in this file.",
+      "details": {
+        "what_it_does": "carsRegex is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { carsRegex } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingcarsRegex } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L11",
+        "nx_kb_anchor": "#carsRegex"
+      }
+    },
+    {
+      "symbol_id": "textNumbersRegex",
+      "name": "textNumbersRegex",
+      "kind": "constant",
+      "description_one_line": "textNumbersRegex export in this file.",
+      "details": {
+        "what_it_does": "textNumbersRegex is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { textNumbersRegex } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingtextNumbersRegex } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L12",
+        "nx_kb_anchor": "#textNumbersRegex"
+      }
+    },
+    {
+      "symbol_id": "addressRegex",
+      "name": "addressRegex",
+      "kind": "constant",
+      "description_one_line": "addressRegex export in this file.",
+      "details": {
+        "what_it_does": "addressRegex is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { addressRegex } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingaddressRegex } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 13,
+        "source_line_end": 13,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L13",
+        "nx_kb_anchor": "#addressRegex"
+      }
+    },
+    {
+      "symbol_id": "chartsRegex",
+      "name": "chartsRegex",
+      "kind": "constant",
+      "description_one_line": "chartsRegex export in this file.",
+      "details": {
+        "what_it_does": "chartsRegex is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { chartsRegex } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingchartsRegex } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 14,
+        "source_line_end": 14,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L14",
+        "nx_kb_anchor": "#chartsRegex"
+      }
+    },
+    {
+      "symbol_id": "ValidationType",
+      "name": "ValidationType",
+      "kind": "type",
+      "description_one_line": "ValidationType export in this file.",
+      "details": {
+        "what_it_does": "ValidationType is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ValidationType } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingValidationType } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L16",
+        "nx_kb_anchor": "#ValidationType"
+      }
+    },
+    {
+      "symbol_id": "handleChange",
+      "name": "handleChange",
+      "kind": "constant",
+      "description_one_line": "handleChange export in this file.",
+      "details": {
+        "what_it_does": "handleChange is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { handleChange } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinghandleChange } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 29,
+        "source_line_end": 29,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L29",
+        "nx_kb_anchor": "#handleChange"
+      }
+    },
+    {
+      "symbol_id": "handlePaste",
+      "name": "handlePaste",
+      "kind": "constant",
+      "description_one_line": "handlePaste export in this file.",
+      "details": {
+        "what_it_does": "handlePaste is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { handlePaste } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinghandlePaste } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 55,
+        "source_line_end": 55,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L55",
+        "nx_kb_anchor": "#handlePaste"
+      }
+    },
+    {
+      "symbol_id": "handleInvalid",
+      "name": "handleInvalid",
+      "kind": "constant",
+      "description_one_line": "handleInvalid export in this file.",
+      "details": {
+        "what_it_does": "handleInvalid is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { handleInvalid } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinghandleInvalid } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 84,
+        "source_line_end": 84,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L84",
+        "nx_kb_anchor": "#handleInvalid"
+      }
+    },
+    {
+      "symbol_id": "useValidation",
+      "name": "useValidation",
+      "kind": "constant",
+      "description_one_line": "useValidation export in this file.",
+      "details": {
+        "what_it_does": "useValidation is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useValidation } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseValidation } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 88,
+        "source_line_end": 88,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L88",
+        "nx_kb_anchor": "#useValidation"
+      }
+    },
+    {
+      "symbol_id": "getFormElementValue",
+      "name": "getFormElementValue",
+      "kind": "constant",
+      "description_one_line": "getFormElementValue export in this file.",
+      "details": {
+        "what_it_does": "getFormElementValue is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { getFormElementValue } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinggetFormElementValue } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 97,
+        "source_line_end": 97,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L97",
+        "nx_kb_anchor": "#getFormElementValue"
+      }
+    },
+    {
+      "symbol_id": "setFormElementValue",
+      "name": "setFormElementValue",
+      "kind": "constant",
+      "description_one_line": "setFormElementValue export in this file.",
+      "details": {
+        "what_it_does": "setFormElementValue is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { setFormElementValue } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingsetFormElementValue } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 102,
+        "source_line_end": 102,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L102",
+        "nx_kb_anchor": "#setFormElementValue"
+      }
+    },
+    {
+      "symbol_id": "parseMultiSelectInput",
+      "name": "parseMultiSelectInput",
+      "kind": "constant",
+      "description_one_line": "parseMultiSelectInput export in this file.",
+      "details": {
+        "what_it_does": "parseMultiSelectInput is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { parseMultiSelectInput } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingparseMultiSelectInput } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 108,
+        "source_line_end": 108,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L108",
+        "nx_kb_anchor": "#parseMultiSelectInput"
+      }
+    },
+    {
+      "symbol_id": "getFormCheckboxValue",
+      "name": "getFormCheckboxValue",
+      "kind": "constant",
+      "description_one_line": "getFormCheckboxValue export in this file.",
+      "details": {
+        "what_it_does": "getFormCheckboxValue is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { getFormCheckboxValue } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinggetFormCheckboxValue } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 113,
+        "source_line_end": 113,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L113",
+        "nx_kb_anchor": "#getFormCheckboxValue"
+      }
+    },
+    {
+      "symbol_id": "durationToSeconds",
+      "name": "durationToSeconds",
+      "kind": "constant",
+      "description_one_line": "durationToSeconds export in this file.",
+      "details": {
+        "what_it_does": "durationToSeconds is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { durationToSeconds } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingdurationToSeconds } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 117,
+        "source_line_end": 117,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L117",
+        "nx_kb_anchor": "#durationToSeconds"
+      }
+    },
+    {
+      "symbol_id": "secondsToDuration",
+      "name": "secondsToDuration",
+      "kind": "constant",
+      "description_one_line": "secondsToDuration export in this file.",
+      "details": {
+        "what_it_does": "secondsToDuration is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { secondsToDuration } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingsecondsToDuration } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 122,
+        "source_line_end": 122,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/forms.ts#L122",
+        "nx_kb_anchor": "#secondsToDuration"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

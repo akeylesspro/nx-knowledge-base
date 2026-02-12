@@ -1,0 +1,338 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/types/types/global.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "src/types/types/global.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:40.031Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/global.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/types/types/global.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/types/types/global.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "express",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "JsonOK",
+      "kind": "type",
+      "description_one_line": "JsonOK export in this file.",
+      "symbol_id": "JsonOK"
+    },
+    {
+      "name": "JsonFailed",
+      "kind": "type",
+      "description_one_line": "JsonFailed export in this file.",
+      "symbol_id": "JsonFailed"
+    },
+    {
+      "name": "MainRouter",
+      "kind": "type",
+      "description_one_line": "MainRouter export in this file.",
+      "symbol_id": "MainRouter"
+    },
+    {
+      "name": "MW",
+      "kind": "type",
+      "description_one_line": "MW export in this file.",
+      "symbol_id": "MW"
+    },
+    {
+      "name": "Service",
+      "kind": "type",
+      "description_one_line": "Service export in this file.",
+      "symbol_id": "Service"
+    },
+    {
+      "name": "Route",
+      "kind": "type",
+      "description_one_line": "Route export in this file.",
+      "symbol_id": "Route"
+    },
+    {
+      "name": "AddAuditRecord",
+      "kind": "type",
+      "description_one_line": "AddAuditRecord export in this file.",
+      "symbol_id": "AddAuditRecord"
+    },
+    {
+      "name": "LangOptions",
+      "kind": "type",
+      "description_one_line": "LangOptions export in this file.",
+      "symbol_id": "LangOptions"
+    },
+    {
+      "name": "EntityOptions",
+      "kind": "type",
+      "description_one_line": "EntityOptions export in this file.",
+      "symbol_id": "EntityOptions"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "JsonOK",
+      "name": "JsonOK",
+      "kind": "type",
+      "description_one_line": "JsonOK export in this file.",
+      "details": {
+        "what_it_does": "JsonOK is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { JsonOK } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingJsonOK } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 4,
+        "source_line_end": 4,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/global.ts#L4",
+        "nx_kb_anchor": "#JsonOK"
+      }
+    },
+    {
+      "symbol_id": "JsonFailed",
+      "name": "JsonFailed",
+      "kind": "type",
+      "description_one_line": "JsonFailed export in this file.",
+      "details": {
+        "what_it_does": "JsonFailed is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { JsonFailed } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingJsonFailed } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/global.ts#L6",
+        "nx_kb_anchor": "#JsonFailed"
+      }
+    },
+    {
+      "symbol_id": "MainRouter",
+      "name": "MainRouter",
+      "kind": "type",
+      "description_one_line": "MainRouter export in this file.",
+      "details": {
+        "what_it_does": "MainRouter is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { MainRouter } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingMainRouter } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/global.ts#L8",
+        "nx_kb_anchor": "#MainRouter"
+      }
+    },
+    {
+      "symbol_id": "MW",
+      "name": "MW",
+      "kind": "type",
+      "description_one_line": "MW export in this file.",
+      "details": {
+        "what_it_does": "MW is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { MW } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingMW } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/global.ts#L10",
+        "nx_kb_anchor": "#MW"
+      }
+    },
+    {
+      "symbol_id": "Service",
+      "name": "Service",
+      "kind": "type",
+      "description_one_line": "Service export in this file.",
+      "details": {
+        "what_it_does": "Service is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { Service } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingService } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/global.ts#L12",
+        "nx_kb_anchor": "#Service"
+      }
+    },
+    {
+      "symbol_id": "Route",
+      "name": "Route",
+      "kind": "type",
+      "description_one_line": "Route export in this file.",
+      "details": {
+        "what_it_does": "Route is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { Route } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingRoute } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 14,
+        "source_line_end": 14,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/global.ts#L14",
+        "nx_kb_anchor": "#Route"
+      }
+    },
+    {
+      "symbol_id": "AddAuditRecord",
+      "name": "AddAuditRecord",
+      "kind": "type",
+      "description_one_line": "AddAuditRecord export in this file.",
+      "details": {
+        "what_it_does": "AddAuditRecord is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { AddAuditRecord } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingAddAuditRecord } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/global.ts#L16",
+        "nx_kb_anchor": "#AddAuditRecord"
+      }
+    },
+    {
+      "symbol_id": "LangOptions",
+      "name": "LangOptions",
+      "kind": "type",
+      "description_one_line": "LangOptions export in this file.",
+      "details": {
+        "what_it_does": "LangOptions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { LangOptions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingLangOptions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 18,
+        "source_line_end": 18,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/global.ts#L18",
+        "nx_kb_anchor": "#LangOptions"
+      }
+    },
+    {
+      "symbol_id": "EntityOptions",
+      "name": "EntityOptions",
+      "kind": "type",
+      "description_one_line": "EntityOptions export in this file.",
+      "details": {
+        "what_it_does": "EntityOptions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { EntityOptions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingEntityOptions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 20,
+        "source_line_end": 20,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/global.ts#L20",
+        "nx_kb_anchor": "#EntityOptions"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

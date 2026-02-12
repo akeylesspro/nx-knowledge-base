@@ -1,0 +1,178 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/redis/keys.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "keys.ts",
+  "source": {
+    "file_path": "src/helpers/redis/keys.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.974Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/keys.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/redis/keys.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/redis/keys.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "ioredis",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "get_doc_key",
+      "kind": "constant",
+      "description_one_line": "get_doc_key export in this file.",
+      "symbol_id": "get_doc_key"
+    },
+    {
+      "name": "get_collection_keys",
+      "kind": "constant",
+      "description_one_line": "get_collection_keys export in this file.",
+      "symbol_id": "get_collection_keys"
+    },
+    {
+      "name": "get_channel",
+      "kind": "constant",
+      "description_one_line": "get_channel export in this file.",
+      "symbol_id": "get_channel"
+    },
+    {
+      "name": "scan_redis_keys",
+      "kind": "constant",
+      "description_one_line": "scan_redis_keys export in this file.",
+      "symbol_id": "scan_redis_keys"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "get_doc_key",
+      "name": "get_doc_key",
+      "kind": "constant",
+      "description_one_line": "get_doc_key export in this file.",
+      "details": {
+        "what_it_does": "get_doc_key is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_doc_key } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_doc_key } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/keys.ts#L8",
+        "nx_kb_anchor": "#get_doc_key"
+      }
+    },
+    {
+      "symbol_id": "get_collection_keys",
+      "name": "get_collection_keys",
+      "kind": "constant",
+      "description_one_line": "get_collection_keys export in this file.",
+      "details": {
+        "what_it_does": "get_collection_keys is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_collection_keys } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_collection_keys } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/keys.ts#L12",
+        "nx_kb_anchor": "#get_collection_keys"
+      }
+    },
+    {
+      "symbol_id": "get_channel",
+      "name": "get_channel",
+      "kind": "constant",
+      "description_one_line": "get_channel export in this file.",
+      "details": {
+        "what_it_does": "get_channel is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_channel } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_channel } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/keys.ts#L16",
+        "nx_kb_anchor": "#get_channel"
+      }
+    },
+    {
+      "symbol_id": "scan_redis_keys",
+      "name": "scan_redis_keys",
+      "kind": "constant",
+      "description_one_line": "scan_redis_keys export in this file.",
+      "details": {
+        "what_it_does": "scan_redis_keys is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { scan_redis_keys } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingscan_redis_keys } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 20,
+        "source_line_end": 20,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/keys.ts#L20",
+        "nx_kb_anchor": "#scan_redis_keys"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

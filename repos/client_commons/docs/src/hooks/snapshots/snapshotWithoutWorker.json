@@ -1,0 +1,159 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/hooks/snapshots/snapshotWithoutWorker.tsx",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "snapshotWithoutWorker.tsx",
+  "source": {
+    "file_path": "src/hooks/snapshots/snapshotWithoutWorker.tsx",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.919Z",
+    "language": "tsx",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWithoutWorker.tsx",
+    "link_to_nx_kb": "/repos/client_commons/files/src/hooks/snapshots/snapshotWithoutWorker.tsx"
+  },
+  "summary": {
+    "purpose": "Documentation for src/hooks/snapshots/snapshotWithoutWorker.tsx.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/helpers",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/types",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../react",
+        "resolved_file_path": "src/hooks/react",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/hooks/react",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/react"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "useDbSnapshots",
+      "kind": "constant",
+      "description_one_line": "useDbSnapshots export in this file.",
+      "symbol_id": "useDbSnapshots"
+    },
+    {
+      "name": "useSmartSnapshots",
+      "kind": "constant",
+      "description_one_line": "useSmartSnapshots export in this file.",
+      "symbol_id": "useSmartSnapshots"
+    },
+    {
+      "name": "useSocketSnapshots",
+      "kind": "constant",
+      "description_one_line": "useSocketSnapshots export in this file.",
+      "symbol_id": "useSocketSnapshots"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "useDbSnapshots",
+      "name": "useDbSnapshots",
+      "kind": "constant",
+      "description_one_line": "useDbSnapshots export in this file.",
+      "details": {
+        "what_it_does": "useDbSnapshots is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useDbSnapshots } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseDbSnapshots } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWithoutWorker.tsx#L6",
+        "nx_kb_anchor": "#useDbSnapshots"
+      }
+    },
+    {
+      "symbol_id": "useSmartSnapshots",
+      "name": "useSmartSnapshots",
+      "kind": "constant",
+      "description_one_line": "useSmartSnapshots export in this file.",
+      "details": {
+        "what_it_does": "useSmartSnapshots is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useSmartSnapshots } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseSmartSnapshots } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 56,
+        "source_line_end": 56,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWithoutWorker.tsx#L56",
+        "nx_kb_anchor": "#useSmartSnapshots"
+      }
+    },
+    {
+      "symbol_id": "useSocketSnapshots",
+      "name": "useSocketSnapshots",
+      "kind": "constant",
+      "description_one_line": "useSocketSnapshots export in this file.",
+      "details": {
+        "what_it_does": "useSocketSnapshots is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useSocketSnapshots } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseSocketSnapshots } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 89,
+        "source_line_end": 89,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWithoutWorker.tsx#L89",
+        "nx_kb_anchor": "#useSocketSnapshots"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

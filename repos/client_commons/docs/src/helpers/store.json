@@ -1,0 +1,135 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/helpers/store.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "store.ts",
+  "source": {
+    "file_path": "src/helpers/store.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.898Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/store.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/helpers/store.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/store.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "setState",
+      "kind": "constant",
+      "description_one_line": "setState export in this file.",
+      "symbol_id": "setState"
+    },
+    {
+      "name": "createSelectors",
+      "kind": "constant",
+      "description_one_line": "createSelectors export in this file.",
+      "symbol_id": "createSelectors"
+    },
+    {
+      "name": "useStoreValues",
+      "kind": "constant",
+      "description_one_line": "useStoreValues export in this file.",
+      "symbol_id": "useStoreValues"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "setState",
+      "name": "setState",
+      "kind": "constant",
+      "description_one_line": "setState export in this file.",
+      "details": {
+        "what_it_does": "setState is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { setState } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingsetState } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/store.ts#L1",
+        "nx_kb_anchor": "#setState"
+      }
+    },
+    {
+      "symbol_id": "createSelectors",
+      "name": "createSelectors",
+      "kind": "constant",
+      "description_one_line": "createSelectors export in this file.",
+      "details": {
+        "what_it_does": "createSelectors is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { createSelectors } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingcreateSelectors } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 7,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/store.ts#L7",
+        "nx_kb_anchor": "#createSelectors"
+      }
+    },
+    {
+      "symbol_id": "useStoreValues",
+      "name": "useStoreValues",
+      "kind": "constant",
+      "description_one_line": "useStoreValues export in this file.",
+      "details": {
+        "what_it_does": "useStoreValues is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useStoreValues } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseStoreValues } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 15,
+        "source_line_end": 15,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/store.ts#L15",
+        "nx_kb_anchor": "#useStoreValues"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

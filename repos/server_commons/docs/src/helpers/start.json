@@ -1,0 +1,157 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/start.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "start.ts",
+  "source": {
+    "file_path": "src/helpers/start.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.978Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/start.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/start.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/start.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "express",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "cors",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/managers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers"
+      },
+      {
+        "import_path": "./",
+        "resolved_file_path": "src/helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers"
+      },
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types"
+      },
+      {
+        "import_path": "../middlewares/error_handling",
+        "resolved_file_path": "src/middlewares/error_handling",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/middlewares/error_handling",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/middlewares/error_handling"
+      },
+      {
+        "import_path": "../middlewares",
+        "resolved_file_path": "src/middlewares",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/middlewares",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/middlewares"
+      },
+      {
+        "import_path": "./redis/initialize",
+        "resolved_file_path": "src/helpers/redis/initialize",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers/redis/initialize",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/initialize"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "start_server",
+      "kind": "constant",
+      "description_one_line": "start_server export in this file.",
+      "symbol_id": "start_server"
+    },
+    {
+      "name": "basic_init",
+      "kind": "constant",
+      "description_one_line": "basic_init export in this file.",
+      "symbol_id": "basic_init"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "start_server",
+      "name": "start_server",
+      "kind": "constant",
+      "description_one_line": "start_server export in this file.",
+      "details": {
+        "what_it_does": "start_server is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { start_server } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingstart_server } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/start.ts#L10",
+        "nx_kb_anchor": "#start_server"
+      }
+    },
+    {
+      "symbol_id": "basic_init",
+      "name": "basic_init",
+      "kind": "constant",
+      "description_one_line": "basic_init export in this file.",
+      "details": {
+        "what_it_does": "basic_init is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { basic_init } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingbasic_init } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 44,
+        "source_line_end": 44,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/start.ts#L44",
+        "nx_kb_anchor": "#basic_init"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

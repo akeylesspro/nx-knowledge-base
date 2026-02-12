@@ -1,0 +1,175 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/types/interfaces/global.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "src/types/interfaces/global.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:40.022Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/interfaces/global.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/types/interfaces/global.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/types/interfaces/global.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/types/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "MandatoryObject",
+      "kind": "interface",
+      "description_one_line": "MandatoryObject export in this file.",
+      "symbol_id": "MandatoryObject"
+    },
+    {
+      "name": "MandatoryParams",
+      "kind": "interface",
+      "description_one_line": "MandatoryParams export in this file.",
+      "symbol_id": "MandatoryParams"
+    },
+    {
+      "name": "LogRequests",
+      "kind": "interface",
+      "description_one_line": "LogRequests export in this file.",
+      "symbol_id": "LogRequests"
+    },
+    {
+      "name": "AppOptions",
+      "kind": "interface",
+      "description_one_line": "AppOptions export in this file.",
+      "symbol_id": "AppOptions"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "MandatoryObject",
+      "name": "MandatoryObject",
+      "kind": "interface",
+      "description_one_line": "MandatoryObject export in this file.",
+      "details": {
+        "what_it_does": "MandatoryObject is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { MandatoryObject } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingMandatoryObject } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/interfaces/global.ts#L3",
+        "nx_kb_anchor": "#MandatoryObject"
+      }
+    },
+    {
+      "symbol_id": "MandatoryParams",
+      "name": "MandatoryParams",
+      "kind": "interface",
+      "description_one_line": "MandatoryParams export in this file.",
+      "details": {
+        "what_it_does": "MandatoryParams is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { MandatoryParams } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingMandatoryParams } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/interfaces/global.ts#L11",
+        "nx_kb_anchor": "#MandatoryParams"
+      }
+    },
+    {
+      "symbol_id": "LogRequests",
+      "name": "LogRequests",
+      "kind": "interface",
+      "description_one_line": "LogRequests export in this file.",
+      "details": {
+        "what_it_does": "LogRequests is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { LogRequests } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingLogRequests } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/interfaces/global.ts#L16",
+        "nx_kb_anchor": "#LogRequests"
+      }
+    },
+    {
+      "symbol_id": "AppOptions",
+      "name": "AppOptions",
+      "kind": "interface",
+      "description_one_line": "AppOptions export in this file.",
+      "details": {
+        "what_it_does": "AppOptions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { AppOptions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingAppOptions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 23,
+        "source_line_end": 23,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/interfaces/global.ts#L23",
+        "nx_kb_anchor": "#AppOptions"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

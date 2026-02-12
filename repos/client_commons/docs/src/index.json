@@ -1,0 +1,235 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/index.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "src/index.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.925Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/index.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/index.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/index.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "import_path": "./assets",
+        "resolved_file_path": "src/assets",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/assets",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/assets"
+      },
+      {
+        "import_path": "./components",
+        "resolved_file_path": "src/components",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components"
+      },
+      {
+        "import_path": "./helpers",
+        "resolved_file_path": "src/helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers"
+      },
+      {
+        "import_path": "./hooks",
+        "resolved_file_path": "src/hooks",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/hooks",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks"
+      },
+      {
+        "import_path": "./types",
+        "resolved_file_path": "src/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "assets",
+      "kind": "constant",
+      "description_one_line": "assets export in this file.",
+      "symbol_id": "assets"
+    },
+    {
+      "name": "components",
+      "kind": "constant",
+      "description_one_line": "components export in this file.",
+      "symbol_id": "components"
+    },
+    {
+      "name": "helpers",
+      "kind": "constant",
+      "description_one_line": "helpers export in this file.",
+      "symbol_id": "helpers"
+    },
+    {
+      "name": "hooks",
+      "kind": "constant",
+      "description_one_line": "hooks export in this file.",
+      "symbol_id": "hooks"
+    },
+    {
+      "name": "types",
+      "kind": "type",
+      "description_one_line": "types export in this file.",
+      "symbol_id": "types"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "assets",
+      "name": "assets",
+      "kind": "constant",
+      "description_one_line": "assets export in this file.",
+      "details": {
+        "what_it_does": "assets is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { assets } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingassets } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 7,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/index.ts#L7",
+        "nx_kb_anchor": "#assets"
+      }
+    },
+    {
+      "symbol_id": "components",
+      "name": "components",
+      "kind": "constant",
+      "description_one_line": "components export in this file.",
+      "details": {
+        "what_it_does": "components is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { components } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingcomponents } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/index.ts#L8",
+        "nx_kb_anchor": "#components"
+      }
+    },
+    {
+      "symbol_id": "helpers",
+      "name": "helpers",
+      "kind": "constant",
+      "description_one_line": "helpers export in this file.",
+      "details": {
+        "what_it_does": "helpers is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { helpers } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missinghelpers } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 9,
+        "source_line_end": 9,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/index.ts#L9",
+        "nx_kb_anchor": "#helpers"
+      }
+    },
+    {
+      "symbol_id": "hooks",
+      "name": "hooks",
+      "kind": "constant",
+      "description_one_line": "hooks export in this file.",
+      "details": {
+        "what_it_does": "hooks is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { hooks } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missinghooks } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/index.ts#L10",
+        "nx_kb_anchor": "#hooks"
+      }
+    },
+    {
+      "symbol_id": "types",
+      "name": "types",
+      "kind": "type",
+      "description_one_line": "types export in this file.",
+      "details": {
+        "what_it_does": "types is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { types } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingtypes } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/index.ts#L11",
+        "nx_kb_anchor": "#types"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

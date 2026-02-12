@@ -1,0 +1,299 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/components/table/hooks.tsx",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "hooks.tsx",
+  "source": {
+    "file_path": "src/components/table/hooks.tsx",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.785Z",
+    "language": "tsx",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/hooks.tsx",
+    "link_to_nx_kb": "/repos/client_commons/files/src/components/table/hooks.tsx"
+  },
+  "summary": {
+    "purpose": "Documentation for src/components/table/hooks.tsx.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "zustand",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "lodash",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./Table",
+        "resolved_file_path": "src/components/table/Table",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/table/Table",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/Table"
+      },
+      {
+        "import_path": "./types",
+        "resolved_file_path": "src/components/table/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/table/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/types"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "useTableContext",
+      "kind": "constant",
+      "description_one_line": "useTableContext export in this file.",
+      "symbol_id": "useTableContext"
+    },
+    {
+      "name": "useFilter",
+      "kind": "constant",
+      "description_one_line": "useFilter export in this file.",
+      "symbol_id": "useFilter"
+    },
+    {
+      "name": "useSort",
+      "kind": "constant",
+      "description_one_line": "useSort export in this file.",
+      "symbol_id": "useSort"
+    },
+    {
+      "name": "useDisplayToggle",
+      "kind": "constant",
+      "description_one_line": "useDisplayToggle export in this file.",
+      "symbol_id": "useDisplayToggle"
+    },
+    {
+      "name": "useSearch",
+      "kind": "constant",
+      "description_one_line": "useSearch export in this file.",
+      "symbol_id": "useSearch"
+    },
+    {
+      "name": "useSearch",
+      "kind": "constant",
+      "description_one_line": "useSearch export in this file.",
+      "symbol_id": "useSearch"
+    },
+    {
+      "name": "useCreateTableStore",
+      "kind": "constant",
+      "description_one_line": "useCreateTableStore export in this file.",
+      "symbol_id": "useCreateTableStore"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "useTableContext",
+      "name": "useTableContext",
+      "kind": "constant",
+      "description_one_line": "useTableContext export in this file.",
+      "details": {
+        "what_it_does": "useTableContext is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useTableContext } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseTableContext } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 7,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/hooks.tsx#L7",
+        "nx_kb_anchor": "#useTableContext"
+      }
+    },
+    {
+      "symbol_id": "useFilter",
+      "name": "useFilter",
+      "kind": "constant",
+      "description_one_line": "useFilter export in this file.",
+      "details": {
+        "what_it_does": "useFilter is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useFilter } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseFilter } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 15,
+        "source_line_end": 15,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/hooks.tsx#L15",
+        "nx_kb_anchor": "#useFilter"
+      }
+    },
+    {
+      "symbol_id": "useSort",
+      "name": "useSort",
+      "kind": "constant",
+      "description_one_line": "useSort export in this file.",
+      "details": {
+        "what_it_does": "useSort is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useSort } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseSort } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 64,
+        "source_line_end": 64,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/hooks.tsx#L64",
+        "nx_kb_anchor": "#useSort"
+      }
+    },
+    {
+      "symbol_id": "useDisplayToggle",
+      "name": "useDisplayToggle",
+      "kind": "constant",
+      "description_one_line": "useDisplayToggle export in this file.",
+      "details": {
+        "what_it_does": "useDisplayToggle is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useDisplayToggle } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseDisplayToggle } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 85,
+        "source_line_end": 85,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/hooks.tsx#L85",
+        "nx_kb_anchor": "#useDisplayToggle"
+      }
+    },
+    {
+      "symbol_id": "useSearch",
+      "name": "useSearch",
+      "kind": "constant",
+      "description_one_line": "useSearch export in this file.",
+      "details": {
+        "what_it_does": "useSearch is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useSearch } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseSearch } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 90,
+        "source_line_end": 90,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/hooks.tsx#L90",
+        "nx_kb_anchor": "#useSearch"
+      }
+    },
+    {
+      "symbol_id": "useSearch",
+      "name": "useSearch",
+      "kind": "constant",
+      "description_one_line": "useSearch export in this file.",
+      "details": {
+        "what_it_does": "useSearch is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useSearch } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseSearch } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 113,
+        "source_line_end": 113,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/hooks.tsx#L113",
+        "nx_kb_anchor": "#useSearch"
+      }
+    },
+    {
+      "symbol_id": "useCreateTableStore",
+      "name": "useCreateTableStore",
+      "kind": "constant",
+      "description_one_line": "useCreateTableStore export in this file.",
+      "details": {
+        "what_it_does": "useCreateTableStore is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useCreateTableStore } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseCreateTableStore } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 147,
+        "source_line_end": 147,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/hooks.tsx#L147",
+        "nx_kb_anchor": "#useCreateTableStore"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

@@ -1,0 +1,589 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/types/types/firebase_types.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "firebase_types.ts",
+  "source": {
+    "file_path": "src/types/types/firebase_types.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:40.029Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/types/types/firebase_types.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/types/types/firebase_types.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "QueryDocuments",
+      "kind": "type",
+      "description_one_line": "QueryDocuments export in this file.",
+      "symbol_id": "QueryDocuments"
+    },
+    {
+      "name": "WhereCondition",
+      "kind": "type",
+      "description_one_line": "WhereCondition export in this file.",
+      "symbol_id": "WhereCondition"
+    },
+    {
+      "name": "QueryDocumentsByConditions",
+      "kind": "type",
+      "description_one_line": "QueryDocumentsByConditions export in this file.",
+      "symbol_id": "QueryDocumentsByConditions"
+    },
+    {
+      "name": "QueryDocumentByConditions",
+      "kind": "type",
+      "description_one_line": "QueryDocumentByConditions export in this file.",
+      "symbol_id": "QueryDocumentByConditions"
+    },
+    {
+      "name": "QueryDocument",
+      "kind": "type",
+      "description_one_line": "QueryDocument export in this file.",
+      "symbol_id": "QueryDocument"
+    },
+    {
+      "name": "QueryDocumentOptional",
+      "kind": "type",
+      "description_one_line": "QueryDocumentOptional export in this file.",
+      "symbol_id": "QueryDocumentOptional"
+    },
+    {
+      "name": "OnSnapshotCallback",
+      "kind": "type",
+      "description_one_line": "OnSnapshotCallback export in this file.",
+      "symbol_id": "OnSnapshotCallback"
+    },
+    {
+      "name": "OnSnapshotParsers",
+      "kind": "interface",
+      "description_one_line": "OnSnapshotParsers export in this file.",
+      "symbol_id": "OnSnapshotParsers"
+    },
+    {
+      "name": "ExtraSnapshotConfig",
+      "kind": "interface",
+      "description_one_line": "ExtraSnapshotConfig export in this file.",
+      "symbol_id": "ExtraSnapshotConfig"
+    },
+    {
+      "name": "OnSnapshotConfig",
+      "kind": "type",
+      "description_one_line": "OnSnapshotConfig export in this file.",
+      "symbol_id": "OnSnapshotConfig"
+    },
+    {
+      "name": "Snapshot",
+      "kind": "type",
+      "description_one_line": "Snapshot export in this file.",
+      "symbol_id": "Snapshot"
+    },
+    {
+      "name": "SnapshotBulk",
+      "kind": "type",
+      "description_one_line": "SnapshotBulk export in this file.",
+      "symbol_id": "SnapshotBulk"
+    },
+    {
+      "name": "SnapshotBulkByNamesParamObject",
+      "kind": "type",
+      "description_one_line": "SnapshotBulkByNamesParamObject export in this file.",
+      "symbol_id": "SnapshotBulkByNamesParamObject"
+    },
+    {
+      "name": "SnapshotBulkByNamesParam",
+      "kind": "type",
+      "description_one_line": "SnapshotBulkByNamesParam export in this file.",
+      "symbol_id": "SnapshotBulkByNamesParam"
+    },
+    {
+      "name": "SnapshotBulkByNamesOptions",
+      "kind": "type",
+      "description_one_line": "SnapshotBulkByNamesOptions export in this file.",
+      "symbol_id": "SnapshotBulkByNamesOptions"
+    },
+    {
+      "name": "SnapshotBulkByNames",
+      "kind": "type",
+      "description_one_line": "SnapshotBulkByNames export in this file.",
+      "symbol_id": "SnapshotBulkByNames"
+    },
+    {
+      "name": "InitSnapshotsOptions",
+      "kind": "interface",
+      "description_one_line": "InitSnapshotsOptions export in this file.",
+      "symbol_id": "InitSnapshotsOptions"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "QueryDocuments",
+      "name": "QueryDocuments",
+      "kind": "type",
+      "description_one_line": "QueryDocuments export in this file.",
+      "details": {
+        "what_it_does": "QueryDocuments is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { QueryDocuments } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingQueryDocuments } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 2,
+        "source_line_end": 2,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L2",
+        "nx_kb_anchor": "#QueryDocuments"
+      }
+    },
+    {
+      "symbol_id": "WhereCondition",
+      "name": "WhereCondition",
+      "kind": "type",
+      "description_one_line": "WhereCondition export in this file.",
+      "details": {
+        "what_it_does": "WhereCondition is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { WhereCondition } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingWhereCondition } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 9,
+        "source_line_end": 9,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L9",
+        "nx_kb_anchor": "#WhereCondition"
+      }
+    },
+    {
+      "symbol_id": "QueryDocumentsByConditions",
+      "name": "QueryDocumentsByConditions",
+      "kind": "type",
+      "description_one_line": "QueryDocumentsByConditions export in this file.",
+      "details": {
+        "what_it_does": "QueryDocumentsByConditions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { QueryDocumentsByConditions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingQueryDocumentsByConditions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 15,
+        "source_line_end": 15,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L15",
+        "nx_kb_anchor": "#QueryDocumentsByConditions"
+      }
+    },
+    {
+      "symbol_id": "QueryDocumentByConditions",
+      "name": "QueryDocumentByConditions",
+      "kind": "type",
+      "description_one_line": "QueryDocumentByConditions export in this file.",
+      "details": {
+        "what_it_does": "QueryDocumentByConditions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { QueryDocumentByConditions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingQueryDocumentByConditions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 17,
+        "source_line_end": 17,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L17",
+        "nx_kb_anchor": "#QueryDocumentByConditions"
+      }
+    },
+    {
+      "symbol_id": "QueryDocument",
+      "name": "QueryDocument",
+      "kind": "type",
+      "description_one_line": "QueryDocument export in this file.",
+      "details": {
+        "what_it_does": "QueryDocument is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { QueryDocument } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingQueryDocument } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 19,
+        "source_line_end": 19,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L19",
+        "nx_kb_anchor": "#QueryDocument"
+      }
+    },
+    {
+      "symbol_id": "QueryDocumentOptional",
+      "name": "QueryDocumentOptional",
+      "kind": "type",
+      "description_one_line": "QueryDocumentOptional export in this file.",
+      "details": {
+        "what_it_does": "QueryDocumentOptional is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { QueryDocumentOptional } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingQueryDocumentOptional } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 27,
+        "source_line_end": 27,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L27",
+        "nx_kb_anchor": "#QueryDocumentOptional"
+      }
+    },
+    {
+      "symbol_id": "OnSnapshotCallback",
+      "name": "OnSnapshotCallback",
+      "kind": "type",
+      "description_one_line": "OnSnapshotCallback export in this file.",
+      "details": {
+        "what_it_does": "OnSnapshotCallback is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { OnSnapshotCallback } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingOnSnapshotCallback } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 35,
+        "source_line_end": 35,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L35",
+        "nx_kb_anchor": "#OnSnapshotCallback"
+      }
+    },
+    {
+      "symbol_id": "OnSnapshotParsers",
+      "name": "OnSnapshotParsers",
+      "kind": "interface",
+      "description_one_line": "OnSnapshotParsers export in this file.",
+      "details": {
+        "what_it_does": "OnSnapshotParsers is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { OnSnapshotParsers } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingOnSnapshotParsers } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 37,
+        "source_line_end": 37,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L37",
+        "nx_kb_anchor": "#OnSnapshotParsers"
+      }
+    },
+    {
+      "symbol_id": "ExtraSnapshotConfig",
+      "name": "ExtraSnapshotConfig",
+      "kind": "interface",
+      "description_one_line": "ExtraSnapshotConfig export in this file.",
+      "details": {
+        "what_it_does": "ExtraSnapshotConfig is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ExtraSnapshotConfig } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingExtraSnapshotConfig } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 44,
+        "source_line_end": 44,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L44",
+        "nx_kb_anchor": "#ExtraSnapshotConfig"
+      }
+    },
+    {
+      "symbol_id": "OnSnapshotConfig",
+      "name": "OnSnapshotConfig",
+      "kind": "type",
+      "description_one_line": "OnSnapshotConfig export in this file.",
+      "details": {
+        "what_it_does": "OnSnapshotConfig is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { OnSnapshotConfig } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingOnSnapshotConfig } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 63,
+        "source_line_end": 63,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L63",
+        "nx_kb_anchor": "#OnSnapshotConfig"
+      }
+    },
+    {
+      "symbol_id": "Snapshot",
+      "name": "Snapshot",
+      "kind": "type",
+      "description_one_line": "Snapshot export in this file.",
+      "details": {
+        "what_it_does": "Snapshot is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { Snapshot } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshot } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 65,
+        "source_line_end": 65,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L65",
+        "nx_kb_anchor": "#Snapshot"
+      }
+    },
+    {
+      "symbol_id": "SnapshotBulk",
+      "name": "SnapshotBulk",
+      "kind": "type",
+      "description_one_line": "SnapshotBulk export in this file.",
+      "details": {
+        "what_it_does": "SnapshotBulk is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SnapshotBulk } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshotBulk } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 66,
+        "source_line_end": 66,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L66",
+        "nx_kb_anchor": "#SnapshotBulk"
+      }
+    },
+    {
+      "symbol_id": "SnapshotBulkByNamesParamObject",
+      "name": "SnapshotBulkByNamesParamObject",
+      "kind": "type",
+      "description_one_line": "SnapshotBulkByNamesParamObject export in this file.",
+      "details": {
+        "what_it_does": "SnapshotBulkByNamesParamObject is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SnapshotBulkByNamesParamObject } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshotBulkByNamesParamObject } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 68,
+        "source_line_end": 68,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L68",
+        "nx_kb_anchor": "#SnapshotBulkByNamesParamObject"
+      }
+    },
+    {
+      "symbol_id": "SnapshotBulkByNamesParam",
+      "name": "SnapshotBulkByNamesParam",
+      "kind": "type",
+      "description_one_line": "SnapshotBulkByNamesParam export in this file.",
+      "details": {
+        "what_it_does": "SnapshotBulkByNamesParam is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SnapshotBulkByNamesParam } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshotBulkByNamesParam } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 71,
+        "source_line_end": 71,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L71",
+        "nx_kb_anchor": "#SnapshotBulkByNamesParam"
+      }
+    },
+    {
+      "symbol_id": "SnapshotBulkByNamesOptions",
+      "name": "SnapshotBulkByNamesOptions",
+      "kind": "type",
+      "description_one_line": "SnapshotBulkByNamesOptions export in this file.",
+      "details": {
+        "what_it_does": "SnapshotBulkByNamesOptions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SnapshotBulkByNamesOptions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshotBulkByNamesOptions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 73,
+        "source_line_end": 73,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L73",
+        "nx_kb_anchor": "#SnapshotBulkByNamesOptions"
+      }
+    },
+    {
+      "symbol_id": "SnapshotBulkByNames",
+      "name": "SnapshotBulkByNames",
+      "kind": "type",
+      "description_one_line": "SnapshotBulkByNames export in this file.",
+      "details": {
+        "what_it_does": "SnapshotBulkByNames is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SnapshotBulkByNames } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshotBulkByNames } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 77,
+        "source_line_end": 77,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L77",
+        "nx_kb_anchor": "#SnapshotBulkByNames"
+      }
+    },
+    {
+      "symbol_id": "InitSnapshotsOptions",
+      "name": "InitSnapshotsOptions",
+      "kind": "interface",
+      "description_one_line": "InitSnapshotsOptions export in this file.",
+      "details": {
+        "what_it_does": "InitSnapshotsOptions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { InitSnapshotsOptions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingInitSnapshotsOptions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 79,
+        "source_line_end": 79,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/types/firebase_types.ts#L79",
+        "nx_kb_anchor": "#InitSnapshotsOptions"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

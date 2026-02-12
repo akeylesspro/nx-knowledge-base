@@ -1,0 +1,135 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/types/enums/global.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "src/types/enums/global.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:40.011Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/enums/global.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/types/enums/global.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/types/enums/global.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "SimProvider",
+      "kind": "enum",
+      "description_one_line": "SimProvider export in this file.",
+      "symbol_id": "SimProvider"
+    },
+    {
+      "name": "NxServiceName",
+      "kind": "type",
+      "description_one_line": "NxServiceName export in this file.",
+      "symbol_id": "NxServiceName"
+    },
+    {
+      "name": "NxServiceNameMap",
+      "kind": "type",
+      "description_one_line": "NxServiceNameMap export in this file.",
+      "symbol_id": "NxServiceNameMap"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "SimProvider",
+      "name": "SimProvider",
+      "kind": "enum",
+      "description_one_line": "SimProvider export in this file.",
+      "details": {
+        "what_it_does": "SimProvider is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SimProvider } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSimProvider } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/enums/global.ts#L1",
+        "nx_kb_anchor": "#SimProvider"
+      }
+    },
+    {
+      "symbol_id": "NxServiceName",
+      "name": "NxServiceName",
+      "kind": "type",
+      "description_one_line": "NxServiceName export in this file.",
+      "details": {
+        "what_it_does": "NxServiceName is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { NxServiceName } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingNxServiceName } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 9,
+        "source_line_end": 9,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/enums/global.ts#L9",
+        "nx_kb_anchor": "#NxServiceName"
+      }
+    },
+    {
+      "symbol_id": "NxServiceNameMap",
+      "name": "NxServiceNameMap",
+      "kind": "type",
+      "description_one_line": "NxServiceNameMap export in this file.",
+      "details": {
+        "what_it_does": "NxServiceNameMap is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { NxServiceNameMap } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingNxServiceNameMap } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/enums/global.ts#L11",
+        "nx_kb_anchor": "#NxServiceNameMap"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

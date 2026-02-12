@@ -1,0 +1,205 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/email_helpers.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "email_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/email_helpers.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.950Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/email_helpers.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/email_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/email_helpers.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "@sendgrid/mail",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "fs",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "path",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": ".",
+        "resolved_file_path": "src/helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers"
+      },
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types"
+      },
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/managers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "create_attachment_from_file",
+      "kind": "constant",
+      "description_one_line": "create_attachment_from_file export in this file.",
+      "symbol_id": "create_attachment_from_file"
+    },
+    {
+      "name": "create_attachment_from_buffer",
+      "kind": "constant",
+      "description_one_line": "create_attachment_from_buffer export in this file.",
+      "symbol_id": "create_attachment_from_buffer"
+    },
+    {
+      "name": "create_attachment_from_url",
+      "kind": "constant",
+      "description_one_line": "create_attachment_from_url export in this file.",
+      "symbol_id": "create_attachment_from_url"
+    },
+    {
+      "name": "send_email",
+      "kind": "constant",
+      "description_one_line": "send_email export in this file.",
+      "symbol_id": "send_email"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "create_attachment_from_file",
+      "name": "create_attachment_from_file",
+      "kind": "constant",
+      "description_one_line": "create_attachment_from_file export in this file.",
+      "details": {
+        "what_it_does": "create_attachment_from_file is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { create_attachment_from_file } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingcreate_attachment_from_file } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/email_helpers.ts#L8",
+        "nx_kb_anchor": "#create_attachment_from_file"
+      }
+    },
+    {
+      "symbol_id": "create_attachment_from_buffer",
+      "name": "create_attachment_from_buffer",
+      "kind": "constant",
+      "description_one_line": "create_attachment_from_buffer export in this file.",
+      "details": {
+        "what_it_does": "create_attachment_from_buffer is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { create_attachment_from_buffer } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingcreate_attachment_from_buffer } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 30,
+        "source_line_end": 30,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/email_helpers.ts#L30",
+        "nx_kb_anchor": "#create_attachment_from_buffer"
+      }
+    },
+    {
+      "symbol_id": "create_attachment_from_url",
+      "name": "create_attachment_from_url",
+      "kind": "constant",
+      "description_one_line": "create_attachment_from_url export in this file.",
+      "details": {
+        "what_it_does": "create_attachment_from_url is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { create_attachment_from_url } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingcreate_attachment_from_url } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 45,
+        "source_line_end": 45,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/email_helpers.ts#L45",
+        "nx_kb_anchor": "#create_attachment_from_url"
+      }
+    },
+    {
+      "symbol_id": "send_email",
+      "name": "send_email",
+      "kind": "constant",
+      "description_one_line": "send_email export in this file.",
+      "details": {
+        "what_it_does": "send_email is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { send_email } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsend_email } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 101,
+        "source_line_end": 101,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/email_helpers.ts#L101",
+        "nx_kb_anchor": "#send_email"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/middlewares/trim_mw.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "trim_mw.ts",
+  "source": {
+    "file_path": "src/middlewares/trim_mw.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:40.007Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/middlewares/trim_mw.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/middlewares/trim_mw.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/middlewares/trim_mw.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "import_path": "../helpers",
+        "resolved_file_path": "src/helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers"
+      },
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "trim_body_middleware",
+      "kind": "constant",
+      "description_one_line": "trim_body_middleware export in this file.",
+      "symbol_id": "trim_body_middleware"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "trim_body_middleware",
+      "name": "trim_body_middleware",
+      "kind": "constant",
+      "description_one_line": "trim_body_middleware export in this file.",
+      "details": {
+        "what_it_does": "trim_body_middleware is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { trim_body_middleware } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingtrim_body_middleware } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 4,
+        "source_line_end": 4,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/middlewares/trim_mw.ts#L4",
+        "nx_kb_anchor": "#trim_body_middleware"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

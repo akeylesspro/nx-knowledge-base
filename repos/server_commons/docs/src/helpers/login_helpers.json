@@ -1,0 +1,156 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/login_helpers.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "login_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/login_helpers.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.961Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/login_helpers.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/login_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/login_helpers.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./firebase_helpers",
+        "resolved_file_path": "src/helpers/firebase_helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers/firebase_helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers"
+      },
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/managers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "convert_to_short_phone_number",
+      "kind": "constant",
+      "description_one_line": "convert_to_short_phone_number export in this file.",
+      "symbol_id": "convert_to_short_phone_number"
+    },
+    {
+      "name": "get_user_by_identifier",
+      "kind": "constant",
+      "description_one_line": "get_user_by_identifier export in this file.",
+      "symbol_id": "get_user_by_identifier"
+    },
+    {
+      "name": "get_mobile_app_user_by_uid",
+      "kind": "constant",
+      "description_one_line": "get_mobile_app_user_by_uid export in this file.",
+      "symbol_id": "get_mobile_app_user_by_uid"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "convert_to_short_phone_number",
+      "name": "convert_to_short_phone_number",
+      "kind": "constant",
+      "description_one_line": "convert_to_short_phone_number export in this file.",
+      "details": {
+        "what_it_does": "convert_to_short_phone_number is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { convert_to_short_phone_number } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingconvert_to_short_phone_number } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 5,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/login_helpers.ts#L5",
+        "nx_kb_anchor": "#convert_to_short_phone_number"
+      }
+    },
+    {
+      "symbol_id": "get_user_by_identifier",
+      "name": "get_user_by_identifier",
+      "kind": "constant",
+      "description_one_line": "get_user_by_identifier export in this file.",
+      "details": {
+        "what_it_does": "get_user_by_identifier is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_user_by_identifier } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_user_by_identifier } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/login_helpers.ts#L10",
+        "nx_kb_anchor": "#get_user_by_identifier"
+      }
+    },
+    {
+      "symbol_id": "get_mobile_app_user_by_uid",
+      "name": "get_mobile_app_user_by_uid",
+      "kind": "constant",
+      "description_one_line": "get_mobile_app_user_by_uid export in this file.",
+      "details": {
+        "what_it_does": "get_mobile_app_user_by_uid is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_mobile_app_user_by_uid } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_mobile_app_user_by_uid } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 27,
+        "source_line_end": 27,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/login_helpers.ts#L27",
+        "nx_kb_anchor": "#get_mobile_app_user_by_uid"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

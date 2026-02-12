@@ -1,0 +1,333 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/helpers/phoneNumber.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "phoneNumber.ts",
+  "source": {
+    "file_path": "src/helpers/phoneNumber.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.894Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/helpers/phoneNumber.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/phoneNumber.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "libphonenumber-js",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "isInternational",
+      "kind": "constant",
+      "description_one_line": "isInternational export in this file.",
+      "symbol_id": "isInternational"
+    },
+    {
+      "name": "isInternationalIsraelPhone",
+      "kind": "constant",
+      "description_one_line": "isInternationalIsraelPhone export in this file.",
+      "symbol_id": "isInternationalIsraelPhone"
+    },
+    {
+      "name": "local_israel_phone_format",
+      "kind": "constant",
+      "description_one_line": "local_israel_phone_format export in this file.",
+      "symbol_id": "local_israel_phone_format"
+    },
+    {
+      "name": "international_israel_phone_format",
+      "kind": "constant",
+      "description_one_line": "international_israel_phone_format export in this file.",
+      "symbol_id": "international_israel_phone_format"
+    },
+    {
+      "name": "get_international_phone_number",
+      "kind": "constant",
+      "description_one_line": "get_international_phone_number export in this file.",
+      "symbol_id": "get_international_phone_number"
+    },
+    {
+      "name": "displayFormatPhoneNumber",
+      "kind": "constant",
+      "description_one_line": "displayFormatPhoneNumber export in this file.",
+      "symbol_id": "displayFormatPhoneNumber"
+    },
+    {
+      "name": "is_iccid",
+      "kind": "constant",
+      "description_one_line": "is_iccid export in this file.",
+      "symbol_id": "is_iccid"
+    },
+    {
+      "name": "is_msisdn",
+      "kind": "constant",
+      "description_one_line": "is_msisdn export in this file.",
+      "symbol_id": "is_msisdn"
+    },
+    {
+      "name": "is_fixed_or_service_number",
+      "kind": "constant",
+      "description_one_line": "is_fixed_or_service_number export in this file.",
+      "symbol_id": "is_fixed_or_service_number"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "isInternational",
+      "name": "isInternational",
+      "kind": "constant",
+      "description_one_line": "isInternational export in this file.",
+      "details": {
+        "what_it_does": "isInternational is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { isInternational } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingisInternational } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber.ts#L6",
+        "nx_kb_anchor": "#isInternational"
+      }
+    },
+    {
+      "symbol_id": "isInternationalIsraelPhone",
+      "name": "isInternationalIsraelPhone",
+      "kind": "constant",
+      "description_one_line": "isInternationalIsraelPhone export in this file.",
+      "details": {
+        "what_it_does": "isInternationalIsraelPhone is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { isInternationalIsraelPhone } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingisInternationalIsraelPhone } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber.ts#L10",
+        "nx_kb_anchor": "#isInternationalIsraelPhone"
+      }
+    },
+    {
+      "symbol_id": "local_israel_phone_format",
+      "name": "local_israel_phone_format",
+      "kind": "constant",
+      "description_one_line": "local_israel_phone_format export in this file.",
+      "details": {
+        "what_it_does": "local_israel_phone_format is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { local_israel_phone_format } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missinglocal_israel_phone_format } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 14,
+        "source_line_end": 14,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber.ts#L14",
+        "nx_kb_anchor": "#local_israel_phone_format"
+      }
+    },
+    {
+      "symbol_id": "international_israel_phone_format",
+      "name": "international_israel_phone_format",
+      "kind": "constant",
+      "description_one_line": "international_israel_phone_format export in this file.",
+      "details": {
+        "what_it_does": "international_israel_phone_format is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { international_israel_phone_format } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missinginternational_israel_phone_format } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 18,
+        "source_line_end": 18,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber.ts#L18",
+        "nx_kb_anchor": "#international_israel_phone_format"
+      }
+    },
+    {
+      "symbol_id": "get_international_phone_number",
+      "name": "get_international_phone_number",
+      "kind": "constant",
+      "description_one_line": "get_international_phone_number export in this file.",
+      "details": {
+        "what_it_does": "get_international_phone_number is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_international_phone_number } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_international_phone_number } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 23,
+        "source_line_end": 23,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber.ts#L23",
+        "nx_kb_anchor": "#get_international_phone_number"
+      }
+    },
+    {
+      "symbol_id": "displayFormatPhoneNumber",
+      "name": "displayFormatPhoneNumber",
+      "kind": "constant",
+      "description_one_line": "displayFormatPhoneNumber export in this file.",
+      "details": {
+        "what_it_does": "displayFormatPhoneNumber is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { displayFormatPhoneNumber } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingdisplayFormatPhoneNumber } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 28,
+        "source_line_end": 28,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber.ts#L28",
+        "nx_kb_anchor": "#displayFormatPhoneNumber"
+      }
+    },
+    {
+      "symbol_id": "is_iccid",
+      "name": "is_iccid",
+      "kind": "constant",
+      "description_one_line": "is_iccid export in this file.",
+      "details": {
+        "what_it_does": "is_iccid is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_iccid } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_iccid } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 58,
+        "source_line_end": 58,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber.ts#L58",
+        "nx_kb_anchor": "#is_iccid"
+      }
+    },
+    {
+      "symbol_id": "is_msisdn",
+      "name": "is_msisdn",
+      "kind": "constant",
+      "description_one_line": "is_msisdn export in this file.",
+      "details": {
+        "what_it_does": "is_msisdn is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_msisdn } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_msisdn } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 65,
+        "source_line_end": 65,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber.ts#L65",
+        "nx_kb_anchor": "#is_msisdn"
+      }
+    },
+    {
+      "symbol_id": "is_fixed_or_service_number",
+      "name": "is_fixed_or_service_number",
+      "kind": "constant",
+      "description_one_line": "is_fixed_or_service_number export in this file.",
+      "details": {
+        "what_it_does": "is_fixed_or_service_number is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_fixed_or_service_number } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_fixed_or_service_number } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 71,
+        "source_line_end": 71,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber.ts#L71",
+        "nx_kb_anchor": "#is_fixed_or_service_number"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

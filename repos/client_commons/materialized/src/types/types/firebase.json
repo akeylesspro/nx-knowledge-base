@@ -1,0 +1,306 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/types/types/firebase.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "firebase.ts",
+  "source": {
+    "file_path": "src/types/types/firebase.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.935Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/firebase.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/types/types/firebase.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/types/types/firebase.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "firebase/firestore",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "OnSnapshotCallback",
+      "kind": "type",
+      "description_one_line": "OnSnapshotCallback export in this file.",
+      "symbol_id": "OnSnapshotCallback"
+    },
+    {
+      "name": "OnSnapshotParsers",
+      "kind": "interface",
+      "description_one_line": "OnSnapshotParsers export in this file.",
+      "symbol_id": "OnSnapshotParsers"
+    },
+    {
+      "name": "WhereCondition",
+      "kind": "interface",
+      "description_one_line": "WhereCondition export in this file.",
+      "symbol_id": "WhereCondition"
+    },
+    {
+      "name": "OnSnapshotConfig",
+      "kind": "interface",
+      "description_one_line": "OnSnapshotConfig export in this file.",
+      "symbol_id": "OnSnapshotConfig"
+    },
+    {
+      "name": "OnSnapshotConfigDocument",
+      "kind": "interface",
+      "description_one_line": "OnSnapshotConfigDocument export in this file.",
+      "symbol_id": "OnSnapshotConfigDocument"
+    },
+    {
+      "name": "SnapshotResult",
+      "kind": "interface",
+      "description_one_line": "SnapshotResult export in this file.",
+      "symbol_id": "SnapshotResult"
+    },
+    {
+      "name": "Snapshot",
+      "kind": "type",
+      "description_one_line": "Snapshot export in this file.",
+      "symbol_id": "Snapshot"
+    },
+    {
+      "name": "SnapshotDocument",
+      "kind": "type",
+      "description_one_line": "SnapshotDocument export in this file.",
+      "symbol_id": "SnapshotDocument"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "OnSnapshotCallback",
+      "name": "OnSnapshotCallback",
+      "kind": "type",
+      "description_one_line": "OnSnapshotCallback export in this file.",
+      "details": {
+        "what_it_does": "OnSnapshotCallback is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { OnSnapshotCallback } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingOnSnapshotCallback } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 4,
+        "source_line_end": 4,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/firebase.ts#L4",
+        "nx_kb_anchor": "#OnSnapshotCallback"
+      }
+    },
+    {
+      "symbol_id": "OnSnapshotParsers",
+      "name": "OnSnapshotParsers",
+      "kind": "interface",
+      "description_one_line": "OnSnapshotParsers export in this file.",
+      "details": {
+        "what_it_does": "OnSnapshotParsers is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { OnSnapshotParsers } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingOnSnapshotParsers } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/firebase.ts#L6",
+        "nx_kb_anchor": "#OnSnapshotParsers"
+      }
+    },
+    {
+      "symbol_id": "WhereCondition",
+      "name": "WhereCondition",
+      "kind": "interface",
+      "description_one_line": "WhereCondition export in this file.",
+      "details": {
+        "what_it_does": "WhereCondition is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { WhereCondition } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingWhereCondition } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/firebase.ts#L12",
+        "nx_kb_anchor": "#WhereCondition"
+      }
+    },
+    {
+      "symbol_id": "OnSnapshotConfig",
+      "name": "OnSnapshotConfig",
+      "kind": "interface",
+      "description_one_line": "OnSnapshotConfig export in this file.",
+      "details": {
+        "what_it_does": "OnSnapshotConfig is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { OnSnapshotConfig } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingOnSnapshotConfig } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 17,
+        "source_line_end": 17,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/firebase.ts#L17",
+        "nx_kb_anchor": "#OnSnapshotConfig"
+      }
+    },
+    {
+      "symbol_id": "OnSnapshotConfigDocument",
+      "name": "OnSnapshotConfigDocument",
+      "kind": "interface",
+      "description_one_line": "OnSnapshotConfigDocument export in this file.",
+      "details": {
+        "what_it_does": "OnSnapshotConfigDocument is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { OnSnapshotConfigDocument } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingOnSnapshotConfigDocument } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 25,
+        "source_line_end": 25,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/firebase.ts#L25",
+        "nx_kb_anchor": "#OnSnapshotConfigDocument"
+      }
+    },
+    {
+      "symbol_id": "SnapshotResult",
+      "name": "SnapshotResult",
+      "kind": "interface",
+      "description_one_line": "SnapshotResult export in this file.",
+      "details": {
+        "what_it_does": "SnapshotResult is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SnapshotResult } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshotResult } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 32,
+        "source_line_end": 32,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/firebase.ts#L32",
+        "nx_kb_anchor": "#SnapshotResult"
+      }
+    },
+    {
+      "symbol_id": "Snapshot",
+      "name": "Snapshot",
+      "kind": "type",
+      "description_one_line": "Snapshot export in this file.",
+      "details": {
+        "what_it_does": "Snapshot is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { Snapshot } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshot } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 37,
+        "source_line_end": 37,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/firebase.ts#L37",
+        "nx_kb_anchor": "#Snapshot"
+      }
+    },
+    {
+      "symbol_id": "SnapshotDocument",
+      "name": "SnapshotDocument",
+      "kind": "type",
+      "description_one_line": "SnapshotDocument export in this file.",
+      "details": {
+        "what_it_does": "SnapshotDocument is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SnapshotDocument } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshotDocument } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 39,
+        "source_line_end": 39,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/firebase.ts#L39",
+        "nx_kb_anchor": "#SnapshotDocument"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

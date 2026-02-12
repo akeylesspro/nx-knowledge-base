@@ -1,0 +1,321 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/tasks_helpers.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "tasks_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/tasks_helpers.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.980Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/tasks_helpers.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/tasks_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/tasks_helpers.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "firebase-admin",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/managers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers"
+      },
+      {
+        "import_path": "./firebase_helpers",
+        "resolved_file_path": "src/helpers/firebase_helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers/firebase_helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "TaskName",
+      "kind": "enum",
+      "description_one_line": "TaskName export in this file.",
+      "symbol_id": "TaskName"
+    },
+    {
+      "name": "TaskStatus",
+      "kind": "enum",
+      "description_one_line": "TaskStatus export in this file.",
+      "symbol_id": "TaskStatus"
+    },
+    {
+      "name": "TaskSaveOptions",
+      "kind": "type",
+      "description_one_line": "TaskSaveOptions export in this file.",
+      "symbol_id": "TaskSaveOptions"
+    },
+    {
+      "name": "ExecuteTaskOptions",
+      "kind": "interface",
+      "description_one_line": "ExecuteTaskOptions export in this file.",
+      "symbol_id": "ExecuteTaskOptions"
+    },
+    {
+      "name": "execute_task",
+      "kind": "constant",
+      "description_one_line": "execute_task export in this file.",
+      "symbol_id": "execute_task"
+    },
+    {
+      "name": "get_task_data",
+      "kind": "constant",
+      "description_one_line": "get_task_data export in this file.",
+      "symbol_id": "get_task_data"
+    },
+    {
+      "name": "get_task_data_from_storage",
+      "kind": "constant",
+      "description_one_line": "get_task_data_from_storage export in this file.",
+      "symbol_id": "get_task_data_from_storage"
+    },
+    {
+      "name": "keep_task_data_in_storage",
+      "kind": "constant",
+      "description_one_line": "keep_task_data_in_storage export in this file.",
+      "symbol_id": "keep_task_data_in_storage"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "TaskName",
+      "name": "TaskName",
+      "kind": "enum",
+      "description_one_line": "TaskName export in this file.",
+      "details": {
+        "what_it_does": "TaskName is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TaskName } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTaskName } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/tasks_helpers.ts#L6",
+        "nx_kb_anchor": "#TaskName"
+      }
+    },
+    {
+      "symbol_id": "TaskStatus",
+      "name": "TaskStatus",
+      "kind": "enum",
+      "description_one_line": "TaskStatus export in this file.",
+      "details": {
+        "what_it_does": "TaskStatus is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TaskStatus } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTaskStatus } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 13,
+        "source_line_end": 13,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/tasks_helpers.ts#L13",
+        "nx_kb_anchor": "#TaskStatus"
+      }
+    },
+    {
+      "symbol_id": "TaskSaveOptions",
+      "name": "TaskSaveOptions",
+      "kind": "type",
+      "description_one_line": "TaskSaveOptions export in this file.",
+      "details": {
+        "what_it_does": "TaskSaveOptions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TaskSaveOptions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTaskSaveOptions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 20,
+        "source_line_end": 20,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/tasks_helpers.ts#L20",
+        "nx_kb_anchor": "#TaskSaveOptions"
+      }
+    },
+    {
+      "symbol_id": "ExecuteTaskOptions",
+      "name": "ExecuteTaskOptions",
+      "kind": "interface",
+      "description_one_line": "ExecuteTaskOptions export in this file.",
+      "details": {
+        "what_it_does": "ExecuteTaskOptions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ExecuteTaskOptions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingExecuteTaskOptions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 30,
+        "source_line_end": 30,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/tasks_helpers.ts#L30",
+        "nx_kb_anchor": "#ExecuteTaskOptions"
+      }
+    },
+    {
+      "symbol_id": "execute_task",
+      "name": "execute_task",
+      "kind": "constant",
+      "description_one_line": "execute_task export in this file.",
+      "details": {
+        "what_it_does": "execute_task is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { execute_task } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingexecute_task } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 35,
+        "source_line_end": 35,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/tasks_helpers.ts#L35",
+        "nx_kb_anchor": "#execute_task"
+      }
+    },
+    {
+      "symbol_id": "get_task_data",
+      "name": "get_task_data",
+      "kind": "constant",
+      "description_one_line": "get_task_data export in this file.",
+      "details": {
+        "what_it_does": "get_task_data is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_task_data } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_task_data } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 92,
+        "source_line_end": 92,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/tasks_helpers.ts#L92",
+        "nx_kb_anchor": "#get_task_data"
+      }
+    },
+    {
+      "symbol_id": "get_task_data_from_storage",
+      "name": "get_task_data_from_storage",
+      "kind": "constant",
+      "description_one_line": "get_task_data_from_storage export in this file.",
+      "details": {
+        "what_it_does": "get_task_data_from_storage is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_task_data_from_storage } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_task_data_from_storage } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 119,
+        "source_line_end": 119,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/tasks_helpers.ts#L119",
+        "nx_kb_anchor": "#get_task_data_from_storage"
+      }
+    },
+    {
+      "symbol_id": "keep_task_data_in_storage",
+      "name": "keep_task_data_in_storage",
+      "kind": "constant",
+      "description_one_line": "keep_task_data_in_storage export in this file.",
+      "details": {
+        "what_it_does": "keep_task_data_in_storage is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { keep_task_data_in_storage } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingkeep_task_data_in_storage } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 131,
+        "source_line_end": 131,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/tasks_helpers.ts#L131",
+        "nx_kb_anchor": "#keep_task_data_in_storage"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

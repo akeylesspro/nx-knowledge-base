@@ -1,0 +1,181 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/hooks/WebWorker.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "WebWorker.ts",
+  "source": {
+    "file_path": "src/hooks/WebWorker.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.924Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/WebWorker.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/hooks/WebWorker.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/hooks/WebWorker.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./snapshots/snapshotWorker",
+        "resolved_file_path": "src/hooks/snapshots/snapshotWorker",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/hooks/snapshots/snapshotWorker",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWorker"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "WebWorkerFunction",
+      "kind": "type",
+      "description_one_line": "WebWorkerFunction export in this file.",
+      "symbol_id": "WebWorkerFunction"
+    },
+    {
+      "name": "UseWebWorkerOptions",
+      "kind": "interface",
+      "description_one_line": "UseWebWorkerOptions export in this file.",
+      "symbol_id": "UseWebWorkerOptions"
+    },
+    {
+      "name": "RunWorkerFunction",
+      "kind": "type",
+      "description_one_line": "RunWorkerFunction export in this file.",
+      "symbol_id": "RunWorkerFunction"
+    },
+    {
+      "name": "useWebWorker",
+      "kind": "constant",
+      "description_one_line": "useWebWorker export in this file.",
+      "symbol_id": "useWebWorker"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "WebWorkerFunction",
+      "name": "WebWorkerFunction",
+      "kind": "type",
+      "description_one_line": "WebWorkerFunction export in this file.",
+      "details": {
+        "what_it_does": "WebWorkerFunction is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { WebWorkerFunction } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingWebWorkerFunction } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 4,
+        "source_line_end": 4,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/WebWorker.ts#L4",
+        "nx_kb_anchor": "#WebWorkerFunction"
+      }
+    },
+    {
+      "symbol_id": "UseWebWorkerOptions",
+      "name": "UseWebWorkerOptions",
+      "kind": "interface",
+      "description_one_line": "UseWebWorkerOptions export in this file.",
+      "details": {
+        "what_it_does": "UseWebWorkerOptions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { UseWebWorkerOptions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingUseWebWorkerOptions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/WebWorker.ts#L6",
+        "nx_kb_anchor": "#UseWebWorkerOptions"
+      }
+    },
+    {
+      "symbol_id": "RunWorkerFunction",
+      "name": "RunWorkerFunction",
+      "kind": "type",
+      "description_one_line": "RunWorkerFunction export in this file.",
+      "details": {
+        "what_it_does": "RunWorkerFunction is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { RunWorkerFunction } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingRunWorkerFunction } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 15,
+        "source_line_end": 15,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/WebWorker.ts#L15",
+        "nx_kb_anchor": "#RunWorkerFunction"
+      }
+    },
+    {
+      "symbol_id": "useWebWorker",
+      "name": "useWebWorker",
+      "kind": "constant",
+      "description_one_line": "useWebWorker export in this file.",
+      "details": {
+        "what_it_does": "useWebWorker is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useWebWorker } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseWebWorker } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 22,
+        "source_line_end": 22,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/WebWorker.ts#L22",
+        "nx_kb_anchor": "#useWebWorker"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

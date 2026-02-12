@@ -1,0 +1,205 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/hooks/snapshots/snapshotWorker.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "snapshotWorker.ts",
+  "source": {
+    "file_path": "src/hooks/snapshots/snapshotWorker.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.922Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWorker.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/hooks/snapshots/snapshotWorker.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/hooks/snapshots/snapshotWorker.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "src/types",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "SnapshotOp",
+      "kind": "type",
+      "description_one_line": "SnapshotOp export in this file.",
+      "symbol_id": "SnapshotOp"
+    },
+    {
+      "name": "SnapshotDocsProcessor",
+      "kind": "type",
+      "description_one_line": "SnapshotDocsProcessor export in this file.",
+      "symbol_id": "SnapshotDocsProcessor"
+    },
+    {
+      "name": "WrapWorkerOptions",
+      "kind": "interface",
+      "description_one_line": "WrapWorkerOptions export in this file.",
+      "symbol_id": "WrapWorkerOptions"
+    },
+    {
+      "name": "wrapConfigsWithWorker",
+      "kind": "constant",
+      "description_one_line": "wrapConfigsWithWorker export in this file.",
+      "symbol_id": "wrapConfigsWithWorker"
+    },
+    {
+      "name": "wrapDocumentConfigsWithWorker",
+      "kind": "constant",
+      "description_one_line": "wrapDocumentConfigsWithWorker export in this file.",
+      "symbol_id": "wrapDocumentConfigsWithWorker"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "SnapshotOp",
+      "name": "SnapshotOp",
+      "kind": "type",
+      "description_one_line": "SnapshotOp export in this file.",
+      "details": {
+        "what_it_does": "SnapshotOp is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SnapshotOp } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshotOp } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWorker.ts#L3",
+        "nx_kb_anchor": "#SnapshotOp"
+      }
+    },
+    {
+      "symbol_id": "SnapshotDocsProcessor",
+      "name": "SnapshotDocsProcessor",
+      "kind": "type",
+      "description_one_line": "SnapshotDocsProcessor export in this file.",
+      "details": {
+        "what_it_does": "SnapshotDocsProcessor is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SnapshotDocsProcessor } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSnapshotDocsProcessor } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 5,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWorker.ts#L5",
+        "nx_kb_anchor": "#SnapshotDocsProcessor"
+      }
+    },
+    {
+      "symbol_id": "WrapWorkerOptions",
+      "name": "WrapWorkerOptions",
+      "kind": "interface",
+      "description_one_line": "WrapWorkerOptions export in this file.",
+      "details": {
+        "what_it_does": "WrapWorkerOptions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { WrapWorkerOptions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingWrapWorkerOptions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 7,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWorker.ts#L7",
+        "nx_kb_anchor": "#WrapWorkerOptions"
+      }
+    },
+    {
+      "symbol_id": "wrapConfigsWithWorker",
+      "name": "wrapConfigsWithWorker",
+      "kind": "constant",
+      "description_one_line": "wrapConfigsWithWorker export in this file.",
+      "details": {
+        "what_it_does": "wrapConfigsWithWorker is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { wrapConfigsWithWorker } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingwrapConfigsWithWorker } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 37,
+        "source_line_end": 37,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWorker.ts#L37",
+        "nx_kb_anchor": "#wrapConfigsWithWorker"
+      }
+    },
+    {
+      "symbol_id": "wrapDocumentConfigsWithWorker",
+      "name": "wrapDocumentConfigsWithWorker",
+      "kind": "constant",
+      "description_one_line": "wrapDocumentConfigsWithWorker export in this file.",
+      "details": {
+        "what_it_does": "wrapDocumentConfigsWithWorker is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { wrapDocumentConfigsWithWorker } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingwrapDocumentConfigsWithWorker } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 106,
+        "source_line_end": 106,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/hooks/snapshots/snapshotWorker.ts#L106",
+        "nx_kb_anchor": "#wrapDocumentConfigsWithWorker"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

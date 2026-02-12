@@ -1,0 +1,135 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/types/interfaces/email.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "email.ts",
+  "source": {
+    "file_path": "src/types/interfaces/email.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:40.019Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/interfaces/email.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/types/interfaces/email.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/types/interfaces/email.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "EmailData",
+      "kind": "interface",
+      "description_one_line": "EmailData export in this file.",
+      "symbol_id": "EmailData"
+    },
+    {
+      "name": "EmailAttachment",
+      "kind": "interface",
+      "description_one_line": "EmailAttachment export in this file.",
+      "symbol_id": "EmailAttachment"
+    },
+    {
+      "name": "EmailSettings",
+      "kind": "interface",
+      "description_one_line": "EmailSettings export in this file.",
+      "symbol_id": "EmailSettings"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "EmailData",
+      "name": "EmailData",
+      "kind": "interface",
+      "description_one_line": "EmailData export in this file.",
+      "details": {
+        "what_it_does": "EmailData is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { EmailData } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingEmailData } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/interfaces/email.ts#L1",
+        "nx_kb_anchor": "#EmailData"
+      }
+    },
+    {
+      "symbol_id": "EmailAttachment",
+      "name": "EmailAttachment",
+      "kind": "interface",
+      "description_one_line": "EmailAttachment export in this file.",
+      "details": {
+        "what_it_does": "EmailAttachment is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { EmailAttachment } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingEmailAttachment } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 13,
+        "source_line_end": 13,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/interfaces/email.ts#L13",
+        "nx_kb_anchor": "#EmailAttachment"
+      }
+    },
+    {
+      "symbol_id": "EmailSettings",
+      "name": "EmailSettings",
+      "kind": "interface",
+      "description_one_line": "EmailSettings export in this file.",
+      "details": {
+        "what_it_does": "EmailSettings is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { EmailSettings } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingEmailSettings } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 21,
+        "source_line_end": 21,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/interfaces/email.ts#L21",
+        "nx_kb_anchor": "#EmailSettings"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

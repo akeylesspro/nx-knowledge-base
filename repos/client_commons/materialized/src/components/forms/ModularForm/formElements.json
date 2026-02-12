@@ -1,0 +1,617 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/components/forms/ModularForm/formElements.tsx",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "formElements.tsx",
+  "source": {
+    "file_path": "src/components/forms/ModularForm/formElements.tsx",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.756Z",
+    "language": "tsx",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx",
+    "link_to_nx_kb": "/repos/client_commons/files/src/components/forms/ModularForm/formElements.tsx"
+  },
+  "summary": {
+    "purpose": "Documentation for src/components/forms/ModularForm/formElements.tsx.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "@/components/ui/multiselect",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/components/ui/SearchSelect",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/components/utils",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/hooks/react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react-aria-components",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/helpers",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/types",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react-aria-components",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/components/ui/datefield-rac",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/components/ui/calendar-rac",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "lucide-react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@internationalized/date",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "defaultFormElementContainerClassName",
+      "kind": "constant",
+      "description_one_line": "defaultFormElementContainerClassName export in this file.",
+      "symbol_id": "defaultFormElementContainerClassName"
+    },
+    {
+      "name": "defaultFormElementBorderClassName",
+      "kind": "constant",
+      "description_one_line": "defaultFormElementBorderClassName export in this file.",
+      "symbol_id": "defaultFormElementBorderClassName"
+    },
+    {
+      "name": "useSortValues",
+      "kind": "constant",
+      "description_one_line": "useSortValues export in this file.",
+      "symbol_id": "useSortValues"
+    },
+    {
+      "name": "InputContainer",
+      "kind": "constant",
+      "description_one_line": "InputContainer export in this file.",
+      "symbol_id": "InputContainer"
+    },
+    {
+      "name": "DateInputContainer",
+      "kind": "constant",
+      "description_one_line": "DateInputContainer export in this file.",
+      "symbol_id": "DateInputContainer"
+    },
+    {
+      "name": "SelectContainer",
+      "kind": "constant",
+      "description_one_line": "SelectContainer export in this file.",
+      "symbol_id": "SelectContainer"
+    },
+    {
+      "name": "MultiSelect",
+      "kind": "function",
+      "description_one_line": "MultiSelect export in this file.",
+      "symbol_id": "MultiSelect"
+    },
+    {
+      "name": "SelectWithSearch",
+      "kind": "constant",
+      "description_one_line": "SelectWithSearch export in this file.",
+      "symbol_id": "SelectWithSearch"
+    },
+    {
+      "name": "TextAreaContainer",
+      "kind": "constant",
+      "description_one_line": "TextAreaContainer export in this file.",
+      "symbol_id": "TextAreaContainer"
+    },
+    {
+      "name": "FormSeparator",
+      "kind": "constant",
+      "description_one_line": "FormSeparator export in this file.",
+      "symbol_id": "FormSeparator"
+    },
+    {
+      "name": "CheckboxContainer",
+      "kind": "constant",
+      "description_one_line": "CheckboxContainer export in this file.",
+      "symbol_id": "CheckboxContainer"
+    },
+    {
+      "name": "DurationPicker",
+      "kind": "constant",
+      "description_one_line": "DurationPicker export in this file.",
+      "symbol_id": "DurationPicker"
+    },
+    {
+      "name": "FormElementContainer",
+      "kind": "constant",
+      "description_one_line": "FormElementContainer export in this file.",
+      "symbol_id": "FormElementContainer"
+    },
+    {
+      "name": "ElementLabel",
+      "kind": "constant",
+      "description_one_line": "ElementLabel export in this file.",
+      "symbol_id": "ElementLabel"
+    },
+    {
+      "name": "ElementsContainerProps",
+      "kind": "interface",
+      "description_one_line": "ElementsContainerProps export in this file.",
+      "symbol_id": "ElementsContainerProps"
+    },
+    {
+      "name": "ElementsContainer",
+      "kind": "constant",
+      "description_one_line": "ElementsContainer export in this file.",
+      "symbol_id": "ElementsContainer"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "defaultFormElementContainerClassName",
+      "name": "defaultFormElementContainerClassName",
+      "kind": "constant",
+      "description_one_line": "defaultFormElementContainerClassName export in this file.",
+      "details": {
+        "what_it_does": "defaultFormElementContainerClassName is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { defaultFormElementContainerClassName } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingdefaultFormElementContainerClassName } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 23,
+        "source_line_end": 23,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L23",
+        "nx_kb_anchor": "#defaultFormElementContainerClassName"
+      }
+    },
+    {
+      "symbol_id": "defaultFormElementBorderClassName",
+      "name": "defaultFormElementBorderClassName",
+      "kind": "constant",
+      "description_one_line": "defaultFormElementBorderClassName export in this file.",
+      "details": {
+        "what_it_does": "defaultFormElementBorderClassName is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { defaultFormElementBorderClassName } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingdefaultFormElementBorderClassName } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 24,
+        "source_line_end": 24,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L24",
+        "nx_kb_anchor": "#defaultFormElementBorderClassName"
+      }
+    },
+    {
+      "symbol_id": "useSortValues",
+      "name": "useSortValues",
+      "kind": "constant",
+      "description_one_line": "useSortValues export in this file.",
+      "details": {
+        "what_it_does": "useSortValues is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useSortValues } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseSortValues } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 31,
+        "source_line_end": 31,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L31",
+        "nx_kb_anchor": "#useSortValues"
+      }
+    },
+    {
+      "symbol_id": "InputContainer",
+      "name": "InputContainer",
+      "kind": "constant",
+      "description_one_line": "InputContainer export in this file.",
+      "details": {
+        "what_it_does": "InputContainer is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { InputContainer } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingInputContainer } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 41,
+        "source_line_end": 41,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L41",
+        "nx_kb_anchor": "#InputContainer"
+      }
+    },
+    {
+      "symbol_id": "DateInputContainer",
+      "name": "DateInputContainer",
+      "kind": "constant",
+      "description_one_line": "DateInputContainer export in this file.",
+      "details": {
+        "what_it_does": "DateInputContainer is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DateInputContainer } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDateInputContainer } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 121,
+        "source_line_end": 121,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L121",
+        "nx_kb_anchor": "#DateInputContainer"
+      }
+    },
+    {
+      "symbol_id": "SelectContainer",
+      "name": "SelectContainer",
+      "kind": "constant",
+      "description_one_line": "SelectContainer export in this file.",
+      "details": {
+        "what_it_does": "SelectContainer is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SelectContainer } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSelectContainer } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 252,
+        "source_line_end": 252,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L252",
+        "nx_kb_anchor": "#SelectContainer"
+      }
+    },
+    {
+      "symbol_id": "MultiSelect",
+      "name": "MultiSelect",
+      "kind": "function",
+      "description_one_line": "MultiSelect export in this file.",
+      "details": {
+        "what_it_does": "MultiSelect is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { MultiSelect } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingMultiSelect } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 358,
+        "source_line_end": 358,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L358",
+        "nx_kb_anchor": "#MultiSelect"
+      }
+    },
+    {
+      "symbol_id": "SelectWithSearch",
+      "name": "SelectWithSearch",
+      "kind": "constant",
+      "description_one_line": "SelectWithSearch export in this file.",
+      "details": {
+        "what_it_does": "SelectWithSearch is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SelectWithSearch } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSelectWithSearch } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 446,
+        "source_line_end": 446,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L446",
+        "nx_kb_anchor": "#SelectWithSearch"
+      }
+    },
+    {
+      "symbol_id": "TextAreaContainer",
+      "name": "TextAreaContainer",
+      "kind": "constant",
+      "description_one_line": "TextAreaContainer export in this file.",
+      "details": {
+        "what_it_does": "TextAreaContainer is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TextAreaContainer } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTextAreaContainer } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 538,
+        "source_line_end": 538,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L538",
+        "nx_kb_anchor": "#TextAreaContainer"
+      }
+    },
+    {
+      "symbol_id": "FormSeparator",
+      "name": "FormSeparator",
+      "kind": "constant",
+      "description_one_line": "FormSeparator export in this file.",
+      "details": {
+        "what_it_does": "FormSeparator is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { FormSeparator } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingFormSeparator } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 602,
+        "source_line_end": 602,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L602",
+        "nx_kb_anchor": "#FormSeparator"
+      }
+    },
+    {
+      "symbol_id": "CheckboxContainer",
+      "name": "CheckboxContainer",
+      "kind": "constant",
+      "description_one_line": "CheckboxContainer export in this file.",
+      "details": {
+        "what_it_does": "CheckboxContainer is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { CheckboxContainer } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingCheckboxContainer } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 610,
+        "source_line_end": 610,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L610",
+        "nx_kb_anchor": "#CheckboxContainer"
+      }
+    },
+    {
+      "symbol_id": "DurationPicker",
+      "name": "DurationPicker",
+      "kind": "constant",
+      "description_one_line": "DurationPicker export in this file.",
+      "details": {
+        "what_it_does": "DurationPicker is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DurationPicker } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDurationPicker } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 679,
+        "source_line_end": 679,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L679",
+        "nx_kb_anchor": "#DurationPicker"
+      }
+    },
+    {
+      "symbol_id": "FormElementContainer",
+      "name": "FormElementContainer",
+      "kind": "constant",
+      "description_one_line": "FormElementContainer export in this file.",
+      "details": {
+        "what_it_does": "FormElementContainer is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { FormElementContainer } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingFormElementContainer } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 758,
+        "source_line_end": 758,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L758",
+        "nx_kb_anchor": "#FormElementContainer"
+      }
+    },
+    {
+      "symbol_id": "ElementLabel",
+      "name": "ElementLabel",
+      "kind": "constant",
+      "description_one_line": "ElementLabel export in this file.",
+      "details": {
+        "what_it_does": "ElementLabel is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ElementLabel } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingElementLabel } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 791,
+        "source_line_end": 791,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L791",
+        "nx_kb_anchor": "#ElementLabel"
+      }
+    },
+    {
+      "symbol_id": "ElementsContainerProps",
+      "name": "ElementsContainerProps",
+      "kind": "interface",
+      "description_one_line": "ElementsContainerProps export in this file.",
+      "details": {
+        "what_it_does": "ElementsContainerProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ElementsContainerProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingElementsContainerProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 816,
+        "source_line_end": 816,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L816",
+        "nx_kb_anchor": "#ElementsContainerProps"
+      }
+    },
+    {
+      "symbol_id": "ElementsContainer",
+      "name": "ElementsContainer",
+      "kind": "constant",
+      "description_one_line": "ElementsContainer export in this file.",
+      "details": {
+        "what_it_does": "ElementsContainer is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ElementsContainer } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingElementsContainer } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 825,
+        "source_line_end": 825,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/ModularForm/formElements.tsx#L825",
+        "nx_kb_anchor": "#ElementsContainer"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/helpers/emails.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "emails.ts",
+  "source": {
+    "file_path": "src/helpers/emails.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.871Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/emails.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/helpers/emails.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/emails.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "axios",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "EmailAttachment",
+      "kind": "interface",
+      "description_one_line": "EmailAttachment export in this file.",
+      "symbol_id": "EmailAttachment"
+    },
+    {
+      "name": "createAttachmentFromBlob",
+      "kind": "constant",
+      "description_one_line": "createAttachmentFromBlob export in this file.",
+      "symbol_id": "createAttachmentFromBlob"
+    },
+    {
+      "name": "createAttachmentFromUrl",
+      "kind": "constant",
+      "description_one_line": "createAttachmentFromUrl export in this file.",
+      "symbol_id": "createAttachmentFromUrl"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "EmailAttachment",
+      "name": "EmailAttachment",
+      "kind": "interface",
+      "description_one_line": "EmailAttachment export in this file.",
+      "details": {
+        "what_it_does": "EmailAttachment is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { EmailAttachment } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingEmailAttachment } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/emails.ts#L3",
+        "nx_kb_anchor": "#EmailAttachment"
+      }
+    },
+    {
+      "symbol_id": "createAttachmentFromBlob",
+      "name": "createAttachmentFromBlob",
+      "kind": "constant",
+      "description_one_line": "createAttachmentFromBlob export in this file.",
+      "details": {
+        "what_it_does": "createAttachmentFromBlob is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { createAttachmentFromBlob } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingcreateAttachmentFromBlob } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/emails.ts#L10",
+        "nx_kb_anchor": "#createAttachmentFromBlob"
+      }
+    },
+    {
+      "symbol_id": "createAttachmentFromUrl",
+      "name": "createAttachmentFromUrl",
+      "kind": "constant",
+      "description_one_line": "createAttachmentFromUrl export in this file.",
+      "details": {
+        "what_it_does": "createAttachmentFromUrl is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { createAttachmentFromUrl } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingcreateAttachmentFromUrl } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 55,
+        "source_line_end": 55,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/emails.ts#L55",
+        "nx_kb_anchor": "#createAttachmentFromUrl"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

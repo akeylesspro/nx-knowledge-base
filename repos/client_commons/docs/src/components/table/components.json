@@ -1,0 +1,717 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/components/table/components.tsx",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "components.tsx",
+  "source": {
+    "file_path": "src/components/table/components.tsx",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.779Z",
+    "language": "tsx",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx",
+    "link_to_nx_kb": "/repos/client_commons/files/src/components/table/components.tsx"
+  },
+  "summary": {
+    "purpose": "Documentation for src/components/table/components.tsx.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react-dom",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/lib/utils",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/helpers",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/helpers/time_helpers",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/types",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/helpers/excel",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../../assets",
+        "resolved_file_path": "src/assets",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/assets",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/assets"
+      },
+      {
+        "import_path": "./types",
+        "resolved_file_path": "src/components/table/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/table/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/types"
+      },
+      {
+        "import_path": "./hooks",
+        "resolved_file_path": "src/components/table/hooks",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/table/hooks",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/hooks"
+      },
+      {
+        "import_path": "../ui",
+        "resolved_file_path": "src/components/ui",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/ui",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/ui"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "Filter",
+      "kind": "constant",
+      "description_one_line": "Filter export in this file.",
+      "symbol_id": "Filter"
+    },
+    {
+      "name": "MaxRowsLabel",
+      "kind": "constant",
+      "description_one_line": "MaxRowsLabel export in this file.",
+      "symbol_id": "MaxRowsLabel"
+    },
+    {
+      "name": "DisplayAllRowsButton",
+      "kind": "constant",
+      "description_one_line": "DisplayAllRowsButton export in this file.",
+      "symbol_id": "DisplayAllRowsButton"
+    },
+    {
+      "name": "ExportToExcel",
+      "kind": "constant",
+      "description_one_line": "ExportToExcel export in this file.",
+      "symbol_id": "ExportToExcel"
+    },
+    {
+      "name": "Search",
+      "kind": "constant",
+      "description_one_line": "Search export in this file.",
+      "symbol_id": "Search"
+    },
+    {
+      "name": "TableHead",
+      "kind": "constant",
+      "description_one_line": "TableHead export in this file.",
+      "symbol_id": "TableHead"
+    },
+    {
+      "name": "TableBody",
+      "kind": "constant",
+      "description_one_line": "TableBody export in this file.",
+      "symbol_id": "TableBody"
+    },
+    {
+      "name": "TableRow",
+      "kind": "constant",
+      "description_one_line": "TableRow export in this file.",
+      "symbol_id": "TableRow"
+    },
+    {
+      "name": "TableCell",
+      "kind": "constant",
+      "description_one_line": "TableCell export in this file.",
+      "symbol_id": "TableCell"
+    },
+    {
+      "name": "Summary",
+      "kind": "constant",
+      "description_one_line": "Summary export in this file.",
+      "symbol_id": "Summary"
+    },
+    {
+      "name": "TimesUI",
+      "kind": "class",
+      "description_one_line": "TimesUI export in this file.",
+      "symbol_id": "TimesUI"
+    },
+    {
+      "name": "TableButton",
+      "kind": "class",
+      "description_one_line": "TableButton export in this file.",
+      "symbol_id": "TableButton"
+    },
+    {
+      "name": "DurationUI",
+      "kind": "constant",
+      "description_one_line": "DurationUI export in this file.",
+      "symbol_id": "DurationUI"
+    },
+    {
+      "name": "PhoneUI",
+      "kind": "class",
+      "description_one_line": "PhoneUI export in this file.",
+      "symbol_id": "PhoneUI"
+    },
+    {
+      "name": "BooleanUi",
+      "kind": "class",
+      "description_one_line": "BooleanUi export in this file.",
+      "symbol_id": "BooleanUi"
+    },
+    {
+      "name": "GeoUiProps",
+      "kind": "interface",
+      "description_one_line": "GeoUiProps export in this file.",
+      "symbol_id": "GeoUiProps"
+    },
+    {
+      "name": "GeoUi",
+      "kind": "class",
+      "description_one_line": "GeoUi export in this file.",
+      "symbol_id": "GeoUi"
+    },
+    {
+      "name": "NumberUIProps",
+      "kind": "interface",
+      "description_one_line": "NumberUIProps export in this file.",
+      "symbol_id": "NumberUIProps"
+    },
+    {
+      "name": "NumberUI",
+      "kind": "class",
+      "description_one_line": "NumberUI export in this file.",
+      "symbol_id": "NumberUI"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "Filter",
+      "name": "Filter",
+      "kind": "constant",
+      "description_one_line": "Filter export in this file.",
+      "details": {
+        "what_it_does": "Filter is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { Filter } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingFilter } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 15,
+        "source_line_end": 15,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L15",
+        "nx_kb_anchor": "#Filter"
+      }
+    },
+    {
+      "symbol_id": "MaxRowsLabel",
+      "name": "MaxRowsLabel",
+      "kind": "constant",
+      "description_one_line": "MaxRowsLabel export in this file.",
+      "details": {
+        "what_it_does": "MaxRowsLabel is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { MaxRowsLabel } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingMaxRowsLabel } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 124,
+        "source_line_end": 124,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L124",
+        "nx_kb_anchor": "#MaxRowsLabel"
+      }
+    },
+    {
+      "symbol_id": "DisplayAllRowsButton",
+      "name": "DisplayAllRowsButton",
+      "kind": "constant",
+      "description_one_line": "DisplayAllRowsButton export in this file.",
+      "details": {
+        "what_it_does": "DisplayAllRowsButton is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DisplayAllRowsButton } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDisplayAllRowsButton } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 136,
+        "source_line_end": 136,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L136",
+        "nx_kb_anchor": "#DisplayAllRowsButton"
+      }
+    },
+    {
+      "symbol_id": "ExportToExcel",
+      "name": "ExportToExcel",
+      "kind": "constant",
+      "description_one_line": "ExportToExcel export in this file.",
+      "details": {
+        "what_it_does": "ExportToExcel is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ExportToExcel } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingExportToExcel } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 159,
+        "source_line_end": 159,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L159",
+        "nx_kb_anchor": "#ExportToExcel"
+      }
+    },
+    {
+      "symbol_id": "Search",
+      "name": "Search",
+      "kind": "constant",
+      "description_one_line": "Search export in this file.",
+      "details": {
+        "what_it_does": "Search is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { Search } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSearch } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 234,
+        "source_line_end": 234,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L234",
+        "nx_kb_anchor": "#Search"
+      }
+    },
+    {
+      "symbol_id": "TableHead",
+      "name": "TableHead",
+      "kind": "constant",
+      "description_one_line": "TableHead export in this file.",
+      "details": {
+        "what_it_does": "TableHead is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TableHead } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTableHead } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 250,
+        "source_line_end": 250,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L250",
+        "nx_kb_anchor": "#TableHead"
+      }
+    },
+    {
+      "symbol_id": "TableBody",
+      "name": "TableBody",
+      "kind": "constant",
+      "description_one_line": "TableBody export in this file.",
+      "details": {
+        "what_it_does": "TableBody is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TableBody } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTableBody } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 294,
+        "source_line_end": 294,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L294",
+        "nx_kb_anchor": "#TableBody"
+      }
+    },
+    {
+      "symbol_id": "TableRow",
+      "name": "TableRow",
+      "kind": "constant",
+      "description_one_line": "TableRow export in this file.",
+      "details": {
+        "what_it_does": "TableRow is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TableRow } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTableRow } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 305,
+        "source_line_end": 305,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L305",
+        "nx_kb_anchor": "#TableRow"
+      }
+    },
+    {
+      "symbol_id": "TableCell",
+      "name": "TableCell",
+      "kind": "constant",
+      "description_one_line": "TableCell export in this file.",
+      "details": {
+        "what_it_does": "TableCell is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TableCell } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTableCell } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 334,
+        "source_line_end": 334,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L334",
+        "nx_kb_anchor": "#TableCell"
+      }
+    },
+    {
+      "symbol_id": "Summary",
+      "name": "Summary",
+      "kind": "constant",
+      "description_one_line": "Summary export in this file.",
+      "details": {
+        "what_it_does": "Summary is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { Summary } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSummary } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 347,
+        "source_line_end": 347,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L347",
+        "nx_kb_anchor": "#Summary"
+      }
+    },
+    {
+      "symbol_id": "TimesUI",
+      "name": "TimesUI",
+      "kind": "class",
+      "description_one_line": "TimesUI export in this file.",
+      "details": {
+        "what_it_does": "TimesUI is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TimesUI } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTimesUI } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 383,
+        "source_line_end": 383,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L383",
+        "nx_kb_anchor": "#TimesUI"
+      }
+    },
+    {
+      "symbol_id": "TableButton",
+      "name": "TableButton",
+      "kind": "class",
+      "description_one_line": "TableButton export in this file.",
+      "details": {
+        "what_it_does": "TableButton is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TableButton } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTableButton } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 401,
+        "source_line_end": 401,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L401",
+        "nx_kb_anchor": "#TableButton"
+      }
+    },
+    {
+      "symbol_id": "DurationUI",
+      "name": "DurationUI",
+      "kind": "constant",
+      "description_one_line": "DurationUI export in this file.",
+      "details": {
+        "what_it_does": "DurationUI is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DurationUI } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDurationUI } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 436,
+        "source_line_end": 436,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L436",
+        "nx_kb_anchor": "#DurationUI"
+      }
+    },
+    {
+      "symbol_id": "PhoneUI",
+      "name": "PhoneUI",
+      "kind": "class",
+      "description_one_line": "PhoneUI export in this file.",
+      "details": {
+        "what_it_does": "PhoneUI is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { PhoneUI } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingPhoneUI } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 494,
+        "source_line_end": 494,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L494",
+        "nx_kb_anchor": "#PhoneUI"
+      }
+    },
+    {
+      "symbol_id": "BooleanUi",
+      "name": "BooleanUi",
+      "kind": "class",
+      "description_one_line": "BooleanUi export in this file.",
+      "details": {
+        "what_it_does": "BooleanUi is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { BooleanUi } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingBooleanUi } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 511,
+        "source_line_end": 511,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L511",
+        "nx_kb_anchor": "#BooleanUi"
+      }
+    },
+    {
+      "symbol_id": "GeoUiProps",
+      "name": "GeoUiProps",
+      "kind": "interface",
+      "description_one_line": "GeoUiProps export in this file.",
+      "details": {
+        "what_it_does": "GeoUiProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { GeoUiProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingGeoUiProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 517,
+        "source_line_end": 517,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L517",
+        "nx_kb_anchor": "#GeoUiProps"
+      }
+    },
+    {
+      "symbol_id": "GeoUi",
+      "name": "GeoUi",
+      "kind": "class",
+      "description_one_line": "GeoUi export in this file.",
+      "details": {
+        "what_it_does": "GeoUi is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { GeoUi } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingGeoUi } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 523,
+        "source_line_end": 523,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L523",
+        "nx_kb_anchor": "#GeoUi"
+      }
+    },
+    {
+      "symbol_id": "NumberUIProps",
+      "name": "NumberUIProps",
+      "kind": "interface",
+      "description_one_line": "NumberUIProps export in this file.",
+      "details": {
+        "what_it_does": "NumberUIProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { NumberUIProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingNumberUIProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 539,
+        "source_line_end": 539,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L539",
+        "nx_kb_anchor": "#NumberUIProps"
+      }
+    },
+    {
+      "symbol_id": "NumberUI",
+      "name": "NumberUI",
+      "kind": "class",
+      "description_one_line": "NumberUI export in this file.",
+      "details": {
+        "what_it_does": "NumberUI is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { NumberUI } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingNumberUI } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 544,
+        "source_line_end": 544,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components.tsx#L544",
+        "nx_kb_anchor": "#NumberUI"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/managers/index.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "src/managers/index.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.990Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers/index.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/managers/index.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/managers/index.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [],
+  "symbols": [],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/helpers/time_helpers.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "time_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/time_helpers.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.902Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/time_helpers.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/helpers/time_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/time_helpers.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "firebase/firestore",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "moment-timezone",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "timestamp_to_string",
+      "kind": "function",
+      "description_one_line": "timestamp_to_string export in this file.",
+      "symbol_id": "timestamp_to_string"
+    },
+    {
+      "name": "timestamp_to_millis",
+      "kind": "function",
+      "description_one_line": "timestamp_to_millis export in this file.",
+      "symbol_id": "timestamp_to_millis"
+    },
+    {
+      "name": "sort_by_timestamp",
+      "kind": "function",
+      "description_one_line": "sort_by_timestamp export in this file.",
+      "symbol_id": "sort_by_timestamp"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "timestamp_to_string",
+      "name": "timestamp_to_string",
+      "kind": "function",
+      "description_one_line": "timestamp_to_string export in this file.",
+      "details": {
+        "what_it_does": "timestamp_to_string is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { timestamp_to_string } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingtimestamp_to_string } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/time_helpers.ts#L11",
+        "nx_kb_anchor": "#timestamp_to_string"
+      }
+    },
+    {
+      "symbol_id": "timestamp_to_millis",
+      "name": "timestamp_to_millis",
+      "kind": "function",
+      "description_one_line": "timestamp_to_millis export in this file.",
+      "details": {
+        "what_it_does": "timestamp_to_millis is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { timestamp_to_millis } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingtimestamp_to_millis } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 70,
+        "source_line_end": 70,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/time_helpers.ts#L70",
+        "nx_kb_anchor": "#timestamp_to_millis"
+      }
+    },
+    {
+      "symbol_id": "sort_by_timestamp",
+      "name": "sort_by_timestamp",
+      "kind": "function",
+      "description_one_line": "sort_by_timestamp export in this file.",
+      "details": {
+        "what_it_does": "sort_by_timestamp is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { sort_by_timestamp } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsort_by_timestamp } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 115,
+        "source_line_end": 115,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/time_helpers.ts#L115",
+        "nx_kb_anchor": "#sort_by_timestamp"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

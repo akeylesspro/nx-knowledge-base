@@ -1,0 +1,109 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/location_helpers.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "location_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/location_helpers.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.959Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/location_helpers.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/location_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/location_helpers.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "get_distance_in_meters_between_geo_points",
+      "kind": "constant",
+      "description_one_line": "get_distance_in_meters_between_geo_points export in this file.",
+      "symbol_id": "get_distance_in_meters_between_geo_points"
+    },
+    {
+      "name": "get_location_url",
+      "kind": "constant",
+      "description_one_line": "get_location_url export in this file.",
+      "symbol_id": "get_location_url"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "get_distance_in_meters_between_geo_points",
+      "name": "get_distance_in_meters_between_geo_points",
+      "kind": "constant",
+      "description_one_line": "get_distance_in_meters_between_geo_points export in this file.",
+      "details": {
+        "what_it_does": "get_distance_in_meters_between_geo_points is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_distance_in_meters_between_geo_points } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_distance_in_meters_between_geo_points } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/location_helpers.ts#L3",
+        "nx_kb_anchor": "#get_distance_in_meters_between_geo_points"
+      }
+    },
+    {
+      "symbol_id": "get_location_url",
+      "name": "get_location_url",
+      "kind": "constant",
+      "description_one_line": "get_location_url export in this file.",
+      "details": {
+        "what_it_does": "get_location_url is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_location_url } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_location_url } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 17,
+        "source_line_end": 17,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/location_helpers.ts#L17",
+        "nx_kb_anchor": "#get_location_url"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

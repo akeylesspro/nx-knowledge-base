@@ -1,0 +1,119 @@
+name: sync-agent
+
+on:
+  repository_dispatch:
+    types: [nx-kb-sync]
+  workflow_dispatch:
+    inputs:
+      repo_name:
+        type: choice
+        required: true
+        default: client_commons
+        options:
+          - client_commons
+          - server_commons
+      source_repo_full_name:
+        type: string
+        required: true
+        default: akeylesspro/akeyless-client-commons
+      commit_sha:
+        type: string
+        required: false
+      branch:
+        type: string
+        required: false
+      signature:
+        type: string
+        required: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout NX-KB
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Write dispatch payload
+        run: |
+          mkdir -p .tmp
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            echo '${{ toJson(github.event.client_payload) }}' > .tmp/sync-payload.json
+          else
+            cat <<EOF > .tmp/sync-payload.json
+          {"repo_name":"${{ inputs.repo_name }}","source_repo_full_name":"${{ inputs.source_repo_full_name }}","commit_sha":"${{ inputs.commit_sha }}","branch":"${{ inputs.branch }}","timestamp":"${{ github.run_started_at }}","signature":"${{ inputs.signature }}"}
+          EOF
+          fi
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Verify source payload signature
+        if: ${{ secrets.NX_KB_WEBHOOK_SECRET != '' && (github.event.client_payload.signature != '' || inputs.signature != '') }}
+        env:
+          DISPATCH_SECRET: ${{ secrets.NX_KB_WEBHOOK_SECRET }}
+          DISPATCH_SIGNATURE: ${{ github.event.client_payload.signature || inputs.signature }}
+        run: pnpm run kb:verify-dispatch -- --payload .tmp/sync-payload.json
+
+      - name: Resolve source repo map
+        id: source-map
+        run: |
+          repo_name=$(node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('.tmp/sync-payload.json','utf8'));process.stdout.write(p.repo_name || '${{ inputs.repo_name }}')")
+          source_repo=$(node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('.tmp/sync-payload.json','utf8'));process.stdout.write(p.source_repo_full_name || '${{ inputs.source_repo_full_name }}')")
+          echo "repo_name=$repo_name" >> $GITHUB_OUTPUT
+          echo "source_repo=$source_repo" >> $GITHUB_OUTPUT
+
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ steps.source-map.outputs.source_repo }}
+          token: ${{ secrets.NX_KB_DISPATCH_TOKEN }}
+          path: source-repo
+          fetch-depth: 0
+
+      - name: Generate docs and OpenAPI
+        env:
+          SOURCE_REPO_PATH: ${{ github.workspace }}/source-repo
+        run: |
+          pnpm run kb:generate-docs -- --payload .tmp/sync-payload.json --repo ${{ steps.source-map.outputs.repo_name }}
+          pnpm run kb:generate-openapi -- --payload .tmp/sync-payload.json --repo ${{ steps.source-map.outputs.repo_name }}
+          pnpm run kb:apply-overrides -- --repo ${{ steps.source-map.outputs.repo_name }}
+          pnpm run kb:build-search-index
+
+      - name: Validate generated content
+        env:
+          SOURCE_REPOS_ROOT: ${{ github.workspace }}
+        run: |
+          pnpm run kb:validate-docs
+          pnpm run kb:security-scan
+
+      - name: Create sync PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.NX_KB_DISPATCH_TOKEN }}
+          branch: sync/${{ steps.source-map.outputs.repo_name }}-${{ github.run_id }}
+          title: "docs(sync): update ${{ steps.source-map.outputs.repo_name }} from source changes"
+          body: |
+            ## Summary
+            - Updated generated docs and OpenAPI for `${{ steps.source-map.outputs.repo_name }}`
+            - Applied manual overrides safely
+            - Rebuilt search index
+          labels: |
+            sync-agent
+            auto-generated

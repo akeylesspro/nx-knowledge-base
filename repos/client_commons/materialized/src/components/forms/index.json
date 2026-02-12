@@ -1,0 +1,203 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/components/forms/index.tsx",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.tsx",
+  "source": {
+    "file_path": "src/components/forms/index.tsx",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.752Z",
+    "language": "tsx",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/index.tsx",
+    "link_to_nx_kb": "/repos/client_commons/files/src/components/forms/index.tsx"
+  },
+  "summary": {
+    "purpose": "Documentation for src/components/forms/index.tsx.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "moment",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/lib/utils",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "lucide-react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react-aria-components",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@internationalized/date",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/components/ui/calendar-rac",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/components/ui/datefield-rac",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react-aria-components",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../../assets",
+        "resolved_file_path": "src/assets",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/assets",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/assets"
+      },
+      {
+        "import_path": "../utils",
+        "resolved_file_path": "src/components/utils",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/utils",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/utils"
+      },
+      {
+        "import_path": "../../types",
+        "resolved_file_path": "src/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "ConfirmForm",
+      "kind": "constant",
+      "description_one_line": "ConfirmForm export in this file.",
+      "symbol_id": "ConfirmForm"
+    },
+    {
+      "name": "DatePicker",
+      "kind": "constant",
+      "description_one_line": "DatePicker export in this file.",
+      "symbol_id": "DatePicker"
+    },
+    {
+      "name": "DatePicker2",
+      "kind": "function",
+      "description_one_line": "DatePicker2 export in this file.",
+      "symbol_id": "DatePicker2"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "ConfirmForm",
+      "name": "ConfirmForm",
+      "kind": "constant",
+      "description_one_line": "ConfirmForm export in this file.",
+      "details": {
+        "what_it_does": "ConfirmForm is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ConfirmForm } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingConfirmForm } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/index.tsx#L16",
+        "nx_kb_anchor": "#ConfirmForm"
+      }
+    },
+    {
+      "symbol_id": "DatePicker",
+      "name": "DatePicker",
+      "kind": "constant",
+      "description_one_line": "DatePicker export in this file.",
+      "details": {
+        "what_it_does": "DatePicker is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DatePicker } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDatePicker } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 47,
+        "source_line_end": 47,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/index.tsx#L47",
+        "nx_kb_anchor": "#DatePicker"
+      }
+    },
+    {
+      "symbol_id": "DatePicker2",
+      "name": "DatePicker2",
+      "kind": "function",
+      "description_one_line": "DatePicker2 export in this file.",
+      "details": {
+        "what_it_does": "DatePicker2 is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DatePicker2 } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDatePicker2 } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 104,
+        "source_line_end": 104,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/forms/index.tsx#L104",
+        "nx_kb_anchor": "#DatePicker2"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

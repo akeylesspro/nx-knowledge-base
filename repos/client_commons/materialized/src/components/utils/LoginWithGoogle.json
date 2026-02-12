@@ -1,0 +1,137 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/components/utils/LoginWithGoogle.tsx",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "LoginWithGoogle.tsx",
+  "source": {
+    "file_path": "src/components/utils/LoginWithGoogle.tsx",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.861Z",
+    "language": "tsx",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/utils/LoginWithGoogle.tsx",
+    "link_to_nx_kb": "/repos/client_commons/files/src/components/utils/LoginWithGoogle.tsx"
+  },
+  "summary": {
+    "purpose": "Documentation for src/components/utils/LoginWithGoogle.tsx.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "src/helpers",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "firebase/auth",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/types",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./loaders",
+        "resolved_file_path": "src/components/utils/loaders",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/utils/loaders",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/utils/loaders"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "LoginWithGoogleCallback",
+      "kind": "type",
+      "description_one_line": "LoginWithGoogleCallback export in this file.",
+      "symbol_id": "LoginWithGoogleCallback"
+    },
+    {
+      "name": "LoginWithGoogleButton",
+      "kind": "constant",
+      "description_one_line": "LoginWithGoogleButton export in this file.",
+      "symbol_id": "LoginWithGoogleButton"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "LoginWithGoogleCallback",
+      "name": "LoginWithGoogleCallback",
+      "kind": "type",
+      "description_one_line": "LoginWithGoogleCallback export in this file.",
+      "details": {
+        "what_it_does": "LoginWithGoogleCallback is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { LoginWithGoogleCallback } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingLoginWithGoogleCallback } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 35,
+        "source_line_end": 35,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/utils/LoginWithGoogle.tsx#L35",
+        "nx_kb_anchor": "#LoginWithGoogleCallback"
+      }
+    },
+    {
+      "symbol_id": "LoginWithGoogleButton",
+      "name": "LoginWithGoogleButton",
+      "kind": "constant",
+      "description_one_line": "LoginWithGoogleButton export in this file.",
+      "details": {
+        "what_it_does": "LoginWithGoogleButton is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { LoginWithGoogleButton } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingLoginWithGoogleButton } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 52,
+        "source_line_end": 52,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/utils/LoginWithGoogle.tsx#L52",
+        "nx_kb_anchor": "#LoginWithGoogleButton"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

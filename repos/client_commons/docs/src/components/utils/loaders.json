@@ -1,0 +1,119 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/components/utils/loaders.tsx",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "loaders.tsx",
+  "source": {
+    "file_path": "src/components/utils/loaders.tsx",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.857Z",
+    "language": "tsx",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/utils/loaders.tsx",
+    "link_to_nx_kb": "/repos/client_commons/files/src/components/utils/loaders.tsx"
+  },
+  "summary": {
+    "purpose": "Documentation for src/components/utils/loaders.tsx.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react-spinners",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/helpers",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "LoaderProps",
+      "kind": "interface",
+      "description_one_line": "LoaderProps export in this file.",
+      "symbol_id": "LoaderProps"
+    },
+    {
+      "name": "Loader",
+      "kind": "class",
+      "description_one_line": "Loader export in this file.",
+      "symbol_id": "Loader"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "LoaderProps",
+      "name": "LoaderProps",
+      "kind": "interface",
+      "description_one_line": "LoaderProps export in this file.",
+      "details": {
+        "what_it_does": "LoaderProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { LoaderProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingLoaderProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 5,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/utils/loaders.tsx#L5",
+        "nx_kb_anchor": "#LoaderProps"
+      }
+    },
+    {
+      "symbol_id": "Loader",
+      "name": "Loader",
+      "kind": "class",
+      "description_one_line": "Loader export in this file.",
+      "details": {
+        "what_it_does": "Loader is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { Loader } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingLoader } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/utils/loaders.tsx#L12",
+        "nx_kb_anchor": "#Loader"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

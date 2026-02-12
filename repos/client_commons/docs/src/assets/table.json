@@ -1,0 +1,167 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/assets/table.tsx",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "table.tsx",
+  "source": {
+    "file_path": "src/assets/table.tsx",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.746Z",
+    "language": "tsx",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/assets/table.tsx",
+    "link_to_nx_kb": "/repos/client_commons/files/src/assets/table.tsx"
+  },
+  "summary": {
+    "purpose": "Documentation for src/assets/table.tsx.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "sortSvg",
+      "kind": "constant",
+      "description_one_line": "sortSvg export in this file.",
+      "symbol_id": "sortSvg"
+    },
+    {
+      "name": "emptyFilterSvg",
+      "kind": "constant",
+      "description_one_line": "emptyFilterSvg export in this file.",
+      "symbol_id": "emptyFilterSvg"
+    },
+    {
+      "name": "slashFilterSvg",
+      "kind": "constant",
+      "description_one_line": "slashFilterSvg export in this file.",
+      "symbol_id": "slashFilterSvg"
+    },
+    {
+      "name": "exportToExcelSvg",
+      "kind": "constant",
+      "description_one_line": "exportToExcelSvg export in this file.",
+      "symbol_id": "exportToExcelSvg"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "sortSvg",
+      "name": "sortSvg",
+      "kind": "constant",
+      "description_one_line": "sortSvg export in this file.",
+      "details": {
+        "what_it_does": "sortSvg is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { sortSvg } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingsortSvg } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/assets/table.tsx#L1",
+        "nx_kb_anchor": "#sortSvg"
+      }
+    },
+    {
+      "symbol_id": "emptyFilterSvg",
+      "name": "emptyFilterSvg",
+      "kind": "constant",
+      "description_one_line": "emptyFilterSvg export in this file.",
+      "details": {
+        "what_it_does": "emptyFilterSvg is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { emptyFilterSvg } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingemptyFilterSvg } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 20,
+        "source_line_end": 20,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/assets/table.tsx#L20",
+        "nx_kb_anchor": "#emptyFilterSvg"
+      }
+    },
+    {
+      "symbol_id": "slashFilterSvg",
+      "name": "slashFilterSvg",
+      "kind": "constant",
+      "description_one_line": "slashFilterSvg export in this file.",
+      "details": {
+        "what_it_does": "slashFilterSvg is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { slashFilterSvg } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingslashFilterSvg } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 53,
+        "source_line_end": 53,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/assets/table.tsx#L53",
+        "nx_kb_anchor": "#slashFilterSvg"
+      }
+    },
+    {
+      "symbol_id": "exportToExcelSvg",
+      "name": "exportToExcelSvg",
+      "kind": "constant",
+      "description_one_line": "exportToExcelSvg export in this file.",
+      "details": {
+        "what_it_does": "exportToExcelSvg is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { exportToExcelSvg } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingexportToExcelSvg } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 92,
+        "source_line_end": 92,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/assets/table.tsx#L92",
+        "nx_kb_anchor": "#exportToExcelSvg"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

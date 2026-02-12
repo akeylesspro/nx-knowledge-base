@@ -1,0 +1,199 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/types/types/global.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "src/types/types/global.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.936Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/global.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/types/types/global.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/types/types/global.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "Direction",
+      "kind": "type",
+      "description_one_line": "Direction export in this file.",
+      "symbol_id": "Direction"
+    },
+    {
+      "name": "SetState",
+      "kind": "type",
+      "description_one_line": "SetState export in this file.",
+      "symbol_id": "SetState"
+    },
+    {
+      "name": "ModularPopUp",
+      "kind": "type",
+      "description_one_line": "ModularPopUp export in this file.",
+      "symbol_id": "ModularPopUp"
+    },
+    {
+      "name": "AppName",
+      "kind": "type",
+      "description_one_line": "AppName export in this file.",
+      "symbol_id": "AppName"
+    },
+    {
+      "name": "LoginOption",
+      "kind": "type",
+      "description_one_line": "LoginOption export in this file.",
+      "symbol_id": "LoginOption"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "Direction",
+      "name": "Direction",
+      "kind": "type",
+      "description_one_line": "Direction export in this file.",
+      "details": {
+        "what_it_does": "Direction is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { Direction } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDirection } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/global.ts#L1",
+        "nx_kb_anchor": "#Direction"
+      }
+    },
+    {
+      "symbol_id": "SetState",
+      "name": "SetState",
+      "kind": "type",
+      "description_one_line": "SetState export in this file.",
+      "details": {
+        "what_it_does": "SetState is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SetState } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSetState } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/global.ts#L3",
+        "nx_kb_anchor": "#SetState"
+      }
+    },
+    {
+      "symbol_id": "ModularPopUp",
+      "name": "ModularPopUp",
+      "kind": "type",
+      "description_one_line": "ModularPopUp export in this file.",
+      "details": {
+        "what_it_does": "ModularPopUp is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ModularPopUp } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingModularPopUp } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 5,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/global.ts#L5",
+        "nx_kb_anchor": "#ModularPopUp"
+      }
+    },
+    {
+      "symbol_id": "AppName",
+      "name": "AppName",
+      "kind": "type",
+      "description_one_line": "AppName export in this file.",
+      "details": {
+        "what_it_does": "AppName is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { AppName } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingAppName } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/global.ts#L16",
+        "nx_kb_anchor": "#AppName"
+      }
+    },
+    {
+      "symbol_id": "LoginOption",
+      "name": "LoginOption",
+      "kind": "type",
+      "description_one_line": "LoginOption export in this file.",
+      "details": {
+        "what_it_does": "LoginOption is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { LoginOption } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingLoginOption } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 17,
+        "source_line_end": 17,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types/global.ts#L17",
+        "nx_kb_anchor": "#LoginOption"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

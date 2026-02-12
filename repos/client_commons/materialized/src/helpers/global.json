@@ -1,0 +1,427 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/helpers/global.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "src/helpers/global.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.885Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/helpers/global.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/global.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "axios",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "lodash",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/types",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./firebase",
+        "resolved_file_path": "src/helpers/firebase",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/helpers/firebase",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/firebase"
+      },
+      {
+        "import_path": "./phoneNumber",
+        "resolved_file_path": "src/helpers/phoneNumber",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/helpers/phoneNumber",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "calculateBearing",
+      "kind": "constant",
+      "description_one_line": "calculateBearing export in this file.",
+      "symbol_id": "calculateBearing"
+    },
+    {
+      "name": "renderOnce",
+      "kind": "constant",
+      "description_one_line": "renderOnce export in this file.",
+      "symbol_id": "renderOnce"
+    },
+    {
+      "name": "propsAreEqual",
+      "kind": "constant",
+      "description_one_line": "propsAreEqual export in this file.",
+      "symbol_id": "propsAreEqual"
+    },
+    {
+      "name": "getUserCountryByIp",
+      "kind": "constant",
+      "description_one_line": "getUserCountryByIp export in this file.",
+      "symbol_id": "getUserCountryByIp"
+    },
+    {
+      "name": "userNameFormat",
+      "kind": "constant",
+      "description_one_line": "userNameFormat export in this file.",
+      "symbol_id": "userNameFormat"
+    },
+    {
+      "name": "multiStringFormat",
+      "kind": "constant",
+      "description_one_line": "multiStringFormat export in this file.",
+      "symbol_id": "multiStringFormat"
+    },
+    {
+      "name": "getLocationUrl",
+      "kind": "constant",
+      "description_one_line": "getLocationUrl export in this file.",
+      "symbol_id": "getLocationUrl"
+    },
+    {
+      "name": "isNodeEnv",
+      "kind": "type",
+      "description_one_line": "isNodeEnv export in this file.",
+      "symbol_id": "isNodeEnv"
+    },
+    {
+      "name": "getFixedNumber",
+      "kind": "constant",
+      "description_one_line": "getFixedNumber export in this file.",
+      "symbol_id": "getFixedNumber"
+    },
+    {
+      "name": "getAddressByGeo",
+      "kind": "constant",
+      "description_one_line": "getAddressByGeo export in this file.",
+      "symbol_id": "getAddressByGeo"
+    },
+    {
+      "name": "validateAndCast",
+      "kind": "constant",
+      "description_one_line": "validateAndCast export in this file.",
+      "symbol_id": "validateAndCast"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "calculateBearing",
+      "name": "calculateBearing",
+      "kind": "constant",
+      "description_one_line": "calculateBearing export in this file.",
+      "details": {
+        "what_it_does": "calculateBearing is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { calculateBearing } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingcalculateBearing } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L8",
+        "nx_kb_anchor": "#calculateBearing"
+      }
+    },
+    {
+      "symbol_id": "renderOnce",
+      "name": "renderOnce",
+      "kind": "constant",
+      "description_one_line": "renderOnce export in this file.",
+      "details": {
+        "what_it_does": "renderOnce is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { renderOnce } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingrenderOnce } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 28,
+        "source_line_end": 28,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L28",
+        "nx_kb_anchor": "#renderOnce"
+      }
+    },
+    {
+      "symbol_id": "propsAreEqual",
+      "name": "propsAreEqual",
+      "kind": "constant",
+      "description_one_line": "propsAreEqual export in this file.",
+      "details": {
+        "what_it_does": "propsAreEqual is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { propsAreEqual } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingpropsAreEqual } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 32,
+        "source_line_end": 32,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L32",
+        "nx_kb_anchor": "#propsAreEqual"
+      }
+    },
+    {
+      "symbol_id": "getUserCountryByIp",
+      "name": "getUserCountryByIp",
+      "kind": "constant",
+      "description_one_line": "getUserCountryByIp export in this file.",
+      "details": {
+        "what_it_does": "getUserCountryByIp is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { getUserCountryByIp } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinggetUserCountryByIp } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 36,
+        "source_line_end": 36,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L36",
+        "nx_kb_anchor": "#getUserCountryByIp"
+      }
+    },
+    {
+      "symbol_id": "userNameFormat",
+      "name": "userNameFormat",
+      "kind": "constant",
+      "description_one_line": "userNameFormat export in this file.",
+      "details": {
+        "what_it_does": "userNameFormat is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { userNameFormat } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguserNameFormat } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 47,
+        "source_line_end": 47,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L47",
+        "nx_kb_anchor": "#userNameFormat"
+      }
+    },
+    {
+      "symbol_id": "multiStringFormat",
+      "name": "multiStringFormat",
+      "kind": "constant",
+      "description_one_line": "multiStringFormat export in this file.",
+      "details": {
+        "what_it_does": "multiStringFormat is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { multiStringFormat } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingmultiStringFormat } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 51,
+        "source_line_end": 51,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L51",
+        "nx_kb_anchor": "#multiStringFormat"
+      }
+    },
+    {
+      "symbol_id": "getLocationUrl",
+      "name": "getLocationUrl",
+      "kind": "constant",
+      "description_one_line": "getLocationUrl export in this file.",
+      "details": {
+        "what_it_does": "getLocationUrl is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { getLocationUrl } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinggetLocationUrl } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 55,
+        "source_line_end": 55,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L55",
+        "nx_kb_anchor": "#getLocationUrl"
+      }
+    },
+    {
+      "symbol_id": "isNodeEnv",
+      "name": "isNodeEnv",
+      "kind": "type",
+      "description_one_line": "isNodeEnv export in this file.",
+      "details": {
+        "what_it_does": "isNodeEnv is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { isNodeEnv } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingisNodeEnv } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 58,
+        "source_line_end": 58,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L58",
+        "nx_kb_anchor": "#isNodeEnv"
+      }
+    },
+    {
+      "symbol_id": "getFixedNumber",
+      "name": "getFixedNumber",
+      "kind": "constant",
+      "description_one_line": "getFixedNumber export in this file.",
+      "details": {
+        "what_it_does": "getFixedNumber is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { getFixedNumber } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinggetFixedNumber } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 65,
+        "source_line_end": 65,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L65",
+        "nx_kb_anchor": "#getFixedNumber"
+      }
+    },
+    {
+      "symbol_id": "getAddressByGeo",
+      "name": "getAddressByGeo",
+      "kind": "constant",
+      "description_one_line": "getAddressByGeo export in this file.",
+      "details": {
+        "what_it_does": "getAddressByGeo is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { getAddressByGeo } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinggetAddressByGeo } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 70,
+        "source_line_end": 70,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L70",
+        "nx_kb_anchor": "#getAddressByGeo"
+      }
+    },
+    {
+      "symbol_id": "validateAndCast",
+      "name": "validateAndCast",
+      "kind": "constant",
+      "description_one_line": "validateAndCast export in this file.",
+      "details": {
+        "what_it_does": "validateAndCast is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { validateAndCast } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingvalidateAndCast } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 87,
+        "source_line_end": 87,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global.ts#L87",
+        "nx_kb_anchor": "#validateAndCast"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

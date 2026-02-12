@@ -1,0 +1,186 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/components/table/types.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "types.ts",
+  "source": {
+    "file_path": "src/components/table/types.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.796Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/types.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/components/table/types.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/components/table/types.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../../types",
+        "resolved_file_path": "src/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "TableProviderType",
+      "kind": "interface",
+      "description_one_line": "TableProviderType export in this file.",
+      "symbol_id": "TableProviderType"
+    },
+    {
+      "name": "UseFilterProps",
+      "kind": "interface",
+      "description_one_line": "UseFilterProps export in this file.",
+      "symbol_id": "UseFilterProps"
+    },
+    {
+      "name": "TableProps",
+      "kind": "interface",
+      "description_one_line": "TableProps export in this file.",
+      "symbol_id": "TableProps"
+    },
+    {
+      "name": "FilterProps",
+      "kind": "interface",
+      "description_one_line": "FilterProps export in this file.",
+      "symbol_id": "FilterProps"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "TableProviderType",
+      "name": "TableProviderType",
+      "kind": "interface",
+      "description_one_line": "TableProviderType export in this file.",
+      "details": {
+        "what_it_does": "TableProviderType is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TableProviderType } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTableProviderType } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/types.ts#L10",
+        "nx_kb_anchor": "#TableProviderType"
+      }
+    },
+    {
+      "symbol_id": "UseFilterProps",
+      "name": "UseFilterProps",
+      "kind": "interface",
+      "description_one_line": "UseFilterProps export in this file.",
+      "details": {
+        "what_it_does": "UseFilterProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { UseFilterProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingUseFilterProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 31,
+        "source_line_end": 31,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/types.ts#L31",
+        "nx_kb_anchor": "#UseFilterProps"
+      }
+    },
+    {
+      "symbol_id": "TableProps",
+      "name": "TableProps",
+      "kind": "interface",
+      "description_one_line": "TableProps export in this file.",
+      "details": {
+        "what_it_does": "TableProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TableProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTableProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 35,
+        "source_line_end": 35,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/types.ts#L35",
+        "nx_kb_anchor": "#TableProps"
+      }
+    },
+    {
+      "symbol_id": "FilterProps",
+      "name": "FilterProps",
+      "kind": "interface",
+      "description_one_line": "FilterProps export in this file.",
+      "details": {
+        "what_it_does": "FilterProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { FilterProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingFilterProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 99,
+        "source_line_end": 99,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/types.ts#L99",
+        "nx_kb_anchor": "#FilterProps"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

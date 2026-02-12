@@ -1,0 +1,153 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/components/table/Table.tsx",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "Table.tsx",
+  "source": {
+    "file_path": "src/components/table/Table.tsx",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.792Z",
+    "language": "tsx",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/Table.tsx",
+    "link_to_nx_kb": "/repos/client_commons/files/src/components/table/Table.tsx"
+  },
+  "summary": {
+    "purpose": "Documentation for src/components/table/Table.tsx.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/lib/utils",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "lodash",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/helpers/forms",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./components",
+        "resolved_file_path": "src/components/table/components",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/table/components",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/components"
+      },
+      {
+        "import_path": "./types",
+        "resolved_file_path": "src/components/table/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/table/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/types"
+      },
+      {
+        "import_path": "./hooks",
+        "resolved_file_path": "src/components/table/hooks",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/table/hooks",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/hooks"
+      },
+      {
+        "import_path": "../ui/table",
+        "resolved_file_path": "src/components/ui/table",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/components/ui/table",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/ui/table"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "TableContext",
+      "kind": "constant",
+      "description_one_line": "TableContext export in this file.",
+      "symbol_id": "TableContext"
+    },
+    {
+      "name": "TableProvider",
+      "kind": "constant",
+      "description_one_line": "TableProvider export in this file.",
+      "symbol_id": "TableProvider"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "TableContext",
+      "name": "TableContext",
+      "kind": "constant",
+      "description_one_line": "TableContext export in this file.",
+      "details": {
+        "what_it_does": "TableContext is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TableContext } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTableContext } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/Table.tsx#L10",
+        "nx_kb_anchor": "#TableContext"
+      }
+    },
+    {
+      "symbol_id": "TableProvider",
+      "name": "TableProvider",
+      "kind": "constant",
+      "description_one_line": "TableProvider export in this file.",
+      "details": {
+        "what_it_does": "TableProvider is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TableProvider } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTableProvider } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/table/Table.tsx#L12",
+        "nx_kb_anchor": "#TableProvider"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

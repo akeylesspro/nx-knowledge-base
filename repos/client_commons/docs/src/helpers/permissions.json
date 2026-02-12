@@ -1,0 +1,161 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/helpers/permissions.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "permissions.ts",
+  "source": {
+    "file_path": "src/helpers/permissions.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.892Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/permissions.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/helpers/permissions.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/permissions.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/types",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./phoneNumber",
+        "resolved_file_path": "src/helpers/phoneNumber",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/helpers/phoneNumber",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/phoneNumber"
+      },
+      {
+        "import_path": "./firebase",
+        "resolved_file_path": "src/helpers/firebase",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/helpers/firebase",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/firebase"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "checkUserPermissions",
+      "kind": "constant",
+      "description_one_line": "checkUserPermissions export in this file.",
+      "symbol_id": "checkUserPermissions"
+    },
+    {
+      "name": "parsePermissions",
+      "kind": "constant",
+      "description_one_line": "parsePermissions export in this file.",
+      "symbol_id": "parsePermissions"
+    },
+    {
+      "name": "initializeUserPermissions",
+      "kind": "constant",
+      "description_one_line": "initializeUserPermissions export in this file.",
+      "symbol_id": "initializeUserPermissions"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "checkUserPermissions",
+      "name": "checkUserPermissions",
+      "kind": "constant",
+      "description_one_line": "checkUserPermissions export in this file.",
+      "details": {
+        "what_it_does": "checkUserPermissions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { checkUserPermissions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingcheckUserPermissions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/permissions.ts#L6",
+        "nx_kb_anchor": "#checkUserPermissions"
+      }
+    },
+    {
+      "symbol_id": "parsePermissions",
+      "name": "parsePermissions",
+      "kind": "constant",
+      "description_one_line": "parsePermissions export in this file.",
+      "details": {
+        "what_it_does": "parsePermissions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { parsePermissions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingparsePermissions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 26,
+        "source_line_end": 26,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/permissions.ts#L26",
+        "nx_kb_anchor": "#parsePermissions"
+      }
+    },
+    {
+      "symbol_id": "initializeUserPermissions",
+      "name": "initializeUserPermissions",
+      "kind": "constant",
+      "description_one_line": "initializeUserPermissions export in this file.",
+      "details": {
+        "what_it_does": "initializeUserPermissions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { initializeUserPermissions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinginitializeUserPermissions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 54,
+        "source_line_end": 54,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/permissions.ts#L54",
+        "nx_kb_anchor": "#initializeUserPermissions"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

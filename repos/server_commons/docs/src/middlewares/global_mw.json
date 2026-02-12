@@ -1,0 +1,163 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/middlewares/global_mw.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global_mw.ts",
+  "source": {
+    "file_path": "src/middlewares/global_mw.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:40.003Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/middlewares/global_mw.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/middlewares/global_mw.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/middlewares/global_mw.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "express",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../helpers",
+        "resolved_file_path": "src/helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers"
+      },
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types"
+      },
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/managers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "mandatory",
+      "kind": "constant",
+      "description_one_line": "mandatory export in this file.",
+      "symbol_id": "mandatory"
+    },
+    {
+      "name": "optional",
+      "kind": "constant",
+      "description_one_line": "optional export in this file.",
+      "symbol_id": "optional"
+    },
+    {
+      "name": "request_logger",
+      "kind": "constant",
+      "description_one_line": "request_logger export in this file.",
+      "symbol_id": "request_logger"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "mandatory",
+      "name": "mandatory",
+      "kind": "constant",
+      "description_one_line": "mandatory export in this file.",
+      "details": {
+        "what_it_does": "mandatory is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { mandatory } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingmandatory } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 56,
+        "source_line_end": 56,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/middlewares/global_mw.ts#L56",
+        "nx_kb_anchor": "#mandatory"
+      }
+    },
+    {
+      "symbol_id": "optional",
+      "name": "optional",
+      "kind": "constant",
+      "description_one_line": "optional export in this file.",
+      "details": {
+        "what_it_does": "optional is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { optional } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingoptional } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 81,
+        "source_line_end": 81,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/middlewares/global_mw.ts#L81",
+        "nx_kb_anchor": "#optional"
+      }
+    },
+    {
+      "symbol_id": "request_logger",
+      "name": "request_logger",
+      "kind": "constant",
+      "description_one_line": "request_logger export in this file.",
+      "details": {
+        "what_it_does": "request_logger is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { request_logger } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingrequest_logger } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 106,
+        "source_line_end": 106,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/middlewares/global_mw.ts#L106",
+        "nx_kb_anchor": "#request_logger"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

@@ -1,0 +1,437 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/phone_number_helpers.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "phone_number_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/phone_number_helpers.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.967Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/phone_number_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/phone_number_helpers.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../types/enums",
+        "resolved_file_path": "src/types/enums",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/types/enums",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types/enums"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "is_long_phone_number",
+      "kind": "constant",
+      "description_one_line": "is_long_phone_number export in this file.",
+      "symbol_id": "is_long_phone_number"
+    },
+    {
+      "name": "is_israel_long_phone_number",
+      "kind": "constant",
+      "description_one_line": "is_israel_long_phone_number export in this file.",
+      "symbol_id": "is_israel_long_phone_number"
+    },
+    {
+      "name": "is_thailand_long_phone_number",
+      "kind": "constant",
+      "description_one_line": "is_thailand_long_phone_number export in this file.",
+      "symbol_id": "is_thailand_long_phone_number"
+    },
+    {
+      "name": "is_international_phone_number",
+      "kind": "constant",
+      "description_one_line": "is_international_phone_number export in this file.",
+      "symbol_id": "is_international_phone_number"
+    },
+    {
+      "name": "is_iccid",
+      "kind": "constant",
+      "description_one_line": "is_iccid export in this file.",
+      "symbol_id": "is_iccid"
+    },
+    {
+      "name": "convert_to_short_israel_phone",
+      "kind": "constant",
+      "description_one_line": "convert_to_short_israel_phone export in this file.",
+      "symbol_id": "convert_to_short_israel_phone"
+    },
+    {
+      "name": "is_sim_provider_partner",
+      "kind": "constant",
+      "description_one_line": "is_sim_provider_partner export in this file.",
+      "symbol_id": "is_sim_provider_partner"
+    },
+    {
+      "name": "is_sim_provider_pelephone",
+      "kind": "constant",
+      "description_one_line": "is_sim_provider_pelephone export in this file.",
+      "symbol_id": "is_sim_provider_pelephone"
+    },
+    {
+      "name": "is_sim_provider_celcom",
+      "kind": "constant",
+      "description_one_line": "is_sim_provider_celcom export in this file.",
+      "symbol_id": "is_sim_provider_celcom"
+    },
+    {
+      "name": "is_sim_provider_monogoto",
+      "kind": "constant",
+      "description_one_line": "is_sim_provider_monogoto export in this file.",
+      "symbol_id": "is_sim_provider_monogoto"
+    },
+    {
+      "name": "get_sim_provider",
+      "kind": "constant",
+      "description_one_line": "get_sim_provider export in this file.",
+      "symbol_id": "get_sim_provider"
+    },
+    {
+      "name": "long_short_phone_numbers",
+      "kind": "constant",
+      "description_one_line": "long_short_phone_numbers export in this file.",
+      "symbol_id": "long_short_phone_numbers"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "is_long_phone_number",
+      "name": "is_long_phone_number",
+      "kind": "constant",
+      "description_one_line": "is_long_phone_number export in this file.",
+      "details": {
+        "what_it_does": "is_long_phone_number is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_long_phone_number } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_long_phone_number } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 4,
+        "source_line_end": 4,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L4",
+        "nx_kb_anchor": "#is_long_phone_number"
+      }
+    },
+    {
+      "symbol_id": "is_israel_long_phone_number",
+      "name": "is_israel_long_phone_number",
+      "kind": "constant",
+      "description_one_line": "is_israel_long_phone_number export in this file.",
+      "details": {
+        "what_it_does": "is_israel_long_phone_number is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_israel_long_phone_number } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_israel_long_phone_number } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L8",
+        "nx_kb_anchor": "#is_israel_long_phone_number"
+      }
+    },
+    {
+      "symbol_id": "is_thailand_long_phone_number",
+      "name": "is_thailand_long_phone_number",
+      "kind": "constant",
+      "description_one_line": "is_thailand_long_phone_number export in this file.",
+      "details": {
+        "what_it_does": "is_thailand_long_phone_number is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_thailand_long_phone_number } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_thailand_long_phone_number } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L12",
+        "nx_kb_anchor": "#is_thailand_long_phone_number"
+      }
+    },
+    {
+      "symbol_id": "is_international_phone_number",
+      "name": "is_international_phone_number",
+      "kind": "constant",
+      "description_one_line": "is_international_phone_number export in this file.",
+      "details": {
+        "what_it_does": "is_international_phone_number is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_international_phone_number } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_international_phone_number } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L16",
+        "nx_kb_anchor": "#is_international_phone_number"
+      }
+    },
+    {
+      "symbol_id": "is_iccid",
+      "name": "is_iccid",
+      "kind": "constant",
+      "description_one_line": "is_iccid export in this file.",
+      "details": {
+        "what_it_does": "is_iccid is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_iccid } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_iccid } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 20,
+        "source_line_end": 20,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L20",
+        "nx_kb_anchor": "#is_iccid"
+      }
+    },
+    {
+      "symbol_id": "convert_to_short_israel_phone",
+      "name": "convert_to_short_israel_phone",
+      "kind": "constant",
+      "description_one_line": "convert_to_short_israel_phone export in this file.",
+      "details": {
+        "what_it_does": "convert_to_short_israel_phone is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { convert_to_short_israel_phone } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingconvert_to_short_israel_phone } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 27,
+        "source_line_end": 27,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L27",
+        "nx_kb_anchor": "#convert_to_short_israel_phone"
+      }
+    },
+    {
+      "symbol_id": "is_sim_provider_partner",
+      "name": "is_sim_provider_partner",
+      "kind": "constant",
+      "description_one_line": "is_sim_provider_partner export in this file.",
+      "details": {
+        "what_it_does": "is_sim_provider_partner is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_sim_provider_partner } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_sim_provider_partner } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 31,
+        "source_line_end": 31,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L31",
+        "nx_kb_anchor": "#is_sim_provider_partner"
+      }
+    },
+    {
+      "symbol_id": "is_sim_provider_pelephone",
+      "name": "is_sim_provider_pelephone",
+      "kind": "constant",
+      "description_one_line": "is_sim_provider_pelephone export in this file.",
+      "details": {
+        "what_it_does": "is_sim_provider_pelephone is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_sim_provider_pelephone } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_sim_provider_pelephone } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 36,
+        "source_line_end": 36,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L36",
+        "nx_kb_anchor": "#is_sim_provider_pelephone"
+      }
+    },
+    {
+      "symbol_id": "is_sim_provider_celcom",
+      "name": "is_sim_provider_celcom",
+      "kind": "constant",
+      "description_one_line": "is_sim_provider_celcom export in this file.",
+      "details": {
+        "what_it_does": "is_sim_provider_celcom is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_sim_provider_celcom } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_sim_provider_celcom } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 41,
+        "source_line_end": 41,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L41",
+        "nx_kb_anchor": "#is_sim_provider_celcom"
+      }
+    },
+    {
+      "symbol_id": "is_sim_provider_monogoto",
+      "name": "is_sim_provider_monogoto",
+      "kind": "constant",
+      "description_one_line": "is_sim_provider_monogoto export in this file.",
+      "details": {
+        "what_it_does": "is_sim_provider_monogoto is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { is_sim_provider_monogoto } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingis_sim_provider_monogoto } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 46,
+        "source_line_end": 46,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L46",
+        "nx_kb_anchor": "#is_sim_provider_monogoto"
+      }
+    },
+    {
+      "symbol_id": "get_sim_provider",
+      "name": "get_sim_provider",
+      "kind": "constant",
+      "description_one_line": "get_sim_provider export in this file.",
+      "details": {
+        "what_it_does": "get_sim_provider is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_sim_provider } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_sim_provider } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 50,
+        "source_line_end": 50,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L50",
+        "nx_kb_anchor": "#get_sim_provider"
+      }
+    },
+    {
+      "symbol_id": "long_short_phone_numbers",
+      "name": "long_short_phone_numbers",
+      "kind": "constant",
+      "description_one_line": "long_short_phone_numbers export in this file.",
+      "details": {
+        "what_it_does": "long_short_phone_numbers is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { long_short_phone_numbers } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missinglong_short_phone_numbers } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 66,
+        "source_line_end": 66,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers.ts#L66",
+        "nx_kb_anchor": "#long_short_phone_numbers"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

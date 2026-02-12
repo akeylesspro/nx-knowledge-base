@@ -1,0 +1,117 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/managers/translation_manager.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "translation_manager.ts",
+  "source": {
+    "file_path": "src/managers/translation_manager.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.995Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers/translation_manager.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/managers/translation_manager.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/managers/translation_manager.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "TranslationManager",
+      "kind": "class",
+      "description_one_line": "TranslationManager export in this file.",
+      "symbol_id": "TranslationManager"
+    },
+    {
+      "name": "translation_manager",
+      "kind": "constant",
+      "description_one_line": "translation_manager export in this file.",
+      "symbol_id": "translation_manager"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "TranslationManager",
+      "name": "TranslationManager",
+      "kind": "class",
+      "description_one_line": "TranslationManager export in this file.",
+      "details": {
+        "what_it_does": "TranslationManager is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TranslationManager } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTranslationManager } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 4,
+        "source_line_end": 4,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers/translation_manager.ts#L4",
+        "nx_kb_anchor": "#TranslationManager"
+      }
+    },
+    {
+      "symbol_id": "translation_manager",
+      "name": "translation_manager",
+      "kind": "constant",
+      "description_one_line": "translation_manager export in this file.",
+      "details": {
+        "what_it_does": "translation_manager is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { translation_manager } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingtranslation_manager } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 40,
+        "source_line_end": 40,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers/translation_manager.ts#L40",
+        "nx_kb_anchor": "#translation_manager"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

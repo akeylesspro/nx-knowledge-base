@@ -1,0 +1,1123 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/firebase_helpers.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "firebase_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/firebase_helpers.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.953Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/firebase_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/firebase_helpers.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "perf_hooks",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "firebase-admin",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "firebase-admin/auth",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "dotenv",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "firebase-admin/firestore",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/types"
+      },
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/managers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers"
+      },
+      {
+        "import_path": "./global_helpers",
+        "resolved_file_path": "src/helpers/global_helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers/global_helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers"
+      },
+      {
+        "import_path": "./redis",
+        "resolved_file_path": "src/helpers/redis",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers/redis",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "service_account_firebase",
+      "kind": "constant",
+      "description_one_line": "service_account_firebase export in this file.",
+      "symbol_id": "service_account_firebase"
+    },
+    {
+      "name": "db",
+      "kind": "constant",
+      "description_one_line": "db export in this file.",
+      "symbol_id": "db"
+    },
+    {
+      "name": "messaging",
+      "kind": "constant",
+      "description_one_line": "messaging export in this file.",
+      "symbol_id": "messaging"
+    },
+    {
+      "name": "auth",
+      "kind": "constant",
+      "description_one_line": "auth export in this file.",
+      "symbol_id": "auth"
+    },
+    {
+      "name": "storage",
+      "kind": "constant",
+      "description_one_line": "storage export in this file.",
+      "symbol_id": "storage"
+    },
+    {
+      "name": "simple_extract_data",
+      "kind": "constant",
+      "description_one_line": "simple_extract_data export in this file.",
+      "symbol_id": "simple_extract_data"
+    },
+    {
+      "name": "get_all_documents",
+      "kind": "constant",
+      "description_one_line": "get_all_documents export in this file.",
+      "symbol_id": "get_all_documents"
+    },
+    {
+      "name": "query_documents",
+      "kind": "constant",
+      "description_one_line": "query_documents export in this file.",
+      "symbol_id": "query_documents"
+    },
+    {
+      "name": "query_documents_by_conditions",
+      "kind": "constant",
+      "description_one_line": "query_documents_by_conditions export in this file.",
+      "symbol_id": "query_documents_by_conditions"
+    },
+    {
+      "name": "query_document_by_conditions",
+      "kind": "constant",
+      "description_one_line": "query_document_by_conditions export in this file.",
+      "symbol_id": "query_document_by_conditions"
+    },
+    {
+      "name": "query_document",
+      "kind": "constant",
+      "description_one_line": "query_document export in this file.",
+      "symbol_id": "query_document"
+    },
+    {
+      "name": "query_document_optional",
+      "kind": "constant",
+      "description_one_line": "query_document_optional export in this file.",
+      "symbol_id": "query_document_optional"
+    },
+    {
+      "name": "get_document_by_id",
+      "kind": "constant",
+      "description_one_line": "get_document_by_id export in this file.",
+      "symbol_id": "get_document_by_id"
+    },
+    {
+      "name": "get_document_by_id_optional",
+      "kind": "constant",
+      "description_one_line": "get_document_by_id_optional export in this file.",
+      "symbol_id": "get_document_by_id_optional"
+    },
+    {
+      "name": "set_document",
+      "kind": "constant",
+      "description_one_line": "set_document export in this file.",
+      "symbol_id": "set_document"
+    },
+    {
+      "name": "add_document",
+      "kind": "constant",
+      "description_one_line": "add_document export in this file.",
+      "symbol_id": "add_document"
+    },
+    {
+      "name": "delete_document",
+      "kind": "constant",
+      "description_one_line": "delete_document export in this file.",
+      "symbol_id": "delete_document"
+    },
+    {
+      "name": "verify_token",
+      "kind": "constant",
+      "description_one_line": "verify_token export in this file.",
+      "symbol_id": "verify_token"
+    },
+    {
+      "name": "parse_add_update_as_object",
+      "kind": "constant",
+      "description_one_line": "parse_add_update_as_object export in this file.",
+      "symbol_id": "parse_add_update_as_object"
+    },
+    {
+      "name": "parse_delete_as_object",
+      "kind": "constant",
+      "description_one_line": "parse_delete_as_object export in this file.",
+      "symbol_id": "parse_delete_as_object"
+    },
+    {
+      "name": "parse_add_update_as_array",
+      "kind": "constant",
+      "description_one_line": "parse_add_update_as_array export in this file.",
+      "symbol_id": "parse_add_update_as_array"
+    },
+    {
+      "name": "parse_delete_as_array",
+      "kind": "constant",
+      "description_one_line": "parse_delete_as_array export in this file.",
+      "symbol_id": "parse_delete_as_array"
+    },
+    {
+      "name": "snapshot",
+      "kind": "constant",
+      "description_one_line": "snapshot export in this file.",
+      "symbol_id": "snapshot"
+    },
+    {
+      "name": "init_snapshots",
+      "kind": "constant",
+      "description_one_line": "init_snapshots export in this file.",
+      "symbol_id": "init_snapshots"
+    },
+    {
+      "name": "snapshot_bulk",
+      "kind": "constant",
+      "description_one_line": "snapshot_bulk export in this file.",
+      "symbol_id": "snapshot_bulk"
+    },
+    {
+      "name": "get_default_parsers",
+      "kind": "constant",
+      "description_one_line": "get_default_parsers export in this file.",
+      "symbol_id": "get_default_parsers"
+    },
+    {
+      "name": "snapshot_bulk_by_names",
+      "kind": "constant",
+      "description_one_line": "snapshot_bulk_by_names export in this file.",
+      "symbol_id": "snapshot_bulk_by_names"
+    },
+    {
+      "name": "add_audit_record",
+      "kind": "constant",
+      "description_one_line": "add_audit_record export in this file.",
+      "symbol_id": "add_audit_record"
+    },
+    {
+      "name": "SaveFileOptions",
+      "kind": "interface",
+      "description_one_line": "SaveFileOptions export in this file.",
+      "symbol_id": "SaveFileOptions"
+    },
+    {
+      "name": "save_file_in_storage",
+      "kind": "constant",
+      "description_one_line": "save_file_in_storage export in this file.",
+      "symbol_id": "save_file_in_storage"
+    },
+    {
+      "name": "get_file_url_from_storage",
+      "kind": "constant",
+      "description_one_line": "get_file_url_from_storage export in this file.",
+      "symbol_id": "get_file_url_from_storage"
+    },
+    {
+      "name": "get_nx_settings",
+      "kind": "constant",
+      "description_one_line": "get_nx_settings export in this file.",
+      "symbol_id": "get_nx_settings"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "service_account_firebase",
+      "name": "service_account_firebase",
+      "kind": "constant",
+      "description_one_line": "service_account_firebase export in this file.",
+      "details": {
+        "what_it_does": "service_account_firebase is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { service_account_firebase } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingservice_account_firebase } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 43,
+        "source_line_end": 43,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L43",
+        "nx_kb_anchor": "#service_account_firebase"
+      }
+    },
+    {
+      "symbol_id": "db",
+      "name": "db",
+      "kind": "constant",
+      "description_one_line": "db export in this file.",
+      "details": {
+        "what_it_does": "db is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { db } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingdb } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 60,
+        "source_line_end": 60,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L60",
+        "nx_kb_anchor": "#db"
+      }
+    },
+    {
+      "symbol_id": "messaging",
+      "name": "messaging",
+      "kind": "constant",
+      "description_one_line": "messaging export in this file.",
+      "details": {
+        "what_it_does": "messaging is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { messaging } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingmessaging } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 61,
+        "source_line_end": 61,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L61",
+        "nx_kb_anchor": "#messaging"
+      }
+    },
+    {
+      "symbol_id": "auth",
+      "name": "auth",
+      "kind": "constant",
+      "description_one_line": "auth export in this file.",
+      "details": {
+        "what_it_does": "auth is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { auth } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingauth } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 62,
+        "source_line_end": 62,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L62",
+        "nx_kb_anchor": "#auth"
+      }
+    },
+    {
+      "symbol_id": "storage",
+      "name": "storage",
+      "kind": "constant",
+      "description_one_line": "storage export in this file.",
+      "details": {
+        "what_it_does": "storage is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { storage } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingstorage } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 63,
+        "source_line_end": 63,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L63",
+        "nx_kb_anchor": "#storage"
+      }
+    },
+    {
+      "symbol_id": "simple_extract_data",
+      "name": "simple_extract_data",
+      "kind": "constant",
+      "description_one_line": "simple_extract_data export in this file.",
+      "details": {
+        "what_it_does": "simple_extract_data is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { simple_extract_data } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsimple_extract_data } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 66,
+        "source_line_end": 66,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L66",
+        "nx_kb_anchor": "#simple_extract_data"
+      }
+    },
+    {
+      "symbol_id": "get_all_documents",
+      "name": "get_all_documents",
+      "kind": "constant",
+      "description_one_line": "get_all_documents export in this file.",
+      "details": {
+        "what_it_does": "get_all_documents is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_all_documents } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_all_documents } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 75,
+        "source_line_end": 75,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L75",
+        "nx_kb_anchor": "#get_all_documents"
+      }
+    },
+    {
+      "symbol_id": "query_documents",
+      "name": "query_documents",
+      "kind": "constant",
+      "description_one_line": "query_documents export in this file.",
+      "details": {
+        "what_it_does": "query_documents is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { query_documents } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingquery_documents } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 88,
+        "source_line_end": 88,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L88",
+        "nx_kb_anchor": "#query_documents"
+      }
+    },
+    {
+      "symbol_id": "query_documents_by_conditions",
+      "name": "query_documents_by_conditions",
+      "kind": "constant",
+      "description_one_line": "query_documents_by_conditions export in this file.",
+      "details": {
+        "what_it_does": "query_documents_by_conditions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { query_documents_by_conditions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingquery_documents_by_conditions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 100,
+        "source_line_end": 100,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L100",
+        "nx_kb_anchor": "#query_documents_by_conditions"
+      }
+    },
+    {
+      "symbol_id": "query_document_by_conditions",
+      "name": "query_document_by_conditions",
+      "kind": "constant",
+      "description_one_line": "query_document_by_conditions export in this file.",
+      "details": {
+        "what_it_does": "query_document_by_conditions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { query_document_by_conditions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingquery_document_by_conditions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 116,
+        "source_line_end": 116,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L116",
+        "nx_kb_anchor": "#query_document_by_conditions"
+      }
+    },
+    {
+      "symbol_id": "query_document",
+      "name": "query_document",
+      "kind": "constant",
+      "description_one_line": "query_document export in this file.",
+      "details": {
+        "what_it_does": "query_document is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { query_document } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingquery_document } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 138,
+        "source_line_end": 138,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L138",
+        "nx_kb_anchor": "#query_document"
+      }
+    },
+    {
+      "symbol_id": "query_document_optional",
+      "name": "query_document_optional",
+      "kind": "constant",
+      "description_one_line": "query_document_optional export in this file.",
+      "details": {
+        "what_it_does": "query_document_optional is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { query_document_optional } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingquery_document_optional } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 155,
+        "source_line_end": 155,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L155",
+        "nx_kb_anchor": "#query_document_optional"
+      }
+    },
+    {
+      "symbol_id": "get_document_by_id",
+      "name": "get_document_by_id",
+      "kind": "constant",
+      "description_one_line": "get_document_by_id export in this file.",
+      "details": {
+        "what_it_does": "get_document_by_id is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_document_by_id } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_document_by_id } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 169,
+        "source_line_end": 169,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L169",
+        "nx_kb_anchor": "#get_document_by_id"
+      }
+    },
+    {
+      "symbol_id": "get_document_by_id_optional",
+      "name": "get_document_by_id_optional",
+      "kind": "constant",
+      "description_one_line": "get_document_by_id_optional export in this file.",
+      "details": {
+        "what_it_does": "get_document_by_id_optional is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_document_by_id_optional } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_document_by_id_optional } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 183,
+        "source_line_end": 183,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L183",
+        "nx_kb_anchor": "#get_document_by_id_optional"
+      }
+    },
+    {
+      "symbol_id": "set_document",
+      "name": "set_document",
+      "kind": "constant",
+      "description_one_line": "set_document export in this file.",
+      "details": {
+        "what_it_does": "set_document is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { set_document } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingset_document } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 197,
+        "source_line_end": 197,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L197",
+        "nx_kb_anchor": "#set_document"
+      }
+    },
+    {
+      "symbol_id": "add_document",
+      "name": "add_document",
+      "kind": "constant",
+      "description_one_line": "add_document export in this file.",
+      "details": {
+        "what_it_does": "add_document is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { add_document } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingadd_document } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 209,
+        "source_line_end": 209,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L209",
+        "nx_kb_anchor": "#add_document"
+      }
+    },
+    {
+      "symbol_id": "delete_document",
+      "name": "delete_document",
+      "kind": "constant",
+      "description_one_line": "delete_document export in this file.",
+      "details": {
+        "what_it_does": "delete_document is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { delete_document } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingdelete_document } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 221,
+        "source_line_end": 221,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L221",
+        "nx_kb_anchor": "#delete_document"
+      }
+    },
+    {
+      "symbol_id": "verify_token",
+      "name": "verify_token",
+      "kind": "constant",
+      "description_one_line": "verify_token export in this file.",
+      "details": {
+        "what_it_does": "verify_token is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { verify_token } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingverify_token } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 230,
+        "source_line_end": 230,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L230",
+        "nx_kb_anchor": "#verify_token"
+      }
+    },
+    {
+      "symbol_id": "parse_add_update_as_object",
+      "name": "parse_add_update_as_object",
+      "kind": "constant",
+      "description_one_line": "parse_add_update_as_object export in this file.",
+      "details": {
+        "what_it_does": "parse_add_update_as_object is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { parse_add_update_as_object } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingparse_add_update_as_object } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 292,
+        "source_line_end": 292,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L292",
+        "nx_kb_anchor": "#parse_add_update_as_object"
+      }
+    },
+    {
+      "symbol_id": "parse_delete_as_object",
+      "name": "parse_delete_as_object",
+      "kind": "constant",
+      "description_one_line": "parse_delete_as_object export in this file.",
+      "details": {
+        "what_it_does": "parse_delete_as_object is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { parse_delete_as_object } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingparse_delete_as_object } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 301,
+        "source_line_end": 301,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L301",
+        "nx_kb_anchor": "#parse_delete_as_object"
+      }
+    },
+    {
+      "symbol_id": "parse_add_update_as_array",
+      "name": "parse_add_update_as_array",
+      "kind": "constant",
+      "description_one_line": "parse_add_update_as_array export in this file.",
+      "details": {
+        "what_it_does": "parse_add_update_as_array is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { parse_add_update_as_array } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingparse_add_update_as_array } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 312,
+        "source_line_end": 312,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L312",
+        "nx_kb_anchor": "#parse_add_update_as_array"
+      }
+    },
+    {
+      "symbol_id": "parse_delete_as_array",
+      "name": "parse_delete_as_array",
+      "kind": "constant",
+      "description_one_line": "parse_delete_as_array export in this file.",
+      "details": {
+        "what_it_does": "parse_delete_as_array is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { parse_delete_as_array } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingparse_delete_as_array } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 320,
+        "source_line_end": 320,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L320",
+        "nx_kb_anchor": "#parse_delete_as_array"
+      }
+    },
+    {
+      "symbol_id": "snapshot",
+      "name": "snapshot",
+      "kind": "constant",
+      "description_one_line": "snapshot export in this file.",
+      "details": {
+        "what_it_does": "snapshot is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { snapshot } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsnapshot } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 331,
+        "source_line_end": 331,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L331",
+        "nx_kb_anchor": "#snapshot"
+      }
+    },
+    {
+      "symbol_id": "init_snapshots",
+      "name": "init_snapshots",
+      "kind": "constant",
+      "description_one_line": "init_snapshots export in this file.",
+      "details": {
+        "what_it_does": "init_snapshots is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { init_snapshots } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missinginit_snapshots } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 454,
+        "source_line_end": 454,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L454",
+        "nx_kb_anchor": "#init_snapshots"
+      }
+    },
+    {
+      "symbol_id": "snapshot_bulk",
+      "name": "snapshot_bulk",
+      "kind": "constant",
+      "description_one_line": "snapshot_bulk export in this file.",
+      "details": {
+        "what_it_does": "snapshot_bulk is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { snapshot_bulk } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsnapshot_bulk } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 481,
+        "source_line_end": 481,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L481",
+        "nx_kb_anchor": "#snapshot_bulk"
+      }
+    },
+    {
+      "symbol_id": "get_default_parsers",
+      "name": "get_default_parsers",
+      "kind": "constant",
+      "description_one_line": "get_default_parsers export in this file.",
+      "details": {
+        "what_it_does": "get_default_parsers is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_default_parsers } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_default_parsers } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 506,
+        "source_line_end": 506,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L506",
+        "nx_kb_anchor": "#get_default_parsers"
+      }
+    },
+    {
+      "symbol_id": "snapshot_bulk_by_names",
+      "name": "snapshot_bulk_by_names",
+      "kind": "constant",
+      "description_one_line": "snapshot_bulk_by_names export in this file.",
+      "details": {
+        "what_it_does": "snapshot_bulk_by_names is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { snapshot_bulk_by_names } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsnapshot_bulk_by_names } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 514,
+        "source_line_end": 514,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L514",
+        "nx_kb_anchor": "#snapshot_bulk_by_names"
+      }
+    },
+    {
+      "symbol_id": "add_audit_record",
+      "name": "add_audit_record",
+      "kind": "constant",
+      "description_one_line": "add_audit_record export in this file.",
+      "details": {
+        "what_it_does": "add_audit_record is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { add_audit_record } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingadd_audit_record } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 562,
+        "source_line_end": 562,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L562",
+        "nx_kb_anchor": "#add_audit_record"
+      }
+    },
+    {
+      "symbol_id": "SaveFileOptions",
+      "name": "SaveFileOptions",
+      "kind": "interface",
+      "description_one_line": "SaveFileOptions export in this file.",
+      "details": {
+        "what_it_does": "SaveFileOptions is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SaveFileOptions } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSaveFileOptions } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 577,
+        "source_line_end": 577,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L577",
+        "nx_kb_anchor": "#SaveFileOptions"
+      }
+    },
+    {
+      "symbol_id": "save_file_in_storage",
+      "name": "save_file_in_storage",
+      "kind": "constant",
+      "description_one_line": "save_file_in_storage export in this file.",
+      "details": {
+        "what_it_does": "save_file_in_storage is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { save_file_in_storage } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsave_file_in_storage } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 586,
+        "source_line_end": 586,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L586",
+        "nx_kb_anchor": "#save_file_in_storage"
+      }
+    },
+    {
+      "symbol_id": "get_file_url_from_storage",
+      "name": "get_file_url_from_storage",
+      "kind": "constant",
+      "description_one_line": "get_file_url_from_storage export in this file.",
+      "details": {
+        "what_it_does": "get_file_url_from_storage is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_file_url_from_storage } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_file_url_from_storage } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 618,
+        "source_line_end": 618,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L618",
+        "nx_kb_anchor": "#get_file_url_from_storage"
+      }
+    },
+    {
+      "symbol_id": "get_nx_settings",
+      "name": "get_nx_settings",
+      "kind": "constant",
+      "description_one_line": "get_nx_settings export in this file.",
+      "details": {
+        "what_it_does": "get_nx_settings is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_nx_settings } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_nx_settings } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 640,
+        "source_line_end": 640,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers.ts#L640",
+        "nx_kb_anchor": "#get_nx_settings"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

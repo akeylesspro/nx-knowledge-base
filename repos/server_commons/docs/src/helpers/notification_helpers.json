@@ -1,0 +1,193 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/notification_helpers.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "notification_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/notification_helpers.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.964Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/notification_helpers.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/notification_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/notification_helpers.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "axios",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "firebase-admin/messaging",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "twilio",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "firebase-admin/firestore",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "uuid",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "form-data",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/managers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers"
+      },
+      {
+        "import_path": "./firebase_helpers",
+        "resolved_file_path": "src/helpers/firebase_helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers/firebase_helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/firebase_helpers"
+      },
+      {
+        "import_path": "./phone_number_helpers",
+        "resolved_file_path": "src/helpers/phone_number_helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers/phone_number_helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/phone_number_helpers"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "send_sms",
+      "kind": "constant",
+      "description_one_line": "send_sms export in this file.",
+      "symbol_id": "send_sms"
+    },
+    {
+      "name": "push_event_to_mobile_users",
+      "kind": "constant",
+      "description_one_line": "push_event_to_mobile_users export in this file.",
+      "symbol_id": "push_event_to_mobile_users"
+    },
+    {
+      "name": "send_fcm_message",
+      "kind": "constant",
+      "description_one_line": "send_fcm_message export in this file.",
+      "symbol_id": "send_fcm_message"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "send_sms",
+      "name": "send_sms",
+      "kind": "constant",
+      "description_one_line": "send_sms export in this file.",
+      "details": {
+        "what_it_does": "send_sms is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { send_sms } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsend_sms } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 109,
+        "source_line_end": 109,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/notification_helpers.ts#L109",
+        "nx_kb_anchor": "#send_sms"
+      }
+    },
+    {
+      "symbol_id": "push_event_to_mobile_users",
+      "name": "push_event_to_mobile_users",
+      "kind": "constant",
+      "description_one_line": "push_event_to_mobile_users export in this file.",
+      "details": {
+        "what_it_does": "push_event_to_mobile_users is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { push_event_to_mobile_users } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingpush_event_to_mobile_users } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 163,
+        "source_line_end": 163,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/notification_helpers.ts#L163",
+        "nx_kb_anchor": "#push_event_to_mobile_users"
+      }
+    },
+    {
+      "symbol_id": "send_fcm_message",
+      "name": "send_fcm_message",
+      "kind": "constant",
+      "description_one_line": "send_fcm_message export in this file.",
+      "details": {
+        "what_it_does": "send_fcm_message is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { send_fcm_message } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsend_fcm_message } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 214,
+        "source_line_end": 214,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/notification_helpers.ts#L214",
+        "nx_kb_anchor": "#send_fcm_message"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

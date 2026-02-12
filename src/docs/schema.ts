@@ -18,6 +18,8 @@ export type ConfidenceLevel = "low" | "medium" | "high";
       ========================================================= */
 
 export interface KnowledgeBaseSchema {
+    schema_version: string;
+    doc_id: string;
     repo: RepoMetadata;
     file_name: string;
     source: SourceMetadata;

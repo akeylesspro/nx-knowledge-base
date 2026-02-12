@@ -1,0 +1,173 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/redis/initialize.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "initialize.ts",
+  "source": {
+    "file_path": "src/helpers/redis/initialize.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.972Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/initialize.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/redis/initialize.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/redis/initialize.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "ioredis",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "dotenv",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./keys",
+        "resolved_file_path": "src/helpers/redis/keys",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers/redis/keys",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/keys"
+      },
+      {
+        "import_path": "../global_helpers",
+        "resolved_file_path": "src/helpers/global_helpers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/helpers/global_helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/global_helpers"
+      },
+      {
+        "import_path": "../../managers",
+        "resolved_file_path": "src/managers",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/server_commons/files/src/managers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/managers"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "init_redis",
+      "kind": "constant",
+      "description_one_line": "init_redis export in this file.",
+      "symbol_id": "init_redis"
+    },
+    {
+      "name": "get_redis_commander",
+      "kind": "constant",
+      "description_one_line": "get_redis_commander export in this file.",
+      "symbol_id": "get_redis_commander"
+    },
+    {
+      "name": "get_redis_listener",
+      "kind": "constant",
+      "description_one_line": "get_redis_listener export in this file.",
+      "symbol_id": "get_redis_listener"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "init_redis",
+      "name": "init_redis",
+      "kind": "constant",
+      "description_one_line": "init_redis export in this file.",
+      "details": {
+        "what_it_does": "init_redis is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { init_redis } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missinginit_redis } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 75,
+        "source_line_end": 75,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/initialize.ts#L75",
+        "nx_kb_anchor": "#init_redis"
+      }
+    },
+    {
+      "symbol_id": "get_redis_commander",
+      "name": "get_redis_commander",
+      "kind": "constant",
+      "description_one_line": "get_redis_commander export in this file.",
+      "details": {
+        "what_it_does": "get_redis_commander is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_redis_commander } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_redis_commander } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 149,
+        "source_line_end": 149,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/initialize.ts#L149",
+        "nx_kb_anchor": "#get_redis_commander"
+      }
+    },
+    {
+      "symbol_id": "get_redis_listener",
+      "name": "get_redis_listener",
+      "kind": "constant",
+      "description_one_line": "get_redis_listener export in this file.",
+      "details": {
+        "what_it_does": "get_redis_listener is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { get_redis_listener } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingget_redis_listener } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 156,
+        "source_line_end": 156,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/redis/initialize.ts#L156",
+        "nx_kb_anchor": "#get_redis_listener"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

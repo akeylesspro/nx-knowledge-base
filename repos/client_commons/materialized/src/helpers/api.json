@@ -1,0 +1,449 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/helpers/api.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "api.ts",
+  "source": {
+    "file_path": "src/helpers/api.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.867Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/helpers/api.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/api.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "axios",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./firebase",
+        "resolved_file_path": "src/helpers/firebase",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/helpers/firebase",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/firebase"
+      },
+      {
+        "import_path": "./global",
+        "resolved_file_path": "src/helpers/global",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/helpers/global",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/global"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "baseDomain",
+      "kind": "constant",
+      "description_one_line": "baseDomain export in this file.",
+      "symbol_id": "baseDomain"
+    },
+    {
+      "name": "devicesDomain",
+      "kind": "constant",
+      "description_one_line": "devicesDomain export in this file.",
+      "symbol_id": "devicesDomain"
+    },
+    {
+      "name": "biDomain",
+      "kind": "constant",
+      "description_one_line": "biDomain export in this file.",
+      "symbol_id": "biDomain"
+    },
+    {
+      "name": "notificationsDomain",
+      "kind": "constant",
+      "description_one_line": "notificationsDomain export in this file.",
+      "symbol_id": "notificationsDomain"
+    },
+    {
+      "name": "endUsersDomain",
+      "kind": "constant",
+      "description_one_line": "endUsersDomain export in this file.",
+      "symbol_id": "endUsersDomain"
+    },
+    {
+      "name": "callCenterGeoDomain",
+      "kind": "constant",
+      "description_one_line": "callCenterGeoDomain export in this file.",
+      "symbol_id": "callCenterGeoDomain"
+    },
+    {
+      "name": "callCenterEventsDomain",
+      "kind": "constant",
+      "description_one_line": "callCenterEventsDomain export in this file.",
+      "symbol_id": "callCenterEventsDomain"
+    },
+    {
+      "name": "dataSocketDomain",
+      "kind": "constant",
+      "description_one_line": "dataSocketDomain export in this file.",
+      "symbol_id": "dataSocketDomain"
+    },
+    {
+      "name": "dataSyncDomain",
+      "kind": "constant",
+      "description_one_line": "dataSyncDomain export in this file.",
+      "symbol_id": "dataSyncDomain"
+    },
+    {
+      "name": "chargeDomain",
+      "kind": "constant",
+      "description_one_line": "chargeDomain export in this file.",
+      "symbol_id": "chargeDomain"
+    },
+    {
+      "name": "akeylessOnlineDomain",
+      "kind": "constant",
+      "description_one_line": "akeylessOnlineDomain export in this file.",
+      "symbol_id": "akeylessOnlineDomain"
+    },
+    {
+      "name": "nxApiCall",
+      "kind": "constant",
+      "description_one_line": "nxApiCall export in this file.",
+      "symbol_id": "nxApiCall"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "baseDomain",
+      "name": "baseDomain",
+      "kind": "constant",
+      "description_one_line": "baseDomain export in this file.",
+      "details": {
+        "what_it_does": "baseDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { baseDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingbaseDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L6",
+        "nx_kb_anchor": "#baseDomain"
+      }
+    },
+    {
+      "symbol_id": "devicesDomain",
+      "name": "devicesDomain",
+      "kind": "constant",
+      "description_one_line": "devicesDomain export in this file.",
+      "details": {
+        "what_it_does": "devicesDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { devicesDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingdevicesDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 7,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L7",
+        "nx_kb_anchor": "#devicesDomain"
+      }
+    },
+    {
+      "symbol_id": "biDomain",
+      "name": "biDomain",
+      "kind": "constant",
+      "description_one_line": "biDomain export in this file.",
+      "details": {
+        "what_it_does": "biDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { biDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingbiDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L8",
+        "nx_kb_anchor": "#biDomain"
+      }
+    },
+    {
+      "symbol_id": "notificationsDomain",
+      "name": "notificationsDomain",
+      "kind": "constant",
+      "description_one_line": "notificationsDomain export in this file.",
+      "details": {
+        "what_it_does": "notificationsDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { notificationsDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingnotificationsDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 9,
+        "source_line_end": 9,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L9",
+        "nx_kb_anchor": "#notificationsDomain"
+      }
+    },
+    {
+      "symbol_id": "endUsersDomain",
+      "name": "endUsersDomain",
+      "kind": "constant",
+      "description_one_line": "endUsersDomain export in this file.",
+      "details": {
+        "what_it_does": "endUsersDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { endUsersDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingendUsersDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L10",
+        "nx_kb_anchor": "#endUsersDomain"
+      }
+    },
+    {
+      "symbol_id": "callCenterGeoDomain",
+      "name": "callCenterGeoDomain",
+      "kind": "constant",
+      "description_one_line": "callCenterGeoDomain export in this file.",
+      "details": {
+        "what_it_does": "callCenterGeoDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { callCenterGeoDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingcallCenterGeoDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L11",
+        "nx_kb_anchor": "#callCenterGeoDomain"
+      }
+    },
+    {
+      "symbol_id": "callCenterEventsDomain",
+      "name": "callCenterEventsDomain",
+      "kind": "constant",
+      "description_one_line": "callCenterEventsDomain export in this file.",
+      "details": {
+        "what_it_does": "callCenterEventsDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { callCenterEventsDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingcallCenterEventsDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L12",
+        "nx_kb_anchor": "#callCenterEventsDomain"
+      }
+    },
+    {
+      "symbol_id": "dataSocketDomain",
+      "name": "dataSocketDomain",
+      "kind": "constant",
+      "description_one_line": "dataSocketDomain export in this file.",
+      "details": {
+        "what_it_does": "dataSocketDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { dataSocketDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingdataSocketDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 13,
+        "source_line_end": 13,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L13",
+        "nx_kb_anchor": "#dataSocketDomain"
+      }
+    },
+    {
+      "symbol_id": "dataSyncDomain",
+      "name": "dataSyncDomain",
+      "kind": "constant",
+      "description_one_line": "dataSyncDomain export in this file.",
+      "details": {
+        "what_it_does": "dataSyncDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { dataSyncDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingdataSyncDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 14,
+        "source_line_end": 14,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L14",
+        "nx_kb_anchor": "#dataSyncDomain"
+      }
+    },
+    {
+      "symbol_id": "chargeDomain",
+      "name": "chargeDomain",
+      "kind": "constant",
+      "description_one_line": "chargeDomain export in this file.",
+      "details": {
+        "what_it_does": "chargeDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { chargeDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingchargeDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 15,
+        "source_line_end": 15,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L15",
+        "nx_kb_anchor": "#chargeDomain"
+      }
+    },
+    {
+      "symbol_id": "akeylessOnlineDomain",
+      "name": "akeylessOnlineDomain",
+      "kind": "constant",
+      "description_one_line": "akeylessOnlineDomain export in this file.",
+      "details": {
+        "what_it_does": "akeylessOnlineDomain is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { akeylessOnlineDomain } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingakeylessOnlineDomain } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L16",
+        "nx_kb_anchor": "#akeylessOnlineDomain"
+      }
+    },
+    {
+      "symbol_id": "nxApiCall",
+      "name": "nxApiCall",
+      "kind": "constant",
+      "description_one_line": "nxApiCall export in this file.",
+      "details": {
+        "what_it_does": "nxApiCall is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { nxApiCall } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingnxApiCall } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 35,
+        "source_line_end": 35,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/helpers/api.ts#L35",
+        "nx_kb_anchor": "#nxApiCall"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

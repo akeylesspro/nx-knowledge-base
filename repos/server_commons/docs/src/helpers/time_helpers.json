@@ -1,0 +1,279 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "server_commons:src/helpers/time_helpers.ts",
+  "repo": {
+    "name": "server_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "time_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/time_helpers.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.983Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/time_helpers.ts",
+    "link_to_nx_kb": "/repos/server_commons/files/src/helpers/time_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/helpers/time_helpers.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "firebase-admin/firestore",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "moment",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "sort_by_timestamp",
+      "kind": "function",
+      "description_one_line": "sort_by_timestamp export in this file.",
+      "symbol_id": "sort_by_timestamp"
+    },
+    {
+      "name": "TimePassedByDate",
+      "kind": "interface",
+      "description_one_line": "TimePassedByDate export in this file.",
+      "symbol_id": "TimePassedByDate"
+    },
+    {
+      "name": "calculate_time_passed",
+      "kind": "constant",
+      "description_one_line": "calculate_time_passed export in this file.",
+      "symbol_id": "calculate_time_passed"
+    },
+    {
+      "name": "any_datetime_to_string",
+      "kind": "function",
+      "description_one_line": "any_datetime_to_string export in this file.",
+      "symbol_id": "any_datetime_to_string"
+    },
+    {
+      "name": "any_datetime_to_millis",
+      "kind": "function",
+      "description_one_line": "any_datetime_to_millis export in this file.",
+      "symbol_id": "any_datetime_to_millis"
+    },
+    {
+      "name": "timestamp_to_string",
+      "kind": "function",
+      "description_one_line": "timestamp_to_string export in this file.",
+      "symbol_id": "timestamp_to_string"
+    },
+    {
+      "name": "timestamp_to_millis",
+      "kind": "function",
+      "description_one_line": "timestamp_to_millis export in this file.",
+      "symbol_id": "timestamp_to_millis"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "sort_by_timestamp",
+      "name": "sort_by_timestamp",
+      "kind": "function",
+      "description_one_line": "sort_by_timestamp export in this file.",
+      "details": {
+        "what_it_does": "sort_by_timestamp is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { sort_by_timestamp } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingsort_by_timestamp } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 5,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/time_helpers.ts#L5",
+        "nx_kb_anchor": "#sort_by_timestamp"
+      }
+    },
+    {
+      "symbol_id": "TimePassedByDate",
+      "name": "TimePassedByDate",
+      "kind": "interface",
+      "description_one_line": "TimePassedByDate export in this file.",
+      "details": {
+        "what_it_does": "TimePassedByDate is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TimePassedByDate } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTimePassedByDate } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/time_helpers.ts#L8",
+        "nx_kb_anchor": "#TimePassedByDate"
+      }
+    },
+    {
+      "symbol_id": "calculate_time_passed",
+      "name": "calculate_time_passed",
+      "kind": "constant",
+      "description_one_line": "calculate_time_passed export in this file.",
+      "details": {
+        "what_it_does": "calculate_time_passed is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { calculate_time_passed } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingcalculate_time_passed } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/time_helpers.ts#L16",
+        "nx_kb_anchor": "#calculate_time_passed"
+      }
+    },
+    {
+      "symbol_id": "any_datetime_to_string",
+      "name": "any_datetime_to_string",
+      "kind": "function",
+      "description_one_line": "any_datetime_to_string export in this file.",
+      "details": {
+        "what_it_does": "any_datetime_to_string is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { any_datetime_to_string } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingany_datetime_to_string } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 61,
+        "source_line_end": 61,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/time_helpers.ts#L61",
+        "nx_kb_anchor": "#any_datetime_to_string"
+      }
+    },
+    {
+      "symbol_id": "any_datetime_to_millis",
+      "name": "any_datetime_to_millis",
+      "kind": "function",
+      "description_one_line": "any_datetime_to_millis export in this file.",
+      "details": {
+        "what_it_does": "any_datetime_to_millis is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { any_datetime_to_millis } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingany_datetime_to_millis } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 125,
+        "source_line_end": 125,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/time_helpers.ts#L125",
+        "nx_kb_anchor": "#any_datetime_to_millis"
+      }
+    },
+    {
+      "symbol_id": "timestamp_to_string",
+      "name": "timestamp_to_string",
+      "kind": "function",
+      "description_one_line": "timestamp_to_string export in this file.",
+      "details": {
+        "what_it_does": "timestamp_to_string is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { timestamp_to_string } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingtimestamp_to_string } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 183,
+        "source_line_end": 183,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/time_helpers.ts#L183",
+        "nx_kb_anchor": "#timestamp_to_string"
+      }
+    },
+    {
+      "symbol_id": "timestamp_to_millis",
+      "name": "timestamp_to_millis",
+      "kind": "function",
+      "description_one_line": "timestamp_to_millis export in this file.",
+      "details": {
+        "what_it_does": "timestamp_to_millis is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { timestamp_to_millis } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { Missingtimestamp_to_millis } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 193,
+        "source_line_end": 193,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/unknown/src/helpers/time_helpers.ts#L193",
+        "nx_kb_anchor": "#timestamp_to_millis"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/components/ui/multiselect.tsx",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "multiselect.tsx",
+  "source": {
+    "file_path": "src/components/ui/multiselect.tsx",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.836Z",
+    "language": "tsx",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/ui/multiselect.tsx",
+    "link_to_nx_kb": "/repos/client_commons/files/src/components/ui/multiselect.tsx"
+  },
+  "summary": {
+    "purpose": "Documentation for src/components/ui/multiselect.tsx.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react-dom",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "cmdk",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "lucide-react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/lib/utils",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/components/ui/command",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "lodash",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@floating-ui/react-dom",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "MultipleSelectorOption",
+      "kind": "interface",
+      "description_one_line": "MultipleSelectorOption export in this file.",
+      "symbol_id": "MultipleSelectorOption"
+    },
+    {
+      "name": "useDebounce",
+      "kind": "function",
+      "description_one_line": "useDebounce export in this file.",
+      "symbol_id": "useDebounce"
+    },
+    {
+      "name": "MultipleSelectorProps",
+      "kind": "interface",
+      "description_one_line": "MultipleSelectorProps export in this file.",
+      "symbol_id": "MultipleSelectorProps"
+    },
+    {
+      "name": "MultipleSelectorRef",
+      "kind": "interface",
+      "description_one_line": "MultipleSelectorRef export in this file.",
+      "symbol_id": "MultipleSelectorRef"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "MultipleSelectorOption",
+      "name": "MultipleSelectorOption",
+      "kind": "interface",
+      "description_one_line": "MultipleSelectorOption export in this file.",
+      "details": {
+        "what_it_does": "MultipleSelectorOption is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { MultipleSelectorOption } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingMultipleSelectorOption } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/ui/multiselect.tsx#L16",
+        "nx_kb_anchor": "#MultipleSelectorOption"
+      }
+    },
+    {
+      "symbol_id": "useDebounce",
+      "name": "useDebounce",
+      "kind": "function",
+      "description_one_line": "useDebounce export in this file.",
+      "details": {
+        "what_it_does": "useDebounce is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { useDebounce } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissinguseDebounce } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 66,
+        "source_line_end": 66,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/ui/multiselect.tsx#L66",
+        "nx_kb_anchor": "#useDebounce"
+      }
+    },
+    {
+      "symbol_id": "MultipleSelectorProps",
+      "name": "MultipleSelectorProps",
+      "kind": "interface",
+      "description_one_line": "MultipleSelectorProps export in this file.",
+      "details": {
+        "what_it_does": "MultipleSelectorProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { MultipleSelectorProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingMultipleSelectorProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 75,
+        "source_line_end": 75,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/ui/multiselect.tsx#L75",
+        "nx_kb_anchor": "#MultipleSelectorProps"
+      }
+    },
+    {
+      "symbol_id": "MultipleSelectorRef",
+      "name": "MultipleSelectorRef",
+      "kind": "interface",
+      "description_one_line": "MultipleSelectorRef export in this file.",
+      "details": {
+        "what_it_does": "MultipleSelectorRef is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { MultipleSelectorRef } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingMultipleSelectorRef } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 108,
+        "source_line_end": 108,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/components/ui/multiselect.tsx#L108",
+        "nx_kb_anchor": "#MultipleSelectorRef"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}

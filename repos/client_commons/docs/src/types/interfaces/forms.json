@@ -1,0 +1,787 @@
+{
+  "schema_version": "v1.0.0",
+  "doc_id": "client_commons:src/types/interfaces/forms.ts",
+  "repo": {
+    "name": "client_commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "forms.ts",
+  "source": {
+    "file_path": "src/types/interfaces/forms.ts",
+    "commit_sha": "unknown",
+    "generated_at_iso": "2026-02-12T08:33:39.933Z",
+    "language": "ts",
+    "framework_tags": [
+      "node",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts",
+    "link_to_nx_kb": "/repos/client_commons/files/src/types/interfaces/forms.ts"
+  },
+  "summary": {
+    "purpose": "Documentation for src/types/interfaces/forms.ts.",
+    "problem_solved": "Describes how this file contributes to its repository module architecture."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "@/components/ui/multiselect",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react-phone-number-input",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "src/helpers",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/components/ui",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "@/components/utils",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      },
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Imported package used by this module."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/types",
+        "why_used": "Imported from a local module to compose this file.",
+        "link_to_nx_kb": "/repos/client_commons/files/src/types/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/types"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "BaseElementProps",
+      "kind": "interface",
+      "description_one_line": "BaseElementProps export in this file.",
+      "symbol_id": "BaseElementProps"
+    },
+    {
+      "name": "CheckboxContainerProps",
+      "kind": "interface",
+      "description_one_line": "CheckboxContainerProps export in this file.",
+      "symbol_id": "CheckboxContainerProps"
+    },
+    {
+      "name": "InputElement",
+      "kind": "interface",
+      "description_one_line": "InputElement export in this file.",
+      "symbol_id": "InputElement"
+    },
+    {
+      "name": "DateInputElement",
+      "kind": "interface",
+      "description_one_line": "DateInputElement export in this file.",
+      "symbol_id": "DateInputElement"
+    },
+    {
+      "name": "TextAreaElement",
+      "kind": "interface",
+      "description_one_line": "TextAreaElement export in this file.",
+      "symbol_id": "TextAreaElement"
+    },
+    {
+      "name": "SelectElement",
+      "kind": "interface",
+      "description_one_line": "SelectElement export in this file.",
+      "symbol_id": "SelectElement"
+    },
+    {
+      "name": "MultiSelectProps",
+      "kind": "interface",
+      "description_one_line": "MultiSelectProps export in this file.",
+      "symbol_id": "MultiSelectProps"
+    },
+    {
+      "name": "SelectWithSearchProps",
+      "kind": "interface",
+      "description_one_line": "SelectWithSearchProps export in this file.",
+      "symbol_id": "SelectWithSearchProps"
+    },
+    {
+      "name": "InternationalInputProps",
+      "kind": "interface",
+      "description_one_line": "InternationalInputProps export in this file.",
+      "symbol_id": "InternationalInputProps"
+    },
+    {
+      "name": "CustomElementProps",
+      "kind": "interface",
+      "description_one_line": "CustomElementProps export in this file.",
+      "symbol_id": "CustomElementProps"
+    },
+    {
+      "name": "FormSeparatorProps",
+      "kind": "interface",
+      "description_one_line": "FormSeparatorProps export in this file.",
+      "symbol_id": "FormSeparatorProps"
+    },
+    {
+      "name": "InputContainerProps",
+      "kind": "interface",
+      "description_one_line": "InputContainerProps export in this file.",
+      "symbol_id": "InputContainerProps"
+    },
+    {
+      "name": "DateInputContainerProps",
+      "kind": "interface",
+      "description_one_line": "DateInputContainerProps export in this file.",
+      "symbol_id": "DateInputContainerProps"
+    },
+    {
+      "name": "SelectContainerProps",
+      "kind": "interface",
+      "description_one_line": "SelectContainerProps export in this file.",
+      "symbol_id": "SelectContainerProps"
+    },
+    {
+      "name": "TextAreaContainerProps",
+      "kind": "interface",
+      "description_one_line": "TextAreaContainerProps export in this file.",
+      "symbol_id": "TextAreaContainerProps"
+    },
+    {
+      "name": "DurationValues",
+      "kind": "interface",
+      "description_one_line": "DurationValues export in this file.",
+      "symbol_id": "DurationValues"
+    },
+    {
+      "name": "DurationInputOption",
+      "kind": "type",
+      "description_one_line": "DurationInputOption export in this file.",
+      "symbol_id": "DurationInputOption"
+    },
+    {
+      "name": "DurationInputProps",
+      "kind": "interface",
+      "description_one_line": "DurationInputProps export in this file.",
+      "symbol_id": "DurationInputProps"
+    },
+    {
+      "name": "FormElement",
+      "kind": "type",
+      "description_one_line": "FormElement export in this file.",
+      "symbol_id": "FormElement"
+    },
+    {
+      "name": "ModularFormProps",
+      "kind": "interface",
+      "description_one_line": "ModularFormProps export in this file.",
+      "symbol_id": "ModularFormProps"
+    },
+    {
+      "name": "ConfirmFormProps",
+      "kind": "interface",
+      "description_one_line": "ConfirmFormProps export in this file.",
+      "symbol_id": "ConfirmFormProps"
+    },
+    {
+      "name": "DatePickerProps",
+      "kind": "interface",
+      "description_one_line": "DatePickerProps export in this file.",
+      "symbol_id": "DatePickerProps"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "BaseElementProps",
+      "name": "BaseElementProps",
+      "kind": "interface",
+      "description_one_line": "BaseElementProps export in this file.",
+      "details": {
+        "what_it_does": "BaseElementProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { BaseElementProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingBaseElementProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L10",
+        "nx_kb_anchor": "#BaseElementProps"
+      }
+    },
+    {
+      "symbol_id": "CheckboxContainerProps",
+      "name": "CheckboxContainerProps",
+      "kind": "interface",
+      "description_one_line": "CheckboxContainerProps export in this file.",
+      "details": {
+        "what_it_does": "CheckboxContainerProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { CheckboxContainerProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingCheckboxContainerProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 26,
+        "source_line_end": 26,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L26",
+        "nx_kb_anchor": "#CheckboxContainerProps"
+      }
+    },
+    {
+      "symbol_id": "InputElement",
+      "name": "InputElement",
+      "kind": "interface",
+      "description_one_line": "InputElement export in this file.",
+      "details": {
+        "what_it_does": "InputElement is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { InputElement } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingInputElement } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 30,
+        "source_line_end": 30,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L30",
+        "nx_kb_anchor": "#InputElement"
+      }
+    },
+    {
+      "symbol_id": "DateInputElement",
+      "name": "DateInputElement",
+      "kind": "interface",
+      "description_one_line": "DateInputElement export in this file.",
+      "details": {
+        "what_it_does": "DateInputElement is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DateInputElement } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDateInputElement } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 42,
+        "source_line_end": 42,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L42",
+        "nx_kb_anchor": "#DateInputElement"
+      }
+    },
+    {
+      "symbol_id": "TextAreaElement",
+      "name": "TextAreaElement",
+      "kind": "interface",
+      "description_one_line": "TextAreaElement export in this file.",
+      "details": {
+        "what_it_does": "TextAreaElement is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TextAreaElement } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTextAreaElement } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 55,
+        "source_line_end": 55,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L55",
+        "nx_kb_anchor": "#TextAreaElement"
+      }
+    },
+    {
+      "symbol_id": "SelectElement",
+      "name": "SelectElement",
+      "kind": "interface",
+      "description_one_line": "SelectElement export in this file.",
+      "details": {
+        "what_it_does": "SelectElement is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SelectElement } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSelectElement } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 65,
+        "source_line_end": 65,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L65",
+        "nx_kb_anchor": "#SelectElement"
+      }
+    },
+    {
+      "symbol_id": "MultiSelectProps",
+      "name": "MultiSelectProps",
+      "kind": "interface",
+      "description_one_line": "MultiSelectProps export in this file.",
+      "details": {
+        "what_it_does": "MultiSelectProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { MultiSelectProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingMultiSelectProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 79,
+        "source_line_end": 79,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L79",
+        "nx_kb_anchor": "#MultiSelectProps"
+      }
+    },
+    {
+      "symbol_id": "SelectWithSearchProps",
+      "name": "SelectWithSearchProps",
+      "kind": "interface",
+      "description_one_line": "SelectWithSearchProps export in this file.",
+      "details": {
+        "what_it_does": "SelectWithSearchProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SelectWithSearchProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSelectWithSearchProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 108,
+        "source_line_end": 108,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L108",
+        "nx_kb_anchor": "#SelectWithSearchProps"
+      }
+    },
+    {
+      "symbol_id": "InternationalInputProps",
+      "name": "InternationalInputProps",
+      "kind": "interface",
+      "description_one_line": "InternationalInputProps export in this file.",
+      "details": {
+        "what_it_does": "InternationalInputProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { InternationalInputProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingInternationalInputProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 132,
+        "source_line_end": 132,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L132",
+        "nx_kb_anchor": "#InternationalInputProps"
+      }
+    },
+    {
+      "symbol_id": "CustomElementProps",
+      "name": "CustomElementProps",
+      "kind": "interface",
+      "description_one_line": "CustomElementProps export in this file.",
+      "details": {
+        "what_it_does": "CustomElementProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { CustomElementProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingCustomElementProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 151,
+        "source_line_end": 151,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L151",
+        "nx_kb_anchor": "#CustomElementProps"
+      }
+    },
+    {
+      "symbol_id": "FormSeparatorProps",
+      "name": "FormSeparatorProps",
+      "kind": "interface",
+      "description_one_line": "FormSeparatorProps export in this file.",
+      "details": {
+        "what_it_does": "FormSeparatorProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { FormSeparatorProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingFormSeparatorProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 155,
+        "source_line_end": 155,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L155",
+        "nx_kb_anchor": "#FormSeparatorProps"
+      }
+    },
+    {
+      "symbol_id": "InputContainerProps",
+      "name": "InputContainerProps",
+      "kind": "interface",
+      "description_one_line": "InputContainerProps export in this file.",
+      "details": {
+        "what_it_does": "InputContainerProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { InputContainerProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingInputContainerProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 162,
+        "source_line_end": 162,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L162",
+        "nx_kb_anchor": "#InputContainerProps"
+      }
+    },
+    {
+      "symbol_id": "DateInputContainerProps",
+      "name": "DateInputContainerProps",
+      "kind": "interface",
+      "description_one_line": "DateInputContainerProps export in this file.",
+      "details": {
+        "what_it_does": "DateInputContainerProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DateInputContainerProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDateInputContainerProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 163,
+        "source_line_end": 163,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L163",
+        "nx_kb_anchor": "#DateInputContainerProps"
+      }
+    },
+    {
+      "symbol_id": "SelectContainerProps",
+      "name": "SelectContainerProps",
+      "kind": "interface",
+      "description_one_line": "SelectContainerProps export in this file.",
+      "details": {
+        "what_it_does": "SelectContainerProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { SelectContainerProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingSelectContainerProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 164,
+        "source_line_end": 164,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L164",
+        "nx_kb_anchor": "#SelectContainerProps"
+      }
+    },
+    {
+      "symbol_id": "TextAreaContainerProps",
+      "name": "TextAreaContainerProps",
+      "kind": "interface",
+      "description_one_line": "TextAreaContainerProps export in this file.",
+      "details": {
+        "what_it_does": "TextAreaContainerProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { TextAreaContainerProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingTextAreaContainerProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 165,
+        "source_line_end": 165,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L165",
+        "nx_kb_anchor": "#TextAreaContainerProps"
+      }
+    },
+    {
+      "symbol_id": "DurationValues",
+      "name": "DurationValues",
+      "kind": "interface",
+      "description_one_line": "DurationValues export in this file.",
+      "details": {
+        "what_it_does": "DurationValues is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DurationValues } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDurationValues } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 167,
+        "source_line_end": 167,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L167",
+        "nx_kb_anchor": "#DurationValues"
+      }
+    },
+    {
+      "symbol_id": "DurationInputOption",
+      "name": "DurationInputOption",
+      "kind": "type",
+      "description_one_line": "DurationInputOption export in this file.",
+      "details": {
+        "what_it_does": "DurationInputOption is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DurationInputOption } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDurationInputOption } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 174,
+        "source_line_end": 174,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L174",
+        "nx_kb_anchor": "#DurationInputOption"
+      }
+    },
+    {
+      "symbol_id": "DurationInputProps",
+      "name": "DurationInputProps",
+      "kind": "interface",
+      "description_one_line": "DurationInputProps export in this file.",
+      "details": {
+        "what_it_does": "DurationInputProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DurationInputProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDurationInputProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 176,
+        "source_line_end": 176,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L176",
+        "nx_kb_anchor": "#DurationInputProps"
+      }
+    },
+    {
+      "symbol_id": "FormElement",
+      "name": "FormElement",
+      "kind": "type",
+      "description_one_line": "FormElement export in this file.",
+      "details": {
+        "what_it_does": "FormElement is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { FormElement } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingFormElement } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 184,
+        "source_line_end": 184,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L184",
+        "nx_kb_anchor": "#FormElement"
+      }
+    },
+    {
+      "symbol_id": "ModularFormProps",
+      "name": "ModularFormProps",
+      "kind": "interface",
+      "description_one_line": "ModularFormProps export in this file.",
+      "details": {
+        "what_it_does": "ModularFormProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ModularFormProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingModularFormProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 197,
+        "source_line_end": 197,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L197",
+        "nx_kb_anchor": "#ModularFormProps"
+      }
+    },
+    {
+      "symbol_id": "ConfirmFormProps",
+      "name": "ConfirmFormProps",
+      "kind": "interface",
+      "description_one_line": "ConfirmFormProps export in this file.",
+      "details": {
+        "what_it_does": "ConfirmFormProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { ConfirmFormProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingConfirmFormProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 218,
+        "source_line_end": 218,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L218",
+        "nx_kb_anchor": "#ConfirmFormProps"
+      }
+    },
+    {
+      "symbol_id": "DatePickerProps",
+      "name": "DatePickerProps",
+      "kind": "interface",
+      "description_one_line": "DatePickerProps export in this file.",
+      "details": {
+        "what_it_does": "DatePickerProps is exported from this module and participates in the module's contract."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Minimal usage",
+          "code": "import { DatePickerProps } from \"module-path\";"
+        },
+        "incorrect": {
+          "title": "Incorrect usage",
+          "code": "import { MissingDatePickerProps } from \"module-path\";",
+          "why_incorrect": "The symbol name does not match the module export."
+        }
+      },
+      "locations": {
+        "source_line_start": 234,
+        "source_line_end": 234,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/unknown/src/types/interfaces/forms.ts#L234",
+        "nx_kb_anchor": "#DatePickerProps"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": [
+      "Descriptions are generated heuristically and should be reviewed in PR."
+    ]
+  }
+}
