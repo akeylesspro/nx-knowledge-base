@@ -13,7 +13,7 @@ type AppSidebarProps = {
 
 export const AppSidebar = ({ repos, fileTreeMap }: AppSidebarProps) => {
     return (
-        <aside className="w-80 h-full bg-sidebar border-r border-sidebar-border flex flex-col shrink-0">
+        <aside className="w-72 h-full bg-sidebar border-r border-sidebar-border flex flex-col shrink-0">
             {/* Logo / Title */}
             <div className="p-4 pb-3">
                 <Link href="/" className="flex items-center gap-2.5 group">

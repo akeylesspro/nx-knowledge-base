@@ -29,9 +29,9 @@ type FileTreeItemProps = {
 };
 
 const FileTreeItem = ({ node, repoName, depth }: FileTreeItemProps) => {
-    const [isOpen, setIsOpen] = useState(depth < 2);
+    const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-
+    
     const docPath = `/repos/${repoName}/docs/${node.path}`;
     const isActive = pathname === docPath;
 
