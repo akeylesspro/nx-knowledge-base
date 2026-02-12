@@ -13,10 +13,10 @@ export interface RepoMeta {
     default_branch: string;
     language: string;
     framework_tags: string[];
-    last_synced_at: string;
-    last_synced_commit: string;
-    file_count: number;
-    symbol_count: number;
+    last_synced_at?: string;
+    last_synced_commit?: string;
+    file_count?: number;
+    symbol_count?: number;
 }
 
 /** A repo with its metadata + list of doc file paths */

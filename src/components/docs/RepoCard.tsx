@@ -46,14 +46,18 @@ export const RepoCard = ({ repo }: RepoCardProps) => {
                     ))}
                 </div>
                 <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                        <i className="fa-solid fa-file-code" />
-                        {repo.file_count} files
-                    </span>
-                    <span className="flex items-center gap-1">
-                        <i className="fa-solid fa-code" />
-                        {repo.symbol_count} symbols
-                    </span>
+                    {repo.file_count != null && (
+                        <span className="flex items-center gap-1">
+                            <i className="fa-solid fa-file-code" />
+                            {repo.file_count} files
+                        </span>
+                    )}
+                    {repo.symbol_count != null && (
+                        <span className="flex items-center gap-1">
+                            <i className="fa-solid fa-code" />
+                            {repo.symbol_count} symbols
+                        </span>
+                    )}
                     {repo.last_synced_at && (
                         <span className="flex items-center gap-1">
                             <i className="fa-solid fa-clock" />

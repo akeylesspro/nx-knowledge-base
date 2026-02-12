@@ -84,8 +84,13 @@ export const DocViewer = ({ doc, repoName }: DocViewerProps) => {
                     <Badge variant="outline">{doc.symbols.length}</Badge>
                 </h2>
                 <div className="space-y-6">
-                    {doc.symbols.map((symbol) => (
-                        <SymbolCard key={symbol.symbol_id} symbol={symbol} repoName={repoName} />
+                    {doc.symbols.map((symbol, index) => (
+                        <SymbolCard
+                            key={symbol.symbol_id ?? (symbol as { id?: string }).id ?? `symbol-${index}`}
+                            symbol={symbol}
+                            repoName={repoName}
+                            fileLinkToGithub={doc.source.link_to_github}
+                        />
                     ))}
                 </div>
             </section>

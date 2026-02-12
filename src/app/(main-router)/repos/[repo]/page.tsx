@@ -54,11 +54,11 @@ export default async function RepoPage({ params }: RepoPageProps) {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-4 mb-8">
                     <div className="bg-card rounded-xl border border-border p-4 text-center">
-                        <p className="text-xl font-bold">{meta.file_count}</p>
+                        <p className="text-xl font-bold">{meta.file_count ?? docFiles.length}</p>
                         <p className="text-xs text-muted-foreground">Documented Files</p>
                     </div>
                     <div className="bg-card rounded-xl border border-border p-4 text-center">
-                        <p className="text-xl font-bold">{meta.symbol_count}</p>
+                        <p className="text-xl font-bold">{meta.symbol_count ?? "—"}</p>
                         <p className="text-xs text-muted-foreground">Symbols</p>
                     </div>
                     <div className="bg-card rounded-xl border border-border p-4 text-center">

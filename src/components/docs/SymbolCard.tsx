@@ -3,9 +3,12 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { CodeBlock } from "./CodeBlock";
 
+type FlexSymbol = FileSymbol & { id?: string; description?: string; line?: number };
+
 type SymbolCardProps = {
-    symbol: FileSymbol;
+    symbol: FlexSymbol;
     repoName: string;
+    fileLinkToGithub?: string;
 };
 
 const kindColors: Record<string, string> = {
@@ -19,30 +22,36 @@ const kindColors: Record<string, string> = {
     constant: "bg-teal-100 text-teal-800",
 };
 
-export const SymbolCard = ({ symbol }: SymbolCardProps) => {
-    const sideEffects = normalizeStringList(symbol.details.side_effects);
-    const errorCases = normalizeErrorCases(symbol.details.error_cases);
+export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
+    const symbolId = symbol.symbol_id ?? symbol.id;
+    const description = symbol.description_one_line ?? symbol.description ?? "";
+    const githubPermalink = symbol.locations?.github_permalink ?? (fileLinkToGithub && symbol.line ? `${fileLinkToGithub}#L${symbol.line}` : undefined);
+    const sideEffects = normalizeStringList(symbol.details?.side_effects);
+    const errorCases = normalizeErrorCases(symbol.details?.error_cases);
+    const whatItDoes = symbol.details?.what_it_does ?? symbol.details?.rendered_ui_description;
 
     return (
-        <div id={symbol.symbol_id} className="border border-border rounded-xl bg-card p-6 scroll-mt-24">
+        <div id={symbolId} className="border border-border rounded-xl bg-card p-6 scroll-mt-24">
             {/* Header */}
             <div className="flex items-start justify-between gap-4 mb-4">
                 <div className="flex items-center gap-3">
                     <Badge className={kindColors[symbol.kind] || "bg-gray-100 text-gray-800"}>{symbol.kind}</Badge>
                     <h3 className="text-lg font-semibold font-mono">{symbol.name}</h3>
                 </div>
-                <a href={symbol.locations.github_permalink} target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
-                    <i className="fa-brands fa-github" /> View on GitHub
-                </a>
+                {githubPermalink && (
+                    <a href={githubPermalink} target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+                        <i className="fa-brands fa-github" /> View on GitHub
+                    </a>
+                )}
             </div>
 
-            <p className="text-muted-foreground mb-4">{symbol.description_one_line}</p>
+            {description && <p className="text-muted-foreground mb-4">{description}</p>}
 
             {/* Signature */}
             {symbol.signature && (
                 <div className="mb-4">
                     <h4 className="text-sm font-semibold mb-2 text-foreground">Signature</h4>
-                    {symbol.signature.params.length > 0 && (
+                    {symbol.signature.params && symbol.signature.params.length > 0 && (
                         <div className="mb-3">
                             <h5 className="text-xs font-medium text-muted-foreground mb-1">Parameters</h5>
                             <div className="space-y-1">
@@ -59,21 +68,25 @@ export const SymbolCard = ({ symbol }: SymbolCardProps) => {
                             </div>
                         </div>
                     )}
-                    <div className="text-sm pl-3">
-                        <span className="text-muted-foreground">Returns: </span>
-                        <code className="font-mono text-primary">{symbol.signature.returns.type}</code>
-                        <span className="text-muted-foreground"> — {symbol.signature.returns.description}</span>
-                    </div>
+                    {symbol.signature.returns && (
+                        <div className="text-sm pl-3">
+                            <span className="text-muted-foreground">Returns: </span>
+                            <code className="font-mono text-primary">{symbol.signature.returns.type}</code>
+                            <span className="text-muted-foreground"> — {symbol.signature.returns.description}</span>
+                        </div>
+                    )}
                 </div>
             )}
 
             <Separator className="my-4" />
 
             {/* Details */}
-            <div className="mb-4">
-                <h4 className="text-sm font-semibold mb-2 text-foreground">What it does</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">{symbol.details.what_it_does}</p>
-            </div>
+            {whatItDoes && (
+                <div className="mb-4">
+                    <h4 className="text-sm font-semibold mb-2 text-foreground">What it does</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{whatItDoes}</p>
+                </div>
+            )}
 
             {/* Side effects */}
             {sideEffects.length > 0 && (
@@ -103,7 +116,7 @@ export const SymbolCard = ({ symbol }: SymbolCardProps) => {
             )}
 
             {/* Class methods */}
-            {symbol.details.methods && symbol.details.methods.length > 0 && (
+            {symbol.details?.methods && symbol.details.methods.length > 0 && (
                 <div className="mb-4">
                     <h4 className="text-sm font-semibold mb-2 text-foreground">Methods</h4>
                     <div className="space-y-3">
@@ -118,7 +131,7 @@ export const SymbolCard = ({ symbol }: SymbolCardProps) => {
             )}
 
             {/* Rendered UI description */}
-            {symbol.details.rendered_ui_description && (
+            {symbol.details?.rendered_ui_description && (
                 <div className="mb-4">
                     <h4 className="text-sm font-semibold mb-2 text-foreground">Rendered UI</h4>
                     <p className="text-sm text-muted-foreground">{symbol.details.rendered_ui_description}</p>
@@ -139,11 +152,15 @@ export const SymbolCard = ({ symbol }: SymbolCardProps) => {
             )}
 
             {/* Source location */}
-            <div className="mt-4 pt-3 border-t border-border/50">
-                <p className="text-xs text-muted-foreground">
-                    Lines {symbol.locations.source_line_start}–{symbol.locations.source_line_end}
-                </p>
-            </div>
+            {(symbol.locations || symbol.line != null) && (
+                <div className="mt-4 pt-3 border-t border-border/50">
+                    <p className="text-xs text-muted-foreground">
+                        {symbol.locations
+                            ? `Lines ${symbol.locations.source_line_start}–${symbol.locations.source_line_end}`
+                            : `Line ${symbol.line}`}
+                    </p>
+                </div>
+            )}
         </div>
     );
 };

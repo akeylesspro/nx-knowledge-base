@@ -22,12 +22,14 @@
         "internal": [
             {
                 "module": "./svg",
+                "import_path": "./svg",
                 "reason": "Re-exports all SVG icon components (RedXSvg, RedXSvg2, GreenVSvg)",
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/svg.tsx.json",
                 "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx"
             },
             {
                 "module": "./table",
+                "import_path": "./table",
                 "reason": "Re-exports all table-related SVG helper functions (sortSvg, emptyFilterSvg, slashFilterSvg, exportToExcelSvg)",
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/table.tsx.json",
                 "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/table.tsx"
@@ -36,13 +38,13 @@
     },
     "exports": [
         {
-            "name": "*",
+            "name": "svg.tsx",
             "kind": "re-export",
             "source_module": "./svg",
             "line": 1
         },
         {
-            "name": "*",
+            "name": "table.tsx",
             "kind": "re-export",
             "source_module": "./table",
             "line": 2
