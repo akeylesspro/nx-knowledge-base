@@ -1,0 +1,54 @@
+"use client";
+
+import Link from "next/link";
+import type { RepoMeta } from "@/lib/docs/types";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+
+type RepoCardProps = {
+    repo: RepoMeta;
+};
+
+export const RepoCard = ({ repo }: RepoCardProps) => {
+    return (
+        <Link href={`/repos/${repo.name}`}>
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+                <CardHeader>
+                    <div className="flex items-center justify-between">
+                        <CardTitle className="text-lg">{repo.display_name}</CardTitle>
+                        <a href={repo.github_url} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary" onClick={(e) => e.stopPropagation()}>
+                            <i className="fa-brands fa-github text-lg" />
+                        </a>
+                    </div>
+                    <CardDescription>{repo.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                        <Badge variant="outline">{repo.language}</Badge>
+                        {repo.framework_tags.map((tag) => (
+                            <Badge key={tag} variant="secondary">
+                                {tag}
+                            </Badge>
+                        ))}
+                    </div>
+                    <div className="flex items-center gap-4 text-xs text-muted-foreground">
+                        <span className="flex items-center gap-1">
+                            <i className="fa-solid fa-file-code" />
+                            {repo.file_count} files
+                        </span>
+                        <span className="flex items-center gap-1">
+                            <i className="fa-solid fa-code" />
+                            {repo.symbol_count} symbols
+                        </span>
+                        {repo.last_synced_at && (
+                            <span className="flex items-center gap-1">
+                                <i className="fa-solid fa-clock" />
+                                {new Date(repo.last_synced_at).toLocaleDateString()}
+                            </span>
+                        )}
+                    </div>
+                </CardContent>
+            </Card>
+        </Link>
+    );
+};

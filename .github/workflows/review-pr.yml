@@ -1,0 +1,89 @@
+# =========================================================
+# NX-KNOWLEDGE-BASE — Review & Merge Agent
+# Triggered when a sync/ branch PR is opened or updated
+# =========================================================
+
+name: Review Sync PR
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  review:
+    # Only run on sync agent PRs
+    if: startsWith(github.head_ref, 'sync/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install ajv ajv-formats
+
+      - name: Validate JSON Schema
+        run: |
+          echo "Validating all doc JSON files against schema..."
+          node -e "
+            const Ajv = require('ajv');
+            const addFormats = require('ajv-formats');
+            const fs = require('fs');
+            const path = require('path');
+
+            const ajv = new Ajv({ allErrors: true });
+            addFormats(ajv);
+
+            const schema = JSON.parse(fs.readFileSync('schemas/file-doc.schema.json', 'utf8'));
+            const validate = ajv.compile(schema);
+
+            const reposDir = path.join(process.cwd(), 'repos');
+            const repos = fs.readdirSync(reposDir, { withFileTypes: true })
+              .filter(d => d.isDirectory() && !d.name.startsWith('_'))
+              .map(d => d.name);
+
+            let errors = 0;
+            let validated = 0;
+
+            function walkDir(dir) {
+              const entries = fs.readdirSync(dir, { withFileTypes: true });
+              for (const entry of entries) {
+                const fullPath = path.join(dir, entry.name);
+                if (entry.isDirectory()) walkDir(fullPath);
+                else if (entry.name.endsWith('.json')) {
+                  const data = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
+                  const valid = validate(data);
+                  validated++;
+                  if (!valid) {
+                    console.error('INVALID:', fullPath);
+                    console.error(validate.errors);
+                    errors++;
+                  }
+                }
+              }
+            }
+
+            for (const repo of repos) {
+              const docsDir = path.join(reposDir, repo, 'docs');
+              if (fs.existsSync(docsDir)) walkDir(docsDir);
+            }
+
+            console.log('Validated ' + validated + ' files, ' + errors + ' errors');
+            if (errors > 0) process.exit(1);
+          "
+
+      # TODO: Add link validation, override check, and auto-merge logic
+      - name: Review Summary
+        run: |
+          echo "Review Agent — PR #${{ github.event.pull_request.number }}"
+          echo "Schema validation: PASSED"
+          echo "Implement full Review Agent logic here"

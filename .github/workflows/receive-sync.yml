@@ -1,0 +1,45 @@
+# =========================================================
+# NX-KNOWLEDGE-BASE — Receive Sync Dispatch
+# Triggered by repository_dispatch from documented repos
+# =========================================================
+
+name: Receive Sync Dispatch
+
+on:
+  repository_dispatch:
+    types: [sync-docs]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout NX-KNOWLEDGE-BASE
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Log Dispatch Payload
+        run: |
+          echo "Repo: ${{ github.event.client_payload.repo }}"
+          echo "Branch: ${{ github.event.client_payload.branch }}"
+          echo "Commit: ${{ github.event.client_payload.commit_sha }}"
+          echo "Files changed: ${{ github.event.client_payload.file_count }}"
+
+      # TODO: Invoke Sync Agent here
+      # The Sync Agent will:
+      # 1. Create a branch
+      # 2. Process changed files
+      # 3. Generate/update documentation JSON files
+      # 4. Open a PR
+
+      - name: Placeholder — Sync Agent
+        run: |
+          echo "Sync Agent would process ${{ github.event.client_payload.file_count }} files from ${{ github.event.client_payload.repo }}"
+          echo "This is a placeholder — implement the actual Sync Agent logic here"

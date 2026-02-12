@@ -1,0 +1,137 @@
+{
+    "repo": {
+        "name": "demo-server",
+        "source_default_branch": "develop"
+    },
+    "file_name": "helpers.ts",
+    "source": {
+        "file_path": "utils/helpers.ts",
+        "commit_sha": "a1b2c3d4e5f6789012345678",
+        "generated_at_iso": "2026-02-11T10:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["node"],
+        "link_to_github": "https://github.com/akeyless/demo-server/blob/a1b2c3d4/src/utils/helpers.ts",
+        "link_to_nx_kb": "/repos/demo-server/docs/utils/helpers.ts.json"
+    },
+    "summary": {
+        "purpose": "Provides general-purpose utility functions used across the server application.",
+        "problem_solved": "Centralizes common operations like string formatting, date handling, and response normalization to avoid code duplication."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "moment-timezone",
+                "kind": "runtime",
+                "why_used": "Timezone-aware date formatting and manipulation"
+            }
+        ],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "formatResponse",
+            "kind": "function",
+            "description_one_line": "Creates a standardized API response object with status, data, and message fields",
+            "symbol_id": "function_format_response"
+        },
+        {
+            "name": "slugify",
+            "kind": "function",
+            "description_one_line": "Converts a string to URL-friendly slug format",
+            "symbol_id": "function_slugify"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_format_response",
+            "name": "formatResponse",
+            "kind": "function",
+            "description_one_line": "Creates a standardized API response object with status, data, and message fields",
+            "signature": {
+                "params": [
+                    {
+                        "name": "data",
+                        "type": "T",
+                        "required": true,
+                        "description": "The response payload data"
+                    },
+                    {
+                        "name": "message",
+                        "type": "string",
+                        "required": false,
+                        "description": "Optional human-readable message"
+                    },
+                    {
+                        "name": "status",
+                        "type": "number",
+                        "required": false,
+                        "description": "HTTP status code (default: 200)"
+                    }
+                ],
+                "returns": {
+                    "type": "ApiResponse<T>",
+                    "description": "Standardized response object with success boolean, data payload, message, and timestamp"
+                }
+            },
+            "details": {
+                "what_it_does": "Wraps any data payload into a consistent API response structure. Automatically sets the success flag based on the status code (2xx = true), adds an ISO timestamp, and includes the optional message."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage",
+                    "code": "import { formatResponse } from './utils/helpers';\n\nres.json(formatResponse({ users: [] }));\n// { success: true, data: { users: [] }, timestamp: '2026-...' }"
+                },
+                "incorrect": {
+                    "title": "Sending raw data without wrapper",
+                    "code": "// Don't send raw data - always use formatResponse\nres.json({ users: [] });",
+                    "why_incorrect": "Bypasses the standardized response format. Consumers expect the { success, data, timestamp } structure."
+                }
+            },
+            "locations": {
+                "source_line_start": 5,
+                "source_line_end": 18,
+                "github_permalink": "https://github.com/akeyless/demo-server/blob/a1b2c3d4/src/utils/helpers.ts#L5-L18",
+                "nx_kb_anchor": "function_format_response"
+            }
+        },
+        {
+            "symbol_id": "function_slugify",
+            "name": "slugify",
+            "kind": "function",
+            "description_one_line": "Converts a string to URL-friendly slug format",
+            "signature": {
+                "params": [
+                    {
+                        "name": "text",
+                        "type": "string",
+                        "required": true,
+                        "description": "The input string to convert"
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "Lowercase, hyphen-separated string with special characters removed"
+                }
+            },
+            "details": {
+                "what_it_does": "Converts a text string into a URL-safe slug by lowercasing, replacing spaces and special characters with hyphens, removing consecutive hyphens, and trimming leading/trailing hyphens."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Slugify a title",
+                    "code": "import { slugify } from './utils/helpers';\n\nslugify('Hello World!'); // 'hello-world'\nslugify('My  Blog  Post #1'); // 'my-blog-post-1'"
+                }
+            },
+            "locations": {
+                "source_line_start": 20,
+                "source_line_end": 30,
+                "github_permalink": "https://github.com/akeyless/demo-server/blob/a1b2c3d4/src/utils/helpers.ts#L20-L30",
+                "nx_kb_anchor": "function_slugify"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

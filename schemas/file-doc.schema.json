@@ -1,0 +1,229 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://nx-knowledge-base.akeyless.io/schemas/file-doc.schema.json",
+    "title": "NX-KNOWLEDGE-BASE File Documentation",
+    "description": "Schema for individual file-level documentation in NX-KNOWLEDGE-BASE",
+    "version": "1.0.0",
+    "type": "object",
+    "required": ["repo", "file_name", "source", "summary", "dependencies", "exports", "symbols", "quality"],
+    "properties": {
+        "repo": {
+            "type": "object",
+            "required": ["name", "source_default_branch"],
+            "properties": {
+                "name": { "type": "string", "description": "Repository name" },
+                "source_default_branch": { "type": "string", "description": "Default branch of the source repo" }
+            }
+        },
+        "file_name": { "type": "string", "description": "Name of the documented file" },
+        "source": {
+            "type": "object",
+            "required": ["file_path", "commit_sha", "generated_at_iso", "language", "framework_tags", "link_to_github", "link_to_nx_kb"],
+            "properties": {
+                "file_path": { "type": "string", "description": "Relative path of the source file within the repo" },
+                "commit_sha": { "type": "string", "description": "Git commit SHA from which docs were generated" },
+                "generated_at_iso": { "type": "string", "format": "date-time", "description": "ISO timestamp of doc generation" },
+                "language": { "type": "string", "enum": ["ts", "tsx", "js", "jsx", "vue", "unknown"] },
+                "framework_tags": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "description": "Framework identifiers (express, next, react, vue, node, etc.)"
+                },
+                "link_to_github": { "type": "string", "format": "uri", "description": "Direct link to the file on GitHub (preferably with commit SHA)" },
+                "link_to_nx_kb": { "type": "string", "description": "Path to the documentation page within NX-KNOWLEDGE-BASE" }
+            }
+        },
+        "summary": {
+            "type": "object",
+            "required": ["purpose", "problem_solved"],
+            "properties": {
+                "purpose": { "type": "string", "description": "What is in this file" },
+                "problem_solved": { "type": "string", "description": "What need or problem does this file address" }
+            }
+        },
+        "dependencies": {
+            "type": "object",
+            "required": ["external", "internal"],
+            "properties": {
+                "external": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": ["name", "kind", "why_used"],
+                        "properties": {
+                            "name": { "type": "string" },
+                            "kind": { "type": "string", "enum": ["runtime", "dev", "peer"] },
+                            "why_used": { "type": "string" }
+                        }
+                    }
+                },
+                "internal": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": ["import_path", "resolved_file_path", "why_used", "link_to_nx_kb", "link_to_github"],
+                        "properties": {
+                            "import_path": { "type": "string" },
+                            "resolved_file_path": { "type": "string" },
+                            "why_used": { "type": "string" },
+                            "link_to_nx_kb": { "type": "string" },
+                            "link_to_github": { "type": "string", "format": "uri" }
+                        }
+                    }
+                }
+            }
+        },
+        "exports": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["name", "kind", "description_one_line", "symbol_id"],
+                "properties": {
+                    "name": { "type": "string" },
+                    "kind": { "type": "string", "enum": ["function", "class", "component", "interface", "type", "enum", "value", "constant"] },
+                    "description_one_line": { "type": "string" },
+                    "symbol_id": { "type": "string", "description": "Reference to the symbol in the symbols array" }
+                }
+            }
+        },
+        "symbols": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": ["symbol_id", "name", "kind", "description_one_line", "details", "locations"],
+                "properties": {
+                    "symbol_id": { "type": "string" },
+                    "name": { "type": "string" },
+                    "kind": { "type": "string", "enum": ["function", "class", "component", "interface", "type", "enum", "value", "constant"] },
+                    "description_one_line": { "type": "string" },
+                    "signature": {
+                        "type": "object",
+                        "properties": {
+                            "params": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "required": ["name", "type", "required", "description"],
+                                    "properties": {
+                                        "name": { "type": "string" },
+                                        "type": { "type": "string" },
+                                        "required": { "type": "boolean" },
+                                        "description": { "type": "string" }
+                                    }
+                                }
+                            },
+                            "returns": {
+                                "type": "object",
+                                "required": ["type", "description"],
+                                "properties": {
+                                    "type": { "type": "string" },
+                                    "description": { "type": "string" }
+                                }
+                            }
+                        }
+                    },
+                    "details": {
+                        "type": "object",
+                        "required": ["what_it_does"],
+                        "properties": {
+                            "what_it_does": { "type": "string" },
+                            "side_effects": { "type": "array", "items": { "type": "string" } },
+                            "error_cases": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "required": ["condition", "behavior"],
+                                    "properties": {
+                                        "condition": { "type": "string" },
+                                        "behavior": { "type": "string" }
+                                    }
+                                }
+                            },
+                            "methods": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "required": ["name", "description_one_line", "signature"],
+                                    "properties": {
+                                        "name": { "type": "string" },
+                                        "description_one_line": { "type": "string" },
+                                        "signature": { "$ref": "#/properties/symbols/items/properties/signature" }
+                                    }
+                                }
+                            },
+                            "rendered_ui_description": { "type": "string" }
+                        }
+                    },
+                    "examples": {
+                        "type": "object",
+                        "properties": {
+                            "minimal_correct": {
+                                "type": "object",
+                                "required": ["title", "code"],
+                                "properties": {
+                                    "title": { "type": "string" },
+                                    "code": { "type": "string" }
+                                }
+                            },
+                            "extensive_correct": {
+                                "type": "object",
+                                "required": ["title", "code"],
+                                "properties": {
+                                    "title": { "type": "string" },
+                                    "code": { "type": "string" }
+                                }
+                            },
+                            "incorrect": {
+                                "type": "object",
+                                "required": ["title", "code", "why_incorrect"],
+                                "properties": {
+                                    "title": { "type": "string" },
+                                    "code": { "type": "string" },
+                                    "why_incorrect": { "type": "string" }
+                                }
+                            }
+                        }
+                    },
+                    "locations": {
+                        "type": "object",
+                        "required": ["source_line_start", "source_line_end", "github_permalink", "nx_kb_anchor"],
+                        "properties": {
+                            "source_line_start": { "type": "integer" },
+                            "source_line_end": { "type": "integer" },
+                            "github_permalink": { "type": "string", "format": "uri" },
+                            "nx_kb_anchor": { "type": "string" }
+                        }
+                    }
+                }
+            }
+        },
+        "swagger": {
+            "type": "object",
+            "properties": {
+                "covered_endpoints": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": ["method", "path", "operation_id", "confidence"],
+                        "properties": {
+                            "method": { "type": "string", "enum": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"] },
+                            "path": { "type": "string" },
+                            "operation_id": { "type": "string" },
+                            "confidence": { "type": "string", "enum": ["low", "medium", "high"] }
+                        }
+                    }
+                }
+            }
+        },
+        "quality": {
+            "type": "object",
+            "required": ["generation_confidence"],
+            "properties": {
+                "generation_confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+                "known_gaps": { "type": "array", "items": { "type": "string" } },
+                "last_reviewed_by": { "type": "string" },
+                "last_reviewed_at_iso": { "type": "string", "format": "date-time" }
+            }
+        }
+    }
+}

@@ -1,0 +1,160 @@
+import type { KnowledgeBaseSchema } from "@/types/schema";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { SymbolCard } from "./SymbolCard";
+import { DependencyList } from "./DependencyList";
+import { ExportsList } from "./ExportsList";
+import { DocBreadcrumb } from "./DocBreadcrumb";
+
+type DocViewerProps = {
+    doc: KnowledgeBaseSchema;
+    repoName: string;
+};
+
+const confidenceColors: Record<string, string> = {
+    high: "bg-green-100 text-green-800",
+    medium: "bg-yellow-100 text-yellow-800",
+    low: "bg-red-100 text-red-800",
+};
+
+export const DocViewer = ({ doc, repoName }: DocViewerProps) => {
+    return (
+        <div className="max-w-4xl mx-auto py-8 px-6 space-y-8">
+            {/* Breadcrumb */}
+            <DocBreadcrumb repoName={repoName} filePath={doc.source.file_path} />
+
+            {/* Header */}
+            <div>
+                <div className="flex items-center gap-3 mb-2">
+                    <h1 className="text-2xl font-bold">{doc.file_name}</h1>
+                    <Badge className={confidenceColors[doc.quality.generation_confidence]}>{doc.quality.generation_confidence} confidence</Badge>
+                    <Badge variant="outline">{doc.source.language}</Badge>
+                    {doc.source.framework_tags.map((tag) => (
+                        <Badge key={tag} variant="secondary">
+                            {tag}
+                        </Badge>
+                    ))}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                    {doc.source.file_path} · Generated from commit{" "}
+                    <code className="font-mono text-xs bg-muted px-1 py-0.5 rounded">{doc.source.commit_sha.slice(0, 7)}</code>
+                </p>
+            </div>
+
+            {/* Summary */}
+            <section>
+                <h2 className="text-lg font-semibold mb-3">Summary</h2>
+                <div className="bg-card rounded-xl border border-border p-5 space-y-3">
+                    <div>
+                        <h3 className="text-sm font-medium text-muted-foreground mb-1">Purpose</h3>
+                        <p className="text-foreground">{doc.summary.purpose}</p>
+                    </div>
+                    <div>
+                        <h3 className="text-sm font-medium text-muted-foreground mb-1">Problem Solved</h3>
+                        <p className="text-foreground">{doc.summary.problem_solved}</p>
+                    </div>
+                </div>
+            </section>
+
+            <Separator />
+
+            {/* Exports */}
+            <section>
+                <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                    Exports
+                    <Badge variant="outline">{doc.exports.length}</Badge>
+                </h2>
+                <ExportsList exports={doc.exports} />
+            </section>
+
+            <Separator />
+
+            {/* Dependencies */}
+            <section>
+                <h2 className="text-lg font-semibold mb-3">Dependencies</h2>
+                <DependencyList dependencies={doc.dependencies} />
+            </section>
+
+            <Separator />
+
+            {/* Symbols */}
+            <section>
+                <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                    Symbols
+                    <Badge variant="outline">{doc.symbols.length}</Badge>
+                </h2>
+                <div className="space-y-6">
+                    {doc.symbols.map((symbol) => (
+                        <SymbolCard key={symbol.symbol_id} symbol={symbol} repoName={repoName} />
+                    ))}
+                </div>
+            </section>
+
+            {/* Swagger/API Endpoints */}
+            {doc.swagger && doc.swagger.covered_endpoints.length > 0 && (
+                <>
+                    <Separator />
+                    <section>
+                        <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                            API Endpoints
+                            <Badge variant="outline">{doc.swagger.covered_endpoints.length}</Badge>
+                        </h2>
+                        <div className="space-y-2">
+                            {doc.swagger.covered_endpoints.map((endpoint) => (
+                                <div key={`${endpoint.method}-${endpoint.path}`} className="flex items-center gap-3 p-3 rounded-lg border border-border bg-card">
+                                    <Badge className={getMethodColor(endpoint.method)}>{endpoint.method}</Badge>
+                                    <code className="font-mono text-sm">{endpoint.path}</code>
+                                    <span className="text-sm text-muted-foreground ml-auto">{endpoint.operation_id}</span>
+                                    <Badge className={confidenceColors[endpoint.confidence]} variant="outline">
+                                        {endpoint.confidence}
+                                    </Badge>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                </>
+            )}
+
+            {/* Quality / Gaps */}
+            {doc.quality.known_gaps && doc.quality.known_gaps.length > 0 && (
+                <>
+                    <Separator />
+                    <section>
+                        <h2 className="text-lg font-semibold mb-3">Known Gaps</h2>
+                        <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+                            {doc.quality.known_gaps.map((gap, i) => (
+                                <li key={i}>{gap}</li>
+                            ))}
+                        </ul>
+                    </section>
+                </>
+            )}
+
+            {/* Footer */}
+            <div className="pt-4 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+                <span>
+                    Generated {new Date(doc.source.generated_at_iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                    {doc.quality.last_reviewed_by && ` · Reviewed by ${doc.quality.last_reviewed_by}`}
+                </span>
+                <div className="flex gap-3">
+                    <a href={doc.source.link_to_github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-1">
+                        <i className="fa-brands fa-github" /> Open on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const getMethodColor = (method: string): string => {
+    const colors: Record<string, string> = {
+        GET: "bg-green-100 text-green-800",
+        POST: "bg-blue-100 text-blue-800",
+        PUT: "bg-orange-100 text-orange-800",
+        PATCH: "bg-yellow-100 text-yellow-800",
+        DELETE: "bg-red-100 text-red-800",
+        OPTIONS: "bg-gray-100 text-gray-800",
+        HEAD: "bg-gray-100 text-gray-800",
+    };
+    return colors[method] || "bg-gray-100 text-gray-800";
+};

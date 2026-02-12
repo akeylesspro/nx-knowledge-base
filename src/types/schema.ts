@@ -2,7 +2,6 @@
    NX-KNOWLEDGE-BASE-SCHEMA
    ========================================================= */
 
-
 export type LanguageTag = "ts" | "tsx" | "js" | "jsx" | "vue" | "unknown";
 
 export type FrameworkTag = "express" | "next" | "react" | "vue" | "node" | string;
@@ -147,14 +146,8 @@ export interface SymbolDetails {
         behavior: string;
     }[];
 
-    /**
-     * Optional class-specific details
-     */
     methods?: ClassMethodDoc[];
 
-    /**
-     * Optional component-specific details
-     */
     rendered_ui_description?: string;
 }
 

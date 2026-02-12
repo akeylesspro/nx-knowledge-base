@@ -1,0 +1,45 @@
+# =========================================================
+# EXAMPLE: Place this workflow in each SOURCE REPOSITORY
+# Triggers NX-KNOWLEDGE-BASE sync on merge to develop
+# =========================================================
+# File: .github/workflows/trigger-nx-kb-sync.yml
+
+name: Trigger NX-KB Sync
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - "src/**"
+
+jobs:
+  trigger-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get changed files
+        id: changes
+        run: |
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- src/ | jq -R -s -c 'split("\n") | map(select(length > 0))')
+          echo "files=$CHANGED" >> $GITHUB_OUTPUT
+          echo "count=$(echo $CHANGED | jq 'length')" >> $GITHUB_OUTPUT
+
+      - name: Dispatch to NX-KNOWLEDGE-BASE
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.NX_KB_DISPATCH_TOKEN }}
+          repository: your-org/nx-knowledge-base
+          event-type: sync-docs
+          client-payload: |
+            {
+              "repo": "${{ github.event.repository.name }}",
+              "branch": "${{ github.ref_name }}",
+              "commit_sha": "${{ github.sha }}",
+              "timestamp": "${{ github.event.head_commit.timestamp }}",
+              "file_count": ${{ steps.changes.outputs.count }},
+              "files": ${{ steps.changes.outputs.files }}
+            }

@@ -1,0 +1,26 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://nx-knowledge-base.akeyless.io/schemas/repo-meta.schema.json",
+    "title": "NX-KNOWLEDGE-BASE Repository Metadata",
+    "description": "Schema for repository-level metadata in NX-KNOWLEDGE-BASE",
+    "version": "1.0.0",
+    "type": "object",
+    "required": ["name", "display_name", "description", "github_url", "default_branch", "language", "framework_tags"],
+    "properties": {
+        "name": { "type": "string", "description": "Repository name (must match folder name)" },
+        "display_name": { "type": "string", "description": "Human-readable display name" },
+        "description": { "type": "string", "description": "Brief description of the repository" },
+        "github_url": { "type": "string", "format": "uri", "description": "GitHub repository URL" },
+        "default_branch": { "type": "string", "description": "Default branch name (e.g., develop, main)" },
+        "language": { "type": "string", "description": "Primary language" },
+        "framework_tags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Framework identifiers"
+        },
+        "last_synced_at": { "type": "string", "format": "date-time", "description": "Last sync timestamp" },
+        "last_synced_commit": { "type": "string", "description": "Last synced commit SHA" },
+        "file_count": { "type": "integer", "minimum": 0, "description": "Total documented files" },
+        "symbol_count": { "type": "integer", "minimum": 0, "description": "Total documented symbols" }
+    }
+}
