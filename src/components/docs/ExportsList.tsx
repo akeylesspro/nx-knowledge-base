@@ -23,8 +23,8 @@ export const ExportsList = ({ exports }: ExportsListProps) => {
 
     return (
         <div className="space-y-2">
-            {exports.map((exp) => (
-                <a key={exp.symbol_id} href={`#${exp.symbol_id}`} className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-muted/50 transition-colors group">
+            {exports.map((exp, index) => (
+                <a key={getExportKey(exp, index)} href={`#${exp.symbol_id}`} className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-muted/50 transition-colors group">
                     <i className={`${kindIcons[exp.kind] || "fa-solid fa-circle"} text-xs text-muted-foreground group-hover:text-primary transition-colors`} />
                     <code className="font-mono text-sm text-primary group-hover:underline">{exp.name}</code>
                     <Badge variant="outline" className="text-[10px]">
@@ -35,4 +35,8 @@ export const ExportsList = ({ exports }: ExportsListProps) => {
             ))}
         </div>
     );
+};
+
+const getExportKey = (exp: FileExport, index: number): string => {
+    return `${exp.symbol_id}-${exp.name}-${exp.kind}-${index}`;
 };

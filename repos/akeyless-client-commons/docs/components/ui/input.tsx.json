@@ -1,0 +1,60 @@
+{
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "input.tsx",
+    "source": {
+        "file_path": "components/ui/input.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/input.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/input.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides a reusable, styled HTML input component built with React.forwardRef, following the shadcn/ui design pattern with Tailwind CSS classes for consistent form input styling.",
+        "problem_solved": "Encapsulates standard HTML input element styling including focus states, file input styling, placeholder styling, and disabled states into a single reusable component that supports className merging via the cn utility."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "react",
+                "version": "*",
+                "reason": "Core React library used for forwardRef and ComponentProps type"
+            }
+        ],
+        "internal": [
+            {
+                "module": "@/lib/utils",
+                "reason": "Provides the cn utility for conditional className merging",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "Input",
+            "kind": "component",
+            "description": "A styled HTML input component with forwardRef support, accepting all native input props plus className merging."
+        }
+    ],
+    "symbols": [
+        {
+            "id": "component_input",
+            "kind": "component",
+            "name": "Input",
+            "signature": "React.forwardRef<HTMLInputElement, React.ComponentProps<\"input\">>(({ className, type, ...props }, ref) => JSX.Element)",
+            "description": "A forwardRef-wrapped HTML input element with pre-configured Tailwind CSS classes for consistent styling. Supports all native input attributes including type, placeholder, disabled state, and file input styling. The className prop is merged with default styles using the cn utility.",
+            "details": {
+                "rendered_ui_description": "A standard HTML text input field with rounded borders, shadow, and focus ring styling. Adapts size from base text on mobile to sm on md breakpoints. Includes styling for file inputs, placeholder text, and disabled states."
+            },
+            "dependencies": ["@/lib/utils"]
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

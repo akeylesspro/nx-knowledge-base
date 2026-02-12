@@ -1,0 +1,143 @@
+{
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "Table.tsx",
+    "source": {
+        "file_path": "components/table/Table.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/Table.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/Table.tsx.json"
+    },
+    "summary": {
+        "purpose": "Defines the main Table component, the TableProvider context wrapper, and the TableContext used to share table state (search, sort, filter, pagination) among all sub-components.",
+        "problem_solved": "Provides a fully-featured, configurable data table with built-in search (with debounced multi-term '+' syntax), column sorting, column filtering, export-to-Excel support, row-count limiting, summary rows, and deep-equal memoisation via React.memo to avoid unnecessary re-renders."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "react",
+                "imports": ["createContext", "useMemo", "useRef", "useState", "useContext", "useEffect", "memo"]
+            },
+            {
+                "module": "lodash",
+                "imports": ["isEqual"]
+            },
+            {
+                "module": "@/lib/utils",
+                "imports": ["cn"]
+            }
+        ],
+        "internal": [
+            {
+                "module": "./components",
+                "resolved_path": "components/table/components.tsx",
+                "imports": ["ExportToExcel", "Search", "Summary", "TableHead", "TableRow", "TableBody", "MaxRowsLabel", "DisplayAllRowsButton"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/components.tsx.json"
+            },
+            {
+                "module": "./types",
+                "resolved_path": "components/table/types.ts",
+                "imports": ["TableProps", "TableProviderType"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json"
+            },
+            {
+                "module": "./hooks",
+                "resolved_path": "components/table/hooks.tsx",
+                "imports": ["useFilter", "useSort", "useSearch", "useDisplayToggle"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/hooks.tsx.json"
+            },
+            {
+                "module": "../ui/table",
+                "resolved_path": "components/ui/table.tsx",
+                "imports": ["TableSCN"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/table.tsx.json"
+            },
+            {
+                "module": "src/helpers/forms",
+                "resolved_path": "helpers/forms.ts",
+                "imports": ["textNumbersRegex"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/forms.ts.json"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "TableContext",
+            "kind": "variable",
+            "line": 10
+        },
+        {
+            "name": "TableProvider",
+            "kind": "component",
+            "line": 12
+        },
+        {
+            "name": "Table",
+            "kind": "component",
+            "line": 213
+        }
+    ],
+    "symbols": [
+        {
+            "id": "variable_table_context",
+            "kind": "variable",
+            "name": "TableContext",
+            "signature": "React.Context<(TableProps & TableProviderType) | null>",
+            "description": "React context created with createContext that holds the merged TableProps and TableProviderType state. Consumed by child sub-components (TableHead, TableBody, etc.) via the useTableContext hook.",
+            "line": 10
+        },
+        {
+            "id": "component_table_provider",
+            "kind": "component",
+            "name": "TableProvider",
+            "signature": "(props: TableProps & { children: React.ReactNode }) => JSX.Element",
+            "description": "Context provider component that initialises all table state (sort, filter, search, display-toggle) using custom hooks, computes the derived dataToRender (filtered/sorted/paginated), and makes everything available via TableContext to descendant components.",
+            "details": {
+                "rendered_ui_description": "Renders a flex-column container div wrapping its children, with optional gap styling when toolbar elements (search, export, optional element) are present. Sets the CSS direction property from props."
+            },
+            "line": 12
+        },
+        {
+            "id": "component_table_base",
+            "kind": "component",
+            "name": "TableBase",
+            "signature": "(props: TableProps) => JSX.Element",
+            "description": "Internal (non-exported) presentational component that composes the full table layout: a container header row with Search, ExportToExcel, DisplayAllRowsButton, and MaxRowsLabel; the scrollable table container with TableHead and TableBody; and an optional Summary footer. Wrapped by TableProvider.",
+            "details": {
+                "rendered_ui_description": "Renders the complete table UI with an optional toolbar row (search input, export button, display-all toggle, optional custom element, max-rows label), followed by a scrollable table with sticky header and data rows, and an optional summary/totals footer."
+            },
+            "line": 161
+        },
+        {
+            "id": "component_table",
+            "kind": "component",
+            "name": "Table",
+            "signature": "React.MemoExoticComponent<(props: TableProps) => JSX.Element>",
+            "description": "The primary exported Table component. It is a React.memo wrapper around TableBase using lodash isEqual for deep prop comparison to prevent unnecessary re-renders when table data or configuration hasn't actually changed.",
+            "details": {
+                "rendered_ui_description": "Memoised version of the full table, rendering the complete data table with search, sort, filter, export, pagination, and summary features."
+            },
+            "line": 211
+        },
+        {
+            "id": "function_are_equal",
+            "kind": "function",
+            "name": "areEqual",
+            "signature": "(prevProps: TableProps, nextProps: TableProps) => boolean",
+            "description": "Custom comparison function for React.memo that performs a deep equality check on TableProps using lodash isEqual, preventing re-renders when props are deeply equal.",
+            "line": 209
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": [
+            "The import of TableSCN from '../ui/table' is present but not visibly used in the rendered JSX — it may be used elsewhere or is a leftover import.",
+            "The import of textNumbersRegex from 'src/helpers/forms' is imported but not visibly used in this file."
+        ]
+    }
+}

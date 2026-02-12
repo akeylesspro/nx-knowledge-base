@@ -1,0 +1,67 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "types/index.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "node"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json"
+    },
+    "summary": {
+        "purpose": "Barrel file that aggregates and re-exports all type definitions from the types, interfaces, and enums subdirectories.",
+        "problem_solved": "Provides a single import point for all type-system exports (types, interfaces, enums) within the types module."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "module": "./types",
+                "resolved_path": "types/types/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/types/index.ts"
+            },
+            {
+                "module": "./interfaces",
+                "resolved_path": "types/interfaces/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/interfaces/index.ts"
+            },
+            {
+                "module": "./enums",
+                "resolved_path": "types/enums/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/enums/index.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./types"
+        },
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./interfaces"
+        },
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./enums"
+        }
+    ],
+    "symbols": [],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

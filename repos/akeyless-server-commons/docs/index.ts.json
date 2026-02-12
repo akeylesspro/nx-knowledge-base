@@ -1,0 +1,139 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "index.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "node"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/index.ts.json"
+    },
+    "summary": {
+        "purpose": "Main entry point for the akeyless-server-commons package that aggregates and re-exports all library modules.",
+        "problem_solved": "Provides a single import point for consumers of the library, exposing helpers, managers, middlewares, and types as organized namespace imports."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "module": "./helpers",
+                "resolved_path": "helpers/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/index.ts"
+            },
+            {
+                "module": "./managers",
+                "resolved_path": "managers/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/index.ts"
+            },
+            {
+                "module": "./middlewares",
+                "resolved_path": "middlewares/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/middlewares/index.ts"
+            },
+            {
+                "module": "./types",
+                "resolved_path": "types/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/index.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "helpers",
+            "kind": "namespace",
+            "source_module": "./helpers"
+        },
+        {
+            "name": "managers",
+            "kind": "namespace",
+            "source_module": "./managers"
+        },
+        {
+            "name": "middlewares",
+            "kind": "namespace",
+            "source_module": "./middlewares"
+        },
+        {
+            "name": "types",
+            "kind": "namespace",
+            "source_module": "./types"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "namespace_helpers",
+            "name": "helpers",
+            "kind": "namespace",
+            "description_one_line": "Namespace re-export of all helper utilities from the helpers module.",
+            "details": {
+                "what_it_does": "Imports and re-exports the entire helpers module as a namespace object, providing consumers access to all helper functions."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 6,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/index.ts#L1-L6",
+                "nx_kb_anchor": "#namespace_helpers"
+            }
+        },
+        {
+            "symbol_id": "namespace_managers",
+            "name": "managers",
+            "kind": "namespace",
+            "description_one_line": "Namespace re-export of all manager utilities from the managers module.",
+            "details": {
+                "what_it_does": "Imports and re-exports the entire managers module as a namespace object, providing consumers access to all manager functions."
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 6,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/index.ts#L2-L6",
+                "nx_kb_anchor": "#namespace_managers"
+            }
+        },
+        {
+            "symbol_id": "namespace_middlewares",
+            "name": "middlewares",
+            "kind": "namespace",
+            "description_one_line": "Namespace re-export of all middleware utilities from the middlewares module.",
+            "details": {
+                "what_it_does": "Imports and re-exports the entire middlewares module as a namespace object, providing consumers access to all middleware functions."
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 6,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/index.ts#L3-L6",
+                "nx_kb_anchor": "#namespace_middlewares"
+            }
+        },
+        {
+            "symbol_id": "namespace_types",
+            "name": "types",
+            "kind": "namespace",
+            "description_one_line": "Namespace re-export of all type definitions from the types module.",
+            "details": {
+                "what_it_does": "Imports and re-exports the entire types module as a namespace object, providing consumers access to all type definitions, interfaces, and enums."
+            },
+            "locations": {
+                "source_line_start": 4,
+                "source_line_end": 6,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/index.ts#L4-L6",
+                "nx_kb_anchor": "#namespace_types"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

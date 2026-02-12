@@ -1,0 +1,56 @@
+{
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.tsx",
+    "source": {
+        "file_path": "assets/index.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.tsx.json"
+    },
+    "summary": {
+        "purpose": "Barrel export file that re-exports all symbols from the svg and table asset modules, providing a single entry point for importing asset components and functions.",
+        "problem_solved": "Centralizes asset exports so consumers can import SVG components and table-related SVG helpers from a single 'assets' path instead of importing from individual submodules."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "module": "./svg",
+                "reason": "Re-exports all SVG icon components (RedXSvg, RedXSvg2, GreenVSvg)",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/svg.tsx.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx"
+            },
+            {
+                "module": "./table",
+                "reason": "Re-exports all table-related SVG helper functions (sortSvg, emptyFilterSvg, slashFilterSvg, exportToExcelSvg)",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/table.tsx.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/table.tsx"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./svg",
+            "line": 1
+        },
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./table",
+            "line": 2
+        }
+    ],
+    "symbols": [],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

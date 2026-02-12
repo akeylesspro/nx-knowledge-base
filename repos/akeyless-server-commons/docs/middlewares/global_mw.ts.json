@@ -1,0 +1,234 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "global_mw.ts",
+    "source": {
+        "file_path": "middlewares/global_mw.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["node", "express"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/middlewares/global_mw.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/global_mw.ts.json"
+    },
+    "summary": {
+        "purpose": "Provides Express middleware factories for request parameter validation (mandatory and optional) and request logging.",
+        "problem_solved": "Eliminates repetitive parameter validation boilerplate in route handlers by providing reusable middleware that validates request body and header parameters against type, length, and structural constraints."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "package": "express",
+                "imports": ["Request", "Response", "NextFunction", "RequestHandler"],
+                "purpose": "Express types for middleware signatures"
+            }
+        ],
+        "internal": [
+            {
+                "module": "../helpers",
+                "resolved_path": "helpers/index.ts",
+                "imports": ["json_failed"],
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/index.ts",
+                "purpose": "json_failed utility for formatting error responses"
+            },
+            {
+                "module": "../types",
+                "resolved_path": "types/index.ts",
+                "imports": ["LogRequests", "MandatoryObject", "MandatoryParams", "MW", "Route", "Service"],
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/index.ts",
+                "purpose": "Type definitions for middleware parameters and middleware function signatures"
+            },
+            {
+                "module": "../managers",
+                "resolved_path": "managers/index.ts",
+                "imports": ["logger"],
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/index.ts",
+                "purpose": "Logger singleton for request logging"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "mandatory",
+            "kind": "function",
+            "description": "Middleware factory that validates mandatory request parameters in body and headers"
+        },
+        {
+            "name": "optional",
+            "kind": "function",
+            "description": "Middleware factory that validates optional request parameters in body and headers"
+        },
+        {
+            "name": "request_logger",
+            "kind": "function",
+            "description": "Middleware factory that logs request details based on configuration"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_validate_parameter",
+            "name": "validateParameter",
+            "kind": "function",
+            "description_one_line": "Validates a single parameter from request data against type, length, array element types, and required object keys.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "data",
+                        "type": "any",
+                        "description": "The data object (req.body or req.headers) containing the parameter to validate"
+                    },
+                    {
+                        "name": "parameter",
+                        "type": "MandatoryObject",
+                        "description": "The parameter definition specifying key, type, length, array_types, and required_keys constraints"
+                    },
+                    {
+                        "name": "is_mandatory",
+                        "type": "boolean",
+                        "description": "If true, throws when the parameter is missing; if false, silently returns for missing parameters"
+                    }
+                ],
+                "returns": {
+                    "type": "void",
+                    "description": "Returns nothing on success; throws a string error message on validation failure"
+                }
+            },
+            "details": {
+                "what_it_does": "Validates a single parameter extracted from request data against the constraints defined in a MandatoryObject. Checks for: presence (if mandatory), correct type (string, number, boolean, object, array), minimum length for strings and arrays, element types within arrays, and required keys within object-typed parameters. If any check fails, throws a descriptive string error message.",
+                "error_cases": [
+                    "Throws 'missing mandatory parameter: {key}' when is_mandatory is true and the parameter is undefined",
+                    "Throws 'parameter {key} must be of type: Array' when type is 'array' but value is not an array",
+                    "Throws 'parameter {key} must be of type: {type}' when typeof check fails for non-array types",
+                    "Throws 'parameter {key} must be string and must have minimum length of: {length}' when string is shorter than specified length",
+                    "Throws 'parameter {key} must be array and must have minimum length of: {length}' when array is shorter than specified length",
+                    "Throws 'item at index {index} in parameter {key} must be of type: {types}' when array element types do not match array_types",
+                    "Throws 'parameter {key} is missing required keys: {keys}' when object is missing required_keys",
+                    "Throws 'parameter {key} in {parent_key} must have some length' when a required key's value is an empty string or empty array"
+                ]
+            },
+            "locations": {
+                "source_line_start": 6,
+                "source_line_end": 54,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/middlewares/global_mw.ts#L6-L54",
+                "nx_kb_anchor": "#function_validate_parameter"
+            }
+        },
+        {
+            "symbol_id": "function_mandatory",
+            "name": "mandatory",
+            "kind": "function",
+            "description_one_line": "Middleware factory that validates that all specified body and header parameters are present and correctly typed.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "{ body, headers }",
+                        "type": "MandatoryParams",
+                        "description": "Object with optional body and headers arrays of MandatoryObject definitions"
+                    }
+                ],
+                "returns": {
+                    "type": "MW",
+                    "description": "An Express middleware function that validates mandatory parameters"
+                }
+            },
+            "details": {
+                "what_it_does": "Returns an Express middleware that iterates over the provided body and headers parameter definitions and calls validateParameter for each with is_mandatory=true. If all parameters pass validation, calls next(). If any validation fails, catches the thrown error and sends a JSON failure response via res.send(json_failed(error)).",
+                "side_effects": [
+                    "Sends a JSON error response and terminates the request chain if validation fails"
+                ],
+                "error_cases": [
+                    "Returns json_failed response for any parameter validation failure"
+                ]
+            },
+            "examples": {
+                "minimal_correct": "app.post('/users', mandatory({ body: [{ key: 'name', type: 'string', length: 1 }, { key: 'age', type: 'number' }] }), handler);"
+            },
+            "locations": {
+                "source_line_start": 56,
+                "source_line_end": 79,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/middlewares/global_mw.ts#L56-L79",
+                "nx_kb_anchor": "#function_mandatory"
+            }
+        },
+        {
+            "symbol_id": "function_optional",
+            "name": "optional",
+            "kind": "function",
+            "description_one_line": "Middleware factory that validates optional parameters when present but does not require them.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "{ body, headers }",
+                        "type": "MandatoryParams",
+                        "description": "Object with optional body and headers arrays of MandatoryObject definitions"
+                    }
+                ],
+                "returns": {
+                    "type": "MW",
+                    "description": "An Express middleware function that validates optional parameters"
+                }
+            },
+            "details": {
+                "what_it_does": "Returns an Express middleware that iterates over the provided body and headers parameter definitions and calls validateParameter for each with is_mandatory=false. Missing parameters are silently skipped, but if a parameter is present, it must conform to the type/length/structure constraints. On validation failure, catches the thrown error and sends a JSON failure response.",
+                "side_effects": [
+                    "Sends a JSON error response and terminates the request chain if a present optional parameter fails validation"
+                ],
+                "error_cases": [
+                    "Returns json_failed response if any present optional parameter fails type/length/structure validation"
+                ]
+            },
+            "examples": {
+                "minimal_correct": "app.post('/users', optional({ body: [{ key: 'nickname', type: 'string' }] }), handler);"
+            },
+            "locations": {
+                "source_line_start": 81,
+                "source_line_end": 104,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/middlewares/global_mw.ts#L81-L104",
+                "nx_kb_anchor": "#function_optional"
+            }
+        },
+        {
+            "symbol_id": "function_request_logger",
+            "name": "request_logger",
+            "kind": "function",
+            "description_one_line": "Middleware factory that logs request URL, headers, query, and body based on a configuration object.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "log_requests",
+                        "type": "LogRequests",
+                        "description": "Configuration object with boolean flags: url, headers, query, body"
+                    }
+                ],
+                "returns": {
+                    "type": "RequestHandler",
+                    "description": "An Express RequestHandler middleware that logs request details"
+                }
+            },
+            "details": {
+                "what_it_does": "Returns an Express middleware that conditionally logs request information. If any logging flag is truthy, logs the HTTP method and original URL. Additionally logs headers if log_requests.headers is truthy, query parameters if log_requests.query is truthy, and request body if log_requests.body is truthy and the method is POST, PUT, or PATCH. Always calls next() to continue the request chain.",
+                "side_effects": [
+                    "Writes log output via the logger singleton for matching request components"
+                ]
+            },
+            "examples": {
+                "minimal_correct": "app.use(request_logger({ url: true, headers: false, query: true, body: true }));"
+            },
+            "locations": {
+                "source_line_start": 106,
+                "source_line_end": 124,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/middlewares/global_mw.ts#L106-L124",
+                "nx_kb_anchor": "#function_request_logger"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

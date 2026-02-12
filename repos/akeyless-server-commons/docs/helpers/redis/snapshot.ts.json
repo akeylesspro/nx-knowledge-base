@@ -1,0 +1,308 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "snapshot.ts",
+    "source": {
+        "file_path": "helpers/redis/snapshot.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "node"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/snapshot.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/snapshot.ts.json"
+    },
+    "summary": {
+        "purpose": "Implements Redis-based snapshot subscriptions that mirror Firestore collection data from Redis, handling initial data loading and real-time updates via Redis pub/sub.",
+        "problem_solved": "Provides a Redis-backed alternative to direct Firestore snapshot listeners, reducing Firestore read costs and latency by reading cached data from Redis and listening for updates through Redis pub/sub channels. Falls back to Firestore snapshots when Redis is unavailable or when configuration requires it."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "akeyless-types-commons",
+                "version": "*",
+                "usage": "Provides CollectionConfig, RedisUpdatePayload, RedisUpdateType, and TObject types for configuration and update payloads"
+            },
+            {
+                "module": "firebase-admin/firestore",
+                "version": "*",
+                "usage": "Provides Timestamp class for converting serialized timestamp objects back to Firestore Timestamp instances"
+            }
+        ],
+        "internal": [
+            {
+                "module": "./initialize",
+                "resolved_path": "helpers/redis/initialize.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/initialize.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/initialize.ts",
+                "usage": "Imports get_redis_commander, get_redis_listener, redis_commander_connected, and redis_listener_connected for accessing Redis clients and checking connection state"
+            },
+            {
+                "module": "../../types",
+                "resolved_path": "types/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/index.ts",
+                "usage": "Imports OnSnapshotConfig type for snapshot configuration"
+            },
+            {
+                "module": "../firebase_helpers",
+                "resolved_path": "helpers/firebase_helpers/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/firebase_helpers/index.ts",
+                "usage": "Imports get_nx_settings, parse_add_update_as_array, parse_add_update_as_object, parse_delete_as_array, parse_delete_as_object, and snapshot for data parsing and Firestore fallback"
+            },
+            {
+                "module": "./keys",
+                "resolved_path": "helpers/redis/keys.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/keys.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/keys.ts",
+                "usage": "Imports get_collection_keys and scan_redis_keys for key pattern construction and scanning"
+            },
+            {
+                "module": "../../managers",
+                "resolved_path": "managers/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/index.ts",
+                "usage": "Imports logger for debug and warning output"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "redis_snapshots_bulk",
+            "kind": "function",
+            "description": "Initializes Redis-based snapshot subscriptions for multiple collection configs, loading initial data and setting up real-time update listeners."
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "variable_subscription_collections",
+            "name": "subscription_collections",
+            "kind": "variable",
+            "description_one_line": "Module-level Set tracking which collections already have active Redis subscriptions to prevent duplicates.",
+            "details": {
+                "what_it_does": "A Set<string> that stores cache_name values for collections that have already been subscribed to. Checked during validation to prevent duplicate subscriptions for the same collection."
+            },
+            "locations": {
+                "source_line_start": 16,
+                "source_line_end": 16,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/snapshot.ts#L16",
+                "nx_kb_anchor": "#variable_subscription_collections"
+            }
+        },
+        {
+            "symbol_id": "function_redis_snapshots_bulk",
+            "name": "redis_snapshots_bulk",
+            "kind": "function",
+            "description_one_line": "Initializes Redis-based snapshot subscriptions for multiple collections, loading initial data and listening for real-time updates.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "configs",
+                        "type": "OnSnapshotConfig[]",
+                        "description": "Array of snapshot configuration objects, each defining a collection to subscribe to with parsing and callback options."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves after all initial snapshots are processed and the pub/sub listener is set up."
+                }
+            },
+            "details": {
+                "what_it_does": "Processes an array of OnSnapshotConfig objects in two phases: (1) Initial load - validates each config and either loads initial data from Redis via parse_redis_snapshot or falls back to Firestore via snapshot() based on validation results. (2) Real-time updates - attaches a 'pmessage' event handler on the Redis listener that receives pub/sub messages, parses the JSON payload (containing collection_name, update_type, and data), converts timestamp objects, filters for relevant configs, and dispatches updates through parse_redis_snapshot.",
+                "side_effects": "Registers a persistent 'pmessage' event handler on the Redis listener client. May trigger Firestore snapshot fallbacks for configs that fail validation. Populates the subscription_collections Set."
+            },
+            "examples": {
+                "minimal_correct": "await redis_snapshots_bulk([\n    {\n        collection_name: 'users',\n        parse_as: 'array',\n        on_first_time: (docs) => console.log('Initial users:', docs.length),\n        on_add: (docs) => console.log('User added:', docs),\n    }\n]);"
+            },
+            "locations": {
+                "source_line_start": 18,
+                "source_line_end": 40,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/snapshot.ts#L18-L40",
+                "nx_kb_anchor": "#function_redis_snapshots_bulk"
+            }
+        },
+        {
+            "symbol_id": "interface_validate_config_result",
+            "name": "ValidateConfigResult",
+            "kind": "interface",
+            "description_one_line": "Describes the result of validating a snapshot config, indicating success or failure with optional fallback instructions.",
+            "details": {
+                "what_it_does": "Defines the shape of the validation result returned by validate_config. Contains a success boolean, an optional trigger_firebase_snapshot flag indicating whether to fall back to Firestore, and an optional message string for logging."
+            },
+            "locations": {
+                "source_line_start": 42,
+                "source_line_end": 46,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/snapshot.ts#L42-L46",
+                "nx_kb_anchor": "#interface_validate_config_result"
+            }
+        },
+        {
+            "symbol_id": "function_validate_config",
+            "name": "validate_config",
+            "kind": "function",
+            "description_one_line": "Validates a snapshot config against Redis connection state, subscription type, cache settings, and duplicate subscriptions.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "config",
+                        "type": "OnSnapshotConfig",
+                        "description": "The snapshot configuration to validate."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<ValidateConfigResult>",
+                    "description": "Validation result with success flag, optional Firestore fallback trigger, and warning message."
+                }
+            },
+            "details": {
+                "what_it_does": "Performs a series of validation checks on the given config: (1) Checks if Redis commander and listener are connected - if not, triggers Firestore fallback. (2) Checks if subscription_type is 'firebase' - if so, triggers Firestore fallback. (3) Fetches nx_settings and checks if the collection exists in cache_collections_config and that sync_direction is not 'redis_to_firebase' - if invalid, triggers Firestore fallback. (4) Checks if the collection already has an active subscription in subscription_collections Set - if so, skips without fallback. If all checks pass, adds the cache_name to subscription_collections and returns success.",
+                "side_effects": "Adds the cache_name to subscription_collections Set on successful validation. Fetches nx_settings from Firestore via get_nx_settings()."
+            },
+            "locations": {
+                "source_line_start": 48,
+                "source_line_end": 85,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/snapshot.ts#L48-L85",
+                "nx_kb_anchor": "#function_validate_config"
+            }
+        },
+        {
+            "symbol_id": "function_parse_redis_snapshot",
+            "name": "parse_redis_snapshot",
+            "kind": "function",
+            "description_one_line": "Processes a Redis snapshot event by dispatching data through configured parsers and callbacks based on the update type.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "config",
+                        "type": "OnSnapshotConfig",
+                        "description": "The snapshot configuration with parsing mode, callbacks, and extra parsers."
+                    },
+                    {
+                        "name": "redis_update",
+                        "type": "{ update_type: RedisUpdateType; update: TObject<any>[] } | undefined",
+                        "description": "Optional update payload. If undefined, performs initial data load from Redis. If provided, processes the incremental update."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves after processing the snapshot data through all parsers and callbacks."
+                }
+            },
+            "details": {
+                "what_it_does": "Handles two scenarios: (1) Initial load (no redis_update) - fetches all collection data from Redis via get_collection_data, runs default_parsers, invokes on_first_time callback, and processes extra_parsers. (2) Incremental update (redis_update provided) - switches on update_type ('add', 'update', 'delete') and dispatches through the appropriate parsers and callbacks. For 'add' and 'update', uses default_parsers (parse_add_update_as_object or parse_add_update_as_array). For 'delete', uses parse_delete_as_object or parse_delete_as_array. Also invokes type-specific callbacks (on_add, on_modify, on_remove) and extra_parsers. Debug logging is controlled by config.debug settings.",
+                "side_effects": "Mutates cached data structures via parse_add_update_as_object, parse_add_update_as_array, parse_delete_as_object, and parse_delete_as_array. Invokes user-provided callbacks. May log debug output."
+            },
+            "locations": {
+                "source_line_start": 87,
+                "source_line_end": 173,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/snapshot.ts#L87-L173",
+                "nx_kb_anchor": "#function_parse_redis_snapshot"
+            }
+        },
+        {
+            "symbol_id": "function_default_parsers",
+            "name": "default_parsers",
+            "kind": "function",
+            "description_one_line": "Routes add/update data through the appropriate parser based on the parse_as mode ('array' or 'object').",
+            "signature": {
+                "params": [
+                    {
+                        "name": "parse_as",
+                        "type": "\"array\" | \"object\" | undefined",
+                        "description": "The parsing mode that determines which parser function to invoke."
+                    },
+                    {
+                        "name": "update",
+                        "type": "TObject<any>[]",
+                        "description": "Array of document objects to parse."
+                    },
+                    {
+                        "name": "config",
+                        "type": "OnSnapshotConfig",
+                        "description": "The snapshot configuration containing cache references."
+                    }
+                ],
+                "returns": {
+                    "type": "void",
+                    "description": "No return value."
+                }
+            },
+            "details": {
+                "what_it_does": "Dispatches the update data to either parse_add_update_as_object or parse_add_update_as_array from firebase_helpers based on the parse_as configuration value. If parse_as is undefined, no parsing is performed.",
+                "side_effects": "Mutates the cached data structure (object or array) referenced by the config."
+            },
+            "locations": {
+                "source_line_start": 175,
+                "source_line_end": 182,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/snapshot.ts#L175-L182",
+                "nx_kb_anchor": "#function_default_parsers"
+            }
+        },
+        {
+            "symbol_id": "function_get_collection_data",
+            "name": "get_collection_data",
+            "kind": "function",
+            "description_one_line": "Fetches all documents for a collection from Redis, parsing JSON values and converting timestamps.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_name",
+                        "type": "string",
+                        "description": "The name of the collection to fetch data for."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<any[]>",
+                    "description": "Array of document objects with Firestore Timestamp instances restored from serialized form."
+                }
+            },
+            "details": {
+                "what_it_does": "Retrieves all cached documents for the given collection from Redis. Uses scan_redis_keys to find all keys matching the collection pattern, then uses MGET to batch-fetch all values. Each value is parsed from JSON (extracting the .data property), and timestamp objects are converted back to Firestore Timestamp instances via convert_object_timestamps.",
+                "side_effects": "Performs SCAN and MGET operations against the Redis server."
+            },
+            "locations": {
+                "source_line_start": 184,
+                "source_line_end": 193,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/snapshot.ts#L184-L193",
+                "nx_kb_anchor": "#function_get_collection_data"
+            }
+        },
+        {
+            "symbol_id": "function_convert_object_timestamps",
+            "name": "convert_object_timestamps",
+            "kind": "function",
+            "description_one_line": "Recursively converts serialized timestamp objects ({_seconds, _nanoseconds}) back to Firestore Timestamp instances.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "data",
+                        "type": "TObject<any>",
+                        "description": "An object potentially containing serialized Timestamp fields."
+                    }
+                ],
+                "returns": {
+                    "type": "TObject<any>",
+                    "description": "The same object with serialized timestamps replaced by Firestore Timestamp instances (mutated in place)."
+                }
+            },
+            "details": {
+                "what_it_does": "Iterates over all entries of the given object. For each value that is an object containing _seconds and _nanoseconds properties, replaces it with a new Firestore Timestamp instance. For nested objects without _seconds, recurses into them. This handles the deserialization of Firestore Timestamps that were JSON-serialized when stored in Redis.",
+                "side_effects": "Mutates the input data object in place, replacing serialized timestamp objects with Firestore Timestamp instances."
+            },
+            "locations": {
+                "source_line_start": 195,
+                "source_line_end": 205,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/snapshot.ts#L195-L205",
+                "nx_kb_anchor": "#function_convert_object_timestamps"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

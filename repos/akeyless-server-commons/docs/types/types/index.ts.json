@@ -1,0 +1,56 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "types/types/index.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "node"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/types/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/index.ts.json"
+    },
+    "summary": {
+        "purpose": "Barrel file that re-exports all type definitions from the global and firebase_types modules.",
+        "problem_solved": "Provides a single import point for all type aliases and interfaces defined in the types/types subdirectory."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "module": "./global",
+                "resolved_path": "types/types/global.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/global.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/types/global.ts"
+            },
+            {
+                "module": "./firebase_types",
+                "resolved_path": "types/types/firebase_types.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/firebase_types.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/types/firebase_types.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./global"
+        },
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./firebase_types"
+        }
+    ],
+    "symbols": [],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

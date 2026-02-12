@@ -1,0 +1,155 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "error_handling.ts",
+    "source": {
+        "file_path": "middlewares/error_handling.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["node", "express"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/middlewares/error_handling.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/error_handling.ts.json"
+    },
+    "summary": {
+        "purpose": "Provides centralized error handling utilities for Express applications, including an async error wrapper and a global error-handling middleware.",
+        "problem_solved": "Prevents unhandled promise rejections from crashing the server and provides a consistent error response format (HTTP 500 with JSON body) for all uncaught errors in route handlers."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "package": "express",
+                "imports": ["Request", "Response", "NextFunction"],
+                "purpose": "Express types for middleware and request/response signatures"
+            }
+        ],
+        "internal": [
+            {
+                "module": "../types",
+                "resolved_path": "types/index.ts",
+                "imports": ["Service"],
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/index.ts",
+                "purpose": "Service type alias representing an async route handler (req, res) => void"
+            },
+            {
+                "module": "../managers",
+                "resolved_path": "managers/index.ts",
+                "imports": ["logger"],
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/index.ts",
+                "purpose": "Logger singleton for error logging in the global error handler"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "error_handler",
+            "kind": "function",
+            "description": "Global Express error-handling middleware that logs errors and returns a 500 JSON response"
+        },
+        {
+            "name": "async_error_handler",
+            "kind": "function",
+            "description": "Utility wrapper that catches rejected promises from async service handlers and forwards errors to Express error handling"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_async_error_handler",
+            "name": "async_error_handler",
+            "kind": "function",
+            "description_one_line": "Wraps an async service handler to catch promise rejections and pass them to Express next() for centralized error handling.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "service",
+                        "type": "Service",
+                        "description": "An async route handler function with signature (req: Request, res: Response) => void"
+                    }
+                ],
+                "returns": {
+                    "type": "(req: Request, res: Response, next: NextFunction) => void",
+                    "description": "An Express middleware that wraps the service call in Promise.resolve().catch(next)"
+                }
+            },
+            "details": {
+                "what_it_does": "Takes an async service function and returns an Express middleware. The middleware invokes the service, wraps the result in Promise.resolve(), and attaches a .catch(next) handler so that any rejected promise is forwarded to the Express error-handling middleware chain rather than causing an unhandled promise rejection.",
+                "side_effects": [
+                    "Forwards caught errors to the Express next() function for downstream error handling"
+                ],
+                "error_cases": [
+                    "Any error thrown or promise rejection in the service function is caught and passed to next()"
+                ]
+            },
+            "examples": {
+                "minimal_correct": "app.get('/data', async_error_handler(async (req, res) => { const data = await fetchData(); res.json(data); }));"
+            },
+            "locations": {
+                "source_line_start": 8,
+                "source_line_end": 12,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/middlewares/error_handling.ts#L8-L12",
+                "nx_kb_anchor": "#function_async_error_handler"
+            }
+        },
+        {
+            "symbol_id": "function_error_handler",
+            "name": "error_handler",
+            "kind": "function",
+            "description_one_line": "Global Express error-handling middleware that logs the error stack trace and responds with a 500 JSON error.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "err",
+                        "type": "Error",
+                        "description": "The error object passed by Express or by next(err)"
+                    },
+                    {
+                        "name": "req",
+                        "type": "Request",
+                        "description": "Express request object"
+                    },
+                    {
+                        "name": "res",
+                        "type": "Response",
+                        "description": "Express response object; used to send the 500 error response"
+                    },
+                    {
+                        "name": "next",
+                        "type": "NextFunction",
+                        "description": "Express next function (required by Express 4-param error middleware signature)"
+                    }
+                ],
+                "returns": {
+                    "type": "void",
+                    "description": "Sends a JSON response with status 500 and error details"
+                }
+            },
+            "details": {
+                "what_it_does": "Serves as the final error-handling middleware in the Express middleware chain. Logs the full error stack trace via logger.error with a 'Global Error Handler:' prefix, then sends an HTTP 500 response with a JSON body containing { status: 'error', message: err.message || 'Internal Server Error' }. Must be registered after all other middleware and routes to catch errors.",
+                "side_effects": [
+                    "Logs the error stack trace via logger.error",
+                    "Sends HTTP 500 JSON response to the client"
+                ],
+                "error_cases": [
+                    "Falls back to 'Internal Server Error' message if err.message is falsy"
+                ]
+            },
+            "examples": {
+                "minimal_correct": "// Register as the last middleware\napp.use(error_handler);"
+            },
+            "locations": {
+                "source_line_start": 17,
+                "source_line_end": 24,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/middlewares/error_handling.ts#L17-L24",
+                "nx_kb_anchor": "#function_error_handler"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

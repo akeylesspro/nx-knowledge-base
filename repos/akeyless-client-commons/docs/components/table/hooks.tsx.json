@@ -1,0 +1,126 @@
+{
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "hooks.tsx",
+    "source": {
+        "file_path": "components/table/hooks.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/hooks.tsx.json"
+    },
+    "summary": {
+        "purpose": "Custom React hooks that encapsulate the core table state management: context access, column filtering, column sorting, debounced search, display-all-rows toggle, and a Zustand store factory.",
+        "problem_solved": "Separates the table's interactive state logic (filter, sort, search, pagination toggle) into reusable, composable hooks so the TableProvider can orchestrate them and sub-components can access the context cleanly."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "react",
+                "imports": ["useCallback", "useContext", "useDeferredValue", "useEffect", "useMemo", "useState", "useTransition"]
+            },
+            {
+                "module": "akeyless-types-commons",
+                "imports": ["TObject"]
+            },
+            {
+                "module": "zustand",
+                "imports": ["create"]
+            },
+            {
+                "module": "lodash",
+                "imports": ["debounce", "isEqual"]
+            }
+        ],
+        "internal": [
+            {
+                "module": "./Table",
+                "resolved_path": "components/table/Table.tsx",
+                "imports": ["TableContext"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/Table.tsx.json"
+            },
+            {
+                "module": "./types",
+                "resolved_path": "components/table/types.ts",
+                "imports": ["UseFilterProps"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json"
+            }
+        ]
+    },
+    "exports": [
+        { "name": "useTableContext", "kind": "function", "line": 7 },
+        { "name": "useFilter", "kind": "function", "line": 15 },
+        { "name": "useSort", "kind": "function", "line": 64 },
+        { "name": "useDisplayToggle", "kind": "function", "line": 85 },
+        { "name": "useSearch", "kind": "function", "line": 113 },
+        { "name": "useCreateTableStore", "kind": "function", "line": 147 }
+    ],
+    "symbols": [
+        {
+            "id": "function_use_table_context",
+            "kind": "function",
+            "name": "useTableContext",
+            "signature": "() => TableProps & TableProviderType",
+            "description": "Hook that reads the TableContext via useContext and throws an error if used outside a Table/TableProvider component tree. Returns the merged TableProps and TableProviderType object.",
+            "line": 7
+        },
+        {
+            "id": "function_use_filter",
+            "kind": "function",
+            "name": "useFilter",
+            "signature": "({ data, filterableColumns }: UseFilterProps) => { filters, filterPopupsDisplay, filterOptions, handleFilterChange, handleFilterClick, closeFilterWindow, clearFilter }",
+            "description": "Hook that manages multi-column filter state. Computes unique filter options per column from data, tracks which filters are active (checkbox selections), which filter popup is open, and provides handlers for toggling filter values, opening/closing popups, and clearing filters. When a filter popup is toggled off, its selections are reset.",
+            "line": 15
+        },
+        {
+            "id": "type_sort_options",
+            "kind": "type",
+            "name": "SortOptions",
+            "signature": "\"asc\" | \"desc\"",
+            "description": "Local type alias for sort direction, either ascending or descending.",
+            "line": 62
+        },
+        {
+            "id": "function_use_sort",
+            "kind": "function",
+            "name": "useSort",
+            "signature": "() => { sortColumn: number | null, sortOrder: SortOptions | null, handleSort: (columnIndex: number) => void, clearSort: () => void }",
+            "description": "Hook that manages single-column sort state. Tracks which column index is sorted and in which direction. handleSort toggles between 'asc' and 'desc' when clicking the same column, or sets 'asc' for a new column. clearSort resets both to null.",
+            "line": 64
+        },
+        {
+            "id": "function_use_display_toggle",
+            "kind": "function",
+            "name": "useDisplayToggle",
+            "signature": "() => { displayAllRows: boolean, setDisplayAllRows: (value: boolean) => void }",
+            "description": "Simple hook that manages a boolean toggle for whether all rows should be displayed (bypassing the maxRows limit) or just the limited set.",
+            "line": 85
+        },
+        {
+            "id": "function_use_search",
+            "kind": "function",
+            "name": "useSearch",
+            "signature": "(debounceDelay?: number) => { searchQuery: string, debouncedSearchQuery: string, handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void, clearSearch: () => void }",
+            "description": "Hook that manages search input state with debounced output. Maintains both the immediate searchQuery (for the input value) and a debouncedSearchQuery (for triggering filtering) using lodash debounce. The debounce delay defaults to 300ms. Provides handleSearch for input changes and clearSearch to reset both values.",
+            "line": 113
+        },
+        {
+            "id": "function_use_create_table_store",
+            "kind": "function",
+            "name": "useCreateTableStore",
+            "signature": "() => UseBoundStore<StoreApi<any>>",
+            "description": "Factory hook that creates and returns a new Zustand store instance with an empty initial state. Intended as a starting point for per-table-instance state management.",
+            "line": 147
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": [
+            "useCreateTableStore returns a Zustand store with an empty state and no actions — it appears to be a placeholder or minimal factory for future use."
+        ]
+    }
+}

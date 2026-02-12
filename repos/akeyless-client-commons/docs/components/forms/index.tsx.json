@@ -1,0 +1,135 @@
+{
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.tsx",
+    "source": {
+        "file_path": "components/forms/index.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/index.tsx.json"
+    },
+    "summary": {
+        "purpose": "Barrel export file for the forms module that also defines ConfirmForm, DatePicker, and DatePicker2 components for confirmation dialogs and date range selection.",
+        "problem_solved": "Provides reusable form UI components including a confirmation dialog with approve/cancel buttons, a basic HTML date range picker, and an enhanced date range picker built on react-aria-components with calendar popover support."
+    },
+    "dependencies": {
+        "external": [
+            { "name": "react", "usage": "useState hook for loading state management" },
+            { "name": "moment", "usage": "Date formatting for default date input values" },
+            { "name": "lucide-react", "usage": "CalendarIcon for the DatePicker2 calendar trigger button" },
+            { "name": "react-aria-components", "usage": "DatePicker, Dialog, Group, Label, Popover, Button, I18nProvider for accessible date picker UI in DatePicker2" },
+            { "name": "@internationalized/date", "usage": "parseDate, today, getLocalTimeZone for date value parsing and defaults in DatePicker2" }
+        ],
+        "internal": [
+            {
+                "name": "GreenVSvg",
+                "resolved_path": "assets/index",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.tsx.json"
+            },
+            {
+                "name": "RedXSvg",
+                "resolved_path": "assets/index",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.tsx.json"
+            },
+            {
+                "name": "Loader",
+                "resolved_path": "components/utils/index",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/index.tsx.json"
+            },
+            {
+                "name": "ConfirmFormProps",
+                "resolved_path": "types/index",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json"
+            },
+            {
+                "name": "DatePickerProps",
+                "resolved_path": "types/index",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json"
+            },
+            {
+                "name": "cn",
+                "resolved_path": "lib/utils",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json"
+            },
+            {
+                "name": "Calendar",
+                "resolved_path": "components/ui/calendar-rac",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/calendar-rac.tsx.json"
+            },
+            {
+                "name": "DateInput",
+                "resolved_path": "components/ui/datefield-rac",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/datefield-rac.tsx.json"
+            },
+            {
+                "name": "ModularForm (re-export)",
+                "resolved_path": "components/forms/ModularForm/index",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/index.tsx.json"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source": "./ModularForm",
+            "description": "Re-exports all exports from the ModularForm sub-module (ModularForm component, formElements, InternationalPhonePicker)."
+        },
+        {
+            "name": "ConfirmForm",
+            "kind": "component",
+            "description": "A confirmation dialog component with approve (green check) and cancel (red X) buttons, customizable headline, and RTL/LTR direction support."
+        },
+        {
+            "name": "DatePicker",
+            "kind": "component",
+            "description": "A date range picker form component using native HTML date inputs with from/to fields and a submit button with loading state."
+        },
+        {
+            "name": "DatePicker2",
+            "kind": "component",
+            "description": "An enhanced date range picker using react-aria-components with calendar popover, I18nProvider locale support, and accessible date input fields."
+        }
+    ],
+    "symbols": [
+        {
+            "id": "component_confirm_form",
+            "kind": "component",
+            "name": "ConfirmForm",
+            "signature": "({ onV, onX, headline, direction, containerClassName, buttonsContainerClassName, headlineClassName, cancelButtonClassName, confirmButtonClassName, cancelButtonProps, confirmButtonProps, cancelElement, confirmElement }: ConfirmFormProps) => JSX.Element",
+            "description": "A confirmation dialog component that renders a headline and two action buttons (confirm/cancel). Defaults to GreenVSvg and RedXSvg icons but supports custom elements. Supports RTL direction by default.",
+            "details": {
+                "rendered_ui_description": "A vertically stacked container with a bold headline at the top and a centered row of two buttons below: a cancel button (red X icon by default) and a confirm button (green check icon by default). The container is padded and supports RTL/LTR text direction."
+            }
+        },
+        {
+            "id": "component_date_picker",
+            "kind": "component",
+            "name": "DatePicker",
+            "signature": "({ submit, formClassName, labelsClassName, inputsClassName, buttonClassName, buttonStyle, defaultFrom, defaultTo, direction, fromText, toText, buttonText }: DatePickerProps) => JSX.Element",
+            "description": "A simple date range form with native HTML date inputs for 'from' and 'to' dates. Includes a submit button with loading spinner state. Defaults to today's date using moment.js formatting.",
+            "details": {
+                "rendered_ui_description": "A horizontal form row containing two labeled date inputs (from and to) with native browser date pickers, followed by a green submit button. Shows a spinning loader when the form is submitting."
+            }
+        },
+        {
+            "id": "component_date_picker2",
+            "kind": "component",
+            "name": "DatePicker2",
+            "signature": "({ submit, formClassName, labelsClassName, inputsClassName, buttonClassName, calendarClassName, selectedDayClassName, todayDayClassName, buttonStyle, defaultFrom, defaultTo, direction, fromText, toText, buttonText }: DatePickerProps) => JSX.Element",
+            "description": "An enhanced date range form using react-aria-components for accessible date pickers with calendar popovers. Wraps content in I18nProvider with en-GB locale. Supports calendar styling customization and direction-aware layout.",
+            "details": {
+                "rendered_ui_description": "A horizontal form row with two labeled date pickers, each featuring a styled text date input with a calendar icon button that opens a popover calendar for date selection. Includes a green submit button with loading spinner state."
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

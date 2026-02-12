@@ -1,0 +1,165 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "translation_manager.ts",
+    "source": {
+        "file_path": "managers/translation_manager.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["node"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/translation_manager.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/translation_manager.ts.json"
+    },
+    "summary": {
+        "purpose": "Provides a singleton translation manager for storing and retrieving internationalized strings organized by scope (sms, email, etc.), language, and entity.",
+        "problem_solved": "Centralizes translation data access so that different parts of the server application can look up localized strings for SMS messages, emails, and other scopes using a consistent key format (entity__key) with fallback to the key itself or 'N/A' on failure."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "akeyless-types-commons",
+                "imported_names": ["TObject"],
+                "purpose": "Provides the TObject generic type used to type the internal translation data store"
+            }
+        ],
+        "internal": [
+            {
+                "module": "../types",
+                "imported_names": ["EntityOptions", "LangOptions"],
+                "purpose": "Provides type aliases for supported language codes and entity name options",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/index.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "TranslationManager",
+            "kind": "class",
+            "description_one_line": "Singleton class that stores and retrieves translation strings by scope, language, entity, and key"
+        },
+        {
+            "name": "translation_manager",
+            "kind": "variable",
+            "description_one_line": "Pre-instantiated singleton instance of TranslationManager"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "class_translation_manager",
+            "name": "TranslationManager",
+            "kind": "class",
+            "description_one_line": "Singleton class for storing and looking up internationalized translation strings by scope, language, entity, and key",
+            "details": {
+                "what_it_does": "Implements the singleton pattern to manage a nested translation data structure. Translation data is organized as data[scope][lang][entity__key]. The class provides methods to set the entire translation dataset, retrieve it, and look up individual translations by scope/language/entity/key. Specialized convenience methods get_sms() and get_email() handle the 'sms' and 'email' scopes respectively, returning 'N/A' if a translation is not found. The general get_translation() method returns the lookup key as fallback when no translation is found.",
+                "methods": [
+                    {
+                        "name": "getInstance",
+                        "description_one_line": "Returns the singleton TranslationManager instance, creating it if it does not yet exist",
+                        "signature": {
+                            "params": [],
+                            "returns": "TranslationManager"
+                        }
+                    },
+                    {
+                        "name": "setTranslationData",
+                        "description_one_line": "Replaces the entire internal translation dataset with the provided data object",
+                        "signature": {
+                            "params": [
+                                { "name": "data", "type": "TObject<any>" }
+                            ],
+                            "returns": "void"
+                        }
+                    },
+                    {
+                        "name": "getTranslationData",
+                        "description_one_line": "Returns the entire internal translation dataset",
+                        "signature": {
+                            "params": [],
+                            "returns": "TObject<any>"
+                        }
+                    },
+                    {
+                        "name": "get_translation",
+                        "description_one_line": "Looks up a translation string by scope, language, entity, and key; falls back to the constructed key if not found",
+                        "signature": {
+                            "params": [
+                                { "name": "scope", "type": "string" },
+                                { "name": "lang", "type": "string" },
+                                { "name": "entity", "type": "string" },
+                                { "name": "key", "type": "string" }
+                            ],
+                            "returns": "string"
+                        }
+                    },
+                    {
+                        "name": "get_sms",
+                        "description_one_line": "Retrieves an SMS translation for the given language, entity, and key; returns 'N/A' on failure",
+                        "signature": {
+                            "params": [
+                                { "name": "lang", "type": "LangOptions" },
+                                { "name": "entity", "type": "EntityOptions" },
+                                { "name": "key", "type": "string" }
+                            ],
+                            "returns": "string"
+                        }
+                    },
+                    {
+                        "name": "get_email",
+                        "description_one_line": "Retrieves an email translation for the given language, entity, and key; returns 'N/A' on failure",
+                        "signature": {
+                            "params": [
+                                { "name": "lang", "type": "LangOptions" },
+                                { "name": "entity", "type": "EntityOptions" },
+                                { "name": "key", "type": "string" }
+                            ],
+                            "returns": "string"
+                        }
+                    }
+                ],
+                "side_effects": [],
+                "error_cases": [
+                    "get_sms() and get_email() catch any errors (e.g., missing scope/language/entity path) and return 'N/A'",
+                    "get_translation() may throw if the scope or language path does not exist in the data (no try-catch wrapper)"
+                ]
+            },
+            "examples": {
+                "minimal_correct": "import { translation_manager } from 'akeyless-server-commons';\n\n// Initialize translation data (typically done at app startup)\ntranslation_manager.setTranslationData({\n    sms: {\n        he: { 'nx_devices__welcome': 'Shalom!' },\n        en: { 'nx_devices__welcome': 'Welcome!' }\n    },\n    email: {\n        he: { 'nx_devices__subject': 'Notification' },\n        en: { 'nx_devices__subject': 'Notification' }\n    }\n});\n\n// Retrieve SMS translation\nconst smsText = translation_manager.get_sms('en', 'nx_devices', 'welcome');\n// => 'Welcome!'\n\n// Retrieve email translation\nconst emailSubject = translation_manager.get_email('he', 'nx_devices', 'subject');\n// => 'Notification'\n\n// General translation lookup\nconst text = translation_manager.get_translation('sms', 'en', 'nx_devices', 'welcome');\n// => 'Welcome!'"
+            },
+            "locations": {
+                "source_line_start": 4,
+                "source_line_end": 38,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/translation_manager.ts#L4-L38",
+                "nx_kb_anchor": "#class_translation_manager"
+            }
+        },
+        {
+            "symbol_id": "variable_translation_manager",
+            "name": "translation_manager",
+            "kind": "variable",
+            "description_one_line": "Pre-instantiated singleton instance of TranslationManager, ready for direct import and use",
+            "signature": {
+                "params": [],
+                "returns": "TranslationManager"
+            },
+            "details": {
+                "what_it_does": "Calls TranslationManager.getInstance() at module load time to create and export the singleton instance. Consumers should import this variable directly for accessing translation functionality."
+            },
+            "locations": {
+                "source_line_start": 40,
+                "source_line_end": 40,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/translation_manager.ts#L40",
+                "nx_kb_anchor": "#variable_translation_manager"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": [
+            "get_translation() does not have a try-catch and may throw if the scope or language path is missing from the data"
+        ]
+    }
+}

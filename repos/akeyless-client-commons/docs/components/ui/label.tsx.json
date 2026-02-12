@@ -1,0 +1,65 @@
+{
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "label.tsx",
+    "source": {
+        "file_path": "components/ui/label.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/label.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/label.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides a styled Label component built on top of @radix-ui/react-label, following the shadcn/ui design pattern for accessible form labels.",
+        "problem_solved": "Wraps Radix UI's Label primitive with consistent Tailwind CSS styling including text size, font weight, text selection prevention, and automatic disabled state handling when used with peer/group patterns."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "@radix-ui/react-label",
+                "version": "*",
+                "reason": "Provides the accessible Label primitive (LabelPrimitive.Root) that handles form label semantics"
+            },
+            {
+                "name": "react",
+                "version": "*",
+                "reason": "Core React library for ComponentProps type"
+            }
+        ],
+        "internal": [
+            {
+                "module": "@/lib/utils",
+                "reason": "Provides the cn utility for conditional className merging",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "Label",
+            "kind": "component",
+            "description": "A styled form label component based on Radix UI's Label primitive, with accessible semantics and consistent styling."
+        }
+    ],
+    "symbols": [
+        {
+            "id": "component_label",
+            "kind": "component",
+            "name": "Label",
+            "signature": "function Label({ className, ...props }: React.ComponentProps<typeof LabelPrimitive.Root>): JSX.Element",
+            "description": "A form label component that wraps @radix-ui/react-label with pre-configured Tailwind CSS styles. Includes a data-slot='label' attribute for styling hooks. Automatically handles disabled states via group-data and peer-disabled CSS patterns, reducing opacity and preventing pointer events when the associated form control is disabled. Text is non-selectable by default.",
+            "details": {
+                "rendered_ui_description": "A small (text-sm), medium-weight text label rendered as a Radix UI Label element. Text is not user-selectable. When a sibling or grouped form element is disabled, the label becomes semi-transparent and non-interactive."
+            },
+            "dependencies": ["@radix-ui/react-label", "@/lib/utils"]
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

@@ -1,0 +1,91 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "email.ts",
+    "source": {
+        "file_path": "types/interfaces/email.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "node"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/interfaces/email.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/email.ts.json"
+    },
+    "summary": {
+        "purpose": "Defines TypeScript interfaces for email-related data structures used in the email sending system.",
+        "problem_solved": "Provides strongly typed contracts for composing email messages, attachments, and email service configuration, enabling type-safe email operations via SendGrid."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "EmailData",
+            "kind": "interface"
+        },
+        {
+            "name": "EmailAttachment",
+            "kind": "interface"
+        },
+        {
+            "name": "EmailSettings",
+            "kind": "interface"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "interface_email_data",
+            "name": "EmailData",
+            "kind": "interface",
+            "description_one_line": "Interface representing the data required to compose and send an email.",
+            "details": {
+                "what_it_does": "Defines the structure of an email message including subject, recipients (to, cc), sender (from), audit entity, group name, plain text and HTML body content, and optional attachments. The 'to' and 'cc' fields accept either a single string or an array of strings. The 'from' field can be a string or an object with email and optional name."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 11,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/interfaces/email.ts#L1-L11",
+                "nx_kb_anchor": "#interface_email_data"
+            }
+        },
+        {
+            "symbol_id": "interface_email_attachment",
+            "name": "EmailAttachment",
+            "kind": "interface",
+            "description_one_line": "Interface representing an email file attachment.",
+            "details": {
+                "what_it_does": "Defines the structure for an email attachment with required content (base64 encoded) and filename, plus optional MIME type, disposition ('attachment' or 'inline'), and content ID for inline references."
+            },
+            "locations": {
+                "source_line_start": 13,
+                "source_line_end": 19,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/interfaces/email.ts#L13-L19",
+                "nx_kb_anchor": "#interface_email_attachment"
+            }
+        },
+        {
+            "symbol_id": "interface_email_settings",
+            "name": "EmailSettings",
+            "kind": "interface",
+            "description_one_line": "Interface for email service configuration including SendGrid API key and default sender/recipient settings.",
+            "details": {
+                "what_it_does": "Defines the email service configuration structure including a default 'from' sender (with email and optional name), default CC recipients, named groups with their CC and 'to' recipients, and the SendGrid API key for authentication."
+            },
+            "locations": {
+                "source_line_start": 21,
+                "source_line_end": 29,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/types/interfaces/email.ts#L21-L29",
+                "nx_kb_anchor": "#interface_email_settings"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

@@ -1,0 +1,510 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "notification_helpers.ts",
+    "source": {
+        "file_path": "helpers/notification_helpers.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "node"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/notification_helpers.ts.json"
+    },
+    "summary": {
+        "purpose": "Provides SMS sending (via Multisend, Twilio, and Monogoto) and Firebase Cloud Messaging (FCM) push notification utilities for notifying users and devices.",
+        "problem_solved": "Centralizes multi-provider SMS dispatch logic (local Israeli, international, and ICCID-based SIM), SMS group resolution, outgoing SMS record-keeping, and FCM multicast push notification delivery with per-user event filtering and translation support."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "axios",
+                "reason": "HTTP client used for Multisend SMS API and Monogoto API requests."
+            },
+            {
+                "name": "twilio",
+                "reason": "Twilio SDK client used for sending international SMS messages."
+            },
+            {
+                "name": "firebase-admin/messaging",
+                "reason": "Provides the MulticastMessage type for FCM push notifications."
+            },
+            {
+                "name": "firebase-admin/firestore",
+                "reason": "Provides the Timestamp class for recording outgoing SMS timestamps."
+            },
+            {
+                "name": "uuid",
+                "reason": "Generates unique message IDs for Multisend SMS requests."
+            },
+            {
+                "name": "form-data",
+                "reason": "Used to build multipart form data for the Multisend API."
+            },
+            {
+                "name": "akeyless-types-commons",
+                "reason": "Provides the EventFromDevice and TObject types."
+            }
+        ],
+        "internal": [
+            {
+                "name": "managers (cache_manager, logger, translation_manager)",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/index.ts"
+            },
+            {
+                "name": "helpers/firebase_helpers (add_document, messaging, add_audit_record, get_nx_settings)",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/firebase_helpers.ts"
+            },
+            {
+                "name": "helpers/phone_number_helpers (is_iccid, is_international_phone_number, is_israel_long_phone_number, is_thailand_long_phone_number)",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/phone_number_helpers.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/phone_number_helpers.ts"
+            }
+        ]
+    },
+    "exports": [
+        "send_sms",
+        "push_event_to_mobile_users",
+        "send_fcm_message"
+    ],
+    "symbols": [
+        {
+            "symbol_id": "type_sms_service",
+            "name": "SmsService",
+            "kind": "type",
+            "description_one_line": "Union type representing the available SMS provider services.",
+            "details": {
+                "what_it_does": "Defines the possible SMS service provider names: 'multisend', 'twilio', or 'monogoto'."
+            },
+            "locations": {
+                "source_line_start": 11,
+                "source_line_end": 11,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L11",
+                "nx_kb_anchor": "#type_sms_service"
+            }
+        },
+        {
+            "symbol_id": "type_sms_function",
+            "name": "SmsFunction",
+            "kind": "type",
+            "description_one_line": "Function signature type for internal SMS sending functions.",
+            "details": {
+                "what_it_does": "Defines the signature (recepient: string, text: string, details?: TObject<any>) => Promise<SmsService> shared by send_local_sms, send_international_sms, and send_iccid_sms."
+            },
+            "locations": {
+                "source_line_start": 12,
+                "source_line_end": 12,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L12",
+                "nx_kb_anchor": "#type_sms_function"
+            }
+        },
+        {
+            "symbol_id": "function_send_local_sms",
+            "name": "send_local_sms",
+            "kind": "function",
+            "description_one_line": "Sends an SMS via the Multisend (Israeli local) provider.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "recepient",
+                        "type": "string",
+                        "required": true,
+                        "description": "The phone number to send the SMS to."
+                    },
+                    {
+                        "name": "text",
+                        "type": "string",
+                        "required": true,
+                        "description": "The SMS message text."
+                    },
+                    {
+                        "name": "details",
+                        "type": "TObject<any>",
+                        "required": false,
+                        "description": "Optional additional details to store with the outgoing SMS record."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<SmsService>",
+                    "description": "Returns 'multisend' on success."
+                }
+            },
+            "details": {
+                "what_it_does": "Retrieves Multisend credentials from cached nx-settings. Builds a FormData payload with user, password, from, recipient, message, and a unique message ID. If the recipient is an international number, appends the 'international' flag. Posts to the Multisend API, validates the response for HTTP 200 and success flag, persists the outgoing SMS record, and returns 'multisend'.",
+                "side_effects": [
+                    "Makes an HTTP POST to the Multisend API.",
+                    "Writes an outgoing SMS record to Firestore via keep_outgoing_sms."
+                ],
+                "error_cases": [
+                    "Throws if the Multisend API returns a non-200 status.",
+                    "Throws if the Multisend response indicates a failure (success === false)."
+                ]
+            },
+            "locations": {
+                "source_line_start": 14,
+                "source_line_end": 47,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L14-L47",
+                "nx_kb_anchor": "#function_send_local_sms"
+            }
+        },
+        {
+            "symbol_id": "function_send_international_sms",
+            "name": "send_international_sms",
+            "kind": "function",
+            "description_one_line": "Sends an SMS via Twilio for international (non-Israeli) phone numbers.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "recepient",
+                        "type": "string",
+                        "required": true,
+                        "description": "The international phone number to send the SMS to."
+                    },
+                    {
+                        "name": "text",
+                        "type": "string",
+                        "required": true,
+                        "description": "The SMS message text."
+                    },
+                    {
+                        "name": "details",
+                        "type": "TObject<any>",
+                        "required": false,
+                        "description": "Optional additional details to store with the outgoing SMS record."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<SmsService>",
+                    "description": "Returns 'twilio' on success."
+                }
+            },
+            "details": {
+                "what_it_does": "Retrieves Twilio credentials (account_sid, token, messaging_service_sid) from cached nx-settings. Creates a Twilio client instance and sends the message. If the Twilio response contains an errorMessage, it throws. Otherwise persists the outgoing SMS record using the Twilio message SID as external ID.",
+                "side_effects": [
+                    "Sends an SMS via the Twilio API.",
+                    "Writes an outgoing SMS record to Firestore via keep_outgoing_sms."
+                ],
+                "error_cases": [
+                    "Throws if the Twilio message creation returns an errorMessage."
+                ]
+            },
+            "locations": {
+                "source_line_start": 49,
+                "source_line_end": 66,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L49-L66",
+                "nx_kb_anchor": "#function_send_international_sms"
+            }
+        },
+        {
+            "symbol_id": "function_login_to_monogoto",
+            "name": "login_to_monogoto",
+            "kind": "function",
+            "description_one_line": "Authenticates with the Monogoto API and returns auth credentials (token and CustomerId).",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "Promise<any>",
+                    "description": "The Monogoto auth response data containing token and CustomerId."
+                }
+            },
+            "details": {
+                "what_it_does": "Reads Monogoto credentials from cached nx-settings and performs a POST to the Monogoto Auth endpoint. Returns the authentication response data containing the bearer token and customer ID.",
+                "side_effects": [
+                    "Makes an HTTP POST to the Monogoto Auth API."
+                ],
+                "error_cases": [
+                    "Throws a descriptive string if the authentication request fails."
+                ]
+            },
+            "locations": {
+                "source_line_start": 68,
+                "source_line_end": 84,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L68-L84",
+                "nx_kb_anchor": "#function_login_to_monogoto"
+            }
+        },
+        {
+            "symbol_id": "function_send_iccid_sms",
+            "name": "send_iccid_sms",
+            "kind": "function",
+            "description_one_line": "Sends an SMS to an ICCID-identified SIM card via the Monogoto IoT platform.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "recepient",
+                        "type": "string",
+                        "required": true,
+                        "description": "The ICCID number identifying the target SIM card."
+                    },
+                    {
+                        "name": "text",
+                        "type": "string",
+                        "required": true,
+                        "description": "The SMS message text."
+                    },
+                    {
+                        "name": "details",
+                        "type": "TObject<any>",
+                        "required": false,
+                        "description": "Optional additional details to store with the outgoing SMS record."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<SmsService>",
+                    "description": "Returns 'monogoto' on success."
+                }
+            },
+            "details": {
+                "what_it_does": "Authenticates with Monogoto via login_to_monogoto, then sends an SMS to a specific ICCID-based thing endpoint. Validates a 200 status response, persists the outgoing SMS record, and returns 'monogoto'.",
+                "side_effects": [
+                    "Authenticates with the Monogoto API.",
+                    "Makes an HTTP POST to Monogoto SMS endpoint.",
+                    "Writes an outgoing SMS record to Firestore via keep_outgoing_sms."
+                ],
+                "error_cases": [
+                    "Throws if the Monogoto SMS request returns a non-200 status."
+                ]
+            },
+            "locations": {
+                "source_line_start": 86,
+                "source_line_end": 107,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L86-L107",
+                "nx_kb_anchor": "#function_send_iccid_sms"
+            }
+        },
+        {
+            "symbol_id": "function_send_sms",
+            "name": "send_sms",
+            "kind": "function",
+            "description_one_line": "High-level SMS sender that resolves SMS groups, deduplicates recipients, routes each to the appropriate provider, and records an audit entry.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "recepient",
+                        "type": "string",
+                        "required": true,
+                        "description": "The phone number or SMS group name to send to."
+                    },
+                    {
+                        "name": "text",
+                        "type": "string",
+                        "required": true,
+                        "description": "The SMS message text."
+                    },
+                    {
+                        "name": "entity_for_audit",
+                        "type": "string",
+                        "required": true,
+                        "description": "The audit entity name for record-keeping."
+                    },
+                    {
+                        "name": "details",
+                        "type": "TObject<any>",
+                        "required": false,
+                        "description": "Optional additional details passed to the underlying SMS sender."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves when all SMS messages have been sent and audit records created."
+                }
+            },
+            "details": {
+                "what_it_does": "Retrieves SMS groups from nx-settings. If the recipient matches a group name, expands it to all numbers in that group; otherwise uses the recipient as-is. Deduplicates the number list. For each number: if it is an ICCID, sends via Monogoto; if it is international (but not Thai or Israeli long format), sends via Twilio; otherwise sends via Multisend. Records an audit entry for each send via add_audit_record.",
+                "side_effects": [
+                    "Sends SMS messages via one or more providers.",
+                    "Creates audit records in Firestore."
+                ],
+                "error_cases": [
+                    "Logs and re-throws errors with the entity_for_audit prefix if any send fails."
+                ]
+            },
+            "examples": {
+                "minimal_correct": "await send_sms('+972501234567', 'Hello from server', 'my_service');"
+            },
+            "locations": {
+                "source_line_start": 109,
+                "source_line_end": 145,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L109-L145",
+                "nx_kb_anchor": "#function_send_sms"
+            }
+        },
+        {
+            "symbol_id": "function_keep_outgoing_sms",
+            "name": "keep_outgoing_sms",
+            "kind": "function",
+            "description_one_line": "Persists an outgoing SMS record to the 'nx-sms-out' Firestore collection.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "recepient",
+                        "type": "string",
+                        "required": true,
+                        "description": "The phone number the SMS was sent to."
+                    },
+                    {
+                        "name": "content",
+                        "type": "string",
+                        "required": true,
+                        "description": "The SMS message content."
+                    },
+                    {
+                        "name": "service",
+                        "type": "string",
+                        "required": true,
+                        "description": "The SMS provider service name used."
+                    },
+                    {
+                        "name": "external_id",
+                        "type": "string",
+                        "required": true,
+                        "description": "The external message ID from the SMS provider."
+                    },
+                    {
+                        "name": "details",
+                        "type": "TObject<any>",
+                        "required": false,
+                        "description": "Optional additional details to store."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves when the document is written to Firestore."
+                }
+            },
+            "details": {
+                "what_it_does": "Creates a document in the 'nx-sms-out' Firestore collection with the external ID, content, recipient, service name, current timestamp, and 'new' status. Optionally includes extra details.",
+                "side_effects": [
+                    "Writes a document to the 'nx-sms-out' Firestore collection."
+                ]
+            },
+            "locations": {
+                "source_line_start": 147,
+                "source_line_end": 161,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L147-L161",
+                "nx_kb_anchor": "#function_keep_outgoing_sms"
+            }
+        },
+        {
+            "symbol_id": "function_push_event_to_mobile_users",
+            "name": "push_event_to_mobile_users",
+            "kind": "function",
+            "description_one_line": "Sends FCM push notifications for a device event to all relevant mobile app users (main driver, secondary drivers, and extra push recipients).",
+            "signature": {
+                "params": [
+                    {
+                        "name": "event",
+                        "type": "EventFromDevice",
+                        "required": true,
+                        "description": "The device event containing car_number, event_id, event_name, and source."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves when all applicable push notifications have been sent."
+                }
+            },
+            "details": {
+                "what_it_does": "Retrieves cached data for units, usersUnits, mobile_users_app_pro, and app_pro_extra_pushes. Identifies the main driver by matching the car number to a unit and then to a mobile user by short phone number. Finds secondary drivers by matching car number in usersUnits and looking up by long phone number. Finds extra push recipients by UID from app_pro_extra_pushes. For each driver, checks if the event is in their disabled_events list (normalizing erm/erm2 sources to 'erm'). If not disabled, translates the notification title and body using translation_manager and sends via send_fcm_message.",
+                "side_effects": [
+                    "Sends FCM push notifications to mobile users.",
+                    "Reads from multiple cache collections."
+                ],
+                "error_cases": [
+                    "Throws if any of units, usersUnits, or mobile_users_app_pro cache collections are empty."
+                ]
+            },
+            "examples": {
+                "minimal_correct": "await push_event_to_mobile_users({ car_number: '1234567', event_id: 'evt1', event_name: 'ignition_on', source: 'erm' });"
+            },
+            "locations": {
+                "source_line_start": 163,
+                "source_line_end": 205,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L163-L205",
+                "nx_kb_anchor": "#function_push_event_to_mobile_users"
+            }
+        },
+        {
+            "symbol_id": "type_func_send_fcm_message",
+            "name": "FuncSendFcmMessage",
+            "kind": "type",
+            "description_one_line": "Function signature type for the send_fcm_message function.",
+            "details": {
+                "what_it_does": "Defines the signature for send_fcm_message: (title, body, fcm_tokens, custom_sound?) => Promise<{ success, response, success_count?, failure_count? }>."
+            },
+            "locations": {
+                "source_line_start": 207,
+                "source_line_end": 212,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L207-L212",
+                "nx_kb_anchor": "#type_func_send_fcm_message"
+            }
+        },
+        {
+            "symbol_id": "function_send_fcm_message",
+            "name": "send_fcm_message",
+            "kind": "function",
+            "description_one_line": "Sends a Firebase Cloud Messaging multicast push notification to one or more FCM tokens with optional custom sound.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "title",
+                        "type": "string",
+                        "required": true,
+                        "description": "The notification title."
+                    },
+                    {
+                        "name": "body",
+                        "type": "string",
+                        "required": true,
+                        "description": "The notification body text."
+                    },
+                    {
+                        "name": "fcm_tokens",
+                        "type": "string[]",
+                        "required": true,
+                        "description": "Array of FCM device tokens to send the notification to."
+                    },
+                    {
+                        "name": "custom_sound",
+                        "type": "string",
+                        "required": false,
+                        "description": "Optional custom notification sound name. On Android sets channelId and sound; on iOS appends '.wav' extension."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<{ success: boolean; response: string; success_count?: number; failure_count?: number }>",
+                    "description": "An object indicating whether the send was fully successful, the raw response string, and optional success/failure counts."
+                }
+            },
+            "details": {
+                "what_it_does": "Deduplicates FCM tokens. Returns early with success: false if no tokens remain. Constructs a MulticastMessage with Android (high priority, 1-hour TTL) and APNs (with .wav sound) platform-specific configurations. Sends via messaging.sendEachForMulticast and logs the result breakdown. Returns success: true only if all tokens succeeded. On exception, catches and returns success: false with the error message.",
+                "side_effects": [
+                    "Sends push notifications via Firebase Cloud Messaging."
+                ],
+                "error_cases": [
+                    "Returns { success: false, response: 'No recipients' } if fcm_tokens is empty after deduplication.",
+                    "Returns { success: false, response: 'Exception: ...' } if sendEachForMulticast throws."
+                ]
+            },
+            "examples": {
+                "minimal_correct": "const result = await send_fcm_message('Alert', 'Something happened', ['token1', 'token2']);"
+            },
+            "locations": {
+                "source_line_start": 214,
+                "source_line_end": 286,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/notification_helpers.ts#L214-L286",
+                "nx_kb_anchor": "#function_send_fcm_message"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

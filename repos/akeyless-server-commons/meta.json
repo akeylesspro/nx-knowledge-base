@@ -1,0 +1,13 @@
+{
+    "name": "akeyless-server-commons",
+    "display_name": "Akeyless Server Commons",
+    "description": "Comprehensive Node.js/TypeScript server utilities package providing shared functionality for Akeyless microservices — including Express middleware, Firebase/Firestore integration, Redis caching, SMS/email notifications, authentication, and logging.",
+    "github_url": "https://github.com/akeylesspro/akeyless-server-commons",
+    "default_branch": "main",
+    "language": "typescript",
+    "framework_tags": ["node", "express"],
+    "last_synced_at": "2026-02-12T00:00:00.000Z",
+    "last_synced_commit": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+    "file_count": 0,
+    "symbol_count": 0
+}

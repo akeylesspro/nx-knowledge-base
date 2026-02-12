@@ -1,0 +1,228 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "keys.ts",
+    "source": {
+        "file_path": "helpers/redis/keys.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "node"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/keys.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/keys.ts.json"
+    },
+    "summary": {
+        "purpose": "Provides utility functions for constructing Redis keys, channel names, and scanning keys by pattern.",
+        "problem_solved": "Centralizes Redis key formatting conventions (colon-separated segments) and provides a cursor-based SCAN utility to safely iterate over keys matching a pattern without blocking the Redis server."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "akeyless-types-commons",
+                "version": "*",
+                "usage": "Provides REDIS_UPDATES_PREFIX constant used to construct channel names"
+            },
+            {
+                "module": "ioredis",
+                "version": "*",
+                "usage": "Redis type used for the redis_publisher parameter in scan_redis_keys"
+            }
+        ],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "get_doc_key",
+            "kind": "function",
+            "description": "Constructs a Redis key for a specific document in a collection (format: 'collection:doc_id')."
+        },
+        {
+            "name": "get_collection_keys",
+            "kind": "function",
+            "description": "Constructs a Redis key glob pattern matching all documents in a collection (format: 'collection:*')."
+        },
+        {
+            "name": "get_channel",
+            "kind": "function",
+            "description": "Constructs a Redis pub/sub channel name prefixed with REDIS_UPDATES_PREFIX."
+        },
+        {
+            "name": "scan_redis_keys",
+            "kind": "function",
+            "description": "Iteratively scans Redis for all keys matching a given pattern using cursor-based SCAN."
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_get_key",
+            "name": "get_key",
+            "kind": "function",
+            "description_one_line": "Internal helper that joins string arguments with colons to form a Redis key.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "args",
+                        "type": "string[]",
+                        "description": "Variable number of string segments to join."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "A colon-separated Redis key string."
+                }
+            },
+            "details": {
+                "what_it_does": "Joins all provided string arguments with ':' as separator to produce a standard Redis key format. This is a private utility used by the exported key construction functions."
+            },
+            "locations": {
+                "source_line_start": 4,
+                "source_line_end": 6,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/keys.ts#L4-L6",
+                "nx_kb_anchor": "#function_get_key"
+            }
+        },
+        {
+            "symbol_id": "function_get_doc_key",
+            "name": "get_doc_key",
+            "kind": "function",
+            "description_one_line": "Constructs a Redis key for a specific document within a collection.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection",
+                        "type": "string",
+                        "description": "The collection name (first segment of the key)."
+                    },
+                    {
+                        "name": "doc_id",
+                        "type": "string",
+                        "description": "The document ID (second segment of the key)."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "A Redis key in the format 'collection:doc_id'."
+                }
+            },
+            "details": {
+                "what_it_does": "Creates a Redis key by joining the collection name and document ID with a colon separator. Used to address individual cached documents in Redis."
+            },
+            "examples": {
+                "minimal_correct": "const key = get_doc_key('users', 'abc123');\n// Returns: 'users:abc123'"
+            },
+            "locations": {
+                "source_line_start": 8,
+                "source_line_end": 10,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/keys.ts#L8-L10",
+                "nx_kb_anchor": "#function_get_doc_key"
+            }
+        },
+        {
+            "symbol_id": "function_get_collection_keys",
+            "name": "get_collection_keys",
+            "kind": "function",
+            "description_one_line": "Constructs a Redis glob pattern to match all keys within a collection.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection",
+                        "type": "string",
+                        "description": "The collection name to create a wildcard pattern for."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "A Redis key pattern in the format 'collection:*'."
+                }
+            },
+            "details": {
+                "what_it_does": "Creates a Redis key pattern with a wildcard suffix, matching all keys belonging to the given collection. Used with SCAN or PSUBSCRIBE operations to match all documents in a collection."
+            },
+            "examples": {
+                "minimal_correct": "const pattern = get_collection_keys('users');\n// Returns: 'users:*'"
+            },
+            "locations": {
+                "source_line_start": 12,
+                "source_line_end": 14,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/keys.ts#L12-L14",
+                "nx_kb_anchor": "#function_get_collection_keys"
+            }
+        },
+        {
+            "symbol_id": "function_get_channel",
+            "name": "get_channel",
+            "kind": "function",
+            "description_one_line": "Constructs a Redis pub/sub channel name prefixed with REDIS_UPDATES_PREFIX.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "args",
+                        "type": "string[]",
+                        "description": "Variable number of string segments appended after the REDIS_UPDATES_PREFIX."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "A colon-separated channel name starting with REDIS_UPDATES_PREFIX."
+                }
+            },
+            "details": {
+                "what_it_does": "Constructs a Redis pub/sub channel name by prepending REDIS_UPDATES_PREFIX (from akeyless-types-commons) to the provided arguments, joined with colons. Used to create channel names for publishing and subscribing to collection update events."
+            },
+            "examples": {
+                "minimal_correct": "const channel = get_channel('users', 'abc123');\n// Returns: '<REDIS_UPDATES_PREFIX>:users:abc123'"
+            },
+            "locations": {
+                "source_line_start": 16,
+                "source_line_end": 18,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/keys.ts#L16-L18",
+                "nx_kb_anchor": "#function_get_channel"
+            }
+        },
+        {
+            "symbol_id": "function_scan_redis_keys",
+            "name": "scan_redis_keys",
+            "kind": "function",
+            "description_one_line": "Iteratively scans Redis for all keys matching a given pattern using cursor-based SCAN.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "pattern",
+                        "type": "string",
+                        "description": "A Redis key glob pattern to match (e.g., 'users:*')."
+                    },
+                    {
+                        "name": "redis_publisher",
+                        "type": "Redis",
+                        "description": "An ioredis Redis client instance to execute the SCAN command on."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<string[]>",
+                    "description": "An array of all Redis keys matching the given pattern."
+                }
+            },
+            "details": {
+                "what_it_does": "Uses the Redis SCAN command with a cursor-based iteration approach (COUNT 100 per iteration) to collect all keys matching the provided pattern. Iterates until the cursor returns to '0', indicating all keys have been scanned. This approach is safe for production use as it does not block the Redis server like the KEYS command would.",
+                "side_effects": "Performs multiple SCAN commands against the Redis server until all matching keys are found."
+            },
+            "examples": {
+                "minimal_correct": "const keys = await scan_redis_keys('users:*', redis_commander);\n// Returns: ['users:abc123', 'users:def456', ...]"
+            },
+            "locations": {
+                "source_line_start": 20,
+                "source_line_end": 29,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/keys.ts#L20-L29",
+                "nx_kb_anchor": "#function_scan_redis_keys"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

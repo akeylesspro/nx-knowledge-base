@@ -27,8 +27,8 @@ export const DependencyList = ({ dependencies }: DependencyListProps) => {
                         </Badge>
                     </h4>
                     <div className="space-y-2">
-                        {dependencies.external.map((dep) => (
-                            <div key={dep.name} className="flex items-start gap-3 text-sm p-2 rounded-lg hover:bg-muted/50 transition-colors">
+                        {dependencies.external.map((dep, index) => (
+                            <div key={getExternalDependencyKey(dep, index)} className="flex items-start gap-3 text-sm p-2 rounded-lg hover:bg-muted/50 transition-colors">
                                 <code className="font-mono text-primary shrink-0 mt-0.5">{dep.name}</code>
                                 <Badge variant="outline" className="text-[10px] shrink-0">
                                     {dep.kind}
@@ -51,8 +51,8 @@ export const DependencyList = ({ dependencies }: DependencyListProps) => {
                         </Badge>
                     </h4>
                     <div className="space-y-2">
-                        {dependencies.internal.map((dep) => (
-                            <div key={dep.import_path} className="flex items-start gap-3 text-sm p-2 rounded-lg hover:bg-muted/50 transition-colors">
+                        {dependencies.internal.map((dep, index) => (
+                            <div key={getInternalDependencyKey(dep, index)} className="flex items-start gap-3 text-sm p-2 rounded-lg hover:bg-muted/50 transition-colors">
                                 <div className="flex flex-col gap-1 grow">
                                     <div className="flex items-center gap-2">
                                         <code className="font-mono text-primary">{dep.import_path}</code>
@@ -74,4 +74,12 @@ export const DependencyList = ({ dependencies }: DependencyListProps) => {
             )}
         </div>
     );
+};
+
+const getExternalDependencyKey = (dep: FileDependencies["external"][number], index: number): string => {
+    return `${dep.name}-${dep.kind}-${index}`;
+};
+
+const getInternalDependencyKey = (dep: FileDependencies["internal"][number], index: number): string => {
+    return `${dep.import_path}-${dep.resolved_file_path}-${index}`;
 };

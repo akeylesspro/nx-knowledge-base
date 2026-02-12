@@ -4,6 +4,7 @@ import { getRepoWithFiles, buildFileTree } from "@/lib/docs";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { DocBreadcrumb } from "@/components/docs";
+import type { FileTreeNode } from "@/lib/docs/types";
 
 type RepoPageProps = {
     params: Promise<{ repo: string }>;
@@ -78,16 +79,9 @@ export default async function RepoPage({ params }: RepoPageProps) {
                     </div>
                 ) : (
                     <div className="bg-card rounded-xl border border-border divide-y divide-border">
-                        {docFiles.map((filePath) => {
-                            const displayName = filePath.replace(/\.json$/, "");
-                            return (
-                                <Link key={filePath} href={`/repos/${repo}/docs/${filePath}`} className="flex items-center gap-3 px-4 py-3 hover:bg-muted/50 transition-colors">
-                                    <i className="fa-solid fa-file-code text-sm text-muted-foreground" />
-                                    <code className="font-mono text-sm text-foreground">{displayName}</code>
-                                    <i className="fa-solid fa-chevron-right text-[10px] text-muted-foreground/50 ml-auto" />
-                                </Link>
-                            );
-                        })}
+                        {tree.map((node) => (
+                            <RepoTreeRow key={node.path} node={node} repoName={repo} />
+                        ))}
                     </div>
                 )}
 
@@ -103,3 +97,24 @@ export default async function RepoPage({ params }: RepoPageProps) {
         </div>
     );
 }
+
+type RepoTreeRowProps = {
+    node: FileTreeNode;
+    repoName: string;
+};
+
+const RepoTreeRow = ({ node, repoName }: RepoTreeRowProps) => {
+    const isFolder = node.type === "folder";
+    const href = isFolder ? `/repos/${repoName}/docs/${node.path}` : `/repos/${repoName}/docs/${node.path}`;
+    const displayName = isFolder ? node.name : node.name.replace(/\.json$/, "");
+    const iconClassName = isFolder ? "fa-solid fa-folder text-sm text-primary/70" : "fa-solid fa-file-code text-sm text-muted-foreground";
+
+    return (
+        <Link href={href} className="flex items-center gap-3 px-4 py-3 hover:bg-muted/50 transition-colors">
+            <i className={iconClassName} />
+            <code className="font-mono text-sm text-foreground">{displayName}</code>
+            {isFolder && node.children ? <span className="text-xs text-muted-foreground ml-auto">{node.children.length} items</span> : null}
+            <i className="fa-solid fa-chevron-right text-[10px] text-muted-foreground/50" />
+        </Link>
+    );
+};

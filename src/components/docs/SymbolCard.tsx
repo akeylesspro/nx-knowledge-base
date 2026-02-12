@@ -20,6 +20,9 @@ const kindColors: Record<string, string> = {
 };
 
 export const SymbolCard = ({ symbol }: SymbolCardProps) => {
+    const sideEffects = normalizeStringList(symbol.details.side_effects);
+    const errorCases = normalizeErrorCases(symbol.details.error_cases);
+
     return (
         <div id={symbol.symbol_id} className="border border-border rounded-xl bg-card p-6 scroll-mt-24">
             {/* Header */}
@@ -73,11 +76,11 @@ export const SymbolCard = ({ symbol }: SymbolCardProps) => {
             </div>
 
             {/* Side effects */}
-            {symbol.details.side_effects && symbol.details.side_effects.length > 0 && (
+            {sideEffects.length > 0 && (
                 <div className="mb-4">
                     <h4 className="text-sm font-semibold mb-2 text-foreground">Side Effects</h4>
                     <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                        {symbol.details.side_effects.map((effect, i) => (
+                        {sideEffects.map((effect, i) => (
                             <li key={i}>{effect}</li>
                         ))}
                     </ul>
@@ -85,11 +88,11 @@ export const SymbolCard = ({ symbol }: SymbolCardProps) => {
             )}
 
             {/* Error cases */}
-            {symbol.details.error_cases && symbol.details.error_cases.length > 0 && (
+            {errorCases.length > 0 && (
                 <div className="mb-4">
                     <h4 className="text-sm font-semibold mb-2 text-foreground">Error Cases</h4>
                     <div className="space-y-2">
-                        {symbol.details.error_cases.map((ec, i) => (
+                        {errorCases.map((ec, i) => (
                             <div key={i} className="text-sm pl-3 border-l-2 border-destructive/30">
                                 <p className="font-medium text-foreground">{ec.condition}</p>
                                 <p className="text-muted-foreground">{ec.behavior}</p>
@@ -143,4 +146,50 @@ export const SymbolCard = ({ symbol }: SymbolCardProps) => {
             </div>
         </div>
     );
+};
+
+const normalizeStringList = (value: unknown): string[] => {
+    if (Array.isArray(value)) {
+        return value.filter((item): item is string => typeof item === "string" && item.trim().length > 0);
+    }
+
+    if (typeof value === "string" && value.trim().length > 0) {
+        return [value];
+    }
+
+    if (value && typeof value === "object") {
+        return Object.values(value)
+            .filter((item): item is string => typeof item === "string" && item.trim().length > 0);
+    }
+
+    return [];
+};
+
+type ErrorCase = {
+    condition: string;
+    behavior: string;
+};
+
+const normalizeErrorCases = (value: unknown): ErrorCase[] => {
+    if (Array.isArray(value)) {
+        return value
+            .filter((item): item is Record<string, unknown> => typeof item === "object" && item !== null)
+            .map((item) => ({
+                condition: typeof item.condition === "string" ? item.condition : "",
+                behavior: typeof item.behavior === "string" ? item.behavior : "",
+            }))
+            .filter((item) => item.condition.length > 0 || item.behavior.length > 0);
+    }
+
+    if (value && typeof value === "object") {
+        const asRecord = value as Record<string, unknown>;
+        const condition = typeof asRecord.condition === "string" ? asRecord.condition : "";
+        const behavior = typeof asRecord.behavior === "string" ? asRecord.behavior : "";
+
+        if (condition.length > 0 || behavior.length > 0) {
+            return [{ condition, behavior }];
+        }
+    }
+
+    return [];
 };

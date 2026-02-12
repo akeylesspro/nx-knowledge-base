@@ -1,0 +1,114 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "managers/index.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["node"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json"
+    },
+    "summary": {
+        "purpose": "Barrel file that re-exports all manager modules from the managers directory, providing a single entry point for importing cache, translation, and logger managers.",
+        "problem_solved": "Centralizes exports so consumers can import all manager classes and singletons from one path instead of importing from individual module files."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "module": "./cache_manager",
+                "purpose": "Re-exports CacheManager class and cache_manager singleton",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/cache_manager.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/cache_manager.ts"
+            },
+            {
+                "module": "./translation_manager",
+                "purpose": "Re-exports TranslationManager class and translation_manager singleton",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/translation_manager.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/translation_manager.ts"
+            },
+            {
+                "module": "./logger_manager",
+                "purpose": "Re-exports logger singleton instance",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/logger_manager.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/logger_manager.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./cache_manager",
+            "description_one_line": "Re-exports all exports from cache_manager module (CacheManager, cache_manager)"
+        },
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./translation_manager",
+            "description_one_line": "Re-exports all exports from translation_manager module (TranslationManager, translation_manager)"
+        },
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./logger_manager",
+            "description_one_line": "Re-exports all exports from logger_manager module (logger)"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "re_export_cache_manager",
+            "name": "export * from ./cache_manager",
+            "kind": "re-export",
+            "description_one_line": "Re-exports all public symbols from the cache_manager module",
+            "details": {
+                "what_it_does": "Barrel re-export that makes CacheManager class and cache_manager singleton available from the managers directory index."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/index.ts#L1",
+                "nx_kb_anchor": "#re_export_cache_manager"
+            }
+        },
+        {
+            "symbol_id": "re_export_translation_manager",
+            "name": "export * from ./translation_manager",
+            "kind": "re-export",
+            "description_one_line": "Re-exports all public symbols from the translation_manager module",
+            "details": {
+                "what_it_does": "Barrel re-export that makes TranslationManager class and translation_manager singleton available from the managers directory index."
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 2,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/index.ts#L2",
+                "nx_kb_anchor": "#re_export_translation_manager"
+            }
+        },
+        {
+            "symbol_id": "re_export_logger_manager",
+            "name": "export * from ./logger_manager",
+            "kind": "re-export",
+            "description_one_line": "Re-exports all public symbols from the logger_manager module",
+            "details": {
+                "what_it_does": "Barrel re-export that makes the logger singleton instance available from the managers directory index."
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 3,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/managers/index.ts#L3",
+                "nx_kb_anchor": "#re_export_logger_manager"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

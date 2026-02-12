@@ -2,42 +2,87 @@ import Link from "next/link";
 import { searchDocs } from "@/lib/docs";
 import { SearchInput } from "@/components/docs";
 import { Badge } from "@/components/ui/badge";
+import type { SearchSymbolKind } from "@/lib/docs/types";
 
 type SearchPageProps = {
-    searchParams: Promise<{ q?: string; repo?: string; page?: string }>;
+    searchParams: Promise<{ q?: string; repo?: string; page?: string; kind?: string }>;
 };
 
+const KIND_TABS: { value: SearchSymbolKind | null; label: string }[] = [
+    { value: null, label: "All" },
+    { value: "function", label: "Functions" },
+    { value: "class", label: "Classes" },
+    { value: "component", label: "Components" },
+];
+
 export default async function SearchPage({ searchParams }: SearchPageProps) {
-    const { q = "", repo, page = "1" } = await searchParams;
+    const { q = "", repo, page = "1", kind } = await searchParams;
+    const currentKind = kind && KIND_TABS.some((t) => t.value === kind) ? (kind as SearchSymbolKind) : undefined;
     const currentPage = parseInt(page) || 1;
     const limit = 20;
     const offset = (currentPage - 1) * limit;
 
-    const { results, total } = q.trim().length >= 2 ? await searchDocs({ query: q, repo, limit, offset }) : { results: [], total: 0 };
+    const { results, total } = q.trim().length >= 2 ? await searchDocs({ query: q, repo, kind: currentKind, limit, offset }) : { results: [], total: 0 };
 
     const totalPages = Math.ceil(total / limit);
+
+    const buildSearchUrl = (overrides: { page?: number; kind?: SearchSymbolKind | null }) => {
+        const params = new URLSearchParams();
+        if (q) params.set("q", q);
+        if (repo) params.set("repo", repo);
+        if (overrides.page) params.set("page", String(overrides.page));
+        if (overrides.kind !== undefined && overrides.kind !== null) params.set("kind", overrides.kind);
+        return `/search?${params.toString()}`;
+    };
 
     return (
         <div className="w-full h-full overflow-y-auto">
             <div className="max-w-4xl mx-auto py-8 px-6">
                 <h1 className="text-2xl font-bold mb-6">Search Documentation</h1>
 
-                <SearchInput defaultValue={q} className="mb-6" />
+                <SearchInput defaultValue={q} repo={repo} kind={currentKind} showButton className="mb-6" />
+
+                <p className="text-xs text-muted-foreground mb-4">
+                    Tip: use <code className="px-1 py-0.5 bg-muted rounded">component:Button</code>, <code className="px-1 py-0.5 bg-muted rounded">function:getName</code>, or <code className="px-1 py-0.5 bg-muted rounded">class:MyClass</code> to search by type
+                </p>
+
+                {q && (
+                    <div className="flex flex-wrap gap-2 mb-4">
+                        {KIND_TABS.map((tab) => {
+                            const isActive = (tab.value === null && !currentKind) || tab.value === currentKind;
+                            const href = tab.value === null ? buildSearchUrl({ kind: null }) : buildSearchUrl({ kind: tab.value });
+                            return (
+                                <Link key={tab.label} href={href} className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${isActive ? "bg-primary text-primary-foreground" : "bg-muted hover:bg-muted/80"}`}>
+                                    {tab.label}
+                                </Link>
+                            );
+                        })}
+                    </div>
+                )}
 
                 {q && (
                     <p className="text-sm text-muted-foreground mb-6">
                         {total > 0 ? (
                             <>
                                 Found <strong>{total}</strong> results for &quot;{q}&quot;
-                                {repo && (
+                                {currentKind && (
                                     <>
                                         {" "}
-                                        in <Badge variant="outline">{repo}</Badge>
+                                        in <Badge variant="outline" className="capitalize">{currentKind}s</Badge>
+                                    </>
+                                )}
+                                {repo && (
+                                    <>
+                                        {currentKind ? " · " : " in "}
+                                        <Badge variant="outline">{repo}</Badge>
                                     </>
                                 )}
                             </>
                         ) : (
-                            <>No results found for &quot;{q}&quot;</>
+                            <>
+                                No results found for &quot;{q}&quot;
+                                {currentKind && <> in {currentKind}s</>}
+                            </>
                         )}
                     </p>
                 )}
@@ -47,16 +92,21 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                     <div className="space-y-3">
                         {results.map((result, i) => (
                             <Link key={`${result.link}-${i}`} href={result.link} className="block p-4 bg-card rounded-xl border border-border hover:shadow-md transition-shadow">
-                                <div className="flex items-center gap-2 mb-1">
+                                <div className="flex flex-wrap items-center gap-2 mb-1">
                                     <Badge variant="outline" className="text-[10px]">
                                         {result.repo}
                                     </Badge>
+                                    {result.symbolKind && (
+                                        <Badge variant="default" className="text-[10px] capitalize">
+                                            {result.symbolKind}
+                                        </Badge>
+                                    )}
                                     <Badge variant="secondary" className="text-[10px]">
                                         {result.matchType}
                                     </Badge>
                                     <code className="text-xs font-mono text-muted-foreground">{result.filePath}</code>
                                 </div>
-                                <p className="text-sm font-medium">{result.matchField.replace(/^(symbol|export|dep):/, "")}</p>
+                                <p className="text-sm font-medium">{result.matchField.replace(/^(symbol|export|dep|file):/, "")}</p>
                                 <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{result.matchText}</p>
                             </Link>
                         ))}
@@ -67,7 +117,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 {totalPages > 1 && (
                     <div className="flex items-center justify-center gap-2 mt-8">
                         {currentPage > 1 && (
-                            <Link href={`/search?q=${encodeURIComponent(q)}&page=${currentPage - 1}${repo ? `&repo=${repo}` : ""}`} className="px-3 py-1.5 text-sm bg-card border border-border rounded-lg hover:bg-muted transition-colors">
+                            <Link href={buildSearchUrl({ page: currentPage - 1, kind: currentKind })} className="px-3 py-1.5 text-sm bg-card border border-border rounded-lg hover:bg-muted transition-colors">
                                 Previous
                             </Link>
                         )}
@@ -75,7 +125,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                             Page {currentPage} of {totalPages}
                         </span>
                         {currentPage < totalPages && (
-                            <Link href={`/search?q=${encodeURIComponent(q)}&page=${currentPage + 1}${repo ? `&repo=${repo}` : ""}`} className="px-3 py-1.5 text-sm bg-card border border-border rounded-lg hover:bg-muted transition-colors">
+                            <Link href={buildSearchUrl({ page: currentPage + 1, kind: currentKind })} className="px-3 py-1.5 text-sm bg-card border border-border rounded-lg hover:bg-muted transition-colors">
                                 Next
                             </Link>
                         )}

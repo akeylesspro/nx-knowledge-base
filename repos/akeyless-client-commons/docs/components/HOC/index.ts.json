@@ -1,0 +1,32 @@
+{
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "components/HOC/index.ts",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/HOC/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/HOC/index.ts.json"
+    },
+    "summary": {
+        "purpose": "Placeholder barrel file for the HOC (Higher-Order Components) sub-module within the components directory.",
+        "problem_solved": "Reserves the HOC module entry point for future Higher-Order Component exports. Currently empty with no exports."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [],
+    "symbols": [],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": [
+            "File is empty (0 bytes). It serves as a placeholder barrel file with no current exports or content."
+        ]
+    }
+}

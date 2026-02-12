@@ -1,0 +1,348 @@
+{
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "components.tsx",
+    "source": {
+        "file_path": "components/table/components.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/components.tsx.json"
+    },
+    "summary": {
+        "purpose": "Contains all the individual sub-components that compose the table UI: Filter popup, MaxRowsLabel, DisplayAllRowsButton, ExportToExcel, Search, TableHead, TableBody, TableRow, TableCell, Summary, as well as reusable cell-level display components (TimesUI, TableButton, DurationUI, PhoneUI, BooleanUi, GeoUi, NumberUI).",
+        "problem_solved": "Breaks down the table into granular, memoised sub-components so each part can be independently rendered and optimised, and provides ready-made UI components for common cell data types like timestamps, durations, booleans, geo coordinates, and phone numbers."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "react",
+                "imports": ["memo", "ReactNode", "useEffect", "useMemo", "useRef", "useState"]
+            },
+            {
+                "module": "react-dom",
+                "imports": ["createPortal"]
+            },
+            {
+                "module": "akeyless-types-commons",
+                "imports": ["Geo", "TObject"]
+            },
+            {
+                "module": "@/lib/utils",
+                "imports": ["cn"]
+            }
+        ],
+        "internal": [
+            {
+                "module": "../../assets",
+                "resolved_path": "assets/index.ts",
+                "imports": ["emptyFilterSvg", "exportToExcelSvg", "RedXSvg2", "slashFilterSvg", "sortSvg"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.ts.json"
+            },
+            {
+                "module": "./types",
+                "resolved_path": "components/table/types.ts",
+                "imports": ["FilterProps"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json"
+            },
+            {
+                "module": "./hooks",
+                "resolved_path": "components/table/hooks.tsx",
+                "imports": ["useTableContext"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/hooks.tsx.json"
+            },
+            {
+                "module": "src/helpers",
+                "resolved_path": "helpers/index.ts",
+                "imports": ["getFixedNumber", "getLocationUrl", "renderOnce"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json"
+            },
+            {
+                "module": "src/helpers/time_helpers",
+                "resolved_path": "helpers/time_helpers.ts",
+                "imports": ["timestamp_to_string"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/time_helpers.ts.json"
+            },
+            {
+                "module": "../ui",
+                "resolved_path": "components/ui/index.ts",
+                "imports": ["Button"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/index.ts.json"
+            },
+            {
+                "module": "src/types",
+                "resolved_path": "types/index.ts",
+                "imports": ["Direction"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json"
+            },
+            {
+                "module": "src/helpers/excel",
+                "resolved_path": "helpers/excel.ts",
+                "imports": ["exportToExcel"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/excel.ts.json"
+            }
+        ]
+    },
+    "exports": [
+        { "name": "Filter", "kind": "component", "line": 15 },
+        { "name": "MaxRowsLabel", "kind": "component", "line": 124 },
+        { "name": "DisplayAllRowsButton", "kind": "component", "line": 136 },
+        { "name": "ExportToExcel", "kind": "component", "line": 159 },
+        { "name": "Search", "kind": "component", "line": 234 },
+        { "name": "TableHead", "kind": "component", "line": 250 },
+        { "name": "TableBody", "kind": "component", "line": 294 },
+        { "name": "TableRow", "kind": "component", "line": 305 },
+        { "name": "TableCell", "kind": "component", "line": 334 },
+        { "name": "Summary", "kind": "component", "line": 347 },
+        { "name": "TimesUI", "kind": "component", "line": 383 },
+        { "name": "TableButton", "kind": "component", "line": 401 },
+        { "name": "DurationUI", "kind": "component", "line": 436 },
+        { "name": "PhoneUI", "kind": "component", "line": 494 },
+        { "name": "BooleanUi", "kind": "component", "line": 511 },
+        { "name": "GeoUi", "kind": "component", "line": 523 },
+        { "name": "NumberUI", "kind": "component", "line": 544 },
+        { "name": "GeoUiProps", "kind": "interface", "line": 517 },
+        { "name": "NumberUIProps", "kind": "interface", "line": 539 }
+    ],
+    "symbols": [
+        {
+            "id": "component_filter",
+            "kind": "component",
+            "name": "Filter",
+            "signature": "React.MemoExoticComponent<({ filterableColumn, index }: FilterProps) => JSX.Element>",
+            "description": "Memoised filter component that renders a filter icon button on a table header cell. When clicked, it opens a portal-rendered popup with checkbox options for filtering column values. The popup is positioned relative to the button and adapts to LTR/RTL direction and screen resizing.",
+            "details": {
+                "rendered_ui_description": "An absolutely-positioned filter icon button in a header cell. When active, a fixed-position popup (rendered via createPortal to document.body) shows the filter label, a close button, a clear-filter button, and a scrollable list of checkboxes for each unique column value."
+            },
+            "line": 15
+        },
+        {
+            "id": "component_max_rows_label",
+            "kind": "component",
+            "name": "MaxRowsLabel",
+            "signature": "React.MemoExoticComponent<() => JSX.Element>",
+            "description": "Memoised component that displays a label showing how many rows are currently displayed versus total filtered rows (e.g., 'Showing 50 of 200').",
+            "details": {
+                "rendered_ui_description": "A horizontal flex container with text showing two configurable labels interleaved with the current display count and total filtered count."
+            },
+            "line": 124
+        },
+        {
+            "id": "component_display_all_rows_button",
+            "kind": "component",
+            "name": "DisplayAllRowsButton",
+            "signature": "React.MemoExoticComponent<() => JSX.Element>",
+            "description": "Memoised toggle button that switches between showing a limited number of rows (maxRows) and displaying all filtered rows. Shows the count that will be displayed when clicked.",
+            "details": {
+                "rendered_ui_description": "A styled green button with a label (default 'Display:') and a count. Clicking toggles between limited and full row display."
+            },
+            "line": 136
+        },
+        {
+            "id": "component_export_to_excel",
+            "kind": "component",
+            "name": "ExportToExcel",
+            "signature": "React.MemoExoticComponent<() => JSX.Element>",
+            "description": "Memoised button component that exports the currently rendered table data to an Excel file. Supports adding extra columns, summary rows, custom headlines, and respects LTR/RTL cell alignment. Uses the exportToExcel helper from src/helpers/excel.",
+            "details": {
+                "rendered_ui_description": "A styled green button with either custom content or an Excel SVG icon. Clicking triggers an async export-to-Excel operation."
+            },
+            "line": 159
+        },
+        {
+            "id": "component_search",
+            "kind": "component",
+            "name": "Search",
+            "signature": "React.MemoExoticComponent<() => JSX.Element>",
+            "description": "Memoised search input component that renders a text input bound to the table's search state. Supports placeholder, custom styling, and autofocus.",
+            "details": {
+                "rendered_ui_description": "A bordered text input field of type 'search' with configurable placeholder and styling, bound to the table context search query."
+            },
+            "line": 234
+        },
+        {
+            "id": "component_table_head",
+            "kind": "component",
+            "name": "TableHead",
+            "signature": "React.MemoExoticComponent<() => JSX.Element>",
+            "description": "Memoised table header component that renders a sticky thead with column headers. Each header cell supports click-to-sort (when sortKeys are configured), displays a sort direction SVG indicator, and optionally renders a Filter component for filterable columns.",
+            "details": {
+                "rendered_ui_description": "A sticky dark-background thead row with header cells. Each cell shows the header text, an optional sort arrow icon, and an optional filter icon/popup."
+            },
+            "line": 250
+        },
+        {
+            "id": "component_table_body",
+            "kind": "component",
+            "name": "TableBody",
+            "signature": "React.MemoExoticComponent<() => JSX.Element>",
+            "description": "Memoised table body component that iterates over the computed dataToRender.renderedData and renders a TableRow for each item.",
+            "details": {
+                "rendered_ui_description": "A tbody element with dividing lines between rows, containing one TableRow per data item."
+            },
+            "line": 294
+        },
+        {
+            "id": "component_table_row",
+            "kind": "component",
+            "name": "TableRow",
+            "signature": "({ item, index }: { item: TObject<any>; index: number }) => JSX.Element",
+            "description": "Renders a single table row. Supports hover highlighting, zebra striping, custom row class names via function, selected-row highlighting, and an onRowClick callback. Renders a TableCell for each key in keysToRender.",
+            "details": {
+                "rendered_ui_description": "A tr element with hover state, optional zebra striping, optional selected-row styling, containing td cells for each configured key."
+            },
+            "line": 305
+        },
+        {
+            "id": "component_table_cell",
+            "kind": "component",
+            "name": "TableCell",
+            "signature": "({ value }: { value: any }) => JSX.Element",
+            "description": "Renders a single table cell (td) with ellipsis truncation, a title tooltip for primitive values, and configurable styling from context.",
+            "details": {
+                "rendered_ui_description": "A td element with text truncation (ellipsis), bordered, with a title attribute for tooltip display of the cell value."
+            },
+            "line": 334
+        },
+        {
+            "id": "component_summary",
+            "kind": "component",
+            "name": "Summary",
+            "signature": "React.MemoExoticComponent<() => JSX.Element>",
+            "description": "Memoised summary/footer component that computes and displays column sums for configured sumColumns. Each sum is computed from the rendered data and formatted via getFixedNumber, with an optional custom UI renderer.",
+            "details": {
+                "rendered_ui_description": "A full-width horizontal bar below the table showing a summary label on one side and computed column totals on the other, styled with bold text."
+            },
+            "line": 347
+        },
+        {
+            "id": "interface_times_ui_props",
+            "kind": "interface",
+            "name": "TimesUIProps",
+            "description": "Props interface for the TimesUI component: timestamp value, optional format/fromFormat strings, timezone, direction, className, and defaultReturnedValue.",
+            "line": 374
+        },
+        {
+            "id": "component_times_ui",
+            "kind": "component",
+            "name": "TimesUI",
+            "signature": "({ timestamp, format, tz, direction, fromFormat, className, defaultReturnedValue }: TimesUIProps) => JSX.Element",
+            "description": "Reusable cell component that formats a timestamp value using timestamp_to_string and displays it with LTR direction and text alignment based on the provided direction prop.",
+            "details": {
+                "rendered_ui_description": "A div showing a formatted timestamp string with ellipsis truncation and a title tooltip, always rendered in LTR direction with configurable text alignment."
+            },
+            "line": 383
+        },
+        {
+            "id": "interface_table_button_props",
+            "kind": "interface",
+            "name": "TableButtonProps",
+            "description": "Props interface for TableButton: onClick handler, optional title/className/buttonClassName, a type discriminator ('add' | 'edit' | 'delete' | 'custom'), optional children, and disabled flag.",
+            "line": 392
+        },
+        {
+            "id": "component_table_button",
+            "kind": "component",
+            "name": "TableButton",
+            "signature": "({ onClick, title, className, type, children, disabled, buttonClassName }: TableButtonProps) => JSX.Element",
+            "description": "A polymorphic action button for table rows. Renders different UI based on type: 'add' renders a Button with a plus icon, 'edit'/'delete' render icon buttons with Font Awesome icons, and 'custom' renders children inside a button. All variants include hover scale animation and disabled state handling.",
+            "details": {
+                "rendered_ui_description": "A button with scale-on-hover transition. For 'add' type, renders a shadcn-style Button with a plus icon. For 'edit'/'delete', renders a plain button with the corresponding Font Awesome icon. For 'custom', renders children directly."
+            },
+            "line": 401
+        },
+        {
+            "id": "interface_duration_ui_props",
+            "kind": "interface",
+            "name": "DurationUIProps",
+            "description": "Props interface for DurationUI: numeric duration in seconds, optional labels for days/hours/minutes/seconds, className, and direction.",
+            "line": 427
+        },
+        {
+            "id": "component_duration_ui",
+            "kind": "component",
+            "name": "DurationUI",
+            "signature": "({ duration, daysLabel, hoursLabel, minutesLabel, secondsLabel, className, direction }: DurationUIProps) => JSX.Element",
+            "description": "Reusable cell component that converts a duration (in seconds) into a human-readable days/hours/minutes/seconds format. Uses useMemo for efficient computation. Only displays non-zero segments.",
+            "details": {
+                "rendered_ui_description": "A horizontal flex container (always LTR) showing segments like '02 d 05 h 30 m 15 s', each with zero-padded values. Non-zero segments are hidden. Title attribute shows the full duration string."
+            },
+            "line": 436
+        },
+        {
+            "id": "component_phone_ui",
+            "kind": "component",
+            "name": "PhoneUI",
+            "signature": "({ phone, direction, className }: { phone: string; direction?: Direction; className?: string }) => JSX.Element",
+            "description": "Reusable cell component for displaying phone numbers. Always renders in LTR direction with configurable text alignment for RTL layouts.",
+            "details": {
+                "rendered_ui_description": "A div showing a phone number string with ellipsis truncation and a title tooltip, always rendered in LTR direction."
+            },
+            "line": 494
+        },
+        {
+            "id": "interface_boolean_ui_props",
+            "kind": "interface",
+            "name": "BooleanUIProps",
+            "description": "Props interface for BooleanUi: boolean value, optional size ('big' | 'small'), className, and custom trueUi/falseUi ReactNode overrides.",
+            "line": 504
+        },
+        {
+            "id": "component_boolean_ui",
+            "kind": "component",
+            "name": "BooleanUi",
+            "signature": "({ value, size, className, falseUi, trueUi }: BooleanUIProps) => JSX.Element",
+            "description": "Reusable cell component that displays a boolean value as a check or X icon (Font Awesome), with configurable size and optional custom UI overrides for true/false states.",
+            "details": {
+                "rendered_ui_description": "Renders a Font Awesome check icon for true or X icon for false, with configurable size (text-lg or text-2xl). Can be overridden with custom ReactNode for either state."
+            },
+            "line": 511
+        },
+        {
+            "id": "interface_geo_ui_props",
+            "kind": "interface",
+            "name": "GeoUiProps",
+            "signature": "{ value: Partial<Geo> & { latitude?: number; longitude?: number }; className?: string; linkUi?: ReactNode }",
+            "description": "Exported props interface for the GeoUi component, accepting a geo coordinate value with latitude/longitude, optional className, and optional custom link UI.",
+            "line": 517
+        },
+        {
+            "id": "component_geo_ui",
+            "kind": "component",
+            "name": "GeoUi",
+            "signature": "({ value, className, linkUi }: GeoUiProps) => JSX.Element",
+            "description": "Reusable cell component that renders geographic coordinates as a clickable Google Maps link. Supports both 'lat/lng' and 'latitude/longitude' property naming. Can display custom link UI or defaults to showing coordinates.",
+            "details": {
+                "rendered_ui_description": "A blue underlined anchor tag linking to Google Maps, displaying either custom linkUi content or the longitude/latitude values. Opens in a new tab."
+            },
+            "line": 523
+        },
+        {
+            "id": "interface_number_ui_props",
+            "kind": "interface",
+            "name": "NumberUIProps",
+            "signature": "{ number: string | number; direction?: Direction; className?: string }",
+            "description": "Exported props interface for the NumberUI component, accepting a number or string value, optional direction, and optional className.",
+            "line": 539
+        },
+        {
+            "id": "component_number_ui",
+            "kind": "component",
+            "name": "NumberUI",
+            "signature": "({ number, direction, className }: NumberUIProps) => JSX.Element",
+            "description": "Reusable cell component for displaying numbers. Always renders in LTR direction with configurable text alignment for RTL layouts, with ellipsis truncation.",
+            "details": {
+                "rendered_ui_description": "A div showing a number with ellipsis truncation and a title tooltip, always rendered in LTR direction with configurable text alignment."
+            },
+            "line": 544
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

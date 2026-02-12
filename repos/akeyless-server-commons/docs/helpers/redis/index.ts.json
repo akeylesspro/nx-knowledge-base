@@ -1,0 +1,119 @@
+{
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "helpers/redis/index.ts",
+        "commit_sha": "720e8b90aaf64dfc60e48e6c68287688bd79409a",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "node"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/index.ts.json"
+    },
+    "summary": {
+        "purpose": "Barrel file that re-exports all Redis helper modules (initialize, keys, snapshot) from a single entry point.",
+        "problem_solved": "Provides a unified import path for all Redis-related helpers, allowing consumers to import from 'helpers/redis' instead of individual submodules."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "module": "./initialize",
+                "resolved_path": "helpers/redis/initialize.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/initialize.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/initialize.ts",
+                "usage": "Re-exports all exports from initialize module"
+            },
+            {
+                "module": "./keys",
+                "resolved_path": "helpers/redis/keys.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/keys.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/keys.ts",
+                "usage": "Re-exports all exports from keys module"
+            },
+            {
+                "module": "./snapshot",
+                "resolved_path": "helpers/redis/snapshot.ts",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/snapshot.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/snapshot.ts",
+                "usage": "Re-exports all exports from snapshot module"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./initialize",
+            "description": "Re-exports all named exports from the initialize module (init_redis, get_redis_commander, get_redis_listener, redis_commander_connected, redis_listener_connected)"
+        },
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./keys",
+            "description": "Re-exports all named exports from the keys module (get_doc_key, get_collection_keys, get_channel, scan_redis_keys)"
+        },
+        {
+            "name": "*",
+            "kind": "re-export",
+            "source_module": "./snapshot",
+            "description": "Re-exports all named exports from the snapshot module (redis_snapshots_bulk)"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "re_export_initialize",
+            "name": "export * from './initialize'",
+            "kind": "re-export",
+            "description_one_line": "Re-exports all Redis initialization functions and connection state variables.",
+            "details": {
+                "what_it_does": "Barrel re-export that makes init_redis, get_redis_commander, get_redis_listener, redis_commander_connected, and redis_listener_connected available from this index module."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/index.ts#L1",
+                "nx_kb_anchor": "#re_export_initialize"
+            }
+        },
+        {
+            "symbol_id": "re_export_keys",
+            "name": "export * from './keys'",
+            "kind": "re-export",
+            "description_one_line": "Re-exports all Redis key utility functions.",
+            "details": {
+                "what_it_does": "Barrel re-export that makes get_doc_key, get_collection_keys, get_channel, and scan_redis_keys available from this index module."
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 2,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/index.ts#L2",
+                "nx_kb_anchor": "#re_export_keys"
+            }
+        },
+        {
+            "symbol_id": "re_export_snapshot",
+            "name": "export * from './snapshot'",
+            "kind": "re-export",
+            "description_one_line": "Re-exports all Redis snapshot functions.",
+            "details": {
+                "what_it_does": "Barrel re-export that makes redis_snapshots_bulk available from this index module."
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 3,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/720e8b90aaf64dfc60e48e6c68287688bd79409a/src/helpers/redis/index.ts#L3",
+                "nx_kb_anchor": "#re_export_snapshot"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

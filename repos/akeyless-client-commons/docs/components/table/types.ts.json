@@ -1,0 +1,111 @@
+{
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "types.ts",
+    "source": {
+        "file_path": "components/table/types.ts",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/types.ts",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json"
+    },
+    "summary": {
+        "purpose": "TypeScript type definitions for the table module: the main TableProps configuration interface, the TableProviderType context shape, the UseFilterProps hook input, the FilterProps component props, and the internal FilterableColumn interface.",
+        "problem_solved": "Centralises all type contracts for the table system so that the Table component, its sub-components, and its hooks share a single source of truth for prop shapes and state types."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "akeyless-types-commons",
+                "imports": ["TObject"]
+            },
+            {
+                "module": "react",
+                "imports": ["Dispatch", "ReactNode", "SetStateAction"]
+            }
+        ],
+        "internal": [
+            {
+                "module": "../../types",
+                "resolved_path": "types/index.ts",
+                "imports": ["Direction"],
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json"
+            }
+        ]
+    },
+    "exports": [
+        { "name": "TableProviderType", "kind": "interface", "line": 10 },
+        { "name": "UseFilterProps", "kind": "interface", "line": 31 },
+        { "name": "TableProps", "kind": "interface", "line": 35 },
+        { "name": "FilterProps", "kind": "interface", "line": 99 }
+    ],
+    "symbols": [
+        {
+            "id": "interface_filterable_column",
+            "kind": "interface",
+            "name": "FilterableColumn",
+            "signature": "{ header: string; dataKey: string; ui?: (value: any) => ReactNode }",
+            "description": "Internal (non-exported) interface describing a filterable column definition: the display header, the data key to filter on, and an optional UI renderer for filter option display.",
+            "line": 5
+        },
+        {
+            "id": "interface_table_provider_type",
+            "kind": "interface",
+            "name": "TableProviderType",
+            "signature": "{ sortColumn: number; sortOrder: 'asc' | 'desc'; handleSort: (columnIndex: number) => void; searchQuery: string; deferredSearchQuery: string; handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void; dataToRender: { renderedData: TObject<any>[]; filtered: TObject<any>[] }; filters: TObject<string[]>; filterPopupsDisplay: string; filterOptions: any; handleFilterChange: (dataKey: string, value: string) => void; handleFilterClick: (dataKey: string) => void; closeFilterWindow: () => void; displayAllRows: boolean; setDisplayAllRows: (value: boolean) => void; clearFilter: () => void }",
+            "description": "Interface describing the dynamic state and handler functions that the TableProvider injects into the TableContext. Includes sort state, search state, filter state, the computed dataToRender, display-all toggle, and all corresponding handler functions.",
+            "line": 10
+        },
+        {
+            "id": "interface_use_filter_props",
+            "kind": "interface",
+            "name": "UseFilterProps",
+            "signature": "{ data: Record<string, any>[]; filterableColumns: FilterableColumn[] }",
+            "description": "Input props interface for the useFilter hook: the source data array and the list of filterable column definitions.",
+            "line": 31
+        },
+        {
+            "id": "interface_table_props",
+            "kind": "interface",
+            "name": "TableProps",
+            "signature": "{ data, headers, keysToRender, optionalElement?, containerStyle?, containerClassName?, containerHeaderClassName?, includeSearch?, autoFocus?, searchInputStyle?, searchInputClassName?, searchContainerClassName?, tableContainerStyle?, tableContainerClass?, tableStyle?, tableBodyClassName?, rowStyles?, rowClassName?, headerStyle?, headerClassName?, headerCellStyle?, headerCellClassName?, cellStyle?, cellClassName?, filterableColumns?, sortKeys?, exportToExcelKeys?, excelFileName?, excelHeadline?, exportExcelContent?, exportToExcelClassName?, dataToAddToExcelTable?, sumColumns?, searchPlaceHolder?, summaryContainerStyle?, summaryLabelStyle?, summaryRowStyle?, summaryLabel?, filterLabel?, sortLabel?, exportExcelTitle?, onRowClick?, direction?, maxRows?, maxRowsLabel1?, maxRowsLabel2?, showDisplayAllRowsButton?, displayAllRowsButtonProps?, displayAllRowsButtonLabel?, maxRowsContainerClassName?, zebraStriping?, selectedRow?, rowClassNameFunction?, noneSearchKeys? }",
+            "description": "The main configuration interface for the Table component. Includes required data/headers/keysToRender, and extensive optional props for: styling (container, table, header, row, cell), search (input style, placeholder, autofocus, excluded keys), sorting (sortKeys, sortLabel), filtering (filterableColumns, filterLabel), Excel export (keys, filename, headline, extra data, summary), summary/totals (sumColumns, labels, styles), pagination (maxRows, display-all toggle), row interaction (onRowClick, selectedRow, zebraStriping, rowClassNameFunction), and layout direction (ltr/rtl).",
+            "line": 35,
+            "members": [
+                { "name": "data", "type": "Record<string, any>[]", "required": true, "description": "The array of data objects to render in the table." },
+                { "name": "headers", "type": "string[]", "required": true, "description": "Column header labels to display in the table head." },
+                { "name": "keysToRender", "type": "string[]", "required": true, "description": "Object keys to render as cell values, in column order." },
+                { "name": "optionalElement", "type": "ReactNode", "required": false, "description": "An optional custom ReactNode to render in the table toolbar area." },
+                { "name": "direction", "type": "Direction", "required": false, "description": "Text/layout direction, 'ltr' or 'rtl'." },
+                { "name": "onRowClick", "type": "(data?: any, rowIndex?: number) => void", "required": false, "description": "Callback invoked when a row is clicked, receiving the row data and index." },
+                { "name": "includeSearch", "type": "boolean", "required": false, "description": "Whether to show the search input in the toolbar." },
+                { "name": "sortKeys", "type": "string[]", "required": false, "description": "Array of data keys corresponding to columns that are sortable." },
+                { "name": "filterableColumns", "type": "FilterableColumn[]", "required": false, "description": "Array of column definitions that support filtering." },
+                { "name": "exportToExcelKeys", "type": "string[]", "required": false, "description": "Data keys to include in Excel export. Presence enables the export button." },
+                { "name": "sumColumns", "type": "{ label: string; dataKey: string; ui?: (value: any) => ReactNode }[]", "required": false, "description": "Columns to compute and display sum totals for in the summary footer." },
+                { "name": "maxRows", "type": "number", "required": false, "description": "Maximum number of rows to display at once. Defaults to data.length." },
+                { "name": "showDisplayAllRowsButton", "type": "boolean", "required": false, "description": "Whether to show a button to toggle between limited and all rows." },
+                { "name": "zebraStriping", "type": "{ oddRowClassName?: string; evenRowClassName?: string }", "required": false, "description": "Zebra-striping configuration with separate CSS classes for odd and even rows." },
+                { "name": "selectedRow", "type": "{ className?: string; rowIndex?: number | null; onChange?: (rowIndex: number) => void }", "required": false, "description": "Configuration for visually highlighting a selected row and tracking selection changes." },
+                { "name": "rowClassNameFunction", "type": "(data?: any) => string", "required": false, "description": "Function that returns a CSS class name based on row data for dynamic row styling." },
+                { "name": "noneSearchKeys", "type": "string[]", "required": false, "description": "Keys to exclude from search matching." }
+            ]
+        },
+        {
+            "id": "interface_filter_props",
+            "kind": "interface",
+            "name": "FilterProps",
+            "signature": "{ index: number; filterableColumn: FilterableColumn }",
+            "description": "Props interface for the Filter component: the column index in the headers array and the FilterableColumn definition.",
+            "line": 99
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

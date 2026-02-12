@@ -33,16 +33,21 @@ export interface FileTreeNode {
     children?: FileTreeNode[];
 }
 
+/** Filterable symbol kinds for search */
+export type SearchSymbolKind = "function" | "class" | "component" | "interface" | "type" | "enum";
+
 /** Search result */
 export interface SearchResult {
     repo: string;
     filePath: string;
     fileName: string;
-    matchType: "summary" | "symbol" | "export" | "dependency";
+    matchType: "summary" | "symbol" | "export" | "dependency" | "file";
     matchField: string;
     matchText: string;
     score: number;
     link: string;
+    /** Symbol kind for symbol/export results — enables filter by function/class/component */
+    symbolKind?: SearchSymbolKind;
 }
 
 /** Search query options */
@@ -51,6 +56,8 @@ export interface SearchOptions {
     repo?: string;
     limit?: number;
     offset?: number;
+    /** Filter by symbol kind: function, class, component */
+    kind?: SearchSymbolKind;
 }
 
 /** Sync webhook payload (from GitHub Actions) */
