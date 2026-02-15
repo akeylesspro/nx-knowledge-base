@@ -1,0 +1,67 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "progress.tsx",
+  "source": {
+    "file_path": "src/components/ui/progress.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react", "radix-ui"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/progress.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/progress.json"
+  },
+  "summary": {
+    "purpose": "Progress bar component.",
+    "problem_solved": "Displays progress using Radix UI."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "React components."
+      },
+      {
+        "name": "@radix-ui/react-progress",
+        "kind": "runtime",
+        "why_used": "Progress primitive."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "@/lib/utils",
+        "why_used": "cn utility."
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "ProgressComponent",
+      "kind": "component",
+      "description_one_line": "Progress bar UI.",
+      "symbol_id": "ProgressComponent"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "ProgressComponent",
+      "name": "ProgressComponent",
+      "kind": "component",
+      "description_one_line": "Progress Component.",
+      "signature": {
+        "params": [
+           { "name": "value", "type": "number", "optional": true },
+           { "name": "showValue", "type": "boolean", "optional": true }
+        ],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

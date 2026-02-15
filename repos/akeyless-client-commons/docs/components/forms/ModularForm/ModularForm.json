@@ -1,0 +1,92 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "ModularForm.tsx",
+  "source": {
+    "file_path": "src/components/forms/ModularForm/ModularForm.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/ModularForm.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/forms/ModularForm/ModularForm.json"
+  },
+  "summary": {
+    "purpose": "Dynamic form builder.",
+    "problem_solved": "Renders a complete form from a JSON configuration array (`elements`), handling validation, layout, and submission."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "peer",
+        "why_used": "Core library."
+      },
+      {
+        "name": "src/types",
+        "kind": "internal",
+        "why_used": "ModularFormProps type."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "./formElements",
+        "resolved_file_path": "src/components/forms/ModularForm/formElements.tsx",
+        "why_used": "Individual form components (InputContainer, SelectContainer, etc.).",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/forms/ModularForm/formElements.tsx"
+      },
+       {
+        "import_path": "@/components/utils",
+        "resolved_file_path": "src/components/utils/loaders.tsx",
+        "why_used": "Loader component.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/utils/loaders.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/utils/loaders.tsx"
+      },
+      {
+        "import_path": "src/helpers",
+        "resolved_file_path": "src/helpers/index.ts",
+        "why_used": "Form value extraction helper (getFormElementValue).",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/index.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "ModularForm",
+      "kind": "component",
+      "description_one_line": "Config-driven form component.",
+      "symbol_id": "ModularForm"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "ModularForm",
+      "name": "ModularForm",
+      "kind": "component",
+      "description_one_line": "Main form renderer.",
+      "signature": {
+        "params": [
+           { "name": "elements", "type": "FormElement[]", "required": true, "description": "Array of field configs." },
+           { "name": "submitFunction", "type": "(form, event) => Promise<void>", "required": true, "description": "Form submission handler." }
+        ],
+        "returns": { "type": "JSX.Element", "description": "Html Form." }
+      },
+      "details": {
+        "what_it_does": "Maps over `elements` to render the correct input component. Handles the `onSubmit` event to validate minLength constraints before calling `submitFunction`. Automatically adjusts label widths if `autoFixLabelsWidth` is true."
+      },
+      "locations": {
+        "source_line_start": 21,
+        "source_line_end": 231,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/ModularForm.tsx#L21-L231",
+        "nx_kb_anchor": "ModularForm"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

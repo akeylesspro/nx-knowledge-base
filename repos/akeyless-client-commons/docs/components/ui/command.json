@@ -1,0 +1,126 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "command.tsx",
+  "source": {
+    "file_path": "src/components/ui/command.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react", "cmdk"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/command.json"
+  },
+  "summary": {
+    "purpose": "Command menu component.",
+    "problem_solved": "Fast, composable command menu using cmdk."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "React components."
+      },
+      {
+        "name": "cmdk",
+        "kind": "runtime",
+        "why_used": "Command primitive."
+      },
+      {
+        "name": "lucide-react",
+        "kind": "runtime",
+        "why_used": "Icons."
+      },
+      {
+        "name": "@radix-ui/react-dialog",
+        "kind": "runtime",
+        "why_used": "Dialog for CommandDialog."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "@/lib/utils",
+        "why_used": "cn utility."
+      },
+      {
+        "import_path": "@/components/ui/dialog",
+        "why_used": "Dialog components."
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "Command",
+      "kind": "component",
+      "description_one_line": "Command root.",
+      "symbol_id": "Command"
+    },
+    {
+      "name": "CommandDialog",
+      "kind": "component",
+      "description_one_line": "Command in a dialog.",
+      "symbol_id": "CommandDialog"
+    },
+    {
+      "name": "CommandInput",
+      "kind": "component",
+      "description_one_line": "Command input.",
+      "symbol_id": "CommandInput"
+    },
+    {
+      "name": "CommandList",
+      "kind": "component",
+      "description_one_line": "Command list container.",
+      "symbol_id": "CommandList"
+    },
+    {
+      "name": "CommandEmpty",
+      "kind": "component",
+      "description_one_line": "Empty state.",
+      "symbol_id": "CommandEmpty"
+    },
+    {
+      "name": "CommandGroup",
+      "kind": "component",
+      "description_one_line": "Command group.",
+      "symbol_id": "CommandGroup"
+    },
+    {
+      "name": "CommandItem",
+      "kind": "component",
+      "description_one_line": "Command item.",
+      "symbol_id": "CommandItem"
+    },
+    {
+      "name": "CommandSeparator",
+      "kind": "component",
+      "description_one_line": "Separator.",
+      "symbol_id": "CommandSeparator"
+    },
+    {
+      "name": "CommandShortcut",
+      "kind": "component",
+      "description_one_line": "Shortcut label.",
+      "symbol_id": "CommandShortcut"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "Command",
+      "name": "Command",
+      "kind": "component",
+      "description_one_line": "Command Root.",
+      "signature": {
+        "params": [],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

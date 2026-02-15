@@ -1,0 +1,87 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "time_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/time_helpers.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "ts",
+    "framework_tags": ["moment"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/time_helpers.json"
+  },
+  "summary": {
+    "purpose": "Timestamp conversion and formatting.",
+    "problem_solved": "Normalizes various timestamp formats (Firebase Timestamp, Date objects, numeric seconds, ISO strings) into display strings or milliseconds, handling timezones consistently."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "firebase/firestore",
+        "kind": "runtime",
+        "why_used": "Types for Timestamp."
+      },
+      {
+        "name": "moment-timezone",
+        "kind": "runtime",
+        "why_used": "Date formatting and timezone handling."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "dev",
+        "why_used": "Type definitions."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "timestamp_to_string",
+      "kind": "function",
+      "description_one_line": "Converts flexible timestamp input to formatted string.",
+      "symbol_id": "timestamp_to_string"
+    },
+    {
+      "name": "timestamp_to_millis",
+      "kind": "function",
+      "description_one_line": "Converts flexible timestamp input to milliseconds (number).",
+      "symbol_id": "timestamp_to_millis"
+    },
+    {
+      "name": "sort_by_timestamp",
+      "kind": "function",
+      "description_one_line": "Comparator for sorting timestamps.",
+      "symbol_id": "sort_by_timestamp"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "timestamp_to_string",
+      "name": "timestamp_to_string",
+      "kind": "function",
+      "description_one_line": "Formats timestamp to string.",
+      "signature": {
+        "params": [
+          { "name": "firebaseTimestamp", "type": "any", "required": true, "description": "Input timestamp (Timestamp | Date | string | object)." },
+          { "name": "options", "type": "TimeToStringOptions", "required": false, "description": "Format options (format, tz, debug)." }
+        ],
+        "returns": { "type": "string", "description": "Formatted date string." }
+      },
+      "details": {
+        "what_it_does": "Detects the input type (Firebase Timestamp, Date, string, etc.), converts it to a JS Date, then uses Moment.js to format it, optionally adjusting for timezone."
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 66,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts#L11-L66",
+        "nx_kb_anchor": "timestamp_to_string"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

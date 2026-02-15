@@ -1,0 +1,115 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "firebase.ts",
+  "source": {
+    "file_path": "src/helpers/firebase.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "ts",
+    "framework_tags": ["firebase", "react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/firebase.json"
+  },
+  "summary": {
+    "purpose": "Firebase initialization and data access layer.",
+    "problem_solved": "Centralizes all Firebase interactions (Auth, Firestore, Storage) including app initialization, typed collection references, data extraction helpers, and live snapshot listeners."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "firebase",
+        "kind": "runtime",
+        "why_used": "Core SDK for backend services."
+      },
+      {
+        "name": "moment",
+        "kind": "runtime",
+        "why_used": "Date formatting (e.g. DD/MM/YY HH:mm)."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "dev",
+        "why_used": "Type definitions (NxUser, TObject)."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "./cars",
+        "resolved_file_path": "src/helpers/cars.ts",
+        "why_used": "Car number formatting.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/cars.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/cars.ts"
+      },
+       {
+        "import_path": "./phoneNumber",
+        "resolved_file_path": "src/helpers/phoneNumber.ts",
+        "why_used": "Phone number formatting.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/phoneNumber.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/phoneNumber.ts"
+      },
+       {
+        "import_path": "./permissions",
+        "resolved_file_path": "src/helpers/permissions.ts",
+        "why_used": "Parsing user permissions.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/permissions.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/permissions.ts"
+      },
+       {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Shared types (Snapshot, WhereCondition, etc.).",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/index.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/types/index.ts"
+      },
+      {
+        "import_path": "./time_helpers",
+        "resolved_file_path": "src/helpers/time_helpers.ts",
+        "why_used": "Timestamp conversion.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/time_helpers.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/time_helpers.ts"
+      }
+    ]
+  },
+  "exports": [
+    { "name": "db", "kind": "constant", "description_one_line": "Firestore instance.", "symbol_id": "db" },
+    { "name": "auth", "kind": "constant", "description_one_line": "Firebase Auth instance.", "symbol_id": "auth" },
+    { "name": "storage", "kind": "constant", "description_one_line": "Firebase Storage instance.", "symbol_id": "storage" },
+    { "name": "collections", "kind": "constant", "description_one_line": "Map of typed Firestore collection references.", "symbol_id": "collections" },
+    { "name": "useLoginWithGoogle", "kind": "function", "description_one_line": "Hook for Google Sign-In.", "symbol_id": "useLoginWithGoogle" },
+    { "name": "get_all_documents", "kind": "function", "description_one_line": "Fetches all docs from a collection.", "symbol_id": "get_all_documents" },
+    { "name": "get_document_by_id", "kind": "function", "description_one_line": "Fetches a single doc by ID.", "symbol_id": "get_document_by_id" },
+    { "name": "snapshot", "kind": "function", "description_one_line": "Live listener for collection changes.", "symbol_id": "snapshot" },
+    { "name": "snapshotDocument", "kind": "function", "description_one_line": "Live listener for single document changes.", "symbol_id": "snapshotDocument" }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "snapshot",
+      "name": "snapshot",
+      "kind": "function",
+      "description_one_line": "Subscribes to a Firestore query.",
+      "signature": {
+        "params": [
+          { "name": "config", "type": "SnapshotConfig", "required": true, "description": "Query configuration (collection, conditions, orderBy)." },
+          { "name": "snapshotsFirstTime", "type": "string[]", "required": true, "description": "Array to track initial loads to distinguishing first fetch from updates." },
+          { "name": "settings", "type": "object", "required": false, "description": "Settings like disableLogs." }
+        ],
+        "returns": { "type": "{ promise, unsubscribe }", "description": "Object containing a ready promise and an unsubscribe function." }
+      },
+      "details": {
+        "what_it_does": "Sets up an `onSnapshot` listener. Handles 'first time' load (bulk) separately from subsequent 'added/modified/removed' events. Calls callbacks defined in `config`."
+      },
+      "locations": {
+        "source_line_start": 384,
+        "source_line_end": 461,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L384-L461",
+        "nx_kb_anchor": "snapshot"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

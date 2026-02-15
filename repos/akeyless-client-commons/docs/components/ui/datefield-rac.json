@@ -1,0 +1,83 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "datefield-rac.tsx",
+  "source": {
+    "file_path": "src/components/ui/datefield-rac.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react", "react-aria-components"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/datefield-rac.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/datefield-rac.json"
+  },
+  "summary": {
+    "purpose": "DateField components (RAC).",
+    "problem_solved": "Accessible date and time fields using React Aria Components."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react-aria-components",
+        "kind": "runtime",
+        "why_used": "Headless UI components."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "@/lib/utils",
+        "why_used": "cn utility."
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "DateField",
+      "kind": "component",
+      "description_one_line": "Date field.",
+      "symbol_id": "DateField"
+    },
+    {
+      "name": "DateInput",
+      "kind": "component",
+      "description_one_line": "Date input.",
+      "symbol_id": "DateInput"
+    },
+    {
+      "name": "DateSegment",
+      "kind": "component",
+      "description_one_line": "Each segment of date.",
+      "symbol_id": "DateSegment"
+    },
+    {
+      "name": "TimeField",
+      "kind": "component",
+      "description_one_line": "Time field.",
+      "symbol_id": "TimeField"
+    },
+    {
+      "name": "dateInputStyle",
+      "kind": "variable",
+      "description_one_line": "Shared style class string.",
+      "symbol_id": "dateInputStyle"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "DateField",
+      "name": "DateField",
+      "kind": "component",
+      "description_one_line": "Date Field wrapper.",
+      "signature": {
+        "params": [],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

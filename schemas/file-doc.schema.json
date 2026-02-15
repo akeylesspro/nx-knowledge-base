@@ -29,7 +29,11 @@
                     "items": { "type": "string" },
                     "description": "Framework identifiers (express, next, react, vue, node, etc.)"
                 },
-                "link_to_github": { "type": "string", "format": "uri", "description": "Direct link to the file on GitHub (preferably with commit SHA)" },
+                "link_to_github": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "Direct link to the file on GitHub (preferably with commit SHA)"
+                },
                 "link_to_nx_kb": { "type": "string", "description": "Path to the documentation page within NX-KNOWLEDGE-BASE" }
             }
         },
@@ -94,7 +98,10 @@
                 "properties": {
                     "symbol_id": { "type": "string" },
                     "name": { "type": "string" },
-                    "kind": { "type": "string", "enum": ["function", "class", "component", "interface", "type", "enum", "value", "constant"] },
+                    "kind": {
+                        "type": "string",
+                        "enum": ["function", "class", "component", "hook", "interface", "type", "enum", "value", "constant"]
+                    },
                     "description_one_line": { "type": "string" },
                     "signature": {
                         "type": "object",

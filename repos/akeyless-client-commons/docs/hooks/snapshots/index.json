@@ -1,0 +1,105 @@
+{
+  "fileName": "src/hooks/snapshots/index.ts",
+  "hooks": [
+    {
+      "name": "useDbSnapshots",
+      "description": "Subscribes to Firestore collection snapshots, optionally offloading processing to a Web Worker.",
+      "args": [
+        {
+          "name": "configs",
+          "type": "OnSnapshotConfig[]",
+          "description": "Array of snapshot configurations."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Label for logging purposes."
+        },
+        {
+          "name": "settings",
+          "type": "UseDbSnapshotsSettings",
+          "description": "Settings for the snapshot subscription (worker, cleanup, logs)."
+        }
+      ],
+      "return": {
+        "type": "void",
+        "description": "no return value"
+      }
+    },
+    {
+      "name": "useDbDocumentSnapshots",
+      "description": "Subscribes to Firestore document snapshots, optionally offloading processing to a Web Worker.",
+      "args": [
+        {
+          "name": "configs",
+          "type": "OnSnapshotConfigDocument[]",
+          "description": "Array of document snapshot configurations."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Label for logging purposes."
+        },
+        {
+          "name": "settings",
+          "type": "UseDbSnapshotsSettings",
+          "description": "Settings for the snapshot subscription."
+        }
+      ],
+      "return": {
+        "type": "void",
+        "description": "no return value"
+      }
+    },
+    {
+      "name": "useSmartSnapshots",
+      "description": "Orchestrates subscriptions between Firestore and a WebSocket cache based on configuration.",
+      "args": [
+        {
+          "name": "configs",
+          "type": "OnSnapshotConfig[]",
+          "description": "Array of snapshot configurations."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Label for logging purposes."
+        },
+        {
+          "name": "settings",
+          "type": "UseDbSnapshotsSettings",
+          "description": "Settings for the snapshot subscriptions."
+        }
+      ],
+      "return": {
+        "type": "{ groupedConfig: { configForDb: OnSnapshotConfig[], configForCache: OnSnapshotConfig[] }, socketConnected: boolean }",
+        "description": "Grouped configurations and socket connection status."
+      }
+    },
+    {
+      "name": "useSocketSnapshots",
+      "description": "Subscribes to snapshot updates via a WebSocket connection (socketService).",
+      "args": [
+        {
+          "name": "configs",
+          "type": "OnSnapshotConfig[]",
+          "description": "Array of snapshot configurations."
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Label for logging purposes."
+        },
+        {
+          "name": "settings",
+          "type": "UseDbSnapshotsSettings",
+          "description": "Settings for the socket subscription."
+        }
+      ],
+      "return": {
+        "type": "{ socketConnected: boolean }",
+        "description": "Socket connection status."
+      }
+    }
+  ]
+}

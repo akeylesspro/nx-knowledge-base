@@ -1,0 +1,84 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "socket.ts",
+  "source": {
+    "file_path": "src/helpers/socket.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "ts",
+    "framework_tags": ["socket.io-client"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/socket.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/socket.json"
+  },
+  "summary": {
+    "purpose": "Real-time communication and data syncing.",
+    "problem_solved": "Singleton service wrapping Socket.IO to handle authentication, connection resilience, and real-time CRUD operations against a remote Redis/Data store."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "socket.io-client",
+        "kind": "runtime",
+        "why_used": "Websocket client."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "dev",
+        "why_used": "Socket payload types."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "./global",
+        "resolved_file_path": "src/helpers/global.ts",
+        "why_used": "Environment configuration (isLocal, mode).",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/global.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/global.ts"
+      },
+       {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Config types (OnSnapshotConfig).",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/index.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/types/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "SocketService",
+      "kind": "class",
+      "description_one_line": "Singleton class handling socket connections and events.",
+      "symbol_id": "SocketService"
+    },
+    {
+      "name": "socketServiceInstance",
+      "kind": "constant",
+      "description_one_line": "The singleton instance of SocketService.",
+      "symbol_id": "socketServiceInstance"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "SocketService",
+      "name": "SocketService",
+      "kind": "class",
+      "description_one_line": "Socket.IO wrapper service.",
+      "details": {
+        "what_it_does": "Manages the lifecycle of a socket connection to 'api/data-socket'. Handles token auth, reconnection logic, and exposes methods to subscribe, get, set, and delete data."
+      },
+      "locations": {
+        "source_line_start": 14,
+        "source_line_end": 295,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/socket.ts#L14-L295",
+        "nx_kb_anchor": "SocketService"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

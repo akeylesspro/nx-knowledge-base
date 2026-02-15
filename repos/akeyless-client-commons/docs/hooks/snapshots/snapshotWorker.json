@@ -1,0 +1,55 @@
+{
+  "fileName": "src/hooks/snapshots/snapshotWorker.ts",
+  "functions": [
+    {
+      "name": "wrapConfigsWithWorker",
+      "description": "Wraps snapshot configurations to process synchronous callbacks via a Web Worker.",
+      "args": [
+        {
+          "name": "cfgs",
+          "type": "OnSnapshotConfig[]",
+          "description": "Original snapshot configurations."
+        },
+        {
+          "name": "runProcessor",
+          "type": "SnapshotDocsProcessor",
+          "description": "Function to run the processor (usually the worker invocation)."
+        },
+        {
+          "name": "options",
+          "type": "WrapWorkerOptions",
+          "description": "Options for deduplication and cloning."
+        }
+      ],
+      "return": {
+        "type": "OnSnapshotConfig[]",
+        "description": "Wrapped configurations."
+      }
+    },
+    {
+      "name": "wrapDocumentConfigsWithWorker",
+      "description": "Wraps document snapshot configurations to process callbacks via a Web Worker.",
+      "args": [
+        {
+          "name": "cfgs",
+          "type": "OnSnapshotConfigDocument[]",
+          "description": "Original document snapshot configurations."
+        },
+        {
+          "name": "runProcessor",
+          "type": "SnapshotDocsProcessor",
+          "description": "Function to run the processor."
+        },
+        {
+          "name": "options",
+          "type": "WrapWorkerOptions",
+          "description": "Options for deduplication and cloning."
+        }
+      ],
+      "return": {
+        "type": "OnSnapshotConfigDocument[]",
+        "description": "Wrapped document configurations."
+      }
+    }
+  ]
+}

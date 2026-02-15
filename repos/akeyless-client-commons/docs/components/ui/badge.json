@@ -1,0 +1,72 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "badge.tsx",
+  "source": {
+    "file_path": "src/components/ui/badge.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/badge.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/badge.json"
+  },
+  "summary": {
+    "purpose": "Badge component.",
+    "problem_solved": "Displays a small status indicator or label."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "React components."
+      },
+      {
+        "name": "class-variance-authority",
+        "kind": "runtime",
+        "why_used": "Variant management."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "@/lib/utils",
+        "why_used": "cn utility."
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "Badge",
+      "kind": "component",
+      "description_one_line": "Badge UI element.",
+      "symbol_id": "Badge"
+    },
+    {
+      "name": "badgeVariants",
+      "kind": "function",
+      "description_one_line": "CVA variant for badge.",
+      "symbol_id": "badgeVariants"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "Badge",
+      "name": "Badge",
+      "kind": "component",
+      "description_one_line": "Badge Component.",
+      "signature": {
+        "params": [
+           { "name": "variant", "type": "string", "optional": true }
+        ],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

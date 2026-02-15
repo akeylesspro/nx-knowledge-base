@@ -1,0 +1,153 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "forms.ts",
+  "source": {
+    "file_path": "src/helpers/forms.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "ts",
+    "framework_tags": ["react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/forms.json"
+  },
+  "summary": {
+    "purpose": "Form validation and manipulation helpers.",
+    "problem_solved": "Provides regex patterns, input validation handlers (change/paste), and form data extraction utilities to standardize form behavior."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "peer",
+        "why_used": "React event types."
+      },
+      {
+        "name": "xregexp",
+        "kind": "runtime",
+        "why_used": "Advanced regex support for unicode categories."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "src/types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "DurationValues type.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/index.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/types/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "textRegex",
+      "kind": "constant",
+      "description_one_line": "Regex for text input validation.",
+      "symbol_id": "textRegex"
+    },
+    {
+      "name": "numbersRegex",
+      "kind": "constant",
+      "description_one_line": "Regex for numeric input validation.",
+      "symbol_id": "numbersRegex"
+    },
+    {
+      "name": "ValidationType",
+      "kind": "type",
+      "description_one_line": "Union type for supported validation modes.",
+      "symbol_id": "ValidationType"
+    },
+    {
+      "name": "handleChange",
+      "kind": "function",
+      "description_one_line": "React ChangeEvent handler that sanitizes input based on data-validation attribute.",
+      "symbol_id": "handleChange"
+    },
+     {
+      "name": "handlePaste",
+      "kind": "function",
+      "description_one_line": "React PasteEvent handler that sanitizes pasted text.",
+      "symbol_id": "handlePaste"
+    },
+     {
+      "name": "useValidation",
+      "kind": "function",
+      "description_one_line": "Hook to apply validation props to an input.",
+      "symbol_id": "useValidation"
+    },
+     {
+      "name": "getFormElementValue",
+      "kind": "function",
+      "description_one_line": "Gets the trimmed value of a form field by name.",
+      "symbol_id": "getFormElementValue"
+    },
+     {
+      "name": "setFormElementValue",
+      "kind": "function",
+      "description_one_line": "Sets the value of a form field by name.",
+      "symbol_id": "setFormElementValue"
+    },
+     {
+      "name": "durationToSeconds",
+      "kind": "function",
+      "description_one_line": "Converts DurationValues object to total seconds.",
+      "symbol_id": "durationToSeconds"
+    },
+     {
+      "name": "secondsToDuration",
+      "kind": "function",
+      "description_one_line": "Converts total seconds to DurationValues object.",
+      "symbol_id": "secondsToDuration"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "handleChange",
+      "name": "handleChange",
+      "kind": "function",
+      "description_one_line": "Input sanitization handler.",
+      "signature": {
+        "params": [
+          { "name": "e", "type": "React.ChangeEvent<HTMLInputElement>", "required": true, "description": "The change event." }
+        ],
+        "returns": { "type": "void", "description": "Modifies e.target.value directly." }
+      },
+      "details": {
+        "what_it_does": "Reads the 'data-validation' attribute from the input and removes invalid characters using XRegExp replacement."
+      },
+      "locations": {
+        "source_line_start": 29,
+        "source_line_end": 53,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L29-L53",
+        "nx_kb_anchor": "handleChange"
+      }
+    },
+    {
+      "symbol_id": "useValidation",
+      "name": "useValidation",
+      "kind": "function",
+      "description_one_line": "Validation props generator.",
+      "signature": {
+        "params": [
+           { "name": "validationType", "type": "ValidationType", "required": true, "description": "The type of validation to apply." },
+           { "name": "requireError", "type": "string", "required": false, "description": "Custom error message for required fields." }
+        ],
+        "returns": { "type": "object", "description": "Props object containing onChange, onPaste, onInvalid, and data-validation." }
+      },
+      "details": {
+        "what_it_does": "Returns a set of props to spread onto an <input /> element to enable automatic validation behavior."
+      },
+      "locations": {
+        "source_line_start": 88,
+        "source_line_end": 95,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L88-L95",
+        "nx_kb_anchor": "useValidation"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

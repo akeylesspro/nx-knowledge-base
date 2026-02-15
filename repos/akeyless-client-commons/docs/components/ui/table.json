@@ -1,0 +1,101 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "table.tsx",
+  "source": {
+    "file_path": "src/components/ui/table.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/table.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/table.json"
+  },
+  "summary": {
+    "purpose": "Primitive table components.",
+    "problem_solved": "Styled table elements (table, thead, tbody, tr, th, td)."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "React components."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "@/lib/utils",
+        "why_used": "cn utility."
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "TableSCN",
+      "kind": "component",
+      "description_one_line": "Table root.",
+      "symbol_id": "TableSCN"
+    },
+    {
+      "name": "TableHeaderSCN",
+      "kind": "component",
+      "description_one_line": "Thead.",
+      "symbol_id": "TableHeaderSCN"
+    },
+    {
+      "name": "TableBodySCN",
+      "kind": "component",
+      "description_one_line": "Tbody.",
+      "symbol_id": "TableBodySCN"
+    },
+    {
+      "name": "TableFooterSCN",
+      "kind": "component",
+      "description_one_line": "Tfoot.",
+      "symbol_id": "TableFooterSCN"
+    },
+    {
+      "name": "TableRowSCN",
+      "kind": "component",
+      "description_one_line": "Tr.",
+      "symbol_id": "TableRowSCN"
+    },
+    {
+      "name": "TableHeadSCN",
+      "kind": "component",
+      "description_one_line": "Th.",
+      "symbol_id": "TableHeadSCN"
+    },
+    {
+      "name": "TableCellSCN",
+      "kind": "component",
+      "description_one_line": "Td.",
+      "symbol_id": "TableCellSCN"
+    },
+    {
+      "name": "TableCaptionSCN",
+      "kind": "component",
+      "description_one_line": "Caption.",
+      "symbol_id": "TableCaptionSCN"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "TableSCN",
+      "name": "TableSCN",
+      "kind": "component",
+      "description_one_line": "Table Component.",
+      "signature": {
+        "params": [],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

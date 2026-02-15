@@ -1,0 +1,84 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.tsx",
+  "source": {
+    "file_path": "src/components/utils/global.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/utils/global.json"
+  },
+  "summary": {
+    "purpose": "Global utility components.",
+    "problem_solved": "Provides Version display and LeftToRightDiv for direction handling."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "React components."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "@/lib/utils",
+        "why_used": "cn utility."
+      },
+      {
+        "import_path": "src/types",
+        "why_used": "Direction type."
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "Version",
+      "kind": "component",
+      "description_one_line": "Displays version number.",
+      "symbol_id": "Version"
+    },
+    {
+      "name": "LeftToRightDiv",
+      "kind": "component",
+      "description_one_line": "LTR enforcement container.",
+      "symbol_id": "LeftToRightDiv"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "Version",
+      "name": "Version",
+      "kind": "component",
+      "description_one_line": "Version string UI.",
+      "signature": {
+        "params": [
+           { "name": "version", "type": "string", "required": true }
+        ],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    },
+    {
+      "symbol_id": "LeftToRightDiv",
+      "name": "LeftToRightDiv",
+      "kind": "component",
+      "description_one_line": "Div with direction: ltr.",
+      "signature": {
+        "params": [
+           { "name": "direction", "type": "Direction", "required": true }
+        ],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

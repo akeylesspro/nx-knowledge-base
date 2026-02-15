@@ -1,0 +1,111 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "dialog.tsx",
+  "source": {
+    "file_path": "src/components/ui/dialog.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react", "radix-ui"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/dialog.json"
+  },
+  "summary": {
+    "purpose": "Dialog component.",
+    "problem_solved": "Accessible modal dialog using Radix UI."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "React components."
+      },
+      {
+        "name": "@radix-ui/react-dialog",
+        "kind": "runtime",
+        "why_used": "Dialog primitive."
+      },
+      {
+        "name": "lucide-react",
+        "kind": "runtime",
+        "why_used": "Close icon."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "@/lib/utils",
+        "why_used": "cn utility."
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "Dialog",
+      "kind": "component",
+      "description_one_line": "Dialog Root.",
+      "symbol_id": "Dialog"
+    },
+    {
+      "name": "DialogTrigger",
+      "kind": "component",
+      "description_one_line": "Trigger.",
+      "symbol_id": "DialogTrigger"
+    },
+    {
+      "name": "DialogContent",
+      "kind": "component",
+      "description_one_line": "Content.",
+      "symbol_id": "DialogContent"
+    },
+    {
+      "name": "DialogHeader",
+      "kind": "component",
+      "description_one_line": "Header.",
+      "symbol_id": "DialogHeader"
+    },
+    {
+      "name": "DialogFooter",
+      "kind": "component",
+      "description_one_line": "Footer.",
+      "symbol_id": "DialogFooter"
+    },
+    {
+      "name": "DialogTitle",
+      "kind": "component",
+      "description_one_line": "Title.",
+      "symbol_id": "DialogTitle"
+    },
+    {
+      "name": "DialogDescription",
+      "kind": "component",
+      "description_one_line": "Description.",
+      "symbol_id": "DialogDescription"
+    },
+    {
+      "name": "DialogClose",
+      "kind": "component",
+      "description_one_line": "Close button.",
+      "symbol_id": "DialogClose"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "Dialog",
+      "name": "Dialog",
+      "kind": "component",
+      "description_one_line": "Dialog Root.",
+      "signature": {
+        "params": [],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

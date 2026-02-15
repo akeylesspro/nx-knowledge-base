@@ -1,0 +1,193 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "src/helpers/global.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "ts",
+    "framework_tags": [
+      "axios",
+      "firebase"
+    ],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/global.json"
+  },
+  "summary": {
+    "purpose": "General-purpose utility functions and constants.",
+    "problem_solved": "Provides common helpers for geolocation, checking environment (local/node), string formatting, and validation."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "dev",
+        "why_used": "Type definitions."
+      },
+      {
+        "name": "axios",
+        "kind": "runtime",
+        "why_used": "HTTP client for geocoding."
+      },
+      {
+        "name": "lodash",
+        "kind": "runtime",
+        "why_used": "Utility functions (isEmpty, isEqual)."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "./firebase",
+        "resolved_file_path": "src/helpers/firebase.ts",
+        "why_used": "Firebase utilities (query_document, snapshot).",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/firebase.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/firebase.ts"
+      },
+       {
+        "import_path": "./phoneNumber",
+        "resolved_file_path": "src/helpers/phoneNumber.ts",
+        "why_used": "Phone number formatting utility.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/phoneNumber.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/phoneNumber.ts"
+      },
+       {
+        "import_path": "src/types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Helper types (WhereCondition).",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/index.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/types/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "calculateBearing",
+      "kind": "function",
+      "description_one_line": "Calculates the bearing between two geographic coordinates.",
+      "symbol_id": "calculateBearing"
+    },
+    {
+      "name": "renderOnce",
+      "kind": "function",
+      "description_one_line": "Returns true (used for memoization or render control).",
+      "symbol_id": "renderOnce"
+    },
+    {
+      "name": "propsAreEqual",
+      "kind": "function",
+      "description_one_line": "Deep comparison of two props objects using lodash isEqual.",
+      "symbol_id": "propsAreEqual"
+    },
+    {
+      "name": "getUserCountryByIp",
+      "kind": "function",
+      "description_one_line": "Fetches the user's country based on IP.",
+      "symbol_id": "getUserCountryByIp"
+    },
+    {
+      "name": "userNameFormat",
+      "kind": "function",
+      "description_one_line": "Formats a user's full name.",
+      "symbol_id": "userNameFormat"
+    },
+     {
+      "name": "multiStringFormat",
+      "kind": "function",
+      "description_one_line": "Joins multiple strings with spaces.",
+      "symbol_id": "multiStringFormat"
+    },
+     {
+      "name": "getLocationUrl",
+      "kind": "function",
+      "description_one_line": "Generates a Google Maps URL for given coordinates.",
+      "symbol_id": "getLocationUrl"
+    },
+     {
+      "name": "isNodeEnv",
+      "kind": "constant",
+      "description_one_line": "Boolean indicating if running in a Node.js environment.",
+      "symbol_id": "isNodeEnv"
+    },
+     {
+      "name": "mode",
+      "kind": "constant",
+      "description_one_line": "Application mode (e.g., qa, prod).",
+      "symbol_id": "mode"
+    },
+     {
+      "name": "isLocal",
+      "kind": "constant",
+      "description_one_line": "Boolean indicating if running locally.",
+      "symbol_id": "isLocal"
+    },
+     {
+      "name": "getFixedNumber",
+      "kind": "function",
+      "description_one_line": "Formats a number to a fixed decimal string, removing trailing zeros.",
+      "symbol_id": "getFixedNumber"
+    },
+     {
+      "name": "getAddressByGeo",
+      "kind": "function",
+      "description_one_line": "Reverse geocodes coordinates to an address using Google Maps API.",
+      "symbol_id": "getAddressByGeo"
+    },
+     {
+      "name": "validateAndCast",
+      "kind": "function",
+      "description_one_line": "Type predicate helper function.",
+      "symbol_id": "validateAndCast"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "calculateBearing",
+      "name": "calculateBearing",
+      "kind": "function",
+      "description_one_line": "Calculates bearing in degrees.",
+      "signature": {
+        "params": [
+          { "name": "startLat", "type": "number", "required": true, "description": "Start latitude" },
+          { "name": "startLng", "type": "number", "required": true, "description": "Start longitude" },
+          { "name": "endLat", "type": "number", "required": true, "description": "End latitude" },
+          { "name": "endLng", "type": "number", "required": true, "description": "End longitude" }
+        ],
+        "returns": { "type": "number", "description": "Bearing in degrees (0-360)." }
+      },
+      "details": {
+        "what_it_does": "Computes the initial bearing (forward azimuth) from the starting point to the destination point."
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 26,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L8-L26",
+        "nx_kb_anchor": "calculateBearing"
+      }
+    },
+     {
+      "symbol_id": "getUserCountryByIp",
+      "name": "getUserCountryByIp",
+      "kind": "function",
+      "description_one_line": "Determines user country from IP.",
+      "signature": {
+        "params": [],
+        "returns": { "type": "Promise<CountryOptions>", "description": "The country code (e.g. 'il' or 'en')." }
+      },
+      "details": {
+        "what_it_does": "Calls 'https://ipapi.co/json/' to get the country code. Defaults to 'IL' on error."
+      },
+      "locations": {
+        "source_line_start": 36,
+        "source_line_end": 45,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L36-L45",
+        "nx_kb_anchor": "getUserCountryByIp"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

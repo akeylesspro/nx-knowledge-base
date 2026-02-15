@@ -1,0 +1,136 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.tsx",
+  "source": {
+    "file_path": "src/components/forms/index.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/forms/index.json"
+  },
+  "summary": {
+    "purpose": "Provides form utility components.",
+    "problem_solved": "Offers reusable components for confirmations and date picking within forms."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Core React hooks."
+      },
+      {
+        "name": "moment",
+        "kind": "runtime",
+        "why_used": "Date manipulation."
+      },
+      {
+        "name": "react-aria-components",
+        "kind": "runtime",
+        "why_used": "Accessible UI components."
+      },
+      {
+        "name": "@internationalized/date",
+        "kind": "runtime",
+        "why_used": "Internationalized date handling."
+      },
+      {
+        "name": "lucide-react",
+        "kind": "runtime",
+        "why_used": "Icons."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "../../assets",
+        "why_used": "Icons (GreenVSvg, RedXSvg)."
+      },
+      {
+        "import_path": "../utils",
+        "why_used": "Loader component."
+      },
+      {
+        "import_path": "@/lib/utils",
+        "why_used": "cn utility."
+      },
+      {
+        "import_path": "@/components/ui/calendar-rac",
+        "why_used": "Calendar component."
+      },
+      {
+        "import_path": "@/components/ui/datefield-rac",
+        "why_used": "DateInput component."
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "ConfirmForm",
+      "kind": "component",
+      "description_one_line": "Confirmation form with V/X buttons.",
+      "symbol_id": "ConfirmForm"
+    },
+    {
+      "name": "DatePicker",
+      "kind": "component",
+      "description_one_line": "Simple date picker form.",
+      "symbol_id": "DatePicker"
+    },
+    {
+      "name": "DatePicker2",
+      "kind": "component",
+      "description_one_line": "Advanced date picker form using React Aria.",
+      "symbol_id": "DatePicker2"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "ConfirmForm",
+      "name": "ConfirmForm",
+      "kind": "component",
+      "description_one_line": "Confirmation UI.",
+      "signature": {
+        "params": [
+           { "name": "onV", "type": "function", "required": true },
+           { "name": "onX", "type": "function", "required": true }
+        ],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    },
+    {
+      "symbol_id": "DatePicker",
+      "name": "DatePicker",
+      "kind": "component",
+      "description_one_line": "Date picker UI.",
+      "signature": {
+        "params": [
+           { "name": "submit", "type": "function", "description": "Form submission handler." }
+        ],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    },
+    {
+      "symbol_id": "DatePicker2",
+      "name": "DatePicker2",
+      "kind": "component",
+      "description_one_line": "Accessible Date picker UI.",
+      "signature": {
+        "params": [
+           { "name": "submit", "type": "function", "description": "Form submission handler." }
+        ],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

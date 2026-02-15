@@ -1,0 +1,77 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "excel.tsx",
+  "source": {
+    "file_path": "src/helpers/excel.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": [],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/excel.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/excel.json"
+  },
+  "summary": {
+    "purpose": "Excel export utility.",
+    "problem_solved": "Generates and downloads an Excel (.xlsx) file from a dataset on the client side."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "exceljs",
+        "kind": "runtime",
+        "why_used": "Library to create and query Excel workbooks."
+      },
+      {
+        "name": "file-saver",
+        "kind": "runtime",
+        "why_used": "Triggers the browser's file download mechanism."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "src/types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Direction type.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/index.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/types/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "exportToExcel",
+      "kind": "function",
+      "description_one_line": "Generates and downloads an Excel file.",
+      "symbol_id": "exportToExcel"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "exportToExcel",
+      "name": "exportToExcel",
+      "kind": "function",
+      "description_one_line": "Creates an Excel file from data.",
+      "signature": {
+        "params": [
+          { "name": "options", "type": "ExportExcelOptions<T>", "required": true, "description": "Configuration including columns, data, fileName, and styling." }
+        ],
+        "returns": { "type": "Promise<void>", "description": "Promise that resolves when saveAs is called." }
+      },
+      "details": {
+        "what_it_does": "Creates a new Workbook, adds a worksheet, configures columns, adds a headline (if provided), populates data rows (formatting hyperlinks if detected), checks direction (RTL/LTR), and triggers a download."
+      },
+      "locations": {
+        "source_line_start": 20,
+        "source_line_end": 59,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/excel.tsx#L20-L59",
+        "nx_kb_anchor": "exportToExcel"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "types.ts",
+  "source": {
+    "file_path": "src/components/table/types.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "ts",
+    "framework_tags": ["react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/types.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/table/types.json"
+  },
+  "summary": {
+    "purpose": "Type definitions for the Table module.",
+    "problem_solved": "Defines props and context for the data table system, covering sorting, filtering, searching, and layout."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "dev",
+        "why_used": "TObject type."
+      },
+      {
+        "name": "react",
+        "kind": "peer",
+        "why_used": "ReactNode, CSSProperties."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    { "name": "TableProviderType", "kind": "interface", "description_one_line": "Context value structure.", "symbol_id": "TableProviderType" },
+    { "name": "TableProps", "kind": "interface", "description_one_line": "Props for the Table component.", "symbol_id": "TableProps" },
+    { "name": "FilterableColumn", "kind": "interface", "description_one_line": "Column filter config.", "symbol_id": "FilterableColumn" }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "TableProps",
+      "name": "TableProps",
+      "kind": "interface",
+      "description_one_line": "Table configuration.",
+      "details": {
+        "what_it_does": "Extensive interface for customizing table behavior (data, headers, keys, sorting, filtering, exporting, styling via CSS/classNames)."
+      },
+      "locations": {
+        "source_line_start": 35,
+        "source_line_end": 97,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/types.ts#L35-L97",
+        "nx_kb_anchor": "TableProps"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

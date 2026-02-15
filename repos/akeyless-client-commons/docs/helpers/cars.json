@@ -1,0 +1,58 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "cars.ts",
+  "source": {
+    "file_path": "src/helpers/cars.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "ts",
+    "framework_tags": [],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/cars.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/cars.json"
+  },
+  "summary": {
+    "purpose": "Utilities related to car data formatting.",
+    "problem_solved": "Formats Israeli car license plate numbers into the standard display format (xx-xxx-xx or similar)."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "formatCarNumber",
+      "kind": "function",
+      "description_one_line": "Formats a car license plate number with hyphens.",
+      "symbol_id": "formatCarNumber"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "formatCarNumber",
+      "name": "formatCarNumber",
+      "kind": "function",
+      "description_one_line": "Inserts hyphens into car numbers based on length.",
+      "signature": {
+        "params": [
+          { "name": "car_number", "type": "string", "required": true, "description": "The raw car number string." }
+        ],
+        "returns": { "type": "string", "description": "Formatted string with hyphens (e.g., '12-345-67')." }
+      },
+      "details": {
+        "what_it_does": "Checks the length of the input string (5, 6, 7, or 8 digits) and inserts hyphens in the standard positions for Israeli license plates. Returns the original string if length doesn't match known patterns."
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/cars.ts#L3-L10",
+        "nx_kb_anchor": "formatCarNumber"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

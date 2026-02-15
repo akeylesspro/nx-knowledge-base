@@ -1,0 +1,80 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "InternationalPhonePicker.tsx",
+  "source": {
+    "file_path": "src/components/forms/ModularForm/InternationalPhonePicker.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react", "react-phone-number-input"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/InternationalPhonePicker.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/forms/ModularForm/InternationalPhonePicker.json"
+  },
+  "summary": {
+    "purpose": "International phone input component.",
+    "problem_solved": "Provides a phone number input with country flag selection and proper formatting, integrated into the ModularForm system."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react-phone-number-input",
+        "kind": "runtime",
+        "why_used": "Phone input logic and metadata."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "@/components/ui/input",
+        "resolved_file_path": "src/components/ui/input.tsx",
+        "why_used": "Styled Input component.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/input.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/ui/input.tsx"
+      },
+       {
+        "import_path": "./formElements",
+        "resolved_file_path": "src/components/forms/ModularForm/formElements.tsx",
+        "why_used": "ElementLabel component.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/forms/ModularForm/formElements.tsx"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "InternationalPhonePicker",
+      "kind": "component",
+      "description_one_line": "Phone input with country selector.",
+      "symbol_id": "InternationalPhonePicker"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "InternationalPhonePicker",
+      "name": "InternationalPhonePicker",
+      "kind": "component",
+      "description_one_line": "Phone picker.",
+      "signature": {
+        "params": [
+           { "name": "setPhoneValue", "type": "function", "required": false, "description": "State updater." },
+           { "name": "defaultCountry", "type": "string", "required": false, "description": "Default ISO country code." }
+        ],
+        "returns": { "type": "JSX.Element", "description": "Phone input UI." }
+      },
+      "details": {
+        "what_it_does": "Renders RPNInput with custom flag and input components. Handles value changes and default country logic."
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 100,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/InternationalPhonePicker.tsx#L11-L100",
+        "nx_kb_anchor": "InternationalPhonePicker"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

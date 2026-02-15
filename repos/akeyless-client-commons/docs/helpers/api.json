@@ -1,0 +1,348 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "api.ts",
+  "source": {
+    "file_path": "src/helpers/api.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:22:57+02:00",
+    "language": "ts",
+    "framework_tags": [
+      "axios",
+      "firebase"
+    ],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/api.json"
+  },
+  "summary": {
+    "purpose": "Centralized API client utility for interacting with various backend services.",
+    "problem_solved": "Manages base URLs for different environments (local, QA, production) and handles authentication headers for API requests."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "axios",
+        "kind": "runtime",
+        "why_used": "Used for making HTTP requests to the backend services."
+      },
+      {
+        "name": "firebase",
+        "kind": "runtime",
+        "why_used": "Used to retrieve the current user's authentication token."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "dev",
+        "why_used": "Provides type definitions like TObject."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./global",
+        "resolved_file_path": "src/helpers/global.ts",
+        "why_used": "Imports isLocal and mode configuration to determine API base URLs.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/global.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/global.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "baseDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for the API, determined by the running mode.",
+      "symbol_id": "baseDomain"
+    },
+    {
+      "name": "devicesDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for devices service.",
+      "symbol_id": "devicesDomain"
+    },
+     {
+      "name": "biDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for BI service.",
+      "symbol_id": "biDomain"
+    },
+     {
+      "name": "notificationsDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for notifications service.",
+      "symbol_id": "notificationsDomain"
+    },
+     {
+      "name": "endUsersDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for end-users service.",
+      "symbol_id": "endUsersDomain"
+    },
+     {
+      "name": "callCenterGeoDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for call-center-geo service.",
+      "symbol_id": "callCenterGeoDomain"
+    },
+     {
+      "name": "callCenterEventsDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for call-center-events service.",
+      "symbol_id": "callCenterEventsDomain"
+    },
+     {
+      "name": "dataSocketDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for data-socket service.",
+      "symbol_id": "dataSocketDomain"
+    },
+     {
+      "name": "dataSyncDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for data-sync service.",
+      "symbol_id": "dataSyncDomain"
+    },
+     {
+      "name": "chargeDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for charge service.",
+      "symbol_id": "chargeDomain"
+    },
+     {
+      "name": "akeylessOnlineDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for Akeyless Online service.",
+      "symbol_id": "akeylessOnlineDomain"
+    },
+    {
+      "name": "nxApiCall",
+      "kind": "function",
+      "description_one_line": "Performs an authorized API call to a specified service.",
+      "symbol_id": "nxApiCall"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "baseDomain",
+      "name": "baseDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for the API.",
+      "details": {
+        "what_it_does": "Sets the base domain URL based on the 'mode' variable (qa or prod)."
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L6",
+        "nx_kb_anchor": "baseDomain"
+      }
+    },
+     {
+      "symbol_id": "devicesDomain",
+      "name": "devicesDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for devices service.",
+      "details": {
+        "what_it_does": "Sets the devices service URL based on running locally or using the base domain."
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 7,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L7",
+        "nx_kb_anchor": "devicesDomain"
+      }
+    },
+    {
+      "symbol_id": "biDomain",
+      "name": "biDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for BI service.",
+      "details": {
+        "what_it_does": "Sets the BI service URL based on running locally or using the base domain."
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L8",
+        "nx_kb_anchor": "biDomain"
+      }
+    },
+    {
+      "symbol_id": "notificationsDomain",
+      "name": "notificationsDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for notifications service.",
+      "details": {
+        "what_it_does": "Sets the notifications service URL based on running locally or using the base domain."
+      },
+      "locations": {
+        "source_line_start": 9,
+        "source_line_end": 9,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L9",
+        "nx_kb_anchor": "notificationsDomain"
+      }
+    },
+    {
+      "symbol_id": "endUsersDomain",
+      "name": "endUsersDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for end-users service.",
+      "details": {
+        "what_it_does": "Sets the end-users service URL based on running locally or using the base domain."
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L10",
+        "nx_kb_anchor": "endUsersDomain"
+      }
+    },
+    {
+      "symbol_id": "callCenterGeoDomain",
+      "name": "callCenterGeoDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for call-center-geo service.",
+      "details": {
+        "what_it_does": "Sets the call-center-geo service URL based on running locally or using the base domain."
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L11",
+        "nx_kb_anchor": "callCenterGeoDomain"
+      }
+    },
+    {
+      "symbol_id": "callCenterEventsDomain",
+      "name": "callCenterEventsDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for call-center-events service.",
+      "details": {
+        "what_it_does": "Sets the call-center-events service URL based on running locally or using the base domain."
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L12",
+        "nx_kb_anchor": "callCenterEventsDomain"
+      }
+    },
+    {
+      "symbol_id": "dataSocketDomain",
+      "name": "dataSocketDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for data-socket service.",
+      "details": {
+        "what_it_does": "Sets the data-socket service URL based on running locally or using the base domain."
+      },
+      "locations": {
+        "source_line_start": 13,
+        "source_line_end": 13,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L13",
+        "nx_kb_anchor": "dataSocketDomain"
+      }
+    },
+    {
+      "symbol_id": "dataSyncDomain",
+      "name": "dataSyncDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for data-sync service.",
+      "details": {
+        "what_it_does": "Sets the data-sync service URL based on running locally or using the base domain."
+      },
+      "locations": {
+        "source_line_start": 14,
+        "source_line_end": 14,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L14",
+        "nx_kb_anchor": "dataSyncDomain"
+      }
+    },
+    {
+      "symbol_id": "chargeDomain",
+      "name": "chargeDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for charge service.",
+      "details": {
+        "what_it_does": "Sets the charge service URL based on running locally or using the base domain."
+      },
+      "locations": {
+        "source_line_start": 15,
+        "source_line_end": 15,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L15",
+        "nx_kb_anchor": "chargeDomain"
+      }
+    },
+    {
+      "symbol_id": "akeylessOnlineDomain",
+      "name": "akeylessOnlineDomain",
+      "kind": "constant",
+      "description_one_line": "Base URL for Akeyless Online service.",
+      "details": {
+        "what_it_does": "Sets the Akeyless Online domain URL based on the 'mode' variable (qa or prod)."
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L16",
+        "nx_kb_anchor": "akeylessOnlineDomain"
+      }
+    },
+    {
+      "symbol_id": "nxApiCall",
+      "name": "nxApiCall",
+      "kind": "function",
+      "description_one_line": "Executes an API request with authentication.",
+      "signature": {
+        "params": [
+          {
+            "name": "serverName",
+            "type": "ServerName",
+            "required": true,
+            "description": "The target service to call (e.g., 'devices', 'bi', etc.)."
+          },
+          {
+            "name": "method",
+            "type": "Method",
+            "required": true,
+            "description": "HTTP method (GET, POST, PUT, DELETE)."
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "required": true,
+            "description": "The endpoint path relative to the service base URL."
+          },
+          {
+            "name": "data",
+            "type": "TObject<any>",
+            "required": false,
+            "description": "Request payload or query parameters."
+          }
+        ],
+        "returns": {
+          "type": "Promise<T | ErrorDetails>",
+          "description": "A promise that resolves to the response data or an error object."
+        }
+      },
+      "details": {
+        "what_it_does": "Constructs the full URL based on the service name and environment, adds the Authorization header using the current user's token (unless ignoreAuth is set), and executes the request using axios.",
+        "error_cases": [
+          {
+            "condition": "Request fails",
+            "behavior": "Logs the error and returns an object containing the error details."
+          }
+        ]
+      },
+      "locations": {
+        "source_line_start": 35,
+        "source_line_end": 90,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L35-L90",
+        "nx_kb_anchor": "nxApiCall"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "button.tsx",
+  "source": {
+    "file_path": "src/components/ui/button.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": ["react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/button.tsx",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/button.json"
+  },
+  "summary": {
+    "purpose": "Button component.",
+    "problem_solved": "Standardized button with multiple variants."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "React components."
+      },
+      {
+        "name": "@radix-ui/react-slot",
+        "kind": "runtime",
+        "why_used": "Slot for polymorphism."
+      },
+      {
+        "name": "class-variance-authority",
+        "kind": "runtime",
+        "why_used": "Variant management."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "@/lib/utils",
+        "why_used": "cn utility."
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "Button",
+      "kind": "component",
+      "description_one_line": "Button UI element.",
+      "symbol_id": "Button"
+    },
+    {
+      "name": "buttonVariants",
+      "kind": "function",
+      "description_one_line": "CVA variant for button.",
+      "symbol_id": "buttonVariants"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "Button",
+      "name": "Button",
+      "kind": "component",
+      "description_one_line": "Button Component.",
+      "signature": {
+        "params": [
+           { "name": "variant", "type": "string", "optional": true },
+           { "name": "size", "type": "string", "optional": true },
+           { "name": "asChild", "type": "boolean", "optional": true }
+        ],
+        "returns": { "type": "JSX.Element" }
+      },
+      "details": {}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

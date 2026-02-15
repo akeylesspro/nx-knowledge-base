@@ -1,0 +1,108 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "forms.ts",
+  "source": {
+    "file_path": "src/types/interfaces/forms.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "ts",
+    "framework_tags": ["react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/interfaces/forms.json"
+  },
+  "summary": {
+    "purpose": "Interfaces for form components.",
+    "problem_solved": "Defines property structures for the `ModularForm` system and various input elements (Text, Select, Date, etc.)."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "peer",
+        "why_used": "React types (ReactNode, CSSProperties)."
+      },
+      {
+        "name": "react-phone-number-input",
+        "kind": "dev",
+        "why_used": "Country type."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Direction type.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/index.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/types/index.ts"
+      },
+       {
+        "import_path": "src/helpers",
+        "resolved_file_path": "src/helpers/index.ts",
+        "why_used": "ValidationType.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/index.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "BaseElementProps",
+      "kind": "interface",
+      "description_one_line": "Common props for all form elements.",
+      "symbol_id": "BaseElementProps"
+    },
+    {
+      "name": "InputElement",
+      "kind": "interface",
+      "description_one_line": "Props for a text/number input.",
+      "symbol_id": "InputElement"
+    },
+    {
+      "name": "DateInputElement",
+      "kind": "interface",
+      "description_one_line": "Props for a date input.",
+      "symbol_id": "DateInputElement"
+    },
+    {
+      "name": "SelectElement",
+      "kind": "interface",
+      "description_one_line": "Props for a select dropdown.",
+      "symbol_id": "SelectElement"
+    },
+    {
+      "name": "FormElement",
+      "kind": "type",
+      "description_one_line": "Union of all supported form element interfaces.",
+      "symbol_id": "FormElement"
+    },
+    {
+      "name": "ModularFormProps",
+      "kind": "interface",
+      "description_one_line": "Props for the ModularForm component.",
+      "symbol_id": "ModularFormProps"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "FormElement",
+      "name": "FormElement",
+      "kind": "type",
+      "description_one_line": "Union of all form elements.",
+      "details": {
+        "what_it_does": "Used by ModularForm to type the array of elements passed to it."
+      },
+      "locations": {
+        "source_line_start": 184,
+        "source_line_end": 195,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L184-L195",
+        "nx_kb_anchor": "FormElement"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

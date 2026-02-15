@@ -1,0 +1,69 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "src/hooks/global.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "ts",
+    "framework_tags": ["react"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/global.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/hooks/global.json"
+  },
+  "summary": {
+    "purpose": "Global app hooks.",
+    "problem_solved": "Handles global state/environment tasks like setting the document title or detecting user country."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "dev",
+        "why_used": "CountryOptions."
+      }
+    ],
+    "internal": [
+       {
+        "import_path": "src/helpers",
+        "resolved_file_path": "src/helpers/index.ts",
+        "why_used": "getUserCountryByIp.",
+        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/index.json",
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "useDocumentTitle",
+      "kind": "hook",
+      "description_one_line": "Sets document.title.",
+      "symbol_id": "useDocumentTitle"
+    },
+    {
+      "name": "useSetUserCountry",
+      "kind": "hook",
+      "description_one_line": "Detects country from IP.",
+      "symbol_id": "useSetUserCountry"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "useSetUserCountry",
+      "name": "useSetUserCountry",
+      "kind": "hook",
+      "description_one_line": "Sets country state.",
+      "locations": {
+        "source_line_start": 14,
+        "source_line_end": 28,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/global.ts#L14-L28",
+        "nx_kb_anchor": "useSetUserCountry"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

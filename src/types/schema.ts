@@ -8,7 +8,7 @@ export type FrameworkTag = "express" | "next" | "react" | "vue" | "node" | strin
 
 export type DependencyKind = "runtime" | "dev" | "peer";
 
-export type SymbolKind = "function" | "class" | "component" | "interface" | "type" | "enum" | "value" | "constant";
+export type SymbolKind = "function" | "class" | "component" | "hook" | "interface" | "type" | "enum" | "value" | "constant";
 
 export type ConfidenceLevel = "low" | "medium" | "high";
 

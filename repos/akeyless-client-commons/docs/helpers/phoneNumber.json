@@ -1,0 +1,112 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "phoneNumber.ts",
+  "source": {
+    "file_path": "src/helpers/phoneNumber.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "ts",
+    "framework_tags": ["libphonenumber-js"],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts",
+    "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/phoneNumber.json"
+  },
+  "summary": {
+    "purpose": "Phone number validation and formatting utilities.",
+    "problem_solved": "Ensures consistent phone usage (local vs international Israel format) and provides checks for valid formats."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "libphonenumber-js",
+        "kind": "runtime",
+        "why_used": "International phone number parsing and validation."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "isInternational",
+      "kind": "function",
+      "description_one_line": "Checks if a number starts with +.",
+      "symbol_id": "isInternational"
+    },
+    {
+      "name": "isInternationalIsraelPhone",
+      "kind": "function",
+      "description_one_line": "Checks if a number starts with +9725.",
+      "symbol_id": "isInternationalIsraelPhone"
+    },
+    {
+      "name": "local_israel_phone_format",
+      "kind": "function",
+      "description_one_line": "Converts +972... to 0...",
+      "symbol_id": "local_israel_phone_format"
+    },
+    {
+      "name": "international_israel_phone_format",
+      "kind": "function",
+      "description_one_line": "Converts 0... to +972...",
+      "symbol_id": "international_israel_phone_format"
+    },
+    {
+      "name": "get_international_phone_number",
+      "kind": "function",
+      "description_one_line": "Ensures number is in international format (if Israeli).",
+      "symbol_id": "get_international_phone_number"
+    },
+    {
+      "name": "displayFormatPhoneNumber",
+      "kind": "function",
+      "description_one_line": "Formats a number for display (e.g. 050-123-4567).",
+      "symbol_id": "displayFormatPhoneNumber"
+    },
+     {
+      "name": "is_iccid",
+      "kind": "function",
+      "description_one_line": "Validates if a string is a SIM card ICCID.",
+      "symbol_id": "is_iccid"
+    },
+     {
+      "name": "is_msisdn",
+      "kind": "function",
+      "description_one_line": "Validates if a string is an MSISDN.",
+      "symbol_id": "is_msisdn"
+    },
+     {
+      "name": "is_fixed_or_service_number",
+      "kind": "function",
+      "description_one_line": "Checks if a number is a landline or service number.",
+      "symbol_id": "is_fixed_or_service_number"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "local_israel_phone_format",
+      "name": "local_israel_phone_format",
+      "kind": "function",
+      "description_one_line": "Formats to local Israeli prefix.",
+      "signature": {
+        "params": [
+          { "name": "international_number", "type": "string", "required": true, "description": "The number in +972 format." }
+        ],
+        "returns": { "type": "string", "description": "Number starting with 0." }
+      },
+      "details": {
+        "what_it_does": "Replaces the +972 prefix with 0."
+      },
+      "locations": {
+        "source_line_start": 14,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L14-L16",
+        "nx_kb_anchor": "local_israel_phone_format"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}
