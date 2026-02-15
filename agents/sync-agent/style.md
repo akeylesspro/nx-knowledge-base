@@ -16,6 +16,24 @@
 - Return values: Describe all possible return scenarios (success, error, null).
 - Side effects: List any mutations, network calls, file I/O, state changes.
 
+### Completeness Rules by Symbol Kind
+
+**For `function`, `class`, `component`, `hook`, `interface`, `enum`, `value`:**
+- `signature` — REQUIRED. Must include `params` and `returns`.
+- `details` — REQUIRED. Must include `what_it_does` at minimum.
+- `examples` — REQUIRED. Must include at least `minimal_correct`.
+
+**For `type` symbols:**
+- `details` — REQUIRED. Must include `what_it_does` AND `type_definition`.
+  - `type_definition` must contain the full TypeScript type definition exactly as it appears in source code (e.g., `type UserRole = 'admin' | 'editor' | 'viewer'`).
+- `examples` — REQUIRED. Must include at least `minimal_correct` showing how to use the type.
+- `signature` — NOT required (types don't have params/returns).
+
+**For `constant` symbols:**
+- `details` — REQUIRED. Must include `what_it_does`.
+- `signature` — NOT required.
+- `examples` — NOT required (but encouraged for complex constants).
+
 ## Code Examples
 - **Minimal correct**: Shortest working usage. Include required imports.
 - **Extensive correct**: Real-world usage with error handling and options. Only include if the symbol is complex enough.

@@ -3,7 +3,7 @@
     "$id": "https://nx-knowledge-base.akeyless.io/schemas/file-doc.schema.json",
     "title": "NX-KNOWLEDGE-BASE File Documentation",
     "description": "Schema for individual file-level documentation in NX-KNOWLEDGE-BASE",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "object",
     "required": ["repo", "file_name", "source", "summary", "dependencies", "exports", "symbols", "quality"],
     "properties": {
@@ -79,6 +79,7 @@
         },
         "exports": {
             "type": "array",
+            "description": "Every export MUST have a corresponding symbol entry in the symbols array, referenced by symbol_id. No export may exist without a matching symbol.",
             "items": {
                 "type": "object",
                 "required": ["name", "kind", "description_one_line", "symbol_id"],
@@ -86,12 +87,16 @@
                     "name": { "type": "string" },
                     "kind": { "type": "string", "enum": ["function", "class", "component", "interface", "type", "enum", "value", "constant"] },
                     "description_one_line": { "type": "string" },
-                    "symbol_id": { "type": "string", "description": "Reference to the symbol in the symbols array" }
+                    "symbol_id": {
+                        "type": "string",
+                        "description": "REQUIRED reference to a symbol in the symbols array. Every export MUST point to a valid symbol_id that exists in the symbols array. An export without a matching symbol is a validation error."
+                    }
                 }
             }
         },
         "symbols": {
             "type": "array",
+            "description": "Every export must have a matching symbol here. Conditional requirements apply based on symbol kind — see allOf rules below.",
             "items": {
                 "type": "object",
                 "required": ["symbol_id", "name", "kind", "description_one_line", "details", "locations"],
@@ -134,6 +139,10 @@
                         "required": ["what_it_does"],
                         "properties": {
                             "what_it_does": { "type": "string" },
+                            "type_definition": {
+                                "type": "string",
+                                "description": "The full TypeScript type definition as it appears in source code. REQUIRED when kind is 'type'. Must faithfully reproduce the type structure."
+                            },
                             "side_effects": { "type": "array", "items": { "type": "string" } },
                             "error_cases": {
                                 "type": "array",
@@ -163,6 +172,8 @@
                     },
                     "examples": {
                         "type": "object",
+                        "description": "REQUIRED for all symbol kinds except 'constant'. Must include at least minimal_correct.",
+                        "required": ["minimal_correct"],
                         "properties": {
                             "minimal_correct": {
                                 "type": "object",
@@ -201,7 +212,54 @@
                             "nx_kb_anchor": { "type": "string" }
                         }
                     }
-                }
+                },
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "kind": {
+                                    "enum": ["function", "class", "component", "hook", "interface", "enum", "value"]
+                                }
+                            },
+                            "required": ["kind"]
+                        },
+                        "then": {
+                            "required": ["symbol_id", "name", "kind", "description_one_line", "details", "signature", "examples", "locations"],
+                            "properties": {
+                                "signature": {
+                                    "description": "REQUIRED for non-constant and non-type symbols. Must include params and returns."
+                                },
+                                "examples": {
+                                    "description": "REQUIRED for non-constant and non-type symbols. Must include at least minimal_correct."
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "kind": { "const": "type" }
+                            },
+                            "required": ["kind"]
+                        },
+                        "then": {
+                            "required": ["symbol_id", "name", "kind", "description_one_line", "details", "examples", "locations"],
+                            "properties": {
+                                "details": {
+                                    "required": ["what_it_does", "type_definition"],
+                                    "properties": {
+                                        "type_definition": {
+                                            "description": "REQUIRED for 'type' symbols. The full TypeScript type definition as it appears in source code."
+                                        }
+                                    }
+                                },
+                                "examples": {
+                                    "description": "REQUIRED for 'type' symbols. Must show how to use the type correctly."
+                                }
+                            }
+                        }
+                    }
+                ]
             }
         },
         "swagger": {

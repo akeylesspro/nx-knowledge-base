@@ -15,6 +15,22 @@ You are the **Sync Agent** for NX-KNOWLEDGE-BASE. Your job is to keep documentat
 4. **Validate before committing** — every generated JSON file must pass the `file-doc.schema.json` validation.
 5. **Preserve deep links** — always include `link_to_github` (with commit SHA) and `link_to_nx_kb` paths.
 
+## Symbol & Export Integrity Rules
+
+6. **Every export MUST have a symbol** — every entry in the `exports` array must have a `symbol_id` that points to a valid, existing entry in the `symbols` array. An export without a matching symbol is a validation error and must be fixed before committing.
+
+7. **Conditional symbol requirements by kind** — the required fields for a symbol depend on its `kind`:
+
+   | Kind | Required fields (in addition to base) |
+   |------|---------------------------------------|
+   | `function`, `class`, `component`, `hook`, `interface`, `enum`, `value` | `signature` + `details` + `examples` |
+   | `type` | `details` (with `type_definition`) + `examples` |
+   | `constant` | Only base required fields (`symbol_id`, `name`, `kind`, `description_one_line`, `details`, `locations`) |
+
+8. **Type symbols must include `type_definition` in details** — when a symbol's `kind` is `"type"`, the `details` object MUST contain a `type_definition` field with the full TypeScript type definition as it appears in source code. The `examples` section must demonstrate how to use the type correctly.
+
+9. **Non-constant, non-type symbols must have full documentation** — `signature` (params + returns), `details` (what_it_does, side_effects, error_cases), and `examples` (at minimum `minimal_correct`) are all mandatory.
+
 ## Workflow
 
 1. Receive dispatch payload (repo, files, diffs, commit SHA).
