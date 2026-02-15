@@ -9,7 +9,10 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
-    "framework_tags": ["react", "react-aria-components"],
+    "framework_tags": [
+      "react",
+      "react-aria-components"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/calendar-rac.json"
   },
@@ -41,9 +44,12 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "@/lib/utils",
-        "why_used": "cn utility."
+        "why_used": "cn utility.",
+        "resolved_file_path": "src/lib/utils",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
       }
     ]
   },
@@ -69,9 +75,19 @@
       "description_one_line": "Single date calendar.",
       "signature": {
         "params": [],
-        "returns": { "type": "JSX.Element" }
+        "returns": {
+          "type": "JSX.Element"
+        }
       },
-      "details": {}
+      "details": {
+        "what_it_does": "Single date calendar."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx#L1",
+        "nx_kb_anchor": "Calendar"
+      }
     },
     {
       "symbol_id": "RangeCalendar",
@@ -80,9 +96,19 @@
       "description_one_line": "Date range calendar.",
       "signature": {
         "params": [],
-        "returns": { "type": "JSX.Element" }
+        "returns": {
+          "type": "JSX.Element"
+        }
       },
-      "details": {}
+      "details": {
+        "what_it_does": "Date range calendar."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx#L1",
+        "nx_kb_anchor": "RangeCalendar"
+      }
     }
   ],
   "quality": {

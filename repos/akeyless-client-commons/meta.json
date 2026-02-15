@@ -6,8 +6,8 @@
     "default_branch": "main",
     "language": "typescript",
     "framework_tags": ["react"],
-    "last_synced_at": "2026-02-12T00:00:00.000Z",
+    "last_synced_at": "2026-02-15T12:00:00.000Z",
     "last_synced_commit": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "file_count": 0,
-    "symbol_count": 0
+    "file_count": 63,
+    "symbol_count": 157
 }

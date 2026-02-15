@@ -1,92 +1,118 @@
 {
-    "repo": {
-        "name": "akeyless-client-commons",
-        "source_default_branch": "main"
-    },
-    "file_name": "index.tsx",
-    "source": {
-        "file_path": "components/ui/index.tsx",
-        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-        "generated_at_iso": "2026-02-12T00:00:00.000Z",
-        "language": "tsx",
-        "framework_tags": ["react"],
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/index.tsx.json"
-    },
-    "summary": {
-        "purpose": "Barrel export file that re-exports all public UI component modules from the components/ui directory.",
-        "problem_solved": "Provides a single import entry point for consuming badge, button, input, progress, multiselect, and SearchSelect UI components, simplifying import paths for downstream consumers."
-    },
-    "dependencies": {
-        "external": [],
-        "internal": [
-            {
-                "module": "./badge",
-                "resolved_path": "components/ui/badge.tsx",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/badge.tsx.json"
-            },
-            {
-                "module": "./button",
-                "resolved_path": "components/ui/button.tsx",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/button.tsx.json"
-            },
-            {
-                "module": "./input",
-                "resolved_path": "components/ui/input.tsx",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/input.tsx.json"
-            },
-            {
-                "module": "./progress",
-                "resolved_path": "components/ui/progress.tsx",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/progress.tsx.json"
-            },
-            {
-                "module": "./multiselect",
-                "resolved_path": "components/ui/multiselect.tsx",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/multiselect.tsx.json"
-            },
-            {
-                "module": "./SearchSelect",
-                "resolved_path": "components/ui/SearchSelect.tsx",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/SearchSelect.tsx.json"
-            }
-        ]
-    },
-    "exports": [
-        {
-            "name": "*",
-            "kind": "re-export",
-            "source_module": "./badge"
-        },
-        {
-            "name": "*",
-            "kind": "re-export",
-            "source_module": "./button"
-        },
-        {
-            "name": "*",
-            "kind": "re-export",
-            "source_module": "./input"
-        },
-        {
-            "name": "*",
-            "kind": "re-export",
-            "source_module": "./progress"
-        },
-        {
-            "name": "*",
-            "kind": "re-export",
-            "source_module": "./multiselect"
-        },
-        {
-            "name": "*",
-            "kind": "re-export",
-            "source_module": "./SearchSelect"
-        }
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.tsx",
+  "source": {
+    "file_path": "components/ui/index.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "react"
     ],
-    "symbols": [],
-    "quality": {
-        "generation_confidence": "high",
-        "known_gaps": []
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/index.tsx.json"
+  },
+  "summary": {
+    "purpose": "Barrel export file that re-exports all public UI component modules from the components/ui directory.",
+    "problem_solved": "Provides a single import entry point for consuming badge, button, input, progress, multiselect, and SearchSelect UI components, simplifying import paths for downstream consumers."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/badge.tsx.json",
+        "why_used": "Required dependency",
+        "import_path": "./badge",
+        "resolved_file_path": "components/ui/badge.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/badge.tsx"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/button.tsx.json",
+        "why_used": "Required dependency",
+        "import_path": "./button",
+        "resolved_file_path": "components/ui/button.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/button.tsx"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/input.tsx.json",
+        "why_used": "Required dependency",
+        "import_path": "./input",
+        "resolved_file_path": "components/ui/input.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/input.tsx"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/progress.tsx.json",
+        "why_used": "Required dependency",
+        "import_path": "./progress",
+        "resolved_file_path": "components/ui/progress.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/progress.tsx"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/multiselect.tsx.json",
+        "why_used": "Required dependency",
+        "import_path": "./multiselect",
+        "resolved_file_path": "components/ui/multiselect.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/multiselect.tsx"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/SearchSelect.tsx.json",
+        "why_used": "Required dependency",
+        "import_path": "./SearchSelect",
+        "resolved_file_path": "components/ui/SearchSelect.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/SearchSelect.tsx"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "*",
+      "kind": "value",
+      "source_module": "./badge",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_0"
+    },
+    {
+      "name": "*",
+      "kind": "value",
+      "source_module": "./button",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_1"
+    },
+    {
+      "name": "*",
+      "kind": "value",
+      "source_module": "./input",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_2"
+    },
+    {
+      "name": "*",
+      "kind": "value",
+      "source_module": "./progress",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_3"
+    },
+    {
+      "name": "*",
+      "kind": "value",
+      "source_module": "./multiselect",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_4"
+    },
+    {
+      "name": "*",
+      "kind": "value",
+      "source_module": "./SearchSelect",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_5"
     }
+  ],
+  "symbols": [],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
 }

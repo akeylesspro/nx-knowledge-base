@@ -9,7 +9,9 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/SearchSelect.tsx",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/SearchSelect.json"
   },
@@ -31,21 +33,33 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "@/lib/utils",
-        "why_used": "cn utility."
+        "why_used": "cn utility.",
+        "resolved_file_path": "src/lib/utils",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
       },
       {
         "import_path": "@/components/ui/button",
-        "why_used": "Button component."
+        "why_used": "Button component.",
+        "resolved_file_path": "src/components/ui/button",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/components/ui/button",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/button"
       },
       {
         "import_path": "@/components/ui/command",
-        "why_used": "Command components."
+        "why_used": "Command components.",
+        "resolved_file_path": "src/components/ui/command",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/components/ui/command",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command"
       },
       {
         "import_path": "@/components/ui/popover",
-        "why_used": "Popover components."
+        "why_used": "Popover components.",
+        "resolved_file_path": "src/components/ui/popover",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/components/ui/popover",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover"
       }
     ]
   },
@@ -65,11 +79,25 @@
       "description_one_line": "Search Select.",
       "signature": {
         "params": [
-           { "name": "options", "type": "SearchSelectOptions[]", "required": true }
+          {
+            "name": "options",
+            "type": "SearchSelectOptions[]",
+            "required": true
+          }
         ],
-        "returns": { "type": "JSX.Element" }
+        "returns": {
+          "type": "JSX.Element"
+        }
       },
-      "details": {}
+      "details": {
+        "what_it_does": "Search Select."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/SearchSelect.tsx#L1",
+        "nx_kb_anchor": "SearchSelect"
+      }
     }
   ],
   "quality": {

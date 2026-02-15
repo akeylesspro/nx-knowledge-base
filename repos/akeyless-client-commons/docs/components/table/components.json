@@ -9,7 +9,9 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/table/components.json"
   },
@@ -26,14 +28,14 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "./hooks",
         "resolved_file_path": "src/components/table/hooks.tsx",
         "why_used": "Access to table context.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/table/hooks.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/table/hooks.tsx"
       },
-       {
+      {
         "import_path": "src/helpers/excel",
         "resolved_file_path": "src/helpers/excel.tsx",
         "why_used": "Export logic.",
@@ -43,22 +45,102 @@
     ]
   },
   "exports": [
-    { "name": "Filter", "kind": "component", "description_one_line": "Column filter popup.", "symbol_id": "Filter" },
-    { "name": "MaxRowsLabel", "kind": "component", "description_one_line": "Label showing row count.", "symbol_id": "MaxRowsLabel" },
-    { "name": "DisplayAllRowsButton", "kind": "component", "description_one_line": "Toggle max rows.", "symbol_id": "DisplayAllRowsButton" },
-    { "name": "ExportToExcel", "kind": "component", "description_one_line": "Excel export button.", "symbol_id": "ExportToExcel" },
-    { "name": "Search", "kind": "component", "description_one_line": "Search input.", "symbol_id": "Search" },
-    { "name": "TableHead", "kind": "component", "description_one_line": "Matches headers to data keys.", "symbol_id": "TableHead" },
-    { "name": "TableBody", "kind": "component", "description_one_line": "Iterates rendered data.", "symbol_id": "TableBody" },
-    { "name": "TableRow", "kind": "component", "description_one_line": "Renders a single row.", "symbol_id": "TableRow" },
-    { "name": "Summary", "kind": "component", "description_one_line": "Footer with column sums.", "symbol_id": "Summary" },
-    { "name": "TimesUI", "kind": "component", "description_one_line": "Formatted timestamp display.", "symbol_id": "TimesUI" },
-    { "name": "TableButton", "kind": "component", "description_one_line": "Action button (add/edit/delete).", "symbol_id": "TableButton" },
-    { "name": "DurationUI", "kind": "component", "description_one_line": "Formatted duration display.", "symbol_id": "DurationUI" },
-    { "name": "PhoneUI", "kind": "component", "description_one_line": "Phone number display.", "symbol_id": "PhoneUI" },
-    { "name": "BooleanUi", "kind": "component", "description_one_line": "Check/X icon for booleans.", "symbol_id": "BooleanUi" },
-    { "name": "GeoUi", "kind": "component", "description_one_line": "Google Maps link.", "symbol_id": "GeoUi" },
-    { "name": "NumberUI", "kind": "component", "description_one_line": "Numeric display.", "symbol_id": "NumberUI" }
+    {
+      "name": "Filter",
+      "kind": "component",
+      "description_one_line": "Column filter popup.",
+      "symbol_id": "Filter"
+    },
+    {
+      "name": "MaxRowsLabel",
+      "kind": "component",
+      "description_one_line": "Label showing row count.",
+      "symbol_id": "MaxRowsLabel"
+    },
+    {
+      "name": "DisplayAllRowsButton",
+      "kind": "component",
+      "description_one_line": "Toggle max rows.",
+      "symbol_id": "DisplayAllRowsButton"
+    },
+    {
+      "name": "ExportToExcel",
+      "kind": "component",
+      "description_one_line": "Excel export button.",
+      "symbol_id": "ExportToExcel"
+    },
+    {
+      "name": "Search",
+      "kind": "component",
+      "description_one_line": "Search input.",
+      "symbol_id": "Search"
+    },
+    {
+      "name": "TableHead",
+      "kind": "component",
+      "description_one_line": "Matches headers to data keys.",
+      "symbol_id": "TableHead"
+    },
+    {
+      "name": "TableBody",
+      "kind": "component",
+      "description_one_line": "Iterates rendered data.",
+      "symbol_id": "TableBody"
+    },
+    {
+      "name": "TableRow",
+      "kind": "component",
+      "description_one_line": "Renders a single row.",
+      "symbol_id": "TableRow"
+    },
+    {
+      "name": "Summary",
+      "kind": "component",
+      "description_one_line": "Footer with column sums.",
+      "symbol_id": "Summary"
+    },
+    {
+      "name": "TimesUI",
+      "kind": "component",
+      "description_one_line": "Formatted timestamp display.",
+      "symbol_id": "TimesUI"
+    },
+    {
+      "name": "TableButton",
+      "kind": "component",
+      "description_one_line": "Action button (add/edit/delete).",
+      "symbol_id": "TableButton"
+    },
+    {
+      "name": "DurationUI",
+      "kind": "component",
+      "description_one_line": "Formatted duration display.",
+      "symbol_id": "DurationUI"
+    },
+    {
+      "name": "PhoneUI",
+      "kind": "component",
+      "description_one_line": "Phone number display.",
+      "symbol_id": "PhoneUI"
+    },
+    {
+      "name": "BooleanUi",
+      "kind": "component",
+      "description_one_line": "Check/X icon for booleans.",
+      "symbol_id": "BooleanUi"
+    },
+    {
+      "name": "GeoUi",
+      "kind": "component",
+      "description_one_line": "Google Maps link.",
+      "symbol_id": "GeoUi"
+    },
+    {
+      "name": "NumberUI",
+      "kind": "component",
+      "description_one_line": "Numeric display.",
+      "symbol_id": "NumberUI"
+    }
   ],
   "symbols": [
     {
@@ -71,6 +153,9 @@
         "source_line_end": 303,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L294-L303",
         "nx_kb_anchor": "TableBody"
+      },
+      "details": {
+        "what_it_does": "Table rows container."
       }
     }
   ],

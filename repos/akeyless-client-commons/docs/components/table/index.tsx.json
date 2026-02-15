@@ -1,62 +1,76 @@
 {
-    "repo": {
-        "name": "akeyless-client-commons",
-        "source_default_branch": "main"
-    },
-    "file_name": "index.tsx",
-    "source": {
-        "file_path": "components/table/index.tsx",
-        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-        "generated_at_iso": "2026-02-12T00:00:00.000Z",
-        "language": "tsx",
-        "framework_tags": ["react"],
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/index.tsx",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/index.tsx.json"
-    },
-    "summary": {
-        "purpose": "Barrel file that re-exports all public API members from the table module, including components, the main Table component, and type definitions.",
-        "problem_solved": "Provides a single import entry point for consumers of the table module, so they can import everything from 'components/table' without knowing the internal file structure."
-    },
-    "dependencies": {
-        "external": [],
-        "internal": [
-            {
-                "module": "./components",
-                "resolved_path": "components/table/components.tsx",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/components.tsx.json"
-            },
-            {
-                "module": "./Table",
-                "resolved_path": "components/table/Table.tsx",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/Table.tsx.json"
-            },
-            {
-                "module": "./types",
-                "resolved_path": "components/table/types.ts",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json"
-            }
-        ]
-    },
-    "exports": [
-        {
-            "name": "*",
-            "kind": "re-export",
-            "source_module": "./components"
-        },
-        {
-            "name": "*",
-            "kind": "re-export",
-            "source_module": "./Table"
-        },
-        {
-            "name": "*",
-            "kind": "re-export",
-            "source_module": "./types"
-        }
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.tsx",
+  "source": {
+    "file_path": "components/table/index.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "react"
     ],
-    "symbols": [],
-    "quality": {
-        "generation_confidence": "high",
-        "known_gaps": []
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/index.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/index.tsx.json"
+  },
+  "summary": {
+    "purpose": "Barrel file that re-exports all public API members from the table module, including components, the main Table component, and type definitions.",
+    "problem_solved": "Provides a single import entry point for consumers of the table module, so they can import everything from 'components/table' without knowing the internal file structure."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/components.tsx.json",
+        "why_used": "Required dependency",
+        "import_path": "./components",
+        "resolved_file_path": "components/table/components.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/Table.tsx.json",
+        "why_used": "Required dependency",
+        "import_path": "./Table",
+        "resolved_file_path": "components/table/Table.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json",
+        "why_used": "Required dependency",
+        "import_path": "./types",
+        "resolved_file_path": "components/table/types.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "*",
+      "kind": "value",
+      "source_module": "./components",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_0"
+    },
+    {
+      "name": "*",
+      "kind": "value",
+      "source_module": "./Table",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_1"
+    },
+    {
+      "name": "*",
+      "kind": "value",
+      "source_module": "./types",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_2"
     }
+  ],
+  "symbols": [],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
 }

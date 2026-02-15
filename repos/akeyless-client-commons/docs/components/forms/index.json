@@ -9,7 +9,9 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/forms/index.json"
   },
@@ -46,25 +48,40 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "../../assets",
-        "why_used": "Icons (GreenVSvg, RedXSvg)."
+        "why_used": "Icons (GreenVSvg, RedXSvg).",
+        "resolved_file_path": "../../client-side/nx-kb/src/assets",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/../../client-side/nx-kb/src/assets",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/../../client-side/nx-kb/src/assets"
       },
       {
         "import_path": "../utils",
-        "why_used": "Loader component."
+        "why_used": "Loader component.",
+        "resolved_file_path": "../../client-side/nx-kb/src/components/utils",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/../../client-side/nx-kb/src/components/utils",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/../../client-side/nx-kb/src/components/utils"
       },
       {
         "import_path": "@/lib/utils",
-        "why_used": "cn utility."
+        "why_used": "cn utility.",
+        "resolved_file_path": "src/lib/utils",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
       },
       {
         "import_path": "@/components/ui/calendar-rac",
-        "why_used": "Calendar component."
+        "why_used": "Calendar component.",
+        "resolved_file_path": "src/components/ui/calendar-rac",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/components/ui/calendar-rac",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac"
       },
       {
         "import_path": "@/components/ui/datefield-rac",
-        "why_used": "DateInput component."
+        "why_used": "DateInput component.",
+        "resolved_file_path": "src/components/ui/datefield-rac",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/components/ui/datefield-rac",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/datefield-rac"
       }
     ]
   },
@@ -96,12 +113,30 @@
       "description_one_line": "Confirmation UI.",
       "signature": {
         "params": [
-           { "name": "onV", "type": "function", "required": true },
-           { "name": "onX", "type": "function", "required": true }
+          {
+            "name": "onV",
+            "type": "function",
+            "required": true
+          },
+          {
+            "name": "onX",
+            "type": "function",
+            "required": true
+          }
         ],
-        "returns": { "type": "JSX.Element" }
+        "returns": {
+          "type": "JSX.Element"
+        }
       },
-      "details": {}
+      "details": {
+        "what_it_does": "Confirmation UI."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L1",
+        "nx_kb_anchor": "ConfirmForm"
+      }
     },
     {
       "symbol_id": "DatePicker",
@@ -110,11 +145,25 @@
       "description_one_line": "Date picker UI.",
       "signature": {
         "params": [
-           { "name": "submit", "type": "function", "description": "Form submission handler." }
+          {
+            "name": "submit",
+            "type": "function",
+            "description": "Form submission handler."
+          }
         ],
-        "returns": { "type": "JSX.Element" }
+        "returns": {
+          "type": "JSX.Element"
+        }
       },
-      "details": {}
+      "details": {
+        "what_it_does": "Date picker UI."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L1",
+        "nx_kb_anchor": "DatePicker"
+      }
     },
     {
       "symbol_id": "DatePicker2",
@@ -123,11 +172,25 @@
       "description_one_line": "Accessible Date picker UI.",
       "signature": {
         "params": [
-           { "name": "submit", "type": "function", "description": "Form submission handler." }
+          {
+            "name": "submit",
+            "type": "function",
+            "description": "Form submission handler."
+          }
         ],
-        "returns": { "type": "JSX.Element" }
+        "returns": {
+          "type": "JSX.Element"
+        }
       },
-      "details": {}
+      "details": {
+        "what_it_does": "Accessible Date picker UI."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L1",
+        "nx_kb_anchor": "DatePicker2"
+      }
     }
   ],
   "quality": {

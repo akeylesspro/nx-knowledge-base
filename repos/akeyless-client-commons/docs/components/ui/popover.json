@@ -1,113 +1,170 @@
 {
-    "repo": {
-        "name": "akeyless-client-commons",
-        "source_default_branch": "main"
-    },
-    "file_name": "popover.tsx",
-    "source": {
-        "file_path": "components/ui/popover.tsx",
-        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-        "generated_at_iso": "2026-02-12T00:00:00.000Z",
-        "language": "tsx",
-        "framework_tags": ["react"],
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/popover.tsx.json"
-    },
-    "summary": {
-        "purpose": "Provides a set of styled Popover components (root, trigger, content, anchor) built on @radix-ui/react-popover, following the shadcn/ui design pattern for floating content panels.",
-        "problem_solved": "Wraps Radix UI's Popover primitives with consistent Tailwind CSS styling, animation classes for open/close transitions, configurable arrow display, and data-slot attributes for styling hooks, enabling easy creation of accessible popover menus and tooltips."
-    },
-    "dependencies": {
-        "external": [
-            {
-                "name": "@radix-ui/react-popover",
-                "version": "*",
-                "reason": "Provides the Popover primitive components (Root, Trigger, Content, Portal, Arrow, Anchor) with accessibility and positioning"
-            },
-            {
-                "name": "react",
-                "version": "*",
-                "reason": "Core React library for ComponentProps type"
-            }
-        ],
-        "internal": [
-            {
-                "module": "@/lib/utils",
-                "reason": "Provides the cn utility for conditional className merging",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json"
-            }
-        ]
-    },
-    "exports": [
-        {
-            "name": "Popover",
-            "kind": "component",
-            "description": "Root popover component wrapping PopoverPrimitive.Root with a data-slot attribute."
-        },
-        {
-            "name": "PopoverTrigger",
-            "kind": "component",
-            "description": "Trigger element that opens/closes the popover, wrapping PopoverPrimitive.Trigger."
-        },
-        {
-            "name": "PopoverContent",
-            "kind": "component",
-            "description": "The popover content panel rendered in a portal with animations, configurable alignment, offset, and optional arrow."
-        },
-        {
-            "name": "PopoverAnchor",
-            "kind": "component",
-            "description": "An anchor element for positioning the popover relative to, wrapping PopoverPrimitive.Anchor."
-        }
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "popover.tsx",
+  "source": {
+    "file_path": "components/ui/popover.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "react"
     ],
-    "symbols": [
-        {
-            "id": "component_popover",
-            "kind": "component",
-            "name": "Popover",
-            "signature": "function Popover({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Root>): JSX.Element",
-            "description": "Root popover container that wraps @radix-ui/react-popover Root with a data-slot='popover' attribute. Passes all Radix Popover Root props through.",
-            "details": {
-                "rendered_ui_description": "An invisible wrapper that manages the open/close state of the popover. Does not render visible UI on its own."
-            },
-            "dependencies": ["@radix-ui/react-popover"]
-        },
-        {
-            "id": "component_popover_trigger",
-            "kind": "component",
-            "name": "PopoverTrigger",
-            "signature": "function PopoverTrigger({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Trigger>): JSX.Element",
-            "description": "The trigger element that toggles the popover open/closed state. Wraps PopoverPrimitive.Trigger with a data-slot='popover-trigger' attribute.",
-            "details": {
-                "rendered_ui_description": "Renders as a button (or custom child via asChild) that when clicked opens/closes the associated popover content."
-            },
-            "dependencies": ["@radix-ui/react-popover"]
-        },
-        {
-            "id": "component_popover_content",
-            "kind": "component",
-            "name": "PopoverContent",
-            "signature": "function PopoverContent({ className, align, sideOffset, showArrow, ...props }: React.ComponentProps<typeof PopoverPrimitive.Content> & { showArrow?: boolean }): JSX.Element",
-            "description": "The floating content panel of the popover, rendered inside a Radix Portal. Features open/close fade and zoom animations, slide-in from the appropriate side, configurable alignment (default 'center'), side offset (default 4), and an optional arrow element. Has a z-index of 1000 and a fixed width of w-72.",
-            "details": {
-                "rendered_ui_description": "A bordered, rounded, padded card (w-72) with shadow that animates in/out with fade, zoom, and slide transitions. Appears floating near the trigger element. Optionally displays a triangular arrow pointing toward the trigger."
-            },
-            "dependencies": ["@radix-ui/react-popover", "@/lib/utils"]
-        },
-        {
-            "id": "component_popover_anchor",
-            "kind": "component",
-            "name": "PopoverAnchor",
-            "signature": "function PopoverAnchor({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Anchor>): JSX.Element",
-            "description": "An alternative anchor element for positioning the popover content relative to a different element than the trigger. Wraps PopoverPrimitive.Anchor with a data-slot='popover-anchor' attribute.",
-            "details": {
-                "rendered_ui_description": "An invisible positioning element that serves as the reference point for the popover content's position when you want it anchored to something other than the trigger."
-            },
-            "dependencies": ["@radix-ui/react-popover"]
-        }
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/popover.tsx.json"
+  },
+  "summary": {
+    "purpose": "Provides a set of styled Popover components (root, trigger, content, anchor) built on @radix-ui/react-popover, following the shadcn/ui design pattern for floating content panels.",
+    "problem_solved": "Wraps Radix UI's Popover primitives with consistent Tailwind CSS styling, animation classes for open/close transitions, configurable arrow display, and data-slot attributes for styling hooks, enabling easy creation of accessible popover menus and tooltips."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "@radix-ui/react-popover",
+        "version": "*",
+        "reason": "Provides the Popover primitive components (Root, Trigger, Content, Portal, Arrow, Anchor) with accessibility and positioning",
+        "kind": "runtime",
+        "why_used": "External dependency"
+      },
+      {
+        "name": "react",
+        "version": "*",
+        "reason": "Core React library for ComponentProps type",
+        "kind": "runtime",
+        "why_used": "External dependency"
+      }
     ],
-    "quality": {
-        "generation_confidence": "high",
-        "known_gaps": []
+    "internal": [
+      {
+        "import_path": "@/lib/utils",
+        "resolved_file_path": "src/lib/utils.ts",
+        "why_used": "Provides the cn utility for conditional className merging",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "Popover",
+      "kind": "component",
+      "description": "Root popover component wrapping PopoverPrimitive.Root with a data-slot attribute.",
+      "description_one_line": "Popover export",
+      "symbol_id": "Popover"
+    },
+    {
+      "name": "PopoverTrigger",
+      "kind": "component",
+      "description": "Trigger element that opens/closes the popover, wrapping PopoverPrimitive.Trigger.",
+      "description_one_line": "PopoverTrigger export",
+      "symbol_id": "PopoverTrigger"
+    },
+    {
+      "name": "PopoverContent",
+      "kind": "component",
+      "description": "The popover content panel rendered in a portal with animations, configurable alignment, offset, and optional arrow.",
+      "description_one_line": "PopoverContent export",
+      "symbol_id": "PopoverContent"
+    },
+    {
+      "name": "PopoverAnchor",
+      "kind": "component",
+      "description": "An anchor element for positioning the popover relative to, wrapping PopoverPrimitive.Anchor.",
+      "description_one_line": "PopoverAnchor export",
+      "symbol_id": "PopoverAnchor"
     }
+  ],
+  "symbols": [
+    {
+      "kind": "component",
+      "name": "Popover",
+      "signature": "function Popover({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Root>): JSX.Element",
+      "description": "Root popover container that wraps @radix-ui/react-popover Root with a data-slot='popover' attribute. Passes all Radix Popover Root props through.",
+      "details": {
+        "rendered_ui_description": "An invisible wrapper that manages the open/close state of the popover. Does not render visible UI on its own.",
+        "what_it_does": "Exported symbol: Popover"
+      },
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/popover.tsx#L1",
+        "nx_kb_anchor": "Popover"
+      },
+      "symbol_id": "component_popover",
+      "description_one_line": "Root popover container that wraps @radix-ui/react-popover Root with a data-slot='popover' attribute. Passes all Radix Popover Root props through."
+    },
+    {
+      "kind": "component",
+      "name": "PopoverTrigger",
+      "signature": "function PopoverTrigger({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Trigger>): JSX.Element",
+      "description": "The trigger element that toggles the popover open/closed state. Wraps PopoverPrimitive.Trigger with a data-slot='popover-trigger' attribute.",
+      "details": {
+        "rendered_ui_description": "Renders as a button (or custom child via asChild) that when clicked opens/closes the associated popover content.",
+        "what_it_does": "Exported symbol: PopoverTrigger"
+      },
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/popover.tsx#L1",
+        "nx_kb_anchor": "PopoverTrigger"
+      },
+      "symbol_id": "component_popover_trigger",
+      "description_one_line": "The trigger element that toggles the popover open/closed state. Wraps PopoverPrimitive.Trigger with a data-slot='popover-trigger' attribute."
+    },
+    {
+      "kind": "component",
+      "name": "PopoverContent",
+      "signature": "function PopoverContent({ className, align, sideOffset, showArrow, ...props }: React.ComponentProps<typeof PopoverPrimitive.Content> & { showArrow?: boolean }): JSX.Element",
+      "description": "The floating content panel of the popover, rendered inside a Radix Portal. Features open/close fade and zoom animations, slide-in from the appropriate side, configurable alignment (default 'center'), side offset (default 4), and an optional arrow element. Has a z-index of 1000 and a fixed width of w-72.",
+      "details": {
+        "rendered_ui_description": "A bordered, rounded, padded card (w-72) with shadow that animates in/out with fade, zoom, and slide transitions. Appears floating near the trigger element. Optionally displays a triangular arrow pointing toward the trigger.",
+        "what_it_does": "Exported symbol: PopoverContent"
+      },
+      "dependencies": [
+        "@radix-ui/react-popover",
+        "@/lib/utils"
+      ],
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/popover.tsx#L1",
+        "nx_kb_anchor": "PopoverContent"
+      },
+      "symbol_id": "component_popover_content",
+      "description_one_line": "The floating content panel of the popover, rendered inside a Radix Portal. Features open/close fade and zoom animations, slide-in from the appropriate side, configurable alignment (default 'center'), side offset (default 4), and an optional arrow element. Has a z-index of 1000 and a fixed width of w-72."
+    },
+    {
+      "kind": "component",
+      "name": "PopoverAnchor",
+      "signature": "function PopoverAnchor({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Anchor>): JSX.Element",
+      "description": "An alternative anchor element for positioning the popover content relative to a different element than the trigger. Wraps PopoverPrimitive.Anchor with a data-slot='popover-anchor' attribute.",
+      "details": {
+        "rendered_ui_description": "An invisible positioning element that serves as the reference point for the popover content's position when you want it anchored to something other than the trigger.",
+        "what_it_does": "Exported symbol: PopoverAnchor"
+      },
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/popover.tsx#L1",
+        "nx_kb_anchor": "PopoverAnchor"
+      },
+      "symbol_id": "component_popover_anchor",
+      "description_one_line": "An alternative anchor element for positioning the popover content relative to a different element than the trigger. Wraps PopoverPrimitive.Anchor with a data-slot='popover-anchor' attribute."
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
 }

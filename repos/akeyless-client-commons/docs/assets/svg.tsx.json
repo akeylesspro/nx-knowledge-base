@@ -1,131 +1,216 @@
 {
-    "repo": {
-        "name": "akeyless-client-commons",
-        "source_default_branch": "main"
-    },
-    "file_name": "svg.tsx",
-    "source": {
-        "file_path": "assets/svg.tsx",
-        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-        "generated_at_iso": "2026-02-12T00:00:00.000Z",
-        "language": "tsx",
-        "framework_tags": ["react"],
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/svg.tsx.json"
-    },
-    "summary": {
-        "purpose": "Provides reusable SVG icon React components for status indicators: a red X (error/failure) in two visual variants and a green checkmark (success/valid).",
-        "problem_solved": "Encapsulates commonly used status indicator SVG icons as React components with configurable dimensions, eliminating the need to duplicate inline SVG markup across the application."
-    },
-    "dependencies": {
-        "external": [],
-        "internal": []
-    },
-    "exports": [
-        {
-            "name": "RedXSvg",
-            "kind": "component",
-            "line": 7
-        },
-        {
-            "name": "RedXSvg2",
-            "kind": "component",
-            "line": 19
-        },
-        {
-            "name": "GreenVSvg",
-            "kind": "component",
-            "line": 43
-        }
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "svg.tsx",
+  "source": {
+    "file_path": "assets/svg.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "react"
     ],
-    "symbols": [
-        {
-            "id": "interface_svg_props",
-            "kind": "interface",
-            "name": "SvgProps",
-            "line": 1,
-            "exported": false,
-            "description": "Defines optional dimension and viewBox properties for SVG icon components.",
-            "details": {
-                "properties": [
-                    {
-                        "name": "width",
-                        "type": "string",
-                        "optional": true
-                    },
-                    {
-                        "name": "height",
-                        "type": "string",
-                        "optional": true
-                    },
-                    {
-                        "name": "viewBox",
-                        "type": "string",
-                        "optional": true
-                    }
-                ]
-            }
-        },
-        {
-            "id": "component_red_x_svg",
-            "kind": "component",
-            "name": "RedXSvg",
-            "line": 7,
-            "exported": true,
-            "description": "Renders a red X icon inside a circle, used to indicate error, failure, or invalid status. Accepts optional width, height, and viewBox props.",
-            "details": {
-                "props": {
-                    "type": "SvgProps",
-                    "members": [
-                        { "name": "width", "type": "string", "optional": true, "default": "\"32\"" },
-                        { "name": "height", "type": "string", "optional": true, "default": "\"32\"" },
-                        { "name": "viewBox", "type": "string", "optional": true, "default": "\"0 0 32 32\"" }
-                    ]
-                },
-                "rendered_ui_description": "A 32x32 SVG icon displaying a red X mark centered inside a red circular outline. The X and circle are both filled with #FF4C2B (red)."
-            }
-        },
-        {
-            "id": "component_red_x_svg2",
-            "kind": "component",
-            "name": "RedXSvg2",
-            "line": 19,
-            "exported": true,
-            "description": "Renders an alternative red X icon without a surrounding circle, used to indicate error, failure, or dismissal. Accepts optional width, height, and viewBox props.",
-            "details": {
-                "props": {
-                    "type": "SvgProps",
-                    "members": [
-                        { "name": "width", "type": "string", "optional": true, "default": "\"18px\"" },
-                        { "name": "height", "type": "string", "optional": true, "default": "\"18px\"" },
-                        { "name": "viewBox", "type": "string", "optional": true, "default": "\"0,0,256,256\"" }
-                    ]
-                },
-                "rendered_ui_description": "An 18x18 SVG icon displaying a standalone red X mark (close/cross shape) without a circle border. The X is filled with #e90404 (bright red)."
-            }
-        },
-        {
-            "id": "component_green_v_svg",
-            "kind": "component",
-            "name": "GreenVSvg",
-            "line": 43,
-            "exported": true,
-            "description": "Renders a green checkmark (V) icon inside a circle, used to indicate success, completion, or valid status. Accepts optional width, height, and viewBox props.",
-            "details": {
-                "props": {
-                    "type": "SvgProps",
-                    "members": [
-                        { "name": "width", "type": "string", "optional": true, "default": "\"32\"" },
-                        { "name": "height", "type": "string", "optional": true, "default": "\"32\"" },
-                        { "name": "viewBox", "type": "string", "optional": true, "default": "\"0 0 32 32\"" }
-                    ]
-                },
-                "rendered_ui_description": "A 32x32 SVG icon displaying a green checkmark centered inside a green circular outline. Both the checkmark and circle are filled with #3B8F08 (green)."
-            }
-        }
-    ],
-    "quality": {
-        "generation_confidence": "high",
-        "known_gaps": []
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/svg.tsx.json"
+  },
+  "summary": {
+    "purpose": "Provides reusable SVG icon React components for status indicators: a red X (error/failure) in two visual variants and a green checkmark (success/valid).",
+    "problem_solved": "Encapsulates commonly used status indicator SVG icons as React components with configurable dimensions, eliminating the need to duplicate inline SVG markup across the application."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "RedXSvg",
+      "kind": "component",
+      "line": 7,
+      "description_one_line": "RedXSvg export",
+      "symbol_id": "RedXSvg"
+    },
+    {
+      "name": "RedXSvg2",
+      "kind": "component",
+      "line": 19,
+      "description_one_line": "RedXSvg2 export",
+      "symbol_id": "RedXSvg2"
+    },
+    {
+      "name": "GreenVSvg",
+      "kind": "component",
+      "line": 43,
+      "description_one_line": "GreenVSvg export",
+      "symbol_id": "GreenVSvg"
     }
+  ],
+  "symbols": [
+    {
+      "kind": "interface",
+      "name": "SvgProps",
+      "line": 1,
+      "exported": false,
+      "description": "Defines optional dimension and viewBox properties for SVG icon components.",
+      "details": {
+        "properties": [
+          {
+            "name": "width",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "height",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "viewBox",
+            "type": "string",
+            "optional": true
+          }
+        ],
+        "what_it_does": "Exported symbol: SvgProps"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/assets/svg.tsx#L1",
+        "nx_kb_anchor": "SvgProps"
+      },
+      "symbol_id": "interface_svg_props",
+      "description_one_line": "Defines optional dimension and viewBox properties for SVG icon components."
+    },
+    {
+      "kind": "component",
+      "name": "RedXSvg",
+      "line": 7,
+      "exported": true,
+      "description": "Renders a red X icon inside a circle, used to indicate error, failure, or invalid status. Accepts optional width, height, and viewBox props.",
+      "details": {
+        "props": {
+          "type": "SvgProps",
+          "members": [
+            {
+              "name": "width",
+              "type": "string",
+              "optional": true,
+              "default": "\"32\""
+            },
+            {
+              "name": "height",
+              "type": "string",
+              "optional": true,
+              "default": "\"32\""
+            },
+            {
+              "name": "viewBox",
+              "type": "string",
+              "optional": true,
+              "default": "\"0 0 32 32\""
+            }
+          ]
+        },
+        "rendered_ui_description": "A 32x32 SVG icon displaying a red X mark centered inside a red circular outline. The X and circle are both filled with #FF4C2B (red).",
+        "what_it_does": "Exported symbol: RedXSvg"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/assets/svg.tsx#L1",
+        "nx_kb_anchor": "RedXSvg"
+      },
+      "symbol_id": "component_red_x_svg",
+      "description_one_line": "Renders a red X icon inside a circle, used to indicate error, failure, or invalid status. Accepts optional width, height, and viewBox props."
+    },
+    {
+      "kind": "component",
+      "name": "RedXSvg2",
+      "line": 19,
+      "exported": true,
+      "description": "Renders an alternative red X icon without a surrounding circle, used to indicate error, failure, or dismissal. Accepts optional width, height, and viewBox props.",
+      "details": {
+        "props": {
+          "type": "SvgProps",
+          "members": [
+            {
+              "name": "width",
+              "type": "string",
+              "optional": true,
+              "default": "\"18px\""
+            },
+            {
+              "name": "height",
+              "type": "string",
+              "optional": true,
+              "default": "\"18px\""
+            },
+            {
+              "name": "viewBox",
+              "type": "string",
+              "optional": true,
+              "default": "\"0,0,256,256\""
+            }
+          ]
+        },
+        "rendered_ui_description": "An 18x18 SVG icon displaying a standalone red X mark (close/cross shape) without a circle border. The X is filled with #e90404 (bright red).",
+        "what_it_does": "Exported symbol: RedXSvg2"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/assets/svg.tsx#L1",
+        "nx_kb_anchor": "RedXSvg2"
+      },
+      "symbol_id": "component_red_x_svg2",
+      "description_one_line": "Renders an alternative red X icon without a surrounding circle, used to indicate error, failure, or dismissal. Accepts optional width, height, and viewBox props."
+    },
+    {
+      "kind": "component",
+      "name": "GreenVSvg",
+      "line": 43,
+      "exported": true,
+      "description": "Renders a green checkmark (V) icon inside a circle, used to indicate success, completion, or valid status. Accepts optional width, height, and viewBox props.",
+      "details": {
+        "props": {
+          "type": "SvgProps",
+          "members": [
+            {
+              "name": "width",
+              "type": "string",
+              "optional": true,
+              "default": "\"32\""
+            },
+            {
+              "name": "height",
+              "type": "string",
+              "optional": true,
+              "default": "\"32\""
+            },
+            {
+              "name": "viewBox",
+              "type": "string",
+              "optional": true,
+              "default": "\"0 0 32 32\""
+            }
+          ]
+        },
+        "rendered_ui_description": "A 32x32 SVG icon displaying a green checkmark centered inside a green circular outline. Both the checkmark and circle are filled with #3B8F08 (green).",
+        "what_it_does": "Exported symbol: GreenVSvg"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/assets/svg.tsx#L1",
+        "nx_kb_anchor": "GreenVSvg"
+      },
+      "symbol_id": "component_green_v_svg",
+      "description_one_line": "Renders a green checkmark (V) icon inside a circle, used to indicate success, completion, or valid status. Accepts optional width, height, and viewBox props."
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
 }

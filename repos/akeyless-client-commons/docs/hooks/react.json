@@ -9,7 +9,9 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/hooks/react.json"
   },
@@ -33,9 +35,24 @@
     "internal": []
   },
   "exports": [
-    { "name": "useSafeEffect", "kind": "hook", "description_one_line": "useEffect with try-catch.", "symbol_id": "useSafeEffect" },
-    { "name": "useDeepCompareMemo", "kind": "hook", "description_one_line": "useMemo with deep equality.", "symbol_id": "useDeepCompareMemo" },
-    { "name": "useDeepCompareEffect", "kind": "hook", "description_one_line": "useEffect with deep equality.", "symbol_id": "useDeepCompareEffect" }
+    {
+      "name": "useSafeEffect",
+      "kind": "function",
+      "description_one_line": "useEffect with try-catch.",
+      "symbol_id": "useSafeEffect"
+    },
+    {
+      "name": "useDeepCompareMemo",
+      "kind": "function",
+      "description_one_line": "useMemo with deep equality.",
+      "symbol_id": "useDeepCompareMemo"
+    },
+    {
+      "name": "useDeepCompareEffect",
+      "kind": "function",
+      "description_one_line": "useEffect with deep equality.",
+      "symbol_id": "useDeepCompareEffect"
+    }
   ],
   "symbols": [
     {
@@ -45,10 +62,23 @@
       "description_one_line": "Deep compare effect.",
       "signature": {
         "params": [
-           { "name": "effect", "type": "EffectCallback", "required": true, "description": "Effect to run." },
-           { "name": "dependencies", "type": "any[]", "required": true, "description": "Dependency array compared deeply." }
+          {
+            "name": "effect",
+            "type": "EffectCallback",
+            "required": true,
+            "description": "Effect to run."
+          },
+          {
+            "name": "dependencies",
+            "type": "any[]",
+            "required": true,
+            "description": "Dependency array compared deeply."
+          }
         ],
-        "returns": { "type": "void", "description": "no return." }
+        "returns": {
+          "type": "void",
+          "description": "no return."
+        }
       },
       "details": {
         "what_it_does": "Runs the effect only if dependencies have changed by value (deep comparison using isEqual), not just by reference."

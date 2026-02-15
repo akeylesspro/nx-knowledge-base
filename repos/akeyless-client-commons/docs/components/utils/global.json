@@ -9,7 +9,9 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/utils/global.json"
   },
@@ -26,13 +28,19 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "@/lib/utils",
-        "why_used": "cn utility."
+        "why_used": "cn utility.",
+        "resolved_file_path": "src/lib/utils",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
       },
       {
         "import_path": "src/types",
-        "why_used": "Direction type."
+        "why_used": "Direction type.",
+        "resolved_file_path": "src/types",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/types",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types"
       }
     ]
   },
@@ -58,11 +66,25 @@
       "description_one_line": "Version string UI.",
       "signature": {
         "params": [
-           { "name": "version", "type": "string", "required": true }
+          {
+            "name": "version",
+            "type": "string",
+            "required": true
+          }
         ],
-        "returns": { "type": "JSX.Element" }
+        "returns": {
+          "type": "JSX.Element"
+        }
       },
-      "details": {}
+      "details": {
+        "what_it_does": "Version string UI."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx#L1",
+        "nx_kb_anchor": "Version"
+      }
     },
     {
       "symbol_id": "LeftToRightDiv",
@@ -71,11 +93,25 @@
       "description_one_line": "Div with direction: ltr.",
       "signature": {
         "params": [
-           { "name": "direction", "type": "Direction", "required": true }
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": true
+          }
         ],
-        "returns": { "type": "JSX.Element" }
+        "returns": {
+          "type": "JSX.Element"
+        }
       },
-      "details": {}
+      "details": {
+        "what_it_does": "Div with direction: ltr."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx#L1",
+        "nx_kb_anchor": "LeftToRightDiv"
+      }
     }
   ],
   "quality": {

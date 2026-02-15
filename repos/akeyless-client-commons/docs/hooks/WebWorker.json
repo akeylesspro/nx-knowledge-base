@@ -9,7 +9,10 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
-    "framework_tags": ["react", "web-worker"],
+    "framework_tags": [
+      "react",
+      "web-worker"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/hooks/WebWorker.json"
   },
@@ -30,7 +33,7 @@
   "exports": [
     {
       "name": "useWebWorker",
-      "kind": "hook",
+      "kind": "function",
       "description_one_line": "Creates and manages a Web Worker.",
       "symbol_id": "useWebWorker"
     }
@@ -43,10 +46,23 @@
       "description_one_line": "Run function in worker.",
       "signature": {
         "params": [
-           { "name": "fn", "type": "function", "required": true, "description": "The function to execute in the worker." },
-           { "name": "options", "type": "UseWebWorkerOptions", "required": false, "description": "Configuration (debug, warmStart)." }
+          {
+            "name": "fn",
+            "type": "function",
+            "required": true,
+            "description": "The function to execute in the worker."
+          },
+          {
+            "name": "options",
+            "type": "UseWebWorkerOptions",
+            "required": false,
+            "description": "Configuration (debug, warmStart)."
+          }
         ],
-        "returns": { "type": "RunWorkerFunction", "description": "Async function to trigger the worker." }
+        "returns": {
+          "type": "RunWorkerFunction",
+          "description": "Async function to trigger the worker."
+        }
       },
       "details": {
         "what_it_does": "Converts the provided function to a string and creates a Blob URL for a new Worker. Returns a function that posts a message to the worker and resolves/rejects based on the response."

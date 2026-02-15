@@ -1,129 +1,160 @@
 {
-    "repo": {
-        "name": "akeyless-client-commons",
-        "source_default_branch": "main"
-    },
-    "file_name": "CodeInput.tsx",
-    "source": {
-        "file_path": "components/CodeInput.tsx",
-        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-        "generated_at_iso": "2026-02-12T00:00:00.000Z",
-        "language": "tsx",
-        "framework_tags": ["react"],
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/CodeInput.tsx",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/CodeInput.tsx.json"
-    },
-    "summary": {
-        "purpose": "Provides a 6-digit OTP (One-Time Password) code input component that renders individual digit slots with auto-focus behavior, supporting both LTR and RTL text directions.",
-        "problem_solved": "Abstracts OTP/verification code entry into a reusable, styled component with per-digit input slots, automatic focus on mount, and configurable layout direction for internationalized interfaces."
-    },
-    "dependencies": {
-        "external": [
-            {
-                "name": "@/lib/utils",
-                "type": "utility",
-                "description": "Provides the 'cn' utility function for merging Tailwind CSS class names (likely a clsx/tailwind-merge wrapper)."
-            },
-            {
-                "name": "input-otp",
-                "type": "library",
-                "description": "Third-party OTP input library providing the OTPInput component and SlotProps type for building one-time password input fields."
-            },
-            {
-                "name": "react",
-                "type": "library",
-                "description": "React core library; imports Dispatch, SetStateAction, useEffect, and useRef hooks."
-            }
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "CodeInput.tsx",
+  "source": {
+    "file_path": "components/CodeInput.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "react"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/CodeInput.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/CodeInput.tsx.json"
+  },
+  "summary": {
+    "purpose": "Provides a 6-digit OTP (One-Time Password) code input component that renders individual digit slots with auto-focus behavior, supporting both LTR and RTL text directions.",
+    "problem_solved": "Abstracts OTP/verification code entry into a reusable, styled component with per-digit input slots, automatic focus on mount, and configurable layout direction for internationalized interfaces."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "@/lib/utils",
+        "kind": "runtime",
+        "why_used": "External dependency"
+      },
+      {
+        "name": "input-otp",
+        "kind": "runtime",
+        "why_used": "External dependency"
+      },
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "External dependency"
+      }
+    ],
+    "internal": [
+      {
+        "imported_names": [
+          "Direction"
         ],
-        "internal": [
-            {
-                "name": "src/types",
-                "type": "type_import",
-                "imported_names": ["Direction"],
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts"
-            }
-        ]
-    },
-    "exports": [
-        {
-            "name": "CodeInput",
-            "kind": "default_export",
-            "description": "Default export of the CodeInput React component for 6-digit OTP code entry."
-        }
-    ],
-    "symbols": [
-        {
-            "id": "interface_code_input_props",
-            "kind": "interface",
-            "name": "CodeInputProps",
-            "description": "Props interface for the CodeInput component.",
-            "details": {
-                "properties": [
-                    {
-                        "name": "codeValue",
-                        "type": "string",
-                        "required": true,
-                        "description": "The current value of the OTP code input."
-                    },
-                    {
-                        "name": "setCodeValue",
-                        "type": "Dispatch<SetStateAction<string>>",
-                        "required": true,
-                        "description": "State setter function to update the code value."
-                    },
-                    {
-                        "name": "className",
-                        "type": "string",
-                        "required": false,
-                        "default": "\"\"",
-                        "description": "Optional CSS class name(s) to apply to the outer container div."
-                    },
-                    {
-                        "name": "slotContainerClassName",
-                        "type": "string",
-                        "required": false,
-                        "default": "\"\"",
-                        "description": "Optional CSS class name(s) to apply to the slot container div wrapping the individual digit slots."
-                    },
-                    {
-                        "name": "direction",
-                        "type": "Direction",
-                        "required": false,
-                        "default": "\"ltr\"",
-                        "description": "Text direction for the input, either 'ltr' or 'rtl'. Defaults to 'ltr'."
-                    }
-                ]
-            }
-        },
-        {
-            "id": "component_code_input",
-            "kind": "component",
-            "name": "CodeInput",
-            "signature": "CodeInput({ codeValue, setCodeValue, className, slotContainerClassName, direction }: CodeInputProps): JSX.Element",
-            "description": "A 6-digit OTP code input component using the input-otp library. Renders six individual digit slots in a centered flex container. Automatically focuses the input on mount via a ref and useEffect. Supports customizable CSS classes for the outer and slot containers, and configurable text direction (LTR/RTL).",
-            "details": {
-                "directive": "use client",
-                "rendered_ui_description": "Renders a centered row of 6 individual digit input slots, each displayed as a small rounded bordered box with shadow. The active slot shows a ring highlight. The component auto-focuses on mount so the user can immediately start typing their OTP code.",
-                "max_length": 6,
-                "auto_focus": true,
-                "default_direction": "ltr"
-            }
-        },
-        {
-            "id": "component_slot",
-            "kind": "component",
-            "name": "Slot",
-            "signature": "Slot(props: SlotProps): JSX.Element",
-            "description": "Internal helper component that renders a single OTP digit slot. Displays the character if present and applies active styling (border ring highlight) when the slot is currently focused.",
-            "details": {
-                "exported": false,
-                "rendered_ui_description": "A 36x36px (size-9) rounded bordered box with shadow. Displays a single character in the center when filled. When active/focused, shows a ring border highlight with subtle ring shadow."
-            }
-        }
-    ],
-    "quality": {
-        "generation_confidence": "high",
-        "known_gaps": []
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts",
+        "why_used": "Required dependency",
+        "import_path": "src/types",
+        "resolved_file_path": "src/types"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "CodeInput",
+      "kind": "value",
+      "description": "Default export of the CodeInput React component for 6-digit OTP code entry.",
+      "description_one_line": "CodeInput export",
+      "symbol_id": "CodeInput"
     }
+  ],
+  "symbols": [
+    {
+      "kind": "interface",
+      "name": "CodeInputProps",
+      "description": "Props interface for the CodeInput component.",
+      "details": {
+        "properties": [
+          {
+            "name": "codeValue",
+            "type": "string",
+            "required": true,
+            "description": "The current value of the OTP code input."
+          },
+          {
+            "name": "setCodeValue",
+            "type": "Dispatch<SetStateAction<string>>",
+            "required": true,
+            "description": "State setter function to update the code value."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "default": "\"\"",
+            "description": "Optional CSS class name(s) to apply to the outer container div."
+          },
+          {
+            "name": "slotContainerClassName",
+            "type": "string",
+            "required": false,
+            "default": "\"\"",
+            "description": "Optional CSS class name(s) to apply to the slot container div wrapping the individual digit slots."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "default": "\"ltr\"",
+            "description": "Text direction for the input, either 'ltr' or 'rtl'. Defaults to 'ltr'."
+          }
+        ],
+        "what_it_does": "Exported symbol: CodeInputProps"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/CodeInput.tsx#L1",
+        "nx_kb_anchor": "CodeInputProps"
+      },
+      "symbol_id": "interface_code_input_props",
+      "description_one_line": "Props interface for the CodeInput component."
+    },
+    {
+      "kind": "component",
+      "name": "CodeInput",
+      "signature": "CodeInput({ codeValue, setCodeValue, className, slotContainerClassName, direction }: CodeInputProps): JSX.Element",
+      "description": "A 6-digit OTP code input component using the input-otp library. Renders six individual digit slots in a centered flex container. Automatically focuses the input on mount via a ref and useEffect. Supports customizable CSS classes for the outer and slot containers, and configurable text direction (LTR/RTL).",
+      "details": {
+        "directive": "use client",
+        "rendered_ui_description": "Renders a centered row of 6 individual digit input slots, each displayed as a small rounded bordered box with shadow. The active slot shows a ring highlight. The component auto-focuses on mount so the user can immediately start typing their OTP code.",
+        "max_length": 6,
+        "auto_focus": true,
+        "default_direction": "ltr",
+        "what_it_does": "Exported symbol: CodeInput"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/CodeInput.tsx#L1",
+        "nx_kb_anchor": "CodeInput"
+      },
+      "symbol_id": "component_code_input",
+      "description_one_line": "A 6-digit OTP code input component using the input-otp library. Renders six individual digit slots in a centered flex container. Automatically focuses the input on mount via a ref and useEffect. Supports customizable CSS classes for the outer and slot containers, and configurable text direction (LTR/RTL)."
+    },
+    {
+      "kind": "component",
+      "name": "Slot",
+      "signature": "Slot(props: SlotProps): JSX.Element",
+      "description": "Internal helper component that renders a single OTP digit slot. Displays the character if present and applies active styling (border ring highlight) when the slot is currently focused.",
+      "details": {
+        "exported": false,
+        "rendered_ui_description": "A 36x36px (size-9) rounded bordered box with shadow. Displays a single character in the center when filled. When active/focused, shows a ring border highlight with subtle ring shadow.",
+        "what_it_does": "Exported symbol: Slot"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/CodeInput.tsx#L1",
+        "nx_kb_anchor": "Slot"
+      },
+      "symbol_id": "component_slot",
+      "description_one_line": "Internal helper component that renders a single OTP digit slot. Displays the character if present and applies active styling (border ring highlight) when the slot is currently focused."
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
 }

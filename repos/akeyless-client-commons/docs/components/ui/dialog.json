@@ -9,7 +9,10 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
-    "framework_tags": ["react", "radix-ui"],
+    "framework_tags": [
+      "react",
+      "radix-ui"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/dialog.json"
   },
@@ -36,9 +39,12 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "@/lib/utils",
-        "why_used": "cn utility."
+        "why_used": "cn utility.",
+        "resolved_file_path": "src/lib/utils",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
       }
     ]
   },
@@ -100,9 +106,19 @@
       "description_one_line": "Dialog Root.",
       "signature": {
         "params": [],
-        "returns": { "type": "JSX.Element" }
+        "returns": {
+          "type": "JSX.Element"
+        }
       },
-      "details": {}
+      "details": {
+        "what_it_does": "Dialog Root."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L1",
+        "nx_kb_anchor": "Dialog"
+      }
     }
   ],
   "quality": {

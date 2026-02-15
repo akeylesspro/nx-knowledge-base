@@ -1,110 +1,148 @@
 {
-    "repo": {
-        "name": "akeyless-client-commons",
-        "source_default_branch": "main"
-    },
-    "file_name": "index.tsx",
-    "source": {
-        "file_path": "components/index.tsx",
-        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-        "generated_at_iso": "2026-02-12T00:00:00.000Z",
-        "language": "tsx",
-        "framework_tags": ["react"],
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/index.tsx.json"
-    },
-    "summary": {
-        "purpose": "Barrel file that serves as the main entry point for the components module, re-exporting all component sub-modules (utils, table, forms, ui) and the CodeInput component, while also importing a shared CSS stylesheet.",
-        "problem_solved": "Provides a single unified import path for all components in the library, allowing consumers to import any component from 'components' rather than navigating deep sub-module paths."
-    },
-    "dependencies": {
-        "external": [],
-        "internal": [
-            {
-                "name": "./index.css",
-                "type": "css",
-                "link_to_nx_kb": null,
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.css"
-            },
-            {
-                "name": "./utils",
-                "type": "barrel_reexport",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/index.tsx.json",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.tsx"
-            },
-            {
-                "name": "./table",
-                "type": "barrel_reexport",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/index.tsx.json",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/index.tsx"
-            },
-            {
-                "name": "./forms",
-                "type": "barrel_reexport",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/index.tsx.json",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx"
-            },
-            {
-                "name": "./ui",
-                "type": "barrel_reexport",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/index.tsx.json",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx"
-            },
-            {
-                "name": "./CodeInput",
-                "type": "named_reexport",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/CodeInput.tsx.json",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/CodeInput.tsx"
-            }
-        ]
-    },
-    "exports": [
-        {
-            "name": "*",
-            "kind": "wildcard_reexport",
-            "source": "./utils",
-            "description": "Re-exports all exports from the utils sub-module, including components like ErrorBoundary, loaders, Checkboxes, LoginWithGoogle, and global utilities."
-        },
-        {
-            "name": "*",
-            "kind": "wildcard_reexport",
-            "source": "./table",
-            "description": "Re-exports all exports from the table sub-module, including table components, hooks, and types."
-        },
-        {
-            "name": "*",
-            "kind": "wildcard_reexport",
-            "source": "./forms",
-            "description": "Re-exports all exports from the forms sub-module, including ModularForm and related form elements."
-        },
-        {
-            "name": "*",
-            "kind": "wildcard_reexport",
-            "source": "./ui",
-            "description": "Re-exports all exports from the ui sub-module, including primitives like badge, input, table, progress, dialog, label, command, button, multiselect, popover, datefield, calendar, and SearchSelect."
-        },
-        {
-            "name": "CodeInput",
-            "kind": "named_reexport",
-            "source": "./CodeInput",
-            "description": "Re-exports the default CodeInput component as a named export 'CodeInput'."
-        }
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.tsx",
+  "source": {
+    "file_path": "components/index.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "react"
     ],
-    "symbols": [
-        {
-            "id": "barrel_components_index",
-            "kind": "barrel",
-            "name": "components/index",
-            "description": "Main barrel file for the components module. Imports a shared CSS file and re-exports all sub-modules (utils, table, forms, ui) via wildcard re-exports, plus the CodeInput component as a named export.",
-            "details": {
-                "re_exported_modules": ["./utils", "./table", "./forms", "./ui"],
-                "re_exported_named": [{ "name": "CodeInput", "source": "./CodeInput" }],
-                "side_effects": ["Imports ./index.css for global component styles"]
-            }
-        }
-    ],
-    "quality": {
-        "generation_confidence": "high",
-        "known_gaps": []
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/index.tsx.json"
+  },
+  "summary": {
+    "purpose": "Barrel file that serves as the main entry point for the components module, re-exporting all component sub-modules (utils, table, forms, ui) and the CodeInput component, while also importing a shared CSS stylesheet.",
+    "problem_solved": "Provides a single unified import path for all components in the library, allowing consumers to import any component from 'components' rather than navigating deep sub-module paths."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/./index.css",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.css",
+        "why_used": "Required dependency",
+        "import_path": "./index.css",
+        "resolved_file_path": "./index.css"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/index.tsx.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.tsx",
+        "why_used": "Required dependency",
+        "import_path": "./utils",
+        "resolved_file_path": "./utils"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/index.tsx.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/index.tsx",
+        "why_used": "Required dependency",
+        "import_path": "./table",
+        "resolved_file_path": "./table"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/index.tsx.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx",
+        "why_used": "Required dependency",
+        "import_path": "./forms",
+        "resolved_file_path": "./forms"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/index.tsx.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx",
+        "why_used": "Required dependency",
+        "import_path": "./ui",
+        "resolved_file_path": "./ui"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/CodeInput.tsx.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/CodeInput.tsx",
+        "why_used": "Required dependency",
+        "import_path": "./CodeInput",
+        "resolved_file_path": "./CodeInput"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "*",
+      "kind": "value",
+      "source": "./utils",
+      "description": "Re-exports all exports from the utils sub-module, including components like ErrorBoundary, loaders, Checkboxes, LoginWithGoogle, and global utilities.",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_0"
+    },
+    {
+      "name": "*",
+      "kind": "value",
+      "source": "./table",
+      "description": "Re-exports all exports from the table sub-module, including table components, hooks, and types.",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_1"
+    },
+    {
+      "name": "*",
+      "kind": "value",
+      "source": "./forms",
+      "description": "Re-exports all exports from the forms sub-module, including ModularForm and related form elements.",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_2"
+    },
+    {
+      "name": "*",
+      "kind": "value",
+      "source": "./ui",
+      "description": "Re-exports all exports from the ui sub-module, including primitives like badge, input, table, progress, dialog, label, command, button, multiselect, popover, datefield, calendar, and SearchSelect.",
+      "description_one_line": "* export",
+      "symbol_id": "reexport_3"
+    },
+    {
+      "name": "CodeInput",
+      "kind": "component",
+      "source": "./CodeInput",
+      "description": "Re-exports the default CodeInput component as a named export 'CodeInput'.",
+      "description_one_line": "CodeInput component export",
+      "symbol_id": "CodeInput"
     }
+  ],
+  "symbols": [
+    {
+      "kind": "barrel",
+      "name": "components/index",
+      "description": "Main barrel file for the components module. Imports a shared CSS file and re-exports all sub-modules (utils, table, forms, ui) via wildcard re-exports, plus the CodeInput component as a named export.",
+      "details": {
+        "re_exported_modules": [
+          "./utils",
+          "./table",
+          "./forms",
+          "./ui"
+        ],
+        "re_exported_named": [
+          {
+            "name": "CodeInput",
+            "source": "./CodeInput"
+          }
+        ],
+        "side_effects": [
+          "Imports ./index.css for global component styles"
+        ],
+        "what_it_does": "Exported symbol: components/index"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/index.tsx#L1",
+        "nx_kb_anchor": "components/index"
+      },
+      "symbol_id": "barrel_components_index",
+      "description_one_line": "Main barrel file for the components module. Imports a shared CSS file and re-exports all sub-modules (utils, table, forms, ui) via wildcard re-exports, plus the CodeInput component as a named export."
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
 }

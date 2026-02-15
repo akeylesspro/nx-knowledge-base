@@ -9,7 +9,9 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/global.ts",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/hooks/global.json"
   },
@@ -26,7 +28,7 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "src/helpers",
         "resolved_file_path": "src/helpers/index.ts",
         "why_used": "getUserCountryByIp.",
@@ -38,13 +40,13 @@
   "exports": [
     {
       "name": "useDocumentTitle",
-      "kind": "hook",
+      "kind": "function",
       "description_one_line": "Sets document.title.",
       "symbol_id": "useDocumentTitle"
     },
     {
       "name": "useSetUserCountry",
-      "kind": "hook",
+      "kind": "function",
       "description_one_line": "Detects country from IP.",
       "symbol_id": "useSetUserCountry"
     }
@@ -60,6 +62,9 @@
         "source_line_end": 28,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/global.ts#L14-L28",
         "nx_kb_anchor": "useSetUserCountry"
+      },
+      "details": {
+        "what_it_does": "Sets country state."
       }
     }
   ],

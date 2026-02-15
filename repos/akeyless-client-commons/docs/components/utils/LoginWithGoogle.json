@@ -9,7 +9,10 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
-    "framework_tags": ["react", "firebase"],
+    "framework_tags": [
+      "react",
+      "firebase"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/LoginWithGoogle.tsx",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/utils/LoginWithGoogle.json"
   },
@@ -36,13 +39,19 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "src/helpers",
-        "why_used": "Auth helpers (useLoginWithGoogle, addLoginAudit, etc)."
+        "why_used": "Auth helpers (useLoginWithGoogle, addLoginAudit, etc).",
+        "resolved_file_path": "src/helpers",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers"
       },
       {
         "import_path": "./loaders",
-        "why_used": "Loader component."
+        "why_used": "Loader component.",
+        "resolved_file_path": "../../client-side/nx-kb/src/components/utils/loaders",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/../../client-side/nx-kb/src/components/utils/loaders",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/../../client-side/nx-kb/src/components/utils/loaders"
       }
     ]
   },
@@ -62,13 +71,29 @@
       "description_one_line": "Login button UI.",
       "signature": {
         "params": [
-           { "name": "onClick", "type": "function", "required": true },
-           { "name": "appName", "type": "AppName", "required": true }
+          {
+            "name": "onClick",
+            "type": "function",
+            "required": true
+          },
+          {
+            "name": "appName",
+            "type": "AppName",
+            "required": true
+          }
         ],
-        "returns": { "type": "JSX.Element" }
+        "returns": {
+          "type": "JSX.Element"
+        }
       },
       "details": {
         "what_it_does": "Handles authentication flow, including getting user details and permissions."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/LoginWithGoogle.tsx#L1",
+        "nx_kb_anchor": "LoginWithGoogleButton"
       }
     }
   ],

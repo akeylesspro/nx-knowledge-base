@@ -9,7 +9,9 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.json"
   },
@@ -26,22 +28,22 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "@/components/ui/multiselect",
         "resolved_file_path": "src/components/ui/multiselect.tsx",
         "why_used": "MultipleSelector component.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/multiselect.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/ui/multiselect.tsx"
       },
-       {
+      {
         "import_path": "@/components/ui/SearchSelect",
         "resolved_file_path": "src/components/ui/SearchSelect.tsx",
         "why_used": "SearchSelect component.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/SearchSelect.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/ui/SearchSelect.tsx"
       },
-       {
-         "import_path": "src/helpers",
+      {
+        "import_path": "src/helpers",
         "resolved_file_path": "src/helpers/index.ts",
         "why_used": "Helpers (useValidation, durationToSeconds).",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/index.json",
@@ -50,17 +52,72 @@
     ]
   },
   "exports": [
-    { "name": "InputContainer", "kind": "component", "description_one_line": "Standard input with label.", "symbol_id": "InputContainer" },
-    { "name": "DateInputContainer", "kind": "component", "description_one_line": "Date picker input.", "symbol_id": "DateInputContainer" },
-    { "name": "SelectContainer", "kind": "component", "description_one_line": "Select dropdown.", "symbol_id": "SelectContainer" },
-    { "name": "MultiSelect", "kind": "component", "description_one_line": "Multi-select dropdown.", "symbol_id": "MultiSelect" },
-    { "name": "SelectWithSearch", "kind": "component", "description_one_line": "Combobox select.", "symbol_id": "SelectWithSearch" },
-    { "name": "TextAreaContainer", "kind": "component", "description_one_line": "Textarea input.", "symbol_id": "TextAreaContainer" },
-    { "name": "FormSeparator", "kind": "component", "description_one_line": "Form visual separator.", "symbol_id": "FormSeparator" },
-    { "name": "CheckboxContainer", "kind": "component", "description_one_line": "Checkbox input.", "symbol_id": "CheckboxContainer" },
-    { "name": "DurationPicker", "kind": "component", "description_one_line": "Days/Hours/Minutes/Seconds picker.", "symbol_id": "DurationPicker" },
-    { "name": "FormElementContainer", "kind": "component", "description_one_line": "Common wrapper.", "symbol_id": "FormElementContainer" },
-    { "name": "ElementsContainer", "kind": "component", "description_one_line": "Group container for multiple elements.", "symbol_id": "ElementsContainer" }
+    {
+      "name": "InputContainer",
+      "kind": "component",
+      "description_one_line": "Standard input with label.",
+      "symbol_id": "InputContainer"
+    },
+    {
+      "name": "DateInputContainer",
+      "kind": "component",
+      "description_one_line": "Date picker input.",
+      "symbol_id": "DateInputContainer"
+    },
+    {
+      "name": "SelectContainer",
+      "kind": "component",
+      "description_one_line": "Select dropdown.",
+      "symbol_id": "SelectContainer"
+    },
+    {
+      "name": "MultiSelect",
+      "kind": "component",
+      "description_one_line": "Multi-select dropdown.",
+      "symbol_id": "MultiSelect"
+    },
+    {
+      "name": "SelectWithSearch",
+      "kind": "component",
+      "description_one_line": "Combobox select.",
+      "symbol_id": "SelectWithSearch"
+    },
+    {
+      "name": "TextAreaContainer",
+      "kind": "component",
+      "description_one_line": "Textarea input.",
+      "symbol_id": "TextAreaContainer"
+    },
+    {
+      "name": "FormSeparator",
+      "kind": "component",
+      "description_one_line": "Form visual separator.",
+      "symbol_id": "FormSeparator"
+    },
+    {
+      "name": "CheckboxContainer",
+      "kind": "component",
+      "description_one_line": "Checkbox input.",
+      "symbol_id": "CheckboxContainer"
+    },
+    {
+      "name": "DurationPicker",
+      "kind": "component",
+      "description_one_line": "Days/Hours/Minutes/Seconds picker.",
+      "symbol_id": "DurationPicker"
+    },
+    {
+      "name": "FormElementContainer",
+      "kind": "component",
+      "description_one_line": "Common wrapper.",
+      "symbol_id": "FormElementContainer"
+    },
+    {
+      "name": "ElementsContainer",
+      "kind": "component",
+      "description_one_line": "Group container for multiple elements.",
+      "symbol_id": "ElementsContainer"
+    }
   ],
   "symbols": [
     {
@@ -73,6 +130,9 @@
         "source_line_end": 119,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L41-L119",
         "nx_kb_anchor": "InputContainer"
+      },
+      "details": {
+        "what_it_does": "Input field."
       }
     }
   ],

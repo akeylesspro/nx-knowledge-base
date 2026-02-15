@@ -9,7 +9,9 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/table/hooks.json"
   },
@@ -26,7 +28,7 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "./Table",
         "resolved_file_path": "src/components/table/Table.tsx",
         "why_used": "Table context definition.",
@@ -36,11 +38,36 @@
     ]
   },
   "exports": [
-    { "name": "useTableContext", "kind": "hook", "description_one_line": "Consumers use this to access table state.", "symbol_id": "useTableContext" },
-    { "name": "useFilter", "kind": "hook", "description_one_line": "Manages filter state per column.", "symbol_id": "useFilter" },
-    { "name": "useSort", "kind": "hook", "description_one_line": "Manages sort column and direction.", "symbol_id": "useSort" },
-    { "name": "useDisplayToggle", "kind": "hook", "description_one_line": "Manages 'show all' vs 'max rows'.", "symbol_id": "useDisplayToggle" },
-    { "name": "useSearch", "kind": "hook", "description_one_line": "Manages search query with debounce.", "symbol_id": "useSearch" }
+    {
+      "name": "useTableContext",
+      "kind": "function",
+      "description_one_line": "Consumers use this to access table state.",
+      "symbol_id": "useTableContext"
+    },
+    {
+      "name": "useFilter",
+      "kind": "function",
+      "description_one_line": "Manages filter state per column.",
+      "symbol_id": "useFilter"
+    },
+    {
+      "name": "useSort",
+      "kind": "function",
+      "description_one_line": "Manages sort column and direction.",
+      "symbol_id": "useSort"
+    },
+    {
+      "name": "useDisplayToggle",
+      "kind": "function",
+      "description_one_line": "Manages 'show all' vs 'max rows'.",
+      "symbol_id": "useDisplayToggle"
+    },
+    {
+      "name": "useSearch",
+      "kind": "function",
+      "description_one_line": "Manages search query with debounce.",
+      "symbol_id": "useSearch"
+    }
   ],
   "symbols": [
     {
@@ -50,9 +77,17 @@
       "description_one_line": "Filtering logic.",
       "signature": {
         "params": [
-           { "name": "props", "type": "UseFilterProps", "required": true, "description": "Table data and column config." }
+          {
+            "name": "props",
+            "type": "UseFilterProps",
+            "required": true,
+            "description": "Table data and column config."
+          }
         ],
-        "returns": { "type": "object", "description": "Filter state and handlers." }
+        "returns": {
+          "type": "object",
+          "description": "Filter state and handlers."
+        }
       },
       "details": {
         "what_it_does": "Initializes filter state for each column. Generates unique options from data. Handles adding/removing filter values."

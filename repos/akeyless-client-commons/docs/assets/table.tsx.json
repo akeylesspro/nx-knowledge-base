@@ -1,150 +1,192 @@
 {
-    "repo": {
-        "name": "akeyless-client-commons",
-        "source_default_branch": "main"
-    },
-    "file_name": "table.tsx",
-    "source": {
-        "file_path": "assets/table.tsx",
-        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-        "generated_at_iso": "2026-02-12T00:00:00.000Z",
-        "language": "tsx",
-        "framework_tags": ["react"],
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/table.tsx",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/table.tsx.json"
-    },
-    "summary": {
-        "purpose": "Provides SVG icon factory functions for table UI controls including sort arrows, filter indicators (empty and slashed), and an export-to-Excel button icon.",
-        "problem_solved": "Encapsulates table-related SVG icons as parameterized JSX-returning functions, supporting visual states like sort direction, filled/outline filter indicators, and customizable dimensions for consistent table header controls."
-    },
-    "dependencies": {
-        "external": [],
-        "internal": []
-    },
-    "exports": [
-        {
-            "name": "sortSvg",
-            "kind": "function",
-            "line": 1
-        },
-        {
-            "name": "emptyFilterSvg",
-            "kind": "function",
-            "line": 20
-        },
-        {
-            "name": "slashFilterSvg",
-            "kind": "function",
-            "line": 53
-        },
-        {
-            "name": "exportToExcelSvg",
-            "kind": "function",
-            "line": 92
-        }
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "table.tsx",
+  "source": {
+    "file_path": "assets/table.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "react"
     ],
-    "symbols": [
-        {
-            "id": "function_sort_svg",
-            "kind": "function",
-            "name": "sortSvg",
-            "line": 1,
-            "exported": true,
-            "description": "Returns a JSX element rendering a white downward-pointing arrow/chevron SVG icon used for table column sort indicators. When upside_down is true, the icon is rotated 180 degrees to point upward.",
-            "details": {
-                "parameters": [
-                    {
-                        "name": "upside_down",
-                        "type": "boolean",
-                        "optional": true,
-                        "description": "When true, rotates the arrow 180 degrees to indicate ascending sort order."
-                    }
-                ],
-                "return_type": "JSX.Element",
-                "rendered_ui_description": "A 13x13 white arrow/chevron SVG icon positioned absolutely with Tailwind classes (top-[3px] left-1). Points downward by default; rotated 180 degrees when upside_down is true."
-            }
-        },
-        {
-            "id": "function_empty_filter_svg",
-            "kind": "function",
-            "name": "emptyFilterSvg",
-            "line": 20,
-            "exported": true,
-            "description": "Returns a JSX element rendering a white funnel/filter SVG icon for table column filter controls. Supports two visual variants: a solid filled funnel or an outline-only funnel.",
-            "details": {
-                "parameters": [
-                    {
-                        "name": "solid",
-                        "type": "boolean",
-                        "optional": true,
-                        "description": "When true, renders a solid filled funnel icon; when false or undefined, renders an outline/stroke funnel icon."
-                    }
-                ],
-                "return_type": "JSX.Element",
-                "rendered_ui_description": "A 13x13 white funnel/filter SVG icon. In solid mode, the funnel is completely filled. In outline mode, the funnel shows only the border/outline. Both variants use white (#fff) fill."
-            }
-        },
-        {
-            "id": "function_slash_filter_svg",
-            "kind": "function",
-            "name": "slashFilterSvg",
-            "line": 53,
-            "exported": true,
-            "description": "Returns a JSX element rendering a white funnel/filter SVG icon with a diagonal slash through it, indicating a disabled or cleared filter state. Supports solid and outline variants with customizable color.",
-            "details": {
-                "parameters": [
-                    {
-                        "name": "solid",
-                        "type": "boolean",
-                        "optional": true,
-                        "description": "When true, renders a solid filled slashed funnel icon; when false or undefined, renders an outline slashed funnel icon."
-                    },
-                    {
-                        "name": "color",
-                        "type": "string",
-                        "optional": true,
-                        "description": "Custom fill color for the SVG paths. Defaults to '#fff' (white) when not provided."
-                    }
-                ],
-                "return_type": "JSX.Element",
-                "rendered_ui_description": "An 18x20 SVG icon showing a funnel with a diagonal line/slash through it, wrapped in a div with negative top and right margins (mt-[-4px] mr-[-2px]). Indicates that filtering is disabled or cleared. Both solid and outline variants available."
-            }
-        },
-        {
-            "id": "function_export_to_excel_svg",
-            "kind": "function",
-            "name": "exportToExcelSvg",
-            "line": 92,
-            "exported": true,
-            "description": "Returns a JSX element rendering a white document-with-download-arrow SVG icon representing an export-to-Excel action. Accepts optional width, height, and viewBox parameters for sizing.",
-            "details": {
-                "parameters": [
-                    {
-                        "name": "width",
-                        "type": "string",
-                        "optional": true,
-                        "description": "SVG width attribute. Defaults to '18'."
-                    },
-                    {
-                        "name": "height",
-                        "type": "string",
-                        "optional": true,
-                        "description": "SVG height attribute. Defaults to '18'."
-                    },
-                    {
-                        "name": "viewBox",
-                        "type": "string",
-                        "optional": true,
-                        "description": "SVG viewBox attribute. Defaults to '0 0 150.000000 150.000000'."
-                    }
-                ],
-                "return_type": "JSX.Element",
-                "rendered_ui_description": "An 18x18 white SVG icon depicting a document/spreadsheet with a downward arrow, representing an export-to-Excel action. The icon shows a file outline with a folded corner and an 'X' character (for Excel), plus a download arrow at the bottom right."
-            }
-        }
-    ],
-    "quality": {
-        "generation_confidence": "high",
-        "known_gaps": []
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/table.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/table.tsx.json"
+  },
+  "summary": {
+    "purpose": "Provides SVG icon factory functions for table UI controls including sort arrows, filter indicators (empty and slashed), and an export-to-Excel button icon.",
+    "problem_solved": "Encapsulates table-related SVG icons as parameterized JSX-returning functions, supporting visual states like sort direction, filled/outline filter indicators, and customizable dimensions for consistent table header controls."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "sortSvg",
+      "kind": "function",
+      "line": 1,
+      "description_one_line": "sortSvg export",
+      "symbol_id": "sortSvg"
+    },
+    {
+      "name": "emptyFilterSvg",
+      "kind": "function",
+      "line": 20,
+      "description_one_line": "emptyFilterSvg export",
+      "symbol_id": "emptyFilterSvg"
+    },
+    {
+      "name": "slashFilterSvg",
+      "kind": "function",
+      "line": 53,
+      "description_one_line": "slashFilterSvg export",
+      "symbol_id": "slashFilterSvg"
+    },
+    {
+      "name": "exportToExcelSvg",
+      "kind": "function",
+      "line": 92,
+      "description_one_line": "exportToExcelSvg export",
+      "symbol_id": "exportToExcelSvg"
     }
+  ],
+  "symbols": [
+    {
+      "kind": "function",
+      "name": "sortSvg",
+      "line": 1,
+      "exported": true,
+      "description": "Returns a JSX element rendering a white downward-pointing arrow/chevron SVG icon used for table column sort indicators. When upside_down is true, the icon is rotated 180 degrees to point upward.",
+      "details": {
+        "parameters": [
+          {
+            "name": "upside_down",
+            "type": "boolean",
+            "optional": true,
+            "description": "When true, rotates the arrow 180 degrees to indicate ascending sort order."
+          }
+        ],
+        "return_type": "JSX.Element",
+        "rendered_ui_description": "A 13x13 white arrow/chevron SVG icon positioned absolutely with Tailwind classes (top-[3px] left-1). Points downward by default; rotated 180 degrees when upside_down is true.",
+        "what_it_does": "Exported symbol: sortSvg"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/assets/table.tsx#L1",
+        "nx_kb_anchor": "sortSvg"
+      },
+      "symbol_id": "function_sort_svg",
+      "description_one_line": "Returns a JSX element rendering a white downward-pointing arrow/chevron SVG icon used for table column sort indicators. When upside_down is true, the icon is rotated 180 degrees to point upward."
+    },
+    {
+      "kind": "function",
+      "name": "emptyFilterSvg",
+      "line": 20,
+      "exported": true,
+      "description": "Returns a JSX element rendering a white funnel/filter SVG icon for table column filter controls. Supports two visual variants: a solid filled funnel or an outline-only funnel.",
+      "details": {
+        "parameters": [
+          {
+            "name": "solid",
+            "type": "boolean",
+            "optional": true,
+            "description": "When true, renders a solid filled funnel icon; when false or undefined, renders an outline/stroke funnel icon."
+          }
+        ],
+        "return_type": "JSX.Element",
+        "rendered_ui_description": "A 13x13 white funnel/filter SVG icon. In solid mode, the funnel is completely filled. In outline mode, the funnel shows only the border/outline. Both variants use white (#fff) fill.",
+        "what_it_does": "Exported symbol: emptyFilterSvg"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/assets/table.tsx#L1",
+        "nx_kb_anchor": "emptyFilterSvg"
+      },
+      "symbol_id": "function_empty_filter_svg",
+      "description_one_line": "Returns a JSX element rendering a white funnel/filter SVG icon for table column filter controls. Supports two visual variants: a solid filled funnel or an outline-only funnel."
+    },
+    {
+      "kind": "function",
+      "name": "slashFilterSvg",
+      "line": 53,
+      "exported": true,
+      "description": "Returns a JSX element rendering a white funnel/filter SVG icon with a diagonal slash through it, indicating a disabled or cleared filter state. Supports solid and outline variants with customizable color.",
+      "details": {
+        "parameters": [
+          {
+            "name": "solid",
+            "type": "boolean",
+            "optional": true,
+            "description": "When true, renders a solid filled slashed funnel icon; when false or undefined, renders an outline slashed funnel icon."
+          },
+          {
+            "name": "color",
+            "type": "string",
+            "optional": true,
+            "description": "Custom fill color for the SVG paths. Defaults to '#fff' (white) when not provided."
+          }
+        ],
+        "return_type": "JSX.Element",
+        "rendered_ui_description": "An 18x20 SVG icon showing a funnel with a diagonal line/slash through it, wrapped in a div with negative top and right margins (mt-[-4px] mr-[-2px]). Indicates that filtering is disabled or cleared. Both solid and outline variants available.",
+        "what_it_does": "Exported symbol: slashFilterSvg"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/assets/table.tsx#L1",
+        "nx_kb_anchor": "slashFilterSvg"
+      },
+      "symbol_id": "function_slash_filter_svg",
+      "description_one_line": "Returns a JSX element rendering a white funnel/filter SVG icon with a diagonal slash through it, indicating a disabled or cleared filter state. Supports solid and outline variants with customizable color."
+    },
+    {
+      "kind": "function",
+      "name": "exportToExcelSvg",
+      "line": 92,
+      "exported": true,
+      "description": "Returns a JSX element rendering a white document-with-download-arrow SVG icon representing an export-to-Excel action. Accepts optional width, height, and viewBox parameters for sizing.",
+      "details": {
+        "parameters": [
+          {
+            "name": "width",
+            "type": "string",
+            "optional": true,
+            "description": "SVG width attribute. Defaults to '18'."
+          },
+          {
+            "name": "height",
+            "type": "string",
+            "optional": true,
+            "description": "SVG height attribute. Defaults to '18'."
+          },
+          {
+            "name": "viewBox",
+            "type": "string",
+            "optional": true,
+            "description": "SVG viewBox attribute. Defaults to '0 0 150.000000 150.000000'."
+          }
+        ],
+        "return_type": "JSX.Element",
+        "rendered_ui_description": "An 18x18 white SVG icon depicting a document/spreadsheet with a downward arrow, representing an export-to-Excel action. The icon shows a file outline with a folded corner and an 'X' character (for Excel), plus a download arrow at the bottom right.",
+        "what_it_does": "Exported symbol: exportToExcelSvg"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/assets/table.tsx#L1",
+        "nx_kb_anchor": "exportToExcelSvg"
+      },
+      "symbol_id": "function_export_to_excel_svg",
+      "description_one_line": "Returns a JSX element rendering a white document-with-download-arrow SVG icon representing an export-to-Excel action. Accepts optional width, height, and viewBox parameters for sizing."
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
 }

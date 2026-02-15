@@ -9,7 +9,9 @@
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/Table.tsx",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/table/Table.json"
   },
@@ -26,14 +28,14 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "./components",
         "resolved_file_path": "src/components/table/components.tsx",
         "why_used": "Table parts (Head, Body, Search, Export, etc.).",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/table/components.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/table/components.tsx"
       },
-       {
+      {
         "import_path": "./hooks",
         "resolved_file_path": "src/components/table/hooks.tsx",
         "why_used": "Logic hooks (useSort, useSearch, useFilter).",
@@ -51,7 +53,7 @@
     },
     {
       "name": "TableContext",
-      "kind": "context",
+      "kind": "type",
       "description_one_line": "Context for table state.",
       "symbol_id": "TableContext"
     },
@@ -70,9 +72,17 @@
       "description_one_line": "Data table.",
       "signature": {
         "params": [
-           { "name": "props", "type": "TableProps", "required": false, "description": "All table configuration options." }
+          {
+            "name": "props",
+            "type": "TableProps",
+            "required": false,
+            "description": "All table configuration options."
+          }
         ],
-        "returns": { "type": "JSX.Element", "description": "Fully featured table." }
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Fully featured table."
+        }
       },
       "details": {
         "what_it_does": "Calculates `dataToRender` by applying search, filter, and sort logic inside `TableProvider`, then renders `TableBase` which composes the UI parts."
