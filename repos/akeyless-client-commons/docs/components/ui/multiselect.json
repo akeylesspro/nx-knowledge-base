@@ -7,75 +7,65 @@
   "source": {
     "file_path": "components/ui/multiselect.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "generated_at_iso": "2026-02-16T15:30:00.000Z",
     "language": "tsx",
     "framework_tags": [
-      "react"
+      "react",
+      "cmdk",
+      "floating-ui"
     ],
     "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/multiselect.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/multiselect.tsx.json"
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/multiselect.json"
   },
   "summary": {
-    "purpose": "Provides a feature-rich multiple selection component with search, grouping, async loading, debounced input, creatable options, and floating dropdown positioning via a portal.",
-    "problem_solved": "Solves the need for a multi-select input that supports tag-like selected items with removal, async and sync search with debounce, option grouping, max selection limits, unremovable/fixed options, creatable new options, and proper dropdown positioning using @floating-ui to avoid overflow clipping."
+    "purpose": "Provides a feature-rich multi-select component with async/sync search, grouping, debouncing, creatable options, floating dropdown positioning, and ref-based imperative API for controlling selection and focus.",
+    "problem_solved": "Enables building complex selection interfaces with tag-like selected items, searchable dropdown with async loading, option grouping, selection limits, unremovable/fixed options, new option creation, smart floating positioning to avoid viewport overflow, and imperative controls via ref."
   },
   "dependencies": {
     "external": [
       {
         "name": "react",
-        "version": "*",
-        "reason": "Core React library for hooks (useState, useEffect, useCallback, useMemo, useRef, forwardRef, useImperativeHandle) and ReactDOM.createPortal",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Core React library for hooks (useState, useEffect, useCallback, useMemo, useRef, forwardRef, useImperativeHandle), ReactDOM.createPortal, and JSX rendering"
       },
       {
         "name": "react-dom",
-        "version": "*",
-        "reason": "Used for ReactDOM.createPortal to render the dropdown outside the DOM hierarchy",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Provides ReactDOM.createPortal for rendering dropdown outside DOM hierarchy"
       },
       {
         "name": "cmdk",
-        "version": "*",
-        "reason": "Provides Command primitive and useCommandState for building the searchable command menu",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Provides Command primitive and useCommandState for searchable command menu with automatic first-item selection and filtering"
       },
       {
         "name": "lucide-react",
-        "version": "*",
-        "reason": "Provides the X icon for remove buttons on selected badges and clear all",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Provides X icon for remove buttons on selected badges and clear all functionality"
       },
       {
         "name": "lodash",
-        "version": "*",
-        "reason": "Uses isEqual for deep comparison of option values when checking unremovable options",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Provides isEqual for deep comparison of option values when checking unremovable options"
       },
       {
         "name": "@floating-ui/react-dom",
-        "version": "*",
-        "reason": "Provides useFloating, offset, flip, shift, and autoUpdate for smart dropdown positioning",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Provides useFloating, offset, flip, shift, and autoUpdate for smart dropdown positioning that avoids viewport edges"
       }
     ],
     "internal": [
       {
         "import_path": "@/lib/utils",
-        "resolved_file_path": "src/lib/utils.ts",
-        "why_used": "Provides the cn utility for conditional className merging",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
+        "resolved_file_path": "lib/utils",
+        "why_used": "Provides the cn() utility function for conditionally merging CSS classes",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.json",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
       },
       {
         "import_path": "@/components/ui/command",
-        "resolved_file_path": "src/components/ui/command.tsx",
-        "why_used": "Provides Command, CommandGroup, CommandItem, CommandList components used to build the dropdown menu",
+        "resolved_file_path": "components/ui/command",
+        "why_used": "Provides Command, CommandGroup, CommandItem, CommandList components for building the searchable dropdown menu",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/command.json",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx"
       }
@@ -85,192 +75,207 @@
     {
       "name": "MultipleSelectorOption",
       "kind": "interface",
-      "description": "Interface for individual select options with value, label, optional disable/fixed flags, and extensible string/boolean properties.",
-      "description_one_line": "MultipleSelectorOption export",
+      "description_one_line": "Option object structure with value, label, and optional disable/fixed flags",
       "symbol_id": "MultipleSelectorOption"
-    },
-    {
-      "name": "useDebounce",
-      "kind": "function",
-      "description": "A generic debounce hook that delays updating a value by a configurable delay (default 500ms).",
-      "description_one_line": "useDebounce export",
-      "symbol_id": "useDebounce"
     },
     {
       "name": "MultipleSelectorProps",
       "kind": "interface",
-      "description": "Props interface for the MultipleSelector component including options, search callbacks, styling, max selection, and behavioral configuration.",
-      "description_one_line": "MultipleSelectorProps export",
+      "description_one_line": "Props interface for MultipleSelector with config for search, styling, and behavior",
       "symbol_id": "MultipleSelectorProps"
     },
     {
       "name": "MultipleSelectorRef",
       "kind": "interface",
-      "description": "Ref interface exposing selectedValue, input element, focus(), and reset() methods for imperative control.",
-      "description_one_line": "MultipleSelectorRef export",
+      "description_one_line": "Ref interface for imperative control with selection access, focus, and reset",
       "symbol_id": "MultipleSelectorRef"
+    },
+    {
+      "name": "useDebounce",
+      "kind": "function",
+      "description_one_line": "Generic debounce hook that delays value updates by configurable delay (default 500ms)",
+      "symbol_id": "useDebounce"
     },
     {
       "name": "MultipleSelector",
       "kind": "component",
-      "description": "Default export. A multi-select component with tags, search, grouping, async loading, creatable options, and floating dropdown.",
-      "description_one_line": "MultipleSelector export",
+      "description_one_line": "Advanced multi-select component with async search, grouping, and floating positioning",
       "symbol_id": "MultipleSelector"
     }
   ],
   "symbols": [
     {
-      "kind": "interface",
-      "name": "MultipleSelectorOption",
-      "signature": "export interface MultipleSelectorOption { value: string; label: string; disable?: boolean; fixed?: boolean; [key: string]: string | boolean | undefined; }",
-      "description": "Defines the shape of each option in the multi-select. 'value' is the unique identifier, 'label' is the display text, 'disable' prevents selection, 'fixed' prevents removal, and additional dynamic keys support grouping or custom metadata.",
-      "dependencies": [],
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/multiselect.tsx#L1",
-        "nx_kb_anchor": "MultipleSelectorOption"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: MultipleSelectorOption"
-      },
-      "symbol_id": "interface_multiple_selector_option",
-      "description_one_line": "Defines the shape of each option in the multi-select. 'value' is the unique identifier, 'label' is the display text, 'disable' prevents selection, 'fixed' prevents removal, and additional dynamic keys support grouping or custom metadata."
-    },
-    {
-      "kind": "interface",
-      "name": "MultipleSelectorProps",
-      "signature": "export interface MultipleSelectorProps { value?: MultipleSelectorOption[]; defaultOptions?: MultipleSelectorOption[]; options?: MultipleSelectorOption[]; placeholder?: string; loadingIndicator?: React.ReactNode; emptyIndicator?: React.ReactNode; delay?: number; triggerSearchOnFocus?: boolean; onSearch?: (value: string) => Promise<MultipleSelectorOption[]>; onSearchSync?: (value: string) => MultipleSelectorOption[]; onChange?: (options: MultipleSelectorOption[]) => void; maxSelected?: number; onMaxSelected?: (maxLimit: number) => void; hidePlaceholderWhenSelected?: boolean; disabled?: boolean; groupBy?: string; className?: string; badgeClassName?: string; selectFirstItem?: boolean; createNewOptionLabel?: string; commandProps?: React.ComponentPropsWithoutRef<typeof Command>; inputProps?: Omit<...>; hideClearAllButton?: boolean; dropdownClassName?: string; dropdownOptionClassName?: string; dropdownContainerClassName?: string; emptyIndicatorClassName?: string; unremovableOptions?: MultipleSelectorOption[]; name?: string; closeDropdownOnSelect?: boolean; }",
-      "description": "Comprehensive props interface for the MultipleSelector component. Supports controlled value, default options, async/sync search callbacks, debounce delay, max selection limit, option grouping, creatable options, various className overrides for styling, and behavioral flags like hidePlaceholderWhenSelected and closeDropdownOnSelect.",
-      "dependencies": [],
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/multiselect.tsx#L1",
-        "nx_kb_anchor": "MultipleSelectorProps"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: MultipleSelectorProps"
-      },
-      "symbol_id": "interface_multiple_selector_props",
-      "description_one_line": "Comprehensive props interface for the MultipleSelector component. Supports controlled value, default options, async/sync search callbacks, debounce delay, max selection limit, option grouping, creatable options, various className overrides for styling, and behavioral flags like hidePlaceholderWhenSelected and closeDropdownOnSelect."
-    },
-    {
-      "kind": "interface",
-      "name": "MultipleSelectorRef",
-      "signature": "export interface MultipleSelectorRef { selectedValue: MultipleSelectorOption[]; input: HTMLInputElement; focus: () => void; reset: () => void; }",
-      "description": "Imperative handle interface exposed via React.forwardRef. Provides access to the current selected values, the underlying input element, and methods to programmatically focus or reset the component.",
-      "dependencies": [],
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/multiselect.tsx#L1",
-        "nx_kb_anchor": "MultipleSelectorRef"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: MultipleSelectorRef"
-      },
-      "symbol_id": "interface_multiple_selector_ref",
-      "description_one_line": "Imperative handle interface exposed via React.forwardRef. Provides access to the current selected values, the underlying input element, and methods to programmatically focus or reset the component."
-    },
-    {
-      "kind": "function",
+      "symbol_id": "useDebounce",
       "name": "useDebounce",
-      "signature": "export function useDebounce<T>(value: T, delay?: number): T",
-      "description": "A generic React hook that returns a debounced version of the provided value. The value updates after the specified delay (default 500ms) since the last change, useful for throttling search input to reduce API calls.",
-      "dependencies": [],
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/multiselect.tsx#L1",
-        "nx_kb_anchor": "useDebounce"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: useDebounce"
-      },
-      "symbol_id": "hook_use_debounce",
-      "description_one_line": "A generic React hook that returns a debounced version of the provided value. The value updates after the specified delay (default 500ms) since the last change, useful for throttling search input to reduce API calls."
-    },
-    {
       "kind": "function",
-      "name": "transToGroupOption",
-      "signature": "function transToGroupOption(options: MultipleSelectorOption[], groupBy?: string): GroupOption",
-      "description": "Transforms a flat array of MultipleSelectorOption into a GroupOption object (Record<string, MultipleSelectorOption[]>). If groupBy is provided, options are grouped by that key; otherwise all options are placed under an empty-string key.",
-      "dependencies": [],
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/multiselect.tsx#L1",
-        "nx_kb_anchor": "transToGroupOption"
+      "description_one_line": "Generic React hook that debounces any value with configurable delay",
+      "signature": {
+        "params": [
+          {
+            "name": "value",
+            "type": "T (generic)",
+            "required": true,
+            "description": "The value to debounce. Can be any type (string, number, object, etc.)"
+          },
+          {
+            "name": "delay",
+            "type": "number",
+            "required": false,
+            "description": "Debounce delay in milliseconds. Defaults to 500ms if not provided."
+          }
+        ],
+        "returns": {
+          "type": "T",
+          "description": "The debounced value that updates after the delay period with no new value changes"
+        }
       },
       "details": {
-        "what_it_does": "Exported symbol: transToGroupOption"
+        "what_it_does": "Custom React hook that implements debouncing for any value type. When the input value changes, it waits for the specified delay before updating the returned debouncedValue. If the value changes again before the delay completes, the timer resets. Useful for reducing API calls in search, form validation, and other expensive operations."
       },
-      "symbol_id": "function_trans_to_group_option",
-      "description_one_line": "Transforms a flat array of MultipleSelectorOption into a GroupOption object (Record<string, MultipleSelectorOption[]>). If groupBy is provided, options are grouped by that key; otherwise all options are placed under an empty-string key."
-    },
-    {
-      "kind": "function",
-      "name": "removePickedOption",
-      "signature": "function removePickedOption(groupOption: GroupOption, picked: MultipleSelectorOption[]): GroupOption",
-      "description": "Filters out already-selected (picked) options from a GroupOption object, returning a new GroupOption with only the unselected options remaining.",
-      "dependencies": [],
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/multiselect.tsx#L1",
-        "nx_kb_anchor": "removePickedOption"
+        "source_line_start": 66,
+        "source_line_end": 73,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/multiselect.tsx#L66-L73",
+        "nx_kb_anchor": "#useDebounce"
       },
-      "details": {
-        "what_it_does": "Exported symbol: removePickedOption"
-      },
-      "symbol_id": "function_remove_picked_option",
-      "description_one_line": "Filters out already-selected (picked) options from a GroupOption object, returning a new GroupOption with only the unselected options remaining."
+      "examples": {
+        "minimal_correct": {
+          "title": "Debounce search input with API call",
+          "code": "const [searchTerm, setSearchTerm] = useState('');\nconst debouncedSearchTerm = useDebounce(searchTerm, 300);\n\nuseEffect(() => {\n  if (debouncedSearchTerm) {\n    performSearch(debouncedSearchTerm);\n  }\n}, [debouncedSearchTerm]);"
+        },
+        "extensive_correct": {
+          "title": "Debounce with automatic API call and loading state",
+          "code": "const [searchQuery, setSearchQuery] = useState('');\nconst debouncedQuery = useDebounce(searchQuery, 500);\nconst [results, setResults] = useState([]);\nconst [loading, setLoading] = useState(false);\n\nuseEffect(() => {\n  if (!debouncedQuery) {\n    setResults([]);\n    return;\n  }\n  setLoading(true);\n  fetch(`/api/search?q=${debouncedQuery}`)\n    .then(res => res.json())\n    .then(data => {\n      setResults(data);\n      setLoading(false);\n    })\n    .catch(() => setLoading(false));\n}, [debouncedQuery]);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using original value instead of debounced",
+          "code": "const [searchTerm, setSearchTerm] = useState('');\nconst debouncedSearchTerm = useDebounce(searchTerm, 300);\n\n// Problem: uses searchTerm, not debouncedSearchTerm\nuseEffect(() => {\n  performSearch(searchTerm);  // Still calls on every keystroke!\n}, [searchTerm]);",
+          "why_incorrect": "Using the original searchTerm in useEffect defeats the purpose of debouncing. Must use debouncedSearchTerm to benefit from the delayed updates and reduce API calls."
+        }
+      }
     },
     {
-      "kind": "function",
-      "name": "isOptionsExist",
-      "signature": "function isOptionsExist(groupOption: GroupOption, targetOption: MultipleSelectorOption[]): boolean",
-      "description": "Checks whether any of the target options exist within the grouped options, used to determine if a creatable option already exists.",
-      "dependencies": [],
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/multiselect.tsx#L1",
-        "nx_kb_anchor": "isOptionsExist"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: isOptionsExist"
-      },
-      "symbol_id": "function_is_options_exist",
-      "description_one_line": "Checks whether any of the target options exist within the grouped options, used to determine if a creatable option already exists."
-    },
-    {
-      "kind": "component",
+      "symbol_id": "MultipleSelector",
       "name": "MultipleSelector",
-      "signature": "React.forwardRef<MultipleSelectorRef, MultipleSelectorProps>((props, ref) => JSX.Element)",
-      "description": "A feature-rich multi-select component (default export). Renders selected items as removable badge tags in an input-like container. Typing triggers debounced async or sync search. The dropdown is rendered via a portal using @floating-ui for smart positioning. Supports option grouping via groupBy, max selection limits, unremovable/fixed options, creatable new options, a clear-all button, and a hidden input for form serialization. Keyboard support includes Backspace to remove last item and Escape to close.",
+      "kind": "component",
+      "description_one_line": "Advanced multi-select component with async search, grouping, floating dropdown, and imperative ref control",
+      "signature": {
+        "params": [
+          {
+            "name": "value",
+            "type": "MultipleSelectorOption[]",
+            "required": false,
+            "description": "Controlled selected values. Use with onChange for controlled component."
+          },
+          {
+            "name": "defaultOptions",
+            "type": "MultipleSelectorOption[]",
+            "required": false,
+            "description": "Default options shown initially. Pre-populates dropdown and serves as initial values if no value prop."
+          },
+          {
+            "name": "options",
+            "type": "MultipleSelectorOption[]",
+            "required": false,
+            "description": "Static list of selectable options. Not used if onSearch/onSearchSync provided."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "required": false,
+            "description": "Placeholder text when no items selected."
+          },
+          {
+            "name": "onSearch",
+            "type": "(value: string) => Promise<MultipleSelectorOption[]>",
+            "required": false,
+            "description": "Async search callback. Called with search term, returns promise resolving to matching options. Debounced by delay prop."
+          },
+          {
+            "name": "onChange",
+            "type": "(options: MultipleSelectorOption[]) => void",
+            "required": false,
+            "description": "Callback fired when selected items change."
+          },
+          {
+            "name": "maxSelected",
+            "type": "number",
+            "required": false,
+            "description": "Maximum items that can be selected. Defaults to unlimited."
+          },
+          {
+            "name": "delay",
+            "type": "number",
+            "required": false,
+            "description": "Debounce delay for search in milliseconds. Defaults to 500ms."
+          },
+          {
+            "name": "groupBy",
+            "type": "string",
+            "required": false,
+            "description": "Option property to group by (e.g., 'department'). Undefined means no grouping."
+          },
+          {
+            "name": "badgeClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for selected item badges."
+          },
+          {
+            "name": "dropdownClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for dropdown container."
+          },
+          {
+            "name": "hideClearAllButton",
+            "type": "boolean",
+            "required": false,
+            "description": "Hide clear all button. Defaults to false."
+          },
+          {
+            "name": "unremovableOptions",
+            "type": "MultipleSelectorOption[]",
+            "required": false,
+            "description": "Options that cannot be removed once selected."
+          },
+          {
+            "name": "createNewOptionLabel",
+            "type": "string",
+            "required": false,
+            "description": "Label for creating new options from search text. If provided, enables option creation."
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "Multi-select component with searchable dropdown and selected item badges"
+        }
+      },
       "details": {
-        "rendered_ui_description": "An input container displaying selected items as small badge tags with X remove buttons. Typing in the input field opens a floating dropdown below the container showing matching options grouped by category. The dropdown supports scrolling, loading indicators, and empty state messages. A clear-all X button appears at the right edge when items are selected. A hidden input serializes the selection as JSON for form submission.",
-        "what_it_does": "Exported symbol: MultipleSelector"
+        "what_it_does": "Renders a sophisticated multi-select component with tag-like selected items and searchable dropdown. Supports async and sync search with debouncing using floating-ui for smart positioning. Renders selected items as removable badges (except unremovable options). Uses cmdk for searchable command menu with keyboard navigation. Supports option grouping, selection limits, preventing removal of specific options, creating new options, and custom indicators. Exposes imperative ref API for focus, reset, and value access.",
+        "rendered_ui_description": "Input-like component with selected items displayed as dismissible badges, search input below. Dropdown appears beneath with command menu style options, grouped or ungrouped. Options show hover highlighting. Floating dropdown auto-repositions to stay in viewport. Disabled options and fixed options (unremovable badges) shown differently."
       },
-      "dependencies": [
-        "react-dom",
-        "cmdk",
-        "lucide-react",
-        "lodash",
-        "@floating-ui/react-dom",
-        "@/lib/utils",
-        "@/components/ui/command"
-      ],
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/multiselect.tsx#L1",
-        "nx_kb_anchor": "MultipleSelector"
+        "source_line_start": 115,
+        "source_line_end": 280,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/multiselect.tsx#L115-L280",
+        "nx_kb_anchor": "#MultipleSelector"
       },
-      "symbol_id": "component_multi_select",
-      "description_one_line": "A feature-rich multi-select component (default export). Renders selected items as removable badge tags in an input-like container. Typing triggers debounced async or sync search. The dropdown is rendered via a portal using @floating-ui for smart positioning. Supports option grouping via groupBy, max selection limits, unremovable/fixed options, creatable new options, a clear-all button, and a hidden input for form serialization. Keyboard support includes Backspace to remove last item and Escape to close."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic multi-select with static options",
+          "code": "import { MultipleSelector } from 'akeyless-client-commons/components/ui';\n\nconst MyMultiSelect = () => (\n  <MultipleSelector\n    options={[\n      { value: 'opt1', label: 'Option 1' },\n      { value: 'opt2', label: 'Option 2' }\n    ]}\n    placeholder=\"Select items...\"\n    onChange={(selected) => console.log(selected)}\n  />\n);"
+        },
+        "extensive_correct": {
+          "title": "Advanced multi-select with async search, grouping, and limits",
+          "code": "import { useRef, useState } from 'react';\nimport { MultipleSelector, MultipleSelectorRef, MultipleSelectorOption } from 'akeyless-client-commons/components/ui';\n\nconst AdvancedMultiSelect = () => {\n  const selectorRef = useRef<MultipleSelectorRef>(null);\n  const [selected, setSelected] = useState<MultipleSelectorOption[]>([]);\n  const adminUsers: MultipleSelectorOption[] = [\n    { value: 'admin-1', label: 'Admin User', fixed: true }\n  ];\n\n  const handleSearch = async (searchTerm: string) => {\n    const response = await fetch(`/api/users?search=${searchTerm}`);\n    return response.json();\n  };\n\n  return (\n    <div className=\"space-y-4\">\n      <MultipleSelector\n        ref={selectorRef}\n        defaultOptions={adminUsers}\n        placeholder=\"Search users...\"\n        onSearch={handleSearch}\n        onChange={setSelected}\n        delay={300}\n        maxSelected={10}\n        onMaxSelected={(max) => alert(`Max ${max} users`)}\n        groupBy=\"department\"\n        unremovableOptions={adminUsers}\n        createNewOptionLabel=\"Add user\"\n      />\n      <button onClick={() => selectorRef.current?.reset()}>Clear</button>\n    </div>\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Async search without proper debouncing consideration",
+          "code": "// Problem: delay too short for API call\n<MultipleSelector\n  onSearch={async (term) => {\n    // API call takes 200ms+\n    const data = await fetch(`/api/search?q=${term}`).then(r => r.json());\n    return data;\n  }}\n  delay={100}  // Too short! API still being hammered\n/>",
+          "why_incorrect": "If your async search takes time to complete, set delay higher (300-500ms minimum) to avoid excessive API requests. The delay should allow the API call to complete before triggering the next search."
+        }
+      }
     }
   ],
   "quality": {

@@ -5,7 +5,7 @@
   },
   "file_name": "table.tsx",
   "source": {
-    "file_path": "src/components/ui/table.tsx",
+    "file_path": "components/ui/table.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
@@ -31,7 +31,7 @@
       {
         "import_path": "@/lib/utils",
         "why_used": "cn utility.",
-        "resolved_file_path": "src/lib/utils",
+        "resolved_file_path": "lib/utils",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
       }
@@ -107,6 +107,208 @@
         "source_line_end": 1,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/table.tsx#L1",
         "nx_kb_anchor": "TableSCN"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableSCN",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableHeaderSCN",
+      "name": "TableHeaderSCN",
+      "kind": "component",
+      "description_one_line": "Thead.",
+      "details": {
+        "what_it_does": "Thead."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableHeaderSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableHeaderSCN",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableBodySCN",
+      "name": "TableBodySCN",
+      "kind": "component",
+      "description_one_line": "Tbody.",
+      "details": {
+        "what_it_does": "Tbody."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableBodySCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableBodySCN",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableFooterSCN",
+      "name": "TableFooterSCN",
+      "kind": "component",
+      "description_one_line": "Tfoot.",
+      "details": {
+        "what_it_does": "Tfoot."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableFooterSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableFooterSCN",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableRowSCN",
+      "name": "TableRowSCN",
+      "kind": "component",
+      "description_one_line": "Tr.",
+      "details": {
+        "what_it_does": "Tr."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableRowSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableRowSCN",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableHeadSCN",
+      "name": "TableHeadSCN",
+      "kind": "component",
+      "description_one_line": "Th.",
+      "details": {
+        "what_it_does": "Th."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableHeadSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableHeadSCN",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableCellSCN",
+      "name": "TableCellSCN",
+      "kind": "component",
+      "description_one_line": "Td.",
+      "details": {
+        "what_it_does": "Td."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableCellSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableCellSCN",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableCaptionSCN",
+      "name": "TableCaptionSCN",
+      "kind": "component",
+      "description_one_line": "Caption.",
+      "details": {
+        "what_it_does": "Caption."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableCaptionSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableCaptionSCN",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

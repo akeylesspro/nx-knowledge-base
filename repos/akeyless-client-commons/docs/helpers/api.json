@@ -5,7 +5,7 @@
   },
   "file_name": "api.ts",
   "source": {
-    "file_path": "src/helpers/api.ts",
+    "file_path": "helpers/api.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:22:57+02:00",
     "language": "ts",
@@ -41,7 +41,7 @@
     "internal": [
       {
         "import_path": "./global",
-        "resolved_file_path": "src/helpers/global.ts",
+        "resolved_file_path": "helpers/global.ts",
         "why_used": "Imports isLocal and mode configuration to determine API base URLs.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/global.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/global.ts"
@@ -61,55 +61,55 @@
       "description_one_line": "Base URL for devices service.",
       "symbol_id": "devicesDomain"
     },
-     {
+    {
       "name": "biDomain",
       "kind": "constant",
       "description_one_line": "Base URL for BI service.",
       "symbol_id": "biDomain"
     },
-     {
+    {
       "name": "notificationsDomain",
       "kind": "constant",
       "description_one_line": "Base URL for notifications service.",
       "symbol_id": "notificationsDomain"
     },
-     {
+    {
       "name": "endUsersDomain",
       "kind": "constant",
       "description_one_line": "Base URL for end-users service.",
       "symbol_id": "endUsersDomain"
     },
-     {
+    {
       "name": "callCenterGeoDomain",
       "kind": "constant",
       "description_one_line": "Base URL for call-center-geo service.",
       "symbol_id": "callCenterGeoDomain"
     },
-     {
+    {
       "name": "callCenterEventsDomain",
       "kind": "constant",
       "description_one_line": "Base URL for call-center-events service.",
       "symbol_id": "callCenterEventsDomain"
     },
-     {
+    {
       "name": "dataSocketDomain",
       "kind": "constant",
       "description_one_line": "Base URL for data-socket service.",
       "symbol_id": "dataSocketDomain"
     },
-     {
+    {
       "name": "dataSyncDomain",
       "kind": "constant",
       "description_one_line": "Base URL for data-sync service.",
       "symbol_id": "dataSyncDomain"
     },
-     {
+    {
       "name": "chargeDomain",
       "kind": "constant",
       "description_one_line": "Base URL for charge service.",
       "symbol_id": "chargeDomain"
     },
-     {
+    {
       "name": "akeylessOnlineDomain",
       "kind": "constant",
       "description_one_line": "Base URL for Akeyless Online service.",
@@ -138,7 +138,7 @@
         "nx_kb_anchor": "baseDomain"
       }
     },
-     {
+    {
       "symbol_id": "devicesDomain",
       "name": "devicesDomain",
       "kind": "constant",
@@ -339,6 +339,12 @@
         "source_line_end": 90,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L35-L90",
         "nx_kb_anchor": "nxApiCall"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of nxApiCall",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

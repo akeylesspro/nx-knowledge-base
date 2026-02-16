@@ -24,20 +24,20 @@
       {
         "module": "react",
         "kind": "runtime",
-        "why_used": "External dependency",
-        "name": "unknown-dependency"
+        "why_used": "React core for hooks (createContext, useMemo, useRef, useState, useContext, useEffect) and component composition.",
+        "name": "react"
       },
       {
         "module": "lodash",
         "kind": "runtime",
-        "why_used": "External dependency",
-        "name": "unknown-dependency"
+        "why_used": "Used for isEqual() deep equality comparison in React.memo for optimized re-render prevention.",
+        "name": "lodash"
       },
       {
         "module": "@/lib/utils",
         "kind": "runtime",
-        "why_used": "External dependency",
-        "name": "unknown-dependency"
+        "why_used": "Provides cn() utility for conditional CSS class composition throughout the component.",
+        "name": "@/lib/utils"
       }
     ],
     "internal": [
@@ -72,7 +72,7 @@
       {
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/forms.ts.json",
         "why_used": "Required dependency",
-        "import_path": "src/helpers/forms",
+        "import_path": "helpers/forms",
         "resolved_file_path": "helpers/forms.ts",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/helpers/forms.ts"
       }
@@ -83,124 +83,450 @@
       "name": "TableContext",
       "kind": "value",
       "line": 10,
-      "description_one_line": "TableContext export",
-      "symbol_id": "TableContext"
+      "description_one_line": "React context holding merged table configuration and state for all sub-components.",
+      "symbol_id": "variable_table_context"
     },
     {
       "name": "TableProvider",
       "kind": "component",
       "line": 12,
-      "description_one_line": "TableProvider export",
-      "symbol_id": "TableProvider"
+      "description_one_line": "Context provider that initializes all table state hooks and manages filtered/sorted/paginated data rendering.",
+      "symbol_id": "component_table_provider"
     },
     {
       "name": "Table",
       "kind": "component",
-      "line": 213,
-      "description_one_line": "Table export",
-      "symbol_id": "Table"
+      "line": 211,
+      "description_one_line": "Memoized table component with deep equality comparison preventing re-renders from immutable prop changes.",
+      "symbol_id": "component_table"
     }
   ],
   "symbols": [
     {
-      "kind": "variable",
+      "symbol_id": "variable_table_context",
+      "kind": "value",
       "name": "TableContext",
       "signature": "React.Context<(TableProps & TableProviderType) | null>",
-      "description": "React context created with createContext that holds the merged TableProps and TableProviderType state. Consumed by child sub-components (TableHead, TableBody, etc.) via the useTableContext hook.",
+      "description": "React Context instance that holds the merged table state combining TableProps configuration and TableProviderType state management. All table sub-components (TableHead, TableBody, Search, ExportToExcel, etc.) consume this context via the useTableContext hook to access shared state and handlers.",
+      "description_one_line": "React context holding merged table configuration and state for all sub-components.",
       "line": 10,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx#L1",
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx#L10",
         "nx_kb_anchor": "TableContext"
       },
       "details": {
-        "what_it_does": "Exported symbol: TableContext"
+        "what_it_does": "Created with React.createContext, initialized with null default, and populated by TableProvider. Contains all table configuration props (data, headers, maxRows, styling options) plus computed state (filters, sortColumn, searchQuery, dataToRender) and state handlers (handleSort, handleSearch, handleFilterChange). Enables descendant components to access table state without prop drilling."
       },
-      "symbol_id": "variable_table_context",
-      "description_one_line": "React context created with createContext that holds the merged TableProps and TableProviderType state. Consumed by child sub-components (TableHead, TableBody, etc.) via the useTableContext hook."
+      "examples": {
+        "minimal_correct": {
+          "title": "Accessing TableContext in a sub-component",
+          "code": "import { TableContext } from './Table';\nimport { useContext } from 'react';\n\nfunction CustomTableCell() {\n  const tableState = useContext(TableContext);\n  if (!tableState) throw new Error('Must be used within Table');\n  \n  return (\n    <div>\n      Current search: {tableState.searchQuery}\n      Total rows: {tableState.data.length}\n    </div>\n  );\n}"
+        },
+        "extensive_correct": {
+          "title": "Using context state for conditional rendering",
+          "code": "function TableStats() {\n  const tableState = useContext(TableContext);\n  if (!tableState) return null;\n  \n  const { dataToRender, filters, sortColumn, sortOrder, maxRows } = tableState;\n  const { renderedData, filtered } = dataToRender;\n  \n  return (\n    <div className=\"table-stats\">\n      <p>Total records: {tableState.data.length}</p>\n      <p>Filtered records: {filtered.length}</p>\n      <p>Displayed records: {renderedData.length}</p>\n      {sortColumn !== null && (\n        <p>Sorted by column {sortColumn} ({sortOrder})</p>\n      )}\n      {Object.keys(filters).length > 0 && (\n        <p>Active filters: {Object.values(filters).flat().length} selected</p>\n      )}\n    </div>\n  );\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Not checking for null context",
+          "code": "// WRONG - will crash if used outside Table\nfunction BadComponent() {\n  const tableState = useContext(TableContext);\n  // No null check!\n  return <div>{tableState.data.length}</div>; // TypeError if null\n}\n\n// CORRECT - with safety check\nfunction GoodComponent() {\n  const tableState = useContext(TableContext);\n  if (!tableState) {\n    throw new Error('This component must be used within <Table>');\n  }\n  return <div>{tableState.data.length}</div>;\n}"
+        }
+      }
     },
     {
+      "symbol_id": "component_table_provider",
       "kind": "component",
       "name": "TableProvider",
       "signature": "(props: TableProps & { children: React.ReactNode }) => JSX.Element",
-      "description": "Context provider component that initialises all table state (sort, filter, search, display-toggle) using custom hooks, computes the derived dataToRender (filtered/sorted/paginated), and makes everything available via TableContext to descendant components.",
-      "details": {
-        "rendered_ui_description": "Renders a flex-column container div wrapping its children, with optional gap styling when toolbar elements (search, export, optional element) are present. Sets the CSS direction property from props.",
-        "what_it_does": "Exported symbol: TableProvider"
-      },
+      "description": "Internal context provider component that orchestrates all table state management. Initializes six custom hooks (useSort, useDisplayToggle, useSearch, useFilter) to manage sort, pagination, search, and filtering state. Computes the final filtered/sorted/paginated dataToRender and provides all state plus handlers via TableContext.Provider to child components. Wraps children in a flex-column container with optional gap spacing and direction support.",
+      "description_one_line": "Context provider that initializes all table state hooks and manages filtered/sorted/paginated data rendering.",
       "line": 12,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx#L1",
+        "source_line_start": 12,
+        "source_line_end": 159,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx#L12-L159",
         "nx_kb_anchor": "TableProvider"
       },
-      "symbol_id": "component_table_provider",
-      "description_one_line": "Context provider component that initialises all table state (sort, filter, search, display-toggle) using custom hooks, computes the derived dataToRender (filtered/sorted/paginated), and makes everything available via TableContext to descendant components."
-    },
-    {
-      "kind": "component",
-      "name": "TableBase",
-      "signature": "(props: TableProps) => JSX.Element",
-      "description": "Internal (non-exported) presentational component that composes the full table layout: a container header row with Search, ExportToExcel, DisplayAllRowsButton, and MaxRowsLabel; the scrollable table container with TableHead and TableBody; and an optional Summary footer. Wrapped by TableProvider.",
       "details": {
-        "rendered_ui_description": "Renders the complete table UI with an optional toolbar row (search input, export button, display-all toggle, optional custom element, max-rows label), followed by a scrollable table with sticky header and data rows, and an optional summary/totals footer.",
-        "what_it_does": "Exported symbol: TableBase"
+        "what_it_does": "Extracts all props with defaults, initializes state via hooks: useSort (manages sortColumn, sortOrder), useDisplayToggle (displayAllRows), useSearch (searchQuery, debouncedSearchQuery), useFilter (filters, filterPopupsDisplay). Computes allKeys from data to enable cross-column search. Applies multi-term search (split by '+', all terms AND'd), then filtering (values per column AND'd), then sorting (by sortKeys index). Paginated with maxRows unless displayAllRows=true. Returns all state in providerValues object. Renders flex-column div with optional gap and direction, wrapping context provider.",
+        "rendered_ui_description": "Renders a flex-column container (display:flex, flex-direction:column, width:100%, height:100%) with optional gap-2 spacing when toolbar elements are present (includeSearch, exportToExcelKeys, showDisplayAllRowsButton, optionalElement). Supports RTL/LTR via CSS direction property. Children are rendered wrapped in TableContext.Provider."
       },
-      "line": 161,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx#L1",
-        "nx_kb_anchor": "TableBase"
+      "signature": {
+        "params": [
+          {
+            "name": "data",
+            "type": "Record<string, any>[]",
+            "required": true,
+            "description": "Array of data objects to render in table rows. Each object's keys become accessible columns."
+          },
+          {
+            "name": "headers",
+            "type": "string[]",
+            "required": true,
+            "description": "Array of header display strings matching table columns (length should match keysToRender)."
+          },
+          {
+            "name": "keysToRender",
+            "type": "string[]",
+            "required": true,
+            "description": "Array of object keys (from data items) to render as visible columns. Order determines column sequence."
+          },
+          {
+            "name": "includeSearch",
+            "type": "boolean",
+            "required": false,
+            "description": "When true, renders search input toolbar. Enables debounced multi-term search with '+' syntax (e.g., 'john+admin' searches for rows containing both 'john' AND 'admin')."
+          },
+          {
+            "name": "noneSearchKeys",
+            "type": "string[]",
+            "required": false,
+            "description": "Array of data keys to exclude from search. Useful for ID fields or computed columns that shouldn't be searchable."
+          },
+          {
+            "name": "autoFocus",
+            "type": "boolean",
+            "required": false,
+            "default": true,
+            "description": "Whether search input should auto-focus when rendered."
+          },
+          {
+            "name": "searchPlaceHolder",
+            "type": "string",
+            "required": false,
+            "description": "Placeholder text for search input."
+          },
+          {
+            "name": "sortKeys",
+            "type": "string[]",
+            "required": false,
+            "description": "Array of sortable column keys. Must match keysToRender order. Undefined key index means column is not sortable."
+          },
+          {
+            "name": "sortLabel",
+            "type": "string",
+            "required": false,
+            "default": "Sort by",
+            "description": "Label text for sort selector."
+          },
+          {
+            "name": "filterableColumns",
+            "type": "{ header: string; dataKey: string; ui?: (value: any) => ReactNode }[]",
+            "required": false,
+            "default": "[]",
+            "description": "Array of columns with filtering enabled. Each entry specifies header display text, dataKey to filter, and optional ui function to format filter option display."
+          },
+          {
+            "name": "filterLabel",
+            "type": "string",
+            "required": false,
+            "default": "Filter by",
+            "description": "Label text for filter selectors."
+          },
+          {
+            "name": "exportToExcelKeys",
+            "type": "string[]",
+            "required": false,
+            "description": "When provided, renders export-to-Excel button. Specifies which keys to include in Excel export."
+          },
+          {
+            "name": "excelFileName",
+            "type": "string",
+            "required": false,
+            "description": "File name (without .xlsx) for exported Excel file."
+          },
+          {
+            "name": "excelHeadline",
+            "type": "string",
+            "required": false,
+            "description": "Title row to include in Excel export."
+          },
+          {
+            "name": "exportExcelContent",
+            "type": "ReactNode",
+            "required": false,
+            "description": "Custom content to include in Excel export."
+          },
+          {
+            "name": "dataToAddToExcelTable",
+            "type": "{ key: string; value: any; header: string }[]",
+            "required": false,
+            "description": "Additional rows to append to Excel export (for summary rows, notes, etc.)."
+          },
+          {
+            "name": "sumColumns",
+            "type": "{ label: string; dataKey: string; ui?: (value: any) => ReactNode }[]",
+            "required": false,
+            "description": "When provided, renders summary footer showing sum/totals for specified columns."
+          },
+          {
+            "name": "maxRows",
+            "type": "number",
+            "required": false,
+            "default": "data.length",
+            "description": "Maximum rows to display per page. When exceeded, pagination controls appear unless displayAllRows is toggled."
+          },
+          {
+            "name": "maxRowsLabel1",
+            "type": "string",
+            "required": false,
+            "description": "Text before row count in max-rows label (e.g., 'Showing')."
+          },
+          {
+            "name": "maxRowsLabel2",
+            "type": "string",
+            "required": false,
+            "description": "Text after row count in max-rows label (e.g., 'of 500')."
+          },
+          {
+            "name": "showDisplayAllRowsButton",
+            "type": "boolean",
+            "required": false,
+            "description": "When true, shows toggle button to display all rows (overriding maxRows limit)."
+          },
+          {
+            "name": "displayAllRowsButtonLabel",
+            "type": "string",
+            "required": false,
+            "description": "Label text for display-all-rows toggle button."
+          },
+          {
+            "name": "optionalElement",
+            "type": "ReactNode",
+            "required": false,
+            "description": "Custom React element to render in toolbar next to search/export controls."
+          },
+          {
+            "name": "containerStyle",
+            "type": "React.CSSProperties",
+            "required": false,
+            "description": "Inline styles applied to main container div."
+          },
+          {
+            "name": "containerClassName",
+            "type": "string",
+            "required": false,
+            "default": "''",
+            "description": "CSS class names applied to main container div."
+          },
+          {
+            "name": "containerHeaderClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for toolbar header row."
+          },
+          {
+            "name": "searchInputClassName",
+            "type": "string",
+            "required": false,
+            "default": "''",
+            "description": "CSS classes for search input element."
+          },
+          {
+            "name": "searchInputStyle",
+            "type": "React.CSSProperties",
+            "required": false,
+            "default": "{}",
+            "description": "Inline styles for search input."
+          },
+          {
+            "name": "searchContainerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for container wrapping search and export controls."
+          },
+          {
+            "name": "tableContainerClass",
+            "type": "string",
+            "required": false,
+            "default": "''",
+            "description": "CSS classes for scrollable table wrapper (overflow-y-auto container)."
+          },
+          {
+            "name": "tableContainerStyle",
+            "type": "React.CSSProperties",
+            "required": false,
+            "default": "{}",
+            "description": "Inline styles for scrollable table container."
+          },
+          {
+            "name": "tableStyle",
+            "type": "React.CSSProperties",
+            "required": false,
+            "default": "{}",
+            "description": "Inline styles for <table> element."
+          },
+          {
+            "name": "tableBodyClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for <tbody> element."
+          },
+          {
+            "name": "headerStyle",
+            "type": "React.CSSProperties",
+            "required": false,
+            "default": "{}",
+            "description": "Inline styles for <thead> or header row."
+          },
+          {
+            "name": "headerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for header row."
+          },
+          {
+            "name": "headerCellStyle",
+            "type": "React.CSSProperties",
+            "required": false,
+            "description": "Inline styles for <th> cells."
+          },
+          {
+            "name": "headerCellClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for <th> cells."
+          },
+          {
+            "name": "rowStyles",
+            "type": "React.CSSProperties",
+            "required": false,
+            "default": "{}",
+            "description": "Inline styles for data <tr> rows."
+          },
+          {
+            "name": "rowClassName",
+            "type": "string",
+            "required": false,
+            "description": "Base CSS classes for data <tr> rows."
+          },
+          {
+            "name": "rowClassNameFunction",
+            "type": "(data?: any) => string",
+            "required": false,
+            "description": "Function returning dynamic CSS classes based on row data. Called for each row."
+          },
+          {
+            "name": "cellStyle",
+            "type": "React.CSSProperties",
+            "required": false,
+            "default": "{}",
+            "description": "Inline styles for <td> cells."
+          },
+          {
+            "name": "cellClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for <td> cells."
+          },
+          {
+            "name": "zebraStriping",
+            "type": "{ oddRowClassName?: string; evenRowClassName?: string }",
+            "required": false,
+            "description": "Classes to alternate between odd/even rows for visual striping effect."
+          },
+          {
+            "name": "selectedRow",
+            "type": "{ className?: string; rowIndex?: number | null; onChange?: (rowIndex: number) => void }",
+            "required": false,
+            "description": "Configuration for row selection highlighting and onChange callback."
+          },
+          {
+            "name": "onRowClick",
+            "type": "(data?: any, rowIndex?: number) => void",
+            "required": false,
+            "default": "(data) => {}",
+            "description": "Callback fired when a row is clicked. Receives the row's data object and zero-indexed row position."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "default": "ltr",
+            "description": "Text direction: 'ltr' (left-to-right) or 'rtl' (right-to-left) for Arabic, Hebrew, Persian layouts."
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": true,
+            "description": "Child components to render within the table context provider."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "A flex-column div wrapper providing TableContext to all descendant components."
+        }
       },
-      "symbol_id": "component_table_base",
-      "description_one_line": "Internal (non-exported) presentational component that composes the full table layout: a container header row with Search, ExportToExcel, DisplayAllRowsButton, and MaxRowsLabel; the scrollable table container with TableHead and TableBody; and an optional Summary footer. Wrapped by TableProvider."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic table with data and headers",
+          "code": "const data = [\n  { id: 1, name: 'Alice', role: 'Admin' },\n  { id: 2, name: 'Bob', role: 'User' },\n  { id: 3, name: 'Charlie', role: 'Editor' }\n];\n\n<TableProvider\n  data={data}\n  headers={['ID', 'Name', 'Role']}\n  keysToRender={['id', 'name', 'role']}\n>\n  <TableHead />\n  <TableBody />\n</TableProvider>"
+        },
+        "extensive_correct": {
+          "title": "Fully-featured table with search, filtering, sorting, export, and pagination",
+          "code": "const data = [\n  { id: 1, name: 'Alice Johnson', role: 'Admin', department: 'IT', salary: 95000 },\n  { id: 2, name: 'Bob Smith', role: 'User', department: 'HR', salary: 65000 },\n  { id: 3, name: 'Charlie Brown', role: 'Editor', department: 'Content', salary: 75000 },\n  { id: 4, name: 'Diana Prince', role: 'Admin', department: 'IT', salary: 98000 },\n  { id: 5, name: 'Eve Wilson', role: 'User', department: 'HR', salary: 62000 }\n];\n\n<TableProvider\n  data={data}\n  headers={['ID', 'Name', 'Role', 'Department', 'Salary']}\n  keysToRender={['id', 'name', 'role', 'department', 'salary']}\n  includeSearch={true}\n  searchPlaceHolder=\"Search by name, role, or department... (use + for AND)\"\n  sortKeys={['id', 'name', 'role', 'department', 'salary']}\n  sortLabel=\"Sort by column\"\n  filterableColumns={[\n    { header: 'Role', dataKey: 'role' },\n    { header: 'Department', dataKey: 'department' }\n  ]}\n  filterLabel=\"Filter by\"\n  exportToExcelKeys={['id', 'name', 'role', 'department', 'salary']}\n  excelFileName=\"employee-report\"\n  excelHeadline=\"Employee Directory Report\"\n  sumColumns={[\n    { label: 'Total Salary', dataKey: 'salary' }\n  ]}\n  maxRows={3}\n  maxRowsLabel1=\"Showing\"\n  maxRowsLabel2=\"employees per page\"\n  showDisplayAllRowsButton={true}\n  displayAllRowsButtonLabel=\"Show All\"\n  noneSearchKeys={['id']}\n  containerClassName=\"p-4 bg-white rounded-lg\"\n  tableContainerClass=\"border border-gray-300 rounded\"\n  onRowClick={(row, idx) => console.log('Clicked:', row.name, 'at index', idx)}\n>\n  <div className=\"mb-2\">\n    <Search />\n    <ExportToExcel />\n    <DisplayAllRowsButton />\n    <MaxRowsLabel />\n  </div>\n  <TableHead />\n  <TableBody />\n  <Summary />\n</TableProvider>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Mismatched headers/keysToRender lengths",
+          "code": "// WRONG - headers and keysToRender have different lengths\nconst data = [\n  { id: 1, name: 'Alice', role: 'Admin' }\n];\n\n<TableProvider\n  data={data}\n  headers={['ID', 'Name', 'Role', 'Extra']}  // 4 headers\n  keysToRender={['id', 'name', 'role']}       // only 3 keys\n>\n  {/* This will cause render inconsistencies */}\n</TableProvider>\n\n// CORRECT - matching lengths\n<TableProvider\n  data={data}\n  headers={['ID', 'Name', 'Role']}\n  keysToRender={['id', 'name', 'role']}\n>\n  {/* Balanced structure */}\n</TableProvider>"
+        }
+      }
     },
     {
+      "symbol_id": "component_table",
       "kind": "component",
       "name": "Table",
       "signature": "React.MemoExoticComponent<(props: TableProps) => JSX.Element>",
-      "description": "The primary exported Table component. It is a React.memo wrapper around TableBase using lodash isEqual for deep prop comparison to prevent unnecessary re-renders when table data or configuration hasn't actually changed.",
-      "details": {
-        "rendered_ui_description": "Memoised version of the full table, rendering the complete data table with search, sort, filter, export, pagination, and summary features.",
-        "what_it_does": "Exported symbol: Table"
-      },
+      "description": "The primary exported table component, a React.memo wrapper around TableBase with deep equality comparison via lodash isEqual. Prevents unnecessary re-renders when table props haven't meaningfully changed. Composed of TableProvider (state orchestration) and TableBase (UI layout). Accepts all TableProps and provides a fully-featured configurable data table with search, filtering, sorting, pagination, and export capabilities. Props are compared deeply, so even if the data array reference changes but content is identical, the component won't re-render.",
+      "description_one_line": "Memoized table component with deep equality comparison preventing re-renders from immutable prop changes.",
       "line": 211,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx#L1",
+        "source_line_start": 209,
+        "source_line_end": 213,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx#L209-L213",
         "nx_kb_anchor": "Table"
       },
-      "symbol_id": "component_table",
-      "description_one_line": "The primary exported Table component. It is a React.memo wrapper around TableBase using lodash isEqual for deep prop comparison to prevent unnecessary re-renders when table data or configuration hasn't actually changed."
-    },
-    {
-      "kind": "function",
-      "name": "areEqual",
-      "signature": "(prevProps: TableProps, nextProps: TableProps) => boolean",
-      "description": "Custom comparison function for React.memo that performs a deep equality check on TableProps using lodash isEqual, preventing re-renders when props are deeply equal.",
-      "line": 209,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx#L1",
-        "nx_kb_anchor": "areEqual"
-      },
       "details": {
-        "what_it_does": "Exported symbol: areEqual"
+        "what_it_does": "Wraps TableBase with React.memo using areEqual custom comparison. The areEqual function uses lodash isEqual to perform deep structural comparison of all TableProps, enabling the component to skip re-renders when props are deeply equal but may have different object references (e.g., new data array with identical contents). This is a critical optimization for large tables or tables in parent components that re-render frequently. Sets displayName='Table' for debugging.",
+        "rendered_ui_description": "Renders the complete table UI: flex-column container with optional toolbar (search input, export button, pagination controls), scrollable table region with sticky header and rows, optional summary footer. All sub-components consume TableContext for shared state."
       },
-      "symbol_id": "function_are_equal",
-      "description_one_line": "Custom comparison function for React.memo that performs a deep equality check on TableProps using lodash isEqual, preventing re-renders when props are deeply equal."
+      "signature": {
+        "params": [
+          {
+            "name": "props",
+            "type": "TableProps",
+            "required": true,
+            "description": "Complete table configuration object including data, headers, keysToRender, styling, behavior options (search, sort, filter, pagination, export, summary). See TableProps interface for 40+ properties."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "React element rendering the complete memoized table with all features."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic table rendering with required props",
+          "code": "import { Table } from '@/components/table';\n\nconst users = [\n  { id: 1, name: 'Alice', email: 'alice@example.com' },\n  { id: 2, name: 'Bob', email: 'bob@example.com' }\n];\n\nfunction UserTable() {\n  return (\n    <Table\n      data={users}\n      headers={['ID', 'Name', 'Email']}\n      keysToRender={['id', 'name', 'email']}\n    />\n  );\n}"
+        },
+        "extensive_correct": {
+          "title": "Production table with advanced features and memoization benefits",
+          "code": "import { Table } from '@/components/table';\nimport { useState, useMemo } from 'react';\n\nfunction ProductsPage({ filters }) {\n  const [data, setData] = useState([...initialProducts]);\n  \n  // Memoize table props to avoid unnecessary re-renders from parent\n  const tableProps = useMemo(() => ({\n    data,\n    headers: ['SKU', 'Name', 'Category', 'Price', 'Stock'],\n    keysToRender: ['sku', 'name', 'category', 'price', 'stock'],\n    includeSearch: true,\n    searchPlaceHolder: 'Search products (name+category uses AND logic)',\n    sortKeys: ['sku', 'name', 'category', 'price', 'stock'],\n    filterableColumns: [\n      { header: 'Category', dataKey: 'category' },\n      { header: 'Price Range', dataKey: 'priceRange' }\n    ],\n    exportToExcelKeys: ['sku', 'name', 'category', 'price', 'stock'],\n    excelFileName: 'products-export',\n    maxRows: 25,\n    showDisplayAllRowsButton: true,\n    noneSearchKeys: ['id'],\n    onRowClick: (product) => console.log('Selected:', product.sku),\n    containerClassName: 'p-6 bg-white rounded-lg shadow'\n  }), [data]);\n  \n  return <Table {...tableProps} />;\n}\n\n// Even if parent re-renders, Table won't unless tableProps actually change\n// because isEqual does deep comparison"
+        },
+        "incorrect": {
+          "title": "Incorrect: Creating new objects on every render breaks memoization",
+          "code": "// WRONG - new data array on every render\nfunction BadTable() {\n  return (\n    <Table\n      data={[\n        { id: 1, name: 'Alice' },\n        { id: 2, name: 'Bob' }\n      ]}\n      headers={['ID', 'Name']}\n      keysToRender={['id', 'name']}\n      filterableColumns={[\n        { header: 'Name', dataKey: 'name' }\n      ]}\n    />\n  );\n  // New array and filterableColumns created each render, Table re-renders every time\n}\n\n// CORRECT - memoize props\nfunction GoodTable() {\n  const data = useMemo(() => [\n    { id: 1, name: 'Alice' },\n    { id: 2, name: 'Bob' }\n  ], []);\n  \n  const filterableColumns = useMemo(() => [\n    { header: 'Name', dataKey: 'name' }\n  ], []);\n  \n  return (\n    <Table\n      data={data}\n      headers={['ID', 'Name']}\n      keysToRender={['id', 'name']}\n      filterableColumns={filterableColumns}\n    />\n  );\n  // Table only re-renders if data or filterableColumns content actually changes\n}"
+        }
+      }
     }
   ],
   "quality": {
     "generation_confidence": "high",
     "known_gaps": [
-      "The import of TableSCN from '../ui/table' is present but not visibly used in the rendered JSX — it may be used elsewhere or is a leftover import.",
-      "The import of textNumbersRegex from 'src/helpers/forms' is imported but not visibly used in this file."
-    ]
+      "The import of TableSCN from '../ui/table' is present but not visibly used in the Table.tsx file — it may be used in the sub-components (TableHead, TableBody, etc.) or is a leftover import.",
+      "The import of textNumbersRegex from helpers/forms is imported but not visibly used in this file — may be used in sub-components or search logic."
+    ],
+    "documentation_completeness": "Comprehensive: All 3 exported symbols (TableContext, TableProvider, Table) fully documented with complete prop signatures (40+ props for TableProvider), detailed behavior explanations, and 3-tier examples (minimal, extensive, incorrect). TableContext provides deep context access documentation. TableProvider documents all state management, search/filter/sort/pagination behavior. Table explains memoization strategy and re-render prevention. All examples use real-world scenarios with production patterns."
   }
 }

@@ -5,7 +5,7 @@
   },
   "file_name": "WebWorker.ts",
   "source": {
-    "file_path": "src/hooks/WebWorker.ts",
+    "file_path": "hooks/WebWorker.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
@@ -72,6 +72,12 @@
         "source_line_end": 218,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts#L22-L218",
         "nx_kb_anchor": "useWebWorker"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useWebWorker",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

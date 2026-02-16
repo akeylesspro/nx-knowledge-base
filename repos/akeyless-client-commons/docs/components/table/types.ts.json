@@ -91,7 +91,13 @@
         "what_it_does": "Exported symbol: FilterableColumn"
       },
       "symbol_id": "interface_filterable_column",
-      "description_one_line": "Internal (non-exported) interface describing a filterable column definition: the display header, the data key to filter on, and an optional UI renderer for filter option display."
+      "description_one_line": "Internal (non-exported) interface describing a filterable column definition: the display header, the data key to filter on, and an optional UI renderer for filter option display.",
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of FilterableColumn",
+          "code": "// TODO: Add example code"
+        }
+      }
     },
     {
       "kind": "interface",
@@ -109,7 +115,13 @@
         "what_it_does": "Exported symbol: TableProviderType"
       },
       "symbol_id": "interface_table_provider_type",
-      "description_one_line": "Interface describing the dynamic state and handler functions that the TableProvider injects into the TableContext. Includes sort state, search state, filter state, the computed dataToRender, display-all toggle, and all corresponding handler functions."
+      "description_one_line": "Interface describing the dynamic state and handler functions that the TableProvider injects into the TableContext. Includes sort state, search state, filter state, the computed dataToRender, display-all toggle, and all corresponding handler functions.",
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableProviderType",
+          "code": "// TODO: Add example code"
+        }
+      }
     },
     {
       "kind": "interface",
@@ -127,7 +139,13 @@
         "what_it_does": "Exported symbol: UseFilterProps"
       },
       "symbol_id": "interface_use_filter_props",
-      "description_one_line": "Input props interface for the useFilter hook: the source data array and the list of filterable column definitions."
+      "description_one_line": "Input props interface for the useFilter hook: the source data array and the list of filterable column definitions.",
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of UseFilterProps",
+          "code": "// TODO: Add example code"
+        }
+      }
     },
     {
       "kind": "interface",
@@ -249,7 +267,13 @@
         "what_it_does": "Exported symbol: TableProps"
       },
       "symbol_id": "interface_table_props",
-      "description_one_line": "The main configuration interface for the Table component. Includes required data/headers/keysToRender, and extensive optional props for: styling (container, table, header, row, cell), search (input style, placeholder, autofocus, excluded keys), sorting (sortKeys, sortLabel), filtering (filterableColumns, filterLabel), Excel export (keys, filename, headline, extra data, summary), summary/totals (sumColumns, labels, styles), pagination (maxRows, display-all toggle), row interaction (onRowClick, selectedRow, zebraStriping, rowClassNameFunction), and layout direction (ltr/rtl)."
+      "description_one_line": "The main configuration interface for the Table component. Includes required data/headers/keysToRender, and extensive optional props for: styling (container, table, header, row, cell), search (input style, placeholder, autofocus, excluded keys), sorting (sortKeys, sortLabel), filtering (filterableColumns, filterLabel), Excel export (keys, filename, headline, extra data, summary), summary/totals (sumColumns, labels, styles), pagination (maxRows, display-all toggle), row interaction (onRowClick, selectedRow, zebraStriping, rowClassNameFunction), and layout direction (ltr/rtl).",
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableProps",
+          "code": "// TODO: Add example code"
+        }
+      }
     },
     {
       "kind": "interface",
@@ -267,7 +291,125 @@
         "what_it_does": "Exported symbol: FilterProps"
       },
       "symbol_id": "interface_filter_props",
-      "description_one_line": "Props interface for the Filter component: the column index in the headers array and the FilterableColumn definition."
+      "description_one_line": "Props interface for the Filter component: the column index in the headers array and the FilterableColumn definition.",
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of FilterProps",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableProviderType",
+      "name": "TableProviderType",
+      "kind": "interface",
+      "description_one_line": "TableProviderType export",
+      "details": {
+        "what_it_does": "TableProviderType export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableProviderType"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableProviderType",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "UseFilterProps",
+      "name": "UseFilterProps",
+      "kind": "interface",
+      "description_one_line": "UseFilterProps export",
+      "details": {
+        "what_it_does": "UseFilterProps export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#UseFilterProps"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of UseFilterProps",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableProps",
+      "name": "TableProps",
+      "kind": "interface",
+      "description_one_line": "TableProps export",
+      "details": {
+        "what_it_does": "TableProps export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableProps"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableProps",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "FilterProps",
+      "name": "FilterProps",
+      "kind": "interface",
+      "description_one_line": "FilterProps export",
+      "details": {
+        "what_it_does": "FilterProps export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#FilterProps"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of FilterProps",
+          "code": "// TODO: Add example code"
+        }
+      }
     }
   ],
   "quality": {

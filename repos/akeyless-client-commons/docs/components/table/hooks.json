@@ -5,7 +5,7 @@
   },
   "file_name": "hooks.tsx",
   "source": {
-    "file_path": "src/components/table/hooks.tsx",
+    "file_path": "components/table/hooks.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
@@ -30,7 +30,7 @@
     "internal": [
       {
         "import_path": "./Table",
-        "resolved_file_path": "src/components/table/Table.tsx",
+        "resolved_file_path": "components/table/Table.tsx",
         "why_used": "Table context definition.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/table/Table.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/table/Table.tsx"
@@ -97,6 +97,124 @@
         "source_line_end": 60,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L15-L60",
         "nx_kb_anchor": "useFilter"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useFilter",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "useTableContext",
+      "name": "useTableContext",
+      "kind": "function",
+      "description_one_line": "Consumers use this to access table state.",
+      "details": {
+        "what_it_does": "Consumers use this to access table state."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#useTableContext"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useTableContext",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "useSort",
+      "name": "useSort",
+      "kind": "function",
+      "description_one_line": "Manages sort column and direction.",
+      "details": {
+        "what_it_does": "Manages sort column and direction."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#useSort"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useSort",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "useDisplayToggle",
+      "name": "useDisplayToggle",
+      "kind": "function",
+      "description_one_line": "Manages 'show all' vs 'max rows'.",
+      "details": {
+        "what_it_does": "Manages 'show all' vs 'max rows'."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#useDisplayToggle"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useDisplayToggle",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "useSearch",
+      "name": "useSearch",
+      "kind": "function",
+      "description_one_line": "Manages search query with debounce.",
+      "details": {
+        "what_it_does": "Manages search query with debounce."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#useSearch"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useSearch",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

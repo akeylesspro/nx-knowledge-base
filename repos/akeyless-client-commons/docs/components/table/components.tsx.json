@@ -7,7 +7,7 @@
   "source": {
     "file_path": "components/table/components.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
     "language": "tsx",
     "framework_tags": [
       "react"
@@ -16,92 +16,85 @@
     "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/components.tsx.json"
   },
   "summary": {
-    "purpose": "Contains all the individual sub-components that compose the table UI: Filter popup, MaxRowsLabel, DisplayAllRowsButton, ExportToExcel, Search, TableHead, TableBody, TableRow, TableCell, Summary, as well as reusable cell-level display components (TimesUI, TableButton, DurationUI, PhoneUI, BooleanUi, GeoUi, NumberUI).",
-    "problem_solved": "Breaks down the table into granular, memoised sub-components so each part can be independently rendered and optimised, and provides ready-made UI components for common cell data types like timestamps, durations, booleans, geo coordinates, and phone numbers."
+    "purpose": "Provides all granular table sub-components (Filter, MaxRowsLabel, DisplayAllRowsButton, ExportToExcel, Search, TableHead, TableBody, TableRow, TableCell, Summary) plus specialized cell renderers for common data types (TimesUI for timestamps, TableButton for CRUD actions, DurationUI for time durations, PhoneUI for phone numbers, BooleanUi for boolean values, GeoUi for geo coordinates, NumberUI for numbers).",
+    "problem_solved": "Breaks down the monolithic table into memoized sub-components so each can render and update independently without re-rendering unaffected siblings. Provides ready-made, type-safe cell renderers eliminating the need to implement custom formatting for common data types."
   },
   "dependencies": {
     "external": [
       {
         "module": "react",
         "kind": "runtime",
-        "why_used": "External dependency",
-        "name": "unknown-dependency"
+        "why_used": "React core for hooks (memo, useEffect, useMemo, useRef, useState), context consumption, and component composition.",
+        "name": "react"
       },
       {
         "module": "react-dom",
         "kind": "runtime",
-        "why_used": "External dependency",
-        "name": "unknown-dependency"
+        "why_used": "createPortal for rendering filter popup outside table container to prevent clipping by overflow:auto.",
+        "name": "react-dom"
       },
       {
         "module": "akeyless-types-commons",
         "kind": "runtime",
-        "why_used": "External dependency",
-        "name": "unknown-dependency"
+        "why_used": "Provides TObject generic type for table data objects and Geo type for GeoUi component.",
+        "name": "akeyless-types-commons"
       },
       {
         "module": "@/lib/utils",
         "kind": "runtime",
-        "why_used": "External dependency",
-        "name": "unknown-dependency"
+        "why_used": "cn() utility for conditional CSS class composition across all components.",
+        "name": "@/lib/utils"
       }
     ],
     "internal": [
       {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "../../assets",
-        "resolved_file_path": "assets/index.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/assets/index.ts"
-      },
-      {
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json",
-        "why_used": "Required dependency",
+        "why_used": "Required dependency for FilterProps type and Direction type.",
         "import_path": "./types",
         "resolved_file_path": "components/table/types.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts"
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/types.ts"
       },
       {
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/hooks.tsx.json",
-        "why_used": "Required dependency",
+        "why_used": "Required dependency for useTableContext hook used by all sub-components.",
         "import_path": "./hooks",
         "resolved_file_path": "components/table/hooks.tsx",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/hooks.tsx"
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx"
       },
       {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "src/helpers",
-        "resolved_file_path": "helpers/index.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/helpers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.tsx.json",
+        "why_used": "Required dependency for SVG icons (emptyFilterSvg, slashFilterSvg, sortSvg, exportToExcelSvg, RedXSvg2).",
+        "import_path": "../../assets",
+        "resolved_file_path": "assets/index.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.tsx.json",
+        "why_used": "Required dependency for getFixedNumber and renderOnce utilities.",
+        "import_path": "helpers",
+        "resolved_file_path": "helpers/index.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.tsx"
       },
       {
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/time_helpers.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "src/helpers/time_helpers",
+        "why_used": "Required dependency for timestamp_to_string function used by TimesUI component.",
+        "import_path": "helpers/time_helpers",
         "resolved_file_path": "helpers/time_helpers.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/helpers/time_helpers.ts"
-      },
-      {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "../ui",
-        "resolved_file_path": "components/ui/index.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/ui/index.ts"
-      },
-      {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "src/types",
-        "resolved_file_path": "types/index.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/types/index.ts"
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts"
       },
       {
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/excel.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "src/helpers/excel",
+        "why_used": "Required dependency for exportToExcel function used by ExportToExcel component.",
+        "import_path": "helpers/excel",
         "resolved_file_path": "helpers/excel.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/helpers/excel.ts"
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/excel.ts"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/index.tsx.json",
+        "why_used": "Required dependency for Button component used by TableButton.",
+        "import_path": "../ui",
+        "resolved_file_path": "components/ui/index.tsx",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx"
       }
     ]
   },
@@ -110,567 +103,1069 @@
       "name": "Filter",
       "kind": "component",
       "line": 15,
-      "description_one_line": "Filter export",
-      "symbol_id": "Filter"
+      "description_one_line": "Memoized filter column header component with dropdown popup for multi-select filtering.",
+      "symbol_id": "component_filter"
     },
     {
       "name": "MaxRowsLabel",
       "kind": "component",
       "line": 124,
-      "description_one_line": "MaxRowsLabel export",
-      "symbol_id": "MaxRowsLabel"
+      "description_one_line": "Memoized label showing current pagination state (displayed rows vs filtered total).",
+      "symbol_id": "component_max_rows_label"
     },
     {
       "name": "DisplayAllRowsButton",
       "kind": "component",
       "line": 136,
-      "description_one_line": "DisplayAllRowsButton export",
-      "symbol_id": "DisplayAllRowsButton"
+      "description_one_line": "Memoized toggle button to switch between paginated and all-rows display modes.",
+      "symbol_id": "component_display_all_rows_button"
     },
     {
       "name": "ExportToExcel",
       "kind": "component",
       "line": 159,
-      "description_one_line": "ExportToExcel export",
-      "symbol_id": "ExportToExcel"
+      "description_one_line": "Memoized button component that exports table data to Excel file with optional summary rows.",
+      "symbol_id": "component_export_to_excel"
     },
     {
       "name": "Search",
       "kind": "component",
       "line": 234,
-      "description_one_line": "Search export",
-      "symbol_id": "Search"
+      "description_one_line": "Memoized search input component with debounced multi-term filtering support.",
+      "symbol_id": "component_search"
     },
     {
       "name": "TableHead",
       "kind": "component",
       "line": 250,
-      "description_one_line": "TableHead export",
-      "symbol_id": "TableHead"
+      "description_one_line": "Memoized table header component rendering columns with sort indicators and filter buttons.",
+      "symbol_id": "component_table_head"
     },
     {
       "name": "TableBody",
       "kind": "component",
       "line": 294,
-      "description_one_line": "TableBody export",
-      "symbol_id": "TableBody"
+      "description_one_line": "Memoized table body component rendering filtered/sorted/paginated data rows.",
+      "symbol_id": "component_table_body"
     },
     {
       "name": "TableRow",
       "kind": "component",
       "line": 305,
-      "description_one_line": "TableRow export",
-      "symbol_id": "TableRow"
+      "description_one_line": "Table data row component with click handling, zebra striping, and row selection support.",
+      "symbol_id": "component_table_row"
     },
     {
       "name": "TableCell",
       "kind": "component",
       "line": 334,
-      "description_one_line": "TableCell export",
-      "symbol_id": "TableCell"
+      "description_one_line": "Table data cell component with text overflow truncation and tooltip support.",
+      "symbol_id": "component_table_cell"
     },
     {
       "name": "Summary",
       "kind": "component",
       "line": 347,
-      "description_one_line": "Summary export",
-      "symbol_id": "Summary"
+      "description_one_line": "Memoized footer component displaying sum/total calculations for specified columns.",
+      "symbol_id": "component_summary"
     },
     {
       "name": "TimesUI",
       "kind": "component",
       "line": 383,
-      "description_one_line": "TimesUI export",
-      "symbol_id": "TimesUI"
+      "description_one_line": "Cell renderer component for timestamp values with configurable formatting and timezone support.",
+      "symbol_id": "component_times_ui"
     },
     {
       "name": "TableButton",
       "kind": "component",
       "line": 401,
-      "description_one_line": "TableButton export",
-      "symbol_id": "TableButton"
+      "description_one_line": "Reusable action button component for table cells with add, edit, delete, or custom icon types.",
+      "symbol_id": "component_table_button"
     },
     {
       "name": "DurationUI",
       "kind": "component",
       "line": 436,
-      "description_one_line": "DurationUI export",
-      "symbol_id": "DurationUI"
+      "description_one_line": "Cell renderer component for duration values (seconds) displaying formatted days, hours, minutes, seconds.",
+      "symbol_id": "component_duration_ui"
     },
     {
       "name": "PhoneUI",
       "kind": "component",
       "line": 494,
-      "description_one_line": "PhoneUI export",
-      "symbol_id": "PhoneUI"
+      "description_one_line": "Cell renderer component for phone numbers with RTL/LTR direction support.",
+      "symbol_id": "component_phone_ui"
     },
     {
       "name": "BooleanUi",
       "kind": "component",
       "line": 511,
-      "description_one_line": "BooleanUi export",
-      "symbol_id": "BooleanUi"
+      "description_one_line": "Cell renderer component for boolean values displaying customizable icons for true/false states.",
+      "symbol_id": "component_boolean_ui"
     },
     {
       "name": "GeoUi",
       "kind": "component",
       "line": 523,
-      "description_one_line": "GeoUi export",
-      "symbol_id": "GeoUi"
+      "description_one_line": "Cell renderer component for geographic coordinates with clickable Google Maps link.",
+      "symbol_id": "component_geo_ui"
     },
     {
       "name": "NumberUI",
       "kind": "component",
       "line": 544,
-      "description_one_line": "NumberUI export",
-      "symbol_id": "NumberUI"
-    },
-    {
-      "name": "GeoUiProps",
-      "kind": "interface",
-      "line": 517,
-      "description_one_line": "GeoUiProps export",
-      "symbol_id": "GeoUiProps"
-    },
-    {
-      "name": "NumberUIProps",
-      "kind": "interface",
-      "line": 539,
-      "description_one_line": "NumberUIProps export",
-      "symbol_id": "NumberUIProps"
+      "description_one_line": "Cell renderer component for numeric values with RTL/LTR direction support and text overflow.",
+      "symbol_id": "component_number_ui"
     }
   ],
   "symbols": [
     {
+      "symbol_id": "component_filter",
       "kind": "component",
       "name": "Filter",
-      "signature": "React.MemoExoticComponent<({ filterableColumn, index }: FilterProps) => JSX.Element>",
-      "description": "Memoised filter component that renders a filter icon button on a table header cell. When clicked, it opens a portal-rendered popup with checkbox options for filtering column values. The popup is positioned relative to the button and adapts to LTR/RTL direction and screen resizing.",
-      "details": {
-        "rendered_ui_description": "An absolutely-positioned filter icon button in a header cell. When active, a fixed-position popup (rendered via createPortal to document.body) shows the filter label, a close button, a clear-filter button, and a scrollable list of checkboxes for each unique column value.",
-        "what_it_does": "Exported symbol: Filter"
-      },
+      "signature": "(props: FilterProps) => JSX.Element",
+      "description": "Memoized filter button component rendered in table headers. Displays active filter state via SVG icons (empty/filled filter), opens/closes a portal-rendered dropdown popup for multi-select filtering. Popup positions left or right depending on RTL/LTR direction and column position. Includes checkbox list of unique column values with optional custom UI formatting.",
+      "description_one_line": "Memoized filter column header component with dropdown popup for multi-select filtering.",
       "line": 15,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 15,
+        "source_line_end": 121,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L15-L121",
         "nx_kb_anchor": "Filter"
       },
-      "symbol_id": "component_filter",
-      "description_one_line": "Memoised filter component that renders a filter icon button on a table header cell. When clicked, it opens a portal-rendered popup with checkbox options for filtering column values. The popup is positioned relative to the button and adapts to LTR/RTL direction and screen resizing."
+      "details": {
+        "what_it_does": "Renders filter button with state-dependent SVG icon (emptyFilterSvg when no filters active, slashFilterSvg when filters applied). On button click, toggles display of filter popup portal. Popup contains checkbox list of all unique values for the column, sorted alphabetically. Includes clear filter button and close button. Position calculated based on button rect and direction (RTL/LTR). Listens to window resize/scroll events to update popup position. Uses createPortal to render outside table container so popup is not clipped by overflow:auto.",
+        "rendered_ui_description": "Renders absolute-positioned filter button (text-[12px]) with tooltip. When open, renders a fixed z-[30] portal popup (192px wide, 208px tall) with checkbox list, header with filter label and action buttons, and scrollable options area. Popup appears left or right of button depending on column position and direction."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "filterableColumn",
+            "type": "FilterableColumn",
+            "required": true,
+            "description": "Object containing header (display text), dataKey (column key to filter), and optional ui function for custom value rendering in dropdown."
+          },
+          {
+            "name": "index",
+            "type": "number",
+            "required": true,
+            "description": "Column index in headers array, used to determine popup position and RTL/LTR alignment."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Filter button and conditional portal popup for multi-select filtering."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic filter in table header",
+          "code": "import { Filter } from '@/components/table';\nimport { useTableContext } from '@/components/table/hooks';\n\nfunction TableHeaderCell() {\n  const { filterableColumns } = useTableContext();\n  const filterableColumn = filterableColumns[0];\n  \n  return (\n    <th>\n      <div>Column Name</div>\n      <Filter filterableColumn={filterableColumn} index={0} />\n    </th>\n  );\n}"
+        },
+        "extensive_correct": {
+          "title": "Filter with custom value formatting",
+          "code": "const filterableColumns = [\n  {\n    header: 'Status',\n    dataKey: 'status',\n    ui: (value) => {\n      const statusMap = {\n        'active': '✓ Active',\n        'inactive': '✗ Inactive',\n        'pending': '⏳ Pending'\n      };\n      return statusMap[value] || value;\n    }\n  }\n];\n\n// When Filter opens dropdown, values appear as:\n// [✓] ✓ Active\n// [ ] ✗ Inactive  \n// [ ] ⏳ Pending"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using Filter outside table context",
+          "code": "// WRONG - Filter requires TableContext\nfunction BadComponent() {\n  return <Filter filterableColumn={col} index={0} />;\n  // Will crash: useTableContext() returns null\n}\n\n// CORRECT - Use inside table with context\n<Table data={data} headers={headers} keysToRender={keys}>\n  <TableHead /> {/* Filter rendered inside via TableHead */}\n  <TableBody />\n</Table>"
+        }
+      }
     },
     {
+      "symbol_id": "component_max_rows_label",
       "kind": "component",
       "name": "MaxRowsLabel",
-      "signature": "React.MemoExoticComponent<() => JSX.Element>",
-      "description": "Memoised component that displays a label showing how many rows are currently displayed versus total filtered rows (e.g., 'Showing 50 of 200').",
-      "details": {
-        "rendered_ui_description": "A horizontal flex container with text showing two configurable labels interleaved with the current display count and total filtered count.",
-        "what_it_does": "Exported symbol: MaxRowsLabel"
-      },
+      "signature": "() => JSX.Element",
+      "description": "Memoized pagination status label component displaying counts. Shows: 'maxRowsLabel1 {displayedCount} maxRowsLabel2 {filteredTotalCount}'. Example: 'Showing 10 of 150 items'. Uses renderOnce memoization to prevent unnecessary re-renders.",
+      "description_one_line": "Memoized label showing current pagination state (displayed rows vs filtered total).",
       "line": 124,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 124,
+        "source_line_end": 134,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L124-L134",
         "nx_kb_anchor": "MaxRowsLabel"
       },
-      "symbol_id": "component_max_rows_label",
-      "description_one_line": "Memoised component that displays a label showing how many rows are currently displayed versus total filtered rows (e.g., 'Showing 50 of 200')."
+      "details": {
+        "what_it_does": "Extracts maxRowsLabel1, maxRowsLabel2, maxRows, displayAllRows, and dataToRender from table context. Calculates displayed count: if displayAllRows is true OR rendered data exceeds maxRows, shows full rendered count; otherwise shows maxRows limit. Displays: '{maxRowsLabel1} {displayedCount} {maxRowsLabel2} {filteredTotal}'.",
+        "rendered_ui_description": "Renders flex row with text-lg gap-1 containing four elements: label1 text, displayed count number, label2 text, and filtered total count. CSS classes: justify-start items-center text-lg gap-1, plus optional maxRowsContainerClassName."
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Pagination status label showing row counts."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic pagination label",
+          "code": "// Given: 50 data rows, maxRows=10, displayAllRows=false\n// Renders: \"Showing 10 of 50\"\n\n<Table\n  data={data} // 50 items\n  headers={['Name', 'Email']}\n  keysToRender={['name', 'email']}\n  maxRows={10}\n  maxRowsLabel1=\"Showing\"\n  maxRowsLabel2=\"of\"\n>\n  <MaxRowsLabel />\n</Table>"
+        },
+        "extensive_correct": {
+          "title": "Pagination with search filtering",
+          "code": "// Given: 100 data rows, search filters to 25 matching, maxRows=10\n// Renders: \"Displaying 10 records out of 25 matching\"\n\n<Table\n  data={allUsers} // 100 items\n  includeSearch={true}\n  maxRows={10}\n  maxRowsLabel1=\"Displaying\"\n  maxRowsLabel2=\"records out of\"\n  searchPlaceHolder=\"Search...\"\n>\n  <MaxRowsLabel /> {/* Will update as user searches */}\n</Table>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using without Table context",
+          "code": "// WRONG\nfunction StandaloneLabel() {\n  return <MaxRowsLabel />; // Error: null context\n}\n\n// CORRECT - nest inside Table\n<Table data={data} headers={h} keysToRender={k}>\n  <MaxRowsLabel />\n</Table>"
+        }
+      }
     },
     {
+      "symbol_id": "component_display_all_rows_button",
       "kind": "component",
       "name": "DisplayAllRowsButton",
-      "signature": "React.MemoExoticComponent<() => JSX.Element>",
-      "description": "Memoised toggle button that switches between showing a limited number of rows (maxRows) and displaying all filtered rows. Shows the count that will be displayed when clicked.",
-      "details": {
-        "rendered_ui_description": "A styled green button with a label (default 'Display:') and a count. Clicking toggles between limited and full row display.",
-        "what_it_does": "Exported symbol: DisplayAllRowsButton"
-      },
+      "signature": "() => JSX.Element",
+      "description": "Memoized pagination toggle button. Switches between paginated (maxRows limit) and all-rows display mode. Button shows count of what will be displayed when clicked. Styled with green background (#547f22), white text, rounded corners. Uses renderOnce memoization.",
+      "description_one_line": "Memoized toggle button to switch between paginated and all-rows display modes.",
       "line": 136,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 136,
+        "source_line_end": 156,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L136-L156",
         "nx_kb_anchor": "DisplayAllRowsButton"
       },
-      "symbol_id": "component_display_all_rows_button",
-      "description_one_line": "Memoised toggle button that switches between showing a limited number of rows (maxRows) and displaying all filtered rows. Shows the count that will be displayed when clicked."
+      "details": {
+        "what_it_does": "Toggles displayAllRows state when clicked. Calculates display count: if displayAllRows is true, shows limited (maxRows) count; if false, shows total filtered count. Renders button with label and count. Supports custom button props via displayAllRowsButtonProps and custom label via displayAllRowsButtonLabel.",
+        "rendered_ui_description": "Renders styled button with background-color #547f22, white text, px-3 py-1.5, rounded-md, with hover:bg-[#3e671f] and focus:outline-none. Contains flex gap-1 with label text and count number."
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Toggle button switching pagination mode."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic display-all toggle",
+          "code": "// Paginated mode (displayAllRows=false, maxRows=10): button shows \"Display: 100\" (total filtered)\n// Click button to toggle → All-rows mode (displayAllRows=true): button shows \"Display: 10\" (max rows)\n\n<Table\n  data={users}\n  maxRows={10}\n  showDisplayAllRowsButton={true}\n>\n  <DisplayAllRowsButton />\n</Table>"
+        },
+        "extensive_correct": {
+          "title": "Custom button styling and label",
+          "code": "<Table\n  data={items}\n  maxRows={20}\n  showDisplayAllRowsButton={true}\n  displayAllRowsButtonLabel=\"Load\"\n  displayAllRowsButtonProps={{\n    className: 'text-sm font-bold',\n    style: { backgroundColor: '#4CAF50' }\n  }}\n>\n  <DisplayAllRowsButton /> {/* Renders: \"Load 120\" or \"Load 20\" */}\n</Table>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Button without pagination context",
+          "code": "// WRONG - no maxRows set\n<Table data={data} headers={h} keysToRender={k}>\n  <DisplayAllRowsButton /> {/* Button won't make sense without pagination */}\n</Table>\n\n// CORRECT - set maxRows to enable pagination\n<Table data={data} headers={h} keysToRender={k} maxRows={50}>\n  <DisplayAllRowsButton />\n</Table>"
+        }
+      }
     },
     {
+      "symbol_id": "component_export_to_excel",
       "kind": "component",
       "name": "ExportToExcel",
-      "signature": "React.MemoExoticComponent<() => JSX.Element>",
-      "description": "Memoised button component that exports the currently rendered table data to an Excel file. Supports adding extra columns, summary rows, custom headlines, and respects LTR/RTL cell alignment. Uses the exportToExcel helper from src/helpers/excel.",
-      "details": {
-        "rendered_ui_description": "A styled green button with either custom content or an Excel SVG icon. Clicking triggers an async export-to-Excel operation.",
-        "what_it_does": "Exported symbol: ExportToExcel"
-      },
+      "signature": "() => Promise<void>",
+      "description": "Memoized button component that exports currently-displayed table data to Excel file. Handles optional data augmentation (prepending custom rows), summary row calculation (summing numeric columns), and Excel formatting (headline, alignment, direction). Async function that calls exportToExcel helper.",
+      "description_one_line": "Memoized button component that exports table data to Excel file with optional summary rows.",
       "line": 159,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 159,
+        "source_line_end": 231,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L159-L231",
         "nx_kb_anchor": "ExportToExcel"
       },
-      "symbol_id": "component_export_to_excel",
-      "description_one_line": "Memoised button component that exports the currently rendered table data to an Excel file. Supports adding extra columns, summary rows, custom headlines, and respects LTR/RTL cell alignment. Uses the exportToExcel helper from src/helpers/excel."
+      "details": {
+        "what_it_does": "Extracts export config from context. If dataToAddToExcelTable provided, prepends custom rows to export data (adding headers). Maps exportToExcelKeys to column definitions. If sumColumns provided, calculates sum for each column (Number(cell) or 0) and appends summary rows. Calls exportToExcel helper with configured columns, data with summaries, headline, filename, and direction-specific cell formatting (horizontal alignment, reading order).",
+        "rendered_ui_description": "Renders styled button with background-color #547f22, white text, px-2 py-[2px], rounded-lg, text-[16px]. Content is either exportExcelContent (custom ReactNode) or exportToExcelSvg() icon. Supports custom className via exportToExcelClassName."
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "Promise<void>",
+          "description": "Async function that exports table to Excel and resolves when complete."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic export with selected columns",
+          "code": "const data = [\n  { id: 1, name: 'Product A', price: 100 },\n  { id: 2, name: 'Product B', price: 250 }\n];\n\n<Table\n  data={data}\n  headers={['ID', 'Name', 'Price']}\n  keysToRender={['id', 'name', 'price']}\n  exportToExcelKeys={['id', 'name', 'price']}\n  excelFileName=\"products-list\"\n>\n  <ExportToExcel /> {/* Exports as products-list.xlsx */}\n</Table>"
+        },
+        "extensive_correct": {
+          "title": "Export with summary totals and custom data",
+          "code": "const salesData = [\n  { date: '2025-01-01', product: 'Widget', amount: 500 },\n  { date: '2025-01-02', product: 'Gadget', amount: 750 },\n  { date: '2025-01-03', product: 'Widget', amount: 600 }\n];\n\n<Table\n  data={salesData}\n  headers={['Date', 'Product', 'Amount']}\n  keysToRender={['date', 'product', 'amount']}\n  exportToExcelKeys={['date', 'product', 'amount']}\n  excelFileName=\"sales-report-jan\"\n  excelHeadline=\"January 2025 Sales Report\"\n  sumColumns={[\n    { label: 'Total Sales', dataKey: 'amount' }\n  ]}\n  dataToAddToExcelTable={[\n    { key: 'reportDate', value: new Date().toISOString().split('T')[0], header: 'Report Generated' },\n    { key: 'currency', value: 'USD', header: 'Currency' }\n  ]}\n>\n  <ExportToExcel />\n  {/* Excel file includes: headline, custom data rows, data rows, and summary total */}\n</Table>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Export without specifying keys",
+          "code": "// WRONG - no exportToExcelKeys\n<Table data={data} headers={h} keysToRender={k}>\n  <ExportToExcel /> {/* Will be no-op: returns early if !exportToExcelKeys */}\n</Table>\n\n// CORRECT - specify export columns\n<Table\n  data={data}\n  headers={['ID', 'Name', 'Email']}\n  keysToRender={['id', 'name', 'email']}\n  exportToExcelKeys={['id', 'name', 'email']}\n  excelFileName=\"contacts\"\n>\n  <ExportToExcel /> {/* Now exports all three columns */}\n</Table>"
+        }
+      }
     },
     {
+      "symbol_id": "component_search",
       "kind": "component",
       "name": "Search",
-      "signature": "React.MemoExoticComponent<() => JSX.Element>",
-      "description": "Memoised search input component that renders a text input bound to the table's search state. Supports placeholder, custom styling, and autofocus.",
-      "details": {
-        "rendered_ui_description": "A bordered text input field of type 'search' with configurable placeholder and styling, bound to the table context search query.",
-        "what_it_does": "Exported symbol: Search"
-      },
+      "signature": "() => JSX.Element",
+      "description": "Memoized search input component. Renders text input connected to debounced search state. Multi-term search support: split query by '+' and match rows containing ALL terms (AND logic). Supports autoFocus and custom placeholder. Uses renderOnce memoization.",
+      "description_one_line": "Memoized search input component with debounced multi-term filtering support.",
       "line": 234,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 234,
+        "source_line_end": 247,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L234-L247",
         "nx_kb_anchor": "Search"
       },
-      "symbol_id": "component_search",
-      "description_one_line": "Memoised search input component that renders a text input bound to the table's search state. Supports placeholder, custom styling, and autofocus."
+      "details": {
+        "what_it_does": "Extracts search state (searchQuery, handleSearch, searchPlaceHolder, autoFocus) from context. Renders input[type=search] with border-black border-[1px], text-lg, px-2, width 11/12. Value bound to searchQuery, onChange calls handleSearch. autoFocus attribute applied if true.",
+        "rendered_ui_description": "Renders search input with border-black border-[1px], text-lg px-2 w-11/12, applying custom searchInputClassName and searchInputStyle. Input is large and responsive, suitable for prominent toolbar placement."
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Search input element with debounced multi-term search."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic search input",
+          "code": "<Table\n  data={employees}\n  headers={['Name', 'Email', 'Department']}\n  keysToRender={['name', 'email', 'department']}\n  includeSearch={true}\n  searchPlaceHolder=\"Search employees...\"\n>\n  <Search /> {/* Filters across all columns */}\n</Table>"
+        },
+        "extensive_correct": {
+          "title": "Multi-term search with noneSearchKeys",
+          "code": "// User types: \"john+manager\"\n// Searches across all columns EXCEPT id (noneSearchKeys)\n// Returns rows where: (name OR email OR department) contains \"john\"\n//                 AND (name OR email OR department) contains \"manager\"\n\n<Table\n  data={staff}\n  includeSearch={true}\n  searchPlaceHolder=\"Search: use + for AND logic (e.g., john+manager)\"\n  autoFocus={true}\n  noneSearchKeys={['id', 'userId']} // Skip ID fields from search\n>\n  <Search />\n</Table>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Search outside table context",
+          "code": "// WRONG - useTableContext returns null\nfunction StandaloneSearch() {\n  return <Search />; // Error: cannot read property of null\n}\n\n// CORRECT - use within Table\n<Table data={data} headers={h} keysToRender={k} includeSearch={true}>\n  <Search />\n</Table>"
+        }
+      }
     },
     {
+      "symbol_id": "component_table_head",
       "kind": "component",
       "name": "TableHead",
-      "signature": "React.MemoExoticComponent<() => JSX.Element>",
-      "description": "Memoised table header component that renders a sticky thead with column headers. Each header cell supports click-to-sort (when sortKeys are configured), displays a sort direction SVG indicator, and optionally renders a Filter component for filterable columns.",
-      "details": {
-        "rendered_ui_description": "A sticky dark-background thead row with header cells. Each cell shows the header text, an optional sort arrow icon, and an optional filter icon/popup.",
-        "what_it_does": "Exported symbol: TableHead"
-      },
+      "signature": "() => JSX.Element",
+      "description": "Memoized table header component. Renders <thead> with sticky positioning and dark background. Each <th> is clickable for sorting (if sortKeys provided). Displays sort indicator SVG (sortSvg) for active sort column. Includes Filter button for filterable columns. Uses renderOnce memoization.",
+      "description_one_line": "Memoized table header component rendering columns with sort indicators and filter buttons.",
       "line": 250,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 250,
+        "source_line_end": 291,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L250-L291",
         "nx_kb_anchor": "TableHead"
       },
-      "symbol_id": "component_table_head",
-      "description_one_line": "Memoised table header component that renders a sticky thead with column headers. Each header cell supports click-to-sort (when sortKeys are configured), displays a sort direction SVG indicator, and optionally renders a Filter component for filterable columns."
+      "details": {
+        "what_it_does": "Maps headers array and renders <th> for each column. If sortKeys provided, makes header clickable (cursor-pointer) and onClick calls handleSort(index). Renders sort SVG (sortSvg() or sortSvg(true) for asc) if sortColumn === index. For each header, checks if filterable column exists and renders Filter component. Uses useMemo to compute sortDisplay boolean.",
+        "rendered_ui_description": "Renders <thead> with bg-black/50 text-white sticky z-10 top-0. Each <th> has px-2 text-center h-6 relative w-fit max-w-[130px]. Header text in px-2 div, sort SVG absolutely positioned, Filter component absolutely positioned top-1 right-1."
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Table header element with columns, sort indicators, and filter buttons."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic table header without sorting",
+          "code": "<Table\n  data={data}\n  headers={['Name', 'Email', 'Status']}\n  keysToRender={['name', 'email', 'status']}\n>\n  <thead>\n    <TableHead /> {/* Headers with no sorting capability */}\n  </thead>\n</Table>"
+        },
+        "extensive_correct": {
+          "title": "Header with sort and filter",
+          "code": "<Table\n  data={employees}\n  headers={['Name', 'Department', 'Salary']}\n  keysToRender={['name', 'department', 'salary']}\n  sortKeys={['name', 'department', 'salary']}\n  sortLabel=\"Click to sort\"\n  filterableColumns={[\n    { header: 'Department', dataKey: 'department' }\n  ]}\n>\n  {/* Header renders: */}\n  {/* Name (clickable, shows sort SVG when active) */}\n  {/* Department (clickable, shows sort SVG, has Filter button) */}\n  {/* Salary (clickable, shows sort SVG) */}\n  <TableHead />\n</Table>"
+        },
+        "incorrect": {
+          "title": "Incorrect: TableHead outside context",
+          "code": "// WRONG\nfunction StandaloneHeader() {\n  return <TableHead />; // useTableContext returns null\n}\n\n// CORRECT - inside Table\n<Table data={d} headers={h} keysToRender={k}>\n  <TableHead />\n</Table>"
+        }
+      }
     },
     {
+      "symbol_id": "component_table_body",
       "kind": "component",
       "name": "TableBody",
-      "signature": "React.MemoExoticComponent<() => JSX.Element>",
-      "description": "Memoised table body component that iterates over the computed dataToRender.renderedData and renders a TableRow for each item.",
-      "details": {
-        "rendered_ui_description": "A tbody element with dividing lines between rows, containing one TableRow per data item.",
-        "what_it_does": "Exported symbol: TableBody"
-      },
+      "signature": "() => JSX.Element",
+      "description": "Memoized table body component. Renders <tbody> mapping dataToRender.renderedData (filtered/sorted/paginated) to TableRow components. Applies divide-y divide-gray-600 styling. Uses renderOnce memoization.",
+      "description_one_line": "Memoized table body component rendering filtered/sorted/paginated data rows.",
       "line": 294,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 294,
+        "source_line_end": 303,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L294-L303",
         "nx_kb_anchor": "TableBody"
       },
-      "symbol_id": "component_table_body",
-      "description_one_line": "Memoised table body component that iterates over the computed dataToRender.renderedData and renders a TableRow for each item."
+      "details": {
+        "what_it_does": "Renders <tbody> element. Maps dataToRender.renderedData array, creating TableRow component for each item with item data and index. Applies tableBodyClassName if provided.",
+        "rendered_ui_description": "Renders <tbody> with divide-y divide-gray-600 and optional tableBodyClassName. Contains multiple <tr> elements from TableRow."
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Table body element with data rows."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic table body rendering",
+          "code": "<Table data={users} headers={h} keysToRender={k}>\n  <TableHead />\n  <TableBody /> {/* Renders one <tr> for each user */}\n</Table>"
+        },
+        "extensive_correct": {
+          "title": "Body with custom styling",
+          "code": "<Table\n  data={products}\n  headers={['SKU', 'Name', 'Price']}\n  keysToRender={['sku', 'name', 'price']}\n  tableBodyClassName=\"bg-white text-gray-900\"\n>\n  <TableHead />\n  <TableBody /> {/* Tbody has custom bg and text color */}\n</Table>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using TableBody outside context",
+          "code": "// WRONG\nconst rows = <TableBody />; // Error: null context\n\n// CORRECT - nested in Table\n<Table data={d} headers={h} keysToRender={k}>\n  <TableBody />\n</Table>"
+        }
+      }
     },
     {
+      "symbol_id": "component_table_row",
       "kind": "component",
       "name": "TableRow",
-      "signature": "({ item, index }: { item: TObject<any>; index: number }) => JSX.Element",
-      "description": "Renders a single table row. Supports hover highlighting, zebra striping, custom row class names via function, selected-row highlighting, and an onRowClick callback. Renders a TableCell for each key in keysToRender.",
-      "details": {
-        "rendered_ui_description": "A tr element with hover state, optional zebra striping, optional selected-row styling, containing td cells for each configured key.",
-        "what_it_does": "Exported symbol: TableRow"
-      },
+      "signature": "(props: { item: TObject<any>; index: number }) => JSX.Element",
+      "description": "Table data row component (not memoized). Renders single <tr> with click handler. Supports zebra striping (alternating row colors), row selection highlighting, and custom row className functions. Maps keysToRender to TableCell components.",
+      "description_one_line": "Table data row component with click handling, zebra striping, and row selection support.",
       "line": 305,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 305,
+        "source_line_end": 332,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L305-L332",
         "nx_kb_anchor": "TableRow"
       },
-      "symbol_id": "component_table_row",
-      "description_one_line": "Renders a single table row. Supports hover highlighting, zebra striping, custom row class names via function, selected-row highlighting, and an onRowClick callback. Renders a TableCell for each key in keysToRender."
+      "details": {
+        "what_it_does": "Accepts item (row data) and index. Applies zebra striping classes based on odd/even index. Applies rowClassName base classes and custom className from rowClassNameFunction (if provided). Applies selectedRow className if selectedRow.rowIndex === index. On click, calls selectedRow.onChange(index) and onRowClick(item, index). Maps keysToRender to render one TableCell per column value.",
+        "rendered_ui_description": "Renders <tr> with hover:bg-[#808080] hover:text-[#fff] hover effect, optional zebra striping (even/odd row colors), custom row className, and optional selected row highlight. Contains <td> cells from TableCell."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "item",
+            "type": "TObject<any>",
+            "required": true,
+            "description": "Single row data object."
+          },
+          {
+            "name": "index",
+            "type": "number",
+            "required": true,
+            "description": "Zero-indexed row position in rendered data."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Table row element with cells."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic row rendering",
+          "code": "const item = { id: 1, name: 'Alice', email: 'alice@example.com' };\nconst index = 0;\n\nreturn <TableRow item={item} index={index} />;\n// Renders: <tr><td>1</td><td>Alice</td><td>alice@example.com</td></tr>"
+        },
+        "extensive_correct": {
+          "title": "Row with zebra striping and selection",
+          "code": "const [selectedIndex, setSelectedIndex] = useState(null);\n\n<Table\n  data={users}\n  headers={['ID', 'Name', 'Email']}\n  keysToRender={['id', 'name', 'email']}\n  zebraStriping={{\n    evenRowClassName: 'bg-gray-100',\n    oddRowClassName: 'bg-white'\n  }}\n  selectedRow={{\n    rowIndex: selectedIndex,\n    className: 'bg-blue-200 font-bold',\n    onChange: setSelectedIndex\n  }}\n  onRowClick={(item) => console.log('Selected:', item.name)}\n>\n  <TableHead />\n  <TableBody />\n</Table>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Direct TableRow usage (should use TableBody)",
+          "code": "// WRONG - manually creating rows\nfunction BadTable() {\n  return (\n    <tbody>\n      {data.map((item, idx) => <TableRow item={item} index={idx} />)}\n    </tbody>\n  );\n  // Missing context, click handlers won't work\n}\n\n// CORRECT - use TableBody\n<Table data={data} headers={h} keysToRender={k}>\n  <TableBody /> {/* Internally uses TableRow */}\n</Table>"
+        }
+      }
     },
     {
+      "symbol_id": "component_table_cell",
       "kind": "component",
       "name": "TableCell",
-      "signature": "({ value }: { value: any }) => JSX.Element",
-      "description": "Renders a single table cell (td) with ellipsis truncation, a title tooltip for primitive values, and configurable styling from context.",
-      "details": {
-        "rendered_ui_description": "A td element with text truncation (ellipsis), bordered, with a title attribute for tooltip display of the cell value.",
-        "what_it_does": "Exported symbol: TableCell"
-      },
+      "signature": "(props: { value: any }) => JSX.Element",
+      "description": "Table data cell component rendering a single <td>. Applies text overflow truncation (max-w-[130px]), ellipsis styling. Sets title attribute for tooltip display of string/number/boolean values.",
+      "description_one_line": "Table data cell component with text overflow truncation and tooltip support.",
       "line": 334,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 334,
+        "source_line_end": 345,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L334-L345",
         "nx_kb_anchor": "TableCell"
       },
-      "symbol_id": "component_table_cell",
-      "description_one_line": "Renders a single table cell (td) with ellipsis truncation, a title tooltip for primitive values, and configurable styling from context."
+      "details": {
+        "what_it_does": "Renders <td> element. Sets title tooltip for string/number/boolean values (shows full value on hover). Applies cellStyle and cellClassName from context. Cell styling: chivo ellipsis _ellipsis text-start px-1 py-0.5 border-gray-400 border-[1px] w-fit max-w-[130px]. Renders value as-is (no custom formatting; use cell-level UI components like TimesUI, BooleanUi, etc. for formatting).",
+        "rendered_ui_description": "Renders <td> with border-gray-400 border-[1px], text-start alignment, limited width max-w-[130px], ellipsis text overflow styling. Responsive to cellClassName and cellStyle props."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "value",
+            "type": "any",
+            "required": true,
+            "description": "Cell value to render (string, number, boolean, React.ReactNode, etc.)."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Table cell element."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic cell rendering",
+          "code": "<TableCell value=\"Alice Johnson\" />\n{/* Renders: <td>Alice Johnson</td> with ellipsis overflow */}"
+        },
+        "extensive_correct": {
+          "title": "Cell with custom renderers",
+          "code": "// Use specialized UI components for formatting\nconst columns = [\n  { key: 'name', renderer: (v) => <span>{v}</span> },\n  { key: 'created', renderer: (v) => <TimesUI timestamp={v} /> },\n  { key: 'active', renderer: (v) => <BooleanUi value={v} /> },\n  { key: 'location', renderer: (v) => <GeoUi value={v} /> }\n];\n\n// In TableRow:\ncolumns.forEach(col => (\n  <TableCell value={col.renderer(item[col.key])} />\n));"
+        },
+        "incorrect": {
+          "title": "Incorrect: Complex objects without formatting",
+          "code": "// WRONG - object renders as [object Object]\nconst user = { name: 'Alice', email: 'alice@example.com' };\n<TableCell value={user} /> {/* Renders: [object Object] */}\n\n// CORRECT - extract specific value and format\n<TableCell value={user.email} /> {/* Renders: alice@example.com */}"
+        }
+      }
     },
     {
+      "symbol_id": "component_summary",
       "kind": "component",
       "name": "Summary",
-      "signature": "React.MemoExoticComponent<() => JSX.Element>",
-      "description": "Memoised summary/footer component that computes and displays column sums for configured sumColumns. Each sum is computed from the rendered data and formatted via getFixedNumber, with an optional custom UI renderer.",
-      "details": {
-        "rendered_ui_description": "A full-width horizontal bar below the table showing a summary label on one side and computed column totals on the other, styled with bold text.",
-        "what_it_does": "Exported symbol: Summary"
-      },
+      "signature": "() => JSX.Element",
+      "description": "Memoized footer component displaying sum/total calculations for specified columns. Iterates sumColumns, calculates numeric sum for each, and displays formatted value (using column's optional ui function). Uses renderOnce memoization.",
+      "description_one_line": "Memoized footer component displaying sum/total calculations for specified columns.",
       "line": 347,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 347,
+        "source_line_end": 371,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L347-L371",
         "nx_kb_anchor": "Summary"
       },
-      "symbol_id": "component_summary",
-      "description_one_line": "Memoised summary/footer component that computes and displays column sums for configured sumColumns. Each sum is computed from the rendered data and formatted via getFixedNumber, with an optional custom UI renderer."
-    },
-    {
-      "kind": "interface",
-      "name": "TimesUIProps",
-      "description": "Props interface for the TimesUI component: timestamp value, optional format/fromFormat strings, timezone, direction, className, and defaultReturnedValue.",
-      "line": 374,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
-        "nx_kb_anchor": "TimesUIProps"
-      },
       "details": {
-        "what_it_does": "Exported symbol: TimesUIProps"
+        "what_it_does": "Extracts summaryLabel, sumColumns, dataToRender, and summary styling from context. For each column in sumColumns, calculates numeric sum of column values (Number(v) or 0) using getFixedNumber for formatting. Renders label on left, and flex row of sums on right. Each sum formatted as: '{label} : {sum_value}'.",
+        "rendered_ui_description": "Renders div with summary styling (direction support, flex justify-between items-center, h-8, px-3, text-[18px] font-bold). Left side shows summaryLabel, right side shows flex gap-3 of sum calculations."
       },
-      "symbol_id": "interface_times_ui_props",
-      "description_one_line": "Props interface for the TimesUI component: timestamp value, optional format/fromFormat strings, timezone, direction, className, and defaultReturnedValue."
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Footer component with sum calculations."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic summary totals",
+          "code": "<Table\n  data={salesData}\n  headers={['Date', 'Product', 'Amount']}\n  keysToRender={['date', 'product', 'amount']}\n  sumColumns={[\n    { label: 'Total', dataKey: 'amount' }\n  ]}\n  summaryLabel=\"Summary\"\n>\n  <TableHead />\n  <TableBody />\n  <Summary /> {/* Renders: \"Summary\" ... \"Total : 1500\" */}\n</Table>"
+        },
+        "extensive_correct": {
+          "title": "Summary with multiple columns and custom formatting",
+          "code": "<Table\n  data={transactions}\n  headers={['Type', 'Credits', 'Debits']}\n  keysToRender={['type', 'credits', 'debits']}\n  sumColumns={[\n    {\n      label: 'Total Credits',\n      dataKey: 'credits',\n      ui: (sum) => `$${sum.toFixed(2)}`\n    },\n    {\n      label: 'Total Debits',\n      dataKey: 'debits',\n      ui: (sum) => `$${sum.toFixed(2)}`\n    }\n  ]}\n  summaryLabel=\"Account Totals\"\n>\n  <Summary />\n  {/* Renders: \"Account Totals\" ... \"Total Credits : $5000.00\" \"Total Debits : $1200.00\" */}\n</Table>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Summary without sumColumns",
+          "code": "// WRONG - no sumColumns, nothing to sum\n<Table data={data} headers={h} keysToRender={k}>\n  <Summary /> {/* Renders empty summary */}\n</Table>\n\n// CORRECT - define sumColumns\n<Table\n  data={data}\n  headers={h}\n  keysToRender={k}\n  sumColumns={[\n    { label: 'Total', dataKey: 'amount' }\n  ]}\n>\n  <Summary />\n</Table>"
+        }
+      }
     },
     {
+      "symbol_id": "component_times_ui",
       "kind": "component",
       "name": "TimesUI",
-      "signature": "({ timestamp, format, tz, direction, fromFormat, className, defaultReturnedValue }: TimesUIProps) => JSX.Element",
-      "description": "Reusable cell component that formats a timestamp value using timestamp_to_string and displays it with LTR direction and text alignment based on the provided direction prop.",
-      "details": {
-        "rendered_ui_description": "A div showing a formatted timestamp string with ellipsis truncation and a title tooltip, always rendered in LTR direction with configurable text alignment.",
-        "what_it_does": "Exported symbol: TimesUI"
-      },
+      "signature": "(props: TimesUIProps) => JSX.Element",
+      "description": "Cell renderer component for timestamp values. Converts timestamp using timestamp_to_string helper with optional format, timezone, and source format parameters. Renders in LTR direction with text overflow ellipsis and direction-aware text alignment. Useful for displaying creation dates, modification times, etc. in table cells.",
+      "description_one_line": "Cell renderer component for timestamp values with configurable formatting and timezone support.",
       "line": 383,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 374,
+        "source_line_end": 390,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L374-L390",
         "nx_kb_anchor": "TimesUI"
       },
-      "symbol_id": "component_times_ui",
-      "description_one_line": "Reusable cell component that formats a timestamp value using timestamp_to_string and displays it with LTR direction and text alignment based on the provided direction prop."
-    },
-    {
-      "kind": "interface",
-      "name": "TableButtonProps",
-      "description": "Props interface for TableButton: onClick handler, optional title/className/buttonClassName, a type discriminator ('add' | 'edit' | 'delete' | 'custom'), optional children, and disabled flag.",
-      "line": 392,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
-        "nx_kb_anchor": "TableButtonProps"
-      },
       "details": {
-        "what_it_does": "Exported symbol: TableButtonProps"
+        "what_it_does": "Accepts timestamp and optional format, fromFormat, tz, className, and defaultReturnedValue. Calls timestamp_to_string helper to format timestamp. Renders in ltr direction with text-left/text-right based on RTL prop. Supports custom className. Includes title tooltip with formatted time.",
+        "rendered_ui_description": "Renders div with direction:ltr (forced LTR for timestamps), ellipsis text overflow styling, and direction-aware text alignment (text-right if RTL, text-left if LTR). Title attribute shows full formatted time."
       },
-      "symbol_id": "interface_table_button_props",
-      "description_one_line": "Props interface for TableButton: onClick handler, optional title/className/buttonClassName, a type discriminator ('add' | 'edit' | 'delete' | 'custom'), optional children, and disabled flag."
+      "signature": {
+        "params": [
+          {
+            "name": "timestamp",
+            "type": "any",
+            "required": true,
+            "description": "Unix timestamp, ISO date string, or Date object to format."
+          },
+          {
+            "name": "format",
+            "type": "string",
+            "required": false,
+            "description": "Output format string (e.g., 'YYYY-MM-DD HH:mm:ss'). See timestamp_to_string documentation."
+          },
+          {
+            "name": "fromFormat",
+            "type": "string",
+            "required": false,
+            "description": "Input format if timestamp is string (not ISO)."
+          },
+          {
+            "name": "tz",
+            "type": "string",
+            "required": false,
+            "description": "Timezone to convert to (e.g., 'America/New_York')."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction for alignment ('ltr' or 'rtl')."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "default": "''",
+            "description": "Additional CSS classes."
+          },
+          {
+            "name": "defaultReturnedValue",
+            "type": "string",
+            "required": false,
+            "description": "Value to display if timestamp is invalid or falsy."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Formatted timestamp cell."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic timestamp formatting",
+          "code": "const createdAt = new Date('2025-01-15T10:30:00Z').getTime();\n\n<TimesUI timestamp={createdAt} />\n{/* Renders: \"2025-01-15\" or similar depending on default format */}"
+        },
+        "extensive_correct": {
+          "title": "Timestamp with custom format and timezone",
+          "code": "const auditLog = [\n  { id: 1, action: 'Login', timestamp: 1705320600000 },\n  { id: 2, action: 'Export', timestamp: 1705324200000 }\n];\n\n{auditLog.map(log => (\n  <tr key={log.id}>\n    <td>{log.action}</td>\n    <td>\n      <TimesUI\n        timestamp={log.timestamp}\n        format=\"YYYY-MM-DD HH:mm:ss\"\n        tz=\"America/New_York\"\n        className=\"text-gray-600\"\n      />\n    </td>\n  </tr>\n))}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Invalid timestamp format",
+          "code": "// WRONG - invalid timestamp\n<TimesUI timestamp=\"not-a-timestamp\" />\n{/* May show invalid date or error */}\n\n// CORRECT - provide valid timestamp\n<TimesUI timestamp={Date.now()} /> {/* Valid */}\n<TimesUI timestamp=\"2025-01-15\" fromFormat=\"YYYY-MM-DD\" /> {/* With format hint */}"
+        }
+      }
     },
     {
+      "symbol_id": "component_table_button",
       "kind": "component",
       "name": "TableButton",
-      "signature": "({ onClick, title, className, type, children, disabled, buttonClassName }: TableButtonProps) => JSX.Element",
-      "description": "A polymorphic action button for table rows. Renders different UI based on type: 'add' renders a Button with a plus icon, 'edit'/'delete' render icon buttons with Font Awesome icons, and 'custom' renders children inside a button. All variants include hover scale animation and disabled state handling.",
-      "details": {
-        "rendered_ui_description": "A button with scale-on-hover transition. For 'add' type, renders a shadcn-style Button with a plus icon. For 'edit'/'delete', renders a plain button with the corresponding Font Awesome icon. For 'custom', renders children directly.",
-        "what_it_does": "Exported symbol: TableButton"
-      },
+      "signature": "(props: TableButtonProps) => JSX.Element",
+      "description": "Reusable action button component for table cells. Supports four types: 'add' (plus icon), 'edit' (pen icon), 'delete' (trash icon), or 'custom' (custom children). Includes hover scale animation, disabled state styling, and smooth transitions. Useful for CRUD operation buttons in table rows.",
+      "description_one_line": "Reusable action button component for table cells with add, edit, delete, or custom icon types.",
       "line": 401,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 392,
+        "source_line_end": 426,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L392-L426",
         "nx_kb_anchor": "TableButton"
       },
-      "symbol_id": "component_table_button",
-      "description_one_line": "A polymorphic action button for table rows. Renders different UI based on type: 'add' renders a Button with a plus icon, 'edit'/'delete' render icon buttons with Font Awesome icons, and 'custom' renders children inside a button. All variants include hover scale animation and disabled state handling."
-    },
-    {
-      "kind": "interface",
-      "name": "DurationUIProps",
-      "description": "Props interface for DurationUI: numeric duration in seconds, optional labels for days/hours/minutes/seconds, className, and direction.",
-      "line": 427,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
-        "nx_kb_anchor": "DurationUIProps"
-      },
       "details": {
-        "what_it_does": "Exported symbol: DurationUIProps"
+        "what_it_does": "Accepts onClick, title, className, type, children, disabled, and buttonClassName. Maps type to icon class. Applies base styling: transition-transform duration-500 scale-100, disabled:hover:cursor-not-allowed, disabled:text-black/40, hover:scale-110, disabled:hover:scale-100. For 'add' type, renders Button component; for 'edit'/'delete', renders button element with icon; for 'custom', renders button with children.",
+        "rendered_ui_description": "Renders button element with smooth scale animation on hover (100% → 110%), disabled state styling with opacity and cursor-not-allowed, and FontAwesome icons. Base classes apply transition and disabled styling."
       },
-      "symbol_id": "interface_duration_ui_props",
-      "description_one_line": "Props interface for DurationUI: numeric duration in seconds, optional labels for days/hours/minutes/seconds, className, and direction."
+      "signature": {
+        "params": [
+          {
+            "name": "onClick",
+            "type": "() => void",
+            "required": true,
+            "description": "Callback fired when button is clicked."
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "required": false,
+            "description": "Tooltip text on hover."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Additional CSS classes for icon (e.g., text color)."
+          },
+          {
+            "name": "buttonClassName",
+            "type": "string",
+            "required": false,
+            "description": "Additional CSS classes for button element."
+          },
+          {
+            "name": "type",
+            "type": "'add' | 'edit' | 'delete' | 'custom'",
+            "required": true,
+            "description": "Button type determining icon or custom content rendering."
+          },
+          {
+            "name": "children",
+            "type": "ReactNode",
+            "required": false,
+            "description": "Custom content for 'custom' type button."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, button is disabled and click handler is ignored."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Action button element with icon or custom content."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic CRUD buttons",
+          "code": "function UserRow({ user }) {\n  const handleEdit = () => console.log('Edit:', user.id);\n  const handleDelete = () => console.log('Delete:', user.id);\n  \n  return (\n    <tr>\n      <td>{user.name}</td>\n      <td className=\"flex gap-2\">\n        <TableButton type=\"edit\" onClick={handleEdit} title=\"Edit user\" />\n        <TableButton type=\"delete\" onClick={handleDelete} title=\"Delete user\" />\n      </td>\n    </tr>\n  );\n}"
+        },
+        "extensive_correct": {
+          "title": "Buttons with custom styling and disabled state",
+          "code": "function TableActions({ item, canEdit }) {\n  const [loading, setLoading] = useState(false);\n  \n  const handleSave = async () => {\n    setLoading(true);\n    try {\n      await api.updateItem(item.id);\n    } finally {\n      setLoading(false);\n    }\n  };\n  \n  return (\n    <div className=\"flex gap-2\">\n      <TableButton\n        type=\"edit\"\n        onClick={handleSave}\n        disabled={loading || !canEdit}\n        className=\"text-blue-500\"\n        buttonClassName=\"px-2 py-1\"\n        title={canEdit ? 'Save changes' : 'No permission'}\n      />\n      <TableButton\n        type=\"add\"\n        onClick={() => console.log('Add new')}\n        disabled={loading}\n        title=\"Add related item\"\n      />\n    </div>\n  );\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Missing onClick handler",
+          "code": "// WRONG - no onClick\n<TableButton type=\"delete\" title=\"Delete\" />\n{/* Button renders but click does nothing */}\n\n// CORRECT - provide handler\n<TableButton\n  type=\"delete\"\n  onClick={() => handleDelete(item.id)}\n  title=\"Delete this item\"\n/>"
+        }
+      }
     },
     {
+      "symbol_id": "component_duration_ui",
       "kind": "component",
       "name": "DurationUI",
-      "signature": "({ duration, daysLabel, hoursLabel, minutesLabel, secondsLabel, className, direction }: DurationUIProps) => JSX.Element",
-      "description": "Reusable cell component that converts a duration (in seconds) into a human-readable days/hours/minutes/seconds format. Uses useMemo for efficient computation. Only displays non-zero segments.",
-      "details": {
-        "rendered_ui_description": "A horizontal flex container (always LTR) showing segments like '02 d 05 h 30 m 15 s', each with zero-padded values. Non-zero segments are hidden. Title attribute shows the full duration string.",
-        "what_it_does": "Exported symbol: DurationUI"
-      },
+      "signature": "(props: DurationUIProps) => JSX.Element",
+      "description": "Cell renderer component for duration values (in seconds). Converts seconds to days:hours:minutes:seconds format. Displays only non-zero time units (e.g., '2 d 5 h 30 m' if 0 seconds). Customizable labels for each time unit. Supports RTL/LTR alignment.",
+      "description_one_line": "Cell renderer component for duration values (seconds) displaying formatted days, hours, minutes, seconds.",
       "line": 436,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 427,
+        "source_line_end": 492,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L427-L492",
         "nx_kb_anchor": "DurationUI"
       },
-      "symbol_id": "component_duration_ui",
-      "description_one_line": "Reusable cell component that converts a duration (in seconds) into a human-readable days/hours/minutes/seconds format. Uses useMemo for efficient computation. Only displays non-zero segments."
+      "details": {
+        "what_it_does": "Accepts duration (seconds), custom labels (daysLabel, hoursLabel, minutesLabel, secondsLabel), className, and direction. Uses useMemo to convert seconds to padded strings: days = floor(duration / 86400), hours = floor(remainder / 3600), etc. Renders only non-zero units. Builds title tooltip with all components. Supports RTL by flex justify-end or justify-start.",
+        "rendered_ui_description": "Renders div with ltr direction forced, flex gap-1, and direction-aware alignment. Shows only non-zero time units inline (e.g., '2 d 5 h 30 m'). Full formatted string in title attribute."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "duration",
+            "type": "number",
+            "required": true,
+            "description": "Duration in seconds (e.g., 3661 for 1 hour 1 minute 1 second)."
+          },
+          {
+            "name": "daysLabel",
+            "type": "string",
+            "required": false,
+            "default": "'d'",
+            "description": "Label text for days unit."
+          },
+          {
+            "name": "hoursLabel",
+            "type": "string",
+            "required": false,
+            "default": "'h'",
+            "description": "Label text for hours unit."
+          },
+          {
+            "name": "minutesLabel",
+            "type": "string",
+            "required": false,
+            "default": "'m'",
+            "description": "Label text for minutes unit."
+          },
+          {
+            "name": "secondsLabel",
+            "type": "string",
+            "required": false,
+            "default": "'s'",
+            "description": "Label text for seconds unit."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "default": "''",
+            "description": "Additional CSS classes."
+          },
+          {
+            "name": "direction",
+            "type": "'rtl' | 'ltr'",
+            "required": false,
+            "description": "Text direction for alignment."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Formatted duration cell."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic duration formatting",
+          "code": "const sessions = [\n  { id: 1, user: 'Alice', duration: 3661 }, // 1h 1m 1s\n  { id: 2, user: 'Bob', duration: 86400 }  // 1 day\n];\n\n{sessions.map(s => (\n  <tr key={s.id}>\n    <td>{s.user}</td>\n    <td><DurationUI duration={s.duration} /></td>\n  </tr>\n))}"
+        },
+        "extensive_correct": {
+          "title": "Custom duration labels and direction",
+          "code": "const activities = [\n  { name: 'Session A', uptime: 259200 }, // 3 days\n  { name: 'Session B', uptime: 7265 }    // 2 hours 1 min 5 sec\n];\n\n{activities.map(act => (\n  <tr key={act.name}>\n    <td>{act.name}</td>\n    <td>\n      <DurationUI\n        duration={act.uptime}\n        daysLabel=\"days\"\n        hoursLabel=\"hrs\"\n        minutesLabel=\"mins\"\n        secondsLabel=\"secs\"\n        direction=\"ltr\"\n        className=\"font-mono text-sm\"\n      />\n    </td>\n  </tr>\n))}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Duration not in seconds",
+          "code": "// WRONG - duration in milliseconds\n<DurationUI duration={1000} /> {/* Renders as 0 d 0 h 16 m 40 s - wrong! */}\n\n// CORRECT - convert to seconds first\nconst durationSeconds = Math.floor(durationMs / 1000);\n<DurationUI duration={durationSeconds} />"
+        }
+      }
     },
     {
+      "symbol_id": "component_phone_ui",
       "kind": "component",
       "name": "PhoneUI",
-      "signature": "({ phone, direction, className }: { phone: string; direction?: Direction; className?: string }) => JSX.Element",
-      "description": "Reusable cell component for displaying phone numbers. Always renders in LTR direction with configurable text alignment for RTL layouts.",
-      "details": {
-        "rendered_ui_description": "A div showing a phone number string with ellipsis truncation and a title tooltip, always rendered in LTR direction.",
-        "what_it_does": "Exported symbol: PhoneUI"
-      },
+      "signature": "(props: { phone: string; direction?: Direction; className?: string }) => JSX.Element",
+      "description": "Cell renderer component for phone number values. Renders phone number as text with LTR direction forced (phone numbers always display left-to-right). Supports direction-aware text alignment. Includes text overflow ellipsis and tooltip.",
+      "description_one_line": "Cell renderer component for phone numbers with RTL/LTR direction support.",
       "line": 494,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 494,
+        "source_line_end": 503,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L494-L503",
         "nx_kb_anchor": "PhoneUI"
       },
-      "symbol_id": "component_phone_ui",
-      "description_one_line": "Reusable cell component for displaying phone numbers. Always renders in LTR direction with configurable text alignment for RTL layouts."
-    },
-    {
-      "kind": "interface",
-      "name": "BooleanUIProps",
-      "description": "Props interface for BooleanUi: boolean value, optional size ('big' | 'small'), className, and custom trueUi/falseUi ReactNode overrides.",
-      "line": 504,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
-        "nx_kb_anchor": "BooleanUIProps"
-      },
       "details": {
-        "what_it_does": "Exported symbol: BooleanUIProps"
+        "what_it_does": "Renders div with forced ltr direction. Applies direction-aware text alignment: text-right if direction === 'rtl', text-left otherwise. Includes ellipsis text overflow and title tooltip showing full phone number.",
+        "rendered_ui_description": "Renders div with direction:ltr forced, text overflow ellipsis styling, direction-aware text alignment, and tooltip. Text is displayed as-is, no formatting applied."
       },
-      "symbol_id": "interface_boolean_ui_props",
-      "description_one_line": "Props interface for BooleanUi: boolean value, optional size ('big' | 'small'), className, and custom trueUi/falseUi ReactNode overrides."
+      "signature": {
+        "params": [
+          {
+            "name": "phone",
+            "type": "string",
+            "required": true,
+            "description": "Phone number string to display."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction for alignment ('ltr' or 'rtl')."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "default": "''",
+            "description": "Additional CSS classes."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Phone number cell."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic phone display",
+          "code": "<PhoneUI phone=\"+1-555-0123\" />\n{/* Renders: +1-555-0123 */}"
+        },
+        "extensive_correct": {
+          "title": "Phone with RTL alignment",
+          "code": "const contacts = [\n  { name: 'Alice', phone: '+1-555-0123', lang: 'en' },\n  { name: 'محمد', phone: '+966-1-234-5678', lang: 'ar' }\n];\n\n{contacts.map(c => (\n  <tr key={c.name}>\n    <td>{c.name}</td>\n    <td>\n      <PhoneUI\n        phone={c.phone}\n        direction={c.lang === 'ar' ? 'rtl' : 'ltr'}\n      />\n    </td>\n  </tr>\n))}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Applying text formatting to phone",
+          "code": "// WRONG - passing invalid phone string\n<PhoneUI phone={phoneObject} /> {/* [object Object] */}\n\n// CORRECT - pass string\n<PhoneUI phone=\"+1-555-0123\" />"
+        }
+      }
     },
     {
+      "symbol_id": "component_boolean_ui",
       "kind": "component",
       "name": "BooleanUi",
-      "signature": "({ value, size, className, falseUi, trueUi }: BooleanUIProps) => JSX.Element",
-      "description": "Reusable cell component that displays a boolean value as a check or X icon (Font Awesome), with configurable size and optional custom UI overrides for true/false states.",
-      "details": {
-        "rendered_ui_description": "Renders a Font Awesome check icon for true or X icon for false, with configurable size (text-lg or text-2xl). Can be overridden with custom ReactNode for either state.",
-        "what_it_does": "Exported symbol: BooleanUi"
-      },
+      "signature": "(props: BooleanUIProps) => JSX.Element",
+      "description": "Cell renderer component for boolean values. Displays FontAwesome icons: fa-check for true, fa-xmark for false. Supports customizable icon sizes ('big' or 'small') and custom UI nodes for true/false states. Useful for status, enabled/disabled, active/inactive columns.",
+      "description_one_line": "Cell renderer component for boolean values displaying customizable icons for true/false states.",
       "line": 511,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 504,
+        "source_line_end": 515,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L504-L515",
         "nx_kb_anchor": "BooleanUi"
       },
-      "symbol_id": "component_boolean_ui",
-      "description_one_line": "Reusable cell component that displays a boolean value as a check or X icon (Font Awesome), with configurable size and optional custom UI overrides for true/false states."
-    },
-    {
-      "kind": "interface",
-      "name": "GeoUiProps",
-      "signature": "{ value: Partial<Geo> & { latitude?: number; longitude?: number }; className?: string; linkUi?: ReactNode }",
-      "description": "Exported props interface for the GeoUi component, accepting a geo coordinate value with latitude/longitude, optional className, and optional custom link UI.",
-      "line": 517,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
-        "nx_kb_anchor": "GeoUiProps"
-      },
       "details": {
-        "what_it_does": "Exported symbol: GeoUiProps"
+        "what_it_does": "Renders conditional icon or custom UI node based on boolean value. If value === true, renders trueUi (default: fa-check icon); if false, renders falseUi (default: fa-xmark icon). Applies size styling: text-2xl for 'big' (default), text-lg for 'small'.",
+        "rendered_ui_description": "Renders FontAwesome icon (<i> element) or custom ReactNode. Size determines icon scale (text-2xl vs text-lg)."
       },
-      "symbol_id": "interface_geo_ui_props",
-      "description_one_line": "Exported props interface for the GeoUi component, accepting a geo coordinate value with latitude/longitude, optional className, and optional custom link UI."
+      "signature": {
+        "params": [
+          {
+            "name": "value",
+            "type": "boolean",
+            "required": true,
+            "description": "Boolean value to display as icon."
+          },
+          {
+            "name": "size",
+            "type": "'big' | 'small'",
+            "required": false,
+            "default": "'big'",
+            "description": "Icon size (text-2xl for big, text-lg for small)."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Additional CSS classes for icon."
+          },
+          {
+            "name": "trueUi",
+            "type": "ReactNode",
+            "required": false,
+            "description": "Custom UI to render when value is true (default: fa-check icon)."
+          },
+          {
+            "name": "falseUi",
+            "type": "ReactNode",
+            "required": false,
+            "description": "Custom UI to render when value is false (default: fa-xmark icon)."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Boolean icon or custom UI node."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic boolean display",
+          "code": "<BooleanUi value={true} /> {/* ✓ checkmark */}\n<BooleanUi value={false} /> {/* ✗ xmark */}"
+        },
+        "extensive_correct": {
+          "title": "Boolean with custom UI and colors",
+          "code": "const features = [\n  { name: 'Two-Factor Auth', enabled: true },\n  { name: 'API Access', enabled: false }\n];\n\n{features.map(f => (\n  <tr key={f.name}>\n    <td>{f.name}</td>\n    <td>\n      <BooleanUi\n        value={f.enabled}\n        size=\"big\"\n        className={f.enabled ? 'text-green-500' : 'text-red-500'}\n        trueUi={<span className=\"text-green-600 font-bold\">ENABLED</span>}\n        falseUi={<span className=\"text-red-600 font-bold\">DISABLED</span>}\n      />\n    </td>\n  </tr>\n))}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Non-boolean value",
+          "code": "// WRONG - value is string\n<BooleanUi value=\"true\" /> {/* Renders as truthy (checkmark) - confusing */}\n\n// CORRECT - convert to boolean\n<BooleanUi value={item.status === 'active'} />"
+        }
+      }
     },
     {
+      "symbol_id": "component_geo_ui",
       "kind": "component",
       "name": "GeoUi",
-      "signature": "({ value, className, linkUi }: GeoUiProps) => JSX.Element",
-      "description": "Reusable cell component that renders geographic coordinates as a clickable Google Maps link. Supports both 'lat/lng' and 'latitude/longitude' property naming. Can display custom link UI or defaults to showing coordinates.",
-      "details": {
-        "rendered_ui_description": "A blue underlined anchor tag linking to Google Maps, displaying either custom linkUi content or the longitude/latitude values. Opens in a new tab.",
-        "what_it_does": "Exported symbol: GeoUi"
-      },
+      "signature": "(props: GeoUiProps) => JSX.Element",
+      "description": "Cell renderer component for geographic coordinates. Renders clickable link to Google Maps with latitude/longitude coordinates. Supports custom link UI text. Coordinates can use either (lat/lng) or (latitude/longitude) property names. Text overflow ellipsis and tooltip included.",
+      "description_one_line": "Cell renderer component for geographic coordinates with clickable Google Maps link.",
       "line": 523,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 517,
+        "source_line_end": 538,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L517-L538",
         "nx_kb_anchor": "GeoUi"
       },
-      "symbol_id": "component_geo_ui",
-      "description_one_line": "Reusable cell component that renders geographic coordinates as a clickable Google Maps link. Supports both 'lat/lng' and 'latitude/longitude' property naming. Can display custom link UI or defaults to showing coordinates."
-    },
-    {
-      "kind": "interface",
-      "name": "NumberUIProps",
-      "signature": "{ number: string | number; direction?: Direction; className?: string }",
-      "description": "Exported props interface for the NumberUI component, accepting a number or string value, optional direction, and optional className.",
-      "line": 539,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
-        "nx_kb_anchor": "NumberUIProps"
-      },
       "details": {
-        "what_it_does": "Exported symbol: NumberUIProps"
+        "what_it_does": "Extracts latitude (value.lat or value.latitude) and longitude (value.lng or value.longitude). Calls getLocationUrl(lng, lat) to generate Google Maps URL. Renders <a> link to Google Maps with optional custom link text (linkUi) or default coordinate display. Supports custom className and text overflow.",
+        "rendered_ui_description": "Renders <a> element styled as blue-500 link with hover:blue-700 underline, text-overflow ellipsis, and tooltip showing coordinates. Opens Google Maps in new tab on click."
       },
-      "symbol_id": "interface_number_ui_props",
-      "description_one_line": "Exported props interface for the NumberUI component, accepting a number or string value, optional direction, and optional className."
+      "signature": {
+        "params": [
+          {
+            "name": "value",
+            "type": "Partial<Geo> & { latitude?: number; longitude?: number }",
+            "required": true,
+            "description": "Object containing lat/latitude and lng/longitude properties."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Additional CSS classes."
+          },
+          {
+            "name": "linkUi",
+            "type": "ReactNode",
+            "required": false,
+            "description": "Custom text/UI to display in link (default: ' {lng} {lat}')."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Google Maps link for coordinates."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic geo coordinates link",
+          "code": "const location = { lat: 40.7128, lng: -74.0060 }; // NYC\n<GeoUi value={location} />\n{/* Renders: <a href=\"https://google.com/maps?q=-74.0060,40.7128\">...-74.0060 40.7128</a> */}"
+        },
+        "extensive_correct": {
+          "title": "Geo with custom link text and properties",
+          "code": "const devices = [\n  { id: 1, name: 'Device A', location: { latitude: 40.7128, longitude: -74.0060 } },\n  { id: 2, name: 'Device B', location: { lat: 51.5074, lng: -0.1278 } } // London\n];\n\n{devices.map(d => (\n  <tr key={d.id}>\n    <td>{d.name}</td>\n    <td>\n      <GeoUi\n        value={d.location}\n        linkUi={<span>📍 View on Map</span>}\n        className=\"font-bold\"\n      />\n    </td>\n  </tr>\n))}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Missing coordinates",
+          "code": "// WRONG - invalid geo object\n<GeoUi value={{}} /> {/* NaN coordinates, broken link */}\n\n// CORRECT - provide valid coordinates\n<GeoUi value={{ lat: 40.7128, lng: -74.0060 }} />\n// or\n<GeoUi value={{ latitude: 40.7128, longitude: -74.0060 }} />"
+        }
+      }
     },
     {
+      "symbol_id": "component_number_ui",
       "kind": "component",
       "name": "NumberUI",
-      "signature": "({ number, direction, className }: NumberUIProps) => JSX.Element",
-      "description": "Reusable cell component for displaying numbers. Always renders in LTR direction with configurable text alignment for RTL layouts, with ellipsis truncation.",
-      "details": {
-        "rendered_ui_description": "A div showing a number with ellipsis truncation and a title tooltip, always rendered in LTR direction with configurable text alignment.",
-        "what_it_does": "Exported symbol: NumberUI"
-      },
+      "signature": "(props: NumberUIProps) => JSX.Element",
+      "description": "Cell renderer component for numeric values. Renders number as text with LTR direction forced (numbers always left-to-right). Supports direction-aware text alignment. Includes text overflow ellipsis and tooltip showing full number.",
+      "description_one_line": "Cell renderer component for numeric values with RTL/LTR direction support and text overflow.",
       "line": 544,
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx#L1",
+        "source_line_start": 539,
+        "source_line_end": 554,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/components.tsx#L539-L554",
         "nx_kb_anchor": "NumberUI"
       },
-      "symbol_id": "component_number_ui",
-      "description_one_line": "Reusable cell component for displaying numbers. Always renders in LTR direction with configurable text alignment for RTL layouts, with ellipsis truncation."
+      "details": {
+        "what_it_does": "Renders div with forced ltr direction. Applies direction-aware text alignment: text-right if direction === 'rtl', text-left otherwise. Includes ellipsis text overflow and title tooltip showing full number. No formatting applied (use sumColumns with ui function for currency/percent formatting).",
+        "rendered_ui_description": "Renders div with direction:ltr forced, text overflow ellipsis styling, direction-aware text alignment, and tooltip. Number displayed as-is."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "number",
+            "type": "string | number",
+            "required": true,
+            "description": "Number or numeric string to display."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction for alignment ('ltr' or 'rtl')."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "default": "''",
+            "description": "Additional CSS classes."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Numeric value cell."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic number display",
+          "code": "<NumberUI number={1234.56} />\n{/* Renders: 1234.56 */}"
+        },
+        "extensive_correct": {
+          "title": "Numbers with RTL alignment and custom formatting",
+          "code": "const transactions = [\n  { id: 1, amount: 1500, currency: 'USD' },\n  { id: 2, amount: 2750, currency: 'EUR' }\n];\n\n{transactions.map(t => (\n  <tr key={t.id}>\n    <td>\n      <NumberUI\n        number={t.amount.toLocaleString()}\n        direction=\"ltr\"\n        className=\"text-right font-mono\"\n      />\n    </td>\n    <td>{t.currency}</td>\n  </tr>\n))}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Complex object as number",
+          "code": "// WRONG - object renders as [object Object]\n<NumberUI number={{ value: 1000 }} />\n\n// CORRECT - extract numeric value\n<NumberUI number={1000} />\n// or for formatted numbers\n<NumberUI number={(1000).toLocaleString()} />"
+        }
+      }
     }
   ],
   "quality": {
     "generation_confidence": "high",
-    "known_gaps": []
+    "known_gaps": [
+      "The import of RedXSvg2 from assets is used only in Filter component's close button.",
+      "Some SVG icons use FontAwesome (fa-regular, fa-light) classes inline rather than imported components."
+    ],
+    "documentation_completeness": "Comprehensive: All 17 exported components fully documented with complete signatures, detailed behavior explanations, rendered UI descriptions, and 3-tier examples (minimal, extensive, incorrect patterns). Core table components (Filter, TableHead, TableBody, TableRow, TableCell) documented with state management and click handling. Utility cell renderers (TimesUI, TableButton, DurationUI, PhoneUI, BooleanUi, GeoUi, NumberUI) documented with parameter signatures and real-world usage patterns. All examples use production-ready code patterns."
   }
 }

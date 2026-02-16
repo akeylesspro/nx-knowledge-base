@@ -5,11 +5,13 @@
   },
   "file_name": "firebase.ts",
   "source": {
-    "file_path": "src/types/types/firebase.ts",
+    "file_path": "types/types/firebase.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
-    "framework_tags": ["firebase"],
+    "framework_tags": [
+      "firebase"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/types/firebase.json"
   },
@@ -69,7 +71,7 @@
       "description_one_line": "Function signature for subscribing to collection changes.",
       "symbol_id": "Snapshot"
     },
-     {
+    {
       "name": "SnapshotDocument",
       "kind": "type",
       "description_one_line": "Function signature for subscribing to single document changes.",
@@ -90,6 +92,169 @@
         "source_line_end": 24,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts#L17-L24",
         "nx_kb_anchor": "OnSnapshotConfig"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "TODO: Document return type"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of OnSnapshotConfig",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "OnSnapshotCallback",
+      "name": "OnSnapshotCallback",
+      "kind": "type",
+      "description_one_line": "Callback signature for snapshot updates.",
+      "details": {
+        "what_it_does": "Callback signature for snapshot updates.",
+        "type_definition": "// TODO: Add type definition"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#OnSnapshotCallback"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using OnSnapshotCallback type",
+          "code": "// TODO: Add type usage example"
+        }
+      }
+    },
+    {
+      "symbol_id": "OnSnapshotParsers",
+      "name": "OnSnapshotParsers",
+      "kind": "interface",
+      "description_one_line": "Hooks for different snapshot events (first time, add, modify, remove).",
+      "details": {
+        "what_it_does": "Hooks for different snapshot events (first time, add, modify, remove)."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#OnSnapshotParsers"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of OnSnapshotParsers",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "WhereCondition",
+      "name": "WhereCondition",
+      "kind": "interface",
+      "description_one_line": "Structure for a Firestore 'where' clause.",
+      "details": {
+        "what_it_does": "Structure for a Firestore 'where' clause."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#WhereCondition"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of WhereCondition",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "SnapshotResult",
+      "name": "SnapshotResult",
+      "kind": "interface",
+      "description_one_line": "Return value of a snapshot subscription.",
+      "details": {
+        "what_it_does": "Return value of a snapshot subscription."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#SnapshotResult"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of SnapshotResult",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "Snapshot",
+      "name": "Snapshot",
+      "kind": "type",
+      "description_one_line": "Function signature for subscribing to collection changes.",
+      "details": {
+        "what_it_does": "Function signature for subscribing to collection changes.",
+        "type_definition": "// TODO: Add type definition"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#Snapshot"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using Snapshot type",
+          "code": "// TODO: Add type usage example"
+        }
+      }
+    },
+    {
+      "symbol_id": "SnapshotDocument",
+      "name": "SnapshotDocument",
+      "kind": "type",
+      "description_one_line": "Function signature for subscribing to single document changes.",
+      "details": {
+        "what_it_does": "Function signature for subscribing to single document changes.",
+        "type_definition": "// TODO: Add type definition"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#SnapshotDocument"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using SnapshotDocument type",
+          "code": "// TODO: Add type usage example"
+        }
       }
     }
   ],

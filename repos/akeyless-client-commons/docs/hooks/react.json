@@ -5,7 +5,7 @@
   },
   "file_name": "react.ts",
   "source": {
-    "file_path": "src/hooks/react.ts",
+    "file_path": "hooks/react.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
@@ -88,6 +88,68 @@
         "source_line_end": 31,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts#L24-L31",
         "nx_kb_anchor": "useDeepCompareEffect"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useDeepCompareEffect",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "useSafeEffect",
+      "name": "useSafeEffect",
+      "kind": "function",
+      "description_one_line": "useEffect with try-catch.",
+      "details": {
+        "what_it_does": "useEffect with try-catch."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#useSafeEffect"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useSafeEffect",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "useDeepCompareMemo",
+      "name": "useDeepCompareMemo",
+      "kind": "function",
+      "description_one_line": "useMemo with deep equality.",
+      "details": {
+        "what_it_does": "useMemo with deep equality."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#useDeepCompareMemo"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useDeepCompareMemo",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

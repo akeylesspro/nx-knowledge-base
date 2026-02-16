@@ -5,7 +5,7 @@
   },
   "file_name": "global.ts",
   "source": {
-    "file_path": "src/types/types/global.ts",
+    "file_path": "types/types/global.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
@@ -60,13 +60,108 @@
       "kind": "type",
       "description_one_line": "Direction alias.",
       "details": {
-        "what_it_does": "Type alias for 'rtl' or 'ltr'."
+        "what_it_does": "Type alias for 'rtl' or 'ltr'.",
+        "type_definition": "// TODO: Add TypeScript type definition"
       },
       "locations": {
         "source_line_start": 1,
         "source_line_end": 1,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/global.ts#L1",
         "nx_kb_anchor": "Direction"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using Direction type",
+          "code": "// TODO: Add type usage example"
+        }
+      }
+    },
+    {
+      "symbol_id": "SetState",
+      "name": "SetState",
+      "kind": "type",
+      "description_one_line": "React state setter type.",
+      "details": {
+        "what_it_does": "React state setter type.",
+        "type_definition": "// TODO: Add type definition"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#SetState"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using SetState type",
+          "code": "// TODO: Add type usage example"
+        }
+      }
+    },
+    {
+      "symbol_id": "ModularPopUp",
+      "name": "ModularPopUp",
+      "kind": "type",
+      "description_one_line": "Configuration object for popup elements.",
+      "details": {
+        "what_it_does": "Configuration object for popup elements.",
+        "type_definition": "// TODO: Add type definition"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#ModularPopUp"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using ModularPopUp type",
+          "code": "// TODO: Add type usage example"
+        }
+      }
+    },
+    {
+      "symbol_id": "AppName",
+      "name": "AppName",
+      "kind": "type",
+      "description_one_line": "Union of application names.",
+      "details": {
+        "what_it_does": "Union of application names.",
+        "type_definition": "// TODO: Add type definition"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#AppName"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using AppName type",
+          "code": "// TODO: Add type usage example"
+        }
+      }
+    },
+    {
+      "symbol_id": "LoginOption",
+      "name": "LoginOption",
+      "kind": "type",
+      "description_one_line": "Union of login methods.",
+      "details": {
+        "what_it_does": "Union of login methods.",
+        "type_definition": "// TODO: Add type definition"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#LoginOption"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using LoginOption type",
+          "code": "// TODO: Add type usage example"
+        }
       }
     }
   ],

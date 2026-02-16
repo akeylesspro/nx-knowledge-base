@@ -5,57 +5,72 @@
   },
   "file_name": "ModularForm.tsx",
   "source": {
-    "file_path": "src/components/forms/ModularForm/ModularForm.tsx",
+    "file_path": "components/forms/ModularForm/ModularForm.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "generated_at_iso": "2026-02-16T16:45:00.000Z",
     "language": "tsx",
     "framework_tags": [
-      "react"
+      "react",
+      "form-builder",
+      "dynamic-forms"
     ],
-    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/ModularForm.tsx",
-    "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/forms/ModularForm/ModularForm.json"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/ModularForm.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/ModularForm.json"
   },
   "summary": {
-    "purpose": "Dynamic form builder.",
-    "problem_solved": "Renders a complete form from a JSON configuration array (`elements`), handling validation, layout, and submission."
+    "purpose": "Configuration-driven form builder component that renders a complete form with validation, error handling, and submission logic from a JSON-based element array, supporting diverse input types including text, textarea, select, checkbox, multi-select, date, phone, and duration inputs.",
+    "problem_solved": "Enables building complex forms dynamically from configuration without manual field composition, handles form submission validation (minLength constraints), manages loading state, displays error messages, supports RTL/LTR directionality, provides imperative ref access to submit button, and automatically aligns label widths for visual consistency."
   },
   "dependencies": {
     "external": [
       {
         "name": "react",
-        "kind": "peer",
-        "why_used": "Core library."
+        "kind": "runtime",
+        "why_used": "Core React hooks (useState, useEffect, useRef, useMemo, cloneElement) for component state management and rendering."
       }
     ],
     "internal": [
       {
         "import_path": "./formElements",
-        "resolved_file_path": "src/components/forms/ModularForm/formElements.tsx",
-        "why_used": "Individual form components (InputContainer, SelectContainer, etc.).",
-        "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.json",
-        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/forms/ModularForm/formElements.tsx"
+        "resolved_file_path": "components/forms/ModularForm/formElements.tsx",
+        "why_used": "Container components for each form field type: InputContainer, DateInputContainer, TextAreaContainer, SelectContainer, CheckboxContainer, MultiSelect, SelectWithSearch, DurationPicker, FormSeparator.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx"
+      },
+      {
+        "import_path": "./InternationalPhonePicker",
+        "resolved_file_path": "components/forms/ModularForm/InternationalPhonePicker.tsx",
+        "why_used": "Specialized component for international phone number input with country selection.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/InternationalPhonePicker.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/InternationalPhonePicker.tsx"
       },
       {
         "import_path": "@/components/utils",
-        "resolved_file_path": "src/components/utils/loaders.tsx",
-        "why_used": "Loader component.",
-        "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/utils/loaders.json",
-        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/utils/loaders.tsx"
+        "resolved_file_path": "components/utils/index.ts",
+        "why_used": "Provides Loader component for loading state display during form submission.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/index.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.ts"
       },
       {
         "import_path": "src/helpers",
-        "resolved_file_path": "src/helpers/index.ts",
-        "why_used": "Form value extraction helper (getFormElementValue).",
-        "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/index.json",
-        "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/index.ts"
+        "resolved_file_path": "helpers/index.ts",
+        "why_used": "Utilities: cn() for conditional CSS classes, getFormElementValue() for extracting field values from form DOM.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts"
       },
       {
-        "name": "src/types",
-        "why_used": "ModularFormProps type.",
         "import_path": "src/types",
-        "resolved_file_path": "src/types",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/types",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types"
+        "resolved_file_path": "types/index.ts",
+        "why_used": "TypeScript interfaces: FormElement, ModularFormProps, Direction type for RTL/LTR.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts"
+      },
+      {
+        "import_path": "@/hooks/react",
+        "resolved_file_path": "hooks/react.ts",
+        "why_used": "Provides useDeepCompareEffect hook for deep comparison of label width dependency array.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/react.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts"
       }
     ]
   },
@@ -63,7 +78,7 @@
     {
       "name": "ModularForm",
       "kind": "component",
-      "description_one_line": "Config-driven form component.",
+      "description_one_line": "Default export of configuration-driven form builder component with validation, loading, and error handling.",
       "symbol_id": "ModularForm"
     }
   ],
@@ -72,39 +87,153 @@
       "symbol_id": "ModularForm",
       "name": "ModularForm",
       "kind": "component",
-      "description_one_line": "Main form renderer.",
+      "description_one_line": "Configuration-driven form renderer with validation, error handling, and flexible field type support.",
       "signature": {
         "params": [
           {
-            "name": "elements",
-            "type": "FormElement[]",
-            "required": true,
-            "description": "Array of field configs."
+            "name": "submitFunction",
+            "type": "(form: React.FormEvent<HTMLFormElement>, clickEvent?: MouseEvent) => Promise<void>",
+            "required": false,
+            "description": "Async callback fired when form is submitted. Receives form event and optional click event from submit button. Receives form values for validation and submission to server. Defaults to empty async function."
           },
           {
-            "name": "submitFunction",
-            "type": "(form, event) => Promise<void>",
-            "required": true,
-            "description": "Form submission handler."
+            "name": "elements",
+            "type": "FormElement[]",
+            "required": false,
+            "description": "Array of form field configurations. Each element defines a form field of specific type (input, textarea, select, checkbox, etc.) with validation rules, styling, and callbacks. Defaults to empty array."
+          },
+          {
+            "name": "headerContent",
+            "type": "React.ReactNode",
+            "required": false,
+            "description": "Content displayed as form header above the elements. Typically a title or description. Optional, if omitted no header renders."
+          },
+          {
+            "name": "buttonContent",
+            "type": "React.ReactNode",
+            "required": false,
+            "description": "Content of submit button. Usually a string like 'Submit' or icon component. Replaced with Loader component while form is submitting."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "CSS class names for the outer form element. Merged with default classes using cn() utility. Can override default width, padding, flex layout."
+          },
+          {
+            "name": "elementsContainerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the div wrapping all form fields. Default applies flex column layout with gap-5. Can override spacing and layout."
+          },
+          {
+            "name": "headerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for header section. Default adds bottom border, padding, bold font. Applied only if headerContent is provided."
+          },
+          {
+            "name": "direction",
+            "type": "Direction ('rtl' | 'ltr')",
+            "required": false,
+            "description": "Text direction for the form. 'rtl' for right-to-left (Arabic, Hebrew), 'ltr' for left-to-right (English). Defaults to 'rtl'."
+          },
+          {
+            "name": "buttonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for submit button. Default provides green background, padding, rounded corners. Can override colors and styling."
+          },
+          {
+            "name": "submitRef",
+            "type": "React.MutableRefObject<HTMLButtonElement | null>",
+            "required": false,
+            "description": "Optional ref forwarded to the submit button. Allows parent components to programmatically access the button element (e.g., to disable it externally)."
+          },
+          {
+            "name": "footerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for footer section containing error message and submit button. Default applies flexbox with space-between."
+          },
+          {
+            "name": "errorClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for error message display. Default provides red text color and text overflow ellipsis."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes passed to all form field labels. Applied to every label in the form for consistent styling across all fields."
+          },
+          {
+            "name": "elementsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes passed to all form input elements. Applied to every input field in the form for consistent styling."
+          },
+          {
+            "name": "autoFixLabelsWidth",
+            "type": "boolean",
+            "required": false,
+            "description": "Automatically aligns label widths to the widest label for visual consistency. Measures all labels and sets min-width to max width. Defaults to true."
+          },
+          {
+            "name": "loaderProps",
+            "type": "LoaderProps",
+            "required": false,
+            "description": "Props passed to Loader component displayed during form submission. Can configure loader appearance (size, color, animation)."
+          },
+          {
+            "name": "autoFixLabelsWidthDeps",
+            "type": "any[]",
+            "required": false,
+            "description": "Dependency array passed to useDeepCompareEffect for label width recalculation. Recalculates label widths when dependencies change. Defaults to empty array."
+          },
+          {
+            "name": "onLoad",
+            "type": "(form: EventTarget & HTMLFormElement) => void",
+            "required": false,
+            "description": "Callback fired once when form mounts. Receives the form DOM element. Useful for initialization logic or accessing the form ref."
           }
         ],
         "returns": {
-          "type": "JSX.Element",
-          "description": "Html Form."
+          "type": "React.ReactElement",
+          "description": "HTML form element with structured layout (optional header, field elements, footer with error and submit button), renders loading spinner during submission."
         }
       },
       "details": {
-        "what_it_does": "Maps over `elements` to render the correct input component. Handles the `onSubmit` event to validate minLength constraints before calling `submitFunction`. Automatically adjusts label widths if `autoFixLabelsWidth` is true."
+        "what_it_does": "Renders a complete form by mapping over the elements array and rendering appropriate container components for each field type (input, textarea, select, checkbox, multiselect, dateInput, duration, internationalPhone, separator, or custom). On submit, validates minLength constraints for applicable field types, catches and displays errors in the error message area, manages loading state, and calls the submitFunction callback. Uses useDeepCompareEffect to automatically align all label widths to the widest label if autoFixLabelsWidth is true, improving visual consistency. Calls onLoad callback once on mount with the form element reference.",
+        "rendered_ui_description": "A form element with optional header section (border-bottom, bold text), scrollable fields area containing dynamically rendered form fields organized in a flex column with gaps, and a footer section with error message display on the left (red text, ellipsis overflow) and a green submit button on the right (disabled and showing spinner during submission). The entire form respects the direction prop for RTL/LTR text direction.",
+        "supported_element_types": "input (text, email, password, number, etc.), textarea (multiline text), select (dropdown with predefined options), checkbox (boolean toggle), multiSelect (multiple option selection), dateInput (calendar picker), internationalPhoneInput (phone with country selector), duration (time duration picker), separator (visual divider), custom (arbitrary JSX element). Each type has dedicated container component with specialized rendering."
       },
       "locations": {
         "source_line_start": 21,
         "source_line_end": 231,
-        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/ModularForm.tsx#L21-L231",
-        "nx_kb_anchor": "ModularForm"
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/ModularForm.tsx#L21-L231",
+        "nx_kb_anchor": "#ModularForm"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic login form with email and password fields",
+          "code": "import ModularForm from '@/components/forms/ModularForm';\nimport { FormElement } from '@/types';\n\nconst LoginForm = () => {\n  const elements: FormElement[] = [\n    {\n      type: 'input',\n      name: 'email',\n      labelContent: 'Email Address',\n      inputType: 'email',\n      required: true,\n      placeholder: 'Enter your email'\n    },\n    {\n      type: 'input',\n      name: 'password',\n      labelContent: 'Password',\n      inputType: 'password',\n      required: true,\n      minLength: 6,\n      placeholder: 'Enter your password'\n    }\n  ];\n\n  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {\n    const formData = new FormData(e.currentTarget);\n    const response = await fetch('/api/login', {\n      method: 'POST',\n      body: formData\n    });\n    if (!response.ok) throw new Error('Login failed');\n  };\n\n  return (\n    <ModularForm\n      elements={elements}\n      submitFunction={handleSubmit}\n      buttonContent=\"Sign In\"\n      headerContent=\"User Login\"\n    />\n  );\n};"
+        },
+        "extensive_correct": {
+          "title": "Complex multi-field form with various input types and validation",
+          "code": "import { useRef, useState } from 'react';\nimport ModularForm from '@/components/forms/ModularForm';\nimport { FormElement, ModularFormProps } from '@/types';\n\nconst AdvancedRegistrationForm = () => {\n  const submitRef = useRef<HTMLButtonElement>(null);\n  const [selectedCountries, setSelectedCountries] = useState([]);\n\n  const elements: FormElement[] = [\n    {\n      type: 'input',\n      name: 'firstName',\n      labelContent: 'First Name',\n      required: true,\n      minLength: 2,\n      validationError: 'First name must be at least 2 characters',\n      placeholder: 'John'\n    },\n    {\n      type: 'input',\n      name: 'lastName',\n      labelContent: 'Last Name',\n      required: true,\n      minLength: 2,\n      placeholder: 'Doe'\n    },\n    {\n      type: 'input',\n      name: 'email',\n      labelContent: 'Email',\n      inputType: 'email',\n      required: true,\n      placeholder: 'john@example.com'\n    },\n    {\n      type: 'internationalPhoneInput',\n      name: 'phone',\n      labelContent: 'Phone Number',\n      required: true,\n      defaultCountry: 'US'\n    },\n    {\n      type: 'select',\n      name: 'country',\n      labelContent: 'Country',\n      required: true,\n      options: [\n        { value: 'US', label: 'United States' },\n        { value: 'UK', label: 'United Kingdom' },\n        { value: 'CA', label: 'Canada' }\n      ]\n    },\n    {\n      type: 'multiSelect',\n      name: 'interests',\n      labelContent: 'Interests',\n      placeholder: 'Select interests',\n      options: [\n        { value: 'tech', label: 'Technology' },\n        { value: 'sports', label: 'Sports' },\n        { value: 'music', label: 'Music' }\n      ]\n    },\n    {\n      type: 'textarea',\n      name: 'bio',\n      labelContent: 'Biography',\n      minLength: 10,\n      placeholder: 'Tell us about yourself',\n      defaultValue: ''\n    },\n    {\n      type: 'dateInput',\n      name: 'birthDate',\n      labelContent: 'Date of Birth',\n      required: true\n    },\n    {\n      type: 'checkbox',\n      name: 'termsAgreed',\n      labelContent: 'I agree to the terms and conditions',\n      required: true\n    },\n    {\n      type: 'separator',\n      children: 'Additional Information'\n    },\n    {\n      type: 'duration',\n      name: 'experience',\n      labelContent: 'Years of Experience',\n      options: ['years', 'months']\n    }\n  ];\n\n  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {\n    const form = e.currentTarget;\n    const formData = Object.fromEntries(new FormData(form));\n    \n    const response = await fetch('/api/register', {\n      method: 'POST',\n      headers: { 'Content-Type': 'application/json' },\n      body: JSON.stringify(formData)\n    });\n    \n    if (!response.ok) {\n      const error = await response.json();\n      throw new Error(error.message || 'Registration failed');\n    }\n  };\n\n  return (\n    <ModularForm\n      elements={elements}\n      submitFunction={handleSubmit}\n      submitRef={submitRef}\n      buttonContent=\"Create Account\"\n      headerContent=\"User Registration\"\n      direction=\"ltr\"\n      labelsCommonClassName=\"font-semibold\"\n      elementsCommonClassName=\"w-full rounded-md\"\n      headerClassName=\"bg-blue-50\"\n      buttonClassName=\"bg-blue-600 hover:bg-blue-700\"\n      errorClassName=\"text-red-600 font-medium\"\n      autoFixLabelsWidth={true}\n      onLoad={(form) => console.log('Form loaded:', form)}\n    />\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Missing required submitFunction prop",
+          "code": "// Problem: submitFunction is required but not provided\nconst BadForm = () => {\n  return (\n    <ModularForm\n      elements={[\n        { type: 'input', name: 'email', labelContent: 'Email' }\n      ]}\n      buttonContent=\"Submit\"\n      // Missing submitFunction prop!\n    />\n  );\n};\n\n// Result: TypeScript error, or runtime error when form submits",
+          "why_incorrect": "submitFunction is a required prop (or has a default empty function). Without it, the form can submit but won't actually process the data. Always provide a submitFunction that handles the form submission logic, validates data on server, and handles errors appropriately."
+        }
       }
     }
   ],
   "quality": {
-    "generation_confidence": "high"
+    "generation_confidence": "high",
+    "known_gaps": []
   }
 }

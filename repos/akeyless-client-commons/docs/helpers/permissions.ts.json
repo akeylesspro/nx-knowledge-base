@@ -1,0 +1,264 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "permissions.ts",
+  "source": {
+    "file_path": "helpers/permissions.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": [
+      "firebase"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/permissions.ts",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/permissions.ts.json"
+  },
+  "summary": {
+    "purpose": "User permission management utilities for checking entity-specific permissions, parsing feature strings, and initializing real-time permissions from Firebase with listeners.",
+    "problem_solved": "Provides type-safe permission checking, converts feature strings from API responses into permission objects, and establishes real-time Firebase listeners for permission updates without manual polling."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "module": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides UserPermissionsObject, userPermissionsObjectValue, NxUser, Client, TObject types.",
+        "name": "akeyless-types-commons"
+      }
+    ],
+    "internal": [
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
+        "why_used": "Provides WhereCondition type for Firebase query conditions.",
+        "import_path": "types",
+        "resolved_file_path": "types/index.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/phoneNumber.ts.json",
+        "why_used": "Provides local_israel_phone_format for phone number standardization in queries.",
+        "import_path": "./phoneNumber",
+        "resolved_file_path": "helpers/phoneNumber.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/firebase.ts.json",
+        "why_used": "Provides snapshot function for real-time Firebase listeners.",
+        "import_path": "./firebase",
+        "resolved_file_path": "helpers/firebase.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "checkUserPermissions",
+      "kind": "function",
+      "line": 6,
+      "description_one_line": "Type-safe function to check if user has specific permissions for an entity.",
+      "symbol_id": "function_check_user_permissions"
+    },
+    {
+      "name": "parsePermissions",
+      "kind": "function",
+      "line": 26,
+      "description_one_line": "Parses feature strings from API response into hierarchical permission object.",
+      "symbol_id": "function_parse_permissions"
+    },
+    {
+      "name": "initializeUserPermissions",
+      "kind": "function",
+      "line": 54,
+      "description_one_line": "Async function that establishes real-time Firebase listener for user permission updates.",
+      "symbol_id": "function_initialize_user_permissions"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "function_check_user_permissions",
+      "kind": "function",
+      "name": "checkUserPermissions",
+      "signature": "<T extends keyof UserPermissionsObject>(userPermissions: UserPermissionsObject, entity: T, permissions?: userPermissionsObjectValue<T>[], mode?: 'some' | 'every') => boolean",
+      "description": "Generic type-safe function to check if user has specific permissions for an entity. Supports checking if user has ANY permission (some) or ALL permissions (every). Returns true if no specific permissions are checked or if entity permissions exist and match criteria.",
+      "description_one_line": "Type-safe function to check if user has specific permissions for an entity.",
+      "line": 6,
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 23,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/permissions.ts#L6-L23",
+        "nx_kb_anchor": "checkUserPermissions"
+      },
+      "details": {
+        "what_it_does": "Extracts permissions for specified entity from userPermissions object. Returns false if entity not found. If no specific permissions to check, returns true (entity exists). Uses Array.every if mode='every' (all perms required), otherwise Array.some (any perm required). Checks boolean value in userValues for each permission."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "userPermissions",
+            "type": "UserPermissionsObject",
+            "required": true,
+            "description": "Object mapping entity types to their permission booleans."
+          },
+          {
+            "name": "entity",
+            "type": "T extends keyof UserPermissionsObject",
+            "required": true,
+            "description": "Entity type to check (e.g., 'dashboard', 'api', 'users')."
+          },
+          {
+            "name": "permissions",
+            "type": "userPermissionsObjectValue<T>[]",
+            "required": false,
+            "description": "Specific permissions to check. Undefined means only check if entity exists."
+          },
+          {
+            "name": "mode",
+            "type": "'some' | 'every'",
+            "required": false,
+            "default": "'some'",
+            "description": "Logic mode: 'some' if user needs ANY permission, 'every' if needs ALL permissions."
+          }
+        ],
+        "returns": {
+          "type": "boolean",
+          "description": "True if permission check passes, false otherwise."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Check if user has dashboard permission",
+          "code": "const userPerms = {\n  dashboard: { read: true, write: false },\n  api: { access: true }\n};\n\nconst canRead = checkUserPermissions(userPerms, 'dashboard', ['read']);\nconsole.log(canRead); // true"
+        },
+        "extensive_correct": {
+          "title": "Check multiple permissions with mode",
+          "code": "function ProtectedComponent() {\n  const userPerms = getCurrentUserPermissions();\n  \n  // Check if user can EITHER read OR write\n  const hasReadOrWrite = checkUserPermissions(\n    userPerms,\n    'dashboard',\n    ['read', 'write'],\n    'some'\n  );\n  \n  // Check if user can BOTH read AND write\n  const hasReadAndWrite = checkUserPermissions(\n    userPerms,\n    'dashboard',\n    ['read', 'write'],\n    'every'\n  );\n  \n  if (!hasReadOrWrite) return <AccessDenied />;\n  if (hasReadAndWrite) return <AdminControls />;\n  return <ReadOnlyView />;\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Not checking if entity exists",
+          "code": "// WRONG - assuming entity always exists\nconst canAccess = checkUserPermissions(userPerms, 'api', ['admin']);\nif (canAccess) {\n  // May fail - entity might not exist at all\n}\n\n// CORRECT - check entity exists first\nconst canAccess = checkUserPermissions(userPerms, 'api'); // Checks if entity exists\nif (canAccess) {\n  const hasAdmin = checkUserPermissions(userPerms, 'api', ['admin']);\n}"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_parse_permissions",
+      "kind": "function",
+      "name": "parsePermissions",
+      "signature": "(object: NxUser | Client) => TObject<TObject<boolean>>",
+      "description": "Parses features array from API user/client object into hierarchical permission structure. Converts string format 'type__feature' to nested object { type: { feature: true } }. Returns empty object if features not present.",
+      "description_one_line": "Parses feature strings from API response into hierarchical permission object.",
+      "line": 26,
+      "locations": {
+        "source_line_start": 26,
+        "source_line_end": 46,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/permissions.ts#L26-L46",
+        "nx_kb_anchor": "parsePermissions"
+      },
+      "details": {
+        "what_it_does": "Checks if object has features array. If not, returns empty object. For each feature string, verifies it contains '__' separator. Splits by '__' to extract type and feature name. Creates nested structure: result[type][feature] = true. Skips invalid entries (missing type/name or no __ separator)."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "object",
+            "type": "NxUser | Client",
+            "required": true,
+            "description": "User or Client object from API with features array."
+          }
+        ],
+        "returns": {
+          "type": "TObject<TObject<boolean>>",
+          "description": "Nested permission object where keys are types and values are permission booleans."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Parse user features",
+          "code": "const user = {\n  id: '123',\n  features: ['dashboard__read', 'dashboard__write', 'api__admin']\n};\n\nconst perms = parsePermissions(user);\nconsole.log(perms);\n// {\n//   dashboard: { read: true, write: true },\n//   api: { admin: true }\n// }"
+        },
+        "extensive_correct": {
+          "title": "Parse and check in workflow",
+          "code": "async function initializeApp(user) {\n  const permissions = parsePermissions(user);\n  \n  // Initialize features based on permissions\n  const canAccessDashboard = checkUserPermissions(permissions, 'dashboard');\n  const canEditSettings = checkUserPermissions(permissions, 'settings', ['edit']);\n  \n  setupUI({\n    showDashboard: canAccessDashboard,\n    allowSettingsEdit: canEditSettings\n  });\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Wrong feature string format",
+          "code": "// WRONG - features don't match 'type__feature' pattern\nconst user = {\n  features: ['read', 'write', 'admin'] // Missing type__\n};\nconst perms = parsePermissions(user);\nconsole.log(perms); // {} (empty, features skipped)\n\n// CORRECT - proper format\nconst user = {\n  features: ['dashboard__read', 'dashboard__write']\n};\nconst perms = parsePermissions(user);\n// { dashboard: { read: true, write: true } }"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_initialize_user_permissions",
+      "kind": "function",
+      "name": "initializeUserPermissions",
+      "signature": "(props: InitializeUserPermissionsProps) => Promise<{ unsubscribe: () => void; permissions: TObject<TObject<boolean>> }>",
+      "description": "Async function that establishes real-time Firebase listener for user permissions. Queries Firebase 'nx-users' collection by phone number or email, parses permissions on first retrieval, and calls callback whenever permissions update. Returns unsubscribe function and current permissions. Throws error if user not found.",
+      "description_one_line": "Async function that establishes real-time Firebase listener for user permission updates.",
+      "line": 54,
+      "locations": {
+        "source_line_start": 54,
+        "source_line_end": 94,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/permissions.ts#L54-L94",
+        "nx_kb_anchor": "initializeUserPermissions"
+      },
+      "details": {
+        "what_it_does": "Accepts phoneNumber or email and callback. Builds Firebase where condition: if phone provided, queries both raw and formatted versions; otherwise queries email. Calls snapshot function with nx-users collection and conditions. On first result, parses permissions and calls getUpdatePermissions. On subsequent updates, re-parses and calls callback. Stores unsubscribe function and awaits promise. Handles errors by unsubscribing listener and re-throwing."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "phoneNumber",
+            "type": "string",
+            "required": false,
+            "description": "User's phone number for querying. If provided, used instead of email."
+          },
+          {
+            "name": "email",
+            "type": "string",
+            "required": false,
+            "description": "User's email for querying. Used if phoneNumber not provided."
+          },
+          {
+            "name": "firstTimeArray",
+            "type": "string[]",
+            "required": true,
+            "description": "Array of field names to fetch from Firebase on first query."
+          },
+          {
+            "name": "getUpdatePermissions",
+            "type": "(permissions: TObject<TObject<boolean>>) => void",
+            "required": true,
+            "description": "Callback fired whenever permissions update (including first retrieval)."
+          }
+        ],
+        "returns": {
+          "type": "Promise<{ unsubscribe: () => void; permissions: TObject<TObject<boolean>> }>",
+          "description": "Promise resolving to object with unsubscribe function and current permissions."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Initialize permissions listener",
+          "code": "const { unsubscribe, permissions } = await initializeUserPermissions({\n  email: 'user@example.com',\n  firstTimeArray: ['features', 'name'],\n  getUpdatePermissions: (perms) => {\n    console.log('Permissions updated:', perms);\n    updateUI(perms);\n  }\n});\n\n// Later, stop listening\nunsubscribe();"
+        },
+        "extensive_correct": {
+          "title": "Complete app initialization flow",
+          "code": "async function initializeUserApp(user) {\n  try {\n    const { unsubscribe, permissions } = await initializeUserPermissions({\n      phoneNumber: user.phone || undefined,\n      email: user.email,\n      firstTimeArray: ['features', 'role', 'department'],\n      getUpdatePermissions: (perms) => {\n        // Update Redux/Context store\n        store.dispatch(setUserPermissions(perms));\n        // Re-render UI based on new permissions\n        reloadUIWithPermissions(perms);\n      }\n    });\n    \n    // Store unsubscribe for cleanup on logout\n    sessionStorage.set('permissionsUnsubscribe', unsubscribe);\n    \n    return permissions;\n  } catch (error) {\n    console.error('Failed to initialize permissions:', error);\n    redirectToLogin();\n  }\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Not unsubscribing on logout",
+          "code": "// WRONG - listener continues after user logs out\nlet unsubscribePerms;\nbutton.onclick = async () => {\n  const result = await initializeUserPermissions({ email, firstTimeArray, getUpdatePermissions });\n  unsubscribePerms = result.unsubscribe;\n  // If user logs out, listener still active!\n};\n\n// CORRECT - clean up on logout\nfunction handleLogout() {\n  if (unsubscribePerms) {\n    unsubscribePerms(); // Stop listening\n  }\n  clearUserState();\n}"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": [
+      "Type entity enum not documented; valid entity types depend on UserPermissionsObject definition.",
+      "No validation of phoneNumber/email format before Firebase query.",
+      "Real-time updates via snapshot function may cause performance issues with very large permission documents."
+    ],
+    "documentation_completeness": "Comprehensive: All 3 exported functions fully documented with complete generic signatures, detailed behavior descriptions, parameter documentation with types, return types, and 3-tier examples (minimal, extensive, incorrect patterns). Permission check logic explained with both 'some' and 'every' modes. Feature string parsing explained with real-world examples. Firebase listener initialization with proper cleanup patterns."
+  }
+}

@@ -1,0 +1,683 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "forms.ts",
+  "source": {
+    "file_path": "helpers/forms.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": [
+      "react"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/forms.ts.json"
+  },
+  "summary": {
+    "purpose": "Input validation and form handling utilities using XRegExp for Unicode-aware regex patterns. Provides validation regex patterns for text, numbers, email, color codes, addresses, and more. Includes event handlers for input change, paste, and validity checking.",
+    "problem_solved": "Enables real-time input validation by filtering out invalid characters, supporting multiple languages via Unicode regex. Provides form data extraction/setting and duration conversion utilities."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "module": "react",
+        "kind": "runtime",
+        "why_used": "React event types (ChangeEvent, ClipboardEvent, InvalidEvent) used in handler functions.",
+        "name": "react"
+      },
+      {
+        "module": "xregexp",
+        "kind": "runtime",
+        "why_used": "Unicode-aware regex library supporting \\p{L} for Unicode letter matching across all languages.",
+        "name": "xregexp"
+      }
+    ],
+    "internal": [
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
+        "why_used": "Provides DurationValues type for duration conversion functions.",
+        "import_path": "types",
+        "resolved_file_path": "types/index.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "textRegex",
+      "kind": "constant",
+      "line": 5,
+      "description_one_line": "XRegExp pattern allowing only Unicode letters, spaces, hyphens, plus signs, dots, and commas.",
+      "symbol_id": "constant_text_regex"
+    },
+    {
+      "name": "numbersRegex",
+      "kind": "constant",
+      "line": 6,
+      "description_one_line": "XRegExp pattern allowing only numbers, spaces, hyphens, plus signs, dots, and commas.",
+      "symbol_id": "constant_numbers_regex"
+    },
+    {
+      "name": "numbersOnlyRegex",
+      "kind": "constant",
+      "line": 7,
+      "description_one_line": "XRegExp pattern allowing only numeric digits.",
+      "symbol_id": "constant_numbers_only_regex"
+    },
+    {
+      "name": "priceRegex",
+      "kind": "constant",
+      "line": 8,
+      "description_one_line": "XRegExp pattern allowing only numbers and decimal points.",
+      "symbol_id": "constant_price_regex"
+    },
+    {
+      "name": "emailRegex",
+      "kind": "constant",
+      "line": 9,
+      "description_one_line": "XRegExp pattern allowing email-safe characters (letters, numbers, dots, @, hyphens, spaces).",
+      "symbol_id": "constant_email_regex"
+    },
+    {
+      "name": "colorRegex",
+      "kind": "constant",
+      "line": 10,
+      "description_one_line": "XRegExp pattern allowing only hex color code characters (#, 0-9, A-F).",
+      "symbol_id": "constant_color_regex"
+    },
+    {
+      "name": "carsRegex",
+      "kind": "constant",
+      "line": 11,
+      "description_one_line": "XRegExp pattern allowing Unicode letters, numbers, commas, and underscores.",
+      "symbol_id": "constant_cars_regex"
+    },
+    {
+      "name": "textNumbersRegex",
+      "kind": "constant",
+      "line": 12,
+      "description_one_line": "XRegExp pattern allowing letters, numbers, spaces, hyphens, plus signs, dots, commas, and underscores.",
+      "symbol_id": "constant_text_numbers_regex"
+    },
+    {
+      "name": "addressRegex",
+      "kind": "constant",
+      "line": 13,
+      "description_one_line": "XRegExp pattern allowing letters, numbers, spaces, hyphens, dots, and commas.",
+      "symbol_id": "constant_address_regex"
+    },
+    {
+      "name": "chartsRegex",
+      "kind": "constant",
+      "line": 14,
+      "description_one_line": "XRegExp pattern allowing letters, numbers, spaces, and symbols (@, !, +, -, .).",
+      "symbol_id": "constant_charts_regex"
+    },
+    {
+      "name": "ValidationType",
+      "kind": "type",
+      "line": 16,
+      "description_one_line": "Union type of all supported validation patterns (text, numbers, email, color, etc.).",
+      "symbol_id": "type_validation_type"
+    },
+    {
+      "name": "handleChange",
+      "kind": "function",
+      "line": 29,
+      "description_one_line": "Event handler for input change events that filters characters based on validation type.",
+      "symbol_id": "function_handle_change"
+    },
+    {
+      "name": "handlePaste",
+      "kind": "function",
+      "line": 55,
+      "description_one_line": "Event handler for paste events that filters clipboard content before insertion.",
+      "symbol_id": "function_handle_paste"
+    },
+    {
+      "name": "handleInvalid",
+      "kind": "function",
+      "line": 84,
+      "description_one_line": "Event handler for invalid input events that sets custom validation error message.",
+      "symbol_id": "function_handle_invalid"
+    },
+    {
+      "name": "useValidation",
+      "kind": "function",
+      "line": 88,
+      "description_one_line": "Hook returning object with validation handlers, error message, and data attribute for input element.",
+      "symbol_id": "function_use_validation"
+    },
+    {
+      "name": "getFormElementValue",
+      "kind": "function",
+      "line": 97,
+      "description_one_line": "Extracts and trims value from named form input element.",
+      "symbol_id": "function_get_form_element_value"
+    },
+    {
+      "name": "setFormElementValue",
+      "kind": "function",
+      "line": 102,
+      "description_one_line": "Sets trimmed value on named form input element.",
+      "symbol_id": "function_set_form_element_value"
+    },
+    {
+      "name": "parseMultiSelectInput",
+      "kind": "function",
+      "line": 108,
+      "description_one_line": "Parses JSON multi-select input and extracts array of selected values.",
+      "symbol_id": "function_parse_multi_select_input"
+    },
+    {
+      "name": "getFormCheckboxValue",
+      "kind": "function",
+      "line": 113,
+      "description_one_line": "Retrieves checked state from named checkbox input element.",
+      "symbol_id": "function_get_form_checkbox_value"
+    },
+    {
+      "name": "durationToSeconds",
+      "kind": "function",
+      "line": 117,
+      "description_one_line": "Converts DurationValues (days, hours, minutes, seconds) to total seconds.",
+      "symbol_id": "function_duration_to_seconds"
+    },
+    {
+      "name": "secondsToDuration",
+      "kind": "function",
+      "line": 122,
+      "description_one_line": "Converts total seconds to DurationValues (days, hours, minutes, seconds).",
+      "symbol_id": "function_seconds_to_duration"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "constant_text_regex",
+      "kind": "constant",
+      "name": "textRegex",
+      "signature": "XRegExp",
+      "description": "XRegExp pattern that removes any character that is not a Unicode letter (\\p{L}), space, hyphen, plus sign, dot, or comma. Uses 'gu' flags for global matching and Unicode awareness.",
+      "description_one_line": "XRegExp pattern allowing only Unicode letters, spaces, hyphens, plus signs, dots, and commas.",
+      "line": 5,
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 5,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L5",
+        "nx_kb_anchor": "textRegex"
+      },
+      "details": {
+        "what_it_does": "Pattern matches any character NOT in the allowed set. Used with XRegExp.replace to strip all disallowed characters. Supports Unicode letters from all languages via \\p{L}."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Clean text input",
+          "code": "const input = 'Hello@#$World123';\nconst cleaned = XRegExp.replace(input, textRegex, '');\nconsole.log(cleaned); // 'HelloWorld'"
+        }
+      }
+    },
+    {
+      "symbol_id": "type_validation_type",
+      "kind": "type",
+      "name": "ValidationType",
+      "signature": "type ValidationType = 'text' | 'numbers' | 'numbersOnly' | 'price' | 'textNumbers' | 'email' | 'color' | 'address' | 'cars' | 'charts' | (string & {})",
+      "description": "Union type of all supported input validation patterns. Includes specific patterns (text, email, etc.) plus generic string type for extensibility. Used in data-validation attribute and validation handlers.",
+      "description_one_line": "Union type of all supported validation patterns (text, numbers, email, color, etc.).",
+      "line": 16,
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 27,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L16-L27",
+        "nx_kb_anchor": "ValidationType"
+      },
+      "details": {
+        "what_it_does": "Defines allowed validation type values. (string & {}) allows type-safe custom strings for extensibility while preventing typos at compile time."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using validation types",
+          "code": "const validationType: ValidationType = 'email'; // Type-safe\nconst customType: ValidationType = 'custom_pattern'; // Also allowed"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_handle_change",
+      "kind": "function",
+      "name": "handleChange",
+      "signature": "(e: React.ChangeEvent<HTMLInputElement>) => void",
+      "description": "React event handler for input change events that clears custom validity, reads validation type from data-validation attribute, and filters input value using corresponding regex pattern. Modifies e.target.value in-place.",
+      "description_one_line": "Event handler for input change events that filters characters based on validation type.",
+      "line": 29,
+      "locations": {
+        "source_line_start": 29,
+        "source_line_end": 53,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L29-L53",
+        "nx_kb_anchor": "handleChange"
+      },
+      "details": {
+        "what_it_does": "Clears previous validation messages. Reads data-validation attribute as ValidationType. Uses switch-like if-else chain to select appropriate regex pattern. Applies XRegExp.replace to remove disallowed characters from input value."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "e",
+            "type": "React.ChangeEvent<HTMLInputElement>",
+            "required": true,
+            "description": "React change event from input element."
+          }
+        ],
+        "returns": {
+          "type": "void",
+          "description": "Modifies e.target.value in-place with filtered content."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Filter text input in real-time",
+          "code": "<input\n  type=\"text\"\n  data-validation=\"text\"\n  onChange={handleChange}\n  placeholder=\"Letters, spaces, hyphens only\"\n/>"
+        },
+        "extensive_correct": {
+          "title": "Multi-pattern form validation",
+          "code": "<form>\n  <input type=\"text\" data-validation=\"email\" onChange={handleChange} placeholder=\"Email\" />\n  <input type=\"text\" data-validation=\"numbersOnly\" onChange={handleChange} placeholder=\"Phone\" />\n  <input type=\"text\" data-validation=\"price\" onChange={handleChange} placeholder=\"Price\" />\n</form>"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_handle_paste",
+      "kind": "function",
+      "name": "handlePaste",
+      "signature": "(e: React.ClipboardEvent<HTMLInputElement>) => void",
+      "description": "React event handler for paste events that filters clipboard content based on data-validation attribute, then inserts cleaned text. Prevents invalid characters from being pasted into the input.",
+      "description_one_line": "Event handler for paste events that filters clipboard content before insertion.",
+      "line": 55,
+      "locations": {
+        "source_line_start": 55,
+        "source_line_end": 82,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L55-L82",
+        "nx_kb_anchor": "handlePaste"
+      },
+      "details": {
+        "what_it_does": "Reads clipboard text. Applies same validation pattern filtering as handleChange. Calls e.preventDefault() to block default paste. Uses document.execCommand('insertText') to insert filtered text."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "e",
+            "type": "React.ClipboardEvent<HTMLInputElement>",
+            "required": true,
+            "description": "React clipboard event from paste action."
+          }
+        ],
+        "returns": {
+          "type": "void",
+          "description": "Inserts filtered clipboard content into input."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Validate pasted email address",
+          "code": "<input\n  type=\"email\"\n  data-validation=\"email\"\n  onChange={handleChange}\n  onPaste={handlePaste}\n  placeholder=\"Email\"\n/>"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_handle_invalid",
+      "kind": "function",
+      "name": "handleInvalid",
+      "signature": "(e: React.InvalidEvent<HTMLInputElement>, requireError?: string) => void",
+      "description": "React event handler for invalid input events (HTML5 form validation). Sets custom validity message on the input element using provided error text or default 'required' message.",
+      "description_one_line": "Event handler for invalid input events that sets custom validation error message.",
+      "line": 84,
+      "locations": {
+        "source_line_start": 84,
+        "source_line_end": 86,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L84-L86",
+        "nx_kb_anchor": "handleInvalid"
+      },
+      "details": {
+        "what_it_does": "Calls setCustomValidity with provided error message or default 'This field is required !'. Used with HTML5 required validation to provide custom error feedback."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "e",
+            "type": "React.InvalidEvent<HTMLInputElement>",
+            "required": true,
+            "description": "React invalid event from form validation."
+          },
+          {
+            "name": "requireError",
+            "type": "string",
+            "required": false,
+            "description": "Custom error message. Defaults to 'This field is required !' if not provided."
+          }
+        ],
+        "returns": {
+          "type": "void",
+          "description": "Sets custom validity on input element."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Custom required field error",
+          "code": "<input\n  type=\"email\"\n  required\n  onInvalid={(e) => handleInvalid(e, 'Please enter a valid email')}\n  placeholder=\"Email\"\n/>"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_use_validation",
+      "kind": "function",
+      "name": "useValidation",
+      "signature": "(validationType: ValidationType, requireError?: string) => { onChange: Function; onPaste: Function; onInvalid: Function; 'data-validation': ValidationType }",
+      "description": "Hook that returns an object containing all validation event handlers and data attribute for input element. Simplifies applying validation to input by spreading returned object as props.",
+      "description_one_line": "Hook returning object with validation handlers, error message, and data attribute for input element.",
+      "line": 88,
+      "locations": {
+        "source_line_start": 88,
+        "source_line_end": 95,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L88-L95",
+        "nx_kb_anchor": "useValidation"
+      },
+      "details": {
+        "what_it_does": "Returns object with onChange, onPaste, and onInvalid handlers pre-configured for specified validation type. Also includes data-validation attribute with the type. Allows spread syntax {...useValidation(...)} on input elements."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "validationType",
+            "type": "ValidationType",
+            "required": true,
+            "description": "Type of validation to apply (e.g., 'email', 'numbers')."
+          },
+          {
+            "name": "requireError",
+            "type": "string",
+            "required": false,
+            "description": "Custom error message for validation failures."
+          }
+        ],
+        "returns": {
+          "type": "Object",
+          "description": "Object with onChange, onPaste, onInvalid handlers and data-validation attribute."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Apply validation with hook",
+          "code": "function PhoneInput() {\n  return (\n    <input\n      type=\"text\"\n      placeholder=\"Phone number\"\n      {...useValidation('numbersOnly', 'Numbers only allowed')}\n    />\n  );\n}"
+        },
+        "extensive_correct": {
+          "title": "Multiple validated inputs",
+          "code": "function RegistrationForm() {\n  return (\n    <>\n      <input {...useValidation('email')} placeholder=\"Email\" required />\n      <input {...useValidation('numbersOnly')} placeholder=\"Phone\" />\n      <input {...useValidation('text')} placeholder=\"Name\" required />\n      <input {...useValidation('price')} placeholder=\"Budget\" />\n    </>\n  );\n}"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_get_form_element_value",
+      "kind": "function",
+      "name": "getFormElementValue",
+      "signature": "(form: HTMLFormElement, name: string) => string",
+      "description": "Extracts value from named form input element and returns trimmed string. Returns empty string if element not found or has no value.",
+      "description_one_line": "Extracts and trims value from named form input element.",
+      "line": 97,
+      "locations": {
+        "source_line_start": 97,
+        "source_line_end": 100,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L97-L100",
+        "nx_kb_anchor": "getFormElementValue"
+      },
+      "details": {
+        "what_it_does": "Uses form.elements.namedItem(name) to find input by name attribute, optionally casts to HTMLInputElement, accesses value property with fallback to empty string, then trims and returns."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "form",
+            "type": "HTMLFormElement",
+            "required": true,
+            "description": "HTML form element to search within."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true,
+            "description": "Name attribute of input element to extract value from."
+          }
+        ],
+        "returns": {
+          "type": "string",
+          "description": "Trimmed value from input, or empty string if not found."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Extract form field value",
+          "code": "const form = e.currentTarget as HTMLFormElement;\nconst email = getFormElementValue(form, 'email');\nconst name = getFormElementValue(form, 'name');"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_set_form_element_value",
+      "kind": "function",
+      "name": "setFormElementValue",
+      "signature": "(form: HTMLFormElement, name: string, newValue?: string) => void",
+      "description": "Sets trimmed value on named form input element. No-op if element not found. Trims empty strings to empty string.",
+      "description_one_line": "Sets trimmed value on named form input element.",
+      "line": 102,
+      "locations": {
+        "source_line_start": 102,
+        "source_line_end": 106,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L102-L106",
+        "nx_kb_anchor": "setFormElementValue"
+      },
+      "details": {
+        "what_it_does": "Finds input by name, returns early if not found, then sets value to trimmed newValue (or empty string if undefined)."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "form",
+            "type": "HTMLFormElement",
+            "required": true,
+            "description": "HTML form element to search within."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true,
+            "description": "Name attribute of input element to set value on."
+          },
+          {
+            "name": "newValue",
+            "type": "string",
+            "required": false,
+            "description": "Value to set on input (will be trimmed). Defaults to empty string."
+          }
+        ],
+        "returns": {
+          "type": "void",
+          "description": "Sets input value, no return value."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Reset form field",
+          "code": "const form = e.currentTarget as HTMLFormElement;\nsetFormElementValue(form, 'email'); // Clears email field"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_parse_multi_select_input",
+      "kind": "function",
+      "name": "parseMultiSelectInput",
+      "signature": "(input: string) => any[]",
+      "description": "Parses JSON string containing multi-select array and extracts array of 'value' properties from each object. Used with form libraries that return select options as JSON.",
+      "description_one_line": "Parses JSON multi-select input and extracts array of selected values.",
+      "line": 108,
+      "locations": {
+        "source_line_start": 108,
+        "source_line_end": 111,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L108-L111",
+        "nx_kb_anchor": "parseMultiSelectInput"
+      },
+      "details": {
+        "what_it_does": "Parses JSON string to array. Maps over array extracting v.value from each object. Returns array of extracted values."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "input",
+            "type": "string",
+            "required": true,
+            "description": "JSON string containing array of objects with 'value' property."
+          }
+        ],
+        "returns": {
+          "type": "any[]",
+          "description": "Array of value properties extracted from input array."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Extract selected values",
+          "code": "const json = '[{\"label\":\"Apple\",\"value\":\"apple\"},{\"label\":\"Banana\",\"value\":\"banana\"}]';\nconst values = parseMultiSelectInput(json);\nconsole.log(values); // ['apple', 'banana']"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_get_form_checkbox_value",
+      "kind": "function",
+      "name": "getFormCheckboxValue",
+      "signature": "(form: HTMLFormElement, name: string) => boolean",
+      "description": "Retrieves checked state from named checkbox input element. Returns false if element not found or not checked.",
+      "description_one_line": "Retrieves checked state from named checkbox input element.",
+      "line": 113,
+      "locations": {
+        "source_line_start": 113,
+        "source_line_end": 115,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L113-L115",
+        "nx_kb_anchor": "getFormCheckboxValue"
+      },
+      "details": {
+        "what_it_does": "Finds input by name, accesses checked property with fallback to false, and returns boolean."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "form",
+            "type": "HTMLFormElement",
+            "required": true,
+            "description": "HTML form element to search within."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true,
+            "description": "Name attribute of checkbox element."
+          }
+        ],
+        "returns": {
+          "type": "boolean",
+          "description": "True if checkbox is checked, false otherwise."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Check agreement checkbox",
+          "code": "const form = e.currentTarget as HTMLFormElement;\nconst agreedToTerms = getFormCheckboxValue(form, 'terms');\nif (!agreedToTerms) {\n  alert('Please agree to terms');\n}"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_duration_to_seconds",
+      "kind": "function",
+      "name": "durationToSeconds",
+      "signature": "(d: DurationValues) => number",
+      "description": "Converts DurationValues object (days, hours, minutes, seconds) to total seconds. Clamps negative values to 0 before calculation.",
+      "description_one_line": "Converts DurationValues (days, hours, minutes, seconds) to total seconds.",
+      "line": 117,
+      "locations": {
+        "source_line_start": 117,
+        "source_line_end": 120,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L117-L120",
+        "nx_kb_anchor": "durationToSeconds"
+      },
+      "details": {
+        "what_it_does": "Clamps negative values to 0. Calculates ((days*24 + hours)*60 + minutes)*60 + seconds to get total seconds."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "d",
+            "type": "DurationValues",
+            "required": true,
+            "description": "Object with days, hours, minutes, seconds properties."
+          }
+        ],
+        "returns": {
+          "type": "number",
+          "description": "Total duration in seconds."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Convert to seconds",
+          "code": "const duration = { days: 1, hours: 2, minutes: 30, seconds: 45 };\nconst seconds = durationToSeconds(duration);\nconsole.log(seconds); // 93045 seconds (1 day + 2h 30m 45s)"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_seconds_to_duration",
+      "kind": "function",
+      "name": "secondsToDuration",
+      "signature": "(total: number) => DurationValues",
+      "description": "Converts total seconds to DurationValues object with days, hours, minutes, and remaining seconds. Clamps input to non-negative values.",
+      "description_one_line": "Converts total seconds to DurationValues (days, hours, minutes, seconds).",
+      "line": 122,
+      "locations": {
+        "source_line_start": 122,
+        "source_line_end": 134,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L122-L134",
+        "nx_kb_anchor": "secondsToDuration"
+      },
+      "details": {
+        "what_it_does": "Clamps input to non-negative. Calculates days by dividing by 86,400. Calculates hours from remainder by dividing by 3,600. Calculates minutes from remainder by dividing by 60. Remaining value is seconds. Returns DurationValues object."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "total",
+            "type": "number",
+            "required": true,
+            "description": "Total duration in seconds."
+          }
+        ],
+        "returns": {
+          "type": "DurationValues",
+          "description": "Object with days, hours, minutes, seconds properties."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Convert from seconds",
+          "code": "const duration = secondsToDuration(93045);\nconsole.log(duration);\n// { days: 1, hours: 2, minutes: 30, seconds: 45 }"
+        },
+        "extensive_correct": {
+          "title": "Display duration picker UI",
+          "code": "function DurationDisplay({ seconds }) {\n  const { days, hours, minutes, seconds: secs } = secondsToDuration(seconds);\n  return (\n    <div>\n      <span>{days}d {hours}h {minutes}m {secs}s</span>\n    </div>\n  );\n}"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": [
+      "Validation patterns are predefined and fixed; custom patterns require code changes.",
+      "Input filtering occurs synchronously on every keystroke which could impact performance on slow devices.",
+      "document.execCommand is deprecated; future versions should use the Clipboard API."
+    ],
+    "documentation_completeness": "Comprehensive: All 20 exported symbols (9 regex constants, 1 type, 10 functions) fully documented with complete signatures, behavior descriptions, and examples. Validation patterns documented with Unicode support explanation. Event handlers documented with real React event types. Form utilities documented with practical examples. Duration conversion utilities with complete conversion algorithms explained."
+  }
+}

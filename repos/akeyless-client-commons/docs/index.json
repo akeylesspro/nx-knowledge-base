@@ -5,11 +5,14 @@
   },
   "file_name": "index.ts",
   "source": {
-    "file_path": "src/index.ts",
+    "file_path": "index.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T00:00:00Z",
     "language": "ts",
-    "framework_tags": ["react", "typescript"],
+    "framework_tags": [
+      "react",
+      "typescript"
+    ],
     "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts",
     "link_to_nx_kb": "/repos/akeyless-client-commons/docs/index"
   },
@@ -22,35 +25,35 @@
     "internal": [
       {
         "import_path": "./assets",
-        "resolved_file_path": "src/assets/index.tsx",
+        "resolved_file_path": "assets/index.tsx",
         "why_used": "Exports asset-related utilities and components",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index",
         "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx"
       },
       {
         "import_path": "./components",
-        "resolved_file_path": "src/components/index.tsx",
+        "resolved_file_path": "components/index.tsx",
         "why_used": "Exports all React components including UI, forms, tables, and utility components",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/index",
         "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx"
       },
       {
         "import_path": "./helpers",
-        "resolved_file_path": "src/helpers/index.ts",
+        "resolved_file_path": "helpers/index.ts",
         "why_used": "Exports utility functions for API, forms, Firebase, permissions, and more",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index",
         "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts"
       },
       {
         "import_path": "./hooks",
-        "resolved_file_path": "src/hooks/index.ts",
+        "resolved_file_path": "hooks/index.ts",
         "why_used": "Exports React hooks for state management and snapshots",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/index",
         "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/index.ts"
       },
       {
         "import_path": "./types",
-        "resolved_file_path": "src/types/index.ts",
+        "resolved_file_path": "types/index.ts",
         "why_used": "Exports TypeScript types, interfaces, enums, and classes used throughout the library",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index",
         "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts"
@@ -103,6 +106,19 @@
         "source_line_end": 12,
         "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L1-L12",
         "nx_kb_anchor": "#export_assets"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "TODO: Document return type"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of assets",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -118,6 +134,19 @@
         "source_line_end": 12,
         "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L1-L12",
         "nx_kb_anchor": "#export_components"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "TODO: Document return type"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of components",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -133,6 +162,19 @@
         "source_line_end": 12,
         "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L1-L12",
         "nx_kb_anchor": "#export_helpers"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "TODO: Document return type"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of helpers",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -148,6 +190,19 @@
         "source_line_end": 12,
         "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L1-L12",
         "nx_kb_anchor": "#export_hooks"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "TODO: Document return type"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of hooks",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -163,6 +218,19 @@
         "source_line_end": 12,
         "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L1-L12",
         "nx_kb_anchor": "#export_types"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "TODO: Document return type"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of types",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

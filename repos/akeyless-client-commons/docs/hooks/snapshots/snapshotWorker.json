@@ -5,11 +5,13 @@
   },
   "file_name": "snapshotWorker.ts",
   "source": {
-    "file_path": "src/hooks/snapshots/snapshotWorker.ts",
+    "file_path": "hooks/snapshots/snapshotWorker.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T12:00:00.000Z",
     "language": "ts",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/snapshotWorker.ts",
     "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/snapshots/snapshotWorker.json"
   },
@@ -81,6 +83,12 @@
         "source_line_end": 50,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/snapshotWorker.ts#L1-L50",
         "nx_kb_anchor": "wrapConfigsWithWorker"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of wrapConfigsWithWorker",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -122,11 +130,20 @@
         "source_line_end": 100,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/snapshotWorker.ts#L51-L100",
         "nx_kb_anchor": "wrapDocumentConfigsWithWorker"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of wrapDocumentConfigsWithWorker",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],
   "quality": {
     "generation_confidence": "medium",
-    "known_gaps": ["Web Worker implementation details incomplete", "Error handling not fully documented"]
+    "known_gaps": [
+      "Web Worker implementation details incomplete",
+      "Error handling not fully documented"
+    ]
   }
 }

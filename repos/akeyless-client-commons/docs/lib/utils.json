@@ -5,7 +5,7 @@
   },
   "file_name": "utils.ts",
   "source": {
-    "file_path": "src/lib/utils.ts",
+    "file_path": "lib/utils.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T00:00:00Z",
     "language": "ts",

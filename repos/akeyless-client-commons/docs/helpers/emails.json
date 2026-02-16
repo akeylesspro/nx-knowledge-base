@@ -5,11 +5,13 @@
   },
   "file_name": "emails.ts",
   "source": {
-    "file_path": "src/helpers/emails.ts",
+    "file_path": "helpers/emails.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
-    "framework_tags": ["axios"],
+    "framework_tags": [
+      "axios"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/emails.ts",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/emails.json"
   },
@@ -61,6 +63,19 @@
         "source_line_end": 8,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/emails.ts#L3-L8",
         "nx_kb_anchor": "EmailAttachment"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "TODO: Document return type"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of EmailAttachment",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -70,12 +85,35 @@
       "description_one_line": "Blob to Base64 Attachment conversion.",
       "signature": {
         "params": [
-          { "name": "blob", "type": "Blob", "required": true, "description": "File data." },
-          { "name": "filename", "type": "string", "required": true, "description": "Name for the attachment." },
-          { "name": "mimeType", "type": "string", "required": false, "description": "Override MIME type." },
-          { "name": "disposition", "type": "'attachment' | 'inline'", "required": false, "description": "Default is 'attachment'." }
+          {
+            "name": "blob",
+            "type": "Blob",
+            "required": true,
+            "description": "File data."
+          },
+          {
+            "name": "filename",
+            "type": "string",
+            "required": true,
+            "description": "Name for the attachment."
+          },
+          {
+            "name": "mimeType",
+            "type": "string",
+            "required": false,
+            "description": "Override MIME type."
+          },
+          {
+            "name": "disposition",
+            "type": "'attachment' | 'inline'",
+            "required": false,
+            "description": "Default is 'attachment'."
+          }
         ],
-        "returns": { "type": "Promise<EmailAttachment>", "description": "The attachment object." }
+        "returns": {
+          "type": "Promise<EmailAttachment>",
+          "description": "The attachment object."
+        }
       },
       "details": {
         "what_it_does": "Reads the blob as an ArrayBuffer, converts it to a base64 string (handling both Node.js Buffer and browser btoa), and returns the EmailAttachment object."
@@ -85,19 +123,38 @@
         "source_line_end": 42,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/emails.ts#L10-L42",
         "nx_kb_anchor": "createAttachmentFromBlob"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of createAttachmentFromBlob",
+          "code": "// TODO: Add example code"
+        }
       }
     },
-     {
+    {
       "symbol_id": "createAttachmentFromUrl",
       "name": "createAttachmentFromUrl",
       "kind": "function",
       "description_one_line": "URL to Attachment conversion.",
       "signature": {
         "params": [
-          { "name": "url", "type": "string", "required": true, "description": "File URL." },
-          { "name": "filename", "type": "string", "required": false, "description": "Optional filename." }
+          {
+            "name": "url",
+            "type": "string",
+            "required": true,
+            "description": "File URL."
+          },
+          {
+            "name": "filename",
+            "type": "string",
+            "required": false,
+            "description": "Optional filename."
+          }
         ],
-        "returns": { "type": "Promise<EmailAttachment>", "description": "The attachment object." }
+        "returns": {
+          "type": "Promise<EmailAttachment>",
+          "description": "The attachment object."
+        }
       },
       "details": {
         "what_it_does": "Fetches the file via a local proxy `/api/proxy-file` to bypass potential CORS issues, then converts the response blob to an attachment."
@@ -107,6 +164,12 @@
         "source_line_end": 62,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/emails.ts#L55-L62",
         "nx_kb_anchor": "createAttachmentFromUrl"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of createAttachmentFromUrl",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

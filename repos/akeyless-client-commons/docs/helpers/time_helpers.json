@@ -5,11 +5,13 @@
   },
   "file_name": "time_helpers.ts",
   "source": {
-    "file_path": "src/helpers/time_helpers.ts",
+    "file_path": "helpers/time_helpers.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
-    "framework_tags": ["moment"],
+    "framework_tags": [
+      "moment"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/time_helpers.json"
   },
@@ -65,10 +67,23 @@
       "description_one_line": "Formats timestamp to string.",
       "signature": {
         "params": [
-          { "name": "firebaseTimestamp", "type": "any", "required": true, "description": "Input timestamp (Timestamp | Date | string | object)." },
-          { "name": "options", "type": "TimeToStringOptions", "required": false, "description": "Format options (format, tz, debug)." }
+          {
+            "name": "firebaseTimestamp",
+            "type": "any",
+            "required": true,
+            "description": "Input timestamp (Timestamp | Date | string | object)."
+          },
+          {
+            "name": "options",
+            "type": "TimeToStringOptions",
+            "required": false,
+            "description": "Format options (format, tz, debug)."
+          }
         ],
-        "returns": { "type": "string", "description": "Formatted date string." }
+        "returns": {
+          "type": "string",
+          "description": "Formatted date string."
+        }
       },
       "details": {
         "what_it_does": "Detects the input type (Firebase Timestamp, Date, string, etc.), converts it to a JS Date, then uses Moment.js to format it, optionally adjusting for timezone."
@@ -78,6 +93,68 @@
         "source_line_end": 66,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts#L11-L66",
         "nx_kb_anchor": "timestamp_to_string"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of timestamp_to_string",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "timestamp_to_millis",
+      "name": "timestamp_to_millis",
+      "kind": "function",
+      "description_one_line": "Converts flexible timestamp input to milliseconds (number).",
+      "details": {
+        "what_it_does": "Converts flexible timestamp input to milliseconds (number)."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#timestamp_to_millis"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of timestamp_to_millis",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "sort_by_timestamp",
+      "name": "sort_by_timestamp",
+      "kind": "function",
+      "description_one_line": "Comparator for sorting timestamps.",
+      "details": {
+        "what_it_does": "Comparator for sorting timestamps."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#sort_by_timestamp"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of sort_by_timestamp",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

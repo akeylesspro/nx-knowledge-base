@@ -5,7 +5,7 @@
   },
   "file_name": "index.ts",
   "source": {
-    "file_path": "src/hooks/snapshots/index.ts",
+    "file_path": "hooks/snapshots/index.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T12:53:43.653Z",
     "language": "ts",
@@ -100,6 +100,12 @@
         "source_line_end": 50,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/index.ts#L1",
         "nx_kb_anchor": "useDbSnapshots"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useDbSnapshots",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -141,6 +147,12 @@
         "source_line_end": 50,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/index.ts#L1",
         "nx_kb_anchor": "useDbDocumentSnapshots"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useDbDocumentSnapshots",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -182,6 +194,12 @@
         "source_line_end": 50,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/index.ts#L1",
         "nx_kb_anchor": "useSmartSnapshots"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useSmartSnapshots",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -223,6 +241,12 @@
         "source_line_end": 50,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/index.ts#L1",
         "nx_kb_anchor": "useSocketSnapshots"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useSocketSnapshots",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

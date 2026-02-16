@@ -110,7 +110,176 @@
       "symbol_id": "reexport_5"
     }
   ],
-  "symbols": [],
+  "symbols": [
+    {
+      "symbol_id": "reexport_0",
+      "name": "*",
+      "kind": "value",
+      "description_one_line": "* export",
+      "details": {
+        "what_it_does": "* export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#reexport_0"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of *",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "reexport_1",
+      "name": "*",
+      "kind": "value",
+      "description_one_line": "* export",
+      "details": {
+        "what_it_does": "* export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#reexport_1"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of *",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "reexport_2",
+      "name": "*",
+      "kind": "value",
+      "description_one_line": "* export",
+      "details": {
+        "what_it_does": "* export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#reexport_2"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of *",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "reexport_3",
+      "name": "*",
+      "kind": "value",
+      "description_one_line": "* export",
+      "details": {
+        "what_it_does": "* export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#reexport_3"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of *",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "reexport_4",
+      "name": "*",
+      "kind": "value",
+      "description_one_line": "* export",
+      "details": {
+        "what_it_does": "* export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#reexport_4"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of *",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "reexport_5",
+      "name": "*",
+      "kind": "value",
+      "description_one_line": "* export",
+      "details": {
+        "what_it_does": "* export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#reexport_5"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of *",
+          "code": "// TODO: Add example code"
+        }
+      }
+    }
+  ],
   "quality": {
     "generation_confidence": "high",
     "known_gaps": []

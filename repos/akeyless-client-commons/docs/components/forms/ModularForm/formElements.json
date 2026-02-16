@@ -5,7 +5,7 @@
   },
   "file_name": "formElements.tsx",
   "source": {
-    "file_path": "src/components/forms/ModularForm/formElements.tsx",
+    "file_path": "components/forms/ModularForm/formElements.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
@@ -30,21 +30,21 @@
     "internal": [
       {
         "import_path": "@/components/ui/multiselect",
-        "resolved_file_path": "src/components/ui/multiselect.tsx",
+        "resolved_file_path": "components/ui/multiselect.tsx",
         "why_used": "MultipleSelector component.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/multiselect.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/ui/multiselect.tsx"
       },
       {
         "import_path": "@/components/ui/SearchSelect",
-        "resolved_file_path": "src/components/ui/SearchSelect.tsx",
+        "resolved_file_path": "components/ui/SearchSelect.tsx",
         "why_used": "SearchSelect component.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/ui/SearchSelect.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/ui/SearchSelect.tsx"
       },
       {
-        "import_path": "src/helpers",
-        "resolved_file_path": "src/helpers/index.ts",
+        "import_path": "helpers",
+        "resolved_file_path": "helpers/index.ts",
         "why_used": "Helpers (useValidation, durationToSeconds).",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/index.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/index.ts"
@@ -133,6 +133,299 @@
       },
       "details": {
         "what_it_does": "Input field."
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "TODO: Document return type"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of InputContainer",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "DateInputContainer",
+      "name": "DateInputContainer",
+      "kind": "component",
+      "description_one_line": "Date picker input.",
+      "details": {
+        "what_it_does": "Date picker input."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#DateInputContainer"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of DateInputContainer",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "SelectContainer",
+      "name": "SelectContainer",
+      "kind": "component",
+      "description_one_line": "Select dropdown.",
+      "details": {
+        "what_it_does": "Select dropdown."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#SelectContainer"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of SelectContainer",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "MultiSelect",
+      "name": "MultiSelect",
+      "kind": "component",
+      "description_one_line": "Multi-select dropdown.",
+      "details": {
+        "what_it_does": "Multi-select dropdown."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#MultiSelect"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of MultiSelect",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "SelectWithSearch",
+      "name": "SelectWithSearch",
+      "kind": "component",
+      "description_one_line": "Combobox select.",
+      "details": {
+        "what_it_does": "Combobox select."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#SelectWithSearch"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of SelectWithSearch",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TextAreaContainer",
+      "name": "TextAreaContainer",
+      "kind": "component",
+      "description_one_line": "Textarea input.",
+      "details": {
+        "what_it_does": "Textarea input."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TextAreaContainer"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TextAreaContainer",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "FormSeparator",
+      "name": "FormSeparator",
+      "kind": "component",
+      "description_one_line": "Form visual separator.",
+      "details": {
+        "what_it_does": "Form visual separator."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#FormSeparator"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of FormSeparator",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "CheckboxContainer",
+      "name": "CheckboxContainer",
+      "kind": "component",
+      "description_one_line": "Checkbox input.",
+      "details": {
+        "what_it_does": "Checkbox input."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#CheckboxContainer"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of CheckboxContainer",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "DurationPicker",
+      "name": "DurationPicker",
+      "kind": "component",
+      "description_one_line": "Days/Hours/Minutes/Seconds picker.",
+      "details": {
+        "what_it_does": "Days/Hours/Minutes/Seconds picker."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#DurationPicker"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of DurationPicker",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "FormElementContainer",
+      "name": "FormElementContainer",
+      "kind": "component",
+      "description_one_line": "Common wrapper.",
+      "details": {
+        "what_it_does": "Common wrapper."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#FormElementContainer"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of FormElementContainer",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "ElementsContainer",
+      "name": "ElementsContainer",
+      "kind": "component",
+      "description_one_line": "Group container for multiple elements.",
+      "details": {
+        "what_it_does": "Group container for multiple elements."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#ElementsContainer"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of ElementsContainer",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

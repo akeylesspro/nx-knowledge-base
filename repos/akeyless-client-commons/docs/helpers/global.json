@@ -5,7 +5,7 @@
   },
   "file_name": "global.ts",
   "source": {
-    "file_path": "src/helpers/global.ts",
+    "file_path": "helpers/global.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
@@ -39,23 +39,23 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "./firebase",
-        "resolved_file_path": "src/helpers/firebase.ts",
+        "resolved_file_path": "helpers/firebase.ts",
         "why_used": "Firebase utilities (query_document, snapshot).",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/firebase.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/firebase.ts"
       },
-       {
+      {
         "import_path": "./phoneNumber",
-        "resolved_file_path": "src/helpers/phoneNumber.ts",
+        "resolved_file_path": "helpers/phoneNumber.ts",
         "why_used": "Phone number formatting utility.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/phoneNumber.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/phoneNumber.ts"
       },
-       {
-        "import_path": "src/types",
-        "resolved_file_path": "src/types/index.ts",
+      {
+        "import_path": "types",
+        "resolved_file_path": "types/index.ts",
         "why_used": "Helper types (WhereCondition).",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/index.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/types/index.ts"
@@ -93,49 +93,49 @@
       "description_one_line": "Formats a user's full name.",
       "symbol_id": "userNameFormat"
     },
-     {
+    {
       "name": "multiStringFormat",
       "kind": "function",
       "description_one_line": "Joins multiple strings with spaces.",
       "symbol_id": "multiStringFormat"
     },
-     {
+    {
       "name": "getLocationUrl",
       "kind": "function",
       "description_one_line": "Generates a Google Maps URL for given coordinates.",
       "symbol_id": "getLocationUrl"
     },
-     {
+    {
       "name": "isNodeEnv",
       "kind": "constant",
       "description_one_line": "Boolean indicating if running in a Node.js environment.",
       "symbol_id": "isNodeEnv"
     },
-     {
+    {
       "name": "mode",
       "kind": "constant",
       "description_one_line": "Application mode (e.g., qa, prod).",
       "symbol_id": "mode"
     },
-     {
+    {
       "name": "isLocal",
       "kind": "constant",
       "description_one_line": "Boolean indicating if running locally.",
       "symbol_id": "isLocal"
     },
-     {
+    {
       "name": "getFixedNumber",
       "kind": "function",
       "description_one_line": "Formats a number to a fixed decimal string, removing trailing zeros.",
       "symbol_id": "getFixedNumber"
     },
-     {
+    {
       "name": "getAddressByGeo",
       "kind": "function",
       "description_one_line": "Reverse geocodes coordinates to an address using Google Maps API.",
       "symbol_id": "getAddressByGeo"
     },
-     {
+    {
       "name": "validateAndCast",
       "kind": "function",
       "description_one_line": "Type predicate helper function.",
@@ -150,12 +150,35 @@
       "description_one_line": "Calculates bearing in degrees.",
       "signature": {
         "params": [
-          { "name": "startLat", "type": "number", "required": true, "description": "Start latitude" },
-          { "name": "startLng", "type": "number", "required": true, "description": "Start longitude" },
-          { "name": "endLat", "type": "number", "required": true, "description": "End latitude" },
-          { "name": "endLng", "type": "number", "required": true, "description": "End longitude" }
+          {
+            "name": "startLat",
+            "type": "number",
+            "required": true,
+            "description": "Start latitude"
+          },
+          {
+            "name": "startLng",
+            "type": "number",
+            "required": true,
+            "description": "Start longitude"
+          },
+          {
+            "name": "endLat",
+            "type": "number",
+            "required": true,
+            "description": "End latitude"
+          },
+          {
+            "name": "endLng",
+            "type": "number",
+            "required": true,
+            "description": "End longitude"
+          }
         ],
-        "returns": { "type": "number", "description": "Bearing in degrees (0-360)." }
+        "returns": {
+          "type": "number",
+          "description": "Bearing in degrees (0-360)."
+        }
       },
       "details": {
         "what_it_does": "Computes the initial bearing (forward azimuth) from the starting point to the destination point."
@@ -165,16 +188,25 @@
         "source_line_end": 26,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L8-L26",
         "nx_kb_anchor": "calculateBearing"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of calculateBearing",
+          "code": "// TODO: Add example code"
+        }
       }
     },
-     {
+    {
       "symbol_id": "getUserCountryByIp",
       "name": "getUserCountryByIp",
       "kind": "function",
       "description_one_line": "Determines user country from IP.",
       "signature": {
         "params": [],
-        "returns": { "type": "Promise<CountryOptions>", "description": "The country code (e.g. 'il' or 'en')." }
+        "returns": {
+          "type": "Promise<CountryOptions>",
+          "description": "The country code (e.g. 'il' or 'en')."
+        }
       },
       "details": {
         "what_it_does": "Calls 'https://ipapi.co/json/' to get the country code. Defaults to 'IL' on error."
@@ -184,6 +216,281 @@
         "source_line_end": 45,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L36-L45",
         "nx_kb_anchor": "getUserCountryByIp"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of getUserCountryByIp",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "renderOnce",
+      "name": "renderOnce",
+      "kind": "function",
+      "description_one_line": "Returns true (used for memoization or render control).",
+      "details": {
+        "what_it_does": "Returns true (used for memoization or render control)."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#renderOnce"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of renderOnce",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "propsAreEqual",
+      "name": "propsAreEqual",
+      "kind": "function",
+      "description_one_line": "Deep comparison of two props objects using lodash isEqual.",
+      "details": {
+        "what_it_does": "Deep comparison of two props objects using lodash isEqual."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#propsAreEqual"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of propsAreEqual",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "userNameFormat",
+      "name": "userNameFormat",
+      "kind": "function",
+      "description_one_line": "Formats a user's full name.",
+      "details": {
+        "what_it_does": "Formats a user's full name."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#userNameFormat"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of userNameFormat",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "multiStringFormat",
+      "name": "multiStringFormat",
+      "kind": "function",
+      "description_one_line": "Joins multiple strings with spaces.",
+      "details": {
+        "what_it_does": "Joins multiple strings with spaces."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#multiStringFormat"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of multiStringFormat",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "getLocationUrl",
+      "name": "getLocationUrl",
+      "kind": "function",
+      "description_one_line": "Generates a Google Maps URL for given coordinates.",
+      "details": {
+        "what_it_does": "Generates a Google Maps URL for given coordinates."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#getLocationUrl"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of getLocationUrl",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "isNodeEnv",
+      "name": "isNodeEnv",
+      "kind": "constant",
+      "description_one_line": "Boolean indicating if running in a Node.js environment.",
+      "details": {
+        "what_it_does": "Boolean indicating if running in a Node.js environment."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#isNodeEnv"
+      }
+    },
+    {
+      "symbol_id": "mode",
+      "name": "mode",
+      "kind": "constant",
+      "description_one_line": "Application mode (e.g., qa, prod).",
+      "details": {
+        "what_it_does": "Application mode (e.g., qa, prod)."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#mode"
+      }
+    },
+    {
+      "symbol_id": "isLocal",
+      "name": "isLocal",
+      "kind": "constant",
+      "description_one_line": "Boolean indicating if running locally.",
+      "details": {
+        "what_it_does": "Boolean indicating if running locally."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#isLocal"
+      }
+    },
+    {
+      "symbol_id": "getFixedNumber",
+      "name": "getFixedNumber",
+      "kind": "function",
+      "description_one_line": "Formats a number to a fixed decimal string, removing trailing zeros.",
+      "details": {
+        "what_it_does": "Formats a number to a fixed decimal string, removing trailing zeros."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#getFixedNumber"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of getFixedNumber",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "getAddressByGeo",
+      "name": "getAddressByGeo",
+      "kind": "function",
+      "description_one_line": "Reverse geocodes coordinates to an address using Google Maps API.",
+      "details": {
+        "what_it_does": "Reverse geocodes coordinates to an address using Google Maps API."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#getAddressByGeo"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of getAddressByGeo",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "validateAndCast",
+      "name": "validateAndCast",
+      "kind": "function",
+      "description_one_line": "Type predicate helper function.",
+      "details": {
+        "what_it_does": "Type predicate helper function."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#validateAndCast"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of validateAndCast",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

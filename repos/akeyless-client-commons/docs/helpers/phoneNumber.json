@@ -5,11 +5,13 @@
   },
   "file_name": "phoneNumber.ts",
   "source": {
-    "file_path": "src/helpers/phoneNumber.ts",
+    "file_path": "helpers/phoneNumber.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
-    "framework_tags": ["libphonenumber-js"],
+    "framework_tags": [
+      "libphonenumber-js"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/phoneNumber.json"
   },
@@ -64,19 +66,19 @@
       "description_one_line": "Formats a number for display (e.g. 050-123-4567).",
       "symbol_id": "displayFormatPhoneNumber"
     },
-     {
+    {
       "name": "is_iccid",
       "kind": "function",
       "description_one_line": "Validates if a string is a SIM card ICCID.",
       "symbol_id": "is_iccid"
     },
-     {
+    {
       "name": "is_msisdn",
       "kind": "function",
       "description_one_line": "Validates if a string is an MSISDN.",
       "symbol_id": "is_msisdn"
     },
-     {
+    {
       "name": "is_fixed_or_service_number",
       "kind": "function",
       "description_one_line": "Checks if a number is a landline or service number.",
@@ -91,9 +93,17 @@
       "description_one_line": "Formats to local Israeli prefix.",
       "signature": {
         "params": [
-          { "name": "international_number", "type": "string", "required": true, "description": "The number in +972 format." }
+          {
+            "name": "international_number",
+            "type": "string",
+            "required": true,
+            "description": "The number in +972 format."
+          }
         ],
-        "returns": { "type": "string", "description": "Number starting with 0." }
+        "returns": {
+          "type": "string",
+          "description": "Number starting with 0."
+        }
       },
       "details": {
         "what_it_does": "Replaces the +972 prefix with 0."
@@ -103,6 +113,236 @@
         "source_line_end": 16,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L14-L16",
         "nx_kb_anchor": "local_israel_phone_format"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of local_israel_phone_format",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "isInternational",
+      "name": "isInternational",
+      "kind": "function",
+      "description_one_line": "Checks if a number starts with +.",
+      "details": {
+        "what_it_does": "Checks if a number starts with +."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#isInternational"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of isInternational",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "isInternationalIsraelPhone",
+      "name": "isInternationalIsraelPhone",
+      "kind": "function",
+      "description_one_line": "Checks if a number starts with +9725.",
+      "details": {
+        "what_it_does": "Checks if a number starts with +9725."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#isInternationalIsraelPhone"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of isInternationalIsraelPhone",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "international_israel_phone_format",
+      "name": "international_israel_phone_format",
+      "kind": "function",
+      "description_one_line": "Converts 0... to +972...",
+      "details": {
+        "what_it_does": "Converts 0... to +972..."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#international_israel_phone_format"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of international_israel_phone_format",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "get_international_phone_number",
+      "name": "get_international_phone_number",
+      "kind": "function",
+      "description_one_line": "Ensures number is in international format (if Israeli).",
+      "details": {
+        "what_it_does": "Ensures number is in international format (if Israeli)."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#get_international_phone_number"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of get_international_phone_number",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "displayFormatPhoneNumber",
+      "name": "displayFormatPhoneNumber",
+      "kind": "function",
+      "description_one_line": "Formats a number for display (e.g. 050-123-4567).",
+      "details": {
+        "what_it_does": "Formats a number for display (e.g. 050-123-4567)."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#displayFormatPhoneNumber"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of displayFormatPhoneNumber",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "is_iccid",
+      "name": "is_iccid",
+      "kind": "function",
+      "description_one_line": "Validates if a string is a SIM card ICCID.",
+      "details": {
+        "what_it_does": "Validates if a string is a SIM card ICCID."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#is_iccid"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of is_iccid",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "is_msisdn",
+      "name": "is_msisdn",
+      "kind": "function",
+      "description_one_line": "Validates if a string is an MSISDN.",
+      "details": {
+        "what_it_does": "Validates if a string is an MSISDN."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#is_msisdn"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of is_msisdn",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "is_fixed_or_service_number",
+      "name": "is_fixed_or_service_number",
+      "kind": "function",
+      "description_one_line": "Checks if a number is a landline or service number.",
+      "details": {
+        "what_it_does": "Checks if a number is a landline or service number."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#is_fixed_or_service_number"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of is_fixed_or_service_number",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

@@ -5,11 +5,13 @@
   },
   "file_name": "forms.ts",
   "source": {
-    "file_path": "src/types/interfaces/forms.ts",
+    "file_path": "types/interfaces/forms.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/interfaces/forms.json"
   },
@@ -31,16 +33,16 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "../types",
-        "resolved_file_path": "src/types/index.ts",
+        "resolved_file_path": "types/index.ts",
         "why_used": "Direction type.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/index.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/types/index.ts"
       },
-       {
-        "import_path": "src/helpers",
-        "resolved_file_path": "src/helpers/index.ts",
+      {
+        "import_path": "helpers",
+        "resolved_file_path": "helpers/index.ts",
         "why_used": "ValidationType.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/index.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/index.ts"
@@ -92,13 +94,160 @@
       "kind": "type",
       "description_one_line": "Union of all form elements.",
       "details": {
-        "what_it_does": "Used by ModularForm to type the array of elements passed to it."
+        "what_it_does": "Used by ModularForm to type the array of elements passed to it.",
+        "type_definition": "// TODO: Add TypeScript type definition"
       },
       "locations": {
         "source_line_start": 184,
         "source_line_end": 195,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L184-L195",
         "nx_kb_anchor": "FormElement"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using FormElement type",
+          "code": "// TODO: Add type usage example"
+        }
+      }
+    },
+    {
+      "symbol_id": "BaseElementProps",
+      "name": "BaseElementProps",
+      "kind": "interface",
+      "description_one_line": "Common props for all form elements.",
+      "details": {
+        "what_it_does": "Common props for all form elements."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#BaseElementProps"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of BaseElementProps",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "InputElement",
+      "name": "InputElement",
+      "kind": "interface",
+      "description_one_line": "Props for a text/number input.",
+      "details": {
+        "what_it_does": "Props for a text/number input."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#InputElement"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of InputElement",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "DateInputElement",
+      "name": "DateInputElement",
+      "kind": "interface",
+      "description_one_line": "Props for a date input.",
+      "details": {
+        "what_it_does": "Props for a date input."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#DateInputElement"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of DateInputElement",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "SelectElement",
+      "name": "SelectElement",
+      "kind": "interface",
+      "description_one_line": "Props for a select dropdown.",
+      "details": {
+        "what_it_does": "Props for a select dropdown."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#SelectElement"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of SelectElement",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "ModularFormProps",
+      "name": "ModularFormProps",
+      "kind": "interface",
+      "description_one_line": "Props for the ModularForm component.",
+      "details": {
+        "what_it_does": "Props for the ModularForm component."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#ModularFormProps"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of ModularFormProps",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

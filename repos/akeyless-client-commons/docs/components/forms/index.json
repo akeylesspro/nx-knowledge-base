@@ -5,7 +5,7 @@
   },
   "file_name": "index.tsx",
   "source": {
-    "file_path": "src/components/forms/index.tsx",
+    "file_path": "components/forms/index.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
@@ -65,21 +65,21 @@
       {
         "import_path": "@/lib/utils",
         "why_used": "cn utility.",
-        "resolved_file_path": "src/lib/utils",
+        "resolved_file_path": "lib/utils",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
       },
       {
         "import_path": "@/components/ui/calendar-rac",
         "why_used": "Calendar component.",
-        "resolved_file_path": "src/components/ui/calendar-rac",
+        "resolved_file_path": "components/ui/calendar-rac",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/components/ui/calendar-rac",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac"
       },
       {
         "import_path": "@/components/ui/datefield-rac",
         "why_used": "DateInput component.",
-        "resolved_file_path": "src/components/ui/datefield-rac",
+        "resolved_file_path": "components/ui/datefield-rac",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/components/ui/datefield-rac",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/datefield-rac"
       }
@@ -136,6 +136,12 @@
         "source_line_end": 1,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L1",
         "nx_kb_anchor": "ConfirmForm"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of ConfirmForm",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -163,6 +169,12 @@
         "source_line_end": 1,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L1",
         "nx_kb_anchor": "DatePicker"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of DatePicker",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -190,6 +202,12 @@
         "source_line_end": 1,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L1",
         "nx_kb_anchor": "DatePicker2"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of DatePicker2",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

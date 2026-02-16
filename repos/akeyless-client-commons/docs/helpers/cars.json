@@ -5,7 +5,7 @@
   },
   "file_name": "cars.ts",
   "source": {
-    "file_path": "src/helpers/cars.ts",
+    "file_path": "helpers/cars.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
@@ -37,9 +37,17 @@
       "description_one_line": "Inserts hyphens into car numbers based on length.",
       "signature": {
         "params": [
-          { "name": "car_number", "type": "string", "required": true, "description": "The raw car number string." }
+          {
+            "name": "car_number",
+            "type": "string",
+            "required": true,
+            "description": "The raw car number string."
+          }
         ],
-        "returns": { "type": "string", "description": "Formatted string with hyphens (e.g., '12-345-67')." }
+        "returns": {
+          "type": "string",
+          "description": "Formatted string with hyphens (e.g., '12-345-67')."
+        }
       },
       "details": {
         "what_it_does": "Checks the length of the input string (5, 6, 7, or 8 digits) and inserts hyphens in the standard positions for Israeli license plates. Returns the original string if length doesn't match known patterns."
@@ -49,6 +57,12 @@
         "source_line_end": 10,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/cars.ts#L3-L10",
         "nx_kb_anchor": "formatCarNumber"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of formatCarNumber",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

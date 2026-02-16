@@ -186,7 +186,41 @@
         "nx_kb_anchor": "ModularForm"
       },
       "symbol_id": "component_modular_form",
-      "description_one_line": "A declarative form builder component. Accepts an array of FormElement descriptors and renders the appropriate UI element for each (input, dateInput, textarea, select, checkbox, multiSelect, selectWithSearch, internationalPhoneInput, duration, separator, custom). Features include: automatic label width equalization across all elements, minLength validation with custom error messages, error display area, a submit button with loading spinner, and forwarding of the native MouseEvent from the submit button click to the submitFunction callback. Supports RTL/LTR direction and extensive className customization."
+      "description_one_line": "A declarative form builder component. Accepts an array of FormElement descriptors and renders the appropriate UI element for each (input, dateInput, textarea, select, checkbox, multiSelect, selectWithSearch, internationalPhoneInput, duration, separator, custom). Features include: automatic label width equalization across all elements, minLength validation with custom error messages, error display area, a submit button with loading spinner, and forwarding of the native MouseEvent from the submit button click to the submitFunction callback. Supports RTL/LTR direction and extensive className customization.",
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of ModularForm",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "ModularForm",
+      "name": "ModularForm",
+      "kind": "component",
+      "description_one_line": "ModularForm export",
+      "details": {
+        "what_it_does": "ModularForm export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#ModularForm"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of ModularForm",
+          "code": "// TODO: Add example code"
+        }
+      }
     }
   ],
   "quality": {

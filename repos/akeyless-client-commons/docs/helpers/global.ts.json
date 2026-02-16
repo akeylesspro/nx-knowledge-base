@@ -1,0 +1,756 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "helpers/global.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": [
+      "axios",
+      "firebase"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/global.ts.json"
+  },
+  "summary": {
+    "purpose": "Collection of global utility functions for math operations (bearing calculation), component memoization, user/location formatting, environment configuration, number formatting, and geolocation services.",
+    "problem_solved": "Provides commonly-used utilities for formatting user names, coordinates, environment setup detection, API base URL determination, and geolocation lookup across the application."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "module": "axios",
+        "kind": "runtime",
+        "why_used": "HTTP client for Google Maps geocoding API requests in getAddressByGeo function.",
+        "name": "axios"
+      },
+      {
+        "module": "lodash",
+        "kind": "runtime",
+        "why_used": "Provides isEmpty and isEqual utilities for deep equality checking in propsAreEqual.",
+        "name": "lodash"
+      },
+      {
+        "module": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides types: Client, CountryOptions, LanguageOptions, NxUser, TObject.",
+        "name": "akeyless-types-commons"
+      }
+    ],
+    "internal": [
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/firebase.ts.json",
+        "why_used": "Used for query_document and snapshot functions in data fetching.",
+        "import_path": "./firebase",
+        "resolved_file_path": "helpers/firebase.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/phoneNumber.ts.json",
+        "why_used": "Provides local_israel_phone_format function for phone number formatting.",
+        "import_path": "./phoneNumber",
+        "resolved_file_path": "helpers/phoneNumber.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
+        "why_used": "Provides WhereCondition type for database queries.",
+        "import_path": "types",
+        "resolved_file_path": "types/index.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "calculateBearing",
+      "kind": "function",
+      "line": 8,
+      "description_one_line": "Calculates compass bearing angle between two geographic coordinates in degrees.",
+      "symbol_id": "function_calculate_bearing"
+    },
+    {
+      "name": "renderOnce",
+      "kind": "function",
+      "line": 28,
+      "description_one_line": "Memoization comparison function that returns true to prevent re-renders.",
+      "symbol_id": "function_render_once"
+    },
+    {
+      "name": "propsAreEqual",
+      "kind": "function",
+      "line": 32,
+      "description_one_line": "Deep equality comparison of component props using lodash isEqual.",
+      "symbol_id": "function_props_are_equal"
+    },
+    {
+      "name": "getUserCountryByIp",
+      "kind": "function",
+      "line": 36,
+      "description_one_line": "Async function to detect user's country code from IP address.",
+      "symbol_id": "function_get_user_country_by_ip"
+    },
+    {
+      "name": "userNameFormat",
+      "kind": "function",
+      "line": 47,
+      "description_one_line": "Formats user full name from first and last name fields.",
+      "symbol_id": "function_user_name_format"
+    },
+    {
+      "name": "multiStringFormat",
+      "kind": "function",
+      "line": 51,
+      "description_one_line": "Concatenates up to three strings with space separation, trimming empty values.",
+      "symbol_id": "function_multi_string_format"
+    },
+    {
+      "name": "getLocationUrl",
+      "kind": "function",
+      "line": 55,
+      "description_one_line": "Generates Google Maps URL from longitude and latitude coordinates.",
+      "symbol_id": "function_get_location_url"
+    },
+    {
+      "name": "isNodeEnv",
+      "kind": "constant",
+      "line": 58,
+      "description_one_line": "Boolean constant indicating if running in Node.js environment.",
+      "symbol_id": "constant_is_node_env"
+    },
+    {
+      "name": "mode",
+      "kind": "constant",
+      "line": 60,
+      "description_one_line": "Application mode from environment variables (NEXT_PUBLIC_MODE or VITE_MODE).",
+      "symbol_id": "constant_mode"
+    },
+    {
+      "name": "isLocal",
+      "kind": "constant",
+      "line": 62,
+      "description_one_line": "Boolean flag indicating if running in local development environment.",
+      "symbol_id": "constant_is_local"
+    },
+    {
+      "name": "getFixedNumber",
+      "kind": "function",
+      "line": 65,
+      "description_one_line": "Formats number to fixed decimal places, removing trailing zeros.",
+      "symbol_id": "function_get_fixed_number"
+    },
+    {
+      "name": "getAddressByGeo",
+      "kind": "function",
+      "line": 70,
+      "description_one_line": "Async function to reverse-geocode latitude/longitude to formatted address using Google Maps API.",
+      "symbol_id": "function_get_address_by_geo"
+    },
+    {
+      "name": "validateAndCast",
+      "kind": "function",
+      "line": 87,
+      "description_one_line": "Type guard function for conditional type casting with runtime validation.",
+      "symbol_id": "function_validate_and_cast"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "function_calculate_bearing",
+      "kind": "function",
+      "name": "calculateBearing",
+      "signature": "(startLat: number, startLng: number, endLat: number, endLng: number) => number",
+      "description": "Calculates the compass bearing (azimuth) in degrees from start coordinates to end coordinates. Returns 0 if coordinates are identical or any coordinate is undefined. Uses spherical trigonometry to compute bearing on Earth's surface.",
+      "description_one_line": "Calculates compass bearing angle between two geographic coordinates in degrees.",
+      "line": 8,
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 26,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L8-L26",
+        "nx_kb_anchor": "calculateBearing"
+      },
+      "details": {
+        "what_it_does": "Converts latitude/longitude to radians, calculates delta longitude, applies spherical trigonometry formulas (sin/cos/atan2), and returns bearing in degrees (0-360). Returns 0 for edge cases (identical coordinates, undefined values)."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "startLat",
+            "type": "number",
+            "required": true,
+            "description": "Starting latitude in degrees (-90 to 90)."
+          },
+          {
+            "name": "startLng",
+            "type": "number",
+            "required": true,
+            "description": "Starting longitude in degrees (-180 to 180)."
+          },
+          {
+            "name": "endLat",
+            "type": "number",
+            "required": true,
+            "description": "Ending latitude in degrees (-90 to 90)."
+          },
+          {
+            "name": "endLng",
+            "type": "number",
+            "required": true,
+            "description": "Ending longitude in degrees (-180 to 180)."
+          }
+        ],
+        "returns": {
+          "type": "number",
+          "description": "Compass bearing in degrees (0-360), where 0=North, 90=East, 180=South, 270=West. Returns 0 if coordinates are invalid or identical."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Calculate bearing from New York to Los Angeles",
+          "code": "const bearing = calculateBearing(40.7128, -74.0060, 34.0522, -118.2437);\nconsole.log(bearing); // ~267 degrees (approximately West)"
+        },
+        "extensive_correct": {
+          "title": "Track bearing for navigation app",
+          "code": "function NavigationDisplay({ userLat, userLng, destLat, destLng }) {\n  const bearing = calculateBearing(userLat, userLng, destLat, destLng);\n  const direction = getBearingLabel(bearing); // N, NE, E, SE, S, SW, W, NW\n  \n  return (\n    <div className=\"navigation\">\n      <Compass bearing={bearing} />\n      <p>Direction: {direction}</p>\n    </div>\n  );\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Undefined coordinates",
+          "code": "// WRONG - undefined coordinates return 0\nconst bearing = calculateBearing(40.7128, undefined, 34.0522, -118.2437);\nconsole.log(bearing); // 0 (not meaningful!)\n\n// CORRECT - validate coordinates first\nif (startLat !== undefined && startLng !== undefined && endLat !== undefined && endLng !== undefined) {\n  const bearing = calculateBearing(startLat, startLng, endLat, endLng);\n  // Use bearing...\n}"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_render_once",
+      "kind": "function",
+      "name": "renderOnce",
+      "signature": "() => boolean",
+      "description": "Simple memoization comparison function that always returns true, signaling that component props have not changed and re-render should be skipped. Used as areEqual callback in React.memo.",
+      "description_one_line": "Memoization comparison function that returns true to prevent re-renders.",
+      "line": 28,
+      "locations": {
+        "source_line_start": 28,
+        "source_line_end": 30,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L28-L30",
+        "nx_kb_anchor": "renderOnce"
+      },
+      "details": {
+        "what_it_does": "Returns true unconditionally. When passed to React.memo as second argument, tells React to skip re-renders entirely for that component, even if props change. Useful for components that never need to re-render or expensive rendering that should be prevented."
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "boolean",
+          "description": "Always returns true, indicating props are 'equal' and re-render should be skipped."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Memoize component to prevent re-renders",
+          "code": "const StaticLabel = memo(() => <div>Static content</div>, renderOnce);\n// Component will never re-render, even if parent updates"
+        },
+        "extensive_correct": {
+          "title": "Use in table cell renderer",
+          "code": "export const TableCell = memo(({ value }) => (\n  <td className=\"px-2\">{value}</td>\n), renderOnce);\n// Table cell renders once and never updates, optimal for large tables"
+        },
+        "incorrect": {
+          "title": "Incorrect: Use when component needs updates",
+          "code": "// WRONG - memoizing component that needs to update\nconst Counter = memo(() => {\n  const [count, setCount] = useState(0);\n  return <button onClick={() => setCount(count + 1)}>{count}</button>;\n}, renderOnce);\n// Count will never update!\n\n// CORRECT - use renderOnce only for truly static components\nconst StaticHeader = memo(() => <h1>Title</h1>, renderOnce);"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_props_are_equal",
+      "kind": "function",
+      "name": "propsAreEqual",
+      "signature": "(prevProps: any, nextProps: any) => boolean",
+      "description": "Performs deep equality comparison of two prop objects using lodash isEqual. Returns true if props are deeply equal (same structure and values), false if different. Used as areEqual callback in React.memo for intelligent memoization.",
+      "description_one_line": "Deep equality comparison of component props using lodash isEqual.",
+      "line": 32,
+      "locations": {
+        "source_line_start": 32,
+        "source_line_end": 34,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L32-L34",
+        "nx_kb_anchor": "propsAreEqual"
+      },
+      "details": {
+        "what_it_does": "Compares prevProps and nextProps using lodash isEqual, which performs deep structural comparison including nested objects and arrays. Returns true if all properties and nested values are identical, false if any value differs. Prevents re-renders when props are semantically identical despite reference changes."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "prevProps",
+            "type": "any",
+            "required": true,
+            "description": "Previous props object."
+          },
+          {
+            "name": "nextProps",
+            "type": "any",
+            "required": true,
+            "description": "New props object."
+          }
+        ],
+        "returns": {
+          "type": "boolean",
+          "description": "True if props are deeply equal (skip re-render), false if different (do re-render)."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Memoize component with deep prop comparison",
+          "code": "const UserCard = memo(({ user, settings }) => (\n  <div>{user.name} - {settings.theme}</div>\n), propsAreEqual);\n\n// Even if parent creates new objects, component skips re-render if content is identical\n<UserCard user={{ name: 'Alice' }} settings={{ theme: 'dark' }} />"
+        },
+        "extensive_correct": {
+          "title": "Prevent re-renders for deeply nested props",
+          "code": "const DataTable = memo(({ data, config }) => {\n  return (\n    <table>\n      {data.map(row => <tr key={row.id}><td>{row.name}</td></tr>)}\n    </table>\n  );\n}, propsAreEqual);\n\n// Even if parent passes new data array reference but same content,\n// component skips re-render because propsAreEqual detects identical structure\nconst [data, setData] = useState([...initialData]);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using with object references",
+          "code": "// WRONG - object identity matters without propsAreEqual\nconst BadMemo = memo(({ obj }) => <div>{obj.value}</div>);\n// Every time parent creates new object {}, component re-renders\n\n// CORRECT - use propsAreEqual for deep comparison\nconst GoodMemo = memo(({ obj }) => <div>{obj.value}</div>, propsAreEqual);\n// Only re-renders if obj.value actually changes"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_get_user_country_by_ip",
+      "kind": "function",
+      "name": "getUserCountryByIp",
+      "signature": "() => Promise<CountryOptions>",
+      "description": "Async function that detects user's country from their IP address using ipapi.co service. Returns country code (e.g., 'us', 'il', 'gb'). Falls back to 'il' (Israel) if API call fails or times out.",
+      "description_one_line": "Async function to detect user's country code from IP address.",
+      "line": 36,
+      "locations": {
+        "source_line_start": 36,
+        "source_line_end": 45,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L36-L45",
+        "nx_kb_anchor": "getUserCountryByIp"
+      },
+      "details": {
+        "what_it_does": "Calls fetch to ipapi.co/json/ endpoint, parses JSON response, and extracts country_code field (lowercase). Returns immediately on success or falls back to 'il' on any error (network failure, timeout, missing field). Error is logged to console but not thrown."
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "Promise<CountryOptions>",
+          "description": "Promise resolving to country code string (e.g., 'us', 'il', 'br'). Always resolves (never rejects); returns 'il' as fallback."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Detect user country on app load",
+          "code": "useEffect(() => {\n  getUserCountryByIp().then(country => {\n    setUserCountry(country);\n    console.log('User country:', country); // e.g., 'us'\n  });\n}, []);"
+        },
+        "extensive_correct": {
+          "title": "Set default language based on country",
+          "code": "async function initializeApp() {\n  const country = await getUserCountryByIp();\n  const defaultLanguage = country === 'il' ? 'he' : 'en';\n  i18n.changeLanguage(defaultLanguage);\n  \n  // Also use for localized content\n  const content = await fetchContent(country);\n  setAppContent(content);\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Not handling fallback",
+          "code": "// WRONG - assuming always get correct country\nconst country = await getUserCountryByIp();\nif (country === 'us') { // May be 'il' fallback if API fails!\n  // US-specific logic\n}\n\n// CORRECT - handle potential fallback\nconst country = await getUserCountryByIp();\nconst isDefaultFallback = country === 'il';\nif (!isDefaultFallback && country === 'us') {\n  // US-specific logic\n}"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_user_name_format",
+      "kind": "function",
+      "name": "userNameFormat",
+      "signature": "(user?: NxUser) => string",
+      "description": "Formats user's full name by concatenating first_name and last_name fields with space separator. Returns empty string if user is undefined or both names are empty. Trims extra whitespace.",
+      "description_one_line": "Formats user full name from first and last name fields.",
+      "line": 47,
+      "locations": {
+        "source_line_start": 47,
+        "source_line_end": 49,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L47-L49",
+        "nx_kb_anchor": "userNameFormat"
+      },
+      "details": {
+        "what_it_does": "Safely accesses user.first_name and user.last_name (with empty string fallback if undefined), concatenates with space, and trims result. Returns empty string if user is undefined or both names are empty."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "user",
+            "type": "NxUser",
+            "required": false,
+            "description": "User object containing first_name and last_name fields."
+          }
+        ],
+        "returns": {
+          "type": "string",
+          "description": "Formatted full name string, or empty string if user undefined or no names provided."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Format user name for display",
+          "code": "const user = { first_name: 'John', last_name: 'Doe', email: 'john@example.com' };\nconst name = userNameFormat(user);\nconsole.log(name); // 'John Doe'"
+        },
+        "extensive_correct": {
+          "title": "Display in user profile header",
+          "code": "function UserProfile({ currentUser }) {\n  return (\n    <header className=\"profile\">\n      <h1>{userNameFormat(currentUser) || 'Anonymous'}</h1>\n      <p>Email: {currentUser?.email}</p>\n    </header>\n  );\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Not handling undefined",
+          "code": "// WRONG - will crash if user undefined\nconst name = `${user.first_name} ${user.last_name}`; // TypeError if user is null\n\n// CORRECT - use userNameFormat which handles undefined\nconst name = userNameFormat(user); // Safe, returns ''"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_multi_string_format",
+      "kind": "function",
+      "name": "multiStringFormat",
+      "signature": "(str1: string, str2?: string, str3?: string) => string",
+      "description": "Concatenates up to three strings with space separation. Returns trimmed result, omitting empty strings from the concatenation.",
+      "description_one_line": "Concatenates up to three strings with space separation, trimming empty values.",
+      "line": 51,
+      "locations": {
+        "source_line_start": 51,
+        "source_line_end": 53,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L51-L53",
+        "nx_kb_anchor": "multiStringFormat"
+      },
+      "details": {
+        "what_it_does": "Concatenates str1 (required) with optional str2 and str3, each separated by space. Uses empty string fallback for undefined optional params. Trims final result to remove leading/trailing whitespace."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "str1",
+            "type": "string",
+            "required": true,
+            "description": "First string (required)."
+          },
+          {
+            "name": "str2",
+            "type": "string",
+            "required": false,
+            "description": "Second string (optional)."
+          },
+          {
+            "name": "str3",
+            "type": "string",
+            "required": false,
+            "description": "Third string (optional)."
+          }
+        ],
+        "returns": {
+          "type": "string",
+          "description": "Trimmed concatenation of provided strings separated by spaces."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Format address with city and zip",
+          "code": "const address = multiStringFormat('123 Main St', 'New York', '10001');\nconsole.log(address); // '123 Main St New York 10001'"
+        },
+        "extensive_correct": {
+          "title": "Build display name with optional middle name",
+          "code": "function formatFullName(first, middle, last) {\n  return multiStringFormat(first, middle, last);\n}\n\nconsole.log(formatFullName('John', 'Michael', 'Doe')); // 'John Michael Doe'\nconsole.log(formatFullName('Jane', undefined, 'Smith')); // 'Jane Smith' (no extra spaces)"
+        },
+        "incorrect": {
+          "title": "Incorrect: Extra spaces with missing values",
+          "code": "// WRONG - manual concatenation leaves extra spaces\nconst name = `John  ${undefined}  Doe`.trim(); // Results in 'John  Doe' with double space\n\n// CORRECT - use multiStringFormat\nconst name = multiStringFormat('John', undefined, 'Doe'); // 'John Doe' (clean)"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_get_location_url",
+      "kind": "function",
+      "name": "getLocationUrl",
+      "signature": "(lng: number, lat: number) => string",
+      "description": "Generates a Google Maps search URL from longitude and latitude coordinates. Returns URL that opens Google Maps for the given location when clicked.",
+      "description_one_line": "Generates Google Maps URL from longitude and latitude coordinates.",
+      "line": 55,
+      "locations": {
+        "source_line_start": 55,
+        "source_line_end": 57,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L55-L57",
+        "nx_kb_anchor": "getLocationUrl"
+      },
+      "details": {
+        "what_it_does": "Formats URL string with pattern https://www.google.com/maps?q={lat},{lng}. Note parameter order: lng first in function signature, but lat first in URL parameter (standard Google Maps format)."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "lng",
+            "type": "number",
+            "required": true,
+            "description": "Longitude coordinate (-180 to 180)."
+          },
+          {
+            "name": "lat",
+            "type": "number",
+            "required": true,
+            "description": "Latitude coordinate (-90 to 90)."
+          }
+        ],
+        "returns": {
+          "type": "string",
+          "description": "Google Maps URL string opening map at specified coordinates."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Create Google Maps link",
+          "code": "const url = getLocationUrl(-74.0060, 40.7128); // NYC\nconsole.log(url); // 'https://www.google.com/maps?q=40.7128,-74.0060'"
+        },
+        "extensive_correct": {
+          "title": "Render clickable map link",
+          "code": "function LocationLink({ lat, lng }) {\n  const mapsUrl = getLocationUrl(lng, lat);\n  return (\n    <a href={mapsUrl} target=\"_blank\" rel=\"noopener noreferrer\">\n      📍 View on Maps\n    </a>\n  );\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Parameter order confusion",
+          "code": "// WRONG - swapped parameters\nconst url = getLocationUrl(40.7128, -74.0060); // (lat, lng) but function expects (lng, lat)\n// Results in backward coordinates!\n\n// CORRECT - lng first, then lat\nconst url = getLocationUrl(-74.0060, 40.7128); // (lng, lat)"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_is_node_env",
+      "kind": "constant",
+      "name": "isNodeEnv",
+      "signature": "boolean",
+      "description": "Exported constant indicating whether the code is running in a Node.js environment. Checks if process object exists and has env property. Used to determine whether to read from process.env or import.meta.env.",
+      "description_one_line": "Boolean constant indicating if running in Node.js environment.",
+      "line": 58,
+      "locations": {
+        "source_line_start": 58,
+        "source_line_end": 58,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L58",
+        "nx_kb_anchor": "isNodeEnv"
+      },
+      "details": {
+        "what_it_does": "Checks typeof process !== 'undefined' && process.env to determine Node.js runtime. Returns true in Node/SSR environments, false in browser. Used throughout the file to conditionally access process.env (Node.js) vs import.meta.env (Vite/browser)."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Check environment in helper",
+          "code": "// In mode/isLocal assignment:\nif (isNodeEnv) {\n  const apiKey = process.env.NEXT_PUBLIC_API_KEY; // Server-side\n} else {\n  const apiKey = import.meta.env.VITE_API_KEY; // Client-side\n}"
+        },
+        "extensive_correct": {
+          "title": "Conditional API configuration",
+          "code": "export const getApiConfig = () => {\n  if (isNodeEnv) {\n    return {\n      baseURL: process.env.NEXT_PUBLIC_API_URL,\n      timeout: parseInt(process.env.API_TIMEOUT || '5000')\n    };\n  } else {\n    return {\n      baseURL: import.meta.env.VITE_API_URL,\n      timeout: parseInt(import.meta.env.VITE_API_TIMEOUT || '5000')\n    };\n  }\n};"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_mode",
+      "kind": "constant",
+      "name": "mode",
+      "signature": "string",
+      "description": "Exported constant containing application mode from environment variables. Reads NEXT_PUBLIC_MODE in Node/SSR or VITE_MODE in browser. Typically contains values like 'development', 'staging', 'production'.",
+      "description_one_line": "Application mode from environment variables (NEXT_PUBLIC_MODE or VITE_MODE).",
+      "line": 60,
+      "locations": {
+        "source_line_start": 60,
+        "source_line_end": 62,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L60-L62",
+        "nx_kb_anchor": "mode"
+      },
+      "details": {
+        "what_it_does": "Reads mode from environment based on runtime (Node vs browser). Destructured with isLocal from single object assignment to save code."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Check application mode",
+          "code": "import { mode } from '@/helpers';\n\nif (mode === 'development') {\n  console.log('Running in dev mode');\n} else if (mode === 'production') {\n  console.log('Running in production');\n}"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_is_local",
+      "kind": "constant",
+      "name": "isLocal",
+      "signature": "boolean",
+      "description": "Exported boolean constant indicating if application is running in local development environment. Reads NEXT_PUBLIC_IS_LOCAL or VITE_is_local, comparing to string 'true'.",
+      "description_one_line": "Boolean flag indicating if running in local development environment.",
+      "line": 62,
+      "locations": {
+        "source_line_start": 60,
+        "source_line_end": 63,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L60-L63",
+        "nx_kb_anchor": "isLocal"
+      },
+      "details": {
+        "what_it_does": "Compares environment variable to string 'true' (with strict comparison), returning boolean. Allows conditional behavior in development vs deployed environments."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Enable debug logging in local",
+          "code": "import { isLocal } from '@/helpers';\n\nif (isLocal) {\n  console.log('Debug info...'); // Only in local\n  enableDetailedLogging();\n}"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_get_fixed_number",
+      "kind": "function",
+      "name": "getFixedNumber",
+      "signature": "(number?: number, fix?: number) => string",
+      "description": "Formats a number to fixed decimal places and removes trailing zeros. If number is already an integer, returns as-is. Otherwise uses toFixed and strips trailing zeros with regex. Returns string representation.",
+      "description_one_line": "Formats number to fixed decimal places, removing trailing zeros.",
+      "line": 65,
+      "locations": {
+        "source_line_start": 65,
+        "source_line_end": 68,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L65-L68",
+        "nx_kb_anchor": "getFixedNumber"
+      },
+      "details": {
+        "what_it_does": "Checks if number % 1 === 0 (integer). If yes, returns number as string. If no, calls toFixed(fix) then uses regex /\\.?0+$/ to remove trailing zeros and decimal point if needed. Defaults: number=0, fix=4 decimal places."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "number",
+            "type": "number",
+            "required": false,
+            "default": "0",
+            "description": "Number to format."
+          },
+          {
+            "name": "fix",
+            "type": "number",
+            "required": false,
+            "default": "4",
+            "description": "Maximum decimal places to show."
+          }
+        ],
+        "returns": {
+          "type": "string",
+          "description": "Formatted number as string without trailing zeros."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Format currency amounts",
+          "code": "console.log(getFixedNumber(19.50)); // '19.5' (removes trailing 0)\nconsole.log(getFixedNumber(19.00)); // '19' (removes all decimals)\nconsole.log(getFixedNumber(19.1234567, 2)); // '19.12' (max 2 decimals)"
+        },
+        "extensive_correct": {
+          "title": "Display table summary totals",
+          "code": "function TableSummary({ amounts }) {\n  const total = amounts.reduce((a, b) => a + b, 0);\n  const formatted = getFixedNumber(total, 2);\n  \n  return <div className=\"summary\">Total: ${formatted}</div>;\n  // Shows: $1250.50, $99, $0.25 (not $1250.5000, $99.0000, etc.)\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Manual number to string",
+          "code": "// WRONG - shows all decimals\nconst total = (19.5).toFixed(4); // '19.5000'\n\n// CORRECT - use getFixedNumber\nconst total = getFixedNumber(19.5, 4); // '19.5' (zeros removed)"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_get_address_by_geo",
+      "kind": "function",
+      "name": "getAddressByGeo",
+      "signature": "(coords: { lat: number; lng: number }, currentLanguage: LanguageOptions) => Promise<string | undefined>",
+      "description": "Async function that reverse-geocodes latitude/longitude to a formatted street address using Google Maps Geocoding API. Supports multiple languages. Returns first 35 characters of address or 'address not found' if API returns no results. Catches and logs errors, returning undefined.",
+      "description_one_line": "Async function to reverse-geocode latitude/longitude to formatted address using Google Maps API.",
+      "line": 70,
+      "locations": {
+        "source_line_start": 70,
+        "source_line_end": 85,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L70-L85",
+        "nx_kb_anchor": "getAddressByGeo"
+      },
+      "details": {
+        "what_it_does": "Maps LanguageOptions.He to 'iw' (Hebrew), others to 'en'. Reads API key from environment. Calls Google Maps Geocoding API with latlng parameter. Returns formatted_address truncated to 35 chars if found, else 'address not found'. Catches any error and logs to console without throwing."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "coords",
+            "type": "{ lat: number; lng: number }",
+            "required": true,
+            "description": "Object containing lat and lng coordinates."
+          },
+          {
+            "name": "currentLanguage",
+            "type": "LanguageOptions",
+            "required": true,
+            "description": "Desired language for address result (e.g., LanguageOptions.He or LanguageOptions.En)."
+          }
+        ],
+        "returns": {
+          "type": "Promise<string | undefined>",
+          "description": "Promise resolving to address string (max 35 chars) or error message. Returns undefined on exception."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Get address from coordinates",
+          "code": "const address = await getAddressByGeo({ lat: 40.7128, lng: -74.0060 }, LanguageOptions.En);\nconsole.log(address); // e.g., '277 Bedford Ave, Brooklyn, NY 11...'"
+        },
+        "extensive_correct": {
+          "title": "Display location in device tracker UI",
+          "code": "async function showDeviceLocation(latitude, longitude) {\n  const lang = currentUser.language;\n  const address = await getAddressByGeo({ lat: latitude, lng: longitude }, lang);\n  \n  return (\n    <div className=\"location\">\n      <p>Coordinates: {latitude}, {longitude}</p>\n      <p>Address: {address || 'Loading...'}</p>\n    </div>\n  );\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Not handling errors",
+          "code": "// WRONG - assumes address always found\nconst address = await getAddressByGeo(coords, lang);\nreturn <p>{address.toUpperCase()}</p>; // May crash if address is undefined\n\n// CORRECT - handle undefined\nconst address = await getAddressByGeo(coords, lang);\nreturn <p>{address?.toUpperCase() || 'Location unknown'}</p>;"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_validate_and_cast",
+      "kind": "function",
+      "name": "validateAndCast",
+      "signature": "<T extends any>(variable: any, condition: Boolean) => variable is T",
+      "description": "Generic type guard function for conditional type casting. Returns true if condition is truthy, allowing TypeScript to narrow type of variable to T in subsequent code. Useful for runtime validation before type casting.",
+      "description_one_line": "Type guard function for conditional type casting with runtime validation.",
+      "line": 87,
+      "locations": {
+        "source_line_start": 87,
+        "source_line_end": 87,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts#L87",
+        "nx_kb_anchor": "validateAndCast"
+      },
+      "details": {
+        "what_it_does": "Simple type guard implementation that returns boolean result of !!condition (double negation). When used in TypeScript type guard position (if statement, etc.), enables type narrowing to T if condition is true."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "variable",
+            "type": "any",
+            "required": true,
+            "description": "Variable to potentially cast to type T."
+          },
+          {
+            "name": "condition",
+            "type": "Boolean",
+            "required": true,
+            "description": "Boolean condition that must be true for type guard to succeed."
+          }
+        ],
+        "returns": {
+          "type": "variable is T",
+          "description": "TypeScript type guard predicate. Returns true if condition is truthy, enabling type narrowing to T."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Type guard for conditional casting",
+          "code": "const value: any = getUserData();\n\nif (validateAndCast<User>(value, value.id && value.name)) {\n  // TypeScript now knows value is User\n  console.log(value.id, value.name);\n}"
+        },
+        "extensive_correct": {
+          "title": "Validate API response before casting",
+          "code": "async function fetchUser(id: string): Promise<User | null> {\n  const response = await api.get(`/users/${id}`);\n  \n  if (validateAndCast<User>(response.data, response.data?.id)) {\n    // Type narrowed to User, safe to use\n    return response.data;\n  }\n  return null;\n}"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using without type narrowing",
+          "code": "// WRONG - type not narrowed\nconst value: any = data;\nif (value.id) {\n  // TypeScript still sees value as 'any'\n  console.log(value.email); // Could be wrong property\n}\n\n// CORRECT - use type guard\nif (validateAndCast<User>(value, value.id)) {\n  // TypeScript now knows value is User\n  console.log(value.email); // Safe, verified by type system\n}"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": [
+      "calculateBearing uses spherical geometry but doesn't account for Earth's ellipsoid shape (minor precision loss).",
+      "getUserCountryByIp has no timeout; requests that hang will delay app initialization.",
+      "getAddressByGeo truncates address to 35 characters which may cut off important address parts."
+    ],
+    "documentation_completeness": "Comprehensive: All 13 exported symbols documented with complete signatures, detailed behavior descriptions, parameters with types and descriptions, return types, and 3-tier examples (minimal, extensive, incorrect patterns). Constants documented with usage context. Functions include real-world scenarios (navigation, user profiles, API configuration, localization). Type guard patterns and environment detection patterns explained with production code examples."
+  }
+}

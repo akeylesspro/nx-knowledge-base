@@ -5,7 +5,7 @@
   },
   "file_name": "excel.tsx",
   "source": {
-    "file_path": "src/helpers/excel.tsx",
+    "file_path": "helpers/excel.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
@@ -31,9 +31,9 @@
       }
     ],
     "internal": [
-       {
-        "import_path": "src/types",
-        "resolved_file_path": "src/types/index.ts",
+      {
+        "import_path": "types",
+        "resolved_file_path": "types/index.ts",
         "why_used": "Direction type.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/index.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/types/index.ts"
@@ -56,9 +56,17 @@
       "description_one_line": "Creates an Excel file from data.",
       "signature": {
         "params": [
-          { "name": "options", "type": "ExportExcelOptions<T>", "required": true, "description": "Configuration including columns, data, fileName, and styling." }
+          {
+            "name": "options",
+            "type": "ExportExcelOptions<T>",
+            "required": true,
+            "description": "Configuration including columns, data, fileName, and styling."
+          }
         ],
-        "returns": { "type": "Promise<void>", "description": "Promise that resolves when saveAs is called." }
+        "returns": {
+          "type": "Promise<void>",
+          "description": "Promise that resolves when saveAs is called."
+        }
       },
       "details": {
         "what_it_does": "Creates a new Workbook, adds a worksheet, configures columns, adds a headline (if provided), populates data rows (formatting hyperlinks if detected), checks direction (RTL/LTR), and triggers a download."
@@ -68,6 +76,12 @@
         "source_line_end": 59,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/excel.tsx#L20-L59",
         "nx_kb_anchor": "exportToExcel"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of exportToExcel",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

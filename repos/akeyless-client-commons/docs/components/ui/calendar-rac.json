@@ -5,7 +5,7 @@
   },
   "file_name": "calendar-rac.tsx",
   "source": {
-    "file_path": "src/components/ui/calendar-rac.tsx",
+    "file_path": "components/ui/calendar-rac.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
@@ -47,7 +47,7 @@
       {
         "import_path": "@/lib/utils",
         "why_used": "cn utility.",
-        "resolved_file_path": "src/lib/utils",
+        "resolved_file_path": "lib/utils",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
       }
@@ -87,6 +87,12 @@
         "source_line_end": 1,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx#L1",
         "nx_kb_anchor": "Calendar"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of Calendar",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -108,6 +114,12 @@
         "source_line_end": 1,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx#L1",
         "nx_kb_anchor": "RangeCalendar"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of RangeCalendar",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

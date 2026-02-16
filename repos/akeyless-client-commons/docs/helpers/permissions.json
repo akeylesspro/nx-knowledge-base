@@ -5,11 +5,13 @@
   },
   "file_name": "permissions.ts",
   "source": {
-    "file_path": "src/helpers/permissions.ts",
+    "file_path": "helpers/permissions.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
-    "framework_tags": ["firebase"],
+    "framework_tags": [
+      "firebase"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/permissions.ts",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/permissions.json"
   },
@@ -26,23 +28,23 @@
       }
     ],
     "internal": [
-       {
+      {
         "import_path": "../types",
-        "resolved_file_path": "src/types/index.ts",
+        "resolved_file_path": "types/index.ts",
         "why_used": "WhereCondition.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/types/index.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/types/index.ts"
       },
-       {
+      {
         "import_path": "./phoneNumber",
-        "resolved_file_path": "src/helpers/phoneNumber.ts",
+        "resolved_file_path": "helpers/phoneNumber.ts",
         "why_used": "Normalization of phone numbers for query.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/phoneNumber.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/phoneNumber.ts"
       },
-       {
+      {
         "import_path": "./firebase",
-        "resolved_file_path": "src/helpers/firebase.ts",
+        "resolved_file_path": "helpers/firebase.ts",
         "why_used": "Snapshot listener (snapshot) used in initializeUserPermissions.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/firebase.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/firebase.ts"
@@ -77,12 +79,35 @@
       "description_one_line": "Verify permission access.",
       "signature": {
         "params": [
-          { "name": "userPermissions", "type": "UserPermissionsObject", "required": true, "description": "The current permissions map." },
-          { "name": "entity", "type": "string", "required": true, "description": "Resource key (e.g. 'dashboard')." },
-          { "name": "permissions", "type": "string[]", "required": false, "description": "Required actions (e.g. ['read', 'write'])." },
-          { "name": "mode", "type": "'some' | 'every'", "required": false, "description": "Match any or all required permissions (default 'some')." }
+          {
+            "name": "userPermissions",
+            "type": "UserPermissionsObject",
+            "required": true,
+            "description": "The current permissions map."
+          },
+          {
+            "name": "entity",
+            "type": "string",
+            "required": true,
+            "description": "Resource key (e.g. 'dashboard')."
+          },
+          {
+            "name": "permissions",
+            "type": "string[]",
+            "required": false,
+            "description": "Required actions (e.g. ['read', 'write'])."
+          },
+          {
+            "name": "mode",
+            "type": "'some' | 'every'",
+            "required": false,
+            "description": "Match any or all required permissions (default 'some')."
+          }
         ],
-        "returns": { "type": "boolean", "description": "True if access is granted." }
+        "returns": {
+          "type": "boolean",
+          "description": "True if access is granted."
+        }
       },
       "details": {
         "what_it_does": "Validates if the user has the specified permissions for the given entity based on the `mode`."
@@ -92,6 +117,12 @@
         "source_line_end": 23,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/permissions.ts#L6-L23",
         "nx_kb_anchor": "checkUserPermissions"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of checkUserPermissions",
+          "code": "// TODO: Add example code"
+        }
       }
     },
     {
@@ -101,9 +132,17 @@
       "description_one_line": "Parses permissions array.",
       "signature": {
         "params": [
-           { "name": "object", "type": "NxUser | Client", "required": true, "description": "Object containing a 'features' array of strings." }
+          {
+            "name": "object",
+            "type": "NxUser | Client",
+            "required": true,
+            "description": "Object containing a 'features' array of strings."
+          }
         ],
-        "returns": { "type": "TObject<TObject<boolean>>", "description": "Structured permissions object e.g. { dashboard: { read: true } }." }
+        "returns": {
+          "type": "TObject<TObject<boolean>>",
+          "description": "Structured permissions object e.g. { dashboard: { read: true } }."
+        }
       },
       "details": {
         "what_it_does": "Splits 'module__action' strings and builds a nested structure for easier lookup."
@@ -113,6 +152,40 @@
         "source_line_end": 46,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/permissions.ts#L26-L46",
         "nx_kb_anchor": "parsePermissions"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of parsePermissions",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "initializeUserPermissions",
+      "name": "initializeUserPermissions",
+      "kind": "function",
+      "description_one_line": "Sets up a listener for user document to keep permissions updated.",
+      "details": {
+        "what_it_does": "Sets up a listener for user document to keep permissions updated."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#initializeUserPermissions"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of initializeUserPermissions",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

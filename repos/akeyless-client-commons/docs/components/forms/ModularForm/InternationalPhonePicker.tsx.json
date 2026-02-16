@@ -102,7 +102,13 @@
         "nx_kb_anchor": "InternationalPhonePicker"
       },
       "symbol_id": "component_international_phone_picker",
-      "description_one_line": "Main international phone picker component. Supports both controlled mode (via setPhoneValue/phoneValue props) and uncontrolled mode (via internal tempPhoneValue state with hidden input for form submission). Defaults to Israel (IL) country code. Merges user-provided countries with a default set (US, IL, NG, TH). Renders an optional label via ElementLabel when labelContent is provided. Auto-focuses the phone input by default. Stores the phone value in a hidden input element for form submission."
+      "description_one_line": "Main international phone picker component. Supports both controlled mode (via setPhoneValue/phoneValue props) and uncontrolled mode (via internal tempPhoneValue state with hidden input for form submission). Defaults to Israel (IL) country code. Merges user-provided countries with a default set (US, IL, NG, TH). Renders an optional label via ElementLabel when labelContent is provided. Auto-focuses the phone input by default. Stores the phone value in a hidden input element for form submission.",
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of InternationalPhonePicker",
+          "code": "// TODO: Add example code"
+        }
+      }
     },
     {
       "kind": "component",
@@ -120,7 +126,13 @@
         "nx_kb_anchor": "PhoneInput"
       },
       "symbol_id": "component_phone_input",
-      "description_one_line": "A forwardRef wrapper around the shared Input UI component used as the text input for phone number entry. Handles auto-focus on mount when defaultFocus is true. Manages dual ref (internal inputRef for focus and forwarded ref for react-phone-number-input)."
+      "description_one_line": "A forwardRef wrapper around the shared Input UI component used as the text input for phone number entry. Handles auto-focus on mount when defaultFocus is true. Manages dual ref (internal inputRef for focus and forwarded ref for react-phone-number-input).",
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of PhoneInput",
+          "code": "// TODO: Add example code"
+        }
+      }
     },
     {
       "kind": "component",
@@ -138,7 +150,13 @@
         "nx_kb_anchor": "CountrySelect"
       },
       "symbol_id": "component_country_select",
-      "description_one_line": "A custom country selector component for the phone input. Renders a styled container with the current country flag and a chevron down icon, overlaid with a transparent native HTML select element for accessibility and mobile compatibility. Filters out options without a country value and displays country name with calling code."
+      "description_one_line": "A custom country selector component for the phone input. Renders a styled container with the current country flag and a chevron down icon, overlaid with a transparent native HTML select element for accessibility and mobile compatibility. Filters out options without a country value and displays country name with calling code.",
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of CountrySelect",
+          "code": "// TODO: Add example code"
+        }
+      }
     },
     {
       "kind": "component",
@@ -156,7 +174,13 @@
         "nx_kb_anchor": "FlagComponent"
       },
       "symbol_id": "component_flag_component",
-      "description_one_line": "Renders the SVG flag for a given country code from the react-phone-number-input flags package. Falls back to a Phone icon from lucide-react when no flag is available for the country."
+      "description_one_line": "Renders the SVG flag for a given country code from the react-phone-number-input flags package. Falls back to a Phone icon from lucide-react when no flag is available for the country.",
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of FlagComponent",
+          "code": "// TODO: Add example code"
+        }
+      }
     },
     {
       "kind": "type",
@@ -170,10 +194,45 @@
         "nx_kb_anchor": "CountrySelectProps"
       },
       "details": {
-        "what_it_does": "Exported symbol: CountrySelectProps"
+        "what_it_does": "Exported symbol: CountrySelectProps",
+        "type_definition": "// TODO: Add TypeScript type definition"
       },
       "symbol_id": "type_country_select_props",
-      "description_one_line": "Props type for the CountrySelect component defining the disabled state, custom className, current country value, change handler, and array of country options with labels."
+      "description_one_line": "Props type for the CountrySelect component defining the disabled state, custom className, current country value, change handler, and array of country options with labels.",
+      "examples": {
+        "minimal_correct": {
+          "title": "Using CountrySelectProps type",
+          "code": "// TODO: Add type usage example"
+        }
+      }
+    },
+    {
+      "symbol_id": "InternationalPhonePicker",
+      "name": "InternationalPhonePicker",
+      "kind": "component",
+      "description_one_line": "InternationalPhonePicker export",
+      "details": {
+        "what_it_does": "InternationalPhonePicker export"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#InternationalPhonePicker"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of InternationalPhonePicker",
+          "code": "// TODO: Add example code"
+        }
+      }
     }
   ],
   "quality": {

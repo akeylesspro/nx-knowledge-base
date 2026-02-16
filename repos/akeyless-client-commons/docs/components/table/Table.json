@@ -5,7 +5,7 @@
   },
   "file_name": "Table.tsx",
   "source": {
-    "file_path": "src/components/table/Table.tsx",
+    "file_path": "components/table/Table.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
@@ -30,14 +30,14 @@
     "internal": [
       {
         "import_path": "./components",
-        "resolved_file_path": "src/components/table/components.tsx",
+        "resolved_file_path": "components/table/components.tsx",
         "why_used": "Table parts (Head, Body, Search, Export, etc.).",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/table/components.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/table/components.tsx"
       },
       {
         "import_path": "./hooks",
-        "resolved_file_path": "src/components/table/hooks.tsx",
+        "resolved_file_path": "components/table/hooks.tsx",
         "why_used": "Logic hooks (useSort, useSearch, useFilter).",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/table/hooks.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/components/table/hooks.tsx"
@@ -92,6 +92,62 @@
         "source_line_end": 213,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/Table.tsx#L211-L213",
         "nx_kb_anchor": "Table"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of Table",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableContext",
+      "name": "TableContext",
+      "kind": "type",
+      "description_one_line": "Context for table state.",
+      "details": {
+        "what_it_does": "Context for table state.",
+        "type_definition": "// TODO: Add type definition"
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableContext"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using TableContext type",
+          "code": "// TODO: Add type usage example"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableProvider",
+      "name": "TableProvider",
+      "kind": "component",
+      "description_one_line": "Context provider wrapper.",
+      "details": {
+        "what_it_does": "Context provider wrapper."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableProvider"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableProvider",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

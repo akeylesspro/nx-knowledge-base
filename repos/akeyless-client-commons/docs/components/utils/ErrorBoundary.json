@@ -5,7 +5,7 @@
   },
   "file_name": "ErrorBoundary.tsx",
   "source": {
-    "file_path": "src/components/utils/ErrorBoundary.tsx",
+    "file_path": "components/utils/ErrorBoundary.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "tsx",
@@ -67,6 +67,12 @@
         "source_line_end": 1,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/ErrorBoundary.tsx#L1",
         "nx_kb_anchor": "ErrorBoundary"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of ErrorBoundary",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

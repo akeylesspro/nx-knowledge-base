@@ -5,11 +5,13 @@
   },
   "file_name": "types.ts",
   "source": {
-    "file_path": "src/components/table/types.ts",
+    "file_path": "components/table/types.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
-    "framework_tags": ["react"],
+    "framework_tags": [
+      "react"
+    ],
     "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/types.ts",
     "link_to_nx_kb": "repos/akeyless-client-commons/docs/components/table/types.json"
   },
@@ -33,9 +35,24 @@
     "internal": []
   },
   "exports": [
-    { "name": "TableProviderType", "kind": "interface", "description_one_line": "Context value structure.", "symbol_id": "TableProviderType" },
-    { "name": "TableProps", "kind": "interface", "description_one_line": "Props for the Table component.", "symbol_id": "TableProps" },
-    { "name": "FilterableColumn", "kind": "interface", "description_one_line": "Column filter config.", "symbol_id": "FilterableColumn" }
+    {
+      "name": "TableProviderType",
+      "kind": "interface",
+      "description_one_line": "Context value structure.",
+      "symbol_id": "TableProviderType"
+    },
+    {
+      "name": "TableProps",
+      "kind": "interface",
+      "description_one_line": "Props for the Table component.",
+      "symbol_id": "TableProps"
+    },
+    {
+      "name": "FilterableColumn",
+      "kind": "interface",
+      "description_one_line": "Column filter config.",
+      "symbol_id": "FilterableColumn"
+    }
   ],
   "symbols": [
     {
@@ -51,6 +68,75 @@
         "source_line_end": 97,
         "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/types.ts#L35-L97",
         "nx_kb_anchor": "TableProps"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "TODO: Document return type"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableProps",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableProviderType",
+      "name": "TableProviderType",
+      "kind": "interface",
+      "description_one_line": "Context value structure.",
+      "details": {
+        "what_it_does": "Context value structure."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableProviderType"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of TableProviderType",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "FilterableColumn",
+      "name": "FilterableColumn",
+      "kind": "interface",
+      "description_one_line": "Column filter config.",
+      "details": {
+        "what_it_does": "Column filter config."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#FilterableColumn"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of FilterableColumn",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

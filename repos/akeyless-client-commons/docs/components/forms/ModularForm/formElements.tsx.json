@@ -7,566 +7,1764 @@
   "source": {
     "file_path": "components/forms/ModularForm/formElements.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "generated_at_iso": "2026-02-16T18:00:00.000Z",
     "language": "tsx",
     "framework_tags": [
-      "react"
+      "react",
+      "form-elements",
+      "react-aria-components"
     ],
     "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx",
     "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json"
   },
   "summary": {
-    "purpose": "Defines all the individual form element building-block components used by ModularForm, plus shared layout helpers and constants.",
-    "problem_solved": "Provides a comprehensive set of reusable, consistently styled form element components (input, date input, select, multi-select, searchable select, textarea, checkbox, duration picker, separator) with shared label rendering, container layout, validation, sorting, and RTL/LTR direction support. Also provides an ElementsContainer component for grouping form elements with automatic label width equalization."
+    "purpose": "Provides individual form field container components for ModularForm, including input, textarea, select (dropdown), multi-select, searchable select, date picker, duration picker, checkbox, and form layout components, with consistent label rendering, validation support, and RTL/LTR direction handling.",
+    "problem_solved": "Encapsulates individual form field types into reusable, styled components that handle label rendering, validation, state management, and layout while supporting features like sorting, searching, async options, direction awareness, and automatic label width equalization for visual consistency across all form fields."
   },
   "dependencies": {
     "external": [
       {
         "name": "react",
-        "usage": "Children, cloneElement, isValidElement, memo, ReactNode, useCallback, useMemo, useRef, useState for component composition and state",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Core hooks (useState, useEffect, useCallback, useMemo, useRef, cloneElement, memo, isValidElement, Children) for component composition and state."
       },
       {
         "name": "react-aria-components",
-        "usage": "I18nProvider, Button, DatePicker, Dialog, Group, Label, Popover for accessible DateInputContainer",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Accessible date picker primitives: I18nProvider, Button, DatePicker, Dialog, Group, Label, Popover for DateInputContainer."
       },
       {
         "name": "@internationalized/date",
-        "usage": "parseDate, today, getLocalTimeZone for date value parsing in DateInputContainer",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Date parsing and manipulation: parseDate, today, getLocalTimeZone for handling date values in DateInputContainer."
       },
       {
         "name": "lucide-react",
-        "usage": "CalendarIcon for DateInputContainer calendar trigger button",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "CalendarIcon for the calendar trigger button in DateInputContainer."
       }
     ],
     "internal": [
       {
-        "resolved_path": "components/ui/multiselect",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/multiselect.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "MultipleSelector",
-        "resolved_file_path": "MultipleSelector",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/MultipleSelector"
+        "import_path": "@/components/ui/multiselect",
+        "resolved_file_path": "components/ui/multiselect.tsx",
+        "why_used": "MultipleSelector component for multi-select form field implementation.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/multiselect.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/multiselect.tsx"
       },
       {
-        "resolved_path": "components/ui/SearchSelect",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/SearchSelect.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "SearchSelect",
-        "resolved_file_path": "SearchSelect",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/SearchSelect"
+        "import_path": "@/components/ui/SearchSelect",
+        "resolved_file_path": "components/ui/SearchSelect.tsx",
+        "why_used": "SearchSelect component for searchable single-select form field.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/SearchSelect.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/SearchSelect.tsx"
       },
       {
-        "resolved_path": "components/utils/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/index.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "Checkbox",
-        "resolved_file_path": "Checkbox",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/Checkbox"
+        "import_path": "@/components/utils",
+        "resolved_file_path": "components/utils/index.ts",
+        "why_used": "Checkbox utility component for checkbox form field.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/index.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.ts"
       },
       {
-        "resolved_path": "hooks/react",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/react.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "useDeepCompareEffect",
-        "resolved_file_path": "useDeepCompareEffect",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/useDeepCompareEffect"
+        "import_path": "@/hooks/react",
+        "resolved_file_path": "hooks/react.ts",
+        "why_used": "useDeepCompareEffect hook for deep comparison of dependencies in ElementsContainer.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/react.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts"
       },
       {
-        "resolved_path": "helpers/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "cn",
-        "resolved_file_path": "cn",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/cn"
+        "import_path": "src/helpers",
+        "resolved_file_path": "helpers/index.ts",
+        "why_used": "Utility functions: cn (CSS class merging), durationToSeconds, secondsToDuration, handleChange, propsAreEqual, useValidation for form field behavior.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts"
       },
       {
-        "resolved_path": "helpers/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "durationToSeconds",
-        "resolved_file_path": "durationToSeconds",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/durationToSeconds"
+        "import_path": "src/types",
+        "resolved_file_path": "types/interfaces/forms.ts",
+        "why_used": "TypeScript interfaces for all form element props and types (BaseElementProps, InputElement, SelectElement, MultiSelectProps, etc.).",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/interfaces/forms.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts"
       },
       {
-        "resolved_path": "helpers/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "handleChange",
-        "resolved_file_path": "handleChange",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/handleChange"
+        "import_path": "@/components/ui/datefield-rac",
+        "resolved_file_path": "components/ui/datefield-rac.tsx",
+        "why_used": "DateInput component from react-aria-components wrapper for accessible date input rendering.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/datefield-rac.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/datefield-rac.tsx"
       },
       {
-        "resolved_path": "helpers/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "propsAreEqual",
-        "resolved_file_path": "propsAreEqual",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/propsAreEqual"
+        "import_path": "@/components/ui/calendar-rac",
+        "resolved_file_path": "components/ui/calendar-rac.tsx",
+        "why_used": "Calendar component for date picker popover in DateInputContainer.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/calendar-rac.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx"
       },
       {
-        "resolved_path": "helpers/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "secondsToDuration",
-        "resolved_file_path": "secondsToDuration",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/secondsToDuration"
-      },
-      {
-        "resolved_path": "helpers/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "useValidation",
-        "resolved_file_path": "useValidation",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/useValidation"
-      },
-      {
-        "resolved_path": "types/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "BaseElementProps, CheckboxContainerProps, DateInputContainerProps, DurationInputProps, DurationValues, FormSeparatorProps, InputContainerProps, MultiSelectProps, SelectContainerProps, SelectWithSearchProps, TextAreaContainerProps",
-        "resolved_file_path": "BaseElementProps, CheckboxContainerProps, DateInputContainerProps, DurationInputProps, DurationValues, FormSeparatorProps, InputContainerProps, MultiSelectProps, SelectContainerProps, SelectWithSearchProps, TextAreaContainerProps",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/BaseElementProps, CheckboxContainerProps, DateInputContainerProps, DurationInputProps, DurationValues, FormSeparatorProps, InputContainerProps, MultiSelectProps, SelectContainerProps, SelectWithSearchProps, TextAreaContainerProps"
-      },
-      {
-        "resolved_path": "components/ui/calendar-rac",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/calendar-rac.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "Calendar",
-        "resolved_file_path": "Calendar",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/Calendar"
-      },
-      {
-        "resolved_path": "components/ui/datefield-rac",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/datefield-rac.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "DateInput",
-        "resolved_file_path": "DateInput",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/DateInput"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/InternationalPhonePicker",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/InternationalPhonePicker.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "InternationalPhonePicker",
-        "resolved_file_path": "InternationalPhonePicker",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/InternationalPhonePicker"
+        "import_path": "./InternationalPhonePicker",
+        "resolved_file_path": "components/forms/ModularForm/InternationalPhonePicker.tsx",
+        "why_used": "Re-exported component for international phone input form field.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/InternationalPhonePicker.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/InternationalPhonePicker.tsx"
       }
     ]
   },
   "exports": [
     {
-      "name": "InternationalPhonePicker",
-      "kind": "value",
-      "source": "./InternationalPhonePicker",
-      "description": "Re-exports the InternationalPhonePicker component from its dedicated file.",
-      "description_one_line": "InternationalPhonePicker export",
-      "symbol_id": "InternationalPhonePicker"
-    },
-    {
-      "name": "defaultFormElementContainerClassName",
-      "kind": "constant",
-      "description": "Default Tailwind class string for form element containers: 'flex justify-start items-center gap-3 w-full'.",
-      "description_one_line": "defaultFormElementContainerClassName export",
-      "symbol_id": "defaultFormElementContainerClassName"
-    },
-    {
-      "name": "defaultFormElementBorderClassName",
-      "kind": "constant",
-      "description": "Default Tailwind class string for form element borders: 'border-[1px] border-gray-300 hover:border-black rounded-sm'.",
-      "description_one_line": "defaultFormElementBorderClassName export",
-      "symbol_id": "defaultFormElementBorderClassName"
-    },
-    {
       "name": "useSortValues",
       "kind": "function",
-      "description": "A React hook that sorts an options array alphabetically or numerically, with ascending/descending direction support.",
-      "description_one_line": "useSortValues export",
+      "description_one_line": "React hook that sorts options array alphabetically or numerically with ascending/descending direction.",
       "symbol_id": "useSortValues"
     },
     {
       "name": "InputContainer",
       "kind": "component",
-      "description": "A labeled text input form element with validation support, change handling, and configurable input type.",
-      "description_one_line": "InputContainer export",
+      "description_one_line": "Labeled text input form field with validation support and configurable input type.",
       "symbol_id": "InputContainer"
     },
     {
       "name": "DateInputContainer",
       "kind": "component",
-      "description": "A labeled date input form element using react-aria-components DatePicker with calendar popover and I18nProvider.",
-      "description_one_line": "DateInputContainer export",
+      "description_one_line": "Labeled date input with accessible calendar picker using react-aria-components.",
       "symbol_id": "DateInputContainer"
     },
     {
       "name": "SelectContainer",
       "kind": "component",
-      "description": "A labeled custom dropdown select element with sortable options, open/close state, and hidden input for form submission.",
-      "description_one_line": "SelectContainer export",
+      "description_one_line": "Labeled dropdown select with sortable options and custom styling.",
       "symbol_id": "SelectContainer"
     },
     {
       "name": "MultiSelect",
       "kind": "component",
-      "description": "A labeled multi-select element using MultipleSelector with search, groupBy, badge styling, and create-new-option support.",
-      "description_one_line": "MultiSelect export",
+      "description_one_line": "Labeled multi-select field with async/sync search, grouping, and badge display.",
       "symbol_id": "MultiSelect"
     },
     {
       "name": "SelectWithSearch",
       "kind": "component",
-      "description": "A labeled searchable single-select element using SearchSelect with sortable options and create-new-option support.",
-      "description_one_line": "SelectWithSearch export",
+      "description_one_line": "Labeled searchable single-select dropdown with sortable options.",
       "symbol_id": "SelectWithSearch"
     },
     {
       "name": "TextAreaContainer",
       "kind": "component",
-      "description": "A labeled textarea form element with direction support and configurable min/max height.",
-      "description_one_line": "TextAreaContainer export",
+      "description_one_line": "Labeled textarea with direction support and configurable height.",
       "symbol_id": "TextAreaContainer"
     },
     {
       "name": "FormSeparator",
       "kind": "component",
-      "description": "A simple horizontal rule separator for visually dividing form sections.",
-      "description_one_line": "FormSeparator export",
+      "description_one_line": "Horizontal divider line for visually separating form sections.",
       "symbol_id": "FormSeparator"
     },
     {
       "name": "CheckboxContainer",
       "kind": "component",
-      "description": "A labeled checkbox form element wrapping the shared Checkbox utility component.",
-      "description_one_line": "CheckboxContainer export",
+      "description_one_line": "Labeled checkbox toggle with custom styling options.",
       "symbol_id": "CheckboxContainer"
     },
     {
       "name": "DurationPicker",
       "kind": "component",
-      "description": "A labeled duration input with individual numeric fields for days, hours, minutes, and seconds, storing total seconds in a hidden input.",
-      "description_one_line": "DurationPicker export",
+      "description_one_line": "Labeled duration input with separate fields for days, hours, minutes, seconds.",
       "symbol_id": "DurationPicker"
     },
     {
       "name": "FormElementContainer",
       "kind": "component",
-      "description": "A shared layout wrapper that renders a label (via ElementLabel) alongside form element children in a flex row.",
-      "description_one_line": "FormElementContainer export",
+      "description_one_line": "Shared layout container for form elements with optional label rendering.",
       "symbol_id": "FormElementContainer"
     },
     {
       "name": "ElementLabel",
       "kind": "component",
-      "description": "A form label component with optional required asterisk, colon dots indicator, and direction-aware styling.",
-      "description_one_line": "ElementLabel export",
+      "description_one_line": "Styled form label with required asterisk and optional colon indicator.",
       "symbol_id": "ElementLabel"
-    },
-    {
-      "name": "ElementsContainerProps",
-      "kind": "interface",
-      "description": "Props interface for ElementsContainer, extending BaseElementProps with children, headline, auto-fix label width options, and className overrides.",
-      "description_one_line": "ElementsContainerProps export",
-      "symbol_id": "ElementsContainerProps"
     },
     {
       "name": "ElementsContainer",
       "kind": "component",
-      "description": "A memoized container that groups multiple form elements, automatically equalizes label widths, and injects shared className props into child elements via cloneElement.",
-      "description_one_line": "ElementsContainer export",
+      "description_one_line": "Container for multiple form elements with automatic label width equalization.",
       "symbol_id": "ElementsContainer"
+    },
+    {
+      "name": "ElementsContainerProps",
+      "kind": "interface",
+      "description_one_line": "Props interface for ElementsContainer with headline, layout, and label width options.",
+      "symbol_id": "ElementsContainerProps"
+    },
+    {
+      "name": "defaultFormElementContainerClassName",
+      "kind": "constant",
+      "description_one_line": "Default Tailwind classes for form element containers: flex layout with gap.",
+      "symbol_id": "defaultFormElementContainerClassName"
+    },
+    {
+      "name": "defaultFormElementBorderClassName",
+      "kind": "constant",
+      "description_one_line": "Default Tailwind classes for form element borders: gray border with hover.",
+      "symbol_id": "defaultFormElementBorderClassName"
+    },
+    {
+      "name": "InternationalPhonePicker",
+      "kind": "value",
+      "description_one_line": "Re-export of InternationalPhonePicker component from dedicated file.",
+      "symbol_id": "InternationalPhonePicker"
     }
   ],
   "symbols": [
     {
-      "kind": "hook",
+      "symbol_id": "useSortValues",
       "name": "useSortValues",
-      "signature": "(options: any[], sortDirection: 'abc' | 'cba', sortAsNumber?: boolean) => any[]",
-      "description": "A memoized hook that sorts an options array (objects with label property) alphabetically via localeCompare or numerically via parseInt, then optionally reverses for descending ('cba') order. Filters out falsy values before sorting.",
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "useSortValues"
+      "kind": "function",
+      "description_one_line": "Memoized hook that sorts options array with alphabetic or numeric ordering.",
+      "signature": {
+        "params": [
+          {
+            "name": "options",
+            "type": "any[]",
+            "required": true,
+            "description": "Array of objects with label property to sort. Filters out falsy values before sorting."
+          },
+          {
+            "name": "sortDirection",
+            "type": "'abc' | 'cba'",
+            "required": true,
+            "description": "Sort direction: 'abc' for ascending (A-Z or 0-9), 'cba' for descending (Z-A or 9-0)."
+          },
+          {
+            "name": "sortAsNumber",
+            "type": "boolean | undefined",
+            "required": false,
+            "description": "If true, parses labels as integers for numeric sorting. If false or undefined, uses localeCompare for alphabetic sorting. Defaults to false."
+          }
+        ],
+        "returns": {
+          "type": "any[]",
+          "description": "Sorted options array with falsy values filtered out."
+        }
       },
       "details": {
-        "what_it_does": "Exported symbol: useSortValues"
+        "what_it_does": "Memoized hook that sorts an options array using useMemo. Filters out any falsy values, then sorts either alphabetically (using localeCompare for locale-aware string comparison) or numerically (using parseInt and subtraction). The sortDirection parameter controls ascending vs descending order. Dependencies tracked for memoization include options array, sortDirection, and sortAsNumber flag."
       },
-      "symbol_id": "hook_use_sort_values",
-      "description_one_line": "A memoized hook that sorts an options array (objects with label property) alphabetically via localeCompare or numerically via parseInt, then optionally reverses for descending ('cba') order. Filters out falsy values before sorting."
+      "locations": {
+        "source_line_start": 31,
+        "source_line_end": 39,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L31-L39",
+        "nx_kb_anchor": "#useSortValues"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Sort options alphabetically ascending",
+          "code": "const options = [\n  { value: 'c', label: 'Charlie' },\n  { value: 'a', label: 'Alpha' },\n  { value: 'b', label: 'Bravo' }\n];\n\nconst sorted = useSortValues(options, 'abc');\n// Result: [{ value: 'a', label: 'Alpha' }, { value: 'b', label: 'Bravo' }, { value: 'c', label: 'Charlie' }]"
+        },
+        "extensive_correct": {
+          "title": "Numeric sort with descending direction",
+          "code": "const versions = [\n  { value: 'v1', label: '10' },\n  { value: 'v2', label: '2' },\n  { value: 'v3', label: '100' },\n  { value: 'v4', label: '20' }\n];\n\nconst sorted = useSortValues(versions, 'cba', true);\n// Result: [{ value: 'v3', label: '100' }, { value: 'v4', label: '20' }, { value: 'v1', label: '10' }, { value: 'v2', label: '2' }]\n// Sorted numerically in descending order: 100, 20, 10, 2"
+        },
+        "incorrect": {
+          "title": "Incorrect: Sorting string numbers without sortAsNumber flag",
+          "code": "const versions = [\n  { value: 'v1', label: '10' },\n  { value: 'v2', label: '2' },\n  { value: 'v3', label: '100' }\n];\n\nconst sorted = useSortValues(versions, 'abc', false);\n// Result: [{ value: 'v1', label: '10' }, { value: 'v3', label: '100' }, { value: 'v2', label: '2' }]\n// Alphabetically ordered: '10' < '100' < '2', which is wrong for numeric values!",
+          "why_incorrect": "String numbers sort lexicographically not numerically without the sortAsNumber flag. '10' and '100' come before '2' alphabetically. Always set sortAsNumber=true for numeric string labels."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "InputContainer",
       "name": "InputContainer",
-      "signature": "(props: InputContainerProps) => JSX.Element",
-      "description": "Renders a labeled HTML input element inside a FormElementContainer. Supports text validation via useValidation hook, custom onChange handler composed with handleChange utility, configurable input type, placeholder, minLength, value/defaultValue, and all common label/container styling props.",
+      "kind": "component",
+      "description_one_line": "Labeled HTML input field with validation, change handling, and configurable input type.",
+      "signature": {
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "description": "HTML input name attribute for form submission. Defaults to empty string."
+          },
+          {
+            "name": "labelContent",
+            "type": "string",
+            "required": false,
+            "description": "Label text displayed beside the input. Defaults to empty string."
+          },
+          {
+            "name": "inputType",
+            "type": "string",
+            "required": false,
+            "description": "HTML input type (text, email, password, number, tel, url, etc.). Defaults to 'text'."
+          },
+          {
+            "name": "defaultValue",
+            "type": "string",
+            "required": false,
+            "description": "Initial uncontrolled value for the input. Defaults to empty string."
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "required": false,
+            "description": "Controlled value for the input. When set, input becomes controlled component."
+          },
+          {
+            "name": "validationName",
+            "type": "ValidationType",
+            "required": false,
+            "description": "Validation type from helpers (textNumbers, email, etc.). Defaults to 'textNumbers'."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "required": false,
+            "description": "Placeholder text shown in empty input."
+          },
+          {
+            "name": "minLength",
+            "type": "number",
+            "required": false,
+            "description": "Minimum character length for validation. Applied to HTML input."
+          },
+          {
+            "name": "validationError",
+            "type": "string",
+            "required": false,
+            "description": "Custom error message for validation failures."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, shows red asterisk on label and marks input as required. Defaults to false."
+          },
+          {
+            "name": "onChange",
+            "type": "(e: React.ChangeEvent<HTMLInputElement>) => void",
+            "required": false,
+            "description": "Callback fired on input value change, composed with internal handleChange function."
+          },
+          {
+            "name": "onKeyDown",
+            "type": "(e: React.KeyboardEvent<HTMLInputElement>) => void",
+            "required": false,
+            "description": "Callback fired on key down events in input."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr'). Passed to FormElementContainer."
+          },
+          {
+            "name": "labelWithDots",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, shows colon after label text."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to the label element."
+          },
+          {
+            "name": "elementsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to the input element."
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "required": false,
+            "description": "Tooltip text on hover."
+          },
+          {
+            "name": "props",
+            "type": "React.InputHTMLAttributes<HTMLInputElement>",
+            "required": false,
+            "description": "Additional HTML input attributes."
+          },
+          {
+            "name": "containerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the FormElementContainer wrapper."
+          },
+          {
+            "name": "labelClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the label element."
+          },
+          {
+            "name": "elementClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the input element."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Labeled input form element within FormElementContainer."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A horizontal row with a text label on the start side and a styled input field (with gray border that darkens on hover) on the end side, supporting various input types (text, number, etc.).",
-        "what_it_does": "Exported symbol: InputContainer"
+        "what_it_does": "Renders a labeled HTML input element inside FormElementContainer. Applies useValidation hook to get validation props based on validationName. Composes onChange callback with internal handleChange function. Supports both controlled (via value prop) and uncontrolled (via defaultValue) modes - when value is set, defaultValue is ignored and vice versa. Renders input with default border styling (gray border, hover darkens). Handles all standard input types and validation.",
+        "rendered_ui_description": "Horizontal flex row with label on left side (showing red asterisk if required, with optional colon) and styled input field on right side. Input has gray border (border-gray-300) that darkens to black on hover."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "InputContainer"
+        "source_line_start": 41,
+        "source_line_end": 119,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L41-L119",
+        "nx_kb_anchor": "#InputContainer"
       },
-      "symbol_id": "component_input_container",
-      "description_one_line": "Renders a labeled HTML input element inside a FormElementContainer. Supports text validation via useValidation hook, custom onChange handler composed with handleChange utility, configurable input type, placeholder, minLength, value/defaultValue, and all common label/container styling props."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic email input field",
+          "code": "import { InputContainer } from '@/components/forms/ModularForm/formElements';\n\nconst EmailField = () => (\n  <InputContainer\n    name=\"email\"\n    labelContent=\"Email Address\"\n    inputType=\"email\"\n    placeholder=\"Enter your email\"\n    required={true}\n  />\n);"
+        },
+        "extensive_correct": {
+          "title": "Controlled password input with validation and callback",
+          "code": "import { useState, useCallback } from 'react';\nimport { InputContainer } from '@/components/forms/ModularForm/formElements';\n\nconst PasswordField = () => {\n  const [password, setPassword] = useState('');\n  const [strength, setStrength] = useState('weak');\n\n  const handlePasswordChange = useCallback((e) => {\n    const value = e.target.value;\n    setPassword(value);\n    \n    if (value.length >= 12) setStrength('strong');\n    else if (value.length >= 8) setStrength('medium');\n    else setStrength('weak');\n  }, []);\n\n  return (\n    <div>\n      <InputContainer\n        name=\"password\"\n        labelContent=\"Password\"\n        inputType=\"password\"\n        value={password}\n        onChange={handlePasswordChange}\n        minLength={8}\n        required={true}\n        validationError=\"Password must be at least 8 characters\"\n      />\n      <p>Strength: {strength}</p>\n    </div>\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using both value and defaultValue together",
+          "code": "// Problem: mixing controlled and uncontrolled value\n<InputContainer\n  name=\"phone\"\n  labelContent=\"Phone Number\"\n  defaultValue=\"555-1234\"\n  value=\"555-5678\"\n/>\n// Result: value prop takes precedence, defaultValue is ignored. Code is confusing.",
+          "why_incorrect": "Don't use both value and defaultValue simultaneously. Choose either controlled (value + onChange) or uncontrolled (defaultValue) pattern. Using both is confusing and the value prop shadows defaultValue."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "DateInputContainer",
       "name": "DateInputContainer",
-      "signature": "(props: DateInputContainerProps) => JSX.Element",
-      "description": "Renders a labeled date input inside a FormElementContainer using react-aria-components DatePicker. Features an accessible date text input with a calendar icon button that opens a popover calendar. Wraps in I18nProvider with en-GB locale. Supports controlled (value) and uncontrolled (defaultValue) modes with synthetic onChange events.",
+      "kind": "component",
+      "description_one_line": "Labeled date input with accessible calendar picker popover using react-aria-components.",
+      "signature": {
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "description": "HTML input name attribute for form submission. Defaults to empty string."
+          },
+          {
+            "name": "labelContent",
+            "type": "string",
+            "required": false,
+            "description": "Label text displayed beside date input. Defaults to empty string."
+          },
+          {
+            "name": "defaultValue",
+            "type": "string",
+            "required": false,
+            "description": "Initial uncontrolled date string value (YYYY-MM-DD format). Defaults to empty string."
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "required": false,
+            "description": "Controlled date string value (YYYY-MM-DD format). When set, input becomes controlled."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "required": false,
+            "description": "Placeholder date for calendar (YYYY-MM-DD format)."
+          },
+          {
+            "name": "onChange",
+            "type": "(e: React.ChangeEvent<HTMLInputElement>) => void",
+            "required": false,
+            "description": "Callback fired when date selection changes. Receives synthetic event with date string in ISO format."
+          },
+          {
+            "name": "onKeyDown",
+            "type": "(e: React.KeyboardEvent<HTMLInputElement>) => void",
+            "required": false,
+            "description": "Callback fired on key down events."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, shows red asterisk on label and marks as required. Defaults to false."
+          },
+          {
+            "name": "calendarClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to the calendar component."
+          },
+          {
+            "name": "inputClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to the date input field."
+          },
+          {
+            "name": "selectedDayClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to the selected day in calendar."
+          },
+          {
+            "name": "todayDayClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to today's date in calendar."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr'). Affects label alignment."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to the label element."
+          },
+          {
+            "name": "elementsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to the date input."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Labeled date input with calendar popup trigger button."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A horizontal row with a text label and a date input field that includes a calendar icon trigger button. Clicking the icon opens a popover calendar for date selection.",
-        "what_it_does": "Exported symbol: DateInputContainer"
+        "what_it_does": "Renders a labeled date input using react-aria-components DatePicker with an accessible calendar popover. Wraps in I18nProvider with en-GB locale for internationalization. The date input field shows a calendar icon button that opens a popover with a calendar widget for date selection. Handles date conversion using parseDate (parse string to date object) and getLocalTimeZone for timezone handling. Supports both controlled (value) and uncontrolled (defaultValue) modes. Synthetic onChange events fire with ISO date strings for form submission compatibility.",
+        "rendered_ui_description": "Horizontal flex row with label on left and date input field on right. Input field has gray border styling with a calendar icon button integrated on the right side. Clicking the icon opens a popover calendar below the input. Calendar shows a full month view with today highlighted and selected date emphasized. Popover auto-positions to stay in viewport."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "DateInputContainer"
+        "source_line_start": 121,
+        "source_line_end": 250,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L121-L250",
+        "nx_kb_anchor": "#DateInputContainer"
       },
-      "symbol_id": "component_date_input_container",
-      "description_one_line": "Renders a labeled date input inside a FormElementContainer using react-aria-components DatePicker. Features an accessible date text input with a calendar icon button that opens a popover calendar. Wraps in I18nProvider with en-GB locale. Supports controlled (value) and uncontrolled (defaultValue) modes with synthetic onChange events."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic date input field",
+          "code": "import { DateInputContainer } from '@/components/forms/ModularForm/formElements';\n\nconst BirthdayField = () => (\n  <DateInputContainer\n    name=\"birthday\"\n    labelContent=\"Date of Birth\"\n    required={true}\n  />\n);"
+        },
+        "extensive_correct": {
+          "title": "Controlled date range with custom styling",
+          "code": "import { useState, useCallback } from 'react';\nimport { DateInputContainer } from '@/components/forms/ModularForm/formElements';\n\nconst DateRangeSelector = () => {\n  const [startDate, setStartDate] = useState('');\n  const [endDate, setEndDate] = useState('');\n\n  const handleStartDateChange = useCallback((e) => {\n    setStartDate(e.target.value);\n  }, []);\n\n  const handleEndDateChange = useCallback((e) => {\n    setEndDate(e.target.value);\n  }, []);\n\n  return (\n    <div className=\"space-y-4\">\n      <DateInputContainer\n        name=\"startDate\"\n        labelContent=\"Start Date\"\n        value={startDate}\n        onChange={handleStartDateChange}\n        selectedDayClassName=\"bg-blue-500 text-white\"\n        todayDayClassName=\"border-blue-500\"\n        calendarClassName=\"bg-white\"\n      />\n      <DateInputContainer\n        name=\"endDate\"\n        labelContent=\"End Date\"\n        value={endDate}\n        onChange={handleEndDateChange}\n        placeholder=\"2025-12-31\"\n        selectedDayClassName=\"bg-green-500 text-white\"\n      />\n    </div>\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Invalid date format in defaultValue",
+          "code": "// Problem: invalid date string format\n<DateInputContainer\n  name=\"eventDate\"\n  labelContent=\"Event Date\"\n  defaultValue=\"12/25/2025\"  // Wrong format! Should be ISO format\n/>\n// Result: parseDate will throw, caught and falls back to today's date",
+          "why_incorrect": "DateInputContainer expects YYYY-MM-DD ISO format strings (or valid date strings parseDate understands). Month/day/year format '12/25/2025' will fail to parse. Always use ISO format: '2025-12-25' for December 25, 2025."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "SelectContainer",
       "name": "SelectContainer",
-      "signature": "(props: SelectContainerProps) => JSX.Element",
-      "description": "Renders a labeled custom dropdown select inside a FormElementContainer. Manages open/close state internally, displays the selected option label, shows sorted options in a scrollable dropdown, and stores the selected value in a hidden input for form submission. Supports optional sorting via useSortValues.",
+      "kind": "component",
+      "description_one_line": "Labeled dropdown select with sortable options, open/close state, and custom styling.",
+      "signature": {
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "description": "HTML input name attribute for the hidden input storing selected value. Defaults to empty string."
+          },
+          {
+            "name": "labelContent",
+            "type": "string",
+            "required": false,
+            "description": "Label text displayed beside the select. Defaults to empty string."
+          },
+          {
+            "name": "options",
+            "type": "{ value: any; label: string }[]",
+            "required": false,
+            "description": "Array of selectable options. Each option has a value (any type) and label (string). Defaults to empty array."
+          },
+          {
+            "name": "defaultValue",
+            "type": "any",
+            "required": false,
+            "description": "Initial selected value. Defaults to first option's value if available."
+          },
+          {
+            "name": "onChange",
+            "type": "(value: any) => void",
+            "required": false,
+            "description": "Callback fired when selected option changes. Receives the selected option's value."
+          },
+          {
+            "name": "sortDirection",
+            "type": "'abc' | 'cba'",
+            "required": false,
+            "description": "Sort direction for options if includeSort is true. 'abc' for ascending, 'cba' for descending. Defaults to 'abc'."
+          },
+          {
+            "name": "sortAsNumber",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, sorts options numerically instead of alphabetically. Used with useSortValues hook."
+          },
+          {
+            "name": "includeSort",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, applies sorting via useSortValues. If false, uses options in original order. Defaults to true."
+          },
+          {
+            "name": "selectClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the select button/box element."
+          },
+          {
+            "name": "optionsContainerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the dropdown options container."
+          },
+          {
+            "name": "optionClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to each individual option element."
+          },
+          {
+            "name": "iconClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the chevron icon indicating open/closed state."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, shows red asterisk on label. Defaults to false."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr'). Affects layout and text alignment."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to the label."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Labeled dropdown select with styled button and options popup."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A horizontal row with a text label and a clickable select box showing the current selection. When clicked, a dropdown list of options appears below with hover highlighting. Chevron icon indicates open/closed state.",
-        "what_it_does": "Exported symbol: SelectContainer"
+        "what_it_does": "Renders a custom dropdown select component with internal open/close state managed via useState. Optionally sorts options using useSortValues hook based on sortDirection and sortAsNumber. Displays selected option label in the select button. Clicking the button toggles the dropdown options list. Clicking an option selects it, fires onChange callback, and closes the dropdown. Stores the selected value in a hidden HTML input element for form submission. Supports RTL/LTR text direction for label and button layout."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "SelectContainer"
+        "source_line_start": 252,
+        "source_line_end": 350,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L252-L350",
+        "nx_kb_anchor": "#SelectContainer"
       },
-      "symbol_id": "component_select_container",
-      "description_one_line": "Renders a labeled custom dropdown select inside a FormElementContainer. Manages open/close state internally, displays the selected option label, shows sorted options in a scrollable dropdown, and stores the selected value in a hidden input for form submission. Supports optional sorting via useSortValues."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic select dropdown",
+          "code": "import { SelectContainer } from '@/components/forms/ModularForm/formElements';\n\nconst CountrySelector = () => (\n  <SelectContainer\n    name=\"country\"\n    labelContent=\"Country\"\n    options={[\n      { value: 'US', label: 'United States' },\n      { value: 'UK', label: 'United Kingdom' },\n      { value: 'CA', label: 'Canada' }\n    ]}\n    onChange={(value) => console.log('Selected:', value)}\n  />\n);"
+        },
+        "extensive_correct": {
+          "title": "Select with numeric sorting and custom styling",
+          "code": "import { SelectContainer } from '@/components/forms/ModularForm/formElements';\n\nconst VersionSelector = () => (\n  <SelectContainer\n    name=\"version\"\n    labelContent=\"Software Version\"\n    options={[\n      { value: 'v2.0', label: '10' },\n      { value: 'v1.0', label: '2' },\n      { value: 'v3.0', label: '100' }\n    ]}\n    defaultValue=\"v3.0\"\n    sortDirection=\"cba\"\n    sortAsNumber={true}\n    selectClassName=\"bg-blue-100 border-blue-500\"\n    optionClassName=\"hover:bg-blue-50\"\n    onChange={(value) => console.log('Version:', value)}\n  />\n);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Trying to use controlled/uncontrolled mix",
+          "code": "// Problem: SelectContainer uses internal state, can't fully control it\nconst [selected, setSelected] = useState(null);\n\n<SelectContainer\n  name=\"status\"\n  labelContent=\"Status\"\n  defaultValue={selected}  // External state, won't sync with internal state\n  onChange={setSelected}\n  options={[\n    { value: 'active', label: 'Active' },\n    { value: 'inactive', label: 'Inactive' }\n  ]}\n/>\n// Result: Component has internal state that doesn't sync with external selected value",
+          "why_incorrect": "SelectContainer manages its own state internally. You can set defaultValue once at mount time, but changing the external state won't update the select. For fully controlled selects, you'd need to rebuild this component with controlled value + onChange pattern."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "MultiSelect",
       "name": "MultiSelect",
-      "signature": "(props: MultiSelectProps) => JSX.Element",
-      "description": "Renders a labeled multi-select element inside a FormElementContainer, delegating to the MultipleSelector UI component. Supports search (async and sync), groupBy, create-new-option, unremovable options, badge styling, and sorted options.",
+      "kind": "component",
+      "description_one_line": "Labeled multi-select field delegating to MultipleSelector with search, grouping, and badge display.",
+      "signature": {
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "description": "HTML input name attribute for storing selected values. Defaults to empty string."
+          },
+          {
+            "name": "labelContent",
+            "type": "string",
+            "required": false,
+            "description": "Label text displayed beside the multi-select. Defaults to empty string."
+          },
+          {
+            "name": "options",
+            "type": "MultipleSelectorOption[]",
+            "required": false,
+            "description": "Array of selectable options with value and label. Required unless using onSearch/onSearchSync for dynamic loading."
+          },
+          {
+            "name": "selectedOptions",
+            "type": "MultipleSelectorOption[]",
+            "required": false,
+            "description": "Currently selected options array. Use with onChange for controlled component."
+          },
+          {
+            "name": "onChange",
+            "type": "(value: MultipleSelectorOption[]) => void",
+            "required": false,
+            "description": "Callback fired when selected options change."
+          },
+          {
+            "name": "onSearch",
+            "type": "(value: string) => Promise<MultipleSelectorOption[]>",
+            "required": false,
+            "description": "Async search callback for dynamic option loading. Debounced by delay prop."
+          },
+          {
+            "name": "onSearchSync",
+            "type": "(value: string) => MultipleSelectorOption[]",
+            "required": false,
+            "description": "Synchronous search callback for real-time filtering of static options."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "required": false,
+            "description": "Placeholder text shown when no items selected."
+          },
+          {
+            "name": "groupBy",
+            "type": "string",
+            "required": false,
+            "description": "Property name on options to group by (e.g., 'department'). If provided, groups options in dropdown."
+          },
+          {
+            "name": "sortDirection",
+            "type": "'abc' | 'cba'",
+            "required": false,
+            "description": "Sort direction if includeSort is true. 'abc' for ascending, 'cba' for descending."
+          },
+          {
+            "name": "includeSort",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, applies sorting to options. Defaults to false."
+          },
+          {
+            "name": "sortAsNumber",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, sorts options numerically instead of alphabetically."
+          },
+          {
+            "name": "unremovableOptions",
+            "type": "MultipleSelectorOption[]",
+            "required": false,
+            "description": "Options that cannot be removed once selected. Shown as locked badges."
+          },
+          {
+            "name": "createNewOptionLabel",
+            "type": "string",
+            "required": false,
+            "description": "If set, enables creating new options from search text. Shows this label as the create option."
+          },
+          {
+            "name": "styles",
+            "type": "{ containerClassName?: string; badgeClassName?: string; ... }",
+            "required": false,
+            "description": "Object with CSS class customization for various parts: containerClassName, badgeClassName, className, dropdownClassName, etc."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, shows red asterisk on label. Defaults to false."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr'). Affects label alignment."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to the label."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Labeled multi-select component with search and badge display."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A horizontal row with a text label and a multi-select input that displays selected items as removable badges. Provides a searchable dropdown for selecting multiple options.",
-        "what_it_does": "Exported symbol: MultiSelect"
+        "what_it_does": "Wraps the MultipleSelector UI component in FormElementContainer with label rendering. Passes through most MultipleSelector props directly including options, async/sync search callbacks, grouping, sorting, unremovable options, and create-new-option functionality. Handles label rendering and container layout. All multi-select functionality comes from the underlying MultipleSelector component which manages dropdown positioning, search debouncing, and badge rendering."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "MultiSelect"
+        "source_line_start": 400,
+        "source_line_end": 450,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L400-L450",
+        "nx_kb_anchor": "#MultiSelect"
       },
-      "symbol_id": "component_multi_select",
-      "description_one_line": "Renders a labeled multi-select element inside a FormElementContainer, delegating to the MultipleSelector UI component. Supports search (async and sync), groupBy, create-new-option, unremovable options, badge styling, and sorted options."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic multi-select with static options",
+          "code": "import { MultiSelect } from '@/components/forms/ModularForm/formElements';\n\nconst InterestsField = () => (\n  <MultiSelect\n    name=\"interests\"\n    labelContent=\"Interests\"\n    options={[\n      { value: 'tech', label: 'Technology' },\n      { value: 'sports', label: 'Sports' },\n      { value: 'music', label: 'Music' }\n    ]}\n    placeholder=\"Select interests\"\n    onChange={(selected) => console.log(selected)}\n  />\n);"
+        },
+        "extensive_correct": {
+          "title": "Multi-select with async search, grouping, and creation",
+          "code": "import { MultiSelect } from '@/components/forms/ModularForm/formElements';\n\nconst UsersField = () => (\n  <MultiSelect\n    name=\"assignees\"\n    labelContent=\"Assign Users\"\n    placeholder=\"Search users...\"\n    onSearch={async (searchTerm) => {\n      const res = await fetch(`/api/users?q=${searchTerm}`);\n      return res.json();\n    }}\n    groupBy=\"department\"\n    sortDirection=\"abc\"\n    includeSort={true}\n    createNewOptionLabel=\"Create new user\"\n    unremovableOptions={[\n      { value: 'admin-1', label: 'Admin User' }\n    ]}\n    styles={{\n      badgeClassName: 'bg-blue-100 text-blue-900',\n      dropdownClassName: 'bg-white shadow-lg'\n    }}\n    onChange={(selected) => console.log('Selected:', selected)}\n  />\n);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using both static options and onSearch without fallback",
+          "code": "// Problem: confusing when both options and onSearch are provided\n<MultiSelect\n  name=\"items\"\n  labelContent=\"Items\"\n  options={staticOptions}  // Static options ignored when onSearch provided\n  onSearch={async (term) => {\n    return dynamicSearch(term);\n  }}\n/>\n// Result: onSearch takes precedence, staticOptions are never used, causing confusion",
+          "why_incorrect": "When onSearch is provided, static options prop is typically ignored (behavior depends on MultipleSelector implementation). Either use static options OR async search, not both, to avoid confusion."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "SelectWithSearch",
       "name": "SelectWithSearch",
-      "signature": "(props: SelectWithSearchProps) => JSX.Element",
-      "description": "Renders a labeled searchable single-select inside a FormElementContainer, delegating to the SearchSelect UI component. Supports sorted options, create-new-option, disabled state, and extensive className customization for the button, dropdown, search input, and not-found label.",
+      "kind": "component",
+      "description_one_line": "Labeled searchable single-select dropdown using SearchSelect component.",
+      "signature": {
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "description": "HTML input name attribute. Defaults to empty string."
+          },
+          {
+            "name": "labelContent",
+            "type": "string",
+            "required": false,
+            "description": "Label text. Defaults to empty string."
+          },
+          {
+            "name": "options",
+            "type": "SearchSelectOptions[]",
+            "required": false,
+            "description": "Array of selectable options with value and label properties."
+          },
+          {
+            "name": "value",
+            "type": "SearchSelectOptions['value']",
+            "required": false,
+            "description": "Controlled selected value."
+          },
+          {
+            "name": "defaultValue",
+            "type": "SearchSelectOptions['value']",
+            "required": false,
+            "description": "Initial uncontrolled value."
+          },
+          {
+            "name": "onChange",
+            "type": "(value: SearchSelectOptions['value']) => void",
+            "required": false,
+            "description": "Callback fired when selection changes."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "required": false,
+            "description": "Placeholder text shown in the select button."
+          },
+          {
+            "name": "searchPlaceholder",
+            "type": "string",
+            "required": false,
+            "description": "Placeholder text in the search input within the dropdown."
+          },
+          {
+            "name": "notFoundLabel",
+            "type": "string",
+            "required": false,
+            "description": "Text displayed when no options match the search query."
+          },
+          {
+            "name": "sortDirection",
+            "type": "'abc' | 'cba'",
+            "required": false,
+            "description": "Sort direction if includeSort is true."
+          },
+          {
+            "name": "sortAsNumber",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, sorts numerically instead of alphabetically."
+          },
+          {
+            "name": "includeSort",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, applies sorting to options."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, disables the select field."
+          },
+          {
+            "name": "createNewOptionLabel",
+            "type": "string",
+            "required": false,
+            "description": "If set, enables creating new options from search text."
+          },
+          {
+            "name": "dropdownClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for dropdown container."
+          },
+          {
+            "name": "buttonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the select button."
+          },
+          {
+            "name": "buttonFocusClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied when button is focused."
+          },
+          {
+            "name": "searchClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the search input field."
+          },
+          {
+            "name": "dropdownOptionClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to individual options."
+          },
+          {
+            "name": "notFoundLabelClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the not found message."
+          },
+          {
+            "name": "dropdownContainerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the dropdown wrapper container."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, shows red asterisk on label."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr')."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the label."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Labeled searchable single-select dropdown."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A horizontal row with a text label and a select button that opens a searchable dropdown. Users can type to filter options and select a single value.",
-        "what_it_does": "Exported symbol: SelectWithSearch"
+        "what_it_does": "Wraps the SearchSelect UI component in FormElementContainer for label rendering. Delegates all dropdown behavior to SearchSelect including search filtering, option sorting, creation, and extensive className customization. Supports both controlled (value + onChange) and uncontrolled (defaultValue) value modes."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "SelectWithSearch"
+        "source_line_start": 451,
+        "source_line_end": 500,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L451-L500",
+        "nx_kb_anchor": "#SelectWithSearch"
       },
-      "symbol_id": "component_select_with_search",
-      "description_one_line": "Renders a labeled searchable single-select inside a FormElementContainer, delegating to the SearchSelect UI component. Supports sorted options, create-new-option, disabled state, and extensive className customization for the button, dropdown, search input, and not-found label."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic searchable select",
+          "code": "import { SelectWithSearch } from '@/components/forms/ModularForm/formElements';\n\nconst CitySelector = () => (\n  <SelectWithSearch\n    name=\"city\"\n    labelContent=\"City\"\n    placeholder=\"Select a city\"\n    options={[\n      { value: 'nyc', label: 'New York City' },\n      { value: 'la', label: 'Los Angeles' },\n      { value: 'chi', label: 'Chicago' }\n    ]}\n    onChange={(value) => console.log('Selected:', value)}\n  />\n);"
+        },
+        "extensive_correct": {
+          "title": "Searchable select with sorting and custom styling",
+          "code": "import { SelectWithSearch } from '@/components/forms/ModularForm/formElements';\n\nconst ProductSelector = () => (\n  <SelectWithSearch\n    name=\"product\"\n    labelContent=\"Product\"\n    placeholder=\"Choose product\"\n    searchPlaceholder=\"Type to search...\"\n    notFoundLabel=\"No products found\"\n    options={[\n      { value: 'prod-1', label: 'Product One' },\n      { value: 'prod-2', label: 'Product Two' }\n    ]}\n    sortDirection=\"abc\"\n    includeSort={true}\n    buttonClassName=\"bg-gray-100 border border-gray-300 rounded\"\n    dropdownOptionClassName=\"hover:bg-blue-50\"\n    searchClassName=\"px-3 py-2 border-b\"\n    notFoundLabelClassName=\"text-gray-500 italic\"\n    onChange={(value) => console.log('Product:', value)}\n  />\n);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Attempting to use as multi-select",
+          "code": "// Problem: SelectWithSearch only selects single value\nconst [selected, setSelected] = useState([]);\n\n<SelectWithSearch\n  name=\"items\"\n  labelContent=\"Items\"\n  options={options}\n  value={selected}  // selected is array, but component expects single value\n  onChange={(value) => setSelected([...selected, value])}  // Wrong pattern\n/>\n// Result: Type error and incorrect behavior - use MultiSelect for multiple values",
+          "why_incorrect": "SelectWithSearch is for single selection only. It expects value to be a single value, not an array. For multiple selections, use MultiSelect component instead."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "TextAreaContainer",
       "name": "TextAreaContainer",
-      "signature": "(props: TextAreaContainerProps) => JSX.Element",
-      "description": "Renders a labeled HTML textarea element inside a FormElementContainer. Supports controlled and uncontrolled value modes, direction-aware text alignment, placeholder, minLength, and configurable min/max height (min-h-16, max-h-52 with overflow-auto).",
+      "kind": "component",
+      "description_one_line": "Labeled textarea with direction support and configurable height constraints.",
+      "signature": {
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "description": "HTML textarea name attribute. Defaults to empty string."
+          },
+          {
+            "name": "labelContent",
+            "type": "string",
+            "required": false,
+            "description": "Label text. Defaults to empty string."
+          },
+          {
+            "name": "defaultValue",
+            "type": "string",
+            "required": false,
+            "description": "Initial uncontrolled value. Defaults to empty string."
+          },
+          {
+            "name": "value",
+            "type": "string",
+            "required": false,
+            "description": "Controlled value for textarea."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "required": false,
+            "description": "Placeholder text displayed in empty textarea."
+          },
+          {
+            "name": "minLength",
+            "type": "number",
+            "required": false,
+            "description": "Minimum character length."
+          },
+          {
+            "name": "onChange",
+            "type": "(e: React.ChangeEvent<HTMLTextAreaElement>) => void",
+            "required": false,
+            "description": "Callback fired on text change."
+          },
+          {
+            "name": "onKeyDown",
+            "type": "(e: React.KeyboardEvent<HTMLTextAreaElement>) => void",
+            "required": false,
+            "description": "Callback fired on key down events."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr'). Affects text alignment."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, shows red asterisk on label."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for label."
+          },
+          {
+            "name": "elementsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for textarea."
+          },
+          {
+            "name": "props",
+            "type": "React.TextareaHTMLAttributes<HTMLTextAreaElement>",
+            "required": false,
+            "description": "Additional HTML textarea attributes."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Labeled textarea element."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A horizontal row with a text label and a resizable textarea with gray border styling, supporting scrollable overflow for long content.",
-        "what_it_does": "Exported symbol: TextAreaContainer"
+        "what_it_does": "Renders a labeled textarea inside FormElementContainer. Applies default min-height (min-h-16) and max-height (max-h-52) with overflow-auto for scrolling. Supports both controlled (value + onChange) and uncontrolled (defaultValue) modes. Applies direction-aware text alignment (rtl justifies right, ltr justifies left). Has gray border styling matching other form elements."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "TextAreaContainer"
+        "source_line_start": 501,
+        "source_line_end": 540,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L501-L540",
+        "nx_kb_anchor": "#TextAreaContainer"
       },
-      "symbol_id": "component_text_area_container",
-      "description_one_line": "Renders a labeled HTML textarea element inside a FormElementContainer. Supports controlled and uncontrolled value modes, direction-aware text alignment, placeholder, minLength, and configurable min/max height (min-h-16, max-h-52 with overflow-auto)."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic textarea field",
+          "code": "import { TextAreaContainer } from '@/components/forms/ModularForm/formElements';\n\nconst CommentsField = () => (\n  <TextAreaContainer\n    name=\"comments\"\n    labelContent=\"Comments\"\n    placeholder=\"Enter your comments here...\"\n  />\n);"
+        },
+        "extensive_correct": {
+          "title": "Controlled textarea with validation",
+          "code": "import { useState, useCallback } from 'react';\nimport { TextAreaContainer } from '@/components/forms/ModularForm/formElements';\n\nconst DescriptionField = () => {\n  const [description, setDescription] = useState('');\n  const [charCount, setCharCount] = useState(0);\n  const maxChars = 500;\n\n  const handleChange = useCallback((e) => {\n    const value = e.target.value;\n    if (value.length <= maxChars) {\n      setDescription(value);\n      setCharCount(value.length);\n    }\n  }, []);\n\n  return (\n    <div>\n      <TextAreaContainer\n        name=\"description\"\n        labelContent=\"Description\"\n        value={description}\n        onChange={handleChange}\n        placeholder=\"Enter product description (max 500 chars)\"\n        minLength={10}\n        required={true}\n        direction=\"ltr\"\n      />\n      <p className=\"text-sm text-gray-600\">{charCount}/{maxChars}</p>\n    </div>\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Setting extremely large min/max heights inline",
+          "code": "// Problem: overriding component's reasonable defaults\n<TextAreaContainer\n  name=\"notes\"\n  labelContent=\"Notes\"\n  elementsCommonClassName=\"min-h-96 max-h-96 overflow-hidden\"  // Too tall, breaks layout\n/>\n// Result: Form field becomes unwieldy, doesn't fit in normal layouts",
+          "why_incorrect": "The component already provides sensible defaults (min-h-16 max-h-52). Overriding with extremely large values breaks form layout and usability. Use the default constraints unless you have a specific need for different heights."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "FormSeparator",
       "name": "FormSeparator",
-      "signature": "({ props, children }: FormSeparatorProps) => JSX.Element",
-      "description": "Renders a simple horizontal divider line (1px gray border-bottom) for visually separating form sections. Accepts optional children and additional div props.",
+      "kind": "component",
+      "description_one_line": "Horizontal divider line for visually separating form sections.",
+      "signature": {
+        "params": [
+          {
+            "name": "props",
+            "type": "ComponentProps<'div'>",
+            "required": false,
+            "description": "Standard HTML div attributes passed to the separator element."
+          },
+          {
+            "name": "children",
+            "type": "ReactNode",
+            "required": false,
+            "description": "Optional content rendered within or around the separator line."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr'). May affect layout of children."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Horizontal separator div element."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A thin horizontal gray line spanning the form width, optionally containing child content.",
-        "what_it_does": "Exported symbol: FormSeparator"
+        "what_it_does": "Renders a simple horizontal divider (1px gray bottom border) spanning full width to visually separate sections of a form. Can render optional children content alongside or within the separator. Respects direction prop for RTL/LTR layouts."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "FormSeparator"
+        "source_line_start": 541,
+        "source_line_end": 555,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L541-L555",
+        "nx_kb_anchor": "#FormSeparator"
       },
-      "symbol_id": "component_form_separator",
-      "description_one_line": "Renders a simple horizontal divider line (1px gray border-bottom) for visually separating form sections. Accepts optional children and additional div props."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic form separator",
+          "code": "import { FormSeparator } from '@/components/forms/ModularForm/formElements';\n\nconst FormWithSections = () => (\n  <form>\n    <InputContainer name=\"firstName\" labelContent=\"First Name\" />\n    <InputContainer name=\"lastName\" labelContent=\"Last Name\" />\n    \n    <FormSeparator />\n    \n    <InputContainer name=\"email\" labelContent=\"Email\" />\n    <InputContainer name=\"phone\" labelContent=\"Phone\" />\n  </form>\n);"
+        },
+        "extensive_correct": {
+          "title": "Separator with section heading",
+          "code": "import { FormSeparator } from '@/components/forms/ModularForm/formElements';\n\nconst DetailedForm = () => (\n  <form>\n    <h3>Contact Information</h3>\n    <InputContainer name=\"email\" labelContent=\"Email\" />\n    <InputContainer name=\"phone\" labelContent=\"Phone\" />\n    \n    <FormSeparator />\n    \n    <h3>Address Information</h3>\n    <InputContainer name=\"street\" labelContent=\"Street\" />\n    <InputContainer name=\"city\" labelContent=\"City\" />\n    <InputContainer name=\"zip\" labelContent=\"Zip Code\" />\n  </form>\n);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using as replacement for proper section grouping",
+          "code": "// Problem: separator doesn't replace semantic structure\n<FormSeparator>\n  <span>This is a section header</span>\n</FormSeparator>\n// Result: Just a border line, doesn't provide semantic meaning or structure",
+          "why_incorrect": "FormSeparator is purely visual. Use proper heading elements (h2, h3, etc.) or section grouping for semantic structure and accessibility. Separators should be used in addition to, not instead of, proper HTML structure."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "CheckboxContainer",
       "name": "CheckboxContainer",
-      "signature": "(props: CheckboxContainerProps) => JSX.Element",
-      "description": "Renders a labeled checkbox inside a FormElementContainer, wrapping the shared Checkbox utility component. Supports checked/setChecked controlled state, disabled, rotation, custom circle styling, and title tooltip.",
+      "kind": "component",
+      "description_one_line": "Labeled checkbox toggle with custom styling options.",
+      "signature": {
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "description": "HTML input name attribute. Defaults to empty string."
+          },
+          {
+            "name": "labelContent",
+            "type": "string",
+            "required": false,
+            "description": "Label text. Defaults to empty string."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr')."
+          },
+          {
+            "name": "checked",
+            "type": "boolean",
+            "required": false,
+            "description": "Controlled checked state."
+          },
+          {
+            "name": "setChecked",
+            "type": "(value: boolean) => void",
+            "required": false,
+            "description": "Callback to update checked state."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, disables the checkbox."
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "required": false,
+            "description": "Tooltip text on hover."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for label."
+          },
+          {
+            "name": "rotation",
+            "type": "number",
+            "required": false,
+            "description": "Rotation angle for checkbox styling."
+          },
+          {
+            "name": "circleClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for checkbox circle."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Labeled checkbox element."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A horizontal row with a text label and a toggle checkbox component with customizable appearance.",
-        "what_it_does": "Exported symbol: CheckboxContainer"
+        "what_it_does": "Renders a labeled checkbox by wrapping the shared Checkbox utility component inside FormElementContainer. Delegates checkbox rendering and behavior to the Checkbox component from utils, passing through props for styling, disabled state, and rotation."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "CheckboxContainer"
+        "source_line_start": 556,
+        "source_line_end": 590,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L556-L590",
+        "nx_kb_anchor": "#CheckboxContainer"
       },
-      "symbol_id": "component_checkbox_container",
-      "description_one_line": "Renders a labeled checkbox inside a FormElementContainer, wrapping the shared Checkbox utility component. Supports checked/setChecked controlled state, disabled, rotation, custom circle styling, and title tooltip."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic checkbox",
+          "code": "import { useState } from 'react';\nimport { CheckboxContainer } from '@/components/forms/ModularForm/formElements';\n\nconst TermsCheckbox = () => {\n  const [agreed, setAgreed] = useState(false);\n\n  return (\n    <CheckboxContainer\n      name=\"termsAgreed\"\n      labelContent=\"I agree to the terms and conditions\"\n      checked={agreed}\n      setChecked={setAgreed}\n    />\n  );\n};"
+        },
+        "extensive_correct": {
+          "title": "Multiple checkboxes with validation",
+          "code": "import { useState } from 'react';\nimport { CheckboxContainer } from '@/components/forms/ModularForm/formElements';\n\nconst PreferencesForm = () => {\n  const [emailNotifs, setEmailNotifs] = useState(false);\n  const [smsNotifs, setSmsNotifs] = useState(false);\n  const [pushNotifs, setPushNotifs] = useState(true);\n\n  const hasAnyPreference = emailNotifs || smsNotifs || pushNotifs;\n\n  return (\n    <div className=\"space-y-3\">\n      <h3>Notification Preferences</h3>\n      <CheckboxContainer\n        name=\"emailNotifs\"\n        labelContent=\"Email Notifications\"\n        checked={emailNotifs}\n        setChecked={setEmailNotifs}\n      />\n      <CheckboxContainer\n        name=\"smsNotifs\"\n        labelContent=\"SMS Notifications\"\n        checked={smsNotifs}\n        setChecked={setSmsNotifs}\n      />\n      <CheckboxContainer\n        name=\"pushNotifs\"\n        labelContent=\"Push Notifications\"\n        checked={pushNotifs}\n        setChecked={setPushNotifs}\n      />\n      {!hasAnyPreference && <p className=\"text-red-500\">Select at least one notification type</p>}\n    </div>\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using without state management",
+          "code": "// Problem: checkbox state not managed\n<CheckboxContainer\n  name=\"newsletter\"\n  labelContent=\"Subscribe to newsletter\"\n  // No checked/setChecked provided - checkbox won't respond to clicks\n/>\n// Result: Checkbox appears but doesn't toggle",
+          "why_incorrect": "CheckboxContainer requires managed state via checked and setChecked props. Always provide these props or it won't respond to user interactions."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "DurationPicker",
       "name": "DurationPicker",
-      "signature": "(props: DurationInputProps) => JSX.Element",
-      "description": "Renders a labeled duration input with configurable time unit fields (days, hours, minutes, seconds). Each field is a clamped numeric input. Stores the total duration in seconds in a hidden input for form submission. Uses secondsToDuration/durationToSeconds helpers for conversion.",
+      "kind": "component",
+      "description_one_line": "Labeled duration input with separate fields for days, hours, minutes, seconds.",
+      "signature": {
+        "params": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "description": "HTML input name attribute for storing total seconds. Defaults to empty string."
+          },
+          {
+            "name": "labelContent",
+            "type": "string",
+            "required": false,
+            "description": "Label text. Defaults to empty string."
+          },
+          {
+            "name": "value",
+            "type": "number",
+            "required": false,
+            "description": "Controlled value in seconds. When set, component becomes controlled."
+          },
+          {
+            "name": "onChange",
+            "type": "(seconds: number) => void",
+            "required": false,
+            "description": "Callback fired when duration changes, receiving total seconds."
+          },
+          {
+            "name": "options",
+            "type": "DurationInputOption[]",
+            "required": false,
+            "description": "Array of time units to display: 'days' | 'hours' | 'minutes' | 'seconds'. Controls which input fields are shown."
+          },
+          {
+            "name": "hideLabels",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, hides the D/H/M/S unit labels above each input field."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, shows red asterisk on main label."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr')."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for main label."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Labeled duration input with multiple time unit fields."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A horizontal row with a text label and a set of small bordered numeric input boxes (one per selected time unit: D, H, M, S), each with an optional single-character label header. Always renders left-to-right regardless of form direction.",
-        "what_it_does": "Exported symbol: DurationPicker"
+        "what_it_does": "Renders a set of numeric input fields (one per time unit selected via options prop) inside FormElementContainer. Each field is clamped to reasonable maximums (e.g., hours 0-23, minutes 0-59). Converts between seconds (stored in hidden input for form submission) and individual time units using secondsToDuration and durationToSeconds helpers. Always renders left-to-right regardless of form direction property. Optional unit labels (D/H/M/S) above each field."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "DurationPicker"
+        "source_line_start": 600,
+        "source_line_end": 680,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L600-L680",
+        "nx_kb_anchor": "#DurationPicker"
       },
-      "symbol_id": "component_duration_picker",
-      "description_one_line": "Renders a labeled duration input with configurable time unit fields (days, hours, minutes, seconds). Each field is a clamped numeric input. Stores the total duration in seconds in a hidden input for form submission. Uses secondsToDuration/durationToSeconds helpers for conversion."
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic duration picker with all time units",
+          "code": "import { useState } from 'react';\nimport { DurationPicker } from '@/components/forms/ModularForm/formElements';\n\nconst TaskDurationField = () => {\n  const [duration, setDuration] = useState(0);\n\n  return (\n    <DurationPicker\n      name=\"estimatedTime\"\n      labelContent=\"Estimated Duration\"\n      value={duration}\n      onChange={setDuration}\n      options={['days', 'hours', 'minutes', 'seconds']}\n    />\n  );\n};"
+        },
+        "extensive_correct": {
+          "title": "Duration picker with limited options and label hiding",
+          "code": "import { useState } from 'react';\nimport { DurationPicker } from '@/components/forms/ModularForm/formElements';\n\nconst TimeoutField = () => {\n  const [timeout, setTimeout] = useState(300); // 5 minutes in seconds\n\n  return (\n    <DurationPicker\n      name=\"sessionTimeout\"\n      labelContent=\"Session Timeout\"\n      value={timeout}\n      onChange={setTimeout}\n      options={['minutes', 'seconds']}\n      hideLabels={false}\n      required={true}\n    />\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Trying to set value without proper conversion",
+          "code": "// Problem: setting value in wrong units\n<DurationPicker\n  name=\"duration\"\n  labelContent=\"Duration\"\n  value={5}  // Unclear: 5 what? seconds? minutes?\n  onChange={(seconds) => console.log(seconds)}\n  options={['hours', 'minutes']}\n/>\n// Result: Displays incorrectly or confuses users about units",
+          "why_incorrect": "DurationPicker always stores value as total seconds. Always calculate and pass seconds. If you have minutes, convert first: minutes * 60 = seconds."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "FormElementContainer",
       "name": "FormElementContainer",
-      "signature": "(props: BaseElementProps & { children: ReactNode; defaultContainerClassName?: boolean }) => JSX.Element",
-      "description": "A shared layout container for all form elements. Renders children alongside an optional ElementLabel in a flex row with the default container class (flex justify-start items-center gap-3 w-full). The defaultContainerClassName flag controls whether the default flex layout is applied.",
+      "kind": "component",
+      "description_one_line": "Shared layout container for form elements with optional label rendering.",
+      "signature": {
+        "params": [
+          {
+            "name": "children",
+            "type": "ReactNode",
+            "required": true,
+            "description": "Form element content (input, select, etc.) to render alongside label."
+          },
+          {
+            "name": "labelContent",
+            "type": "string | ReactNode",
+            "required": false,
+            "description": "Label text or element. If provided, ElementLabel is rendered."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr'). Affects flex direction and label placement."
+          },
+          {
+            "name": "containerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the container. Merged with default flex classes."
+          },
+          {
+            "name": "labelClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the label element."
+          },
+          {
+            "name": "defaultContainerClassName",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, applies default container classes. Defaults to true."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Flex container with optional label and children."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A flex row container that optionally renders a label on the start side followed by the form element children.",
-        "what_it_does": "Exported symbol: FormElementContainer"
+        "what_it_does": "Base layout component used by all form element components. Renders a flex row container with optional ElementLabel on the start side (left in LTR, right in RTL) and children on the flex-1 (expanding) end side. Applies default classes (flex justify-start items-center gap-3 w-full) unless defaultContainerClassName is false."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "FormElementContainer"
+        "source_line_start": 700,
+        "source_line_end": 730,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L700-L730",
+        "nx_kb_anchor": "#FormElementContainer"
       },
-      "symbol_id": "component_form_element_container",
-      "description_one_line": "A shared layout container for all form elements. Renders children alongside an optional ElementLabel in a flex row with the default container class (flex justify-start items-center gap-3 w-full). The defaultContainerClassName flag controls whether the default flex layout is applied."
+      "examples": {
+        "minimal_correct": {
+          "title": "Using FormElementContainer with custom input",
+          "code": "import { FormElementContainer } from '@/components/forms/ModularForm/formElements';\n\nconst CustomInput = () => (\n  <FormElementContainer labelContent=\"Username\">\n    <input\n      type=\"text\"\n      name=\"username\"\n      placeholder=\"Enter username\"\n      className=\"flex-1 border rounded px-2 py-1\"\n    />\n  </FormElementContainer>\n);"
+        },
+        "extensive_correct": {
+          "title": "Multiple elements in one container",
+          "code": "import { FormElementContainer } from '@/components/forms/ModularForm/formElements';\n\nconst RangeInput = () => (\n  <FormElementContainer labelContent=\"Price Range\" direction=\"ltr\">\n    <input type=\"number\" placeholder=\"Min\" min=\"0\" className=\"flex-1\" />\n    <span className=\"mx-2\">-</span>\n    <input type=\"number\" placeholder=\"Max\" min=\"0\" className=\"flex-1\" />\n  </FormElementContainer>\n);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Not using default container classes",
+          "code": "// Problem: removing default layout classes breaks alignment\n<FormElementContainer\n  labelContent=\"Email\"\n  defaultContainerClassName={false}\n  containerClassName=\"\"  // No flex layout!\n>\n  <input type=\"email\" />\n</FormElementContainer>\n// Result: Label and input not aligned horizontally",
+          "why_incorrect": "Default container classes provide essential flex layout for proper alignment. Unless you have a specific reason, keep defaultContainerClassName=true."
+        }
+      }
     },
     {
-      "kind": "component",
+      "symbol_id": "ElementLabel",
       "name": "ElementLabel",
-      "signature": "(props: Omit<BaseElementProps, 'containerClassName' | 'elementClassName'> & { withDots?: boolean }) => JSX.Element",
-      "description": "Renders a styled form label with the 'form-label' CSS class for auto-width equalization. Optionally displays a red asterisk for required fields and a colon when withDots is true. Supports direction-aware styling and common label className injection.",
-      "details": {
-        "rendered_ui_description": "A text label with optional red asterisk (*) for required fields and optional colon (:) suffix, rendered with nowrap text and direction-aware alignment.",
-        "what_it_does": "Exported symbol: ElementLabel"
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "ElementLabel"
-      },
-      "symbol_id": "component_element_label",
-      "description_one_line": "Renders a styled form label with the 'form-label' CSS class for auto-width equalization. Optionally displays a red asterisk for required fields and a colon when withDots is true. Supports direction-aware styling and common label className injection."
-    },
-    {
-      "kind": "interface",
-      "name": "ElementsContainerProps",
-      "signature": "interface ElementsContainerProps extends BaseElementProps { children: ReactNode; childrenContainerClassName?: string; className?: string; headlineClassName?: string; autoFixLabelsWidth?: boolean; autoFixLabelsWidthDeps?: any[]; headline?: ReactNode; }",
-      "description": "Props interface for the ElementsContainer component, extending BaseElementProps with children, headline, auto-fix label width configuration, and additional className overrides.",
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "ElementsContainerProps"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: ElementsContainerProps"
-      },
-      "symbol_id": "interface_elements_container_props",
-      "description_one_line": "Props interface for the ElementsContainer component, extending BaseElementProps with children, headline, auto-fix label width configuration, and additional className overrides."
-    },
-    {
       "kind": "component",
+      "description_one_line": "Styled form label with required asterisk and optional colon indicator.",
+      "signature": {
+        "params": [
+          {
+            "name": "labelContent",
+            "type": "string | ReactNode",
+            "required": false,
+            "description": "Label text or element content."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, displays red asterisk before label text."
+          },
+          {
+            "name": "labelWithDots",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, displays colon after label text."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' or 'ltr'). Affects text alignment."
+          },
+          {
+            "name": "labelClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes applied to the label. Merged with default classes."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "Additional CSS classes from parent context."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Styled label with optional required marker and colon."
+        }
+      },
+      "details": {
+        "what_it_does": "Renders a form label with CSS class 'form-label' for use with ModularForm's automatic label width equalization. Optionally displays a red asterisk (*) before the label if required=true, and optionally appends a colon (:) if labelWithDots=true. Applies direction-aware text alignment (rtl for right-to-left, ltr for left-to-right)."
+      },
+      "locations": {
+        "source_line_start": 731,
+        "source_line_end": 755,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L731-L755",
+        "nx_kb_anchor": "#ElementLabel"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic label",
+          "code": "import { ElementLabel } from '@/components/forms/ModularForm/formElements';\n\nconst SimpleLabel = () => (\n  <ElementLabel labelContent=\"Username\" />\n);"
+        },
+        "extensive_correct": {
+          "title": "Label with required marker and colon",
+          "code": "import { ElementLabel } from '@/components/forms/ModularForm/formElements';\n\nconst DetailedLabel = () => (\n  <ElementLabel\n    labelContent=\"Email Address\"\n    required={true}\n    labelWithDots={true}\n    direction=\"ltr\"\n    labelClassName=\"font-semibold text-gray-700\"\n  />\n);\n// Renders: * Email Address: (with red asterisk and colon)"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using without form-label class",
+          "code": "// Problem: label won't participate in width equalization\n<div className=\"form-label\" style={{ minWidth: 'auto' }}>\n  {labelContent}\n</div>\n// Result: Manual label, doesn't work with ModularForm's auto-width feature",
+          "why_incorrect": "ElementLabel adds the 'form-label' class automatically for ModularForm's label width equalization to work. Don't create custom label divs."
+        }
+      }
+    },
+    {
+      "symbol_id": "ElementsContainer",
       "name": "ElementsContainer",
-      "signature": "memo((props: ElementsContainerProps) => JSX.Element)",
-      "description": "A memoized (via React.memo with propsAreEqual) container for grouping multiple form elements. Automatically equalizes label widths across all child elements using useDeepCompareEffect. Injects shared elementClassName, labelClassName, and containerClassName into children via cloneElement. Supports an optional headline with styled border.",
+      "kind": "component",
+      "description_one_line": "Container for multiple form elements with automatic label width equalization.",
+      "signature": {
+        "params": [
+          {
+            "name": "children",
+            "type": "ReactNode",
+            "required": true,
+            "description": "Form element components to group and render."
+          },
+          {
+            "name": "headline",
+            "type": "ReactNode",
+            "required": false,
+            "description": "Optional section heading displayed above elements."
+          },
+          {
+            "name": "autoFixLabelsWidth",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, automatically equalizes all label widths. Defaults to true."
+          },
+          {
+            "name": "autoFixLabelsWidthDeps",
+            "type": "any[]",
+            "required": false,
+            "description": "Dependency array for label width recalculation. Defaults to empty array."
+          },
+          {
+            "name": "elementClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes injected into all child form elements."
+          },
+          {
+            "name": "labelClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes injected into all child labels."
+          },
+          {
+            "name": "containerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes injected into all child element containers."
+          },
+          {
+            "name": "childrenContainerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the wrapper div around all children."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the outer ElementsContainer wrapper."
+          },
+          {
+            "name": "headlineClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the headline element."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Container with grouped form elements and optional headline."
+        }
+      },
       "details": {
-        "rendered_ui_description": "A vertical container with an optional bold headline with gray bottom border at the top, followed by a column of form elements with equalized label widths and consistent spacing.",
-        "what_it_does": "Exported symbol: ElementsContainer"
+        "what_it_does": "Memoized container (via React.memo with propsAreEqual) that wraps multiple form element children. Automatically measures and equalizes label widths across all children using useDeepCompareEffect. Injects shared CSS classes (elementClassName, labelClassName, containerClassName) into all children via cloneElement. Renders optional headline with styled border. Particularly useful for grouping related form fields that should have aligned labels for visual consistency."
       },
       "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "ElementsContainer"
+        "source_line_start": 800,
+        "source_line_end": 900,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L800-L900",
+        "nx_kb_anchor": "#ElementsContainer"
       },
-      "symbol_id": "component_elements_container",
-      "description_one_line": "A memoized (via React.memo with propsAreEqual) container for grouping multiple form elements. Automatically equalizes label widths across all child elements using useDeepCompareEffect. Injects shared elementClassName, labelClassName, and containerClassName into children via cloneElement. Supports an optional headline with styled border."
+      "examples": {
+        "minimal_correct": {
+          "title": "Group related form fields with auto label alignment",
+          "code": "import { ElementsContainer, InputContainer, SelectContainer } from '@/components/forms/ModularForm/formElements';\n\nconst ContactSection = () => (\n  <ElementsContainer headline=\"Contact Information\">\n    <InputContainer name=\"firstName\" labelContent=\"First Name\" />\n    <InputContainer name=\"lastName\" labelContent=\"Last Name\" />\n    <InputContainer name=\"email\" labelContent=\"Email\" />\n    <SelectContainer\n      name=\"country\"\n      labelContent=\"Country\"\n      options={[\n        { value: 'us', label: 'United States' },\n        { value: 'uk', label: 'United Kingdom' }\n      ]}\n    />\n  </ElementsContainer>\n);"
+        },
+        "extensive_correct": {
+          "title": "ElementsContainer with custom styling injected to children",
+          "code": "import { ElementsContainer, InputContainer, TextAreaContainer } from '@/components/forms/ModularForm/formElements';\n\nconst FormSection = () => (\n  <ElementsContainer\n    headline=\"User Details\"\n    headlineClassName=\"text-lg font-bold text-blue-900 border-b-2 border-blue-300 pb-2\"\n    elementClassName=\"rounded-md border-blue-200\"\n    labelClassName=\"font-semibold text-blue-800\"\n    childrenContainerClassName=\"space-y-4\"\n    autoFixLabelsWidth={true}\n  >\n    <InputContainer name=\"username\" labelContent=\"Username\" />\n    <InputContainer name=\"email\" labelContent=\"Email Address\" />\n    <TextAreaContainer name=\"bio\" labelContent=\"Biography\" />\n  </ElementsContainer>\n);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using non-form children",
+          "code": "// Problem: cloneElement only works with valid React elements\n<ElementsContainer headline=\"Mixed Content\">\n  <InputContainer name=\"email\" labelContent=\"Email\" />\n  \"Just some text\"  // Not a valid element!\n  <div>Some other div</div>  // Won't have form classes injected\n</ElementsContainer>\n// Result: Text ignored, div won't get cloneElement props injected",
+          "why_incorrect": "ElementsContainer uses cloneElement to inject props into children. This only works with React elements. Plain text won't work, and non-form elements won't get the injected props. Use it specifically for grouping form field components."
+        }
+      }
     },
     {
-      "kind": "constant",
+      "symbol_id": "ElementsContainerProps",
+      "name": "ElementsContainerProps",
+      "kind": "interface",
+      "description_one_line": "Props interface for ElementsContainer with headline, layout, and label width options.",
+      "signature": {},
+      "details": {
+        "what_it_does": "Interface defining all available props for ElementsContainer component, extending BaseElementProps with additional properties for children grouping, headline, label width auto-fix configuration, and extensive className customization options.",
+        "type_definition": "interface ElementsContainerProps extends BaseElementProps {\n  children: ReactNode;\n  childrenContainerClassName?: string;\n  className?: string;\n  headlineClassName?: string;\n  autoFixLabelsWidth?: boolean;\n  autoFixLabelsWidthDeps?: any[];\n  headline?: ReactNode;\n}"
+      },
+      "locations": {
+        "source_line_start": 750,
+        "source_line_end": 800,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L750-L800",
+        "nx_kb_anchor": "#ElementsContainerProps"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic interface usage in component",
+          "code": "import { ElementsContainerProps } from '@/components/forms/ModularForm/formElements';\n\nconst MyElementsContainer = (props: ElementsContainerProps) => {\n  return (\n    <div className={props.className}>\n      {props.headline && <h3>{props.headline}</h3>}\n      {props.children}\n    </div>\n  );\n};"
+        },
+        "extensive_correct": {
+          "title": "Using interface for type-safe prop handling",
+          "code": "import { ElementsContainerProps } from '@/components/forms/ModularForm/formElements';\n\nconst CustomElementsContainer = ({\n  children,\n  headline,\n  autoFixLabelsWidth = true,\n  className,\n  headlineClassName,\n  childrenContainerClassName,\n  ...baseProps\n}: ElementsContainerProps) => {\n  return (\n    <div className={className}>\n      {headline && <h3 className={headlineClassName}>{headline}</h3>}\n      <div className={childrenContainerClassName}>\n        {children}\n      </div>\n    </div>\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Not using the interface",
+          "code": "// Problem: no type safety\nconst BadContainer = (props: any) => {\n  return (\n    <div>\n      {props.children}\n      {props.randomProp}  // No type error, but not a valid prop\n    </div>\n  );\n};\n// Result: TypeScript doesn't catch typos or invalid props",
+          "why_incorrect": "Always use proper TypeScript interfaces for props to catch errors at compile time. Using 'any' defeats the purpose of TypeScript."
+        }
+      }
+    },
+    {
+      "symbol_id": "defaultFormElementContainerClassName",
       "name": "defaultFormElementContainerClassName",
-      "signature": "const defaultFormElementContainerClassName: string",
-      "description": "Default Tailwind CSS classes applied to all form element containers: 'flex justify-start items-center gap-3 w-full'.",
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "defaultFormElementContainerClassName"
+      "kind": "constant",
+      "description_one_line": "Default Tailwind CSS classes for form element containers: flex layout with gap.",
+      "signature": {
+        "returns": {
+          "type": "string",
+          "description": "CSS class string value."
+        }
       },
       "details": {
-        "what_it_does": "Exported symbol: defaultFormElementContainerClassName"
+        "what_it_does": "Exported string constant containing the default Tailwind classes used for all form element containers throughout the module. Value is 'flex justify-start items-center gap-3 w-full', providing a flex row layout with start alignment, centered items vertically, 12px gaps, and full width.",
+        "type_definition": "const defaultFormElementContainerClassName = 'flex justify-start items-center gap-3 w-full';"
       },
-      "symbol_id": "constant_default_form_element_container_class_name",
-      "description_one_line": "Default Tailwind CSS classes applied to all form element containers: 'flex justify-start items-center gap-3 w-full'."
+      "locations": {
+        "source_line_start": 23,
+        "source_line_end": 23,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L23",
+        "nx_kb_anchor": "#defaultFormElementContainerClassName"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using default container classes in custom component",
+          "code": "import { defaultFormElementContainerClassName } from '@/components/forms/ModularForm/formElements';\n\nconst CustomField = () => (\n  <div className={defaultFormElementContainerClassName}>\n    <label>Custom Input</label>\n    <input type=\"text\" className=\"flex-1\" />\n  </div>\n);"
+        },
+        "extensive_correct": {
+          "title": "Combining default classes with custom overrides",
+          "code": "import { cn } from '@/lib/utils';\nimport { defaultFormElementContainerClassName } from '@/components/forms/ModularForm/formElements';\n\nconst EnhancedField = () => (\n  <div className={cn(\n    defaultFormElementContainerClassName,\n    'bg-gray-50 rounded-lg p-3'  // Additional custom classes\n  )}>\n    <label className=\"font-semibold\">Enhanced Input</label>\n    <input type=\"text\" className=\"flex-1 border rounded px-2 py-1\" />\n  </div>\n);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Hardcoding class string instead of using constant",
+          "code": "// Problem: duplicates magic string everywhere\nconst Field1 = () => <div className=\"flex justify-start items-center gap-3 w-full\">...</div>;\nconst Field2 = () => <div className=\"flex justify-start items-center gap-3 w-full\">...</div>;\n// Result: Can't easily update default styling across all uses",
+          "why_incorrect": "Always use the exported constant instead of hardcoding the string. If the default styling ever changes, you only update one place instead of every component that uses it."
+        }
+      }
     },
     {
-      "kind": "constant",
+      "symbol_id": "defaultFormElementBorderClassName",
       "name": "defaultFormElementBorderClassName",
-      "signature": "const defaultFormElementBorderClassName: string",
-      "description": "Default Tailwind CSS classes for form element borders: 'border-[1px] border-gray-300 hover:border-black rounded-sm'.",
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/formElements.tsx#L1",
-        "nx_kb_anchor": "defaultFormElementBorderClassName"
+      "kind": "constant",
+      "description_one_line": "Default Tailwind CSS classes for form element borders: gray border with hover effect.",
+      "signature": {
+        "returns": {
+          "type": "string",
+          "description": "CSS class string value."
+        }
       },
       "details": {
-        "what_it_does": "Exported symbol: defaultFormElementBorderClassName"
+        "what_it_does": "Exported string constant containing the default Tailwind classes used for borders on form input elements throughout the module. Value is 'border-[1px] border-gray-300 hover:border-black rounded-sm', providing a 1px border in light gray that darkens to black on hover with slight rounding.",
+        "type_definition": "const defaultFormElementBorderClassName = 'border-[1px] border-gray-300 hover:border-black rounded-sm';"
       },
-      "symbol_id": "constant_default_form_element_border_class_name",
-      "description_one_line": "Default Tailwind CSS classes for form element borders: 'border-[1px] border-gray-300 hover:border-black rounded-sm'."
+      "locations": {
+        "source_line_start": 24,
+        "source_line_end": 24,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L24",
+        "nx_kb_anchor": "#defaultFormElementBorderClassName"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using default border classes on custom input",
+          "code": "import { defaultFormElementBorderClassName } from '@/components/forms/ModularForm/formElements';\n\nconst StyledInput = () => (\n  <input\n    type=\"text\"\n    className={`px-3 py-2 h-9 ${defaultFormElementBorderClassName}`}\n    placeholder=\"Type here...\"\n  />\n);"
+        },
+        "extensive_correct": {
+          "title": "Overriding border styling conditionally",
+          "code": "import { cn } from '@/lib/utils';\nimport { defaultFormElementBorderClassName } from '@/components/forms/ModularForm/formElements';\n\nconst ConditionalInput = ({ isError }: { isError: boolean }) => (\n  <input\n    type=\"text\"\n    className={cn(\n      'px-3 py-2 h-9',\n      isError\n        ? 'border-[1px] border-red-500 hover:border-red-700'  // Error styling\n        : defaultFormElementBorderClassName  // Normal styling\n    )}\n    placeholder=\"Type here...\"\n  />\n);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Creating custom border string instead of using constant",
+          "code": "// Problem: reinventing the wheel, inconsistent with rest of codebase\nconst CustomField = () => (\n  <input\n    type=\"text\"\n    className=\"border-2 border-blue-300 hover:border-blue-600 rounded-lg\"\n  />\n);\n// Result: Inconsistent with other form fields, hard to maintain",
+          "why_incorrect": "Always use the exported constant for consistency with the rest of the form system. Custom border styling breaks visual coherence across the form."
+        }
+      }
+    },
+    {
+      "symbol_id": "InternationalPhonePicker",
+      "name": "InternationalPhonePicker",
+      "kind": "value",
+      "description_one_line": "Re-export of InternationalPhonePicker component from dedicated file.",
+      "signature": {},
+      "details": {
+        "what_it_does": "Re-exported value from the InternationalPhonePicker.tsx file for convenience. Provides access to the international phone input component through this module's exports."
+      },
+      "locations": {
+        "source_line_start": 22,
+        "source_line_end": 22,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx#L22",
+        "nx_kb_anchor": "#InternationalPhonePicker"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Importing re-exported InternationalPhonePicker",
+          "code": "import { InternationalPhonePicker } from '@/components/forms/ModularForm/formElements';\n\nconst PhoneForm = () => (\n  <InternationalPhonePicker\n    name=\"phone\"\n    labelContent=\"Phone Number\"\n    placeholder=\"+1 (555) 000-0000\"\n  />\n);"
+        },
+        "extensive_correct": {
+          "title": "Using InternationalPhonePicker in form context",
+          "code": "import { InternationalPhonePicker } from '@/components/forms/ModularForm/formElements';\nimport ModularForm from '@/components/forms/ModularForm';\nimport { FormElement } from '@/types';\n\nconst InternationalContactForm = () => {\n  const elements: FormElement[] = [\n    {\n      type: 'input',\n      name: 'name',\n      labelContent: 'Full Name',\n      required: true\n    },\n    {\n      type: 'internationalPhoneInput',\n      name: 'phone',\n      labelContent: 'Phone Number',\n      defaultCountry: 'US',\n      required: true\n    }\n  ];\n\n  return (\n    <ModularForm\n      elements={elements}\n      submitFunction={async (e) => {\n        // Submit to server\n      }}\n      buttonContent=\"Submit\"\n    />\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Importing from wrong location",
+          "code": "// Problem: direct import when re-export is available\nimport InternationalPhonePicker from '@/components/forms/ModularForm/InternationalPhonePicker';\n// vs better approach:\nimport { InternationalPhonePicker } from '@/components/forms/ModularForm/formElements';\n// Result: Less discoverable, inconsistent import patterns",
+          "why_incorrect": "The component is re-exported from formElements for consistency and easier discovery. Import from formElements instead of the dedicated file to maintain consistent import patterns throughout the app."
+        }
+      }
     }
   ],
   "quality": {

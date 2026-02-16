@@ -5,7 +5,7 @@
   },
   "file_name": "global.ts",
   "source": {
-    "file_path": "src/hooks/global.ts",
+    "file_path": "hooks/global.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
     "generated_at_iso": "2026-02-15T11:42:40+02:00",
     "language": "ts",
@@ -29,8 +29,8 @@
     ],
     "internal": [
       {
-        "import_path": "src/helpers",
-        "resolved_file_path": "src/helpers/index.ts",
+        "import_path": "helpers",
+        "resolved_file_path": "helpers/index.ts",
         "why_used": "getUserCountryByIp.",
         "link_to_nx_kb": "repos/akeyless-client-commons/docs/helpers/index.json",
         "link_to_github": "https://github.com/akeyless-client-commons/blob/master/src/helpers/index.ts"
@@ -65,6 +65,47 @@
       },
       "details": {
         "what_it_does": "Sets country state."
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "TODO: Document return type"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useSetUserCountry",
+          "code": "// TODO: Add example code"
+        }
+      }
+    },
+    {
+      "symbol_id": "useDocumentTitle",
+      "name": "useDocumentTitle",
+      "kind": "function",
+      "description_one_line": "Sets document.title.",
+      "details": {
+        "what_it_does": "Sets document.title."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#useDocumentTitle"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of useDocumentTitle",
+          "code": "// TODO: Add example code"
+        }
       }
     }
   ],

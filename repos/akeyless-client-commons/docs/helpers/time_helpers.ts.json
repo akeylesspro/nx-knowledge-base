@@ -1,0 +1,243 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "time_helpers.ts",
+  "source": {
+    "file_path": "helpers/time_helpers.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": [
+      "firebase",
+      "moment.js"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/time_helpers.ts.json"
+  },
+  "summary": {
+    "purpose": "Timestamp conversion and formatting utilities supporting Firebase Firestore timestamps, JavaScript Date objects, Unix timestamps, and string dates. Provides format conversion, timezone support, and sorting utilities using moment.js/moment-timezone.",
+    "problem_solved": "Handles multiple timestamp formats consistently across Firebase SDK versions and browser environments. Supports timezone conversion, custom formatting, and fallback values for invalid inputs."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "module": "firebase/firestore",
+        "kind": "runtime",
+        "why_used": "Provides Timestamp class for Firebase Firestore timestamp handling.",
+        "name": "firebase"
+      },
+      {
+        "module": "moment-timezone",
+        "kind": "runtime",
+        "why_used": "Provides timezone-aware moment utilities for date formatting and conversion.",
+        "name": "moment-timezone"
+      },
+      {
+        "module": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides firebase_timestamp type definition.",
+        "name": "akeyless-types-commons"
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "timestamp_to_string",
+      "kind": "function",
+      "line": 11,
+      "description_one_line": "Converts Firebase/JavaScript timestamps to formatted string with timezone and locale support.",
+      "symbol_id": "function_timestamp_to_string"
+    },
+    {
+      "name": "timestamp_to_millis",
+      "kind": "function",
+      "line": 70,
+      "description_one_line": "Converts Firebase/JavaScript timestamps to milliseconds since Unix epoch.",
+      "symbol_id": "function_timestamp_to_millis"
+    },
+    {
+      "name": "sort_by_timestamp",
+      "kind": "function",
+      "line": 115,
+      "description_one_line": "Comparison function for sorting arrays of timestamps in ascending or descending order.",
+      "symbol_id": "function_sort_by_timestamp"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "function_timestamp_to_string",
+      "kind": "function",
+      "name": "timestamp_to_string",
+      "signature": "(firebaseTimestamp: Timestamp | Date | string | firebase_timestamp, options?: TimeToStringOptions) => string",
+      "description": "Converts multiple timestamp formats (Firebase Timestamp, JavaScript Date, Unix timestamp objects, string dates) to formatted string. Supports custom format strings, timezone conversion, and fallback values. Returns defaultReturnedValue ('-' by default) for invalid inputs.",
+      "description_one_line": "Converts Firebase/JavaScript timestamps to formatted string with timezone and locale support.",
+      "line": 11,
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 66,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts#L11-L66",
+        "nx_kb_anchor": "timestamp_to_string"
+      },
+      "details": {
+        "what_it_does": "Uses switch statement to detect timestamp type: Firestore Timestamp (toDate conversion), JavaScript Date (direct use), string (parse with moment), or firebase_timestamp object (_seconds/_nanoseconds conversion). Applies timezone with moment.tz if provided, otherwise uses UTC. Formats with provided format string (default 'DD/MM/YYYY HH:mm:ss'). Returns defaultReturnedValue on any error if debug not enabled."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "firebaseTimestamp",
+            "type": "Timestamp | Date | string | firebase_timestamp",
+            "required": true,
+            "description": "Timestamp in any supported format (Firebase, JavaScript, Unix object, or string)."
+          },
+          {
+            "name": "options",
+            "type": "TimeToStringOptions",
+            "required": false,
+            "description": "Formatting and parsing options."
+          }
+        ],
+        "returns": {
+          "type": "string",
+          "description": "Formatted timestamp string, or defaultReturnedValue if invalid."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic timestamp formatting",
+          "code": "import { timestamp_to_string } from '@/helpers';\nconst firebaseTimestamp = Timestamp.now();\nconst formatted = timestamp_to_string(firebaseTimestamp);\nconsole.log(formatted); // '16/02/2026 14:30:45'"
+        },
+        "extensive_correct": {
+          "title": "Multiple timestamp formats with timezone",
+          "code": "const firebaseTs = Timestamp.fromDate(new Date());\nconst jsDate = new Date();\nconst unixObj = { _seconds: 1707997845, _nanoseconds: 500000000 };\nconst stringDate = '16/02/2026 14:30:45';\n\n// Format all with timezone\nconst options = {\n  format: 'YYYY-MM-DD HH:mm:ss',\n  tz: 'America/New_York',\n  debug: true\n};\n\nconsole.log(timestamp_to_string(firebaseTs, options)); // NY timezone\nconsole.log(timestamp_to_string(jsDate, options));     // NY timezone\nconsole.log(timestamp_to_string(unixObj, options));    // NY timezone\nconsole.log(timestamp_to_string(stringDate, { ...options, fromFormat: 'DD/MM/YYYY HH:mm:ss' }));"
+        },
+        "incorrect": {
+          "title": "Incorrect: Invalid format string",
+          "code": "// WRONG - invalid moment format\nconst result = timestamp_to_string(Date.now(), {\n  format: 'INVALID_FORMAT'\n});\nconsole.log(result); // Returns '-' (defaultReturnedValue)\n\n// CORRECT - use valid moment format\nconst result = timestamp_to_string(Date.now(), {\n  format: 'DD/MM/YYYY HH:mm:ss'\n});"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_timestamp_to_millis",
+      "kind": "function",
+      "name": "timestamp_to_millis",
+      "signature": "(firebaseTimestamp: Timestamp | Date | string | firebase_timestamp, options?: TimeToMillisOptions) => number",
+      "description": "Converts multiple timestamp formats to milliseconds since Unix epoch (Jan 1, 1970). Handles Firebase Timestamp (toMillis method), JavaScript Date (getTime), string dates (moment parsing), and firebase_timestamp objects. Returns defaultReturnedValue (0 by default) for invalid inputs.",
+      "description_one_line": "Converts Firebase/JavaScript timestamps to milliseconds since Unix epoch.",
+      "line": 70,
+      "locations": {
+        "source_line_start": 70,
+        "source_line_end": 114,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts#L70-L114",
+        "nx_kb_anchor": "timestamp_to_millis"
+      },
+      "details": {
+        "what_it_does": "Similar type detection as timestamp_to_string. For Timestamp, uses native toMillis(). For Date, uses getTime() with NaN validation. For strings, parses with moment and calls valueOf(). For firebase_timestamp objects, multiplies seconds by 1000 and adds nanoseconds/1000000. Applies timezone if provided (moment.tz). Returns defaultReturnedValue on error."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "firebaseTimestamp",
+            "type": "Timestamp | Date | string | firebase_timestamp",
+            "required": true,
+            "description": "Timestamp in any supported format."
+          },
+          {
+            "name": "options",
+            "type": "TimeToMillisOptions",
+            "required": false,
+            "description": "Parsing and conversion options (format string not used)."
+          }
+        ],
+        "returns": {
+          "type": "number",
+          "description": "Milliseconds since Unix epoch, or defaultReturnedValue if invalid."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Convert to milliseconds",
+          "code": "import { timestamp_to_millis } from '@/helpers';\nconst jsDate = new Date('2026-02-16T14:30:45Z');\nconst millis = timestamp_to_millis(jsDate);\nconsole.log(millis); // 1707997845000"
+        },
+        "extensive_correct": {
+          "title": "Compare timestamps in milliseconds",
+          "code": "function findMostRecentEvent(events) {\n  return events.reduce((latest, event) => {\n    const latestMs = timestamp_to_millis(latest.timestamp);\n    const eventMs = timestamp_to_millis(event.timestamp);\n    return eventMs > latestMs ? event : latest;\n  });\n}\n\n// Works with any timestamp format in events"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using seconds instead of milliseconds",
+          "code": "// WRONG - confusing seconds and milliseconds\nconst millis = timestamp_to_millis(timestamp);\nconst seconds = millis / 1000; // Must divide\n\n// CORRECT - use directly as milliseconds\nconst millis = timestamp_to_millis(timestamp);\nsetTimeout(() => {}, millis); // Correct for setTimeout"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_sort_by_timestamp",
+      "kind": "function",
+      "name": "sort_by_timestamp",
+      "signature": "(a: Timestamp, b: Timestamp, reverse: boolean = false) => number",
+      "description": "Comparison function for sorting arrays of Firebase Timestamps. Returns negative if a < b (ascending order), positive if a > b, zero if equal. When reverse=true, sorts in descending order. Suitable for Array.sort(compare) or as Firestore order criteria.",
+      "description_one_line": "Comparison function for sorting arrays of timestamps in ascending or descending order.",
+      "line": 115,
+      "locations": {
+        "source_line_start": 115,
+        "source_line_end": 117,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts#L115-L117",
+        "nx_kb_anchor": "sort_by_timestamp"
+      },
+      "details": {
+        "what_it_does": "Converts both timestamps to milliseconds and computes difference. If reverse=false, returns a-b (ascending). If reverse=true, returns b-a (descending). Uses timestamp_to_millis internally."
+      },
+      "signature": {
+        "params": [
+          {
+            "name": "a",
+            "type": "Timestamp",
+            "required": true,
+            "description": "First timestamp to compare."
+          },
+          {
+            "name": "b",
+            "type": "Timestamp",
+            "required": true,
+            "description": "Second timestamp to compare."
+          },
+          {
+            "name": "reverse",
+            "type": "boolean",
+            "required": false,
+            "default": "false",
+            "description": "If true, sorts descending (newest first). Default false sorts ascending (oldest first)."
+          }
+        ],
+        "returns": {
+          "type": "number",
+          "description": "Negative if a<b, positive if a>b, zero if equal. Negative/positive values reversed if reverse=true."
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Sort timestamps ascending",
+          "code": "const timestamps = [\n  Timestamp.fromDate(new Date('2026-02-16')),\n  Timestamp.fromDate(new Date('2026-02-01')),\n  Timestamp.fromDate(new Date('2026-02-10'))\n];\n\ntimestamps.sort((a, b) => sort_by_timestamp(a, b));\n// Sorted oldest first"
+        },
+        "extensive_correct": {
+          "title": "Sort documents by creation date",
+          "code": "interface Document {\n  id: string;\n  createdAt: Timestamp;\n  content: string;\n}\n\nfunction sortDocuments(documents: Document[], newest = true) {\n  return documents.sort((a, b) => \n    sort_by_timestamp(a.createdAt, b.createdAt, newest)\n  );\n}\n\n// Use with API response\nconst sorted = sortDocuments(apiDocs, true); // Newest first"
+        },
+        "incorrect": {
+          "title": "Incorrect: Wrong callback signature",
+          "code": "// WRONG - sort_by_timestamp expects (a, b, reverse), not () => number\nconst timestamps = [ts1, ts2, ts3];\ntimestamps.sort(() => sort_by_timestamp); // Wrong!\n\n// CORRECT - pass proper callback\ntimestamps.sort((a, b) => sort_by_timestamp(a, b));"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": [
+      "Moment.js is heavier than alternatives (day.js, date-fns). Consider migration for bundle size optimization.",
+      "Nanosecond precision may be lost in JavaScript Number (IEEE 754 double precision).",
+      "No support for ISO 8601 duration parsing (e.g., 'P1DT2H3M')."
+    ],
+    "documentation_completeness": "Comprehensive: All 3 exported functions fully documented with complete signatures, behavior explanations, parameter documentation with types, return types, and 3-tier examples (minimal, extensive, incorrect patterns). Timestamp format detection explained. Timezone conversion patterns demonstrated. Sorting patterns with real-world document examples included."
+  }
+}
