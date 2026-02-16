@@ -98,7 +98,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of LoginWithGoogleButton",
-          "code": "// TODO: Add example code"
+          "code": "<LoginWithGoogle />"
         }
       }
     }

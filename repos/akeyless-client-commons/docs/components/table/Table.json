@@ -96,7 +96,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of Table",
-          "code": "// TODO: Add example code"
+          "code": "<Table {...props} />"
         }
       }
     },
@@ -107,7 +107,7 @@
       "description_one_line": "Context for table state.",
       "details": {
         "what_it_does": "Context for table state.",
-        "type_definition": "// TODO: Add type definition"
+        "type_definition": "type TableContext = React.Context<TableState>;"
       },
       "locations": {
         "source_line_start": 0,
@@ -118,7 +118,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Using TableContext type",
-          "code": "// TODO: Add type usage example"
+          "code": "const context = useContext(TableContext);"
         }
       }
     },
@@ -146,7 +146,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of TableProvider",
-          "code": "// TODO: Add example code"
+          "code": "<Table {...props} />"
         }
       }
     }

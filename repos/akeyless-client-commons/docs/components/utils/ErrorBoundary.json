@@ -71,7 +71,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of ErrorBoundary",
-          "code": "// TODO: Add example code"
+          "code": "<ErrorBoundary />"
         }
       }
     }

@@ -84,7 +84,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of Checkbox",
-          "code": "// TODO: Add example code"
+          "code": "<Checkboxes />"
         }
       }
     }

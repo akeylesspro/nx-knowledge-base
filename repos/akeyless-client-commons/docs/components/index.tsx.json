@@ -164,7 +164,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "code": "import { components } from '@/components';"
         }
       }
     },
@@ -192,7 +192,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "code": "import { components } from '@/components';"
         }
       }
     },
@@ -220,7 +220,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "code": "import { components } from '@/components';"
         }
       }
     },
@@ -248,7 +248,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "code": "import { components } from '@/components';"
         }
       }
     },
@@ -276,7 +276,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of CodeInput",
-          "code": "// TODO: Add example code"
+          "code": "import { components } from '@/components';"
         }
       }
     }

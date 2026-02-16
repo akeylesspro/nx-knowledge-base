@@ -95,7 +95,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of FilterableColumn",
-          "code": "// TODO: Add example code"
+          "code": "const column: FilterableColumn = {\n  header: 'Status',\n  dataKey: 'status',\n  ui: (val) => <span className={val}>{val}</span>\n};"
         }
       }
     },
@@ -118,8 +118,8 @@
       "description_one_line": "Interface describing the dynamic state and handler functions that the TableProvider injects into the TableContext. Includes sort state, search state, filter state, the computed dataToRender, display-all toggle, and all corresponding handler functions.",
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableProviderType",
-          "code": "// TODO: Add example code"
+          "title": "TableProviderType context value",
+          "code": "const context: TableProviderType = {\n  sortColumn: 0,\n  sortOrder: 'asc',\n  handleSort: (idx) => console.log(idx),\n  searchQuery: 'test',\n  filters: { status: ['active'] },\n  displayAllRows: false\n};"
         }
       }
     },
@@ -142,8 +142,8 @@
       "description_one_line": "Input props interface for the useFilter hook: the source data array and the list of filterable column definitions.",
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of UseFilterProps",
-          "code": "// TODO: Add example code"
+          "title": "UseFilterProps hook input",
+          "code": "const filterProps: UseFilterProps = {\n  data: users,\n  filterableColumns: [{header: 'Status', dataKey: 'status'}]\n};"
         }
       }
     },
@@ -270,8 +270,8 @@
       "description_one_line": "The main configuration interface for the Table component. Includes required data/headers/keysToRender, and extensive optional props for: styling (container, table, header, row, cell), search (input style, placeholder, autofocus, excluded keys), sorting (sortKeys, sortLabel), filtering (filterableColumns, filterLabel), Excel export (keys, filename, headline, extra data, summary), summary/totals (sumColumns, labels, styles), pagination (maxRows, display-all toggle), row interaction (onRowClick, selectedRow, zebraStriping, rowClassNameFunction), and layout direction (ltr/rtl).",
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableProps",
-          "code": "// TODO: Add example code"
+          "title": "Main table configuration",
+          "code": "<Table data={items} filterableColumns={columns} />"
         }
       }
     },
@@ -294,8 +294,8 @@
       "description_one_line": "Props interface for the Filter component: the column index in the headers array and the FilterableColumn definition.",
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of FilterProps",
-          "code": "// TODO: Add example code"
+          "title": "Filter component props",
+          "code": "const filterProps = { columnIndex: 0, filterableColumn: {header: 'Status', dataKey: 'status'} };"
         }
       }
     },
@@ -322,8 +322,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableProviderType",
-          "code": "// TODO: Add example code"
+          "title": "TableProviderType context value",
+          "code": "const context: TableProviderType = {\n  sortColumn: 0,\n  sortOrder: 'asc',\n  handleSort: (idx) => console.log(idx),\n  searchQuery: 'test',\n  filters: { status: ['active'] },\n  displayAllRows: false\n};"
         }
       }
     },
@@ -350,8 +350,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of UseFilterProps",
-          "code": "// TODO: Add example code"
+          "title": "UseFilterProps hook usage",
+          "code": "const result = useFilter({data: users, filterableColumns: cols});"
         }
       }
     },
@@ -378,8 +378,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableProps",
-          "code": "// TODO: Add example code"
+          "title": "Table props with data",
+          "code": "const props = {data: users, filterableColumns: [{header: 'ID', dataKey: 'id'}]};"
         }
       }
     },
@@ -406,8 +406,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of FilterProps",
-          "code": "// TODO: Add example code"
+          "title": "Filter component initialization",
+          "code": "const filterProps = {columnIndex: 0, filterableColumn: column};"
         }
       }
     }

@@ -104,7 +104,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of useDbSnapshots",
-          "code": "// TODO: Add example code"
+          "code": "const snap = useSnapshot();"
         }
       }
     },
@@ -151,7 +151,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of useDbDocumentSnapshots",
-          "code": "// TODO: Add example code"
+          "code": "const snap = useSnapshot();"
         }
       }
     },
@@ -198,7 +198,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of useSmartSnapshots",
-          "code": "// TODO: Add example code"
+          "code": "const snap = useSnapshot();"
         }
       }
     },
@@ -245,7 +245,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of useSocketSnapshots",
-          "code": "// TODO: Add example code"
+          "code": "const snap = useSnapshot();"
         }
       }
     }

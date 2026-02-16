@@ -86,7 +86,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of Loader",
-          "code": "// TODO: Add example code"
+          "code": "<Loader />"
         }
       }
     }

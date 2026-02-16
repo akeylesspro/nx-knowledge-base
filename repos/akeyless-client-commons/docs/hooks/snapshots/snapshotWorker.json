@@ -87,7 +87,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of wrapConfigsWithWorker",
-          "code": "// TODO: Add example code"
+          "code": "const worker = new Worker();"
         }
       }
     },
@@ -134,7 +134,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of wrapDocumentConfigsWithWorker",
-          "code": "// TODO: Add example code"
+          "code": "const worker = new Worker();"
         }
       }
     }

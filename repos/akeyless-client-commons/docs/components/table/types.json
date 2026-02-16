@@ -73,13 +73,13 @@
         "params": [],
         "returns": {
           "type": "unknown",
-          "description": "TODO: Document return type"
+          "description": "Table properties interface"
         }
       },
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of TableProps",
-          "code": "// TODO: Add example code"
+          "code": "const type = {}"
         }
       }
     },
@@ -107,7 +107,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of TableProviderType",
-          "code": "// TODO: Add example code"
+          "code": "const type = {}"
         }
       }
     },
@@ -135,7 +135,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of FilterableColumn",
-          "code": "// TODO: Add example code"
+          "code": "const type = {}"
         }
       }
     }

@@ -110,8 +110,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableSCN",
-          "code": "// TODO: Add example code"
+          "title": "Basic table structure",
+          "code": "<TableSCN>\n  <TableHeaderSCN>\n    <TableRowSCN>\n      <TableHeadSCN>Name</TableHeadSCN>\n      <TableHeadSCN>Email</TableHeadSCN>\n    </TableRowSCN>\n  </TableHeaderSCN>\n  <TableBodySCN>\n    <TableRowSCN>\n      <TableCellSCN>John</TableCellSCN>\n      <TableCellSCN>john@example.com</TableCellSCN>\n    </TableRowSCN>\n  </TableBodySCN>\n</TableSCN>"
         }
       }
     },
@@ -138,8 +138,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableHeaderSCN",
-          "code": "// TODO: Add example code"
+          "title": "Table header with columns",
+          "code": "<TableHeaderSCN>\n  <TableRowSCN>\n    <TableHeadSCN>ID</TableHeadSCN>\n    <TableHeadSCN>Name</TableHeadSCN>\n    <TableHeadSCN>Status</TableHeadSCN>\n  </TableRowSCN>\n</TableHeaderSCN>"
         }
       }
     },
@@ -166,8 +166,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableBodySCN",
-          "code": "// TODO: Add example code"
+          "title": "Table body with rows",
+          "code": "<TableBodySCN>\n  <TableRowSCN>\n    <TableCellSCN>1</TableCellSCN>\n    <TableCellSCN>John Doe</TableCellSCN>\n    <TableCellSCN>Active</TableCellSCN>\n  </TableRowSCN>\n</TableBodySCN>"
         }
       }
     },
@@ -194,8 +194,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableFooterSCN",
-          "code": "// TODO: Add example code"
+          "title": "Table footer with totals",
+          "code": "<TableFooterSCN>\n  <TableRowSCN>\n    <TableHeadSCN>Total</TableHeadSCN>\n    <TableHeadSCN>50 records</TableHeadSCN>\n  </TableRowSCN>\n</TableFooterSCN>"
         }
       }
     },
@@ -222,8 +222,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableRowSCN",
-          "code": "// TODO: Add example code"
+          "title": "Single table row",
+          "code": "<TableRowSCN>\n  <TableCellSCN>Data 1</TableCellSCN>\n  <TableCellSCN>Data 2</TableCellSCN>\n</TableRowSCN>"
         }
       }
     },
@@ -250,8 +250,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableHeadSCN",
-          "code": "// TODO: Add example code"
+          "title": "Table header cell",
+          "code": "<TableHeadSCN>Column Name</TableHeadSCN>"
         }
       }
     },
@@ -278,8 +278,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableCellSCN",
-          "code": "// TODO: Add example code"
+          "title": "Table cell",
+          "code": "<TableCellSCN>Cell Content</TableCellSCN>"
         }
       }
     },
@@ -306,8 +306,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TableCaptionSCN",
-          "code": "// TODO: Add example code"
+          "title": "Table caption",
+          "code": "<TableCaptionSCN>User Data</TableCaptionSCN>"
         }
       }
     }

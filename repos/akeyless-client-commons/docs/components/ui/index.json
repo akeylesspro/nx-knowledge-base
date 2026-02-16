@@ -134,8 +134,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "title": "Importing UI components",
+          "code": "import { Badge, Button, Input, Progress, MultiSelect, SearchSelect } from '@/components/ui';"
         }
       }
     },
@@ -162,8 +162,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "title": "Importing UI components",
+          "code": "import { Badge, Button, Input, Progress, MultiSelect, SearchSelect } from '@/components/ui';"
         }
       }
     },
@@ -190,8 +190,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "title": "Importing UI components",
+          "code": "import { Badge, Button, Input, Progress, MultiSelect, SearchSelect } from '@/components/ui';"
         }
       }
     },
@@ -218,8 +218,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "title": "Importing UI components",
+          "code": "import { Badge, Button, Input, Progress, MultiSelect, SearchSelect } from '@/components/ui';"
         }
       }
     },
@@ -246,8 +246,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "title": "Importing UI components",
+          "code": "import { Badge, Button, Input, Progress, MultiSelect, SearchSelect } from '@/components/ui';"
         }
       }
     },
@@ -274,8 +274,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "title": "Importing UI components",
+          "code": "import { Badge, Button, Input, Progress, MultiSelect, SearchSelect } from '@/components/ui';"
         }
       }
     }

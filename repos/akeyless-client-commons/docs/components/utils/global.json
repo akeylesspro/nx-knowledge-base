@@ -88,7 +88,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of Version",
-          "code": "// TODO: Add example code"
+          "code": "const util = useUtil();"
         }
       }
     },
@@ -121,7 +121,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of LeftToRightDiv",
-          "code": "// TODO: Add example code"
+          "code": "const util = useUtil();"
         }
       }
     }

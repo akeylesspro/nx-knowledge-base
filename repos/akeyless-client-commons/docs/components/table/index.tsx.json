@@ -93,7 +93,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "code": "import * as Table from '@/components/table';"
         }
       }
     },
@@ -121,7 +121,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "code": "import * as Table from '@/components/table';"
         }
       }
     },
@@ -149,7 +149,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "code": "import * as Table from '@/components/table';"
         }
       }
     }

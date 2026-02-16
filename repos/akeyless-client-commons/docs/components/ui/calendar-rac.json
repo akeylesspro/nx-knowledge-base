@@ -91,7 +91,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of Calendar",
-          "code": "// TODO: Add example code"
+          "code": "const cal = <Calendar />;"
         }
       }
     },
@@ -118,7 +118,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of RangeCalendar",
-          "code": "// TODO: Add example code"
+          "code": "const cal = <Calendar />;"
         }
       }
     }

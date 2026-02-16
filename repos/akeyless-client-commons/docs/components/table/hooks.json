@@ -101,7 +101,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of useFilter",
-          "code": "// TODO: Add example code"
+          "code": "const hook = useTableHook();"
         }
       }
     },
@@ -129,7 +129,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of useTableContext",
-          "code": "// TODO: Add example code"
+          "code": "const hook = useTableHook();"
         }
       }
     },
@@ -157,7 +157,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of useSort",
-          "code": "// TODO: Add example code"
+          "code": "const hook = useTableHook();"
         }
       }
     },
@@ -185,7 +185,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of useDisplayToggle",
-          "code": "// TODO: Add example code"
+          "code": "const hook = useTableHook();"
         }
       }
     },
@@ -213,7 +213,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of useSearch",
-          "code": "// TODO: Add example code"
+          "code": "const hook = useTableHook();"
         }
       }
     }

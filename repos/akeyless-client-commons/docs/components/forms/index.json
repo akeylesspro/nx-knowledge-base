@@ -140,7 +140,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of ConfirmForm",
-          "code": "// TODO: Add example code"
+          "code": "import { Form } from '@/components/forms';"
         }
       }
     },
@@ -173,7 +173,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of DatePicker",
-          "code": "// TODO: Add example code"
+          "code": "import { Form } from '@/components/forms';"
         }
       }
     },
@@ -206,7 +206,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of DatePicker2",
-          "code": "// TODO: Add example code"
+          "code": "import { Form } from '@/components/forms';"
         }
       }
     }

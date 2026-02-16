@@ -83,7 +83,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of ModularForm",
-          "code": "// TODO: Add example code"
+          "code": "import { ModularForm } from '@/components/forms/ModularForm';"
         }
       }
     },
@@ -111,7 +111,7 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of *",
-          "code": "// TODO: Add example code"
+          "code": "import { ModularForm } from '@/components/forms/ModularForm';"
         }
       }
     }
