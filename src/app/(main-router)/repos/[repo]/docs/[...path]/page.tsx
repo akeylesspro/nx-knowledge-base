@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import { getFileDoc, getOverride, mergeWithOverride, getRepoWithFiles, buildFileTree } from "@/lib/docs";
+import { getFileDoc, getOverride, mergeWithOverride, getRepoWithFiles, buildFileTree, getTreeNodeAtPath } from "@/lib/docs";
 import { DocViewer, DocBreadcrumb } from "@/components/docs";
 import { TranslatedText } from "@/components/i18n";
-import type { FileTreeNode } from "@/lib/docs/types";
+import type { FileTreeNode } from "@/lib/docs";
 import FolderViewer from "@/components/docs/FolderViewer";
 
 type FileDocPageProps = {
@@ -18,7 +17,7 @@ export default async function FileDocPage({ params }: FileDocPageProps) {
     if (!repoData) return notFound();
 
     const tree = buildFileTree(repoData.docFiles);
-    const treeNode = findNodeByPath(tree, filePath);
+    const treeNode = getTreeNodeAtPath(tree, filePath);
 
     if (treeNode?.type === "folder") {
         return <FolderViewer repo={repo} filePath={filePath} treeNode={treeNode} />;
@@ -38,22 +37,3 @@ export default async function FileDocPage({ params }: FileDocPageProps) {
         </div>
     );
 }
-
-const findNodeByPath = (nodes: FileTreeNode[], targetPath: string): FileTreeNode | null => {
-    for (const node of nodes) {
-        if (node.path === targetPath) {
-            return node;
-        }
-
-        if (!node.children) {
-            continue;
-        }
-
-        const nestedNode = findNodeByPath(node.children, targetPath);
-        if (nestedNode) {
-            return nestedNode;
-        }
-    }
-
-    return null;
-};

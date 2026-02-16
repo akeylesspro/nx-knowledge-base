@@ -134,6 +134,31 @@ export const buildFileTree = (filePaths: string[]): FileTreeNode[] => {
     return sortTree(root);
 };
 
+/** Find a tree node by path. Returns root folder (with children) for empty path. */
+export const getTreeNodeAtPath = (root: FileTreeNode[], targetPath: string): FileTreeNode | null => {
+    if (!targetPath) {
+        return {
+            name: "/",
+            path: "",
+            type: "folder",
+            children: root,
+        };
+    }
+
+    const findNode = (nodes: FileTreeNode[]): FileTreeNode | null => {
+        for (const node of nodes) {
+            if (node.path === targetPath) return node;
+            if (node.children) {
+                const found = findNode(node.children);
+                if (found) return found;
+            }
+        }
+        return null;
+    };
+
+    return findNode(root);
+};
+
 /** Sort tree: folders first, then alphabetically */
 const sortTree = (nodes: FileTreeNode[]): FileTreeNode[] => {
     return nodes

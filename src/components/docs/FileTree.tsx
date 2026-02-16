@@ -37,8 +37,7 @@ type FileTreeItemProps = {
 const FileTreeItem = ({ node, repoName, depth }: FileTreeItemProps) => {
     const pathname = usePathname();
     const currentDocPath = getCurrentDocPathFromPathname(pathname, repoName);
-    const isFolderOnCurrentPath =
-        currentDocPath === node.path || currentDocPath.startsWith(node.path + "/");
+    const isFolderOnCurrentPath = currentDocPath === node.path || currentDocPath.startsWith(node.path + "/");
     const [isOpen, setIsOpen] = useState(isFolderOnCurrentPath);
 
     useEffect(() => {
@@ -53,12 +52,19 @@ const FileTreeItem = ({ node, repoName, depth }: FileTreeItemProps) => {
             <div>
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="flex items-center gap-2 w-full text-left py-1.5 px-2 rounded-md hover:bg-muted/50 transition-colors text-sm cursor-pointer"
+                    className="ms-2 flex items-center gap-2 w-full text-left py-1.5 px-2 rounded-md hover:bg-muted/50 transition-colors text-sm cursor-pointer"
                     style={{ paddingLeft: `${depth * 12 + 8}px` }}
                 >
-                    <i className={cn("fa-solid text-xs", isOpen ? "fa-folder-open text-primary/70" : "fa-folder text-muted-foreground")} />
+                    <Link href={docPath} className="" onClick={(e) => e.stopPropagation()}>
+                        <i className={cn("fa-solid text-xs hover:scale-110 hover:text-ring transition-transform", isOpen ? "fa-folder-open text-primary/70" : "fa-folder text-muted-foreground")} />
+                    </Link>
                     <span className="truncate">{node.name}</span>
-                    <i className={cn("fa-solid text-[10px] text-muted-foreground transition-transform", isOpen ? "fa-chevron-down" : "fa-chevron-right")} />
+                    <i
+                        className={cn(
+                            "fa-solid text-[10px] text-muted-foreground transition-transform",
+                            isOpen ? "fa-chevron-down" : "fa-chevron-right"
+                        )}
+                    />
                 </button>
                 {isOpen && node.children && <FileTree nodes={node.children} repoName={repoName} depth={depth + 1} />}
             </div>
@@ -71,7 +77,10 @@ const FileTreeItem = ({ node, repoName, depth }: FileTreeItemProps) => {
     return (
         <Link
             href={docPath}
-            className={cn("flex items-center gap-2 py-1.5 px-2 rounded-md transition-colors text-sm", isActive ? "bg-primary/10 text-primary font-medium" : "hover:bg-muted/50 text-muted-foreground hover:text-foreground")}
+            className={cn(
+                "ms-2 flex items-center gap-2 py-1.5 px-2 rounded-md transition-colors text-sm",
+                isActive ? "bg-primary/10 text-primary font-medium" : "hover:bg-muted/50 text-muted-foreground hover:text-foreground"
+            )}
             style={{ paddingLeft: `${depth * 12 + 8}px` }}
         >
             <i className="fa-solid fa-file-code text-xs" />
