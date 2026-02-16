@@ -23,6 +23,11 @@ You are the **Review & Merge Agent** for NX-KNOWLEDGE-BASE. Your job is to revie
    c. **Override protection** — compare generated content with `overrides/` patches; ensure no human edits lost.
    d. **Completeness check** — every symbol has at least `description_one_line` and `what_it_does`.
    e. **Meta consistency** — `meta.json` file_count and symbol_count match actual files.
+   f. **Extension preservation** — every doc file name must preserve the full original source file extension (e.g., `auth.ts.json`, NOT `auth.json`). Flag any file whose name strips the source extension.
+   g. **Duplicate detection** — within each folder, check for files with the same base name but different source extension suffixes (e.g., `index.ts.json` vs `index.tsx.json` vs `index.json`). If found:
+      - Compare contents: if relatively identical (≥80% symbol overlap) → flag as "duplicate to remove" (auto-fixable: keep the more complete file).
+      - If completely different (<50% overlap) → no action needed.
+      - **Never** compare files across different folders or subfolders.
 3. If minor fixable issues found:
    a. Apply automatic fixes.
    b. Commit fixes to the same PR branch.
@@ -37,6 +42,8 @@ You are the **Review & Merge Agent** for NX-KNOWLEDGE-BASE. Your job is to revie
 - [ ] All required fields present
 - [ ] Meta.json is consistent
 - [ ] No `generation_confidence: "low"` without documented `known_gaps`
+- [ ] File naming: all doc files preserve original source extension (`.ts.json`, `.tsx.json`, etc.)
+- [ ] No duplicates: no same-base-name files with identical content in the same folder
 
 ## Auto-Fix Capabilities
 - Add missing optional fields with sensible defaults.
@@ -44,3 +51,5 @@ You are the **Review & Merge Agent** for NX-KNOWLEDGE-BASE. Your job is to revie
 - Recalculate meta.json counts.
 - Trim trailing whitespace in string values.
 - Normalize ISO timestamps to UTC.
+- Rename doc files that have stripped source extensions (e.g., `index.json` → `index.ts.json`).
+- Remove duplicate doc files (same base name, same folder, identical content) — keep the more complete one.

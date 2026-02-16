@@ -8,9 +8,19 @@
 
 ## File Naming
 - Documentation file: `<original-filename-with-extension>.json`
-  - Example: `auth.ts` → `auth.ts.json`
-  - Example: `UserCard.tsx` → `UserCard.tsx.json`
+  - The full original file name INCLUDING its extension MUST be preserved, with `.json` appended.
+  - Example: `auth.ts` → `auth.ts.json` ✅
+  - Example: `UserCard.tsx` → `UserCard.tsx.json` ✅
+  - Example: `index.ts` → `index.json` ❌ (extension stripped — WRONG)
 - Path structure mirrors source: `repos/<repo>/docs/<relative-path-from-src>/<file>.json`
+
+## Duplicate File Prevention
+- Before writing a doc file, check the **same target folder** for existing files with the same base name but a different source extension suffix (e.g., `index.ts.json` vs `index.tsx.json` vs `index.json`).
+- If duplicates are found:
+  - **Relatively identical content** (≥80% symbol overlap) → keep only the more complete file, delete the rest.
+  - **Completely different content** (<50% overlap) → keep all files.
+- **Never** compare files across different folders or subfolders — only within the exact same folder.
+- Report any deduplication actions in the PR summary.
 
 ## Schema Version
 - Current schema version: `1.0.0`
