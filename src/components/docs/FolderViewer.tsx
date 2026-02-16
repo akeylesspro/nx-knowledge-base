@@ -3,6 +3,7 @@ import { DocBreadcrumb } from "./DocBreadcrumb";
 import { TranslatedText } from "../i18n";
 import { FileTreeNode } from "@/lib/docs";
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 type FolderViewerProps = {
     repo: string;
@@ -15,7 +16,15 @@ export default function FolderViewer({ repo, filePath, treeNode }: FolderViewerP
             <div className="max-w-4xl mx-auto py-8 px-6">
                 <DocBreadcrumb repoName={repo} filePath={filePath} />
                 <div className="mt-6 mb-6">
-                    <h1 className="text-2xl font-bold mb-2">{treeNode.name}</h1>
+                    <div className="flex items-center gap-3">
+                        <h1 className="text-2xl font-bold mb-2">{treeNode.name}</h1>
+                        <Link href={`/api/v1/docs/${repo}/${filePath}`} target="_blank" rel="noopener noreferrer">
+                            <Button size="sm" className="h-7 gap-1.5">
+                                <i className="fa-solid fa-plug text-[10px]" />
+                                <TranslatedText tKey="docs.api_request" />
+                            </Button>
+                        </Link>
+                    </div>
                     <p className="text-sm text-muted-foreground">
                         <TranslatedText tKey="app.folder_contents" /> <code className="font-mono">{filePath}</code>
                     </p>
@@ -64,4 +73,3 @@ const FolderTreeRow = ({ node, repoName }: FolderTreeRowProps) => {
         </Link>
     );
 };
-
