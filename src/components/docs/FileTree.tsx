@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { FileTreeNode } from "@/lib/docs/types";
@@ -10,6 +10,12 @@ type FileTreeProps = {
     nodes: FileTreeNode[];
     repoName: string;
     depth?: number;
+};
+
+const getCurrentDocPathFromPathname = (pathname: string, repoName: string): string => {
+    const prefix = `/repos/${repoName}/docs/`;
+    if (!pathname.startsWith(prefix)) return "";
+    return pathname.slice(prefix.length) || "";
 };
 
 export const FileTree = ({ nodes, repoName, depth = 0 }: FileTreeProps) => {
@@ -29,8 +35,16 @@ type FileTreeItemProps = {
 };
 
 const FileTreeItem = ({ node, repoName, depth }: FileTreeItemProps) => {
-    const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const currentDocPath = getCurrentDocPathFromPathname(pathname, repoName);
+    const isFolderOnCurrentPath =
+        currentDocPath === node.path || currentDocPath.startsWith(node.path + "/");
+    const [isOpen, setIsOpen] = useState(isFolderOnCurrentPath);
+
+    useEffect(() => {
+        if (isFolderOnCurrentPath) setIsOpen(true);
+    }, [isFolderOnCurrentPath]);
+
     const docPath = `/repos/${repoName}/docs/${node.path}`;
     const isActive = pathname === docPath;
 
