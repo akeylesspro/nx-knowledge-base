@@ -1,0 +1,551 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "dialog.tsx",
+  "source": {
+    "file_path": "components/ui/dialog.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T13:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "react",
+      "radix-ui"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/dialog.json"
+  },
+  "summary": {
+    "purpose": "Provides a comprehensive set of accessible dialog (modal) components built on Radix UI's Dialog primitive, including overlay, content container, header, footer, title, and description components with consistent styling and animations.",
+    "problem_solved": "Simplifies building accessible, animated modal dialogs by providing pre-styled composable components (Dialog, DialogTrigger, DialogContent, DialogOverlay, DialogHeader, DialogFooter, DialogTitle, DialogDescription, DialogClose, DialogPortal) that handle focus management, keyboard interactions, and animations automatically through Radix UI."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Core React library for component creation, forwardRef, and JSX rendering"
+      },
+      {
+        "name": "@radix-ui/react-dialog",
+        "kind": "runtime",
+        "why_used": "Provides accessible Dialog primitive components (Root, Trigger, Portal, Overlay, Content, Close, Title, Description) with built-in focus management and keyboard handling"
+      },
+      {
+        "name": "lucide-react",
+        "kind": "runtime",
+        "why_used": "Provides the X (close) icon component for the dialog close button"
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "@/lib/utils",
+        "resolved_file_path": "lib/utils",
+        "why_used": "Provides the cn() utility function for conditionally merging CSS classes",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "Dialog",
+      "kind": "component",
+      "description_one_line": "Dialog root component wrapper around Radix UI DialogPrimitive.Root for managing dialog state",
+      "symbol_id": "Dialog"
+    },
+    {
+      "name": "DialogTrigger",
+      "kind": "component",
+      "description_one_line": "Dialog trigger component that opens the dialog when clicked",
+      "symbol_id": "DialogTrigger"
+    },
+    {
+      "name": "DialogPortal",
+      "kind": "component",
+      "description_one_line": "Dialog portal component that renders dialog content outside the normal DOM hierarchy",
+      "symbol_id": "DialogPortal"
+    },
+    {
+      "name": "DialogClose",
+      "kind": "component",
+      "description_one_line": "Dialog close component for triggering dialog closure",
+      "symbol_id": "DialogClose"
+    },
+    {
+      "name": "DialogOverlay",
+      "kind": "component",
+      "description_one_line": "Styled overlay component that covers the page behind the dialog with dark semi-transparent background",
+      "symbol_id": "DialogOverlay"
+    },
+    {
+      "name": "DialogContent",
+      "kind": "component",
+      "description_one_line": "Main dialog content container with centered positioning, animations, and built-in close button",
+      "symbol_id": "DialogContent"
+    },
+    {
+      "name": "DialogHeader",
+      "kind": "component",
+      "description_one_line": "Dialog header container for positioning title and description at the top of the dialog",
+      "symbol_id": "DialogHeader"
+    },
+    {
+      "name": "DialogFooter",
+      "kind": "component",
+      "description_one_line": "Dialog footer container for action buttons positioned at the bottom with responsive layout",
+      "symbol_id": "DialogFooter"
+    },
+    {
+      "name": "DialogTitle",
+      "kind": "component",
+      "description_one_line": "Styled dialog title component wrapping Radix UI DialogPrimitive.Title",
+      "symbol_id": "DialogTitle"
+    },
+    {
+      "name": "DialogDescription",
+      "kind": "component",
+      "description_one_line": "Styled dialog description component for secondary text below the title",
+      "symbol_id": "DialogDescription"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "Dialog",
+      "name": "Dialog",
+      "kind": "component",
+      "description_one_line": "Root dialog component managing open/closed state and containing all dialog sub-components",
+      "details": {
+        "what_it_does": "Alias for DialogPrimitive.Root. Manages the dialog's open/closed state and coordinates all child components (trigger, content, overlay, etc.). All other dialog components must be placed within this root component."
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 7,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L7",
+        "nx_kb_anchor": "#Dialog"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic dialog with trigger and content",
+          "code": "import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription } from 'akeyless-client-commons/components/ui';\n\nconst MyDialog = () => (\n  <Dialog>\n    <DialogTrigger asChild>\n      <button>Open Dialog</button>\n    </DialogTrigger>\n    <DialogContent>\n      <DialogHeader>\n        <DialogTitle>Dialog Title</DialogTitle>\n        <DialogDescription>Dialog description goes here</DialogDescription>\n      </DialogHeader>\n    </DialogContent>\n  </Dialog>\n);"
+        },
+        "extensive_correct": {
+          "title": "Complete dialog with header, footer, and actions",
+          "code": "import { useState } from 'react';\nimport { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose } from 'akeyless-client-commons/components/ui';\nimport { Button } from 'akeyless-client-commons/components/ui';\n\nconst ConfirmDialog = () => {\n  const [open, setOpen] = useState(false);\n  \n  const handleConfirm = () => {\n    console.log('Confirmed');\n    setOpen(false);\n  };\n  \n  return (\n    <Dialog open={open} onOpenChange={setOpen}>\n      <DialogTrigger asChild>\n        <Button variant=\"destructive\">Delete Item</Button>\n      </DialogTrigger>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>Confirm Deletion</DialogTitle>\n          <DialogDescription>\n            Are you sure you want to delete this item? This action cannot be undone.\n          </DialogDescription>\n        </DialogHeader>\n        <DialogFooter>\n          <DialogClose asChild>\n            <Button variant=\"outline\">Cancel</Button>\n          </DialogClose>\n          <Button variant=\"destructive\" onClick={handleConfirm}>\n            Delete\n          </Button>\n        </DialogFooter>\n      </DialogContent>\n    </Dialog>\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Missing Dialog wrapper",
+          "code": "// This won't work - DialogContent must be within Dialog\nconst BadDialog = () => (\n  <DialogContent>\n    <DialogTitle>Title</DialogTitle>\n  </DialogContent>\n);",
+          "why_incorrect": "All dialog sub-components must be rendered within a Dialog root component. Without it, the dialog state management and accessibility features won't work. Always wrap your dialog UI with <Dialog>."
+        }
+      }
+    },
+    {
+      "symbol_id": "DialogTrigger",
+      "name": "DialogTrigger",
+      "kind": "component",
+      "description_one_line": "Button or element that triggers dialog opening when clicked",
+      "details": {
+        "what_it_does": "Alias for DialogPrimitive.Trigger. Acts as the clickable element that opens the dialog. Can be any button or element. Use asChild prop to render as a different element type."
+      },
+      "locations": {
+        "source_line_start": 9,
+        "source_line_end": 9,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L9",
+        "nx_kb_anchor": "#DialogTrigger"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic trigger button",
+          "code": "<Dialog>\n  <DialogTrigger>Open Dialog</DialogTrigger>\n  {/* Dialog content */}\n</Dialog>"
+        },
+        "extensive_correct": {
+          "title": "Trigger as custom button with styling",
+          "code": "<Dialog>\n  <DialogTrigger asChild>\n    <button className=\"px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600\">\n      Open Settings\n    </button>\n  </DialogTrigger>\n  {/* Dialog content */}\n</Dialog>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Nested trigger inside another element",
+          "code": "<Dialog>\n  <div>\n    <DialogTrigger>Open</DialogTrigger>\n  </div>\n</Dialog>",
+          "why_incorrect": "While this works, DialogTrigger should typically be a direct child of Dialog for best accessibility. If you need wrapper div, use asChild prop instead."
+        }
+      }
+    },
+    {
+      "symbol_id": "DialogPortal",
+      "name": "DialogPortal",
+      "kind": "component",
+      "description_one_line": "Portal component that renders dialog content outside the normal DOM hierarchy",
+      "details": {
+        "what_it_does": "Alias for DialogPrimitive.Portal. Renders its children outside the normal DOM tree, typically to avoid CSS stacking context issues. DialogContent automatically uses Portal internally."
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L11",
+        "nx_kb_anchor": "#DialogPortal"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Portal usage (usually not needed directly)",
+          "code": "// Portal is automatically used by DialogContent\n// but can be used explicitly for custom layouts\n<Dialog>\n  <DialogTrigger>Open</DialogTrigger>\n  <DialogPortal>\n    {/* Custom content rendered outside DOM tree */}\n  </DialogPortal>\n</Dialog>"
+        },
+        "extensive_correct": {
+          "title": "Custom portal with multiple content areas",
+          "code": "<Dialog>\n  <DialogTrigger>Open</DialogTrigger>\n  <DialogPortal>\n    <DialogOverlay />\n    <div className=\"dialog-custom-layout\">\n      <div>Custom content</div>\n    </div>\n  </DialogPortal>\n</Dialog>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Unnecessary nested portals",
+          "code": "// Don't nest portals\n<DialogPortal>\n  <DialogPortal>\n    <div>Content</div>\n  </DialogPortal>\n</DialogPortal>",
+          "why_incorrect": "Nesting multiple Portal components is unnecessary and inefficient. Use Portal once to escape the normal DOM hierarchy."
+        }
+      }
+    },
+    {
+      "symbol_id": "DialogClose",
+      "name": "DialogClose",
+      "kind": "component",
+      "description_one_line": "Alias for DialogPrimitive.Close, closes the dialog when interacted with",
+      "details": {
+        "what_it_does": "Alias for DialogPrimitive.Close. Any element wrapped with this component will close the dialog when clicked. Typically used for close buttons in the header or footer."
+      },
+      "locations": {
+        "source_line_start": 13,
+        "source_line_end": 13,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L13",
+        "nx_kb_anchor": "#DialogClose"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Close button in footer",
+          "code": "<DialogContent>\n  <DialogHeader>\n    <DialogTitle>Title</DialogTitle>\n  </DialogHeader>\n  <DialogFooter>\n    <DialogClose asChild>\n      <button>Cancel</button>\n    </DialogClose>\n  </DialogFooter>\n</DialogContent>"
+        },
+        "extensive_correct": {
+          "title": "Multiple close triggers",
+          "code": "<DialogContent>\n  {/* Close button in header */}\n  <div className=\"flex justify-between\">\n    <DialogTitle>Confirm Action</DialogTitle>\n    <DialogClose asChild>\n      <button className=\"text-gray-500 hover:text-gray-700\">X</button>\n    </DialogClose>\n  </div>\n  {/* Content */}\n  <p>Are you sure?</p>\n  {/* Close in footer */}\n  <DialogFooter>\n    <DialogClose asChild>\n      <button>Cancel</button>\n    </DialogClose>\n    <button onClick={handleConfirm}>Confirm</button>\n  </DialogFooter>\n</DialogContent>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using DialogClose outside Dialog",
+          "code": "// This won't close anything\n<div>\n  <DialogClose asChild>\n    <button>This won't work</button>\n  </DialogClose>\n</div>",
+          "why_incorrect": "DialogClose must be inside a Dialog component to function. It relies on the Dialog's state context to trigger closure."
+        }
+      }
+    },
+    {
+      "symbol_id": "DialogOverlay",
+      "name": "DialogOverlay",
+      "kind": "component",
+      "description_one_line": "Styled overlay component rendering a dark semi-transparent background behind the dialog",
+      "signature": {
+        "params": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default overlay styles using cn() utility"
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>",
+            "required": false,
+            "description": "All standard Radix UI Overlay props and HTML div attributes"
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "A styled overlay element with fixed positioning and fade animations"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders a fixed-position overlay element covering the entire viewport behind the dialog. Pre-styled with semi-transparent black background (bg-black/80) and fade-in/fade-out animations. Uses forwardRef to expose the underlying element reference.",
+        "rendered_ui_description": "A full-screen fixed overlay with black color at 80% opacity. Animates in smoothly when dialog opens and fades out when dialog closes. Prevents interaction with page content behind the dialog."
+      },
+      "locations": {
+        "source_line_start": 15,
+        "source_line_end": 28,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L15-L28",
+        "nx_kb_anchor": "#DialogOverlay"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Overlay with DialogContent",
+          "code": "<DialogContent>\n  {/* DialogContent automatically includes overlay */}\n</DialogContent>"
+        },
+        "extensive_correct": {
+          "title": "Custom overlay styling",
+          "code": "<DialogPortal>\n  <DialogOverlay className=\"bg-black/40\" />\n  <DialogContent>\n    {/* Content */}\n  </DialogContent>\n</DialogPortal>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Overlay without Content",
+          "code": "// Overlay alone won't close dialog\n<Dialog>\n  <DialogTrigger>Open</DialogTrigger>\n  <DialogOverlay onClick={() => {}} />\n</Dialog>",
+          "why_incorrect": "Overlay is typically used inside DialogContent which handles all interactions. Standalone overlay without proper dialog structure won't function correctly."
+        }
+      }
+    },
+    {
+      "symbol_id": "DialogContent",
+      "name": "DialogContent",
+      "kind": "component",
+      "description_one_line": "Main dialog content container with centered positioning, animations, and built-in close button",
+      "signature": {
+        "params": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default content styles"
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": false,
+            "description": "Dialog content (header, body, footer components and text)"
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>",
+            "required": false,
+            "description": "All standard Radix UI Content props and HTML div attributes"
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "A styled centered dialog container with overlay, animations, and close button"
+        }
+      },
+      "details": {
+        "what_it_does": "Main dialog container component. Renders a portal with overlay and centered content box. Automatically includes a close button (X icon) in the top-right corner. Uses fixed positioning with transform centering (translate -50% -50%). Includes animations for opening (fade-in, zoom-in, slide-in) and closing (fade-out, zoom-out, slide-out). Max-width is limited to lg (32rem).",
+        "rendered_ui_description": "A centered white box with max-width 32rem, positioned in the middle of the viewport with semi-transparent dark overlay behind it. Top-right corner has a close button (X icon). Content area has padding and subtle box shadow. Smoothly animates in when dialog opens and animates out when closing. On desktop, has rounded corners (sm:rounded-lg)."
+      },
+      "locations": {
+        "source_line_start": 30,
+        "source_line_end": 52,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L30-L52",
+        "nx_kb_anchor": "#DialogContent"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic dialog content with header and title",
+          "code": "<Dialog>\n  <DialogTrigger>Open Dialog</DialogTrigger>\n  <DialogContent>\n    <DialogHeader>\n      <DialogTitle>Dialog Title</DialogTitle>\n    </DialogHeader>\n    <p>Your content goes here</p>\n  </DialogContent>\n</Dialog>"
+        },
+        "extensive_correct": {
+          "title": "Complete dialog with all sections",
+          "code": "<Dialog>\n  <DialogTrigger asChild>\n    <Button>Open Settings</Button>\n  </DialogTrigger>\n  <DialogContent>\n    <DialogHeader>\n      <DialogTitle>Settings</DialogTitle>\n      <DialogDescription>\n        Manage your application preferences\n      </DialogDescription>\n    </DialogHeader>\n    \n    <div className=\"space-y-4\">\n      <div>\n        <Label htmlFor=\"theme\">Theme</Label>\n        <select id=\"theme\" className=\"w-full\">\n          <option>Light</option>\n          <option>Dark</option>\n        </select>\n      </div>\n    </div>\n    \n    <DialogFooter>\n      <DialogClose asChild>\n        <Button variant=\"outline\">Cancel</Button>\n      </DialogClose>\n      <Button>Save Settings</Button>\n    </DialogFooter>\n  </DialogContent>\n</Dialog>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Overlapping dialog and content styling",
+          "code": "// Avoid custom overlay inside content\n<DialogContent>\n  <div className=\"fixed inset-0 bg-black/50\">Duplicate overlay</div>\n  {/* Content */}\n</DialogContent>",
+          "why_incorrect": "DialogContent already includes and manages the overlay internally. Adding a custom overlay inside will cause visual duplication and interaction conflicts. The overlay is automatically positioned and animated."
+        }
+      }
+    },
+    {
+      "symbol_id": "DialogHeader",
+      "name": "DialogHeader",
+      "kind": "component",
+      "description_one_line": "Container component for positioning dialog title and description at the top of the dialog",
+      "signature": {
+        "params": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default header layout styles"
+          },
+          {
+            "name": "...props",
+            "type": "React.HTMLAttributes<HTMLDivElement>",
+            "required": false,
+            "description": "Standard HTML div attributes"
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "A styled div container for header content"
+        }
+      },
+      "details": {
+        "what_it_does": "Layout component that positions its children (typically DialogTitle and DialogDescription) with flexbox in a column direction with vertical spacing. Uses text-center on mobile and text-left on tablet and above (sm breakpoint). Useful for grouping heading content at the top of the dialog.",
+        "rendered_ui_description": "A flex column container with small vertical gaps (space-y-1.5) between children. Text is centered on mobile and left-aligned on larger screens. No background or borders - purely for layout and spacing."
+      },
+      "locations": {
+        "source_line_start": 54,
+        "source_line_end": 66,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L54-L66",
+        "nx_kb_anchor": "#DialogHeader"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Header with title only",
+          "code": "<DialogContent>\n  <DialogHeader>\n    <DialogTitle>Confirm Delete</DialogTitle>\n  </DialogHeader>\n</DialogContent>"
+        },
+        "extensive_correct": {
+          "title": "Header with title and description",
+          "code": "<DialogContent>\n  <DialogHeader>\n    <DialogTitle>User Settings</DialogTitle>\n    <DialogDescription>\n      Update your profile information and preferences\n    </DialogDescription>\n  </DialogHeader>\n  {/* Body content */}\n</DialogContent>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using Header for body content",
+          "code": "// Don't put form fields in header\n<DialogHeader>\n  <Input placeholder=\"Search...\" />\n  <Button>Find</Button>\n</DialogHeader>",
+          "why_incorrect": "DialogHeader is for title/description only. Use the dialog body for form fields and interactive content."
+        }
+      }
+    },
+    {
+      "symbol_id": "DialogFooter",
+      "name": "DialogFooter",
+      "kind": "component",
+      "description_one_line": "Container component for action buttons positioned at the bottom of the dialog with responsive layout",
+      "signature": {
+        "params": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default footer layout styles"
+          },
+          {
+            "name": "...props",
+            "type": "React.HTMLAttributes<HTMLDivElement>",
+            "required": false,
+            "description": "Standard HTML div attributes"
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "A styled div container for footer content"
+        }
+      },
+      "details": {
+        "what_it_does": "Layout component that positions action buttons with flexbox. On mobile (default), displays buttons in column-reverse order (bottom button first). On tablet and above (sm breakpoint), displays buttons in a row with right alignment and spacing between them. Useful for grouping action buttons (like OK/Cancel) at the bottom of the dialog.",
+        "rendered_ui_description": "A flex container that stacks buttons vertically on mobile (reverse column order) and horizontally on desktop (right-aligned row). Buttons automatically have consistent spacing via justify-end and space-x-2 on larger screens."
+      },
+      "locations": {
+        "source_line_start": 68,
+        "source_line_end": 80,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L68-L80",
+        "nx_kb_anchor": "#DialogFooter"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Footer with close button",
+          "code": "<DialogContent>\n  <DialogHeader>\n    <DialogTitle>Title</DialogTitle>\n  </DialogHeader>\n  {/* Body */}\n  <DialogFooter>\n    <DialogClose asChild>\n      <Button variant=\"outline\">Close</Button>\n    </DialogClose>\n  </DialogFooter>\n</DialogContent>"
+        },
+        "extensive_correct": {
+          "title": "Footer with multiple action buttons",
+          "code": "<DialogContent>\n  <DialogHeader>\n    <DialogTitle>Confirm Action</DialogTitle>\n  </DialogHeader>\n  <p>Are you sure you want to proceed?</p>\n  <DialogFooter>\n    <DialogClose asChild>\n      <Button variant=\"outline\">Cancel</Button>\n    </DialogClose>\n    <Button variant=\"destructive\" onClick={handleConfirm}>\n      Yes, Delete\n    </Button>\n  </DialogFooter>\n</DialogContent>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using Footer for content",
+          "code": "// Don't put paragraphs/text in footer\n<DialogFooter>\n  <p>This is body content, not a button</p>\n</DialogFooter>",
+          "why_incorrect": "DialogFooter is for action buttons. Body content and descriptions should go in the main dialog body, not in the footer."
+        }
+      }
+    },
+    {
+      "symbol_id": "DialogTitle",
+      "name": "DialogTitle",
+      "kind": "component",
+      "description_one_line": "Styled dialog title component for the main heading of the dialog",
+      "signature": {
+        "params": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default title styles"
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>",
+            "required": false,
+            "description": "All standard Radix UI Title props and HTML heading attributes"
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "A styled heading element with large font size and semibold weight"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders a styled dialog title using Radix UI's DialogPrimitive.Title. Applies text styling: text-lg (large), font-semibold (600 weight), leading-none (no line-height), and tracking-tight (tight letter spacing). Uses forwardRef for direct element access. Should be placed inside DialogHeader.",
+        "rendered_ui_description": "A large (text-lg), semibold heading with tight letter spacing and no extra line height. Renders as an h2 element by default. Dark color with good contrast against light backgrounds."
+      },
+      "locations": {
+        "source_line_start": 82,
+        "source_line_end": 95,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L82-L95",
+        "nx_kb_anchor": "#DialogTitle"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic dialog title",
+          "code": "<DialogContent>\n  <DialogHeader>\n    <DialogTitle>Delete Account</DialogTitle>\n  </DialogHeader>\n</DialogContent>"
+        },
+        "extensive_correct": {
+          "title": "Title with custom styling",
+          "code": "<DialogContent>\n  <DialogHeader>\n    <DialogTitle className=\"text-xl font-bold text-red-600\">\n      Warning: Destructive Action\n    </DialogTitle>\n    <DialogDescription>\n      This action cannot be undone\n    </DialogDescription>\n  </DialogHeader>\n</DialogContent>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using Title outside DialogHeader",
+          "code": "// This works but is semantically wrong\n<DialogContent>\n  <DialogTitle>Title Outside Header</DialogTitle>\n  {/* Body */}\n</DialogContent>",
+          "why_incorrect": "DialogTitle should be placed inside DialogHeader for proper semantic structure and layout. The header container provides the correct spacing and alignment."
+        }
+      }
+    },
+    {
+      "symbol_id": "DialogDescription",
+      "name": "DialogDescription",
+      "kind": "component",
+      "description_one_line": "Styled dialog description component for secondary text below the title",
+      "signature": {
+        "params": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default description styles"
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>",
+            "required": false,
+            "description": "All standard Radix UI Description props and HTML div attributes"
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "A styled paragraph element with smaller font and muted color"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders a styled dialog description using Radix UI's DialogPrimitive.Description. Applies text styling: text-sm (smaller), text-muted-foreground (gray/muted color). Uses forwardRef for direct element access. Typically placed below DialogTitle inside DialogHeader.",
+        "rendered_ui_description": "A smaller (text-sm), muted gray text element. Usually appears below the title in the dialog header. Uses secondary text color that has sufficient contrast but is visually subordinate to the title."
+      },
+      "locations": {
+        "source_line_start": 97,
+        "source_line_end": 107,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx#L97-L107",
+        "nx_kb_anchor": "#DialogDescription"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Description below title",
+          "code": "<DialogContent>\n  <DialogHeader>\n    <DialogTitle>Delete Item</DialogTitle>\n    <DialogDescription>This action cannot be undone</DialogDescription>\n  </DialogHeader>\n</DialogContent>"
+        },
+        "extensive_correct": {
+          "title": "Description with detailed explanation",
+          "code": "<DialogContent>\n  <DialogHeader>\n    <DialogTitle>Export Data</DialogTitle>\n    <DialogDescription>\n      Choose the format and fields you want to include in your export. The file will be downloaded automatically.\n    </DialogDescription>\n  </DialogHeader>\n  {/* Form fields for export options */}\n</DialogContent>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Using Description as body content",
+          "code": "// Don't put form fields in description\n<DialogDescription>\n  <Input placeholder=\"Search...\" />\n  <Button>Filter</Button>\n</DialogDescription>",
+          "why_incorrect": "DialogDescription is for subtitle text only. Form fields and interactive content should be in the main dialog body, not the description."
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

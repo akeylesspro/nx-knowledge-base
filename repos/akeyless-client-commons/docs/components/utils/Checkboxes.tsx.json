@@ -1,0 +1,95 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "Checkboxes.tsx",
+  "source": {
+    "file_path": "components/utils/Checkboxes.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": [
+      "react"
+    ],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/Checkboxes.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/Checkboxes.tsx.json"
+  },
+  "summary": {
+    "purpose": "Checkbox component.",
+    "problem_solved": "Provides a stylized checkbox with animation support."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "React component structure."
+      },
+      {
+        "name": "lucide-react",
+        "kind": "runtime",
+        "why_used": "Icons (Component import, though seemingly unused in snippet)."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "helpers",
+        "why_used": "cn utility.",
+        "resolved_file_path": "helpers",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/helpers",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "Checkbox",
+      "kind": "component",
+      "description_one_line": "Custom checkbox component.",
+      "symbol_id": "Checkbox"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "Checkbox",
+      "name": "Checkbox",
+      "kind": "component",
+      "description_one_line": "Checkbox UI.",
+      "signature": {
+        "params": [
+          {
+            "name": "checked",
+            "type": "boolean",
+            "default": "false"
+          },
+          {
+            "name": "setChecked",
+            "type": "function"
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders a hidden input and a visual label acting as the checkbox."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/Checkboxes.tsx#L1",
+        "nx_kb_anchor": "Checkbox"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of Checkbox",
+          "code": "<Checkboxes />"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

@@ -1,0 +1,579 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "command.tsx",
+  "source": {
+    "file_path": "components/ui/command.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T14:30:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "react",
+      "cmdk",
+      "radix-ui"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/command.json"
+  },
+  "summary": {
+    "purpose": "Provides a comprehensive set of searchable command/command palette components built on the cmdk library, including command dialog, input, list, grouping, and item components with consistent styling and keyboard navigation.",
+    "problem_solved": "Simplifies building accessible command palettes and searchable lists by wrapping the cmdk library with pre-styled components, integrating with Radix UI Dialog, and providing composable sub-components for structure, search filtering, and item selection."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "cmdk",
+        "kind": "runtime",
+        "why_used": "Provides the Command primitive library for building accessible command/search interfaces with built-in filtering and keyboard navigation"
+      },
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Core React library for component creation, forwardRef, and JSX rendering"
+      },
+      {
+        "name": "lucide-react",
+        "kind": "runtime",
+        "why_used": "Provides the Search icon for command input"
+      },
+      {
+        "name": "@radix-ui/react-dialog",
+        "kind": "runtime",
+        "why_used": "Provides Dialog primitives for CommandDialog component"
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "@/lib/utils",
+        "resolved_file_path": "lib/utils",
+        "why_used": "Provides the cn() utility function for conditionally merging CSS classes",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
+      },
+      {
+        "import_path": "@/components/ui/dialog",
+        "resolved_file_path": "components/ui/dialog",
+        "why_used": "Provides Dialog, DialogContent, DialogDescription, and DialogTitle for CommandDialog",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/dialog.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/dialog.tsx"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "Command",
+      "kind": "component",
+      "description_one_line": "Root command component wrapping cmdk's Command primitive",
+      "symbol_id": "Command"
+    },
+    {
+      "name": "CommandDialog",
+      "kind": "component",
+      "description_one_line": "Dialog-wrapped command component for modal command palettes",
+      "symbol_id": "CommandDialog"
+    },
+    {
+      "name": "CommandInput",
+      "kind": "component",
+      "description_one_line": "Searchable input field with optional search icon for filtering command items",
+      "symbol_id": "CommandInput"
+    },
+    {
+      "name": "CommandList",
+      "kind": "component",
+      "description_one_line": "Scrollable list container for command groups and items",
+      "symbol_id": "CommandList"
+    },
+    {
+      "name": "CommandEmpty",
+      "kind": "component",
+      "description_one_line": "Message displayed when no command items match the search filter",
+      "symbol_id": "CommandEmpty"
+    },
+    {
+      "name": "CommandGroup",
+      "kind": "component",
+      "description_one_line": "Container for grouping related command items with optional heading",
+      "symbol_id": "CommandGroup"
+    },
+    {
+      "name": "CommandSeparator",
+      "kind": "component",
+      "description_one_line": "Visual separator between command groups or items",
+      "symbol_id": "CommandSeparator"
+    },
+    {
+      "name": "CommandItem",
+      "kind": "component",
+      "description_one_line": "Individual selectable command item with keyboard and mouse interaction",
+      "symbol_id": "CommandItem"
+    },
+    {
+      "name": "CommandShortcut",
+      "kind": "component",
+      "description_one_line": "Keyboard shortcut display element for command items",
+      "symbol_id": "CommandShortcut"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "Command",
+      "name": "Command",
+      "kind": "component",
+      "description_one_line": "Root command component wrapping cmdk's Command primitive with consistent styling",
+      "signature": {
+        "params": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default command styles"
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentPropsWithoutRef<typeof CommandPrimitive>",
+            "required": false,
+            "description": "All standard cmdk Command props (value, onValueChange, filter, etc.)"
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "A styled command container with full-height flex layout"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders the root command container using cmdk's CommandPrimitive. Pre-styled with flex column layout, full height, rounded borders, popover background color, and foreground text color. Uses forwardRef for direct access to the underlying command element. Serves as the main wrapper for all command sub-components.",
+        "rendered_ui_description": "A full-height flex container with rounded corners, popover background, and text foreground color. Vertical flex layout for stacking input, list, empty states, and items. Overflow hidden to ensure content fits within rounded borders."
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 20,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx#L11-L20",
+        "nx_kb_anchor": "#Command"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic command with input and list",
+          "code": "import { Command, CommandInput, CommandList, CommandItem } from 'akeyless-client-commons/components/ui';\n\nconst MyCommand = () => (\n  <Command>\n    <CommandInput placeholder=\"Search items...\" />\n    <CommandList>\n      <CommandItem value=\"item-1\">Item 1</CommandItem>\n      <CommandItem value=\"item-2\">Item 2</CommandItem>\n    </CommandList>\n  </Command>\n);"
+        },
+        "extensive_correct": {
+          "title": "Command with groups, separators, and empty state",
+          "code": "import { Command, CommandInput, CommandList, CommandEmpty, CommandGroup, CommandItem, CommandSeparator } from 'akeyless-client-commons/components/ui';\n\nconst AdvancedCommand = () => (\n  <Command>\n    <CommandInput placeholder=\"Search actions...\" />\n    <CommandList>\n      <CommandEmpty>No results found</CommandEmpty>\n      <CommandGroup heading=\"Recent\">\n        <CommandItem value=\"recent-1\">Recent Action 1</CommandItem>\n        <CommandItem value=\"recent-2\">Recent Action 2</CommandItem>\n      </CommandGroup>\n      <CommandSeparator />\n      <CommandGroup heading=\"Other\">\n        <CommandItem value=\"other-1\">Other Action 1</CommandItem>\n        <CommandItem value=\"other-2\">Other Action 2</CommandItem>\n      </CommandGroup>\n    </CommandList>\n  </Command>\n);"
+        },
+        "incorrect": {
+          "title": "Incorrect: Command with only input",
+          "code": "// Command needs at least List for items\nconst BadCommand = () => (\n  <Command>\n    <CommandInput />\n  </Command>\n);",
+          "why_incorrect": "A command component should have at least CommandInput and CommandList to be functional. Without a list, there's nowhere to display searchable items."
+        }
+      }
+    },
+    {
+      "symbol_id": "CommandDialog",
+      "name": "CommandDialog",
+      "kind": "component",
+      "description_one_line": "Command component wrapped in a Dialog for modal command palettes",
+      "signature": {
+        "params": [
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": false,
+            "description": "Command sub-components (CommandInput, CommandList, CommandGroup, etc.)"
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentProps<typeof DialogPrimitive.Root>",
+            "required": false,
+            "description": "All Dialog props (open, onOpenChange, etc.)"
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "A styled dialog containing a command component"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders a command component inside a Radix UI Dialog. Automatically manages dialog state and styling. Includes temporary DialogTitle and DialogDescription elements to suppress console warnings. Removes the dialog's default close button via CSS selector. Customizes the command styling for dialog layout with max-width sm:max-w-lg.",
+        "rendered_ui_description": "A modal dialog with centered positioning, overlay, and a command palette inside. The command area is full-width within the dialog with no padding. Includes input, groups, items, and empty state, all styled for dialog context."
+      },
+      "locations": {
+        "source_line_start": 22,
+        "source_line_end": 34,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx#L22-L34",
+        "nx_kb_anchor": "#CommandDialog"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic command dialog with trigger",
+          "code": "import { useState } from 'react';\nimport { CommandDialog, CommandInput, CommandList, CommandItem } from 'akeyless-client-commons/components/ui';\n\nconst MyCommandDialog = () => {\n  const [open, setOpen] = useState(false);\n  \n  return (\n    <>\n      <button onClick={() => setOpen(true)}>Open Command Palette</button>\n      <CommandDialog open={open} onOpenChange={setOpen}>\n        <CommandInput placeholder=\"Type a command...\" />\n        <CommandList>\n          <CommandItem value=\"cmd-1\" onSelect={() => setOpen(false)}>\n            Command 1\n          </CommandItem>\n          <CommandItem value=\"cmd-2\" onSelect={() => setOpen(false)}>\n            Command 2\n          </CommandItem>\n        </CommandList>\n      </CommandDialog>\n    </>\n  );\n};"
+        },
+        "extensive_correct": {
+          "title": "Command dialog with keyboard shortcut to open",
+          "code": "import { useState, useEffect } from 'react';\nimport { CommandDialog, CommandInput, CommandList, CommandGroup, CommandItem, CommandEmpty } from 'akeyless-client-commons/components/ui';\n\nconst CommandPalette = () => {\n  const [open, setOpen] = useState(false);\n  \n  useEffect(() => {\n    const handleKeyDown = (e) => {\n      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {\n        e.preventDefault();\n        setOpen((open) => !open);\n      }\n    };\n    \n    document.addEventListener('keydown', handleKeyDown);\n    return () => document.removeEventListener('keydown', handleKeyDown);\n  }, []);\n  \n  return (\n    <CommandDialog open={open} onOpenChange={setOpen}>\n      <CommandInput placeholder=\"Search commands...\" />\n      <CommandList>\n        <CommandEmpty>No commands found</CommandEmpty>\n        <CommandGroup heading=\"Navigation\">\n          <CommandItem value=\"home\" onSelect={() => setOpen(false)}>\n            Go to Home\n          </CommandItem>\n          <CommandItem value=\"settings\" onSelect={() => setOpen(false)}>\n            Settings\n          </CommandItem>\n        </CommandGroup>\n      </CommandList>\n    </CommandDialog>\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: CommandDialog without input",
+          "code": "// CommandDialog should have at least input and list\nconst BadDialog = () => (\n  <CommandDialog open={true} onOpenChange={() => {}}>\n    <div>Just text, no command structure</div>\n  </CommandDialog>\n);",
+          "why_incorrect": "CommandDialog should contain CommandInput and CommandList for proper command palette functionality. Without these, the dialog won't have searchable command functionality."
+        }
+      }
+    },
+    {
+      "symbol_id": "CommandInput",
+      "name": "CommandInput",
+      "kind": "component",
+      "description_one_line": "Searchable input field for filtering command items with optional search icon",
+      "signature": {
+        "params": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default input styles"
+          },
+          {
+            "name": "withSearchIcon",
+            "type": "boolean",
+            "required": false,
+            "description": "Whether to display a search icon to the left of the input. Defaults to false."
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>",
+            "required": false,
+            "description": "All standard input props (placeholder, type, value, onChange, etc.)"
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "A styled input field with optional search icon"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders cmdk's CommandPrimitive.Input with pre-styled wrapper. The wrapper includes a border-bottom and horizontal padding. Optionally displays a Search icon from lucide-react to the left of the input. The input itself is full-width, transparent background, with placeholder text in muted color. Supports all standard input attributes. Uses forwardRef for direct input element access.",
+        "rendered_ui_description": "A single-line input field with bottom border only, horizontal padding, and muted foreground text. Optional search icon appears to the left with muted-foreground color. Input text is small font size (text-sm) on transparent background. Disabled state reduces opacity."
+      },
+      "locations": {
+        "source_line_start": 36,
+        "source_line_end": 53,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx#L36-L53",
+        "nx_kb_anchor": "#CommandInput"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic command input",
+          "code": "<Command>\n  <CommandInput placeholder=\"Search...\" />\n  <CommandList>\n    {/* items */}\n  </CommandList>\n</Command>"
+        },
+        "extensive_correct": {
+          "title": "Input with search icon and custom styling",
+          "code": "<Command>\n  <CommandInput \n    placeholder=\"Type command name...\" \n    withSearchIcon\n    className=\"text-base\"\n  />\n  <CommandList>\n    {/* items */}\n  </CommandList>\n</Command>"
+        },
+        "incorrect": {
+          "title": "Incorrect: CommandInput value prop without onChange",
+          "code": "// Uncontrolled input without handler\n<CommandInput value=\"fixed\" />",
+          "why_incorrect": "If you set the value prop, you must provide an onChange handler. Otherwise, the input will appear frozen and unable to accept user input. Either remove the value prop for uncontrolled mode or add onChange handler for controlled mode."
+        }
+      }
+    },
+    {
+      "symbol_id": "CommandList",
+      "name": "CommandList",
+      "kind": "component",
+      "description_one_line": "Scrollable container for command groups and items",
+      "signature": {
+        "params": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default list styles"
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentPropsWithoutRef<typeof CommandPrimitive.List>",
+            "required": false,
+            "description": "All standard cmdk List props"
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "A scrollable list container"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders cmdk's CommandPrimitive.List with pre-configured max-height and scrolling behavior. Max-height is set to 80 (320px). Scrolls vertically (overflow-y-auto) and hides horizontal overflow. Uses forwardRef for direct access to the list element.",
+        "rendered_ui_description": "A scrollable container with max-height of 320px, vertical scrollbar when content exceeds height, hidden horizontal scroll. Displays CommandGroup, CommandSeparator, CommandEmpty, and CommandItem children."
+      },
+      "locations": {
+        "source_line_start": 55,
+        "source_line_end": 61,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx#L55-L61",
+        "nx_kb_anchor": "#CommandList"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "List with groups and items",
+          "code": "<CommandList>\n  <CommandGroup heading=\"Group 1\">\n    <CommandItem value=\"item-1\">Item 1</CommandItem>\n    <CommandItem value=\"item-2\">Item 2</CommandItem>\n  </CommandGroup>\n</CommandList>"
+        },
+        "extensive_correct": {
+          "title": "List with multiple groups and separators",
+          "code": "<CommandList>\n  <CommandGroup heading=\"Frequently Used\">\n    <CommandItem value=\"home\">Go Home</CommandItem>\n    <CommandItem value=\"settings\">Settings</CommandItem>\n  </CommandGroup>\n  <CommandSeparator />\n  <CommandGroup heading=\"Other Actions\">\n    <CommandItem value=\"logout\">Logout</CommandItem>\n  </CommandGroup>\n</CommandList>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Empty CommandList",
+          "code": "<Command>\n  <CommandInput />\n  <CommandList></CommandList>\n</Command>",
+          "why_incorrect": "An empty CommandList should display CommandEmpty component to inform users that there are no results. Without it, users see nothing when filtering produces no results."
+        }
+      }
+    },
+    {
+      "symbol_id": "CommandEmpty",
+      "name": "CommandEmpty",
+      "kind": "component",
+      "description_one_line": "Message displayed when no command items match the search filter",
+      "details": {
+        "what_it_does": "Renders cmdk's CommandPrimitive.Empty component with centered text styling. Displays when no items match the current search filter. Pre-styled with vertical padding, centered text alignment, and small font size. Uses forwardRef for element access."
+      },
+      "locations": {
+        "source_line_start": 63,
+        "source_line_end": 67,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx#L63-L67",
+        "nx_kb_anchor": "#CommandEmpty"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic empty state",
+          "code": "<CommandList>\n  <CommandEmpty>No items found</CommandEmpty>\n  <CommandItem value=\"item\">Item</CommandItem>\n</CommandList>"
+        },
+        "extensive_correct": {
+          "title": "Descriptive empty state with guidance",
+          "code": "<CommandList>\n  <CommandEmpty>\n    <div className=\"text-center\">\n      <p className=\"font-medium\">No results found</p>\n      <p className=\"text-xs text-muted-foreground mt-1\">Try searching with different keywords</p>\n    </div>\n  </CommandEmpty>\n  {/* items */}\n</CommandList>"
+        },
+        "incorrect": {
+          "title": "Incorrect: CommandEmpty outside CommandList",
+          "code": "<Command>\n  <CommandInput />\n  <CommandEmpty>No results</CommandEmpty>\n</Command>",
+          "why_incorrect": "CommandEmpty must be inside CommandList. If placed outside, it will always display even when items are present."
+        }
+      }
+    },
+    {
+      "symbol_id": "CommandGroup",
+      "name": "CommandGroup",
+      "kind": "component",
+      "description_one_line": "Container for grouping related command items with optional heading",
+      "signature": {
+        "params": [
+          {
+            "name": "heading",
+            "type": "string | React.ReactNode",
+            "required": false,
+            "description": "Text or element to display as the group heading"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default group styles"
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentPropsWithoutRef<typeof CommandPrimitive.Group>",
+            "required": false,
+            "description": "All standard cmdk Group props"
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "A styled group container with optional heading"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders cmdk's CommandPrimitive.Group with overflow hidden, padding, and foreground text color. Pre-styles group headings with horizontal padding, vertical padding, small font size, medium weight, and muted-foreground color. Organizes related items into visually distinct groups. Uses forwardRef for element access.",
+        "rendered_ui_description": "A container with padding that groups related items. Optional heading appears at the top with small gray text (text-xs, font-medium, muted-foreground). Items inside group are displayed below heading."
+      },
+      "locations": {
+        "source_line_start": 69,
+        "source_line_end": 82,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx#L69-L82",
+        "nx_kb_anchor": "#CommandGroup"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Simple group with heading",
+          "code": "<CommandList>\n  <CommandGroup heading=\"Suggestions\">\n    <CommandItem value=\"item-1\">Suggestion 1</CommandItem>\n    <CommandItem value=\"item-2\">Suggestion 2</CommandItem>\n  </CommandGroup>\n</CommandList>"
+        },
+        "extensive_correct": {
+          "title": "Multiple groups with separators",
+          "code": "<CommandList>\n  <CommandGroup heading=\"Recent\">\n    <CommandItem value=\"recent-1\">Recent Item 1</CommandItem>\n    <CommandItem value=\"recent-2\">Recent Item 2</CommandItem>\n  </CommandGroup>\n  <CommandSeparator />\n  <CommandGroup heading=\"Suggestions\">\n    <CommandItem value=\"sug-1\">Suggested Item 1</CommandItem>\n    <CommandItem value=\"sug-2\">Suggested Item 2</CommandItem>\n  </CommandGroup>\n</CommandList>"
+        },
+        "incorrect": {
+          "title": "Incorrect: CommandGroup without heading",
+          "code": "<CommandGroup>\n  <CommandItem value=\"item\">Item</CommandItem>\n</CommandGroup>",
+          "why_incorrect": "While groups without headings work, headings help organize related items visually. Always include a heading to make command structure clear to users."
+        }
+      }
+    },
+    {
+      "symbol_id": "CommandSeparator",
+      "name": "CommandSeparator",
+      "kind": "component",
+      "description_one_line": "Visual separator line between command groups or items",
+      "details": {
+        "what_it_does": "Renders cmdk's CommandPrimitive.Separator as a thin horizontal line. Pre-styled with negative horizontal margin, 1px height, and border color. Uses forwardRef for element access."
+      },
+      "locations": {
+        "source_line_start": 84,
+        "source_line_end": 88,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx#L84-L88",
+        "nx_kb_anchor": "#CommandSeparator"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Separator between groups",
+          "code": "<CommandList>\n  <CommandGroup heading=\"Group 1\">\n    <CommandItem value=\"item-1\">Item 1</CommandItem>\n  </CommandGroup>\n  <CommandSeparator />\n  <CommandGroup heading=\"Group 2\">\n    <CommandItem value=\"item-2\">Item 2</CommandItem>\n  </CommandGroup>\n</CommandList>"
+        },
+        "extensive_correct": {
+          "title": "Multiple separators for visual hierarchy",
+          "code": "<CommandList>\n  <CommandGroup heading=\"Recent\">\n    <CommandItem value=\"rec-1\">Recent 1</CommandItem>\n  </CommandGroup>\n  <CommandSeparator />\n  <CommandGroup heading=\"Actions\">\n    <CommandItem value=\"act-1\">Action 1</CommandItem>\n  </CommandGroup>\n  <CommandSeparator />\n  <CommandGroup heading=\"Settings\">\n    <CommandItem value=\"set-1\">Setting 1</CommandItem>\n  </CommandGroup>\n</CommandList>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Too many separators",
+          "code": "<CommandList>\n  <CommandSeparator />\n  <CommandItem>Item 1</CommandItem>\n  <CommandSeparator />\n  <CommandItem>Item 2</CommandItem>\n  <CommandSeparator />\n</CommandList>",
+          "why_incorrect": "Excessive separators clutter the interface. Use separators between groups, not between individual items."
+        }
+      }
+    },
+    {
+      "symbol_id": "CommandItem",
+      "name": "CommandItem",
+      "kind": "component",
+      "description_one_line": "Individual selectable command item with keyboard and mouse interaction",
+      "signature": {
+        "params": [
+          {
+            "name": "value",
+            "type": "string",
+            "required": true,
+            "description": "Unique identifier for the item, passed to onSelect and used for filtering"
+          },
+          {
+            "name": "onSelect",
+            "type": "(value: string) => void",
+            "required": false,
+            "description": "Callback fired when item is selected via keyboard or mouse click"
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "required": false,
+            "description": "Whether the item is disabled and cannot be selected"
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default item styles"
+          },
+          {
+            "name": "children",
+            "type": "React.ReactNode",
+            "required": false,
+            "description": "Item content (text, icons, elements)"
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentPropsWithoutRef<typeof CommandPrimitive.Item>",
+            "required": false,
+            "description": "All standard cmdk Item props"
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "A styled, selectable command item"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders cmdk's CommandPrimitive.Item with pre-configured styling for selection and disabled states. Displays as a flex row with gap-3 spacing. Selected state shows accent background and accent-foreground text. Disabled state reduces opacity. SVG icons inside are non-interactive and shrunk. Supports keyboard navigation (arrow keys, enter) and mouse selection. Uses forwardRef for element access.",
+        "rendered_ui_description": "A row item with horizontal padding, vertical padding, rounded corners, and flex gap. Normal state shows popover/background foreground colors. Selected state highlights with accent background and contrasting text. Disabled items appear grayed out. Icons are automatically styled and don't interfere with item selection."
+      },
+      "locations": {
+        "source_line_start": 90,
+        "source_line_end": 103,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx#L90-L103",
+        "nx_kb_anchor": "#CommandItem"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic command item",
+          "code": "<CommandList>\n  <CommandItem value=\"item-1\" onSelect={() => console.log('Selected')}>\n    Item 1\n  </CommandItem>\n</CommandList>"
+        },
+        "extensive_correct": {
+          "title": "Item with icon and disabled state",
+          "code": "<CommandList>\n  <CommandItem value=\"search\" onSelect={() => search()}>\n    <SearchIcon className=\"w-4 h-4\" />\n    Search\n  </CommandItem>\n  <CommandItem value=\"disabled-item\" disabled>\n    <LockIcon className=\"w-4 h-4\" />\n    Disabled Action\n  </CommandItem>\n  <CommandItem value=\"with-shortcut\" onSelect={() => action()}>\n    <span>Action</span>\n    <CommandShortcut>Cmd K</CommandShortcut>\n  </CommandItem>\n</CommandList>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Item without value",
+          "code": "<CommandItem onSelect={() => {}}>Item</CommandItem>",
+          "why_incorrect": "Every CommandItem MUST have a unique value prop. The value is used for filtering and selection callbacks. Without it, the item won't function correctly."
+        }
+      }
+    },
+    {
+      "symbol_id": "CommandShortcut",
+      "name": "CommandShortcut",
+      "kind": "component",
+      "description_one_line": "Keyboard shortcut display element for command items",
+      "signature": {
+        "params": [
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with default shortcut styles"
+          },
+          {
+            "name": "...props",
+            "type": "React.HTMLAttributes<HTMLSpanElement>",
+            "required": false,
+            "description": "All standard HTML span/element attributes"
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "A styled keyboard shortcut display element"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders a visual representation of a keyboard shortcut. Displayed as a styled kbd element with border, small background, padding, and muted text color. Positioned on the right side of CommandItem using margin-left auto (ms-auto). Pre-configured styling mimics keyboard key appearance with border, background, and appropriate sizing.",
+        "rendered_ui_description": "A small inline-flex keyboard key icon with border, light background, and dark text. Positioned at the right end of a CommandItem. Used to display keyboard shortcuts like 'Cmd K', 'Ctrl+S', etc."
+      },
+      "locations": {
+        "source_line_start": 105,
+        "source_line_end": 117,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/command.tsx#L105-L117",
+        "nx_kb_anchor": "#CommandShortcut"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Shortcut in command item",
+          "code": "<CommandItem value=\"undo\">\n  Undo\n  <CommandShortcut>Cmd Z</CommandShortcut>\n</CommandItem>"
+        },
+        "extensive_correct": {
+          "title": "Multiple items with shortcuts",
+          "code": "<CommandList>\n  <CommandItem value=\"save\">\n    Save\n    <CommandShortcut>Cmd S</CommandShortcut>\n  </CommandItem>\n  <CommandItem value=\"find\">\n    Find\n    <CommandShortcut>Cmd F</CommandShortcut>\n  </CommandItem>\n  <CommandItem value=\"replace\">\n    Find & Replace\n    <CommandShortcut>Cmd H</CommandShortcut>\n  </CommandItem>\n</CommandList>"
+        },
+        "incorrect": {
+          "title": "Incorrect: Shortcut outside CommandItem",
+          "code": "// Shortcut positioning will be wrong\n<CommandList>\n  <CommandShortcut>Cmd K</CommandShortcut>\n  <CommandItem value=\"item\">Item</CommandItem>\n</CommandList>",
+          "why_incorrect": "CommandShortcut should be placed inside CommandItem for correct positioning on the right side. Outside the item, it won't align properly."
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

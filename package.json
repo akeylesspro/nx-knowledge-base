@@ -47,6 +47,8 @@
         "@types/node-fetch": "^2.6.13",
         "@types/react": "^19",
         "@types/react-dom": "^19",
+        "ajv": "^8.18.0",
+        "ajv-formats": "^3.0.1",
         "babel-plugin-react-compiler": "^1.0.0",
         "culori": "^4.0.2",
         "eslint": "^9",

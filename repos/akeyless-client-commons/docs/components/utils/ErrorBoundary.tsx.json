@@ -1,0 +1,82 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "ErrorBoundary.tsx",
+  "source": {
+    "file_path": "components/utils/ErrorBoundary.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": [
+      "react"
+    ],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/ErrorBoundary.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/ErrorBoundary.tsx.json"
+  },
+  "summary": {
+    "purpose": "Error Boundary component.",
+    "problem_solved": "Catches JavaScript errors in child components and displays a fallback UI."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "React.Component."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "ErrorBoundary",
+      "kind": "component",
+      "description_one_line": "React Error Boundary.",
+      "symbol_id": "ErrorBoundary"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "ErrorBoundary",
+      "name": "ErrorBoundary",
+      "kind": "component",
+      "description_one_line": "Class component for error handling.",
+      "signature": {
+        "params": [
+          {
+            "name": "children",
+            "type": "ReactNode"
+          },
+          {
+            "name": "fallback",
+            "type": "ReactNode",
+            "required": false
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element"
+        }
+      },
+      "details": {
+        "what_it_does": "Implements componentDidCatch and getDerivedStateFromError."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/ErrorBoundary.tsx#L1",
+        "nx_kb_anchor": "ErrorBoundary"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic usage of ErrorBoundary",
+          "code": "<ErrorBoundary />"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

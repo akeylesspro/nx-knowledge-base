@@ -7,71 +7,60 @@
   "source": {
     "file_path": "components/forms/ModularForm/InternationalPhonePicker.tsx",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-12T00:00:00.000Z",
+    "generated_at_iso": "2026-02-16T19:00:00.000Z",
     "language": "tsx",
     "framework_tags": [
-      "react"
+      "react",
+      "form-input",
+      "phone-number",
+      "international"
     ],
     "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/InternationalPhonePicker.tsx",
     "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/InternationalPhonePicker.tsx.json"
   },
   "summary": {
-    "purpose": "Implements an international phone number input component with country flag selector, built on top of react-phone-number-input.",
-    "problem_solved": "Provides a phone number input with international dialing code support, country flag dropdown, automatic phone number formatting, optional controlled/uncontrolled value modes, Enter key handler, auto-focus capability, and integration with the ModularForm label system."
+    "purpose": "International phone number input component with country selection, flag display, automatic formatting, and integration with ModularForm system for forms requiring global phone number input.",
+    "problem_solved": "Provides a validated phone number input field with country flag selector, supporting 190+ countries with automatic formatting, country code display, keyboard navigation, and optional label rendering for form integration. Handles both controlled (via setPhoneValue callback) and uncontrolled (internal state) value management."
   },
   "dependencies": {
     "external": [
       {
         "name": "react",
-        "usage": "forwardRef, useEffect, useMemo, useRef, useState for component state, refs, and forwarding",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Core hooks (forwardRef, useEffect, useMemo, useRef, useState) and component composition."
       },
       {
         "name": "react-phone-number-input",
-        "usage": "Core phone input component (RPNInput.default), Country type, FlagProps type, getCountryCallingCode, and flags for country flag SVGs",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "Core phone number validation, formatting, and country metadata. Provides RPNInput component, getCountryCallingCode utility, Country type, and flag data."
       },
       {
         "name": "lucide-react",
-        "usage": "ChevronDown icon for country selector dropdown indicator, Phone icon as fallback when no flag is available",
         "kind": "runtime",
-        "why_used": "External dependency"
+        "why_used": "ChevronDown and Phone icons for country selector and fallback flag display."
       }
     ],
     "internal": [
       {
-        "resolved_path": "components/ui/input",
+        "import_path": "@/components/ui/input",
+        "resolved_file_path": "components/ui/input.tsx",
+        "why_used": "Styled Input component wrapper for phone number text input field.",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/input.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "Input",
-        "resolved_file_path": "Input",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/Input"
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/input.tsx"
       },
       {
-        "resolved_path": "lib/utils",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "cn",
-        "resolved_file_path": "cn",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/cn"
-      },
-      {
-        "resolved_path": "types/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "InternationalInputProps",
-        "resolved_file_path": "InternationalInputProps",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/InternationalInputProps"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
+        "import_path": "./formElements",
+        "resolved_file_path": "components/forms/ModularForm/formElements.tsx",
+        "why_used": "ElementLabel component for optional form label rendering.",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "ElementLabel",
-        "resolved_file_path": "ElementLabel",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/ElementLabel"
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/formElements.tsx"
+      },
+      {
+        "import_path": "@/lib/utils",
+        "resolved_file_path": "lib/utils.ts",
+        "why_used": "cn utility for conditional CSS class merging.",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
       }
     ]
   },
@@ -79,170 +68,179 @@
     {
       "name": "InternationalPhonePicker",
       "kind": "component",
-      "is_default": true,
-      "description": "An international phone number input component with country flag selector, automatic formatting, and ModularForm-compatible label rendering.",
-      "description_one_line": "InternationalPhonePicker export",
+      "description_one_line": "Default export of international phone number input with country selector and flag display.",
       "symbol_id": "InternationalPhonePicker"
     }
   ],
   "symbols": [
     {
-      "kind": "component",
+      "symbol_id": "InternationalPhonePicker",
       "name": "InternationalPhonePicker",
-      "signature": "({ setPhoneValue, phoneValue, placeholder, className, containerClassName, defaultCountry, flagContainerClassName, inputClassName, defaultValue, name, style, onEnter, labelContent, labelClassName, required, direction, defaultFocus, labelsCommonClassName, elementsCommonClassName, minLength, countries, disabled }: InternationalInputProps) => JSX.Element",
-      "description": "Main international phone picker component. Supports both controlled mode (via setPhoneValue/phoneValue props) and uncontrolled mode (via internal tempPhoneValue state with hidden input for form submission). Defaults to Israel (IL) country code. Merges user-provided countries with a default set (US, IL, NG, TH). Renders an optional label via ElementLabel when labelContent is provided. Auto-focuses the phone input by default. Stores the phone value in a hidden input element for form submission.",
-      "details": {
-        "rendered_ui_description": "An optional label followed by a phone input row containing a country flag dropdown selector on the left (with chevron indicator) and a text input field on the right for entering the phone number. The input has a rounded border with shadow styling and always renders left-to-right.",
-        "what_it_does": "Exported symbol: InternationalPhonePicker"
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/InternationalPhonePicker.tsx#L1",
-        "nx_kb_anchor": "InternationalPhonePicker"
-      },
-      "symbol_id": "component_international_phone_picker",
-      "description_one_line": "Main international phone picker component. Supports both controlled mode (via setPhoneValue/phoneValue props) and uncontrolled mode (via internal tempPhoneValue state with hidden input for form submission). Defaults to Israel (IL) country code. Merges user-provided countries with a default set (US, IL, NG, TH). Renders an optional label via ElementLabel when labelContent is provided. Auto-focuses the phone input by default. Stores the phone value in a hidden input element for form submission.",
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of InternationalPhonePicker",
-          "code": "const [phone, setPhone] = useState('');\n<InternationalPhonePicker\n  phoneValue={phone}\n  setPhoneValue={setPhone}\n  name=\"phone\"\n  placeholder=\"Enter phone number\"\n/>"
-        },
-        "extensive_correct": {
-          "title": "With label, required flag, and custom countries",
-          "code": "const [phone, setPhone] = useState('+972545551234');\n<InternationalPhonePicker\n  phoneValue={phone}\n  setPhoneValue={setPhone}\n  name=\"userPhone\"\n  labelContent=\"Phone Number\"\n  required={true}\n  placeholder=\"+972 50 555 1234\"\n  defaultCountry=\"IL\"\n  countries={['US', 'IL', 'GB', 'FR']}\n  onEnter={() => handleSubmit()}\n/>"
-        },
-        "incorrect_pattern": {
-          "title": "Common mistake: Not providing setPhoneValue for controlled mode",
-          "code": "// Incorrect - phone won't update\nconst phone = '+972545551234';\n<InternationalPhonePicker phoneValue={phone} />\n// Correct - provide both phoneValue and setPhoneValue\nconst [phone, setPhone] = useState('');\n<InternationalPhonePicker phoneValue={phone} setPhoneValue={setPhone} />"
-        }
-      }
-    },
-    {
       "kind": "component",
-      "name": "PhoneInput",
-      "signature": "forwardRef<HTMLInputElement, React.ComponentProps<'input'> & { defaultFocus: boolean; disabled: boolean }>((props, ref) => JSX.Element)",
-      "description": "A forwardRef wrapper around the shared Input UI component used as the text input for phone number entry. Handles auto-focus on mount when defaultFocus is true. Manages dual ref (internal inputRef for focus and forwarded ref for react-phone-number-input).",
-      "details": {
-        "rendered_ui_description": "A styled text input field with left border removed (rounded on the right side only) to visually attach to the country selector. Gains focus automatically by default on mount.",
-        "what_it_does": "Exported symbol: PhoneInput"
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/InternationalPhonePicker.tsx#L1",
-        "nx_kb_anchor": "PhoneInput"
-      },
-      "symbol_id": "component_phone_input",
-      "description_one_line": "A forwardRef wrapper around the shared Input UI component used as the text input for phone number entry. Handles auto-focus on mount when defaultFocus is true. Manages dual ref (internal inputRef for focus and forwarded ref for react-phone-number-input).",
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of PhoneInput (rarely used directly)",
-          "code": "const inputRef = useRef<HTMLInputElement>(null);\n<PhoneInput\n  ref={inputRef}\n  defaultFocus={true}\n  disabled={false}\n  placeholder=\"555-1234\"\n/>"
-        },
-        "extensive_correct": {
-          "title": "PhoneInput with styling and keyboard handlers",
-          "code": "const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {\n  if (e.key === 'Enter') handleSubmit();\n};\n<PhoneInput\n  ref={phoneInputRef}\n  defaultFocus={true}\n  disabled={isLoading}\n  placeholder=\"Enter phone\"\n  onKeyDown={handleKeyDown}\n  className=\"custom-input\"\n  minLength={10}\n/>"
-        },
-        "incorrect_pattern": {
-          "title": "Common mistake: Not using ref forwarding",
-          "code": "// Incorrect - ref not forwarded\nconst PhoneInput = (props) => <input {...props} />;\n// Correct - use forwardRef for refs\nconst PhoneInput = forwardRef<HTMLInputElement, Props>((props, ref) => (\n  <input ref={ref} {...props} />\n));"
+      "description_one_line": "International phone number input with country selection, automatic formatting, and ModularForm integration.",
+      "signature": {
+        "params": [
+          {
+            "name": "phoneValue",
+            "type": "string",
+            "required": false,
+            "description": "Controlled phone value. If setPhoneValue is provided, external state controls the value. Defaults to empty string."
+          },
+          {
+            "name": "setPhoneValue",
+            "type": "((value: string) => void) | Dispatch<SetStateAction<string>>",
+            "required": false,
+            "description": "Callback to update phone value externally. Can be a state setter from useState or custom callback. If not provided, uses internal state."
+          },
+          {
+            "name": "defaultValue",
+            "type": "string",
+            "required": false,
+            "description": "Initial phone value to set on mount. Applied to both controlled and uncontrolled modes."
+          },
+          {
+            "name": "defaultCountry",
+            "type": "RPNInput.Country",
+            "required": false,
+            "description": "Default ISO country code (e.g., 'US', 'IL', 'GB'). Defaults to 'IL' (Israel)."
+          },
+          {
+            "name": "countries",
+            "type": "RPNInput.Country[]",
+            "required": false,
+            "description": "Array of country codes to include in the selector. Merged with default countries (US, IL, NG, TH). If empty, uses defaults. Defaults to empty array."
+          },
+          {
+            "name": "placeholder",
+            "type": "string",
+            "required": false,
+            "description": "Placeholder text shown in phone input field. Defaults to empty string."
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false,
+            "description": "HTML input name attribute for form submission. Applied to hidden input storing phone value."
+          },
+          {
+            "name": "labelContent",
+            "type": "string | ReactNode",
+            "required": false,
+            "description": "Optional label text displayed beside phone input. If provided, ElementLabel is rendered."
+          },
+          {
+            "name": "required",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, shows red asterisk on label. Only relevant if labelContent is provided."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the RPNInput wrapper element (outer container)."
+          },
+          {
+            "name": "containerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the main component container (includes label area if labelContent provided)."
+          },
+          {
+            "name": "inputClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the text input field (phone number entry area)."
+          },
+          {
+            "name": "flagContainerClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the country flag/selector dropdown button area."
+          },
+          {
+            "name": "labelClassName",
+            "type": "string",
+            "required": false,
+            "description": "CSS classes for the label element."
+          },
+          {
+            "name": "labelsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "Common CSS classes applied to the label from parent context."
+          },
+          {
+            "name": "elementsCommonClassName",
+            "type": "string",
+            "required": false,
+            "description": "Common CSS classes applied to the element from parent context."
+          },
+          {
+            "name": "style",
+            "type": "React.CSSProperties",
+            "required": false,
+            "description": "Inline CSS styles for the phone input field."
+          },
+          {
+            "name": "direction",
+            "type": "Direction",
+            "required": false,
+            "description": "Text direction ('rtl' for right-to-left, 'ltr' for left-to-right). Applied to outer container. Phone input always renders LTR internally."
+          },
+          {
+            "name": "defaultFocus",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, automatically focuses the phone input field on mount. Defaults to true."
+          },
+          {
+            "name": "disabled",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, disables both country selector and phone input field."
+          },
+          {
+            "name": "onEnter",
+            "type": "() => void",
+            "required": false,
+            "description": "Optional callback fired when user presses Enter key in phone input field."
+          },
+          {
+            "name": "minLength",
+            "type": "number",
+            "required": false,
+            "description": "Minimum phone number length (validation hint, not enforced by component)."
+          }
+        ],
+        "returns": {
+          "type": "JSX.Element",
+          "description": "Form wrapper with optional label, flag selector dropdown, and phone input field with hidden submission input."
         }
-      }
-    },
-    {
-      "kind": "component",
-      "name": "CountrySelect",
-      "signature": "({ disabled, value, onChange, options, className }: CountrySelectProps) => JSX.Element",
-      "description": "A custom country selector component for the phone input. Renders a styled container with the current country flag and a chevron down icon, overlaid with a transparent native HTML select element for accessibility and mobile compatibility. Filters out options without a country value and displays country name with calling code.",
-      "details": {
-        "rendered_ui_description": "A rounded left-side button showing the selected country flag and a small down chevron icon. An invisible native select element overlays the button for actual interaction, ensuring accessibility and native mobile picker support.",
-        "what_it_does": "Exported symbol: CountrySelect"
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/InternationalPhonePicker.tsx#L1",
-        "nx_kb_anchor": "CountrySelect"
-      },
-      "symbol_id": "component_country_select",
-      "description_one_line": "A custom country selector component for the phone input. Renders a styled container with the current country flag and a chevron down icon, overlaid with a transparent native HTML select element for accessibility and mobile compatibility. Filters out options without a country value and displays country name with calling code.",
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of CountrySelect",
-          "code": "const countryOptions = [\n  { label: 'United States', value: 'US' },\n  { label: 'Israel', value: 'IL' }\n];\n<CountrySelect\n  value=\"IL\"\n  onChange={(country) => setCountry(country)}\n  options={countryOptions}\n/>"
-        },
-        "extensive_correct": {
-          "title": "CountrySelect with custom styling",
-          "code": "const handleCountryChange = (country: RPNInput.Country) => {\n  setSelectedCountry(country);\n  updatePhoneFormat(country);\n};\n<CountrySelect\n  value={selectedCountry}\n  onChange={handleCountryChange}\n  options={availableCountries}\n  disabled={isLoading}\n  className=\"custom-country-select\"\n/>"
-        },
-        "incorrect_pattern": {
-          "title": "Common mistake: Providing undefined values in options",
-          "code": "// Incorrect - includes undefined values that get filtered out\nconst options = [\n  { label: 'US', value: 'US' },\n  { label: 'Unknown', value: undefined } // Will be filtered out\n];\n// Correct - all options have valid country values\nconst options = countryList.filter(c => c.value);"
-        }
-      }
-    },
-    {
-      "kind": "component",
-      "name": "FlagComponent",
-      "signature": "({ country, countryName }: RPNInput.FlagProps) => JSX.Element",
-      "description": "Renders the SVG flag for a given country code from the react-phone-number-input flags package. Falls back to a Phone icon from lucide-react when no flag is available for the country.",
-      "details": {
-        "rendered_ui_description": "A small (20px wide) rounded flag image, or a phone icon fallback if the country flag is unavailable.",
-        "what_it_does": "Exported symbol: FlagComponent"
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/InternationalPhonePicker.tsx#L1",
-        "nx_kb_anchor": "FlagComponent"
-      },
-      "symbol_id": "component_flag_component",
-      "description_one_line": "Renders the SVG flag for a given country code from the react-phone-number-input flags package. Falls back to a Phone icon from lucide-react when no flag is available for the country.",
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of FlagComponent",
-          "code": "<FlagComponent country=\"IL\" countryName=\"Israel\" />\n// Renders: Israeli flag SVG, or Phone icon if unavailable"
-        },
-        "extensive_correct": {
-          "title": "FlagComponent with multiple countries",
-          "code": "const countries = ['US', 'IL', 'GB', 'FR', 'XX'];\n{countries.map(country => (\n  <FlagComponent\n    key={country}\n    country={country as RPNInput.Country}\n    countryName={getCountryName(country)}\n  />\n))}\n// XX will fallback to Phone icon"
-        },
-        "incorrect_pattern": {
-          "title": "Common mistake: Not handling missing flag countries",
-          "code": "// Incorrect - assumes all flags exist\nconst Flag = flags[country];\nreturn <Flag />; // Will crash if flag doesn't exist\n// Correct - fallback to icon\nconst Flag = flags[country];\nreturn Flag ? <Flag /> : <Phone size={16} />;"
-        }
-      }
-    },
-    {
-      "kind": "type",
-      "name": "CountrySelectProps",
-      "signature": "type CountrySelectProps = { disabled?: boolean; className?: string; value: RPNInput.Country; onChange: (value: RPNInput.Country) => void; options: { label: string; value: RPNInput.Country | undefined }[] }",
-      "description": "Props type for the CountrySelect component defining the disabled state, custom className, current country value, change handler, and array of country options with labels.",
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/InternationalPhonePicker.tsx#L1",
-        "nx_kb_anchor": "CountrySelectProps"
       },
       "details": {
-        "what_it_does": "Props type for the CountrySelect component defining the disabled state, custom className, current country value, change handler, and array of country options with labels.",
-        "type_definition": "type CountrySelectProps = {\n  disabled?: boolean;\n  className?: string;\n  value: RPNInput.Country;\n  onChange: (value: RPNInput.Country) => void;\n  options: { label: string; value: RPNInput.Country | undefined }[];\n};"
+        "what_it_does": "Renders an international phone number input using react-phone-number-input (RPNInput) library. Features include: customizable country list (US, IL, NG, TH default), country flag display with dropdown selector, automatic phone number formatting based on selected country, optional label rendering via ElementLabel component, keyboard Enter support with custom callback, both controlled (setPhoneValue) and uncontrolled (internal state) value modes, and a hidden input for form submission. Phone input always renders left-to-right regardless of direction prop. Merges provided countries with default countries. Supports RTL containers with LTR phone input.",
+        "rendered_ui_description": "Horizontal flex container (RTL/LTR based on direction prop) containing optional label on the start side and a combined phone input widget on the flex-expanding end. The phone input widget shows a country flag selector button on the left (displays country flag and down chevron, opens dropdown on click with searchable country list) and a phone number text input field on the right. Input has gray border styling. All text rendering is left-to-right for proper phone number display."
       },
-      "symbol_id": "type_country_select_props",
-      "description_one_line": "Props type for the CountrySelect component defining the disabled state, custom className, current country value, change handler, and array of country options with labels.",
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 100,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/InternationalPhonePicker.tsx#L11-L100",
+        "nx_kb_anchor": "#InternationalPhonePicker"
+      },
       "examples": {
         "minimal_correct": {
-          "title": "Using CountrySelectProps type",
-          "code": "const countrySelectProps: CountrySelectProps = {\n  value: 'IL' as RPNInput.Country,\n  onChange: (country) => console.log(country),\n  options: [\n    { label: 'Israel', value: 'IL' },\n    { label: 'United States', value: 'US' }\n  ],\n  disabled: false\n};"
+          "title": "Basic international phone input without label",
+          "code": "import { useState } from 'react';\nimport InternationalPhonePicker from '@/components/forms/ModularForm/InternationalPhonePicker';\n\nconst PhoneForm = () => {\n  const [phone, setPhone] = useState('');\n\n  return (\n    <InternationalPhonePicker\n      phoneValue={phone}\n      setPhoneValue={setPhone}\n      defaultCountry=\"US\"\n      placeholder=\"Enter phone number\"\n    />\n  );\n};"
         },
         "extensive_correct": {
-          "title": "Building country options from data",
-          "code": "const countries = ['US', 'IL', 'GB'] as const;\nconst options: CountrySelectProps['options'] = countries.map(c => ({\n  label: new Intl.DisplayNames(['en'], { type: 'region' }).of(c) || c,\n  value: c as RPNInput.Country\n}));\nconst props: CountrySelectProps = {\n  value: 'IL' as RPNInput.Country,\n  onChange: setCountry,\n  options\n};"
+          "title": "Comprehensive phone input with label, validation, and form integration",
+          "code": "import { useState } from 'react';\nimport InternationalPhonePicker from '@/components/forms/ModularForm/InternationalPhonePicker';\n\nconst ContactForm = () => {\n  const [phone, setPhone] = useState('');\n  const [country, setCountry] = useState<string>('US');\n  const [isValid, setIsValid] = useState(false);\n\n  const handlePhoneChange = (value: string) => {\n    setPhone(value);\n    // Validate: must have at least 10 digits\n    const digitsOnly = value.replace(/\\D/g, '');\n    setIsValid(digitsOnly.length >= 10);\n  };\n\n  const handleSubmit = (e: React.FormEvent) => {\n    e.preventDefault();\n    if (isValid) {\n      console.log('Submitting phone:', phone, 'Country:', country);\n      // Submit to server\n    }\n  };\n\n  return (\n    <form onSubmit={handleSubmit} className=\"space-y-4\">\n      <InternationalPhonePicker\n        phoneValue={phone}\n        setPhoneValue={handlePhoneChange}\n        name=\"contactPhone\"\n        labelContent=\"Contact Phone Number\"\n        required={true}\n        defaultCountry=\"US\"\n        countries={['US', 'CA', 'MX', 'GB', 'AU', 'NZ', 'IL', 'JP', 'SG']}\n        placeholder=\"(555) 123-4567\"\n        direction=\"ltr\"\n        defaultFocus={true}\n        onEnter={() => {\n          if (isValid) handleSubmit({ preventDefault: () => {} } as React.FormEvent);\n        }}\n        inputClassName=\"text-lg\"\n        containerClassName=\"bg-gray-50 p-3 rounded-lg\"\n      />\n      <div className=\"flex items-center gap-2\">\n        <span className={isValid ? 'text-green-600' : 'text-red-600'}>\n          {isValid ? '✓ Valid' : '✗ Invalid (min 10 digits)'}\n        </span>\n      </div>\n      <button\n        type=\"submit\"\n        disabled={!isValid}\n        className=\"px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-50\"\n      >\n        Submit\n      </button>\n    </form>\n  );\n};"
         },
-        "incorrect_pattern": {
-          "title": "Common mistake: Wrong type for onChange handler",
-          "code": "// Incorrect - returns string instead of proper type\nconst props = {\n  onChange: (country: string) => { } // Wrong\n};\n// Correct - use RPNInput.Country type\nconst props: CountrySelectProps = {\n  onChange: (country: RPNInput.Country) => { } // Correct\n};"
+        "incorrect": {
+          "title": "Incorrect: Attempting to control value without setting external state updater",
+          "code": "// Problem: phoneValue prop ignored because setPhoneValue not provided\nconst BadPhoneInput = () => {\n  const [phone, setPhone] = useState('+1 555 123 4567');\n\n  return (\n    <InternationalPhonePicker\n      phoneValue={phone}  // Provided but ignored!\n      setPhoneValue={undefined}  // No updater, uses internal state\n    />\n  );\n};\n// Result: Value doesn't update when external phone state changes. Component uses internal state instead.",
+          "why_incorrect": "InternationalPhonePicker checks for setPhoneValue callback. If not provided, it uses internal state regardless of phoneValue prop. Always provide setPhoneValue callback to maintain controlled component pattern. Otherwise, use only defaultValue for uncontrolled initialization."
         }
       }
     }

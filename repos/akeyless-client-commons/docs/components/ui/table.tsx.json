@@ -1,0 +1,318 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "table.tsx",
+  "source": {
+    "file_path": "components/ui/table.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-15T11:42:40+02:00",
+    "language": "tsx",
+    "framework_tags": [
+      "react"
+    ],
+    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/table.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/table.tsx.json"
+  },
+  "summary": {
+    "purpose": "Primitive table components.",
+    "problem_solved": "Styled table elements (table, thead, tbody, tr, th, td)."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "React components."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "@/lib/utils",
+        "why_used": "cn utility.",
+        "resolved_file_path": "lib/utils",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "TableSCN",
+      "kind": "component",
+      "description_one_line": "Table root.",
+      "symbol_id": "TableSCN"
+    },
+    {
+      "name": "TableHeaderSCN",
+      "kind": "component",
+      "description_one_line": "Thead.",
+      "symbol_id": "TableHeaderSCN"
+    },
+    {
+      "name": "TableBodySCN",
+      "kind": "component",
+      "description_one_line": "Tbody.",
+      "symbol_id": "TableBodySCN"
+    },
+    {
+      "name": "TableFooterSCN",
+      "kind": "component",
+      "description_one_line": "Tfoot.",
+      "symbol_id": "TableFooterSCN"
+    },
+    {
+      "name": "TableRowSCN",
+      "kind": "component",
+      "description_one_line": "Tr.",
+      "symbol_id": "TableRowSCN"
+    },
+    {
+      "name": "TableHeadSCN",
+      "kind": "component",
+      "description_one_line": "Th.",
+      "symbol_id": "TableHeadSCN"
+    },
+    {
+      "name": "TableCellSCN",
+      "kind": "component",
+      "description_one_line": "Td.",
+      "symbol_id": "TableCellSCN"
+    },
+    {
+      "name": "TableCaptionSCN",
+      "kind": "component",
+      "description_one_line": "Caption.",
+      "symbol_id": "TableCaptionSCN"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "TableSCN",
+      "name": "TableSCN",
+      "kind": "component",
+      "description_one_line": "Table Component.",
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "JSX.Element"
+        }
+      },
+      "details": {
+        "what_it_does": "Table Component."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/table.tsx#L1",
+        "nx_kb_anchor": "TableSCN"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic table structure",
+          "code": "<TableSCN>\n  <TableHeaderSCN>\n    <TableRowSCN>\n      <TableHeadSCN>Name</TableHeadSCN>\n      <TableHeadSCN>Email</TableHeadSCN>\n    </TableRowSCN>\n  </TableHeaderSCN>\n  <TableBodySCN>\n    <TableRowSCN>\n      <TableCellSCN>John</TableCellSCN>\n      <TableCellSCN>john@example.com</TableCellSCN>\n    </TableRowSCN>\n  </TableBodySCN>\n</TableSCN>"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableHeaderSCN",
+      "name": "TableHeaderSCN",
+      "kind": "component",
+      "description_one_line": "Thead.",
+      "details": {
+        "what_it_does": "Thead."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableHeaderSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Table header with columns",
+          "code": "<TableHeaderSCN>\n  <TableRowSCN>\n    <TableHeadSCN>ID</TableHeadSCN>\n    <TableHeadSCN>Name</TableHeadSCN>\n    <TableHeadSCN>Status</TableHeadSCN>\n  </TableRowSCN>\n</TableHeaderSCN>"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableBodySCN",
+      "name": "TableBodySCN",
+      "kind": "component",
+      "description_one_line": "Tbody.",
+      "details": {
+        "what_it_does": "Tbody."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableBodySCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Table body with rows",
+          "code": "<TableBodySCN>\n  <TableRowSCN>\n    <TableCellSCN>1</TableCellSCN>\n    <TableCellSCN>John Doe</TableCellSCN>\n    <TableCellSCN>Active</TableCellSCN>\n  </TableRowSCN>\n</TableBodySCN>"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableFooterSCN",
+      "name": "TableFooterSCN",
+      "kind": "component",
+      "description_one_line": "Tfoot.",
+      "details": {
+        "what_it_does": "Tfoot."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableFooterSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Table footer with totals",
+          "code": "<TableFooterSCN>\n  <TableRowSCN>\n    <TableHeadSCN>Total</TableHeadSCN>\n    <TableHeadSCN>50 records</TableHeadSCN>\n  </TableRowSCN>\n</TableFooterSCN>"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableRowSCN",
+      "name": "TableRowSCN",
+      "kind": "component",
+      "description_one_line": "Tr.",
+      "details": {
+        "what_it_does": "Tr."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableRowSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Single table row",
+          "code": "<TableRowSCN>\n  <TableCellSCN>Data 1</TableCellSCN>\n  <TableCellSCN>Data 2</TableCellSCN>\n</TableRowSCN>"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableHeadSCN",
+      "name": "TableHeadSCN",
+      "kind": "component",
+      "description_one_line": "Th.",
+      "details": {
+        "what_it_does": "Th."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableHeadSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Table header cell",
+          "code": "<TableHeadSCN>Column Name</TableHeadSCN>"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableCellSCN",
+      "name": "TableCellSCN",
+      "kind": "component",
+      "description_one_line": "Td.",
+      "details": {
+        "what_it_does": "Td."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableCellSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Table cell",
+          "code": "<TableCellSCN>Cell Content</TableCellSCN>"
+        }
+      }
+    },
+    {
+      "symbol_id": "TableCaptionSCN",
+      "name": "TableCaptionSCN",
+      "kind": "component",
+      "description_one_line": "Caption.",
+      "details": {
+        "what_it_does": "Caption."
+      },
+      "locations": {
+        "source_line_start": 0,
+        "source_line_end": 0,
+        "github_permalink": "",
+        "nx_kb_anchor": "#TableCaptionSCN"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "void",
+          "description": ""
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Table caption",
+          "code": "<TableCaptionSCN>User Data</TableCaptionSCN>"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

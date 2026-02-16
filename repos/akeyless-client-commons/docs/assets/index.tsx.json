@@ -43,43 +43,43 @@
       "name": "RedXSvg",
       "kind": "component",
       "description_one_line": "React component rendering a red X icon inside a circle for error/failure indication",
-      "symbol_id": "RedXSvg"
+      "symbol_id": "AssetExports"
     },
     {
       "name": "RedXSvg2",
       "kind": "component",
       "description_one_line": "React component rendering a standalone red X icon for close/dismiss actions",
-      "symbol_id": "RedXSvg2"
+      "symbol_id": "AssetExports"
     },
     {
       "name": "GreenVSvg",
       "kind": "component",
       "description_one_line": "React component rendering a green checkmark icon inside a circle for success/valid indication",
-      "symbol_id": "GreenVSvg"
+      "symbol_id": "AssetExports"
     },
     {
       "name": "sortSvg",
       "kind": "function",
       "description_one_line": "Factory function creating a sort direction arrow SVG icon with optional 180-degree rotation",
-      "symbol_id": "sortSvg"
+      "symbol_id": "AssetExports"
     },
     {
       "name": "emptyFilterSvg",
       "kind": "function",
       "description_one_line": "Factory function creating a filter state indicator SVG icon with solid or outline variants",
-      "symbol_id": "emptyFilterSvg"
+      "symbol_id": "AssetExports"
     },
     {
       "name": "slashFilterSvg",
       "kind": "function",
       "description_one_line": "Factory function creating a slashed filter (no-filter) indicator SVG icon",
-      "symbol_id": "slashFilterSvg"
+      "symbol_id": "AssetExports"
     },
     {
       "name": "exportToExcelSvg",
       "kind": "function",
       "description_one_line": "Factory function creating an export-to-Excel button SVG icon with customizable dimensions",
-      "symbol_id": "exportToExcelSvg"
+      "symbol_id": "AssetExports"
     }
   ],
   "symbols": [
@@ -96,6 +96,13 @@
         "source_line_end": 2,
         "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx#L1-L2",
         "nx_kb_anchor": "#AssetExports"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "namespace",
+          "description": "Re-exports from svg and table submodules"
+        }
       },
       "examples": {
         "minimal_correct": {

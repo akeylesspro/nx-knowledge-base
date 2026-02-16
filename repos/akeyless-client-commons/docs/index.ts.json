@@ -1,39 +1,241 @@
 {
-  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "test-kb-v-1"
+  },
   "file_name": "index.ts",
   "source": {
     "file_path": "index.ts",
     "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "generated_at_iso": "2026-02-15T00:00:00Z",
     "language": "ts",
-    "framework_tags": ["root-export", "package-barrel", "monorepo-module"],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/index.ts.json"
+    "framework_tags": [
+      "react",
+      "typescript"
+    ],
+    "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/index"
   },
   "summary": {
-    "purpose": "Root project barrel export providing namespaced access to all library modules (Assets, Components, Helpers, Hooks, Types). Primary entry point for consuming akeyless-client-commons library.",
-    "problem_solved": "Enables clean namespace organization for library consumers: import { components, helpers, hooks, types } from 'akeyless-client-commons' rather than importing from scattered module paths."
+    "purpose": "Main entry point for the akeyless-client-commons library that exports core modules including assets, components, helpers, hooks, and types",
+    "problem_solved": "Provides a unified namespace for consumers of the library to access all major functionality and modules"
   },
-  "dependencies": {"external": [], "internal": [
-    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.ts.json", "why_used": "SVG components and table utility functions", "import_path": "./assets", "resolved_file_path": "assets/index.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx"},
-    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/index.ts.json", "why_used": "All React components (UI, forms, tables, utilities)", "import_path": "./components", "resolved_file_path": "components/index.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx"},
-    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json", "why_used": "Utility functions (API routing, Firebase operations, form validation, time/phone helpers)", "import_path": "./helpers", "resolved_file_path": "helpers/index.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts"},
-    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/index.ts.json", "why_used": "Custom React hooks (state management, Firestore subscriptions, Web Worker integration)", "import_path": "./hooks", "resolved_file_path": "hooks/index.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/index.ts"},
-    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json", "why_used": "All TypeScript type definitions and interfaces", "import_path": "./types", "resolved_file_path": "types/index.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts"}
-  ]},
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "import_path": "./assets",
+        "resolved_file_path": "assets/index.tsx",
+        "why_used": "Exports asset-related utilities and components",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index",
+        "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx"
+      },
+      {
+        "import_path": "./components",
+        "resolved_file_path": "components/index.tsx",
+        "why_used": "Exports all React components including UI, forms, tables, and utility components",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/index",
+        "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx"
+      },
+      {
+        "import_path": "./helpers",
+        "resolved_file_path": "helpers/index.ts",
+        "why_used": "Exports utility functions for API, forms, Firebase, permissions, and more",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index",
+        "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts"
+      },
+      {
+        "import_path": "./hooks",
+        "resolved_file_path": "hooks/index.ts",
+        "why_used": "Exports React hooks for state management and snapshots",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/index",
+        "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/index.ts"
+      },
+      {
+        "import_path": "./types",
+        "resolved_file_path": "types/index.ts",
+        "why_used": "Exports TypeScript types, interfaces, enums, and classes used throughout the library",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index",
+        "link_to_github": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts"
+      }
+    ]
+  },
   "exports": [
-    {"name": "assets", "kind": "value", "line": 7, "description_one_line": "Assets namespace (SVG components, table utilities)", "symbol_id": "reexport_root_assets"},
-    {"name": "components", "kind": "value", "line": 8, "description_one_line": "Components namespace (UI, forms, tables, utilities)", "symbol_id": "reexport_root_components"},
-    {"name": "helpers", "kind": "value", "line": 9, "description_one_line": "Helpers namespace (API, Firebase, forms, time, phone utilities)", "symbol_id": "reexport_root_helpers"},
-    {"name": "hooks", "kind": "value", "line": 10, "description_one_line": "Hooks namespace (state, snapshots, Web Worker)", "symbol_id": "reexport_root_hooks"},
-    {"name": "types", "kind": "value", "line": 11, "description_one_line": "Types namespace (interfaces, type definitions)", "symbol_id": "reexport_root_types"}
+    {
+      "name": "assets",
+      "kind": "value",
+      "description_one_line": "Namespace containing asset-related utilities and SVG components",
+      "symbol_id": "export_assets"
+    },
+    {
+      "name": "components",
+      "kind": "value",
+      "description_one_line": "Namespace containing all React components from the library",
+      "symbol_id": "export_components"
+    },
+    {
+      "name": "helpers",
+      "kind": "value",
+      "description_one_line": "Namespace containing utility functions and helpers",
+      "symbol_id": "export_helpers"
+    },
+    {
+      "name": "hooks",
+      "kind": "value",
+      "description_one_line": "Namespace containing React hooks",
+      "symbol_id": "export_hooks"
+    },
+    {
+      "name": "types",
+      "kind": "value",
+      "description_one_line": "Namespace containing TypeScript types and interfaces",
+      "symbol_id": "export_types"
+    }
   ],
   "symbols": [
-    {"symbol_id": "reexport_root_assets", "name": "assets", "kind": "value", "description_one_line": "Assets module namespace", "details": {"what_it_does": "Namespaced export of assets module containing SVG components (GreenVSvg, RedXSvg, etc.) and table utility functions for Excel export and cell rendering"}, "locations": {"source_line_start": 7, "source_line_end": 7, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L7", "nx_kb_anchor": "reexport_root_assets"}},
-    {"symbol_id": "reexport_root_components", "name": "components", "kind": "value", "description_one_line": "Components module namespace", "details": {"what_it_does": "Namespaced export of components module: all React components organized by type (UI primitives, form builders, data tables, utility components). Includes CodeInput for OTP inputs, ErrorBoundary for error handling, and specialized table sub-components with custom cell renderers"}, "locations": {"source_line_start": 8, "source_line_end": 8, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L8", "nx_kb_anchor": "reexport_root_components"}},
-    {"symbol_id": "reexport_root_helpers", "name": "helpers", "kind": "value", "description_one_line": "Helpers module namespace", "details": {"what_it_does": "Namespaced export of utility functions: nxApiCall (authenticated API routing), Firebase operations (CRUD, subscriptions, storage), email attachment creation, Excel export, Socket.io integration, form validation (regex patterns, input handlers), permission checking, time/date formatting, and phone number conversion utilities"}, "locations": {"source_line_start": 9, "source_line_end": 9, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L9", "nx_kb_anchor": "reexport_root_helpers"}},
-    {"symbol_id": "reexport_root_hooks", "name": "hooks", "kind": "value", "description_one_line": "Hooks module namespace", "details": {"what_it_does": "Namespaced export of custom React hooks: useDocumentTitle, useSetUserCountry (global hooks), useWebWorker for Web Worker integration, useDbSnapshots/useDbDocumentSnapshots/useSmartSnapshots/useSocketSnapshots for Firestore real-time subscriptions, and table hooks (useTableContext, useFilter, useSort, useDisplayToggle, useSearch, useCreateTableStore)"}, "locations": {"source_line_start": 10, "source_line_end": 10, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L10", "nx_kb_anchor": "reexport_root_hooks"}},
-    {"symbol_id": "reexport_root_types", "name": "types", "kind": "value", "description_one_line": "Types module namespace", "details": {"what_it_does": "Namespaced export of all TypeScript type definitions: form element interfaces (InputElement, SelectElement, MultiSelectProps, etc.), ModularFormProps, Firebase types (User, Car, Location data structures), global types (environment config, geolocation), and snapshot listener configuration types"}, "locations": {"source_line_start": 11, "source_line_end": 11, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L11", "nx_kb_anchor": "reexport_root_types"}}
+    {
+      "symbol_id": "export_assets",
+      "name": "assets",
+      "kind": "value",
+      "description_one_line": "Re-exports all assets module exports",
+      "details": {
+        "what_it_does": "Provides access to all asset-related utilities including SVG components and asset helpers"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L1-L12",
+        "nx_kb_anchor": "#export_assets"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "Namespace object aggregating the module exports"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Access assets module",
+          "code": "import { assets } from 'akeyless-client-commons';\nconst svg = assets.svg.GreenVSvg();"
+        }
+      }
+    },
+    {
+      "symbol_id": "export_components",
+      "name": "components",
+      "kind": "value",
+      "description_one_line": "Re-exports all components module exports",
+      "details": {
+        "what_it_does": "Provides access to all React components including UI components, forms, tables, and utilities"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L1-L12",
+        "nx_kb_anchor": "#export_components"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "Namespace object aggregating the module exports"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Access components module",
+          "code": "import { components } from 'akeyless-client-commons';\nconst { Table, Button, ModularForm } = components;"
+        }
+      }
+    },
+    {
+      "symbol_id": "export_helpers",
+      "name": "helpers",
+      "kind": "value",
+      "description_one_line": "Re-exports all helpers module exports",
+      "details": {
+        "what_it_does": "Provides access to utility functions for API calls, form validation, Firebase operations, permissions checking, and more"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L1-L12",
+        "nx_kb_anchor": "#export_helpers"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "Namespace object aggregating the module exports"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Access helpers module",
+          "code": "import { helpers } from 'akeyless-client-commons';\nconst country = await helpers.getUserCountryByIp();"
+        }
+      }
+    },
+    {
+      "symbol_id": "export_hooks",
+      "name": "hooks",
+      "kind": "value",
+      "description_one_line": "Re-exports all hooks module exports",
+      "details": {
+        "what_it_does": "Provides access to React hooks for state management, snapshot subscriptions, and custom React utilities"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L1-L12",
+        "nx_kb_anchor": "#export_hooks"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "Namespace object aggregating the module exports"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Access hooks module",
+          "code": "import { hooks } from 'akeyless-client-commons';\nconst { useWebWorker, useDbSnapshots } = hooks;"
+        }
+      }
+    },
+    {
+      "symbol_id": "export_types",
+      "name": "types",
+      "kind": "value",
+      "description_one_line": "Re-exports all types module exports",
+      "details": {
+        "what_it_does": "Provides access to TypeScript types, interfaces, enums, and classes used throughout the library"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/index.ts#L1-L12",
+        "nx_kb_anchor": "#export_types"
+      },
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "unknown",
+          "description": "Namespace object aggregating the module exports"
+        }
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Access types module",
+          "code": "import type { types } from 'akeyless-client-commons';\ntype Direction = types.Direction;"
+        }
+      }
+    }
   ],
-  "quality": {"generation_confidence": "high"}
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
 }

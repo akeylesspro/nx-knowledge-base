@@ -75,14 +75,14 @@
         "import_path": "@/types",
         "resolved_file_path": "types/interfaces/forms.ts",
         "why_used": "Type definitions for ConfirmFormProps and DatePickerProps interfaces.",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/interfaces/forms.json",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/interfaces/forms.ts.json",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts"
       },
       {
         "import_path": "@/lib/utils",
         "resolved_file_path": "lib/utils.ts",
         "why_used": "cn utility for conditional CSS class merging in all components.",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.json",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
       },
       {

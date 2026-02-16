@@ -1,0 +1,141 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "progress.tsx",
+  "source": {
+    "file_path": "components/ui/progress.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T15:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "react",
+      "radix-ui"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/progress.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/progress.json"
+  },
+  "summary": {
+    "purpose": "Provides a customizable progress bar component built on Radix UI's Progress primitive with support for displaying percentage values and custom styling.",
+    "problem_solved": "Simplifies creating accessible progress bars by wrapping Radix UI's Progress primitive with pre-styled container and indicator, optional percentage display, and flexible styling for different use cases."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "@radix-ui/react-progress",
+        "kind": "runtime",
+        "why_used": "Provides the accessible Progress primitive with semantic HTML and ARIA attributes"
+      },
+      {
+        "name": "react",
+        "kind": "runtime",
+        "why_used": "Core React library for component creation, forwardRef, and JSX rendering"
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "@/lib/utils",
+        "resolved_file_path": "lib/utils",
+        "why_used": "Provides the cn() utility function for conditionally merging CSS classes",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "ProgressComponent",
+      "kind": "component",
+      "description_one_line": "Customizable progress bar with optional percentage display",
+      "symbol_id": "ProgressComponent"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "ProgressComponent",
+      "name": "ProgressComponent",
+      "kind": "component",
+      "description_one_line": "Accessible progress bar component with optional value display and custom styling",
+      "signature": {
+        "params": [
+          {
+            "name": "value",
+            "type": "number",
+            "required": false,
+            "description": "Progress value as a percentage (0-100). If not provided, defaults to 0."
+          },
+          {
+            "name": "showValue",
+            "type": "boolean",
+            "required": false,
+            "description": "Whether to display the percentage value inside the progress indicator. Defaults to false."
+          },
+          {
+            "name": "className",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes to merge with the root progress bar container styles"
+          },
+          {
+            "name": "containerClassName",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes for the outer wrapper div (relative positioned container)"
+          },
+          {
+            "name": "indicatorClassName",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes for the inner progress indicator bar (the filled portion)"
+          },
+          {
+            "name": "showValueClassName",
+            "type": "string",
+            "required": false,
+            "description": "Optional CSS classes for the percentage text display when showValue is true"
+          },
+          {
+            "name": "...props",
+            "type": "React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>",
+            "required": false,
+            "description": "All standard Radix UI Progress Root props (min, max, getValueLabel, etc.)"
+          }
+        ],
+        "returns": {
+          "type": "React.ReactElement",
+          "description": "A styled progress bar component with optional percentage display"
+        }
+      },
+      "details": {
+        "what_it_does": "Renders a progress bar using Radix UI's ProgressPrimitive.Root and Indicator. The component creates a relative positioned container with a fixed-height progress bar. The indicator fills from left to right based on the value prop (0-100%). When showValue is true, displays the percentage text overlaid on the right side of the indicator with white text. Uses forwardRef to expose the underlying Radix progress element. Supports custom styling for the container, progress bar, and value text through className props.",
+        "rendered_ui_description": "A horizontal progress bar with light gray background (bg-[#e5e7eb]), green fill color, and rounded corners. Height is 20px (h-5). When showValue is true, displays white percentage text (0-100%) on the right side of the filled portion. The indicator width grows from 0% to 100% based on the value prop with a smooth transition animation."
+      },
+      "locations": {
+        "source_line_start": 13,
+        "source_line_end": 28,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/progress.tsx#L13-L28",
+        "nx_kb_anchor": "#ProgressComponent"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic progress bar at 50%",
+          "code": "import { ProgressComponent } from 'akeyless-client-commons/components/ui';\n\nconst MyProgress = () => (\n  <ProgressComponent value={50} />\n);"
+        },
+        "extensive_correct": {
+          "title": "Progress bar with value display and custom styling",
+          "code": "import { useState, useEffect } from 'react';\nimport { ProgressComponent } from 'akeyless-client-commons/components/ui';\n\nconst FileUploadProgress = () => {\n  const [uploadProgress, setUploadProgress] = useState(0);\n  \n  useEffect(() => {\n    // Simulate upload progress\n    const interval = setInterval(() => {\n      setUploadProgress((prev) => Math.min(prev + 10, 100));\n    }, 500);\n    return () => clearInterval(interval);\n  }, []);\n  \n  return (\n    <div className=\"w-full max-w-md\">\n      <h3 className=\"font-semibold mb-2\">Upload Progress</h3>\n      <ProgressComponent \n        value={uploadProgress}\n        showValue\n        indicatorClassName=\"bg-blue-500\"\n        showValueClassName=\"text-sm\"\n      />\n      <p className=\"text-sm text-gray-500 mt-2\">\n        {uploadProgress === 100 ? 'Upload complete!' : 'Uploading...'}\n      </p>\n    </div>\n  );\n};"
+        },
+        "incorrect": {
+          "title": "Incorrect: Value exceeding 100%",
+          "code": "// Value should be 0-100\n<ProgressComponent value={150} showValue />\n// This will show 150% which is visually incorrect",
+          "why_incorrect": "The progress bar expects a value between 0 and 100 representing a percentage. Values above 100 will cause visual overflow and incorrect percentage display. Always clamp or validate the value to the 0-100 range before passing to the component."
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}
