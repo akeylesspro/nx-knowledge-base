@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getRepoMeta } from "@/lib/docs";
 import { DocBreadcrumb } from "@/components/docs";
 import { Badge } from "@/components/ui/badge";
+import { TranslatedText } from "@/components/i18n";
 import fs from "fs/promises";
 import path from "path";
 
@@ -37,16 +38,16 @@ export default async function ApiDocsPage({ params }: ApiDocsPageProps) {
                 <DocBreadcrumb repoName={repo} filePath="api-docs" />
 
                 <div className="mt-6 mb-8">
-                    <h1 className="text-2xl font-bold mb-2">API Documentation</h1>
-                    <p className="text-muted-foreground">{meta.display_name} — OpenAPI / Swagger</p>
+                    <h1 className="text-2xl font-bold mb-2"><TranslatedText tKey="app.api_docs_title" /></h1>
+                    <p className="text-muted-foreground">{meta.display_name} — <TranslatedText tKey="app.api_docs_openapi" /></p>
                 </div>
 
                 {!spec ? (
                     <div className="text-center py-16 bg-card rounded-xl border border-border">
                         <i className="fa-solid fa-plug text-4xl text-muted-foreground mb-4 block" />
-                        <h3 className="text-lg font-medium mb-2">No API spec available</h3>
+                        <h3 className="text-lg font-medium mb-2"><TranslatedText tKey="app.no_api_spec" /></h3>
                         <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                            An OpenAPI specification will be generated when the Sync Agent detects route/endpoint definitions in the codebase.
+                            <TranslatedText tKey="app.no_api_spec_hint" />
                         </p>
                     </div>
                 ) : (
@@ -63,7 +64,7 @@ export default async function ApiDocsPage({ params }: ApiDocsPageProps) {
 
                         {/* Endpoints */}
                         <div className="space-y-3">
-                            <h2 className="text-lg font-semibold">Endpoints</h2>
+                            <h2 className="text-lg font-semibold"><TranslatedText tKey="app.endpoints" /></h2>
                             {Object.entries(spec.paths).map(([pathStr, methods]) =>
                                 Object.entries(methods).map(([method, details]) => (
                                     <div key={`${method}-${pathStr}`} className="flex items-start gap-3 p-4 rounded-xl border border-border bg-card">

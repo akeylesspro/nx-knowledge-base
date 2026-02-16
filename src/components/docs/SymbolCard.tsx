@@ -1,6 +1,9 @@
+"use client";
+
 import type { FileSymbol } from "@/types/schema";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { useTranslation } from "react-i18next";
 import { CodeBlock } from "./CodeBlock";
 
 type FlexSymbol = FileSymbol & { id?: string; description?: string; line?: number };
@@ -23,6 +26,7 @@ const kindColors: Record<string, string> = {
 };
 
 export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
+    const { t } = useTranslation();
     const symbolId = symbol.symbol_id ?? symbol.id;
     const description = symbol.description_one_line ?? symbol.description ?? "";
     const githubPermalink = symbol.locations?.github_permalink ?? (fileLinkToGithub && symbol.line ? `${fileLinkToGithub}#L${symbol.line}` : undefined);
@@ -40,7 +44,7 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
                 </div>
                 {githubPermalink && (
                     <a href={githubPermalink} target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
-                        <i className="fa-brands fa-github" /> View on GitHub
+                        <i className="fa-brands fa-github" /> {t("docs.view_on_github")}
                     </a>
                 )}
             </div>
@@ -50,10 +54,10 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
             {/* Signature */}
             {symbol.signature && (
                 <div className="mb-4">
-                    <h4 className="text-sm font-semibold mb-2 text-foreground">Signature</h4>
+                    <h4 className="text-sm font-semibold mb-2 text-foreground">{t("docs.signature")}</h4>
                     {symbol.signature.params && symbol.signature.params.length > 0 && (
                         <div className="mb-3">
-                            <h5 className="text-xs font-medium text-muted-foreground mb-1">Parameters</h5>
+                            <h5 className="text-xs font-medium text-muted-foreground mb-1">{t("docs.parameters")}</h5>
                             <div className="space-y-1">
                                 {symbol.signature.params.map((param) => (
                                     <div key={param.name} className="flex items-start gap-2 text-sm pl-3">
@@ -61,7 +65,7 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
                                         <span className="text-muted-foreground shrink-0">
                                             : <code className="font-mono">{param.type}</code>
                                         </span>
-                                        {!param.required && <Badge variant="outline" className="text-[10px] px-1 py-0">optional</Badge>}
+                                        {!param.required && <Badge variant="outline" className="text-[10px] px-1 py-0">{t("docs.optional")}</Badge>}
                                         <span className="text-muted-foreground">— {param.description}</span>
                                     </div>
                                 ))}
@@ -70,7 +74,7 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
                     )}
                     {symbol.signature.returns && (
                         <div className="text-sm pl-3">
-                            <span className="text-muted-foreground">Returns: </span>
+                            <span className="text-muted-foreground">{t("docs.returns")}: </span>
                             <code className="font-mono text-primary">{symbol.signature.returns.type}</code>
                             <span className="text-muted-foreground"> — {symbol.signature.returns.description}</span>
                         </div>
@@ -83,7 +87,7 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
             {/* Details */}
             {whatItDoes && (
                 <div className="mb-4">
-                    <h4 className="text-sm font-semibold mb-2 text-foreground">What it does</h4>
+                    <h4 className="text-sm font-semibold mb-2 text-foreground">{t("docs.what_it_does")}</h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">{whatItDoes}</p>
                 </div>
             )}
@@ -91,7 +95,7 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
             {/* Side effects */}
             {sideEffects.length > 0 && (
                 <div className="mb-4">
-                    <h4 className="text-sm font-semibold mb-2 text-foreground">Side Effects</h4>
+                    <h4 className="text-sm font-semibold mb-2 text-foreground">{t("docs.side_effects")}</h4>
                     <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                         {sideEffects.map((effect, i) => (
                             <li key={i}>{effect}</li>
@@ -103,7 +107,7 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
             {/* Error cases */}
             {errorCases.length > 0 && (
                 <div className="mb-4">
-                    <h4 className="text-sm font-semibold mb-2 text-foreground">Error Cases</h4>
+                    <h4 className="text-sm font-semibold mb-2 text-foreground">{t("docs.error_cases")}</h4>
                     <div className="space-y-2">
                         {errorCases.map((ec, i) => (
                             <div key={i} className="text-sm pl-3 border-l-2 border-destructive/30">
@@ -118,7 +122,7 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
             {/* Class methods */}
             {symbol.details?.methods && symbol.details.methods.length > 0 && (
                 <div className="mb-4">
-                    <h4 className="text-sm font-semibold mb-2 text-foreground">Methods</h4>
+                    <h4 className="text-sm font-semibold mb-2 text-foreground">{t("docs.methods")}</h4>
                     <div className="space-y-3">
                         {symbol.details.methods.map((method) => (
                             <div key={method.name} className="pl-3 border-l-2 border-primary/30">
@@ -133,7 +137,7 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
             {/* Rendered UI description */}
             {symbol.details?.rendered_ui_description && (
                 <div className="mb-4">
-                    <h4 className="text-sm font-semibold mb-2 text-foreground">Rendered UI</h4>
+                    <h4 className="text-sm font-semibold mb-2 text-foreground">{t("docs.rendered_ui")}</h4>
                     <p className="text-sm text-muted-foreground">{symbol.details.rendered_ui_description}</p>
                 </div>
             )}
@@ -143,7 +147,7 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
                 <>
                     <Separator className="my-4" />
                     <div className="space-y-4">
-                        <h4 className="text-sm font-semibold text-foreground">Examples</h4>
+                        <h4 className="text-sm font-semibold text-foreground">{t("docs.examples")}</h4>
                         {symbol.examples.minimal_correct && <CodeBlock title={symbol.examples.minimal_correct.title} code={symbol.examples.minimal_correct.code} />}
                         {symbol.examples.extensive_correct && <CodeBlock title={symbol.examples.extensive_correct.title} code={symbol.examples.extensive_correct.code} />}
                         {symbol.examples.incorrect && <CodeBlock title={symbol.examples.incorrect.title} code={symbol.examples.incorrect.code} variant="incorrect" whyIncorrect={symbol.examples.incorrect.why_incorrect} />}
@@ -156,8 +160,8 @@ export const SymbolCard = ({ symbol, fileLinkToGithub }: SymbolCardProps) => {
                 <div className="mt-4 pt-3 border-t border-border/50">
                     <p className="text-xs text-muted-foreground">
                         {symbol.locations
-                            ? `Lines ${symbol.locations.source_line_start}–${symbol.locations.source_line_end}`
-                            : `Line ${symbol.line}`}
+                            ? t("docs.lines", { start: symbol.locations.source_line_start, end: symbol.locations.source_line_end })
+                            : t("docs.line", { num: symbol.line })}
                     </p>
                 </div>
             )}

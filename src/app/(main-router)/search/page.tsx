@@ -2,17 +2,18 @@ import Link from "next/link";
 import { searchDocs } from "@/lib/docs";
 import { SearchInput } from "@/components/docs";
 import { Badge } from "@/components/ui/badge";
+import { TranslatedText } from "@/components/i18n";
 import type { SearchSymbolKind } from "@/lib/docs/types";
 
 type SearchPageProps = {
     searchParams: Promise<{ q?: string; repo?: string; page?: string; kind?: string }>;
 };
 
-const KIND_TABS: { value: SearchSymbolKind | null; label: string }[] = [
-    { value: null, label: "All" },
-    { value: "function", label: "Functions" },
-    { value: "class", label: "Classes" },
-    { value: "component", label: "Components" },
+const KIND_TABS: { value: SearchSymbolKind | null; labelKey: string }[] = [
+    { value: null, labelKey: "app.filter_all" },
+    { value: "function", labelKey: "app.filter_functions" },
+    { value: "class", labelKey: "app.filter_classes" },
+    { value: "component", labelKey: "app.filter_components" },
 ];
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
@@ -38,12 +39,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     return (
         <div className="w-full h-full overflow-y-auto">
             <div className="max-w-4xl mx-auto py-8 px-6">
-                <h1 className="text-2xl font-bold mb-6">Search Documentation</h1>
+                <h1 className="text-2xl font-bold mb-6"><TranslatedText tKey="app.search_title" /></h1>
 
                 <SearchInput defaultValue={q} repo={repo} kind={currentKind} showButton className="mb-6" />
 
                 <p className="text-xs text-muted-foreground mb-4">
-                    Tip: use <code className="px-1 py-0.5 bg-muted rounded">component:Button</code>, <code className="px-1 py-0.5 bg-muted rounded">function:getName</code>, or <code className="px-1 py-0.5 bg-muted rounded">class:MyClass</code> to search by type
+                    <TranslatedText tKey="app.search_tip" />
                 </p>
 
                 {q && (
@@ -52,8 +53,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                             const isActive = (tab.value === null && !currentKind) || tab.value === currentKind;
                             const href = tab.value === null ? buildSearchUrl({ kind: null }) : buildSearchUrl({ kind: tab.value });
                             return (
-                                <Link key={tab.label} href={href} className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${isActive ? "bg-primary text-primary-foreground" : "bg-muted hover:bg-muted/80"}`}>
-                                    {tab.label}
+                                <Link key={tab.labelKey} href={href} className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${isActive ? "bg-primary text-primary-foreground" : "bg-muted hover:bg-muted/80"}`}>
+                                    <TranslatedText tKey={tab.labelKey} />
                                 </Link>
                             );
                         })}
@@ -64,24 +65,24 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                     <p className="text-sm text-muted-foreground mb-6">
                         {total > 0 ? (
                             <>
-                                Found <strong>{total}</strong> results for &quot;{q}&quot;
+                                <TranslatedText tKey="app.found_results" values={{ count: total, query: q }} />
                                 {currentKind && (
                                     <>
                                         {" "}
-                                        in <Badge variant="outline" className="capitalize">{currentKind}s</Badge>
+                                        <TranslatedText tKey="app.found_in_kind" values={{ kind: currentKind }} /> <Badge variant="outline" className="capitalize">{currentKind}s</Badge>
                                     </>
                                 )}
                                 {repo && (
                                     <>
-                                        {currentKind ? " · " : " in "}
-                                        <Badge variant="outline">{repo}</Badge>
+                                        {currentKind ? " · " : " "}
+                                        <TranslatedText tKey="app.found_in_repo" /> <Badge variant="outline">{repo}</Badge>
                                     </>
                                 )}
                             </>
                         ) : (
                             <>
-                                No results found for &quot;{q}&quot;
-                                {currentKind && <> in {currentKind}s</>}
+                                <TranslatedText tKey="app.no_results" values={{ query: q }} />
+                                {currentKind && <> <TranslatedText tKey="app.no_results_in_kind" values={{ kind: currentKind }} /></>}
                             </>
                         )}
                     </p>
@@ -118,15 +119,15 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                     <div className="flex items-center justify-center gap-2 mt-8">
                         {currentPage > 1 && (
                             <Link href={buildSearchUrl({ page: currentPage - 1, kind: currentKind })} className="px-3 py-1.5 text-sm bg-card border border-border rounded-lg hover:bg-muted transition-colors">
-                                Previous
+                                <TranslatedText tKey="app.previous" />
                             </Link>
                         )}
                         <span className="text-sm text-muted-foreground">
-                            Page {currentPage} of {totalPages}
+                            <TranslatedText tKey="app.page_of" values={{ current: currentPage, total: totalPages }} />
                         </span>
                         {currentPage < totalPages && (
                             <Link href={buildSearchUrl({ page: currentPage + 1, kind: currentKind })} className="px-3 py-1.5 text-sm bg-card border border-border rounded-lg hover:bg-muted transition-colors">
-                                Next
+                                <TranslatedText tKey="app.next" />
                             </Link>
                         )}
                     </div>
@@ -136,8 +137,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 {!q && (
                     <div className="text-center py-16">
                         <i className="fa-solid fa-magnifying-glass text-4xl text-muted-foreground mb-4 block" />
-                        <h3 className="text-lg font-medium mb-2">Search the knowledge base</h3>
-                        <p className="text-sm text-muted-foreground max-w-md mx-auto">Search across all repositories for functions, components, types, dependencies, and more.</p>
+                        <h3 className="text-lg font-medium mb-2"><TranslatedText tKey="app.search_empty_title" /></h3>
+                        <p className="text-sm text-muted-foreground max-w-md mx-auto"><TranslatedText tKey="app.search_empty_desc" /></p>
                     </div>
                 )}
             </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TranslatedText } from "@/components/i18n";
 
 type DocBreadcrumbProps = {
     repoName: string;
@@ -17,7 +18,7 @@ export const DocBreadcrumb = ({ repoName, filePath }: DocBreadcrumbProps) => {
             <ChevronSeparator />
 
             <Link href="/repos" className="hover:text-primary transition-colors">
-                Repos
+                <TranslatedText tKey="docs.repos" />
             </Link>
 
             <ChevronSeparator />

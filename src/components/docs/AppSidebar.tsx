@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
+import { TranslatedText, LanguageSwitcher } from "@/components/i18n";
 import { SearchInput } from "./SearchInput";
 import { FileTree } from "./FileTree";
 import type { FileTreeNode } from "@/lib/docs/types";
@@ -22,16 +22,18 @@ export const AppSidebar = ({ repos, fileTreeMap }: AppSidebarProps) => {
                     </div>
                     <div>
                         <h1 className="text-sm font-bold text-sidebar-foreground group-hover:text-sidebar-primary transition-colors">
-                            NX-KNOWLEDGE-BASE
+                            <TranslatedText tKey="app.title" />
                         </h1>
-                        <p className="text-[10px] text-muted-foreground">Documentation Hub</p>
+                        <p className="text-[10px] text-muted-foreground">
+                            <TranslatedText tKey="app.documentation_hub" />
+                        </p>
                     </div>
                 </Link>
             </div>
 
             {/* Search */}
             <div className="px-4 pb-3">
-                <SearchInput placeholder="Search docs..." />
+                <SearchInput placeholderKey="app.search_placeholder_short" />
             </div>
 
             <Separator />
@@ -39,18 +41,22 @@ export const AppSidebar = ({ repos, fileTreeMap }: AppSidebarProps) => {
             {/* Navigation */}
             <div className="flex-1 py-3 max-h-full overflow-y-auto overflow-x-hidden">
                 <div className="px-3 space-y-1 mb-4">
-                    <SidebarLink href="/" icon="fa-solid fa-house" label="Dashboard" />
-                    <SidebarLink href="/repos" icon="fa-solid fa-folder-tree" label="All Repositories" />
-                    <SidebarLink href="/search" icon="fa-solid fa-magnifying-glass" label="Search" />
+                    <SidebarLink href="/" icon="fa-solid fa-house" labelKey="app.dashboard" />
+                    <SidebarLink href="/repos" icon="fa-solid fa-folder-tree" labelKey="app.all_repos" />
+                    <SidebarLink href="/search" icon="fa-solid fa-magnifying-glass" labelKey="app.search_nav" />
                 </div>
 
                 <Separator className="mx-3" />
 
                 {/* Repos tree */}
                 <div className="px-3 pt-3 ">
-                    <h3 className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground mb-2 px-2">Repositories</h3>
+                    <h3 className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground mb-2 px-2">
+                        <TranslatedText tKey="app.repositories" />
+                    </h3>
                     {repos.length === 0 ? (
-                        <p className="text-xs text-muted-foreground px-2 italic">No repositories yet</p>
+                        <p className="text-xs text-muted-foreground px-2 italic">
+                            <TranslatedText tKey="app.no_repos_sidebar" />
+                        </p>
                     ) : (
                         <div className="space-y-3">
                             {repos.map((repo) => (
@@ -74,7 +80,7 @@ export const AppSidebar = ({ repos, fileTreeMap }: AppSidebarProps) => {
 
             {/* Footer */}
             <div className="p-3 border-t border-sidebar-border">
-                <div className="flex items-center justify-end text-[10px] text-muted-foreground">
+                <div className="flex items-center justify-between gap-2 text-[10px] text-muted-foreground">
                     <a
                         href="/api/v1/repos"
                         target="_blank"
@@ -83,6 +89,7 @@ export const AppSidebar = ({ repos, fileTreeMap }: AppSidebarProps) => {
                     >
                         <i className="fa-solid fa-plug text-[8px]" /> API
                     </a>
+                    <LanguageSwitcher />
                 </div>
             </div>
         </aside>
@@ -92,17 +99,17 @@ export const AppSidebar = ({ repos, fileTreeMap }: AppSidebarProps) => {
 type SidebarLinkProps = {
     href: string;
     icon: string;
-    label: string;
+    labelKey: string;
 };
 
-const SidebarLink = ({ href, icon, label }: SidebarLinkProps) => {
+const SidebarLink = ({ href, icon, labelKey }: SidebarLinkProps) => {
     return (
         <Link
             href={href}
             className="flex items-center gap-2.5 px-2 py-2 text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground rounded-md transition-colors"
         >
             <i className={`${icon} text-xs w-4 text-center text-muted-foreground`} />
-            {label}
+            <TranslatedText tKey={labelKey} />
         </Link>
     );
 };

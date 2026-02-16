@@ -1,6 +1,9 @@
+import Link from "next/link";
 import type { KnowledgeBaseSchema } from "@/types/schema";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { TranslatedText } from "@/components/i18n";
 import { SymbolCard } from "./SymbolCard";
 import { DependencyList } from "./DependencyList";
 import { ExportsList } from "./ExportsList";
@@ -27,7 +30,7 @@ export const DocViewer = ({ doc, repoName }: DocViewerProps) => {
             <div>
                 <div className="flex items-center gap-3 mb-2">
                     <h1 className="text-2xl font-bold">{doc.file_name}</h1>
-                    <Badge className={confidenceColors[doc.quality.generation_confidence]}>{doc.quality.generation_confidence} confidence</Badge>
+                    <Badge className={confidenceColors[doc.quality.generation_confidence]}>{doc.quality.generation_confidence} <TranslatedText tKey="docs.confidence" /></Badge>
                     <Badge variant="outline">{doc.source.language}</Badge>
                     {doc.source.framework_tags.map((tag) => (
                         <Badge key={tag} variant="secondary">
@@ -35,22 +38,30 @@ export const DocViewer = ({ doc, repoName }: DocViewerProps) => {
                         </Badge>
                     ))}
                 </div>
-                <p className="text-sm text-muted-foreground">
-                    {doc.source.file_path} · Generated from commit{" "}
-                    <code className="font-mono text-xs bg-muted px-1 py-0.5 rounded">{doc.source.commit_sha.slice(0, 7)}</code>
+                <p className="text-sm text-muted-foreground flex items-center gap-4 flex-wrap">
+                    <span>
+                        {doc.source.file_path} · <TranslatedText tKey="docs.generated_from_commit" />{" "}
+                        <code className="font-mono text-xs bg-muted px-1 py-0.5 rounded">{doc.source.commit_sha.slice(0, 7)}</code>
+                    </span>
+                    <Link href={`/api/v1/docs/${repoName}/${doc.source.file_path}`} target="_blank" rel="noopener noreferrer">
+                        <Button size="sm" className="h-7 gap-1.5">
+                            <i className="fa-solid fa-plug text-[10px]" />
+                            <TranslatedText tKey="docs.api_request" />
+                        </Button>
+                    </Link>
                 </p>
             </div>
 
             {/* Summary */}
             <section>
-                <h2 className="text-lg font-semibold mb-3">Summary</h2>
+                <h2 className="text-lg font-semibold mb-3"><TranslatedText tKey="docs.summary" /></h2>
                 <div className="bg-card rounded-xl border border-border p-5 space-y-3">
                     <div>
-                        <h3 className="text-sm font-medium text-muted-foreground mb-1">Purpose</h3>
+                        <h3 className="text-sm font-medium text-muted-foreground mb-1"><TranslatedText tKey="docs.purpose" /></h3>
                         <p className="text-foreground">{doc.summary.purpose}</p>
                     </div>
                     <div>
-                        <h3 className="text-sm font-medium text-muted-foreground mb-1">Problem Solved</h3>
+                        <h3 className="text-sm font-medium text-muted-foreground mb-1"><TranslatedText tKey="docs.problem_solved" /></h3>
                         <p className="text-foreground">{doc.summary.problem_solved}</p>
                     </div>
                 </div>
@@ -59,9 +70,9 @@ export const DocViewer = ({ doc, repoName }: DocViewerProps) => {
             <Separator />
 
             {/* Exports */}
-            <section>
+            <section >
                 <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                    Exports
+                    <TranslatedText tKey="docs.exports" />
                     <Badge variant="outline">{doc.exports.length}</Badge>
                 </h2>
                 <ExportsList exports={doc.exports} />
@@ -71,7 +82,7 @@ export const DocViewer = ({ doc, repoName }: DocViewerProps) => {
 
             {/* Dependencies */}
             <section>
-                <h2 className="text-lg font-semibold mb-3">Dependencies</h2>
+                <h2 className="text-lg font-semibold mb-3"><TranslatedText tKey="docs.dependencies" /></h2>
                 <DependencyList dependencies={doc.dependencies} />
             </section>
 
@@ -80,7 +91,7 @@ export const DocViewer = ({ doc, repoName }: DocViewerProps) => {
             {/* Symbols */}
             <section>
                 <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                    Symbols
+                    <TranslatedText tKey="docs.symbols" />
                     <Badge variant="outline">{doc.symbols.length}</Badge>
                 </h2>
                 <div className="space-y-6">
@@ -101,7 +112,7 @@ export const DocViewer = ({ doc, repoName }: DocViewerProps) => {
                     <Separator />
                     <section>
                         <h2 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                            API Endpoints
+                            <TranslatedText tKey="docs.api_endpoints" />
                             <Badge variant="outline">{doc.swagger.covered_endpoints.length}</Badge>
                         </h2>
                         <div className="space-y-2">
@@ -125,7 +136,7 @@ export const DocViewer = ({ doc, repoName }: DocViewerProps) => {
                 <>
                     <Separator />
                     <section>
-                        <h2 className="text-lg font-semibold mb-3">Known Gaps</h2>
+                        <h2 className="text-lg font-semibold mb-3"><TranslatedText tKey="docs.known_gaps" /></h2>
                         <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
                             {doc.quality.known_gaps.map((gap, i) => (
                                 <li key={i}>{gap}</li>
@@ -138,12 +149,12 @@ export const DocViewer = ({ doc, repoName }: DocViewerProps) => {
             {/* Footer */}
             <div className="pt-4 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
                 <span>
-                    Generated {new Date(doc.source.generated_at_iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
-                    {doc.quality.last_reviewed_by && ` · Reviewed by ${doc.quality.last_reviewed_by}`}
+                    <TranslatedText tKey="docs.generated" /> {new Date(doc.source.generated_at_iso).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                    {doc.quality.last_reviewed_by && <> · <TranslatedText tKey="docs.reviewed_by" /> {doc.quality.last_reviewed_by}</>}
                 </span>
                 <div className="flex gap-3">
                     <a href={doc.source.link_to_github} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors flex items-center gap-1">
-                        <i className="fa-brands fa-github" /> Open on GitHub
+                        <i className="fa-brands fa-github" /> <TranslatedText tKey="docs.open_on_github" />
                     </a>
                 </div>
             </div>

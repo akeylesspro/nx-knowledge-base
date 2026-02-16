@@ -1,5 +1,6 @@
 import type { FileExport } from "@/types/schema";
 import { Badge } from "@/components/ui/badge";
+import { TranslatedText } from "@/components/i18n";
 
 type ExportsListProps = {
     exports: FileExport[];
@@ -18,7 +19,7 @@ const kindIcons: Record<string, string> = {
 
 export const ExportsList = ({ exports }: ExportsListProps) => {
     if (exports.length === 0) {
-        return <p className="text-sm text-muted-foreground italic">No exports documented.</p>;
+        return <p className="text-sm text-muted-foreground italic"><TranslatedText tKey="docs.no_exports" /></p>;
     }
 
     return (

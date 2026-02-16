@@ -31,7 +31,6 @@ type FileTreeItemProps = {
 const FileTreeItem = ({ node, repoName, depth }: FileTreeItemProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-    
     const docPath = `/repos/${repoName}/docs/${node.path}`;
     const isActive = pathname === docPath;
 
@@ -43,9 +42,9 @@ const FileTreeItem = ({ node, repoName, depth }: FileTreeItemProps) => {
                     className="flex items-center gap-2 w-full text-left py-1.5 px-2 rounded-md hover:bg-muted/50 transition-colors text-sm cursor-pointer"
                     style={{ paddingLeft: `${depth * 12 + 8}px` }}
                 >
-                    <i className={cn("fa-solid text-[10px] text-muted-foreground transition-transform", isOpen ? "fa-chevron-down" : "fa-chevron-right")} />
                     <i className={cn("fa-solid text-xs", isOpen ? "fa-folder-open text-primary/70" : "fa-folder text-muted-foreground")} />
                     <span className="truncate">{node.name}</span>
+                    <i className={cn("fa-solid text-[10px] text-muted-foreground transition-transform", isOpen ? "fa-chevron-down" : "fa-chevron-right")} />
                 </button>
                 {isOpen && node.children && <FileTree nodes={node.children} repoName={repoName} depth={depth + 1} />}
             </div>

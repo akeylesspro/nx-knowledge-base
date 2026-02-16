@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 import type { RepoMeta } from "@/lib/docs/types";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -10,6 +11,7 @@ type RepoCardProps = {
 };
 
 export const RepoCard = ({ repo }: RepoCardProps) => {
+    const { t } = useTranslation();
     const router = useRouter();
 
     const handleCardClick = () => {
@@ -49,13 +51,13 @@ export const RepoCard = ({ repo }: RepoCardProps) => {
                     {repo.file_count != null && (
                         <span className="flex items-center gap-1">
                             <i className="fa-solid fa-file-code" />
-                            {repo.file_count} files
+                            {t("app.files_count", { count: repo.file_count })}
                         </span>
                     )}
                     {repo.symbol_count != null && (
                         <span className="flex items-center gap-1">
                             <i className="fa-solid fa-code" />
-                            {repo.symbol_count} symbols
+                            {t("app.symbols_count_label", { count: repo.symbol_count })}
                         </span>
                     )}
                     {repo.last_synced_at && (

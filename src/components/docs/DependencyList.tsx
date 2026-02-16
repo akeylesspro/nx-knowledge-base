@@ -1,6 +1,7 @@
 import type { FileDependencies } from "@/types/schema";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { TranslatedText } from "@/components/i18n";
 
 type DependencyListProps = {
     dependencies: FileDependencies;
@@ -11,7 +12,7 @@ export const DependencyList = ({ dependencies }: DependencyListProps) => {
     const hasInternal = dependencies.internal.length > 0;
 
     if (!hasExternal && !hasInternal) {
-        return <p className="text-sm text-muted-foreground italic">No dependencies documented.</p>;
+        return <p className="text-sm text-muted-foreground italic"><TranslatedText tKey="docs.no_dependencies" /></p>;
     }
 
     return (
@@ -21,7 +22,7 @@ export const DependencyList = ({ dependencies }: DependencyListProps) => {
                 <div>
                     <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
                         <i className="fa-solid fa-cube text-muted-foreground text-xs" />
-                        External Dependencies
+                        <TranslatedText tKey="docs.external_dependencies" />
                         <Badge variant="outline" className="text-[10px]">
                             {dependencies.external.length}
                         </Badge>
@@ -45,7 +46,7 @@ export const DependencyList = ({ dependencies }: DependencyListProps) => {
                 <div>
                     <h4 className="text-sm font-semibold mb-3 flex items-center gap-2">
                         <i className="fa-solid fa-link text-muted-foreground text-xs" />
-                        Internal Dependencies
+                        <TranslatedText tKey="docs.internal_dependencies" />
                         <Badge variant="outline" className="text-[10px]">
                             {dependencies.internal.length}
                         </Badge>
@@ -61,10 +62,10 @@ export const DependencyList = ({ dependencies }: DependencyListProps) => {
                                 </div>
                                 <div className="flex gap-2 shrink-0">
                                     <Link href={dep.link_to_nx_kb} className="text-xs text-primary hover:underline flex items-center gap-1">
-                                        <i className="fa-solid fa-book text-[10px]" /> Docs
+                                        <i className="fa-solid fa-book text-[10px]" /> <TranslatedText tKey="docs.docs_link" />
                                     </Link>
                                     <a href={dep.link_to_github} target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-primary flex items-center gap-1">
-                                        <i className="fa-brands fa-github text-[10px]" /> Source
+                                        <i className="fa-brands fa-github text-[10px]" /> <TranslatedText tKey="docs.source" />
                                     </a>
                                 </div>
                             </div>
