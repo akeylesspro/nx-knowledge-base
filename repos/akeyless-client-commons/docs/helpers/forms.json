@@ -136,7 +136,15 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of handleChange",
-          "code": "// TODO: Add example code"
+          "code": "<input data-validation=\"text\" onChange={handleChange} />"
+        },
+        "extensive_correct": {
+          "title": "Validating email input with handleChange",
+          "code": "const handleEmailInput = (e: React.ChangeEvent<HTMLInputElement>) => {\n  e.currentTarget.setAttribute('data-validation', 'email');\n  handleChange(e); // Removes non-email characters\n};\n\n<input onChange={handleEmailInput} placeholder=\"Enter email\" />"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not setting data-validation attribute",
+          "code": "// Incorrect - handleChange won't know what to validate\n<input onChange={handleChange} />\n// Correct - set data-validation attribute\n<input data-validation=\"email\" onChange={handleChange} />"
         }
       }
     },
@@ -177,7 +185,15 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of useValidation",
-          "code": "// TODO: Add example code"
+          "code": "const emailProps = useValidation('email');\n<input {...emailProps} placeholder=\"Enter email\" />"
+        },
+        "extensive_correct": {
+          "title": "Using useValidation with custom error message",
+          "code": "function UserForm() {\n  const validationType = 'text' as ValidationType;\n  const textProps = useValidation(validationType, 'Name is required');\n  return <input {...textProps} name=\"username\" required />;\n}"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not spreading the props object",
+          "code": "// Incorrect - validation handlers not attached\nconst props = useValidation('email');\n<input value={props} />\n// Correct - spread props onto input\nconst props = useValidation('email');\n<input {...props} />"
         }
       }
     },
@@ -217,19 +233,27 @@
       "kind": "type",
       "description_one_line": "Union type for supported validation modes.",
       "details": {
-        "what_it_does": "Union type for supported validation modes.",
-        "type_definition": "// TODO: Add type definition"
+        "what_it_does": "Union type that defines all supported input validation patterns. Includes text, numbers, email, price, color, address, and specialized formats like cars and charts. Can be extended with custom string types.",
+        "type_definition": "type ValidationType = \"text\" | \"numbers\" | \"numbersOnly\" | \"price\" | \"textNumbers\" | \"email\" | \"color\" | \"address\" | \"cars\" | \"charts\" | (string & {});"
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 16,
+        "source_line_end": 27,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L16-L27",
         "nx_kb_anchor": "#ValidationType"
       },
       "examples": {
         "minimal_correct": {
           "title": "Using ValidationType type",
-          "code": "// TODO: Add type usage example"
+          "code": "const validation: ValidationType = 'email';\nconst props = useValidation(validation);\n<input {...props} />"
+        },
+        "extensive_correct": {
+          "title": "Type checking with ValidationType",
+          "code": "function createInput(type: ValidationType) {\n  const validationProps = useValidation(type);\n  return <input {...validationProps} data-test-id={`input-${type}`} />;\n}\n\nconst emailInput = createInput('email');\nconst priceInput = createInput('price');\nconst colorInput = createInput('color');"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Using invalid validation types",
+          "code": "// Incorrect - invalid validation type\nconst validation = 'phone'; // TypeScript error\n// Correct - use supported types\nconst validation: ValidationType = 'numbers';"
         }
       }
     },
@@ -237,27 +261,42 @@
       "symbol_id": "handlePaste",
       "name": "handlePaste",
       "kind": "function",
-      "description_one_line": "React PasteEvent handler that sanitizes pasted text.",
+      "description_one_line": "React ClipboardEvent handler that sanitizes pasted text based on validation type.",
       "details": {
-        "what_it_does": "React PasteEvent handler that sanitizes pasted text."
+        "what_it_does": "Intercepts paste events, sanitizes the clipboard data using the same regex patterns as handleChange based on the data-validation attribute, then inserts the cleaned text. Prevents users from pasting invalid characters into validated inputs."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 55,
+        "source_line_end": 82,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L55-L82",
         "nx_kb_anchor": "#handlePaste"
       },
       "signature": {
-        "params": [],
+        "params": [
+          {
+            "name": "e",
+            "type": "React.ClipboardEvent<HTMLInputElement>",
+            "required": true,
+            "description": "The clipboard event from pasting"
+          }
+        ],
         "returns": {
           "type": "void",
-          "description": ""
+          "description": "Inserts sanitized text into the input field"
         }
       },
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of handlePaste",
-          "code": "// TODO: Add example code"
+          "code": "<input data-validation=\"numbers\" onPaste={handlePaste} />"
+        },
+        "extensive_correct": {
+          "title": "Email input that sanitizes pasted content",
+          "code": "function EmailInput() {\n  return (\n    <input\n      type=\"email\"\n      data-validation=\"email\"\n      onChange={handleChange}\n      onPaste={handlePaste}\n      placeholder=\"Paste or type email\"\n    />\n  );\n}"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Using handlePaste without handleChange",
+          "code": "// Incomplete - only sanitizes paste, not typing\n<input data-validation=\"email\" onPaste={handlePaste} />\n// Correct - handle both paste and typing\n<input data-validation=\"email\" onChange={handleChange} onPaste={handlePaste} />"
         }
       }
     },
@@ -265,27 +304,48 @@
       "symbol_id": "getFormElementValue",
       "name": "getFormElementValue",
       "kind": "function",
-      "description_one_line": "Gets the trimmed value of a form field by name.",
+      "description_one_line": "Gets the trimmed value from a form field by name.",
       "details": {
-        "what_it_does": "Gets the trimmed value of a form field by name."
+        "what_it_does": "Retrieves an input element by name from a form and returns its value with whitespace trimmed. Returns empty string if the element doesn't exist or has no value."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 97,
+        "source_line_end": 100,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L97-L100",
         "nx_kb_anchor": "#getFormElementValue"
       },
       "signature": {
-        "params": [],
+        "params": [
+          {
+            "name": "form",
+            "type": "EventTarget & HTMLFormElement",
+            "required": true,
+            "description": "The form element containing the field"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true,
+            "description": "The name attribute of the input field"
+          }
+        ],
         "returns": {
-          "type": "void",
-          "description": ""
+          "type": "string",
+          "description": "The trimmed value of the form field, or empty string if not found"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of getFormElementValue",
-          "code": "// TODO: Add example code"
+          "title": "Getting trimmed form field value",
+          "code": "const form = document.querySelector('form') as HTMLFormElement;\nconst username = getFormElementValue(form, 'username');\nconsole.log(username); // '  John  ' → 'John'"
+        },
+        "extensive_correct": {
+          "title": "Extracting multiple form values for submission",
+          "code": "function handleSubmit(e: React.FormEvent<HTMLFormElement>) {\n  e.preventDefault();\n  const form = e.currentTarget;\n  const userData = {\n    email: getFormElementValue(form, 'email'),\n    username: getFormElementValue(form, 'username'),\n    phone: getFormElementValue(form, 'phone')\n  };\n  submitToServer(userData);\n}"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not trimming or handling missing fields",
+          "code": "// Incorrect - includes whitespace\nconst value = (form.elements.namedItem('name') as HTMLInputElement)?.value;\n// Correct - automatically trims\nconst value = getFormElementValue(form, 'name');"
         }
       }
     },
@@ -293,27 +353,54 @@
       "symbol_id": "setFormElementValue",
       "name": "setFormElementValue",
       "kind": "function",
-      "description_one_line": "Sets the value of a form field by name.",
+      "description_one_line": "Sets the value of a form field by name with automatic trimming.",
       "details": {
-        "what_it_does": "Sets the value of a form field by name."
+        "what_it_does": "Finds an input element by name in a form and sets its value. Automatically trims the new value and does nothing if the element is not found."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 102,
+        "source_line_end": 106,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L102-L106",
         "nx_kb_anchor": "#setFormElementValue"
       },
       "signature": {
-        "params": [],
+        "params": [
+          {
+            "name": "form",
+            "type": "EventTarget & HTMLFormElement",
+            "required": true,
+            "description": "The form element containing the field"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true,
+            "description": "The name attribute of the input field"
+          },
+          {
+            "name": "newValue",
+            "type": "string",
+            "required": false,
+            "description": "The new value to set (will be trimmed)"
+          }
+        ],
         "returns": {
           "type": "void",
-          "description": ""
+          "description": "Sets the input value directly"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of setFormElementValue",
-          "code": "// TODO: Add example code"
+          "title": "Setting form field value",
+          "code": "const form = document.querySelector('form') as HTMLFormElement;\nsetFormElementValue(form, 'username', '  Alice  ');\n// Input value becomes: 'Alice'"
+        },
+        "extensive_correct": {
+          "title": "Populating form fields from API response",
+          "code": "async function loadUserForm(userId: string) {\n  const user = await api.getUser(userId);\n  const form = document.querySelector('form') as HTMLFormElement;\n  setFormElementValue(form, 'email', user.email);\n  setFormElementValue(form, 'username', user.username);\n  setFormElementValue(form, 'phone', user.phone);\n}"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not trimming or handling missing elements",
+          "code": "// Incorrect - includes whitespace, no error handling\nconst input = form.elements.namedItem('name') as HTMLInputElement;\ninput.value = newValue; // If element doesn't exist, error\n// Correct - trimmed and safe\nsetFormElementValue(form, 'name', newValue);"
         }
       }
     },
@@ -321,27 +408,42 @@
       "symbol_id": "durationToSeconds",
       "name": "durationToSeconds",
       "kind": "function",
-      "description_one_line": "Converts DurationValues object to total seconds.",
+      "description_one_line": "Converts a duration object (days, hours, minutes, seconds) to total seconds.",
       "details": {
-        "what_it_does": "Converts DurationValues object to total seconds."
+        "what_it_does": "Takes a DurationValues object with days, hours, minutes, and seconds properties and converts it to the total number of seconds. Clamps negative values to zero."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 117,
+        "source_line_end": 120,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L117-L120",
         "nx_kb_anchor": "#durationToSeconds"
       },
       "signature": {
-        "params": [],
+        "params": [
+          {
+            "name": "d",
+            "type": "DurationValues",
+            "required": true,
+            "description": "Duration object with days, hours, minutes, seconds"
+          }
+        ],
         "returns": {
-          "type": "void",
-          "description": ""
+          "type": "number",
+          "description": "Total seconds"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of durationToSeconds",
-          "code": "// TODO: Add example code"
+          "title": "Converting duration to seconds",
+          "code": "const duration = { days: 1, hours: 2, minutes: 30, seconds: 45 };\nconst seconds = durationToSeconds(duration);\nconsole.log(seconds); // 95445"
+        },
+        "extensive_correct": {
+          "title": "Converting timeout duration for API calls",
+          "code": "function setSessionTimeout() {\n  const timeoutDuration = { days: 0, hours: 2, minutes: 0, seconds: 0 };\n  const timeoutSeconds = durationToSeconds(timeoutDuration);\n  api.setSessionTimeout(timeoutSeconds); // 7200 seconds\n}"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not handling object properties correctly",
+          "code": "// Incorrect - arithmetic errors\nconst seconds = d.days * 24 + d.hours * 60 + d.minutes; // Missing conversion\n// Correct - proper time conversion\nconst seconds = ((d.days * 24 + d.hours) * 60 + d.minutes) * 60 + d.seconds;"
         }
       }
     },
@@ -349,27 +451,42 @@
       "symbol_id": "secondsToDuration",
       "name": "secondsToDuration",
       "kind": "function",
-      "description_one_line": "Converts total seconds to DurationValues object.",
+      "description_one_line": "Converts total seconds to a duration object (days, hours, minutes, seconds).",
       "details": {
-        "what_it_does": "Converts total seconds to DurationValues object."
+        "what_it_does": "Takes a total number of seconds and converts it to a DurationValues object with separate days, hours, minutes, and seconds. Always clamps to non-negative values."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 122,
+        "source_line_end": 134,
+        "github_permalink": "https://github.com/akeyless/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts#L122-L134",
         "nx_kb_anchor": "#secondsToDuration"
       },
       "signature": {
-        "params": [],
+        "params": [
+          {
+            "name": "total",
+            "type": "number",
+            "required": true,
+            "description": "Total number of seconds"
+          }
+        ],
         "returns": {
-          "type": "void",
-          "description": ""
+          "type": "DurationValues",
+          "description": "Duration object with days, hours, minutes, seconds properties"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of secondsToDuration",
-          "code": "// TODO: Add example code"
+          "title": "Converting seconds to duration object",
+          "code": "const duration = secondsToDuration(95445);\nconsole.log(duration); // { days: 1, hours: 2, minutes: 30, seconds: 45 }"
+        },
+        "extensive_correct": {
+          "title": "Displaying elapsed time in human-readable format",
+          "code": "function formatElapsedTime(totalSeconds: number): string {\n  const d = secondsToDuration(totalSeconds);\n  return `${d.days}d ${d.hours}h ${d.minutes}m ${d.seconds}s`;\n}\n\nconst elapsed = formatElapsedTime(95445); // '1d 2h 30m 45s'"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not properly handling remainder calculations",
+          "code": "// Incorrect - loses precision\nconst hours = total / 3600;\n// Correct - use floor and subtract to get remainder\nconst days = Math.floor(total / 86400);\ntotal -= days * 86400;\nconst hours = Math.floor(total / 3600);"
         }
       }
     }

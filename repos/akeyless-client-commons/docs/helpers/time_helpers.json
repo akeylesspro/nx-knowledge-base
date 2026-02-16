@@ -96,8 +96,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of timestamp_to_string",
-          "code": "// TODO: Add example code"
+          "title": "Converting Firebase timestamp to string",
+          "code": "const firebaseTimestamp = Timestamp.now();\nconst formatted = timestamp_to_string(firebaseTimestamp);\n// Result: '15/02/2026 14:30:45'"
+        },
+        "extensive_correct": {
+          "title": "Converting with custom format and timezone",
+          "code": "const timestamp = new Date('2026-02-15T12:00:00Z');\nconst options = {\n  format: 'YYYY-MM-DD HH:mm',\n  tz: 'America/New_York',\n  defaultReturnedValue: 'N/A'\n};\nconst result = timestamp_to_string(timestamp, options);\n// Result: '2026-02-15 07:00' (EST)"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not providing timezone for correct conversion",
+          "code": "// Incorrect - uses UTC\nconst utcTime = timestamp_to_string(timestamp);\n// Correct - converts to user timezone\nconst localTime = timestamp_to_string(timestamp, { tz: 'Asia/Jerusalem' });"
         }
       }
     },
@@ -105,27 +113,48 @@
       "symbol_id": "timestamp_to_millis",
       "name": "timestamp_to_millis",
       "kind": "function",
-      "description_one_line": "Converts flexible timestamp input to milliseconds (number).",
+      "description_one_line": "Converts flexible timestamp input to milliseconds since epoch.",
       "details": {
-        "what_it_does": "Converts flexible timestamp input to milliseconds (number)."
+        "what_it_does": "Detects input type (Firebase Timestamp, Date, string, numeric seconds), converts to JavaScript Date, and returns milliseconds since epoch. Handles multiple timestamp format variations."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 70,
+        "source_line_end": 114,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts#L70-L114",
         "nx_kb_anchor": "#timestamp_to_millis"
       },
       "signature": {
-        "params": [],
+        "params": [
+          {
+            "name": "firebaseTimestamp",
+            "type": "Timestamp | Date | string | firebase_timestamp",
+            "required": true,
+            "description": "Input timestamp in any supported format"
+          },
+          {
+            "name": "options",
+            "type": "TimeToMillisOptions",
+            "required": false,
+            "description": "Conversion options (fromFormat, tz, defaultReturnedValue, debug)"
+          }
+        ],
         "returns": {
-          "type": "void",
-          "description": ""
+          "type": "number",
+          "description": "Milliseconds since epoch, or defaultReturnedValue if invalid"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of timestamp_to_millis",
-          "code": "// TODO: Add example code"
+          "title": "Converting Firebase timestamp to milliseconds",
+          "code": "const fbTimestamp = Timestamp.now();\nconst millis = timestamp_to_millis(fbTimestamp);\n// Result: 1739654445000"
+        },
+        "extensive_correct": {
+          "title": "Converting various formats with default fallback",
+          "code": "const date = new Date('2026-02-15T12:00:00Z');\nconst result1 = timestamp_to_millis(date); // From Date object\n\nconst result2 = timestamp_to_millis('2026-02-15 12:00:00', {\n  fromFormat: 'YYYY-MM-DD HH:mm:ss'\n}); // From string\n\nconst result3 = timestamp_to_millis(null, {\n  defaultReturnedValue: 0 // Handles invalid/null input\n});"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not handling timezone for string input",
+          "code": "// Incorrect - assumes UTC\nconst millis = timestamp_to_millis('2026-02-15 12:00:00', {\n  fromFormat: 'YYYY-MM-DD HH:mm:ss'\n});\n// Correct - specify timezone\nconst millis = timestamp_to_millis('2026-02-15 12:00:00', {\n  fromFormat: 'YYYY-MM-DD HH:mm:ss',\n  tz: 'Asia/Jerusalem'\n});"
         }
       }
     },
@@ -133,27 +162,54 @@
       "symbol_id": "sort_by_timestamp",
       "name": "sort_by_timestamp",
       "kind": "function",
-      "description_one_line": "Comparator for sorting timestamps.",
+      "description_one_line": "Comparator function for sorting arrays of timestamps in ascending or descending order.",
       "details": {
-        "what_it_does": "Comparator for sorting timestamps."
+        "what_it_does": "Compares two Firebase Timestamp objects by converting them to milliseconds. Returns negative (a before b), zero (equal), or positive (b before a) for use with Array.sort()."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 115,
+        "source_line_end": 117,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts#L115-L117",
         "nx_kb_anchor": "#sort_by_timestamp"
       },
       "signature": {
-        "params": [],
+        "params": [
+          {
+            "name": "a",
+            "type": "Timestamp",
+            "required": true,
+            "description": "First timestamp to compare"
+          },
+          {
+            "name": "b",
+            "type": "Timestamp",
+            "required": true,
+            "description": "Second timestamp to compare"
+          },
+          {
+            "name": "reverse",
+            "type": "boolean",
+            "required": false,
+            "description": "Sort descending if true, ascending if false (default: false)"
+          }
+        ],
         "returns": {
-          "type": "void",
-          "description": ""
+          "type": "number",
+          "description": "Comparison result for use in Array.sort()"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of sort_by_timestamp",
-          "code": "// TODO: Add example code"
+          "title": "Sorting documents by timestamp ascending",
+          "code": "const documents = [\n  { id: '1', createdAt: Timestamp.fromDate(new Date('2026-02-15')) },\n  { id: '2', createdAt: Timestamp.fromDate(new Date('2026-02-10')) }\n];\n\ndocuments.sort((a, b) => sort_by_timestamp(a.createdAt, b.createdAt));\n// Result: sorted by oldest first"
+        },
+        "extensive_correct": {
+          "title": "Sorting in descending order (newest first)",
+          "code": "const events = fetchFirestoreCollection();\n\nconst sorted = events.sort((a, b) => \n  sort_by_timestamp(a.timestamp, b.timestamp, true) // reverse: true\n);\n\n// Result: newest events first"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Comparing timestamps directly",
+          "code": "// Incorrect - Timestamp objects can't be compared with operators\nconst sorted = events.sort((a, b) => a.timestamp - b.timestamp);\n// Correct - use sort_by_timestamp\nconst sorted = events.sort((a, b) => \n  sort_by_timestamp(a.timestamp, b.timestamp)\n);"
         }
       }
     }

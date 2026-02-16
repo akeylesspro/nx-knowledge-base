@@ -137,14 +137,14 @@
       "signature": {
         "params": [],
         "returns": {
-          "type": "unknown",
-          "description": "TODO: Document return type"
+          "type": "JSX.Element",
+          "description": "Input component with label and validation"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of InputContainer",
-          "code": "// TODO: Add example code"
+          "title": "Text input with label",
+          "code": "<InputContainer name=\"username\" labelContent=\"Username\" placeholder=\"Enter username\" onChange={(e) => setUsername(e.target.value)} />"
         }
       }
     },
@@ -171,8 +171,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of DateInputContainer",
-          "code": "// TODO: Add example code"
+          "title": "Basic date input",
+          "code": "<DateInputContainer name=\"birthDate\" labelContent=\"Birth Date\" onChange={(e) => setDate(e.target.value)} />"
         }
       }
     },
@@ -199,8 +199,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of SelectContainer",
-          "code": "// TODO: Add example code"
+          "title": "Basic select dropdown",
+          "code": "<SelectContainer name=\"country\" labelContent=\"Country\" options={[{value:'us',label:'USA'},{value:'il',label:'Israel'}]} onChange={(v) => setCountry(v)} />"
         }
       }
     },
@@ -227,8 +227,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of MultiSelect",
-          "code": "// TODO: Add example code"
+          "title": "Basic multi-select",
+          "code": "<MultiSelect name=\"tags\" labelContent=\"Tags\" options={tags} selectedOptions={selected} onChange={setSelected} placeholder=\"Select tags\" />"
         }
       }
     },
@@ -255,8 +255,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of SelectWithSearch",
-          "code": "// TODO: Add example code"
+          "title": "Select with search",
+          "code": "<SelectWithSearch name=\"search\" labelContent=\"Search\" options={items} value={selected} onChange={setSelected} placeholder=\"Type to search...\" />"
         }
       }
     },
@@ -283,8 +283,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of TextAreaContainer",
-          "code": "// TODO: Add example code"
+          "title": "Basic textarea",
+          "code": "<TextAreaContainer name=\"description\" labelContent=\"Description\" onChange={(e) => setDesc(e.target.value)} placeholder=\"Enter description...\" />"
         }
       }
     },
@@ -311,8 +311,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of FormSeparator",
-          "code": "// TODO: Add example code"
+          "title": "Form visual divider",
+          "code": "<FormSeparator>Contact Information</FormSeparator>"
         }
       }
     },
@@ -339,8 +339,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of CheckboxContainer",
-          "code": "// TODO: Add example code"
+          "title": "Basic checkbox",
+          "code": "<CheckboxContainer name=\"agree\" labelContent=\"I agree to terms\" onChange={(e) => setAgree(e.target.checked)} />"
         }
       }
     },
@@ -367,8 +367,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of DurationPicker",
-          "code": "// TODO: Add example code"
+          "title": "Duration picker",
+          "code": "<DurationPicker name=\"duration\" labelContent=\"Duration\" onChange={(val) => setDuration(val)} />"
         }
       }
     },
@@ -395,8 +395,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of FormElementContainer",
-          "code": "// TODO: Add example code"
+          "title": "Form element container",
+          "code": "<FormElementContainer labelContent=\"Label\"><input type=\"text\" /></FormElementContainer>"
         }
       }
     },
@@ -423,8 +423,8 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of ElementsContainer",
-          "code": "// TODO: Add example code"
+          "title": "Elements container",
+          "code": "<ElementsContainer label=\"Contact Info\"><InputContainer name=\"email\" /><InputContainer name=\"phone\" /></ElementsContainer>"
         }
       }
     }

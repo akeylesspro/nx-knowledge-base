@@ -120,8 +120,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of checkUserPermissions",
-          "code": "// TODO: Add example code"
+          "title": "Checking if user has read permission",
+          "code": "const userPerms = { dashboard: { read: true, write: false } };\nconst hasRead = checkUserPermissions(userPerms, 'dashboard', ['read']);\n// returns: true"
+        },
+        "extensive_correct": {
+          "title": "Checking multiple permissions with different modes",
+          "code": "const perms = { dashboard: { read: true, write: true, delete: false } };\n// Check if user has ANY of the permissions\nconst canRead = checkUserPermissions(perms, 'dashboard', ['read', 'write']);\n// Check if user has ALL of the permissions\nconst canManage = checkUserPermissions(perms, 'dashboard', ['read', 'write', 'delete'], 'every');"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not checking if entity exists",
+          "code": "// Incorrect - returns false even if entity doesn't exist\nconst perms = { dashboard: { read: true } };\nconst result = checkUserPermissions(perms, 'nonexistent'); // false\n// Correct - use function which handles missing entities\nconst result = checkUserPermissions(perms, 'dashboard'); // true"
         }
       }
     },
@@ -155,8 +163,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of parsePermissions",
-          "code": "// TODO: Add example code"
+          "title": "Parsing feature array into permissions object",
+          "code": "const user = {\n  features: ['dashboard__read', 'dashboard__write', 'reports__read']\n};\nconst perms = parsePermissions(user);\n// Result: { dashboard: { read: true, write: true }, reports: { read: true } }"
+        },
+        "extensive_correct": {
+          "title": "Complex permission parsing with filtering",
+          "code": "const client = {\n  features: [\n    'dashboard__read',\n    'dashboard__write',\n    'dashboard__delete',\n    'reports__read',\n    'settings__admin'\n  ]\n};\nconst perms = parsePermissions(client);\n// Returns structured object for easy permission checking\nconst hasDashboardAccess = !!perms.dashboard;\nconst canDeleteDashboard = perms.dashboard?.delete;"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Features without __ separator are skipped",
+          "code": "// These features will be ignored (no __):\nconst user = { features: ['dashboard', 'read', 'invalid_feature'] };\nconst perms = parsePermissions(user);\n// Result: {} (empty)\n// Correct format: module__action\nconst user = { features: ['dashboard__read'] };\nconst perms = parsePermissions(user);\n// Result: { dashboard: { read: true } }"
         }
       }
     },
@@ -164,27 +180,60 @@
       "symbol_id": "initializeUserPermissions",
       "name": "initializeUserPermissions",
       "kind": "function",
-      "description_one_line": "Sets up a listener for user document to keep permissions updated.",
+      "description_one_line": "Initializes a Firebase listener for real-time user permission updates.",
       "details": {
-        "what_it_does": "Sets up a listener for user document to keep permissions updated."
+        "what_it_does": "Sets up a Firestore listener on the nx-users collection to track user permissions. Accepts either phone number or email for querying. Immediately parses existing permissions and provides a callback for updates. Returns both unsubscribe function and initial permissions object."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 54,
+        "source_line_end": 94,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/permissions.ts#L54-L94",
         "nx_kb_anchor": "#initializeUserPermissions"
       },
       "signature": {
-        "params": [],
+        "params": [
+          {
+            "name": "phoneNumber",
+            "type": "string",
+            "required": false,
+            "description": "User's phone number (normalizes to both local and international formats)"
+          },
+          {
+            "name": "email",
+            "type": "string",
+            "required": false,
+            "description": "User's email address"
+          },
+          {
+            "name": "firstTimeArray",
+            "type": "string[]",
+            "required": true,
+            "description": "Array of collection paths to include in initial load"
+          },
+          {
+            "name": "getUpdatePermissions",
+            "type": "(permissions: TObject<TObject<boolean>>) => void",
+            "required": true,
+            "description": "Callback invoked on initial load and whenever user permissions change"
+          }
+        ],
         "returns": {
-          "type": "void",
-          "description": ""
+          "type": "Promise<{ unsubscribe: () => void, permissions: TObject<TObject<boolean>> }>",
+          "description": "Promise resolving to unsubscribe function and initial permissions"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of initializeUserPermissions",
-          "code": "// TODO: Add example code"
+          "title": "Initialize permissions with email",
+          "code": "const { unsubscribe, permissions } = await initializeUserPermissions({\n  email: 'user@example.com',\n  firstTimeArray: ['dashboard'],\n  getUpdatePermissions: (perms) => console.log('Permissions updated:', perms)\n});\n\n// Clean up when component unmounts\nreturn () => unsubscribe();"
+        },
+        "extensive_correct": {
+          "title": "Initialize with phone and handle updates in React",
+          "code": "function useUserPermissions(phoneNumber: string) {\n  const [permissions, setPermissions] = useState<TObject<TObject<boolean>>>({});\n\n  useEffect(() => {\n    let unsubscribe: (() => void) | null = null;\n    \n    initializeUserPermissions({\n      phoneNumber,\n      firstTimeArray: ['dashboard', 'reports'],\n      getUpdatePermissions: setPermissions\n    }).then(({ unsubscribe: unsub }) => {\n      unsubscribe = unsub;\n    });\n\n    return () => unsubscribe?.();\n  }, [phoneNumber]);\n\n  return permissions;\n}"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not unsubscribing from listener",
+          "code": "// Incorrect - memory leak from Firebase listener\ninitializeUserPermissions({\n  email: 'user@example.com',\n  firstTimeArray: [],\n  getUpdatePermissions: setPerms\n});\n\n// Correct - unsubscribe when done\nconst { unsubscribe } = await initializeUserPermissions({...});\nreturn () => unsubscribe(); // Call on cleanup"
         }
       }
     }

@@ -1,0 +1,179 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "excel.tsx",
+  "source": {
+    "file_path": "helpers/excel.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": [
+      "exceljs",
+      "file-saver",
+      "export",
+      "excel"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/excel.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/excel.ts.json"
+  },
+  "summary": {
+    "purpose": "Export data to Excel spreadsheets with full styling support, including headlines, column definitions, cell formatting, URL hyperlinks, and RTL direction support for Arabic/Hebrew documents.",
+    "problem_solved": "Provides a single generic function to export array data to downloadable Excel files with professional formatting, reducing boilerplate code for reports, exports, and data tables throughout the application."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "module": "exceljs",
+        "kind": "runtime",
+        "why_used": "Excel file creation and manipulation library with workbook, worksheet, cell styling, and XLSX export.",
+        "name": "exceljs"
+      },
+      {
+        "module": "file-saver",
+        "kind": "runtime",
+        "why_used": "Cross-browser file download utility for saving Blob as .xlsx file in browser.",
+        "name": "file-saver"
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "ExcelColumn",
+      "kind": "interface",
+      "line": 5,
+      "description_one_line": "Column definition for Excel export with header, data key, and optional width.",
+      "symbol_id": "interface_excel_column"
+    },
+    {
+      "name": "ExportExcelOptions",
+      "kind": "interface",
+      "line": 11,
+      "description_one_line": "Configuration object for exportToExcel function with columns, data, styling, and direction.",
+      "symbol_id": "interface_export_excel_options"
+    },
+    {
+      "name": "exportToExcel",
+      "kind": "function",
+      "line": 20,
+      "description_one_line": "Exports generic array data to downloadable Excel file with custom columns, styling, and RTL support.",
+      "symbol_id": "function_export_to_excel"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "interface_excel_column",
+      "name": "ExcelColumn",
+      "kind": "interface",
+      "description_one_line": "Column metadata for Excel worksheets.",
+      "details": {
+        "what_it_does": "Defines a single column in exported Excel: header (display name), key (object property name), optional width (column width in characters)."
+      },
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 9,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/excel.tsx#L5-L9",
+        "nx_kb_anchor": "interface_excel_column"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Define columns for data export",
+          "code": "const columns: ExcelColumn[] = [\n  { header: 'ID', key: 'id' },\n  { header: 'Name', key: 'name', width: 25 },\n  { header: 'Email', key: 'email', width: 30 }\n];"
+        }
+      }
+    },
+    {
+      "symbol_id": "interface_export_excel_options",
+      "name": "ExportExcelOptions",
+      "kind": "interface",
+      "description_one_line": "Configuration for Excel export with data, columns, and styling.",
+      "details": {
+        "what_it_does": "Generic interface <T> that groups all options for exportToExcel: columns (ExcelColumn array), data (T array), headline (optional title), fileName (output filename), cellStyle (optional Alignment), direction (optional 'rtl' or 'ltr')."
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 18,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/excel.tsx#L11-L18",
+        "nx_kb_anchor": "interface_export_excel_options"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "ExportExcelOptions structure",
+          "code": "interface User { id: number; name: string; email: string; }\n\nconst options: ExportExcelOptions<User> = {\n  columns: [\n    { header: 'ID', key: 'id' },\n    { header: 'Name', key: 'name' },\n    { header: 'Email', key: 'email' }\n  ],\n  data: users,\n  headline: 'User List',\n  fileName: 'users.xlsx',\n  direction: 'ltr'\n};"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_export_to_excel",
+      "name": "exportToExcel",
+      "kind": "function",
+      "description_one_line": "Generic async function to export data array to styled Excel file with headlines and hyperlinks.",
+      "signature": {
+        "params": [
+          {
+            "name": "options",
+            "type": "ExportExcelOptions<T>",
+            "required": true,
+            "description": "Configuration object with columns, data array, optional headline, fileName, cellStyle, and direction"
+          }
+        ],
+        "returns": {
+          "type": "Promise<void>",
+          "description": "Resolves after Excel file is created and downloaded to user's device"
+        },
+        "throws": [
+          {
+            "type": "Error",
+            "description": "Propagates from workbook.xlsx.writeBuffer() or blob creation on memory/file system errors"
+          }
+        ]
+      },
+      "details": {
+        "what_it_does": "Creates ExcelJS Workbook and worksheet, optionally adds merged headline row with bold 16pt font, assigns columns with default width 18 (or custom), adds data rows, auto-detects HTTPS URLs and converts them to hyperlinks (blue underlined), applies cellStyle alignment to all cells, exports to XLSX buffer Blob, saves as file using saveAs().",
+        "behavior_notes": [
+          "Headline row: inserts blank row at position 1, merges across all columns, applies bold 16pt centered format",
+          "Column widths: default 18 characters, override per column in ExcelColumn",
+          "URL hyperlinks: auto-detected by checking if cell value starts with 'https://', applies blue color (argb FF0000FF) and underline",
+          "Direction: sets worksheet.views rightToLeft based on direction parameter (for RTL languages)",
+          "Cell alignment: applies to all data cells from cellStyle parameter",
+          "File download: uses file-saver saveAs() for cross-browser compatibility"
+        ],
+        "error_cases": [
+          {
+            "condition": "workbook.xlsx.writeBuffer() fails",
+            "behavior": "Error propagates to caller (memory exhausted or filesystem error)"
+          },
+          {
+            "condition": "data array is empty",
+            "behavior": "Creates valid Excel file with headers only (no error thrown)"
+          }
+        ]
+      },
+      "locations": {
+        "source_line_start": 20,
+        "source_line_end": 59,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/excel.tsx#L20-L59",
+        "nx_kb_anchor": "function_export_to_excel"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Export user data to Excel",
+          "code": "import { exportToExcel } from './excel';\n\ninterface User { id: number; name: string; email: string; }\n\nconst users = [\n  { id: 1, name: 'John', email: 'john@example.com' },\n  { id: 2, name: 'Jane', email: 'jane@example.com' }\n];\n\nawait exportToExcel({\n  columns: [\n    { header: 'ID', key: 'id' },\n    { header: 'Name', key: 'name' },\n    { header: 'Email', key: 'email' }\n  ],\n  data: users,\n  headline: 'Users Report',\n  fileName: 'users-export.xlsx'\n});\n// File downloaded as 'users-export.xlsx'"
+        },
+        "extensive": {
+          "title": "Advanced export with custom styling and URL links",
+          "code": "import { exportToExcel } from './excel';\n\ninterface Report {\n  id: number;\n  name: string;\n  status: string;\n  reportUrl: string;\n  createdDate: string;\n}\n\nconst reports = [\n  { id: 1, name: 'Monthly Report', status: 'Complete', reportUrl: 'https://example.com/reports/1', createdDate: '2024-02-01' },\n  { id: 2, name: 'Quarterly Report', status: 'In Progress', reportUrl: 'https://example.com/reports/2', createdDate: '2024-02-15' }\n];\n\nawait exportToExcel({\n  columns: [\n    { header: 'Report ID', key: 'id', width: 10 },\n    { header: 'Report Name', key: 'name', width: 25 },\n    { header: 'Status', key: 'status', width: 15 },\n    { header: 'Download Link', key: 'reportUrl', width: 35 },\n    { header: 'Created', key: 'createdDate', width: 15 }\n  ],\n  data: reports,\n  headline: 'Monthly Reports Summary',\n  fileName: 'reports-2024-02.xlsx',\n  cellStyle: { horizontal: 'center', vertical: 'middle' },\n  direction: 'ltr'\n});\n// Exports Excel with:\n// - Bold 16pt centered headline spanning all columns\n// - Hyperlinks in reportUrl column (blue, underlined)\n// - Centered cell alignment\n// - Custom column widths"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not awaiting async export",
+          "code": "// WRONG - not awaiting export\nexportToExcel({ columns, data, fileName: 'export.xlsx' });\nconsole.log('Export complete'); // executes before export finishes!\n\n// CORRECT - await the export\nawait exportToExcel({ columns, data, fileName: 'export.xlsx' });\nconsole.log('Export complete'); // now executes after file download"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

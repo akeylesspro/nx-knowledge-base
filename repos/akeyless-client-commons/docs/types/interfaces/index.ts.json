@@ -1,0 +1,39 @@
+{
+  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "types/interfaces/index.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": ["types", "interfaces"]
+  },
+  "summary": {
+    "purpose": "Barrel export for form-related interfaces and component props.",
+    "problem_solved": "Single import point for all form element interfaces."
+  },
+  "dependencies": {"external": [], "internal": [
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/interfaces/forms.ts.json", "why_used": "Form element interfaces", "import_path": "./forms", "resolved_file_path": "types/interfaces/forms.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts"}
+  ]},
+  "exports": [
+    {"name": "*", "kind": "value", "line": 1, "description_one_line": "Re-export all form interfaces", "symbol_id": "reexport_forms"}
+  ],
+  "symbols": [
+    {
+      "symbol_id": "reexport_forms",
+      "name": "* from './forms'",
+      "kind": "value",
+      "description_one_line": "Form component interfaces.",
+      "details": {
+        "what_it_does": "Re-exports all form-related interfaces and types: BaseElementProps, InputElement, DateInputElement, TextAreaElement, SelectElement, MultiSelectProps, SelectWithSearchProps, InternationalInputProps, CustomElementProps, FormSeparatorProps, DurationValues, DurationInputProps, FormElement, ModularFormProps, ConfirmFormProps, DatePickerProps."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/index.ts#L1",
+        "nx_kb_anchor": "reexport_forms"
+      }
+    }
+  ],
+  "quality": {"generation_confidence": "high"}
+}

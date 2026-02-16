@@ -106,7 +106,15 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of InternationalPhonePicker",
-          "code": "// TODO: Add example code"
+          "code": "const [phone, setPhone] = useState('');\n<InternationalPhonePicker\n  phoneValue={phone}\n  setPhoneValue={setPhone}\n  name=\"phone\"\n  placeholder=\"Enter phone number\"\n/>"
+        },
+        "extensive_correct": {
+          "title": "With label, required flag, and custom countries",
+          "code": "const [phone, setPhone] = useState('+972545551234');\n<InternationalPhonePicker\n  phoneValue={phone}\n  setPhoneValue={setPhone}\n  name=\"userPhone\"\n  labelContent=\"Phone Number\"\n  required={true}\n  placeholder=\"+972 50 555 1234\"\n  defaultCountry=\"IL\"\n  countries={['US', 'IL', 'GB', 'FR']}\n  onEnter={() => handleSubmit()}\n/>"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not providing setPhoneValue for controlled mode",
+          "code": "// Incorrect - phone won't update\nconst phone = '+972545551234';\n<InternationalPhonePicker phoneValue={phone} />\n// Correct - provide both phoneValue and setPhoneValue\nconst [phone, setPhone] = useState('');\n<InternationalPhonePicker phoneValue={phone} setPhoneValue={setPhone} />"
         }
       }
     },
@@ -129,8 +137,16 @@
       "description_one_line": "A forwardRef wrapper around the shared Input UI component used as the text input for phone number entry. Handles auto-focus on mount when defaultFocus is true. Manages dual ref (internal inputRef for focus and forwarded ref for react-phone-number-input).",
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of PhoneInput",
-          "code": "// TODO: Add example code"
+          "title": "Basic usage of PhoneInput (rarely used directly)",
+          "code": "const inputRef = useRef<HTMLInputElement>(null);\n<PhoneInput\n  ref={inputRef}\n  defaultFocus={true}\n  disabled={false}\n  placeholder=\"555-1234\"\n/>"
+        },
+        "extensive_correct": {
+          "title": "PhoneInput with styling and keyboard handlers",
+          "code": "const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {\n  if (e.key === 'Enter') handleSubmit();\n};\n<PhoneInput\n  ref={phoneInputRef}\n  defaultFocus={true}\n  disabled={isLoading}\n  placeholder=\"Enter phone\"\n  onKeyDown={handleKeyDown}\n  className=\"custom-input\"\n  minLength={10}\n/>"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not using ref forwarding",
+          "code": "// Incorrect - ref not forwarded\nconst PhoneInput = (props) => <input {...props} />;\n// Correct - use forwardRef for refs\nconst PhoneInput = forwardRef<HTMLInputElement, Props>((props, ref) => (\n  <input ref={ref} {...props} />\n));"
         }
       }
     },
@@ -154,7 +170,15 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of CountrySelect",
-          "code": "// TODO: Add example code"
+          "code": "const countryOptions = [\n  { label: 'United States', value: 'US' },\n  { label: 'Israel', value: 'IL' }\n];\n<CountrySelect\n  value=\"IL\"\n  onChange={(country) => setCountry(country)}\n  options={countryOptions}\n/>"
+        },
+        "extensive_correct": {
+          "title": "CountrySelect with custom styling",
+          "code": "const handleCountryChange = (country: RPNInput.Country) => {\n  setSelectedCountry(country);\n  updatePhoneFormat(country);\n};\n<CountrySelect\n  value={selectedCountry}\n  onChange={handleCountryChange}\n  options={availableCountries}\n  disabled={isLoading}\n  className=\"custom-country-select\"\n/>"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Providing undefined values in options",
+          "code": "// Incorrect - includes undefined values that get filtered out\nconst options = [\n  { label: 'US', value: 'US' },\n  { label: 'Unknown', value: undefined } // Will be filtered out\n];\n// Correct - all options have valid country values\nconst options = countryList.filter(c => c.value);"
         }
       }
     },
@@ -178,7 +202,15 @@
       "examples": {
         "minimal_correct": {
           "title": "Basic usage of FlagComponent",
-          "code": "// TODO: Add example code"
+          "code": "<FlagComponent country=\"IL\" countryName=\"Israel\" />\n// Renders: Israeli flag SVG, or Phone icon if unavailable"
+        },
+        "extensive_correct": {
+          "title": "FlagComponent with multiple countries",
+          "code": "const countries = ['US', 'IL', 'GB', 'FR', 'XX'];\n{countries.map(country => (\n  <FlagComponent\n    key={country}\n    country={country as RPNInput.Country}\n    countryName={getCountryName(country)}\n  />\n))}\n// XX will fallback to Phone icon"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not handling missing flag countries",
+          "code": "// Incorrect - assumes all flags exist\nconst Flag = flags[country];\nreturn <Flag />; // Will crash if flag doesn't exist\n// Correct - fallback to icon\nconst Flag = flags[country];\nreturn Flag ? <Flag /> : <Phone size={16} />;"
         }
       }
     },
@@ -194,43 +226,23 @@
         "nx_kb_anchor": "CountrySelectProps"
       },
       "details": {
-        "what_it_does": "Exported symbol: CountrySelectProps",
-        "type_definition": "// TODO: Add TypeScript type definition"
+        "what_it_does": "Props type for the CountrySelect component defining the disabled state, custom className, current country value, change handler, and array of country options with labels.",
+        "type_definition": "type CountrySelectProps = {\n  disabled?: boolean;\n  className?: string;\n  value: RPNInput.Country;\n  onChange: (value: RPNInput.Country) => void;\n  options: { label: string; value: RPNInput.Country | undefined }[];\n};"
       },
       "symbol_id": "type_country_select_props",
       "description_one_line": "Props type for the CountrySelect component defining the disabled state, custom className, current country value, change handler, and array of country options with labels.",
       "examples": {
         "minimal_correct": {
           "title": "Using CountrySelectProps type",
-          "code": "// TODO: Add type usage example"
-        }
-      }
-    },
-    {
-      "symbol_id": "InternationalPhonePicker",
-      "name": "InternationalPhonePicker",
-      "kind": "component",
-      "description_one_line": "InternationalPhonePicker export",
-      "details": {
-        "what_it_does": "InternationalPhonePicker export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#InternationalPhonePicker"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of InternationalPhonePicker",
-          "code": "// TODO: Add example code"
+          "code": "const countrySelectProps: CountrySelectProps = {\n  value: 'IL' as RPNInput.Country,\n  onChange: (country) => console.log(country),\n  options: [\n    { label: 'Israel', value: 'IL' },\n    { label: 'United States', value: 'US' }\n  ],\n  disabled: false\n};"
+        },
+        "extensive_correct": {
+          "title": "Building country options from data",
+          "code": "const countries = ['US', 'IL', 'GB'] as const;\nconst options: CountrySelectProps['options'] = countries.map(c => ({\n  label: new Intl.DisplayNames(['en'], { type: 'region' }).of(c) || c,\n  value: c as RPNInput.Country\n}));\nconst props: CountrySelectProps = {\n  value: 'IL' as RPNInput.Country,\n  onChange: setCountry,\n  options\n};"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Wrong type for onChange handler",
+          "code": "// Incorrect - returns string instead of proper type\nconst props = {\n  onChange: (country: string) => { } // Wrong\n};\n// Correct - use RPNInput.Country type\nconst props: CountrySelectProps = {\n  onChange: (country: RPNInput.Country) => { } // Correct\n};"
         }
       }
     }

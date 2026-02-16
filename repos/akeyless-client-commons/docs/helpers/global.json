@@ -191,8 +191,12 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of calculateBearing",
-          "code": "// TODO: Add example code"
+          "title": "Calculate bearing between two locations",
+          "code": "const bearing = calculateBearing(40.7128, -74.0060, 51.5074, -0.1278); // NYC to London\nconsole.log(bearing); // ~51 degrees"
+        },
+        "extensive_correct": {
+          "title": "Navigation bearing calculation",
+          "code": "const userLat = 40.7128, userLng = -74.0060; // NYC\nconst destLat = 51.5074, destLng = -0.1278; // London\nconst bearing = calculateBearing(userLat, userLng, destLat, destLng);\n\nfunction getDirection(bearing: number): string {\n  if (bearing < 45 || bearing >= 315) return 'North';\n  if (bearing < 135) return 'East';\n  if (bearing < 225) return 'South';\n  return 'West';\n}\n\nconsole.log(`Head ${getDirection(bearing)} to reach destination`);"
         }
       }
     },
@@ -219,8 +223,12 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of getUserCountryByIp",
-          "code": "// TODO: Add example code"
+          "title": "Get user country from IP",
+          "code": "const country = await getUserCountryByIp();\nconsole.log(country); // 'il' or 'us' etc."
+        },
+        "extensive_correct": {
+          "title": "Set app language based on country",
+          "code": "const country = await getUserCountryByIp();\nconst language = country === 'il' ? LanguageOptions.He : LanguageOptions.En;\nsetAppLanguage(language);"
         }
       }
     },
@@ -247,8 +255,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of renderOnce",
-          "code": "// TODO: Add example code"
+          "title": "Using in React.memo",
+          "code": "export default React.memo(MyComponent, renderOnce);"
+        },
+        "extensive_correct": {
+          "title": "Memoization with custom comparator",
+          "code": "const MemoizedComponent = React.memo(\n  MyComponent,\n  (prevProps, nextProps) => renderOnce()\n);"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not using with React.memo",
+          "code": "// Incorrect - function does nothing without React.memo\nconst result = renderOnce(); // Just returns true\n// Correct - use with React.memo\nconst Memoized = React.memo(Component, renderOnce);"
         }
       }
     },
@@ -275,8 +291,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of propsAreEqual",
-          "code": "// TODO: Add example code"
+          "title": "Checking if props changed",
+          "code": "const prevProps = { name: 'John', age: 30 };\nconst nextProps = { name: 'John', age: 30 };\nconst isEqual = propsAreEqual(prevProps, nextProps); // true"
+        },
+        "extensive_correct": {
+          "title": "Deep equality for nested objects",
+          "code": "const prevProps = { user: { id: 1, name: 'John' }, settings: { dark: true } };\nconst nextProps = { user: { id: 1, name: 'John' }, settings: { dark: true } };\nconst equal = propsAreEqual(prevProps, nextProps); // true (deep comparison)"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Using === instead of deep comparison",
+          "code": "// Incorrect - shallow comparison fails\nconst obj1 = { value: 1 };\nconst obj2 = { value: 1 };\nconsole.log(obj1 === obj2); // false\n// Correct - use propsAreEqual for deep comparison\nconsole.log(propsAreEqual(obj1, obj2)); // true"
         }
       }
     },
@@ -303,8 +327,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of userNameFormat",
-          "code": "// TODO: Add example code"
+          "title": "Formatting user name",
+          "code": "const user = { first_name: 'John', last_name: 'Doe' };\nconst name = userNameFormat(user); // 'John Doe'"
+        },
+        "extensive_correct": {
+          "title": "Handling missing names",
+          "code": "const fullUser = { first_name: 'Jane', last_name: 'Smith' };\nconst noLastName = { first_name: 'Bob' };\nconst noFirstName = { last_name: 'Johnson' };\nconst noNames = {};\n\nconsole.log(userNameFormat(fullUser)); // 'Jane Smith'\nconsole.log(userNameFormat(noLastName)); // 'Bob'\nconsole.log(userNameFormat(noFirstName)); // 'Johnson'\nconsole.log(userNameFormat(noNames)); // ''"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Assuming properties always exist",
+          "code": "// Incorrect - will include undefined\nconst name = `${user.first_name} ${user.last_name}`; // 'John undefined'\n// Correct - handles missing properties\nconst name = userNameFormat(user); // 'John Doe' or just 'John'"
         }
       }
     },
@@ -331,8 +363,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of multiStringFormat",
-          "code": "// TODO: Add example code"
+          "title": "Joining multiple strings",
+          "code": "const result = multiStringFormat('Hello', 'World'); // 'Hello World'"
+        },
+        "extensive_correct": {
+          "title": "Joining with optional parameters",
+          "code": "console.log(multiStringFormat('A', 'B', 'C'));        // 'A B C'\nconsole.log(multiStringFormat('A', 'B'));           // 'A B'\nconsole.log(multiStringFormat('A', undefined, 'C')); // 'A C'\nconsole.log(multiStringFormat('A'));                  // 'A'"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not trimming whitespace",
+          "code": "// Incorrect - extra spaces\nconst name = `${str1} ${str2 || ''}`; // 'Hello '\n// Correct - trims automatically\nconst name = multiStringFormat(str1, str2); // 'Hello'"
         }
       }
     },
@@ -359,8 +399,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of getLocationUrl",
-          "code": "// TODO: Add example code"
+          "title": "Getting Google Maps URL",
+          "code": "const url = getLocationUrl(-74.0060, 40.7128); // NYC (lng, lat)\n// 'https://www.google.com/maps?q=40.7128,-74.0060'"
+        },
+        "extensive_correct": {
+          "title": "Creating location links",
+          "code": "const locations = [\n  { name: 'NYC', lat: 40.7128, lng: -74.0060 },\n  { name: 'London', lat: 51.5074, lng: -0.1278 }\n];\nconst links = locations.map(loc => \n  `<a href=\"${getLocationUrl(loc.lng, loc.lat)}\" target=\"_blank\">${loc.name}</a>`\n);"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Wrong parameter order",
+          "code": "// Incorrect - (lat, lng) order\nconst url = getLocationUrl(40.7128, -74.0060);\n// Correct - (lng, lat) order\nconst url = getLocationUrl(-74.0060, 40.7128);"
         }
       }
     },
@@ -432,8 +480,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of getFixedNumber",
-          "code": "// TODO: Add example code"
+          "title": "Formatting numbers with decimals",
+          "code": "getFixedNumber(3.14159, 2);  // '3.14'\ngetFixedNumber(10.5, 0);     // '10.5'\ngetFixedNumber(5, 2);        // '5'"
+        },
+        "extensive_correct": {
+          "title": "Removing trailing zeros",
+          "code": "getFixedNumber(10.50, 2);    // '10.5' (removes trailing zero)\ngetFixedNumber(100.100, 3);  // '100.1' (removes trailing zeros)\ngetFixedNumber(1.000, 3);    // '1' (removes all trailing zeros)"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not specifying decimal places",
+          "code": "// Incorrect - defaults to 4 decimal places\ngetFixedNumber(3.14159);      // '3.1416' (4 places)\n// Correct - specify desired precision\ngetFixedNumber(3.14159, 2);   // '3.14'"
         }
       }
     },
@@ -460,8 +516,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of getAddressByGeo",
-          "code": "// TODO: Add example code"
+          "title": "Getting address from coordinates",
+          "code": "const address = await getAddressByGeo({ lat: 40.7128, lng: -74.0060 }, 'en');\n// '350 Fifth Avenue, New York, NY 10118, USA' (up to 35 chars)"
+        },
+        "extensive_correct": {
+          "title": "Bilingual address lookup",
+          "code": "const coordinates = { lat: 31.7683, lng: 35.2137 }; // Jerusalem\nconst enAddress = await getAddressByGeo(coordinates, 'en');\nconst heAddress = await getAddressByGeo(coordinates, 'he');\nconsole.log(enAddress); // English address\nconsole.log(heAddress); // Hebrew address"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not handling API errors",
+          "code": "// Incorrect - doesn't handle errors\nconst address = await getAddressByGeo({ lat: 0, lng: 0 }, 'en');\n// Correct - handle potential errors and missing API key\ntry {\n  const address = await getAddressByGeo(coords, 'en');\n} catch (error) {\n  console.error('Geocoding failed', error);\n}"
         }
       }
     },
@@ -488,8 +552,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of validateAndCast",
-          "code": "// TODO: Add example code"
+          "title": "Type guard validation",
+          "code": "const value: unknown = 'hello';\nif (validateAndCast<string>(value, typeof value === 'string')) {\n  console.log(value.toUpperCase()); // TypeScript knows it's a string\n}"
+        },
+        "extensive_correct": {
+          "title": "Conditional type narrowing",
+          "code": "function processValue(value: unknown) {\n  if (validateAndCast<number>(value, typeof value === 'number')) {\n    console.log(value * 2); // Treated as number\n    return value * 2;\n  }\n  if (validateAndCast<string>(value, typeof value === 'string')) {\n    console.log(value.length); // Treated as string\n    return value.length;\n  }\n}"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not using as type guard",
+          "code": "// Incorrect - condition not properly checked\nif (value as string) { } // Forces type, doesn't validate\n// Correct - validates condition\nif (validateAndCast<string>(value, typeof value === 'string')) { }"
         }
       }
     }

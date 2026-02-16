@@ -1,0 +1,40 @@
+{
+  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "components/ui/index.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": ["ui", "components", "barrel-export"]
+  },
+  "summary": {
+    "purpose": "Barrel export aggregating all base UI components (button, badge, input, progress, multiselect, search select) into single import.",
+    "problem_solved": "Provides unified UI component namespace for easy importing of all base design system components."
+  },
+  "dependencies": {"external": [], "internal": [
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/badge.json", "why_used": "Badge component", "import_path": "./badge", "resolved_file_path": "components/ui/badge.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/badge.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/button.json", "why_used": "Button component", "import_path": "./button", "resolved_file_path": "components/ui/button.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/button.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/input.json", "why_used": "Input component", "import_path": "./input", "resolved_file_path": "components/ui/input.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/input.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/progress.json", "why_used": "Progress component", "import_path": "./progress", "resolved_file_path": "components/ui/progress.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/progress.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/multiselect.json", "why_used": "Multi-select dropdown", "import_path": "./multiselect", "resolved_file_path": "components/ui/multiselect.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/multiselect.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/SearchSelect.json", "why_used": "Searchable select", "import_path": "./SearchSelect", "resolved_file_path": "components/ui/SearchSelect.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/SearchSelect.tsx"}
+  ]},
+  "exports": [
+    {"name": "*", "kind": "value", "line": 1, "description_one_line": "Re-export Badge component", "symbol_id": "reexport_badge"},
+    {"name": "*", "kind": "value", "line": 2, "description_one_line": "Re-export Button component", "symbol_id": "reexport_button"},
+    {"name": "*", "kind": "value", "line": 3, "description_one_line": "Re-export Input component", "symbol_id": "reexport_input"},
+    {"name": "*", "kind": "value", "line": 4, "description_one_line": "Re-export Progress component", "symbol_id": "reexport_progress"},
+    {"name": "*", "kind": "value", "line": 5, "description_one_line": "Re-export MultiSelect component", "symbol_id": "reexport_multiselect"},
+    {"name": "*", "kind": "value", "line": 6, "description_one_line": "Re-export SearchSelect component", "symbol_id": "reexport_search_select"}
+  ],
+  "symbols": [
+    {"symbol_id": "reexport_badge", "name": "* from './badge'", "kind": "value", "description_one_line": "Badge UI component", "details": {"what_it_does": "Badge and badgeVariants for styling"}, "locations": {"source_line_start": 1, "source_line_end": 1, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx#L1", "nx_kb_anchor": "reexport_badge"}},
+    {"symbol_id": "reexport_button", "name": "* from './button'", "kind": "value", "description_one_line": "Button UI component", "details": {"what_it_does": "Button and buttonVariants for styling"}, "locations": {"source_line_start": 2, "source_line_end": 2, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx#L2", "nx_kb_anchor": "reexport_button"}},
+    {"symbol_id": "reexport_input", "name": "* from './input'", "kind": "value", "description_one_line": "Input UI component", "details": {"what_it_does": "Input text field component"}, "locations": {"source_line_start": 3, "source_line_end": 3, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx#L3", "nx_kb_anchor": "reexport_input"}},
+    {"symbol_id": "reexport_progress", "name": "* from './progress'", "kind": "value", "description_one_line": "Progress bar component", "details": {"what_it_does": "Progress indicator component"}, "locations": {"source_line_start": 4, "source_line_end": 4, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx#L4", "nx_kb_anchor": "reexport_progress"}},
+    {"symbol_id": "reexport_multiselect", "name": "* from './multiselect'", "kind": "value", "description_one_line": "Multi-select dropdown component", "details": {"what_it_does": "MultipleSelector and related types"}, "locations": {"source_line_start": 5, "source_line_end": 5, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx#L5", "nx_kb_anchor": "reexport_multiselect"}},
+    {"symbol_id": "reexport_search_select", "name": "* from './SearchSelect'", "kind": "value", "description_one_line": "Searchable select component", "details": {"what_it_does": "SearchSelect dropdown with search functionality"}, "locations": {"source_line_start": 6, "source_line_end": 6, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx#L6", "nx_kb_anchor": "reexport_search_select"}}
+  ],
+  "quality": {"generation_confidence": "high"}
+}

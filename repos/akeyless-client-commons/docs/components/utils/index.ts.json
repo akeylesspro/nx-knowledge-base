@@ -1,0 +1,37 @@
+{
+  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "file_name": "index.tsx",
+  "source": {
+    "file_path": "components/utils/index.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": ["components", "utilities", "barrel-export"]
+  },
+  "summary": {
+    "purpose": "Barrel export aggregating utility components (Checkboxes, ErrorBoundary, Loaders, LoginWithGoogle) and global UI helpers.",
+    "problem_solved": "Provides unified utility component namespace for form helpers, error handling, loading states, and authentication UI."
+  },
+  "dependencies": {"external": [], "internal": [
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/Checkboxes.json", "why_used": "Checkbox utility component", "import_path": "./Checkboxes", "resolved_file_path": "components/utils/Checkboxes.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/Checkboxes.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/ErrorBoundary.json", "why_used": "Error boundary component", "import_path": "./ErrorBoundary", "resolved_file_path": "components/utils/ErrorBoundary.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/ErrorBoundary.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/loaders.json", "why_used": "Loader components", "import_path": "./loaders", "resolved_file_path": "components/utils/loaders.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/loaders.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/global.json", "why_used": "Global UI utilities", "import_path": "./global", "resolved_file_path": "components/utils/global.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/LoginWithGoogle.json", "why_used": "Google login component", "import_path": "./LoginWithGoogle", "resolved_file_path": "components/utils/LoginWithGoogle.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/LoginWithGoogle.tsx"}
+  ]},
+  "exports": [
+    {"name": "*", "kind": "value", "line": 1, "description_one_line": "Re-export Checkboxes utility", "symbol_id": "reexport_checkboxes"},
+    {"name": "*", "kind": "value", "line": 2, "description_one_line": "Re-export ErrorBoundary", "symbol_id": "reexport_error_boundary"},
+    {"name": "*", "kind": "value", "line": 3, "description_one_line": "Re-export Loader components", "symbol_id": "reexport_loaders"},
+    {"name": "*", "kind": "value", "line": 4, "description_one_line": "Re-export global UI utilities", "symbol_id": "reexport_global"},
+    {"name": "*", "kind": "value", "line": 5, "description_one_line": "Re-export LoginWithGoogle component", "symbol_id": "reexport_login_with_google"}
+  ],
+  "symbols": [
+    {"symbol_id": "reexport_checkboxes", "name": "* from './Checkboxes'", "kind": "value", "description_one_line": "Checkbox utility component", "details": {"what_it_does": "Re-exports Checkboxes utility for form inputs"}, "locations": {"source_line_start": 1, "source_line_end": 1, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.tsx#L1", "nx_kb_anchor": "reexport_checkboxes"}},
+    {"symbol_id": "reexport_error_boundary", "name": "* from './ErrorBoundary'", "kind": "value", "description_one_line": "Error boundary component", "details": {"what_it_does": "Re-exports ErrorBoundary for error handling"}, "locations": {"source_line_start": 2, "source_line_end": 2, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.tsx#L2", "nx_kb_anchor": "reexport_error_boundary"}},
+    {"symbol_id": "reexport_loaders", "name": "* from './loaders'", "kind": "value", "description_one_line": "Loader components", "details": {"what_it_does": "Re-exports Loader for loading states"}, "locations": {"source_line_start": 3, "source_line_end": 3, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.tsx#L3", "nx_kb_anchor": "reexport_loaders"}},
+    {"symbol_id": "reexport_global", "name": "* from './global'", "kind": "value", "description_one_line": "Global UI utilities", "details": {"what_it_does": "Re-exports global UI utility functions"}, "locations": {"source_line_start": 4, "source_line_end": 4, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.tsx#L4", "nx_kb_anchor": "reexport_global"}},
+    {"symbol_id": "reexport_login_with_google", "name": "* from './LoginWithGoogle'", "kind": "value", "description_one_line": "Google login component", "details": {"what_it_does": "Re-exports LoginWithGoogle authentication component"}, "locations": {"source_line_start": 5, "source_line_end": 5, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.tsx#L5", "nx_kb_anchor": "reexport_login_with_google"}}
+  ],
+  "quality": {"generation_confidence": "high"}
+}

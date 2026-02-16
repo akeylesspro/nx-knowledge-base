@@ -1,0 +1,219 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "emails.ts",
+  "source": {
+    "file_path": "helpers/emails.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": [
+      "axios",
+      "email",
+      "attachments",
+      "blob"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/emails.ts",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/emails.ts.json"
+  },
+  "summary": {
+    "purpose": "Email attachment utilities for converting Blobs and URLs to base64-encoded MIME attachments with optional filename and disposition handling.",
+    "problem_solved": "Provides helper functions to create email attachments in standard MIME format, supporting both local Blob objects and remote URLs, with automatic filename extraction and base64 encoding compatible with both Node.js and browser environments."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "module": "axios",
+        "kind": "runtime",
+        "why_used": "HTTP client for fetching files from URLs via proxy endpoint with blob response type.",
+        "name": "axios"
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "EmailAttachment",
+      "kind": "interface",
+      "line": 3,
+      "description_one_line": "Standard MIME attachment object with base64 content and metadata.",
+      "symbol_id": "interface_email_attachment"
+    },
+    {
+      "name": "createAttachmentFromBlob",
+      "kind": "function",
+      "line": 10,
+      "description_one_line": "Converts a Blob object to a base64-encoded MIME attachment with filename and type.",
+      "symbol_id": "function_create_attachment_from_blob"
+    },
+    {
+      "name": "createAttachmentFromUrl",
+      "kind": "function",
+      "line": 55,
+      "description_one_line": "Fetches a file from a URL via proxy endpoint and converts it to a MIME attachment.",
+      "symbol_id": "function_create_attachment_from_url"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "interface_email_attachment",
+      "name": "EmailAttachment",
+      "kind": "interface",
+      "description_one_line": "MIME-formatted email attachment with base64 content.",
+      "details": {
+        "what_it_does": "Defines the structure for email attachments: content (base64-encoded string), filename (original filename), type (MIME type), and disposition (inline or attachment display mode)."
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/emails.ts#L3-L8",
+        "nx_kb_anchor": "interface_email_attachment"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "EmailAttachment structure",
+          "code": "const attachment: EmailAttachment = {\n  content: 'iVBORw0KGgoAAAANSUhEUgAAAAUA...',\n  filename: 'image.png',\n  type: 'image/png',\n  disposition: 'inline'\n};"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_create_attachment_from_blob",
+      "name": "createAttachmentFromBlob",
+      "kind": "function",
+      "description_one_line": "Converts Blob to base64 EmailAttachment with cross-platform encoding.",
+      "signature": {
+        "params": [
+          {
+            "name": "blob",
+            "type": "Blob",
+            "required": true,
+            "description": "The Blob object to convert (PDF, image, file, etc.)"
+          },
+          {
+            "name": "filename",
+            "type": "string",
+            "required": true,
+            "description": "The attachment filename (e.g., 'report.pdf')"
+          },
+          {
+            "name": "mimeType",
+            "type": "string | undefined",
+            "required": false,
+            "description": "MIME type override (defaults to blob.type or 'application/pdf')"
+          },
+          {
+            "name": "disposition",
+            "type": "'attachment' | 'inline'",
+            "required": false,
+            "description": "Display mode: 'attachment' for download prompt, 'inline' for embedded display (default: 'attachment')"
+          }
+        ],
+        "returns": {
+          "type": "Promise<EmailAttachment>",
+          "description": "Resolves to EmailAttachment with base64-encoded content"
+        },
+        "throws": [
+          {
+            "type": "Error",
+            "description": "Logs console.error and rethrows on blob.arrayBuffer() conversion failure"
+          }
+        ]
+      },
+      "details": {
+        "what_it_does": "Reads Blob as ArrayBuffer, converts to base64 using Node.js Buffer if available (for performance), falls back to btoa() with chunked Uint8Array for browser environments (avoiding stack overflow on large files), returns EmailAttachment object ready for email transmission.",
+        "behavior_notes": [
+          "Handles large files safely by chunking Uint8Array conversion (0x8000 byte chunks)",
+          "Detects Node.js environment via 'typeof Buffer' check",
+          "Defaults MIME type to blob.type, then 'application/pdf' if missing",
+          "Disposition parameter controls how email client displays attachment (inline=image in email, attachment=download button)"
+        ]
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 42,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/emails.ts#L10-L42",
+        "nx_kb_anchor": "function_create_attachment_from_blob"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Convert Blob to email attachment",
+          "code": "import { createAttachmentFromBlob } from './emails';\n\nconst pdfBlob = new Blob([pdfData], { type: 'application/pdf' });\nconst attachment = await createAttachmentFromBlob(pdfBlob, 'report.pdf');\n// attachment: { content: 'JVBERi0xLjQK...', filename: 'report.pdf', type: 'application/pdf', disposition: 'attachment' }"
+        },
+        "extensive": {
+          "title": "Embed image in email with inline disposition",
+          "code": "import { createAttachmentFromBlob } from './emails';\n\nconst imageBlob = await fetch('/logo.png').then(r => r.blob());\nconst logoAttachment = await createAttachmentFromBlob(\n  imageBlob,\n  'company-logo.png',\n  'image/png',\n  'inline'\n);\n\n// Use in email template:\nconst emailBody = `\n  <h1>Monthly Report</h1>\n  <img src=\"cid:company-logo.png\" />\n  <p>Attached is your monthly report.</p>\n`;\n// Send with logoAttachment using MIME format"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not handling async blob conversion",
+          "code": "// WRONG - not awaiting blob.arrayBuffer()\nconst attachment = createAttachmentFromBlob(blob, 'file.pdf'); // returns Promise, not attachment\n\n// CORRECT - await the async function\nconst attachment = await createAttachmentFromBlob(blob, 'file.pdf');\nconsole.log(attachment.content); // base64 string is now available"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_create_attachment_from_url",
+      "name": "createAttachmentFromUrl",
+      "kind": "function",
+      "description_one_line": "Fetches a file from URL via proxy and converts it to EmailAttachment.",
+      "signature": {
+        "params": [
+          {
+            "name": "url",
+            "type": "string",
+            "required": true,
+            "description": "URL to the file to attach (e.g., 'https://example.com/report.pdf')"
+          },
+          {
+            "name": "filename",
+            "type": "string | undefined",
+            "required": false,
+            "description": "Override filename; auto-extracted from URL pathname if not provided"
+          }
+        ],
+        "returns": {
+          "type": "Promise<EmailAttachment>",
+          "description": "Resolves to EmailAttachment with file from URL as base64 content"
+        },
+        "throws": [
+          {
+            "type": "Error",
+            "description": "Propagates axios error if proxy request fails, or error from createAttachmentFromBlob"
+          }
+        ]
+      },
+      "details": {
+        "what_it_does": "Makes axios GET request to '/api/proxy-file' endpoint with URL-encoded file URL parameter, receives Blob response, extracts filename from URL pathname (or uses provided filename), calls createAttachmentFromBlob to convert Blob to base64 EmailAttachment.",
+        "behavior_notes": [
+          "Uses proxy endpoint for CORS protection: '/api/proxy-file?url={encodeURIComponent(url)}'",
+          "Filename extraction: splits pathname by '/', uses last segment, appends '.txt' if no extension",
+          "Falls back to 'download.txt' if URL parsing fails",
+          "Disposition defaults to 'attachment' (download mode)"
+        ]
+      },
+      "locations": {
+        "source_line_start": 55,
+        "source_line_end": 62,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/emails.ts#L55-L62",
+        "nx_kb_anchor": "function_create_attachment_from_url"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Attach file from URL to email",
+          "code": "import { createAttachmentFromUrl } from './emails';\n\nconst attachment = await createAttachmentFromUrl('https://example.com/invoice.pdf');\n// attachment: { content: 'JVBERi0xLjQK...', filename: 'invoice.pdf', type: 'application/pdf', disposition: 'attachment' }"
+        },
+        "extensive": {
+          "title": "Fetch remote file with custom filename",
+          "code": "import { createAttachmentFromUrl } from './emails';\n\nconst remoteFile = await createAttachmentFromUrl(\n  'https://reports.example.com/2024-02-q4-report?token=xyz',\n  'Quarterly-Report-Q4-2024.pdf'\n);\n\n// Send email with attachment:\nconst email = {\n  to: 'client@example.com',\n  subject: 'Q4 Report',\n  body: 'Your quarterly report is attached.',\n  attachments: [remoteFile]\n};"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Assuming filename from URL query params",
+          "code": "// WRONG - URL with query params extracts wrong filename\nawait createAttachmentFromUrl('https://example.com/generate?reportId=123&format=pdf');\n// filename becomes '123&format=pdf' or 'generate'\n\n// CORRECT - provide explicit filename\nawait createAttachmentFromUrl(\n  'https://example.com/generate?reportId=123&format=pdf',\n  'Report-123.pdf' // explicit filename\n);"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

@@ -1,0 +1,723 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "firebase.ts",
+  "source": {
+    "file_path": "helpers/firebase.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": [
+      "firebase",
+      "firestore",
+      "authentication",
+      "real-time"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/firebase.ts.json"
+  },
+  "summary": {
+    "purpose": "Comprehensive Firebase integration layer providing Firestore database operations (CRUD, queries, snapshots), authentication (Google login), file storage, audit logging, and real-time data subscriptions with custom parsers.",
+    "problem_solved": "Centralizes Firebase API calls with pre-configured collections, data extraction helpers, and real-time listeners, eliminating scattered Firebase code throughout the application while providing typed, error-handled database operations."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "module": "firebase",
+        "kind": "runtime",
+        "why_used": "Core Firebase SDK for app initialization, Firestore database, authentication, and storage.",
+        "name": "firebase"
+      },
+      {
+        "module": "moment",
+        "kind": "runtime",
+        "why_used": "Date formatting utility for human-readable timestamp displays in data extraction functions.",
+        "name": "moment"
+      },
+      {
+        "module": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides types: NxUser, TObject, AppName, LoginOption, OnSnapshotParsers, SetState, Snapshot, SnapshotDocument, WhereCondition.",
+        "name": "akeyless-types-commons"
+      }
+    ],
+    "internal": [
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/cars.ts.json",
+        "why_used": "Provides formatCarNumber for vehicle license plate formatting in extractCarsData.",
+        "import_path": "./cars",
+        "resolved_file_path": "helpers/cars.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/cars.ts"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/phoneNumber.ts.json",
+        "why_used": "Provides local_israel_phone_format for phone number normalization in getUserByPhone.",
+        "import_path": "./phoneNumber",
+        "resolved_file_path": "helpers/phoneNumber.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/permissions.ts.json",
+        "why_used": "Provides parsePermissions for extracting user permissions in validateUserStatusAndPermissions.",
+        "import_path": "./permissions",
+        "resolved_file_path": "helpers/permissions.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/permissions.ts"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/time_helpers.ts.json",
+        "why_used": "Provides timestamp_to_string for timestamp conversion in data extraction functions.",
+        "import_path": "./time_helpers",
+        "resolved_file_path": "helpers/time_helpers.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "db",
+      "kind": "constant",
+      "line": 81,
+      "description_one_line": "Initialized Firestore database instance for all database operations.",
+      "symbol_id": "constant_db"
+    },
+    {
+      "name": "auth",
+      "kind": "constant",
+      "line": 81,
+      "description_one_line": "Firebase Authentication instance for user login and token management.",
+      "symbol_id": "constant_auth"
+    },
+    {
+      "name": "storage",
+      "kind": "constant",
+      "line": 81,
+      "description_one_line": "Firebase Storage instance for file upload and download operations.",
+      "symbol_id": "constant_storage"
+    },
+    {
+      "name": "app",
+      "kind": "constant",
+      "line": 81,
+      "description_one_line": "Initialized Firebase app instance.",
+      "symbol_id": "constant_app"
+    },
+    {
+      "name": "appCheck",
+      "kind": "constant",
+      "line": 81,
+      "description_one_line": "Firebase AppCheck instance for ReCAPTCHA security verification.",
+      "symbol_id": "constant_app_check"
+    },
+    {
+      "name": "googleLoginProvider",
+      "kind": "constant",
+      "line": 81,
+      "description_one_line": "Google authentication provider for signInWithPopup flow.",
+      "symbol_id": "constant_google_login_provider"
+    },
+    {
+      "name": "collections",
+      "kind": "constant",
+      "line": 120,
+      "description_one_line": "Object mapping collection names to Firestore CollectionReference instances.",
+      "symbol_id": "constant_collections"
+    },
+    {
+      "name": "useLoginWithGoogle",
+      "kind": "function",
+      "line": 83,
+      "description_one_line": "React hook providing Google sign-in callback with Firebase user return.",
+      "symbol_id": "function_use_login_with_google"
+    },
+    {
+      "name": "fire_base_TIME_TEMP",
+      "kind": "constant",
+      "line": 149,
+      "description_one_line": "Firestore Timestamp.now function reference for server timestamps.",
+      "symbol_id": "constant_fire_base_time_temp"
+    },
+    {
+      "name": "extractAlertsData",
+      "kind": "function",
+      "line": 152,
+      "description_one_line": "Extracts alert document with timestamp formatting and vehicle number formatting.",
+      "symbol_id": "function_extract_alerts_data"
+    },
+    {
+      "name": "simpleExtractData",
+      "kind": "function",
+      "line": 163,
+      "description_one_line": "Basic extraction adding document ID to data without transformation.",
+      "symbol_id": "function_simple_extract_data"
+    },
+    {
+      "name": "extractSiteData",
+      "kind": "function",
+      "line": 170,
+      "description_one_line": "Extracts site document with ID and formatted created/updated timestamps.",
+      "symbol_id": "function_extract_site_data"
+    },
+    {
+      "name": "extractClientData",
+      "kind": "function",
+      "line": 180,
+      "description_one_line": "Extracts client document with ID and formatted created/updated timestamps.",
+      "symbol_id": "function_extract_client_data"
+    },
+    {
+      "name": "extractBoardsData",
+      "kind": "function",
+      "line": 190,
+      "description_one_line": "Extracts board document with ID and formatted upload timestamp.",
+      "symbol_id": "function_extract_boards_data"
+    },
+    {
+      "name": "extractCarsData",
+      "kind": "function",
+      "line": 199,
+      "description_one_line": "Extracts vehicle data with icon inference, brand normalization, and formatted license plate.",
+      "symbol_id": "function_extract_cars_data"
+    },
+    {
+      "name": "extractCanbusData",
+      "kind": "function",
+      "line": 225,
+      "description_one_line": "Extracts canbus sensor data with formatted timestamp.",
+      "symbol_id": "function_extract_canbus_data"
+    },
+    {
+      "name": "extractLocationData",
+      "kind": "function",
+      "line": 238,
+      "description_one_line": "Extracts location data with coordinate/speed formatting and ID.",
+      "symbol_id": "function_extract_location_data"
+    },
+    {
+      "name": "get_all_documents",
+      "kind": "function",
+      "line": 254,
+      "description_one_line": "Fetches all documents from a collection with error fallback.",
+      "symbol_id": "function_get_all_documents"
+    },
+    {
+      "name": "get_document_by_id",
+      "kind": "function",
+      "line": 264,
+      "description_one_line": "Fetches single document by ID with existence check.",
+      "symbol_id": "function_get_document_by_id"
+    },
+    {
+      "name": "set_document",
+      "kind": "function",
+      "line": 278,
+      "description_one_line": "Creates or updates document with optional merge flag.",
+      "symbol_id": "function_set_document"
+    },
+    {
+      "name": "add_document",
+      "kind": "function",
+      "line": 289,
+      "description_one_line": "Adds new document to collection with optional ID field embedding.",
+      "symbol_id": "function_add_document"
+    },
+    {
+      "name": "delete_document",
+      "kind": "function",
+      "line": 303,
+      "description_one_line": "Deletes document from collection by ID.",
+      "symbol_id": "function_delete_document"
+    },
+    {
+      "name": "query_document",
+      "kind": "function",
+      "line": 314,
+      "description_one_line": "Queries single document matching field condition.",
+      "symbol_id": "function_query_document"
+    },
+    {
+      "name": "query_documents",
+      "kind": "function",
+      "line": 339,
+      "description_one_line": "Queries all documents matching field condition.",
+      "symbol_id": "function_query_documents"
+    },
+    {
+      "name": "query_documents_by_conditions",
+      "kind": "function",
+      "line": 351,
+      "description_one_line": "Queries documents matching multiple WHERE conditions.",
+      "symbol_id": "function_query_documents_by_conditions"
+    },
+    {
+      "name": "query_document_by_conditions",
+      "kind": "function",
+      "line": 366,
+      "description_one_line": "Queries single document matching multiple WHERE conditions.",
+      "symbol_id": "function_query_document_by_conditions"
+    },
+    {
+      "name": "snapshot",
+      "kind": "function",
+      "line": 384,
+      "description_one_line": "Subscribes to collection changes with first-time and incremental callbacks.",
+      "symbol_id": "function_snapshot"
+    },
+    {
+      "name": "snapshotDocument",
+      "kind": "function",
+      "line": 463,
+      "description_one_line": "Subscribes to single document changes with condition checking.",
+      "symbol_id": "function_snapshot_document"
+    },
+    {
+      "name": "cleanNxSites",
+      "kind": "function",
+      "line": 548,
+      "description_one_line": "Removes orphaned sites without associated clients.",
+      "symbol_id": "function_clean_nx_sites"
+    },
+    {
+      "name": "getUserByPhone",
+      "kind": "function",
+      "line": 559,
+      "description_one_line": "Queries user by phone with format normalization fallback.",
+      "symbol_id": "function_get_user_by_phone"
+    },
+    {
+      "name": "getUserByEmail",
+      "kind": "function",
+      "line": 563,
+      "description_one_line": "Queries user by email with case-insensitive matching.",
+      "symbol_id": "function_get_user_by_email"
+    },
+    {
+      "name": "getUserByIdentifier",
+      "kind": "function",
+      "line": 566,
+      "description_one_line": "Queries user by phone or email identifier.",
+      "symbol_id": "function_get_user_by_identifier"
+    },
+    {
+      "name": "addLoginAudit",
+      "kind": "function",
+      "line": 570,
+      "description_one_line": "Records user login in audit log and updates last_login timestamp.",
+      "symbol_id": "function_add_login_audit"
+    },
+    {
+      "name": "addAuditRecord",
+      "kind": "function",
+      "line": 579,
+      "description_one_line": "Creates audit trail entry with user, action, and operation details.",
+      "symbol_id": "function_add_audit_record"
+    },
+    {
+      "name": "validateUserStatusAndPermissions",
+      "kind": "function",
+      "line": 607,
+      "description_one_line": "Validates user is not deleted and has app permissions.",
+      "symbol_id": "function_validate_user_status_and_permissions"
+    },
+    {
+      "name": "getFileUrlFromStorage",
+      "kind": "function",
+      "line": 622,
+      "description_one_line": "Generates download URL for file in Firebase Storage.",
+      "symbol_id": "function_get_file_url_from_storage"
+    },
+    {
+      "name": "uploadFileToStorage",
+      "kind": "function",
+      "line": 633,
+      "description_one_line": "Uploads file to Firebase Storage and returns download URL.",
+      "symbol_id": "function_upload_file_to_storage"
+    },
+    {
+      "name": "parseSnapshotAsObject",
+      "kind": "function",
+      "line": 645,
+      "description_one_line": "Creates parser that updates React state as object indexed by document IDs.",
+      "symbol_id": "function_parse_snapshot_as_object"
+    },
+    {
+      "name": "parseSnapshotAsArray",
+      "kind": "function",
+      "line": 693,
+      "description_one_line": "Creates parser that updates React state as array of documents.",
+      "symbol_id": "function_parse_snapshot_as_array"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "constant_db",
+      "name": "db",
+      "kind": "constant",
+      "description_one_line": "Firestore database instance.",
+      "details": {
+        "what_it_does": "Initialized Firestore database reference used by all query, document, and snapshot functions for database operations."
+      },
+      "locations": {
+        "source_line_start": 81,
+        "source_line_end": 81,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L81",
+        "nx_kb_anchor": "constant_db"
+      }
+    },
+    {
+      "symbol_id": "constant_auth",
+      "name": "auth",
+      "kind": "constant",
+      "description_one_line": "Firebase Auth instance for authentication.",
+      "details": {
+        "what_it_does": "Initialized Firebase Authentication reference used by useLoginWithGoogle and for managing user sessions."
+      },
+      "locations": {
+        "source_line_start": 81,
+        "source_line_end": 81,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L81",
+        "nx_kb_anchor": "constant_auth"
+      }
+    },
+    {
+      "symbol_id": "constant_storage",
+      "name": "storage",
+      "kind": "constant",
+      "description_one_line": "Firebase Storage instance for file operations.",
+      "details": {
+        "what_it_does": "Initialized Firebase Storage reference used by uploadFileToStorage and getFileUrlFromStorage."
+      },
+      "locations": {
+        "source_line_start": 81,
+        "source_line_end": 81,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L81",
+        "nx_kb_anchor": "constant_storage"
+      }
+    },
+    {
+      "symbol_id": "constant_app",
+      "name": "app",
+      "kind": "constant",
+      "description_one_line": "Firebase app instance.",
+      "details": {
+        "what_it_does": "Initialized Firebase app reference from initializeApp()."
+      },
+      "locations": {
+        "source_line_start": 81,
+        "source_line_end": 81,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L81",
+        "nx_kb_anchor": "constant_app"
+      }
+    },
+    {
+      "symbol_id": "constant_app_check",
+      "name": "appCheck",
+      "kind": "constant",
+      "description_one_line": "Firebase AppCheck instance for bot protection.",
+      "details": {
+        "what_it_does": "Initialized AppCheck with ReCAPTCHA Enterprise provider for request verification (if RECAPTCHA_SITE_KEY is configured)."
+      },
+      "locations": {
+        "source_line_start": 81,
+        "source_line_end": 81,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L81",
+        "nx_kb_anchor": "constant_app_check"
+      }
+    },
+    {
+      "symbol_id": "constant_google_login_provider",
+      "name": "googleLoginProvider",
+      "kind": "constant",
+      "description_one_line": "Google Auth provider for popup login.",
+      "details": {
+        "what_it_does": "GoogleAuthProvider instance used by useLoginWithGoogle for signInWithPopup flow."
+      },
+      "locations": {
+        "source_line_start": 81,
+        "source_line_end": 81,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L81",
+        "nx_kb_anchor": "constant_google_login_provider"
+      }
+    },
+    {
+      "symbol_id": "constant_collections",
+      "name": "collections",
+      "kind": "constant",
+      "description_one_line": "Pre-mapped Firestore collection references.",
+      "details": {
+        "what_it_does": "Object containing CollectionReference instances for all primary collections (clients, sites, cars, users, locations, events, polygons, etc.), eliminating repeated collection() calls."
+      },
+      "locations": {
+        "source_line_start": 120,
+        "source_line_end": 146,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L120-L146",
+        "nx_kb_anchor": "constant_collections"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Access pre-mapped collections",
+          "code": "import { collections } from './firebase';\n\nconst clientsCollection = collections.clients;\nconst usersCollection = collections.users;\nconst carsCollection = collections.cars;"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_use_login_with_google",
+      "name": "useLoginWithGoogle",
+      "kind": "function",
+      "description_one_line": "React hook for Google OAuth sign-in.",
+      "signature": {
+        "params": [],
+        "returns": {
+          "type": "() => Promise<User>",
+          "description": "Async function that triggers Google sign-in popup and returns Firebase User"
+        }
+      },
+      "details": {
+        "what_it_does": "Custom React hook using useCallback that returns a signInWithGoogle function. The function executes signInWithPopup with Firebase auth and googleLoginProvider, returning the authenticated User object."
+      },
+      "locations": {
+        "source_line_start": 83,
+        "source_line_end": 90,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L83-L90",
+        "nx_kb_anchor": "function_use_login_with_google"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Use Google login in component",
+          "code": "import { useLoginWithGoogle } from './firebase';\n\nconst LoginButton = () => {\n  const signInWithGoogle = useLoginWithGoogle();\n  \n  const handleClick = async () => {\n    try {\n      const user = await signInWithGoogle();\n      console.log('Signed in:', user.email);\n    } catch (error) {\n      console.error('Login failed:', error);\n    }\n  };\n  \n  return <button onClick={handleClick}>Sign in with Google</button>;\n};"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_get_all_documents",
+      "name": "get_all_documents",
+      "kind": "function",
+      "description_one_line": "Fetches all documents from collection.",
+      "signature": {
+        "params": [
+          {
+            "name": "collection_path",
+            "type": "string",
+            "required": true,
+            "description": "Firestore collection path (e.g., 'nx-users', 'nx-clients')"
+          }
+        ],
+        "returns": {
+          "type": "Promise<DocumentData[]>",
+          "description": "Array of documents with simpleExtractData applied (includes ID), empty array on error"
+        }
+      },
+      "details": {
+        "what_it_does": "Executes getDocs(collection(db, collection_path)), maps results through simpleExtractData (adds id field), returns array. Returns empty array if error occurs."
+      },
+      "locations": {
+        "source_line_start": 254,
+        "source_line_end": 262,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L254-L262",
+        "nx_kb_anchor": "function_get_all_documents"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Fetch all users",
+          "code": "import { get_all_documents } from './firebase';\n\nconst users = await get_all_documents('nx-users');\nconsole.log(`Found ${users.length} users`);\nusers.forEach(u => console.log(u.id, u.email));"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_query_documents",
+      "name": "query_documents",
+      "kind": "function",
+      "description_one_line": "Queries documents matching field condition.",
+      "signature": {
+        "params": [
+          {
+            "name": "collection_path",
+            "type": "string",
+            "required": true,
+            "description": "Collection path"
+          },
+          {
+            "name": "field_name",
+            "type": "string",
+            "required": true,
+            "description": "Field to filter on"
+          },
+          {
+            "name": "operator",
+            "type": "WhereFilterOp",
+            "required": true,
+            "description": "'==' | '!=' | '<' | '<=' | '>' | '>=' | 'array-contains' | 'in' | 'array-contains-any'"
+          },
+          {
+            "name": "value",
+            "type": "any",
+            "required": true,
+            "description": "Value to match"
+          }
+        ],
+        "returns": {
+          "type": "Promise<DocumentData[]>",
+          "description": "Array of matching documents, empty array on error"
+        }
+      },
+      "details": {
+        "what_it_does": "Constructs query with where condition, executes getDocs, returns array of documents via simpleExtractData. Logs error but returns empty array without throwing."
+      },
+      "locations": {
+        "source_line_start": 339,
+        "source_line_end": 349,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L339-L349",
+        "nx_kb_anchor": "function_query_documents"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Query users by status",
+          "code": "import { query_documents } from './firebase';\n\nconst activeUsers = await query_documents('nx-users', 'status', '==', 'active');\nconsole.log(`Found ${activeUsers.length} active users`);"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_snapshot",
+      "name": "snapshot",
+      "kind": "function",
+      "description_one_line": "Subscribes to real-time collection changes with callbacks.",
+      "signature": {
+        "params": [
+          {
+            "name": "config",
+            "type": "SnapshotConfig",
+            "required": true,
+            "description": "Configuration with collectionName, callbacks (onFirstTime, onAdd, onModify, onRemove), optional conditions, orderBy, extraParsers"
+          },
+          {
+            "name": "snapshotsFirstTime",
+            "type": "string[]",
+            "required": true,
+            "description": "Array to track which snapshots have been initialized (prevents duplicate first-time callbacks)"
+          },
+          {
+            "name": "settings",
+            "type": "{ disableLogs?: boolean }",
+            "required": false,
+            "description": "Optional settings to disable console logs"
+          }
+        ],
+        "returns": {
+          "type": "{ promise: Promise<void>, unsubscribe: Unsubscribe }",
+          "description": "Promise resolves after first-time callback, unsubscribe function to stop listening"
+        }
+      },
+      "details": {
+        "what_it_does": "Creates query with optional where conditions and orderBy, sets up onSnapshot listener that tracks first-time vs incremental changes, calls appropriate callbacks on initial data and subsequent add/modify/remove events, supports multiple extraParsers for complex data transformation."
+      },
+      "locations": {
+        "source_line_start": 384,
+        "source_line_end": 461,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L384-L461",
+        "nx_kb_anchor": "function_snapshot"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Subscribe to users collection",
+          "code": "import { snapshot } from './firebase';\n\nconst firstTimeList: string[] = [];\n\nconst { promise, unsubscribe } = snapshot(\n  {\n    collectionName: 'nx-users',\n    onFirstTime: (users) => console.log('Initial users:', users),\n    onAdd: (users) => console.log('New users:', users),\n    onModify: (users) => console.log('Updated users:', users),\n    onRemove: (users) => console.log('Deleted users:', users)\n  },\n  firstTimeList\n);\n\nawait promise; // wait for first batch\n// ... later ...\nunsubscribe(); // stop listening"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_validate_user_status_and_permissions",
+      "name": "validateUserStatusAndPermissions",
+      "kind": "function",
+      "description_one_line": "Checks user is active and has app permissions.",
+      "signature": {
+        "params": [
+          {
+            "name": "user",
+            "type": "NxUser",
+            "required": true,
+            "description": "User object from database"
+          },
+          {
+            "name": "app",
+            "type": "AppName",
+            "required": true,
+            "description": "App identifier to check permissions for"
+          }
+        ],
+        "returns": {
+          "type": "Permissions",
+          "description": "Parsed user permissions object if validation passes"
+        },
+        "throws": [
+          {
+            "type": "Error('user_not_found')",
+            "description": "If user is null or status is 'deleted'"
+          },
+          {
+            "type": "Error('user_without_permission')",
+            "description": "If user lacks permission for specified app"
+          }
+        ]
+      },
+      "details": {
+        "what_it_does": "Checks user exists and status !== 'deleted', parses permissions via parsePermissions, throws if app permission missing, otherwise returns permissions object."
+      },
+      "locations": {
+        "source_line_start": 607,
+        "source_line_end": 618,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L607-L618",
+        "nx_kb_anchor": "function_validate_user_status_and_permissions"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Validate user before app access",
+          "code": "import { validateUserStatusAndPermissions } from './firebase';\n\ntry {\n  const perms = validateUserStatusAndPermissions(user, 'tracking-app');\n  console.log('User can access tracking-app');\n} catch (error) {\n  if (error.message === 'user_not_found') {\n    console.error('User not found or deleted');\n  } else if (error.message === 'user_without_permission') {\n    console.error('User does not have permission for tracking-app');\n  }\n}"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_parse_snapshot_as_object",
+      "name": "parseSnapshotAsObject",
+      "kind": "function",
+      "description_one_line": "Creates parser that stores documents as object keyed by ID.",
+      "signature": {
+        "params": [
+          {
+            "name": "setState",
+            "type": "SetState<any>",
+            "required": true,
+            "description": "React setState function (from useState)"
+          },
+          {
+            "name": "filterCondition",
+            "type": "(v: any) => boolean",
+            "required": false,
+            "description": "Optional filter function to exclude documents"
+          }
+        ],
+        "returns": {
+          "type": "OnSnapshotParsers",
+          "description": "Parser object with onFirstTime, onAdd, onModify, onRemove callbacks"
+        }
+      },
+      "details": {
+        "what_it_does": "Returns OnSnapshotParsers object that converts document arrays to object format { [docId]: docData }, useful for O(1) lookups. Supports optional filter for excluding documents."
+      },
+      "locations": {
+        "source_line_start": 645,
+        "source_line_end": 691,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts#L645-L691",
+        "nx_kb_anchor": "function_parse_snapshot_as_object"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Subscribe to users as object",
+          "code": "import { useState } from 'react';\nimport { snapshot, parseSnapshotAsObject } from './firebase';\n\nconst [usersObj, setUsersObj] = useState<Record<string, any>>({});\nconst firstTimeList: string[] = [];\n\nconst parser = parseSnapshotAsObject(setUsersObj);\n\nconst { unsubscribe } = snapshot(\n  {\n    collectionName: 'nx-users',\n    onFirstTime: parser.onFirstTime,\n    onAdd: parser.onAdd,\n    onModify: parser.onModify,\n    onRemove: parser.onRemove\n  },\n  firstTimeList\n);\n\n// usersObj now has shape: { 'user-1': {...}, 'user-2': {...} }"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

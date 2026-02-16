@@ -1,0 +1,222 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "store.ts",
+  "source": {
+    "file_path": "helpers/store.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": [
+      "zustand",
+      "state-management",
+      "hooks"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/store.ts",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/store.ts.json"
+  },
+  "summary": {
+    "purpose": "Zustand store utilities for managing state updates, creating selectors from store state, and batching multiple state subscriptions with a single hook.",
+    "problem_solved": "Provides helper functions to reduce boilerplate when working with Zustand stores: setState for nested updates, createSelectors for automatic selector generation, and useStoreValues for subscribing to multiple state keys at once."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "setState",
+      "kind": "function",
+      "line": 1,
+      "description_one_line": "Updates a single state property by applying an updater function or value.",
+      "symbol_id": "function_set_state"
+    },
+    {
+      "name": "createSelectors",
+      "kind": "function",
+      "line": 7,
+      "description_one_line": "Generates individual selector hooks for each state property from a Zustand store.",
+      "symbol_id": "function_create_selectors"
+    },
+    {
+      "name": "useStoreValues",
+      "kind": "function",
+      "line": 15,
+      "description_one_line": "Hook that subscribes to multiple state properties and returns them as an object.",
+      "symbol_id": "function_use_store_values"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "function_set_state",
+      "name": "setState",
+      "kind": "function",
+      "description_one_line": "Zustand state update helper for setting a single property.",
+      "signature": {
+        "params": [
+          {
+            "name": "updater",
+            "type": "T | ((state: T) => T)",
+            "required": true,
+            "description": "Either a new value of type T, or a function that receives current state and returns new state"
+          },
+          {
+            "name": "set",
+            "type": "(fn: (state: any) => any) => void",
+            "required": true,
+            "description": "Zustand store's set function (passed from create() hook callback)"
+          },
+          {
+            "name": "stateName",
+            "type": "string",
+            "required": true,
+            "description": "The key name in store state to update (e.g., 'users', 'settings')"
+          }
+        ],
+        "returns": {
+          "type": "void",
+          "description": "Executes the Zustand set function, no direct return value"
+        }
+      },
+      "details": {
+        "what_it_does": "Calls set() with a state update function that merges a new object containing only the specified stateName property. If updater is a function, it's called with current state[stateName], otherwise the updater value is used directly.",
+        "behavior_notes": [
+          "Returns object with single key [stateName] merged into store state",
+          "Supports both direct values and updater functions for reactive updates",
+          "Useful for stores with multiple properties (users, settings, etc.)",
+          "Alternative to passing explicit object literals to set()"
+        ]
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 5,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/store.ts#L1-L5",
+        "nx_kb_anchor": "function_set_state"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Update a state property with setState",
+          "code": "import { create } from 'zustand';\nimport { setState } from './store';\n\nconst useStore = create((set) => ({\n  users: [],\n  setUsers: (users) => setState(users, set, 'users')\n}));\n\n// Usage\nuseStore.getState().setUsers([{ id: 1, name: 'John' }]);"
+        },
+        "extensive": {
+          "title": "Using setState with updater function for immutable updates",
+          "code": "import { create } from 'zustand';\nimport { setState } from './store';\n\nconst useStore = create((set) => ({\n  count: 0,\n  items: [],\n  increment: () => setState((state) => state + 1, set, 'count'),\n  addItem: (item) => setState(\n    (items) => [...items, item],\n    set,\n    'items'\n  )\n}));\n\n// Usage\nconst store = useStore.getState();\nstore.increment(); // count becomes 1\nstore.addItem({ id: 1, title: 'Task' }); // items array grows"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Forgetting to use setState in Zustand create",
+          "code": "// WRONG - manual state update every time\nconst useStore = create((set) => ({\n  users: [],\n  setUsers: (users) => set({ users })\n}));\n\n// CORRECT - use setState for consistency\nconst useStore = create((set) => ({\n  users: [],\n  setUsers: (users) => setState(users, set, 'users')\n}));"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_create_selectors",
+      "name": "createSelectors",
+      "kind": "function",
+      "description_one_line": "Auto-generates individual selector hooks for each Zustand store property.",
+      "signature": {
+        "params": [
+          {
+            "name": "store",
+            "type": "any",
+            "required": true,
+            "description": "Zustand store object (from create()) with getState() method and properties to select"
+          }
+        ],
+        "returns": {
+          "type": "{ [K in keyof T]: () => T[K] }",
+          "description": "Object of selector hooks, one per state property, each returning the current value"
+        }
+      },
+      "details": {
+        "what_it_does": "Iterates over all keys in store.getState(), creates a selector hook for each property that calls store((s: T) => s[k]), returns object with hooks named after each property. Eliminates manually writing selector hooks for large stores.",
+        "behavior_notes": [
+          "Dynamically generates hooks from store state shape",
+          "Each selector hook uses Zustand's selector pattern: store((state) => state.property)",
+          "Reduces boilerplate when store has many properties",
+          "Works with any Zustand store created with create()"
+        ]
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 13,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/store.ts#L7-L13",
+        "nx_kb_anchor": "function_create_selectors"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Auto-generate selectors for store properties",
+          "code": "import { create } from 'zustand';\nimport { createSelectors } from './store';\n\nconst useStore = create((set) => ({\n  users: [],\n  settings: {},\n  theme: 'light'\n}));\n\nconst selectors = createSelectors(useStore);\n\n// Usage in component\nconst users = selectors.users();\nconst settings = selectors.settings();\nconst theme = selectors.theme();"
+        },
+        "extensive": {
+          "title": "Combined with store creation and React components",
+          "code": "import { create } from 'zustand';\nimport { createSelectors } from './store';\nimport { FC } from 'react';\n\nconst useStore = create((set) => ({\n  users: [],\n  loading: false,\n  error: null\n}));\n\nconst selectors = createSelectors(useStore);\n\nconst UserList: FC = () => {\n  const users = selectors.users();\n  const loading = selectors.loading();\n  \n  if (loading) return <div>Loading...</div>;\n  return (\n    <ul>\n      {users.map(u => <li key={u.id}>{u.name}</li>)}\n    </ul>\n  );\n};"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not memoizing selectors for performance",
+          "code": "// WRONG - recreates selectors on every render\nconst UserList = () => {\n  const selectors = createSelectors(useStore); // runs every render!\n  const users = selectors.users();\n  return <ul>{users.map(u => <li>{u.name}</li>)}</ul>;\n};\n\n// CORRECT - create selectors once outside component\nconst selectors = createSelectors(useStore);\n\nconst UserList = () => {\n  const users = selectors.users();\n  return <ul>{users.map(u => <li>{u.name}</li>)}</ul>;\n};"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_use_store_values",
+      "name": "useStoreValues",
+      "kind": "function",
+      "description_one_line": "Hook that batches multiple state subscriptions into a single object.",
+      "signature": {
+        "params": [
+          {
+            "name": "store",
+            "type": "{ use: { [K in keyof T]: () => T[K] } }",
+            "required": true,
+            "description": "Store object with 'use' namespace containing selector hooks (typically created with createSelectors)"
+          },
+          {
+            "name": "keys",
+            "type": "Array<keyof T>",
+            "required": true,
+            "description": "Array of property names to subscribe to (e.g., ['users', 'settings', 'theme'])"
+          }
+        ],
+        "returns": {
+          "type": "Partial<T>",
+          "description": "Object containing only the requested properties from store state"
+        }
+      },
+      "details": {
+        "what_it_does": "Iterates over keys array, calls store.use[key]() for each key, aggregates results into single Partial<T> object. Allows components to subscribe to multiple specific store properties without subscribing to entire store.",
+        "behavior_notes": [
+          "Useful for large stores where component needs multiple properties",
+          "Reduces unnecessary re-renders by not subscribing to all state",
+          "Returns typed object with only requested properties",
+          "Assumes store.use namespace exists (created with createSelectors)",
+          "Runs on each render but selectors handle optimization internally"
+        ]
+      },
+      "locations": {
+        "source_line_start": 15,
+        "source_line_end": 21,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/store.ts#L15-L21",
+        "nx_kb_anchor": "function_use_store_values"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Use multiple store values in a component",
+          "code": "import { useStoreValues } from './store';\n\nconst keysArray = ['users', 'settings'];\nconst { users, settings } = useStoreValues(useStore, keysArray);\n\nconsole.log(users);    // current users array\nconsole.log(settings); // current settings object"
+        },
+        "extensive": {
+          "title": "Component subscribing to specific store properties",
+          "code": "import { create } from 'zustand';\nimport { createSelectors, useStoreValues } from './store';\nimport { FC } from 'react';\n\nconst useStore = create((set) => ({\n  users: [],\n  settings: { theme: 'light' },\n  theme: 'light',\n  notifications: [],\n  loading: false\n}));\n\nconst selectors = createSelectors(useStore);\n\nconst Dashboard: FC = () => {\n  // Only subscribe to users and settings, not theme, notifications, loading\n  const { users, settings } = useStoreValues(selectors, ['users', 'settings']);\n  \n  return (\n    <div>\n      <h1>Dashboard ({users.length} users)</h1>\n      <p>Theme: {settings.theme}</p>\n    </div>\n  );\n};"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Subscribing to entire store when only need part",
+          "code": "// WRONG - re-renders on ANY store change (loading, notifications, etc.)\nconst Dashboard = () => {\n  const { users, settings, theme, notifications, loading } = useStore();\n  return <div>{users.length} users</div>; // re-renders when notifications change!\n};\n\n// CORRECT - only re-render when users or settings change\nconst Dashboard = () => {\n  const { users, settings } = useStoreValues(selectors, ['users', 'settings']);\n  return <div>{users.length} users</div>; // only re-renders on users/settings change\n};"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "file_name": "snapshotWorker.ts",
+  "source": {
+    "file_path": "hooks/snapshots/snapshotWorker.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": ["snapshots", "workers", "deduplication"]
+  },
+  "summary": {
+    "purpose": "Wraps snapshot configuration callbacks to deduplicate rapid event processing in Web Workers, preventing duplicate handlers from firing on same events within TTL window.",
+    "problem_solved": "Prevents duplicate snapshot event processing (first/add/modify/remove) when same documents are updated rapidly, using time-window deduplication and per-handler tracking."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/types/firebase.ts.json",
+        "why_used": "OnSnapshotConfig and OnSnapshotConfigDocument types",
+        "import_path": "src/types",
+        "resolved_file_path": "types/types/firebase.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts"
+      }
+    ]
+  },
+  "exports": [
+    {"name": "SnapshotOp", "kind": "type", "line": 3, "description_one_line": "Snapshot event operation type.", "symbol_id": "type_snapshot_op"},
+    {"name": "SnapshotDocsProcessor", "kind": "type", "line": 5, "description_one_line": "Callback for processing snapshot docs.", "symbol_id": "type_snapshot_docs_processor"},
+    {"name": "WrapWorkerOptions", "kind": "interface", "line": 7, "description_one_line": "Deduplication and JSON cloning options.", "symbol_id": "interface_wrap_worker_options"},
+    {"name": "wrapConfigsWithWorker", "kind": "function", "line": 37, "description_one_line": "Wraps collection snapshot config with deduplication.", "symbol_id": "function_wrap_configs_with_worker"},
+    {"name": "wrapDocumentConfigsWithWorker", "kind": "function", "line": 106, "description_one_line": "Wraps document snapshot config with deduplication.", "symbol_id": "function_wrap_document_configs_with_worker"}
+  ],
+  "symbols": [
+    {
+      "symbol_id": "type_snapshot_op",
+      "name": "SnapshotOp",
+      "kind": "type",
+      "description_one_line": "Snapshot event type.",
+      "details": {
+        "what_it_does": "Union of snapshot operations: 'first' (initial load), 'add' (new doc), 'modify' (updated), 'remove' (deleted).",
+        "type_definition": "type SnapshotOp = 'first' | 'add' | 'modify' | 'remove';"
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/snapshotWorker.ts#L3",
+        "nx_kb_anchor": "type_snapshot_op"
+      }
+    },
+    {
+      "symbol_id": "type_snapshot_docs_processor",
+      "name": "SnapshotDocsProcessor",
+      "kind": "type",
+      "description_one_line": "Document processor function.",
+      "details": {
+        "what_it_does": "Processes documents with operation type: (payload: {op, docs}) => Promise | {docs}. Used by Web Worker.",
+        "type_definition": "type SnapshotDocsProcessor = (payload: { op: SnapshotOp; docs: any[] }) => Promise<{ docs: any[] }> | { docs: any[] };"
+      },
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 5,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/snapshotWorker.ts#L5",
+        "nx_kb_anchor": "type_snapshot_docs_processor"
+      }
+    },
+    {
+      "symbol_id": "interface_wrap_worker_options",
+      "name": "WrapWorkerOptions",
+      "kind": "interface",
+      "description_one_line": "Deduplication configuration.",
+      "details": {
+        "what_it_does": "eventTtlMs: Time-to-live (100ms default) - events with same key within TTL are deduplicated. maxRecentEvents: Max keys to track (500 default). jsonClone: Deep clone docs before processing (true default)."
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/snapshotWorker.ts#L7-L11",
+        "nx_kb_anchor": "interface_wrap_worker_options"
+      }
+    },
+    {
+      "symbol_id": "function_wrap_configs_with_worker",
+      "name": "wrapConfigsWithWorker",
+      "kind": "function",
+      "description_one_line": "Wrap collection configs for deduplication.",
+      "signature": {
+        "params": [
+          {"name": "cfgs", "type": "OnSnapshotConfig[]", "required": true, "description": "Collection snapshot configs"},
+          {"name": "runProcessor", "type": "SnapshotDocsProcessor", "required": true, "description": "Processor function for docs"},
+          {"name": "options", "type": "WrapWorkerOptions", "required": false, "description": "Deduplication options"}
+        ],
+        "returns": {
+          "type": "OnSnapshotConfig[]",
+          "description": "Wrapped configs with deduplicated callbacks"
+        }
+      },
+      "details": {
+        "what_it_does": "Wraps each config's onFirstTime/onAdd/onModify/onRemove and extraParsers callbacks to deduplicate events. Creates unique key from collection name + operation + document IDs. Tracks recent events in time window. Skips callback if key seen recently.",
+        "behavior_notes": [
+          "Per-handler deduplication: each handler gets unique random ID",
+          "Per-callback deduplication: base parser and extraParsers are separate",
+          "Makes key from: collectionName:op:id1,id2,... (sorted)",
+          "Cleanup of old entries when maxRecentEvents exceeded"
+        ]
+      },
+      "locations": {
+        "source_line_start": 37,
+        "source_line_end": 96,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/snapshotWorker.ts#L37-L96",
+        "nx_kb_anchor": "function_wrap_configs_with_worker"
+      }
+    },
+    {
+      "symbol_id": "function_wrap_document_configs_with_worker",
+      "name": "wrapDocumentConfigsWithWorker",
+      "kind": "function",
+      "description_one_line": "Wrap document configs for deduplication.",
+      "signature": {
+        "params": [
+          {"name": "cfgs", "type": "OnSnapshotConfigDocument[]", "required": true, "description": "Document snapshot configs"},
+          {"name": "runProcessor", "type": "SnapshotDocsProcessor", "required": true, "description": "Processor for docs"},
+          {"name": "options", "type": "WrapWorkerOptions", "required": false, "description": "Dedup options"}
+        ],
+        "returns": {
+          "type": "OnSnapshotConfigDocument[]",
+          "description": "Wrapped configs"
+        }
+      },
+      "details": {
+        "what_it_does": "Like wrapConfigsWithWorker but for single documents. Includes version tracking from updatedAt/modifiedAt timestamps to distinguish rapid updates on same document."
+      },
+      "locations": {
+        "source_line_start": 106,
+        "source_line_end": 160,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/snapshotWorker.ts#L106-L160",
+        "nx_kb_anchor": "function_wrap_document_configs_with_worker"
+      }
+    }
+  ],
+  "quality": {"generation_confidence": "high"}
+}

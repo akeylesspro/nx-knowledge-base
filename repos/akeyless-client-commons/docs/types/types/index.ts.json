@@ -1,0 +1,56 @@
+{
+  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "types/types/index.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": ["types", "barrel-export"]
+  },
+  "summary": {
+    "purpose": "Barrel export for global application and Firebase types.",
+    "problem_solved": "Single import point for Direction, SetState, AppName, Snapshot types, etc."
+  },
+  "dependencies": {"external": [], "internal": [
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/types/global.ts.json", "why_used": "Global types", "import_path": "./global", "resolved_file_path": "types/types/global.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/global.ts"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/types/firebase.ts.json", "why_used": "Firebase types", "import_path": "./firebase", "resolved_file_path": "types/types/firebase.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts"}
+  ]},
+  "exports": [
+    {"name": "*", "kind": "value", "line": 1, "description_one_line": "Global types (Direction, SetState, etc.)", "symbol_id": "reexport_global"},
+    {"name": "*", "kind": "value", "line": 2, "description_one_line": "Firebase/snapshot types", "symbol_id": "reexport_firebase"}
+  ],
+  "symbols": [
+    {
+      "symbol_id": "reexport_global",
+      "name": "* from './global'",
+      "kind": "value",
+      "description_one_line": "Global application types.",
+      "details": {
+        "what_it_does": "Re-exports: Direction (rtl|ltr), SetState<T> (React setState), ModularPopUp (modal config), AppName (app identifier), LoginOption (auth method)."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/index.ts#L1",
+        "nx_kb_anchor": "reexport_global"
+      }
+    },
+    {
+      "symbol_id": "reexport_firebase",
+      "name": "* from './firebase'",
+      "kind": "value",
+      "description_one_line": "Firebase/Firestore snapshot types.",
+      "details": {
+        "what_it_does": "Re-exports: OnSnapshotCallback, OnSnapshotParsers, WhereCondition, OnSnapshotConfig, OnSnapshotConfigDocument, SnapshotResult, Snapshot, SnapshotDocument."
+      },
+      "locations": {
+        "source_line_start": 2,
+        "source_line_end": 2,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/index.ts#L2",
+        "nx_kb_anchor": "reexport_firebase"
+      }
+    }
+  ],
+  "quality": {"generation_confidence": "high"}
+}

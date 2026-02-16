@@ -1,0 +1,219 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "firebase.ts",
+  "source": {
+    "file_path": "types/types/firebase.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": ["firebase", "firestore", "snapshots", "types"]
+  },
+  "summary": {
+    "purpose": "Firebase Firestore type definitions for real-time collection subscriptions, document listeners, snapshot configurations, and query conditions.",
+    "problem_solved": "Provides type-safe interfaces for snapshot listeners, parser callbacks, query conditions, and configuration objects to ensure consistent real-time data handling."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "module": "firebase/firestore",
+        "kind": "runtime",
+        "why_used": "Provides Unsubscribe function type and WhereFilterOp operator types.",
+        "name": "firebase/firestore"
+      },
+      {
+        "module": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides TObject type for generic object typing.",
+        "name": "akeyless-types-commons"
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "OnSnapshotCallback",
+      "kind": "type",
+      "line": 4,
+      "description_one_line": "Callback signature for snapshot changes.",
+      "symbol_id": "type_on_snapshot_callback"
+    },
+    {
+      "name": "OnSnapshotParsers",
+      "kind": "interface",
+      "line": 6,
+      "description_one_line": "Collection of optional snapshot event callbacks.",
+      "symbol_id": "interface_on_snapshot_parsers"
+    },
+    {
+      "name": "WhereCondition",
+      "kind": "interface",
+      "line": 12,
+      "description_one_line": "Query condition with field, operator, and value.",
+      "symbol_id": "interface_where_condition"
+    },
+    {
+      "name": "OnSnapshotConfig",
+      "kind": "interface",
+      "line": 17,
+      "description_one_line": "Configuration for collection snapshot subscription.",
+      "symbol_id": "interface_on_snapshot_config"
+    },
+    {
+      "name": "OnSnapshotConfigDocument",
+      "kind": "interface",
+      "line": 25,
+      "description_one_line": "Configuration for single document snapshot.",
+      "symbol_id": "interface_on_snapshot_config_document"
+    },
+    {
+      "name": "SnapshotResult",
+      "kind": "interface",
+      "line": 32,
+      "description_one_line": "Result object from snapshot subscription.",
+      "symbol_id": "interface_snapshot_result"
+    },
+    {
+      "name": "Snapshot",
+      "kind": "type",
+      "line": 37,
+      "description_one_line": "Function type for collection snapshot subscriptions.",
+      "symbol_id": "type_snapshot"
+    },
+    {
+      "name": "SnapshotDocument",
+      "kind": "type",
+      "line": 39,
+      "description_one_line": "Function type for document snapshot subscriptions.",
+      "symbol_id": "type_snapshot_document"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "type_on_snapshot_callback",
+      "name": "OnSnapshotCallback",
+      "kind": "type",
+      "description_one_line": "Snapshot event callback with documents and config.",
+      "details": {
+        "what_it_does": "Callback function signature receiving document array and OnSnapshotConfig for handling snapshot changes.",
+        "type_definition": "type OnSnapshotCallback = (documents: any[], config: OnSnapshotConfig) => void;"
+      },
+      "locations": {
+        "source_line_start": 4,
+        "source_line_end": 4,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts#L4",
+        "nx_kb_anchor": "type_on_snapshot_callback"
+      }
+    },
+    {
+      "symbol_id": "interface_on_snapshot_parsers",
+      "name": "OnSnapshotParsers",
+      "kind": "interface",
+      "description_one_line": "Optional event handlers for snapshot changes.",
+      "details": {
+        "what_it_does": "Interface with optional callbacks: onFirstTime (initial data), onAdd (new documents), onModify (updated), onRemove (deleted). Used to handle different types of Firestore collection changes."
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts#L6-L11",
+        "nx_kb_anchor": "interface_on_snapshot_parsers"
+      }
+    },
+    {
+      "symbol_id": "interface_where_condition",
+      "name": "WhereCondition",
+      "kind": "interface",
+      "description_one_line": "Single query filter condition.",
+      "details": {
+        "what_it_does": "Defines a WHERE clause with field_name, Firestore operator (==, !=, <, >, <=, >=, array-contains, in), and comparison value."
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts#L12-L16",
+        "nx_kb_anchor": "interface_where_condition"
+      }
+    },
+    {
+      "symbol_id": "interface_on_snapshot_config",
+      "name": "OnSnapshotConfig",
+      "kind": "interface",
+      "description_one_line": "Collection subscription configuration.",
+      "details": {
+        "what_it_does": "Extends OnSnapshotParsers with collectionName, optional extraParsers array, WHERE conditions, ORDER BY specs, cache/db source, and result format (object/array)."
+      },
+      "locations": {
+        "source_line_start": 17,
+        "source_line_end": 24,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts#L17-L24",
+        "nx_kb_anchor": "interface_on_snapshot_config"
+      }
+    },
+    {
+      "symbol_id": "interface_on_snapshot_config_document",
+      "name": "OnSnapshotConfigDocument",
+      "kind": "interface",
+      "description_one_line": "Single document subscription configuration.",
+      "details": {
+        "what_it_does": "Like OnSnapshotConfig but for single document: collectionName, documentId, no onAdd, optional conditions, and extraParsers."
+      },
+      "locations": {
+        "source_line_start": 25,
+        "source_line_end": 30,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts#L25-L30",
+        "nx_kb_anchor": "interface_on_snapshot_config_document"
+      }
+    },
+    {
+      "symbol_id": "interface_snapshot_result",
+      "name": "SnapshotResult",
+      "kind": "interface",
+      "description_one_line": "Snapshot subscription result.",
+      "details": {
+        "what_it_does": "Returns promise (resolves after initial load) and unsubscribe function to stop listening."
+      },
+      "locations": {
+        "source_line_start": 32,
+        "source_line_end": 35,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts#L32-L35",
+        "nx_kb_anchor": "interface_snapshot_result"
+      }
+    },
+    {
+      "symbol_id": "type_snapshot",
+      "name": "Snapshot",
+      "kind": "type",
+      "description_one_line": "Collection snapshot subscription function type.",
+      "details": {
+        "what_it_does": "Function signature: (config, snapshotsFirstTime array, optional settings) => SnapshotResult.",
+        "type_definition": "type Snapshot = (config: OnSnapshotConfig, snapshotsFirstTime: string[], settings?: { disableLogs?: boolean }) => SnapshotResult;"
+      },
+      "locations": {
+        "source_line_start": 37,
+        "source_line_end": 37,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts#L37",
+        "nx_kb_anchor": "type_snapshot"
+      }
+    },
+    {
+      "symbol_id": "type_snapshot_document",
+      "name": "SnapshotDocument",
+      "kind": "type",
+      "description_one_line": "Document snapshot subscription function type.",
+      "details": {
+        "what_it_does": "Function signature: (config, snapshotsFirstTime array) => SnapshotResult for single document listening.",
+        "type_definition": "type SnapshotDocument = (config: OnSnapshotConfigDocument, snapshotsFirstTime: string[]) => SnapshotResult;"
+      },
+      "locations": {
+        "source_line_start": 39,
+        "source_line_end": 39,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts#L39",
+        "nx_kb_anchor": "type_snapshot_document"
+      }
+    }
+  ],
+  "quality": {"generation_confidence": "high"}
+}

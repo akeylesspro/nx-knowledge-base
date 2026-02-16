@@ -1,0 +1,169 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "types/types/global.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": ["types", "enums"]
+  },
+  "summary": {
+    "purpose": "Global TypeScript type definitions for application-wide utilities: text direction, state setters, modal popups, and app identifiers.",
+    "problem_solved": "Provides reusable type definitions for common patterns across the application (RTL/LTR direction, React setState patterns, modal configuration, app names and login options)."
+  },
+  "dependencies": {"external": [], "internal": []},
+  "exports": [
+    {
+      "name": "Direction",
+      "kind": "type",
+      "line": 1,
+      "description_one_line": "Text direction union type for RTL and LTR layouts.",
+      "symbol_id": "type_direction"
+    },
+    {
+      "name": "SetState",
+      "kind": "type",
+      "line": 3,
+      "description_one_line": "React useState setter type with updater function or direct value.",
+      "symbol_id": "type_set_state"
+    },
+    {
+      "name": "ModularPopUp",
+      "kind": "type",
+      "line": 5,
+      "description_one_line": "Modal popup configuration with element, positioning, and callbacks.",
+      "symbol_id": "type_modular_pop_up"
+    },
+    {
+      "name": "AppName",
+      "kind": "type",
+      "line": 16,
+      "description_one_line": "Application identifier union for installer, toolbox, and dashboard.",
+      "symbol_id": "type_app_name"
+    },
+    {
+      "name": "LoginOption",
+      "kind": "type",
+      "line": 17,
+      "description_one_line": "Login method union for Google and phone-based authentication.",
+      "symbol_id": "type_login_option"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "type_direction",
+      "name": "Direction",
+      "kind": "type",
+      "description_one_line": "Text direction specification.",
+      "details": {
+        "what_it_does": "Union type restricting direction values to 'rtl' (right-to-left for Hebrew/Arabic) or 'ltr' (left-to-right for English/Latin).",
+        "type_definition": "type Direction = 'rtl' | 'ltr';"
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/global.ts#L1",
+        "nx_kb_anchor": "type_direction"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Use Direction type in component props",
+          "code": "interface LayoutProps {\n  direction: Direction;\n}\n\nconst direction: Direction = 'rtl'; // Hebrew layout\nconst direction: Direction = 'ltr'; // English layout"
+        }
+      }
+    },
+    {
+      "symbol_id": "type_set_state",
+      "name": "SetState",
+      "kind": "type",
+      "description_one_line": "React state setter function type.",
+      "details": {
+        "what_it_does": "Generic type T for useState setter that accepts either a function receiving previous state and returning new state, or a new value directly.",
+        "type_definition": "type SetState<T> = (updater: ((prev: T) => T) | T) => void;"
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/global.ts#L3",
+        "nx_kb_anchor": "type_set_state"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Use SetState in function signature",
+          "code": "const updateUsers: SetState<User[]> = useState([])[1];\n\n// Direct value\nupdateUsers([newUser]);\n\n// Updater function\nupdateUsers(prev => [...prev, newUser]);"
+        }
+      }
+    },
+    {
+      "symbol_id": "type_modular_pop_up",
+      "name": "ModularPopUp",
+      "kind": "type",
+      "description_one_line": "Modal popup configuration with element, positioning, and callbacks.",
+      "details": {
+        "what_it_does": "Union type for null (no popup) or object with JSX.Element, optional name, close callback, CSS positioning (top/bottom/left/right), and background color.",
+        "type_definition": "type ModularPopUp = null | {\n  element: JSX.Element;\n  elementName?: string & {};\n  onClose?: () => void | Promise<void>;\n  top?: string;\n  left?: string;\n  bottom?: string;\n  right?: string;\n  background?: string;\n};"
+      },
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 14,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/global.ts#L5-L14",
+        "nx_kb_anchor": "type_modular_pop_up"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Create and display modal popup",
+          "code": "const popup: ModularPopUp = {\n  element: <div>Modal Content</div>,\n  elementName: 'user-profile-modal',\n  onClose: () => console.log('Modal closed'),\n  top: '50%',\n  left: '50%',\n  background: 'rgba(0,0,0,0.5)'\n};\n\n// Or close popup\nconst noPopup: ModularPopUp = null;"
+        }
+      }
+    },
+    {
+      "symbol_id": "type_app_name",
+      "name": "AppName",
+      "kind": "type",
+      "description_one_line": "Application identifier.",
+      "details": {
+        "what_it_does": "Union type restricting app identifiers to 'installer', 'toolbox', or 'dashboard' for permission and feature gating.",
+        "type_definition": "type AppName = 'installer' | 'toolbox' | 'dashboard';"
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/global.ts#L16",
+        "nx_kb_anchor": "type_app_name"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Use AppName for permission checking",
+          "code": "const currentApp: AppName = 'dashboard';\n\nif (validateUserStatusAndPermissions(user, 'toolbox')) {\n  // User has toolbox permission\n}\n\nconst appFeatures = {\n  installer: [...],\n  toolbox: [...],\n  dashboard: [...]\n};"
+        }
+      }
+    },
+    {
+      "symbol_id": "type_login_option",
+      "name": "LoginOption",
+      "kind": "type",
+      "description_one_line": "User authentication method.",
+      "details": {
+        "what_it_does": "Union type restricting login methods to 'google' (OAuth) or 'phone' (SMS/OTP).",
+        "type_definition": "type LoginOption = 'google' | 'phone';"
+      },
+      "locations": {
+        "source_line_start": 17,
+        "source_line_end": 17,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/global.ts#L17",
+        "nx_kb_anchor": "type_login_option"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Track login method in audit",
+          "code": "const loginMethod: LoginOption = 'google';\n\naddLoginAudit(user, 'dashboard', 'google');\n// or\naddLoginAudit(user, 'toolbox', 'phone');"
+        }
+      }
+    }
+  ],
+  "quality": {"generation_confidence": "high"}
+}

@@ -94,8 +94,8 @@
       "kind": "type",
       "description_one_line": "Union of all form elements.",
       "details": {
-        "what_it_does": "Used by ModularForm to type the array of elements passed to it.",
-        "type_definition": "// TODO: Add TypeScript type definition"
+        "what_it_does": "Union type representing all possible form element types that can be passed to ModularForm. Includes input, date picker, select, multi-select, textarea, phone input, separator, checkbox, and custom elements.",
+        "type_definition": "type FormElement = InputElement | DateInputElement | SelectElement | MultiSelectProps | InternationalInputProps | CustomElementProps | TextAreaElement | SelectWithSearchProps | FormSeparatorProps | CheckboxContainerProps | DurationInputProps;"
       },
       "locations": {
         "source_line_start": 184,
@@ -106,7 +106,15 @@
       "examples": {
         "minimal_correct": {
           "title": "Using FormElement type",
-          "code": "// TODO: Add type usage example"
+          "code": "const elements: FormElement[] = [\n  { type: 'input', name: 'email', labelContent: 'Email' },\n  { type: 'select', name: 'country', options: [...], labelContent: 'Country' },\n  { type: 'separator' }\n];\n<ModularForm elements={elements} submitFunction={onSubmit} buttonContent=\"Submit\" />"
+        },
+        "extensive_correct": {
+          "title": "Composing multiple element types in a form",
+          "code": "const formElements: FormElement[] = [\n  { type: 'input', name: 'name', labelContent: 'Name', required: true },\n  { type: 'dateInput', name: 'birthDate', labelContent: 'Birth Date' },\n  { type: 'select', name: 'role', options: roles, labelContent: 'Role' },\n  { type: 'multiSelect', name: 'permissions', options: permissionList },\n  { type: 'textarea', name: 'comments', labelContent: 'Comments' },\n  { type: 'checkbox', name: 'agree', labelContent: 'I agree' }\n];"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Using wrong element type property",
+          "code": "// Incorrect - unknown type\nconst elem: FormElement = { type: 'email', name: 'email' }; // TypeScript error\n// Correct - use supported type\nconst elem: FormElement = { type: 'input', inputType: 'email', name: 'email' };"
         }
       }
     },
@@ -114,14 +122,14 @@
       "symbol_id": "BaseElementProps",
       "name": "BaseElementProps",
       "kind": "interface",
-      "description_one_line": "Common props for all form elements.",
+      "description_one_line": "Common props shared by all form elements.",
       "details": {
-        "what_it_does": "Common props for all form elements."
+        "what_it_does": "Base interface providing common properties inherited by all form element types. Includes labeling, validation, styling, and layout options applicable to any input element."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 10,
+        "source_line_end": 25,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L10-L25",
         "nx_kb_anchor": "#BaseElementProps"
       },
       "signature": {
@@ -133,8 +141,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of BaseElementProps",
-          "code": "// TODO: Add example code"
+          "title": "Using BaseElementProps in custom form element",
+          "code": "interface CustomElement extends BaseElementProps {\n  type: 'custom';\n  element: JSX.Element;\n}"
+        },
+        "extensive_correct": {
+          "title": "Applying common element properties",
+          "code": "const inputElement: InputElement = {\n  type: 'input',\n  name: 'email',\n  labelContent: 'Email Address',\n  required: true,\n  validationError: 'Invalid email format',\n  containerClassName: 'form-group',\n  direction: 'ltr'\n};"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not extending BaseElementProps in custom elements",
+          "code": "// Incomplete - missing common props\ninterface MyElement { name: string; }\n// Better - extends common properties\ninterface MyElement extends BaseElementProps { }"
         }
       }
     },
@@ -142,14 +158,14 @@
       "symbol_id": "InputElement",
       "name": "InputElement",
       "kind": "interface",
-      "description_one_line": "Props for a text/number input.",
+      "description_one_line": "Props configuration for text and number input elements in ModularForm.",
       "details": {
-        "what_it_does": "Props for a text/number input."
+        "what_it_does": "Defines all properties for configuring text, email, number, and password input fields. Extends BaseElementProps with input-specific features like validation types, value binding, and event handlers."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 30,
+        "source_line_end": 40,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L30-L40",
         "nx_kb_anchor": "#InputElement"
       },
       "signature": {
@@ -161,8 +177,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of InputElement",
-          "code": "// TODO: Add example code"
+          "title": "Basic text input element",
+          "code": "const emailInput: InputElement = {\n  type: 'input',\n  name: 'email',\n  labelContent: 'Email',\n  placeholder: 'user@example.com'\n};"
+        },
+        "extensive_correct": {
+          "title": "Input with validation and handlers",
+          "code": "const phoneInput: InputElement = {\n  type: 'input',\n  inputType: 'tel',\n  name: 'phone',\n  labelContent: 'Phone Number',\n  validationName: 'numbers',\n  required: true,\n  onChange: handlePhoneChange,\n  onKeyDown: handleEnterKey,\n  defaultValue: '+972'\n};"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Missing required type property",
+          "code": "// Incorrect - missing type property\nconst input = { name: 'email', placeholder: 'Email' };\n// Correct - type property required\nconst input: InputElement = { type: 'input', name: 'email', placeholder: 'Email' };"
         }
       }
     },
@@ -170,14 +194,14 @@
       "symbol_id": "DateInputElement",
       "name": "DateInputElement",
       "kind": "interface",
-      "description_one_line": "Props for a date input.",
+      "description_one_line": "Props configuration for date picker inputs with calendar UI.",
       "details": {
-        "what_it_does": "Props for a date input."
+        "what_it_does": "Defines all properties for date input fields with integrated calendar picker. Includes styling options for the calendar component, text input styling, and day highlighting options."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 42,
+        "source_line_end": 54,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L42-L54",
         "nx_kb_anchor": "#DateInputElement"
       },
       "signature": {
@@ -189,8 +213,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of DateInputElement",
-          "code": "// TODO: Add example code"
+          "title": "Basic date input",
+          "code": "const dateInput: DateInputElement = {\n  type: 'dateInput',\n  name: 'eventDate',\n  labelContent: 'Event Date',\n  placeholder: 'Select a date'\n};"
+        },
+        "extensive_correct": {
+          "title": "Styled date picker with custom calendar",
+          "code": "const birthDateInput: DateInputElement = {\n  type: 'dateInput',\n  name: 'birthDate',\n  labelContent: 'Birth Date',\n  required: true,\n  calendarClassName: 'custom-calendar',\n  selectedDayClassName: 'highlighted-day',\n  todayDayClassName: 'today-marker',\n  inputClassName: 'date-input-field',\n  onChange: handleDateChange\n};"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Using input type instead of dateInput",
+          "code": "// Incorrect - no calendar picker\nconst date: InputElement = { type: 'input', inputType: 'date' };\n// Correct - calendar UI included\nconst date: DateInputElement = { type: 'dateInput', name: 'date' };"
         }
       }
     },
@@ -198,14 +230,14 @@
       "symbol_id": "SelectElement",
       "name": "SelectElement",
       "kind": "interface",
-      "description_one_line": "Props for a select dropdown.",
+      "description_one_line": "Props configuration for dropdown select inputs.",
       "details": {
-        "what_it_does": "Props for a select dropdown."
+        "what_it_does": "Defines properties for basic select dropdown elements. Supports option arrays with value and label pairs, sorting (alphabetical or numerical), styling customization, and change callbacks."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 65,
+        "source_line_end": 77,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L65-L77",
         "nx_kb_anchor": "#SelectElement"
       },
       "signature": {
@@ -217,8 +249,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of SelectElement",
-          "code": "// TODO: Add example code"
+          "title": "Basic select dropdown",
+          "code": "const countrySelect: SelectElement = {\n  type: 'select',\n  name: 'country',\n  labelContent: 'Country',\n  options: [\n    { value: 'us', label: 'United States' },\n    { value: 'il', label: 'Israel' }\n  ]\n};"
+        },
+        "extensive_correct": {
+          "title": "Sorted select with custom styling",
+          "code": "const roleSelect: SelectElement = {\n  type: 'select',\n  name: 'role',\n  labelContent: 'User Role',\n  options: roles,\n  sortDirection: 'abc',\n  required: true,\n  selectClassName: 'role-select',\n  optionClassName: 'role-option',\n  onChange: handleRoleChange\n};"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Passing options without value property",
+          "code": "// Incorrect - missing value property\nconst select: SelectElement = {\n  type: 'select',\n  options: [ { label: 'Option 1' } ] // Error: value missing\n};\n// Correct - both value and label required\nconst select: SelectElement = {\n  type: 'select',\n  options: [ { value: 'opt1', label: 'Option 1' } ]\n};"
         }
       }
     },
@@ -226,14 +266,14 @@
       "symbol_id": "ModularFormProps",
       "name": "ModularFormProps",
       "kind": "interface",
-      "description_one_line": "Props for the ModularForm component.",
+      "description_one_line": "Complete props configuration for the ModularForm component.",
       "details": {
-        "what_it_does": "Props for the ModularForm component."
+        "what_it_does": "Defines all properties for configuring a ModularForm component. Includes form elements array, submission handler, styling, direction (RTL/LTR) support, label auto-alignment, error handling, and loading states."
       },
       "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
+        "source_line_start": 197,
+        "source_line_end": 217,
+        "github_permalink": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L197-L217",
         "nx_kb_anchor": "#ModularFormProps"
       },
       "signature": {
@@ -245,8 +285,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of ModularFormProps",
-          "code": "// TODO: Add example code"
+          "title": "Basic ModularForm setup",
+          "code": "const formProps: ModularFormProps = {\n  elements: [\n    { type: 'input', name: 'email', labelContent: 'Email' },\n    { type: 'input', name: 'password', labelContent: 'Password', inputType: 'password' }\n  ],\n  submitFunction: handleSubmit,\n  buttonContent: 'Login'\n};\n<ModularForm {...formProps} />"
+        },
+        "extensive_correct": {
+          "title": "Advanced form with styling and callbacks",
+          "code": "const advancedForm: ModularFormProps = {\n  elements: formElements,\n  submitFunction: async (e) => await submitForm(e),\n  buttonContent: 'Submit',\n  headerContent: 'User Registration',\n  direction: 'ltr',\n  autoFixLabelsWidth: true,\n  labelsCommonClassName: 'form-label',\n  errorClassName: 'error-message',\n  loaderProps: { color: 'blue' },\n  onLoad: (form) => console.log('Form ready')\n};"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not providing required submitFunction",
+          "code": "// Incorrect - missing submitFunction\nconst form: ModularFormProps = {\n  elements: [],\n  buttonContent: 'Submit'\n}; // TypeScript error\n// Correct - submitFunction is required\nconst form: ModularFormProps = {\n  elements: [],\n  submitFunction: handleSubmit,\n  buttonContent: 'Submit'\n};"
         }
       }
     }

@@ -111,13 +111,13 @@
         "params": [],
         "returns": {
           "type": "unknown",
-          "description": "TODO: Document return type"
+          "description": "Namespace object aggregating the module exports"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of assets",
-          "code": "// TODO: Add example code"
+          "title": "Access assets module",
+          "code": "import { assets } from 'akeyless-client-commons';\nconst svg = assets.svg.GreenVSvg();"
         }
       }
     },
@@ -139,13 +139,13 @@
         "params": [],
         "returns": {
           "type": "unknown",
-          "description": "TODO: Document return type"
+          "description": "Namespace object aggregating the module exports"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of components",
-          "code": "// TODO: Add example code"
+          "title": "Access components module",
+          "code": "import { components } from 'akeyless-client-commons';\nconst { Table, Button, ModularForm } = components;"
         }
       }
     },
@@ -167,13 +167,13 @@
         "params": [],
         "returns": {
           "type": "unknown",
-          "description": "TODO: Document return type"
+          "description": "Namespace object aggregating the module exports"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of helpers",
-          "code": "// TODO: Add example code"
+          "title": "Access helpers module",
+          "code": "import { helpers } from 'akeyless-client-commons';\nconst country = await helpers.getUserCountryByIp();"
         }
       }
     },
@@ -195,13 +195,13 @@
         "params": [],
         "returns": {
           "type": "unknown",
-          "description": "TODO: Document return type"
+          "description": "Namespace object aggregating the module exports"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of hooks",
-          "code": "// TODO: Add example code"
+          "title": "Access hooks module",
+          "code": "import { hooks } from 'akeyless-client-commons';\nconst { useWebWorker, useDbSnapshots } = hooks;"
         }
       }
     },
@@ -223,13 +223,13 @@
         "params": [],
         "returns": {
           "type": "unknown",
-          "description": "TODO: Document return type"
+          "description": "Namespace object aggregating the module exports"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of types",
-          "code": "// TODO: Add example code"
+          "title": "Access types module",
+          "code": "import type { types } from 'akeyless-client-commons';\ntype Direction = types.Direction;"
         }
       }
     }

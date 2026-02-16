@@ -67,14 +67,22 @@
       "signature": {
         "params": [],
         "returns": {
-          "type": "unknown",
-          "description": "TODO: Document return type"
+          "type": "EmailAttachment",
+          "description": "The attachment interface object"
         }
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of EmailAttachment",
-          "code": "// TODO: Add example code"
+          "title": "Creating an attachment object",
+          "code": "const attachment: EmailAttachment = {\n  content: 'base64encodeddata...',\n  filename: 'document.pdf',\n  type: 'application/pdf',\n  disposition: 'attachment'\n};"
+        },
+        "extensive_correct": {
+          "title": "Using attachment with email service",
+          "code": "const attachment: EmailAttachment = {\n  content: Buffer.from('Hello').toString('base64'),\n  filename: 'hello.txt',\n  type: 'text/plain',\n  disposition: 'inline' // Show in email body\n};\nconst email = {\n  to: 'user@example.com',\n  subject: 'Your attachment',\n  attachments: [attachment]\n};"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Sending raw content instead of base64",
+          "code": "// Incorrect - raw content, not base64\nconst attachment = {\n  content: 'raw file content',\n  filename: 'file.pdf'\n};\n// Correct - must be base64 encoded\nconst attachment = {\n  content: Buffer.from('raw content').toString('base64'),\n  filename: 'file.pdf'\n};"
         }
       }
     },
@@ -126,8 +134,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of createAttachmentFromBlob",
-          "code": "// TODO: Add example code"
+          "title": "Converting a file blob to attachment",
+          "code": "const blob = new Blob(['Hello'], { type: 'text/plain' });\nconst attachment = await createAttachmentFromBlob(blob, 'hello.txt');\n// Result: { content: 'SGVsbG8=', filename: 'hello.txt', type: 'text/plain', disposition: 'attachment' }"
+        },
+        "extensive_correct": {
+          "title": "Converting PDF blob with custom MIME type",
+          "code": "const pdfBlob = await fetch('document.pdf').then(r => r.blob());\nconst attachment = await createAttachmentFromBlob(\n  pdfBlob,\n  'report.pdf',\n  'application/pdf',\n  'attachment'\n);\nawait emailService.send({\n  to: 'recipient@example.com',\n  attachments: [attachment]\n});"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not awaiting async function",
+          "code": "// Incorrect - attachment is a Promise\nconst attachment = createAttachmentFromBlob(blob, 'file.pdf');\nconst email = { attachments: [attachment] }; // Wrong type\n// Correct - await the result\nconst attachment = await createAttachmentFromBlob(blob, 'file.pdf');\nconst email = { attachments: [attachment] }; // Correct"
         }
       }
     },
@@ -167,8 +183,16 @@
       },
       "examples": {
         "minimal_correct": {
-          "title": "Basic usage of createAttachmentFromUrl",
-          "code": "// TODO: Add example code"
+          "title": "Downloading and converting a file from URL",
+          "code": "const attachment = await createAttachmentFromUrl('https://example.com/document.pdf');\n// Automatically extracts 'document.pdf' from URL"
+        },
+        "extensive_correct": {
+          "title": "Downloading file with custom filename",
+          "code": "async function sendReportEmail() {\n  const reportUrl = 'https://reports.example.com/2024-annual.pdf';\n  const attachment = await createAttachmentFromUrl(\n    reportUrl,\n    'Annual_Report_2024.pdf' // Custom filename\n  );\n  await emailService.send({\n    to: 'board@example.com',\n    subject: 'Annual Report',\n    attachments: [attachment]\n  });\n}"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not providing proxy endpoint",
+          "code": "// Incorrect - direct fetch may fail due to CORS\nconst blob = await fetch('https://external.com/file.pdf').then(r => r.blob());\n// Correct - uses local proxy to bypass CORS\nconst attachment = await createAttachmentFromUrl('https://external.com/file.pdf');\n// Requires /api/proxy-file endpoint"
         }
       }
     }

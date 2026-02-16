@@ -1,0 +1,56 @@
+{
+  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "types/index.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": ["types", "barrel-export"]
+  },
+  "summary": {
+    "purpose": "Barrel export aggregating all type definitions (interfaces, types) into single import point.",
+    "problem_solved": "Allows importing all types with single statement: import { ... } from 'types'."
+  },
+  "dependencies": {"external": [], "internal": [
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/interfaces/index.ts.json", "why_used": "Form and general interfaces", "import_path": "./interfaces", "resolved_file_path": "types/interfaces/index.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/index.ts"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/types/index.ts.json", "why_used": "Global and Firebase types", "import_path": "./types", "resolved_file_path": "types/types/index.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/index.ts"}
+  ]},
+  "exports": [
+    {"name": "*", "kind": "value", "line": 1, "description_one_line": "Re-export all interfaces (forms, etc.)", "symbol_id": "reexport_interfaces"},
+    {"name": "*", "kind": "value", "line": 2, "description_one_line": "Re-export all types (Direction, SetState, Firebase types, etc.)", "symbol_id": "reexport_types"}
+  ],
+  "symbols": [
+    {
+      "symbol_id": "reexport_interfaces",
+      "name": "* from './interfaces'",
+      "kind": "value",
+      "description_one_line": "Form interfaces and props.",
+      "details": {
+        "what_it_does": "Re-exports from interfaces/index: BaseElementProps, InputElement, DateInputElement, TextAreaElement, SelectElement, MultiSelectProps, SelectWithSearchProps, InternationalInputProps, CustomElementProps, FormSeparatorProps, DurationValues, DurationInputProps, FormElement, ModularFormProps, ConfirmFormProps, DatePickerProps."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts#L1",
+        "nx_kb_anchor": "reexport_interfaces"
+      }
+    },
+    {
+      "symbol_id": "reexport_types",
+      "name": "* from './types'",
+      "kind": "value",
+      "description_one_line": "Global and Firebase types.",
+      "details": {
+        "what_it_does": "Re-exports from types/index: Direction, SetState, ModularPopUp, AppName, LoginOption, OnSnapshotCallback, OnSnapshotParsers, WhereCondition, OnSnapshotConfig, OnSnapshotConfigDocument, SnapshotResult, Snapshot, SnapshotDocument."
+      },
+      "locations": {
+        "source_line_start": 2,
+        "source_line_end": 2,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/index.ts#L2",
+        "nx_kb_anchor": "reexport_types"
+      }
+    }
+  ],
+  "quality": {"generation_confidence": "high"}
+}

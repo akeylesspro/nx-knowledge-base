@@ -1,0 +1,468 @@
+{
+  "repo": {
+    "name": "akeyless-client-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "api.ts",
+  "source": {
+    "file_path": "helpers/api.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": [
+      "axios",
+      "firebase",
+      "api-client"
+    ],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/api.ts.json"
+  },
+  "summary": {
+    "purpose": "Centralized API client that provides typed, authenticated HTTP requests to multiple microservices with environment-aware domain routing (devices, BI, notifications, call-center, data-sync, charging, and end-users services).",
+    "problem_solved": "Eliminates scattered axios calls throughout the codebase by providing a single nxApiCall function that handles service routing, Firebase authentication, error handling, and environment configuration (local development vs QA vs production)."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "module": "axios",
+        "kind": "runtime",
+        "why_used": "HTTP client for making REST API requests to all microservices with configurable method, URL, headers, and data payload.",
+        "name": "axios"
+      },
+      {
+        "module": "firebase",
+        "kind": "runtime",
+        "why_used": "Used to retrieve current user authentication token for Authorization header via auth.currentUser.getIdToken().",
+        "name": "firebase"
+      },
+      {
+        "module": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides TObject<any> type definition for request payload data.",
+        "name": "akeyless-types-commons"
+      }
+    ],
+    "internal": [
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/global.ts.json",
+        "why_used": "Provides isLocal and mode configuration variables to determine API base domain (localhost for development vs QA vs production).",
+        "import_path": "./global",
+        "resolved_file_path": "helpers/global.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts"
+      },
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/firebase.ts.json",
+        "why_used": "Provides auth.currentUser for retrieving Firebase authentication token for API request headers.",
+        "import_path": "./firebase",
+        "resolved_file_path": "helpers/firebase.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "baseDomain",
+      "kind": "constant",
+      "line": 6,
+      "description_one_line": "Base URL for API endpoints, routing to QA or production based on deployment mode.",
+      "symbol_id": "constant_base_domain"
+    },
+    {
+      "name": "devicesDomain",
+      "kind": "constant",
+      "line": 7,
+      "description_one_line": "Devices microservice endpoint URL with local development fallback.",
+      "symbol_id": "constant_devices_domain"
+    },
+    {
+      "name": "biDomain",
+      "kind": "constant",
+      "line": 8,
+      "description_one_line": "Business Intelligence microservice endpoint URL with local development fallback.",
+      "symbol_id": "constant_bi_domain"
+    },
+    {
+      "name": "notificationsDomain",
+      "kind": "constant",
+      "line": 9,
+      "description_one_line": "Notifications microservice endpoint URL with local development fallback.",
+      "symbol_id": "constant_notifications_domain"
+    },
+    {
+      "name": "endUsersDomain",
+      "kind": "constant",
+      "line": 10,
+      "description_one_line": "End-users microservice endpoint URL with local development fallback.",
+      "symbol_id": "constant_end_users_domain"
+    },
+    {
+      "name": "callCenterGeoDomain",
+      "kind": "constant",
+      "line": 11,
+      "description_one_line": "Call-center geolocation microservice endpoint URL with local development fallback.",
+      "symbol_id": "constant_call_center_geo_domain"
+    },
+    {
+      "name": "callCenterEventsDomain",
+      "kind": "constant",
+      "line": 12,
+      "description_one_line": "Call-center events microservice endpoint URL with local development fallback.",
+      "symbol_id": "constant_call_center_events_domain"
+    },
+    {
+      "name": "dataSocketDomain",
+      "kind": "constant",
+      "line": 13,
+      "description_one_line": "Data-socket microservice endpoint URL with local development fallback.",
+      "symbol_id": "constant_data_socket_domain"
+    },
+    {
+      "name": "dataSyncDomain",
+      "kind": "constant",
+      "line": 14,
+      "description_one_line": "Data-sync microservice endpoint URL with local development fallback.",
+      "symbol_id": "constant_data_sync_domain"
+    },
+    {
+      "name": "chargeDomain",
+      "kind": "constant",
+      "line": 15,
+      "description_one_line": "Charge microservice endpoint URL with local development fallback.",
+      "symbol_id": "constant_charge_domain"
+    },
+    {
+      "name": "akeylessOnlineDomain",
+      "kind": "constant",
+      "line": 16,
+      "description_one_line": "Akeyless Online service URL for external integrations, routing to QA or production.",
+      "symbol_id": "constant_akeyless_online_domain"
+    },
+    {
+      "name": "nxApiCall",
+      "kind": "function",
+      "line": 35,
+      "description_one_line": "Generic async function that executes authenticated API requests to any registered microservice with automatic routing and Firebase token handling.",
+      "symbol_id": "function_nx_api_call"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "constant_base_domain",
+      "name": "baseDomain",
+      "kind": "constant",
+      "description_one_line": "Base API domain URL with environment routing.",
+      "details": {
+        "what_it_does": "Ternary expression that returns 'https://nx-api.xyz/api' for QA mode or 'https://nx-api.info/api' for production. Used as fallback by all domain constants when not running locally."
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L6",
+        "nx_kb_anchor": "constant_base_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Accessing baseDomain",
+          "code": "import { baseDomain } from './api';\nconsole.log(baseDomain); // 'https://nx-api.xyz/api' (QA) or 'https://nx-api.info/api' (prod)"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_devices_domain",
+      "name": "devicesDomain",
+      "kind": "constant",
+      "description_one_line": "Devices service endpoint with local fallback.",
+      "details": {
+        "what_it_does": "Evaluates to 'http://localhost:9001/api/devices' in local development, or baseDomain + '/devices' in QA/production. Used for device management API calls."
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 7,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L7",
+        "nx_kb_anchor": "constant_devices_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using devicesDomain",
+          "code": "import { devicesDomain, nxApiCall } from './api';\n// Automatically used by nxApiCall when serverName='devices'\nawait nxApiCall('devices', 'GET', 'list');"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_bi_domain",
+      "name": "biDomain",
+      "kind": "constant",
+      "description_one_line": "BI (Business Intelligence) service endpoint with local fallback.",
+      "details": {
+        "what_it_does": "Evaluates to 'http://localhost:9002/api/bi' in local development, or baseDomain + '/bi' in QA/production. Used for business intelligence and analytics API calls."
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 8,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L8",
+        "nx_kb_anchor": "constant_bi_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using biDomain",
+          "code": "import { biDomain, nxApiCall } from './api';\n// Automatically used by nxApiCall when serverName='bi'\nawait nxApiCall('bi', 'POST', 'report/generate', { reportId: 123 });"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_notifications_domain",
+      "name": "notificationsDomain",
+      "kind": "constant",
+      "description_one_line": "Notifications service endpoint with local fallback.",
+      "details": {
+        "what_it_does": "Evaluates to 'http://localhost:9006/api/notifications' in local development, or baseDomain + '/notifications' in QA/production. Used for push notifications and message API calls."
+      },
+      "locations": {
+        "source_line_start": 9,
+        "source_line_end": 9,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L9",
+        "nx_kb_anchor": "constant_notifications_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using notificationsDomain",
+          "code": "import { nxApiCall } from './api';\n// Automatically used by nxApiCall when serverName='notifications'\nawait nxApiCall('notifications', 'GET', 'messages/unread');"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_end_users_domain",
+      "name": "endUsersDomain",
+      "kind": "constant",
+      "description_one_line": "End-users service endpoint with local fallback.",
+      "details": {
+        "what_it_does": "Evaluates to 'http://localhost:9011/api/end-users' in local development, or baseDomain + '/end-users' in QA/production. Used for end-user management and profile API calls."
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 10,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L10",
+        "nx_kb_anchor": "constant_end_users_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using endUsersDomain",
+          "code": "import { nxApiCall } from './api';\n// Automatically used by nxApiCall when serverName='end-users'\nawait nxApiCall('end-users', 'GET', 'profile');"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_call_center_geo_domain",
+      "name": "callCenterGeoDomain",
+      "kind": "constant",
+      "description_one_line": "Call-center geolocation service endpoint with local fallback.",
+      "details": {
+        "what_it_does": "Evaluates to 'http://localhost:9007/api/call-center/geo' in local development, or baseDomain + '/call-center/geo' in QA/production. Used for geolocation-based call-center operations."
+      },
+      "locations": {
+        "source_line_start": 11,
+        "source_line_end": 11,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L11",
+        "nx_kb_anchor": "constant_call_center_geo_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using callCenterGeoDomain",
+          "code": "import { nxApiCall } from './api';\n// Automatically used by nxApiCall when serverName='call-center-geo'\nawait nxApiCall('call-center-geo', 'GET', 'agents/nearby', { lat: 32.08, lng: 34.78 });"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_call_center_events_domain",
+      "name": "callCenterEventsDomain",
+      "kind": "constant",
+      "description_one_line": "Call-center events service endpoint with local fallback.",
+      "details": {
+        "what_it_does": "Evaluates to 'http://localhost:9008/api/call-center/events' in local development, or baseDomain + '/call-center/events' in QA/production. Used for call-center event tracking and logging."
+      },
+      "locations": {
+        "source_line_start": 12,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L12",
+        "nx_kb_anchor": "constant_call_center_events_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using callCenterEventsDomain",
+          "code": "import { nxApiCall } from './api';\n// Automatically used by nxApiCall when serverName='call-center-events'\nawait nxApiCall('call-center-events', 'POST', 'events/log', { eventType: 'call_ended', duration: 300 });"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_data_socket_domain",
+      "name": "dataSocketDomain",
+      "kind": "constant",
+      "description_one_line": "Data-socket service endpoint with local fallback.",
+      "details": {
+        "what_it_does": "Evaluates to 'http://localhost:9009/api/data-socket' in local development, or baseDomain + '/data-socket' in QA/production. Used for real-time data synchronization over WebSocket connections."
+      },
+      "locations": {
+        "source_line_start": 13,
+        "source_line_end": 13,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L13",
+        "nx_kb_anchor": "constant_data_socket_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using dataSocketDomain",
+          "code": "import { nxApiCall } from './api';\n// Automatically used by nxApiCall when serverName='data-socket'\nawait nxApiCall('data-socket', 'GET', 'subscribe/channel-123');"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_data_sync_domain",
+      "name": "dataSyncDomain",
+      "kind": "constant",
+      "description_one_line": "Data-sync service endpoint with local fallback.",
+      "details": {
+        "what_it_does": "Evaluates to 'http://localhost:9010/api/data-sync' in local development, or baseDomain + '/data-sync' in QA/production. Used for synchronizing data changes across devices and services."
+      },
+      "locations": {
+        "source_line_start": 14,
+        "source_line_end": 14,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L14",
+        "nx_kb_anchor": "constant_data_sync_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using dataSyncDomain",
+          "code": "import { nxApiCall } from './api';\n// Automatically used by nxApiCall when serverName='data-sync'\nawait nxApiCall('data-sync', 'POST', 'sync/bulk', { changes: [...] });"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_charge_domain",
+      "name": "chargeDomain",
+      "kind": "constant",
+      "description_one_line": "Charge (billing/payment) service endpoint with local fallback.",
+      "details": {
+        "what_it_does": "Evaluates to 'http://localhost:9012/api/charge' in local development, or baseDomain + '/charge' in QA/production. Used for payment processing and billing API calls."
+      },
+      "locations": {
+        "source_line_start": 15,
+        "source_line_end": 15,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L15",
+        "nx_kb_anchor": "constant_charge_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Using chargeDomain",
+          "code": "import { nxApiCall } from './api';\n// Automatically used by nxApiCall when serverName='charge'\nawait nxApiCall('charge', 'POST', 'payment/process', { amount: 99.99, method: 'card' });"
+        }
+      }
+    },
+    {
+      "symbol_id": "constant_akeyless_online_domain",
+      "name": "akeylessOnlineDomain",
+      "kind": "constant",
+      "description_one_line": "Akeyless Online external service URL with environment routing.",
+      "details": {
+        "what_it_does": "Ternary expression that returns 'https://akeyless-online.xyz' for QA or 'https://akeyless-online.info' for production. Used for external Akeyless Online integrations."
+      },
+      "locations": {
+        "source_line_start": 16,
+        "source_line_end": 16,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L16",
+        "nx_kb_anchor": "constant_akeyless_online_domain"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Accessing akeylessOnlineDomain",
+          "code": "import { akeylessOnlineDomain } from './api';\nconsole.log(akeylessOnlineDomain); // 'https://akeyless-online.xyz' (QA) or 'https://akeyless-online.info' (prod)"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_nx_api_call",
+      "name": "nxApiCall",
+      "kind": "function",
+      "description_one_line": "Generic async API client that routes requests to microservices, adds Firebase authentication, and handles errors.",
+      "signature": {
+        "params": [
+          {
+            "name": "serverName",
+            "type": "ServerName",
+            "required": true,
+            "description": "Target microservice identifier: 'devices' | 'bi' | 'notifications' | 'end-users' | 'call-center-geo' | 'call-center-events' | 'data-socket' | 'data-sync' | 'charge'"
+          },
+          {
+            "name": "method",
+            "type": "Method",
+            "required": true,
+            "description": "HTTP method: 'GET' | 'POST' | 'PUT' | 'DELETE'"
+          },
+          {
+            "name": "url",
+            "type": "string",
+            "required": true,
+            "description": "Endpoint path relative to service domain (e.g., 'list', 'devices/123', 'report/generate')"
+          },
+          {
+            "name": "data",
+            "type": "TObject<any>",
+            "required": false,
+            "description": "Request body or query parameters object. Special property 'ignoreAuth' (boolean) skips adding Authorization header."
+          }
+        ],
+        "returns": {
+          "type": "Promise<T | ErrorDetails>",
+          "description": "Resolves with typed response data <T> on success, or ErrorDetails object { serverName, method, url, error } on failure."
+        },
+        "throws": [
+          {
+            "type": "none (errors caught internally)",
+            "description": "Function never throws; errors are caught and returned as ErrorDetails object."
+          }
+        ]
+      },
+      "details": {
+        "what_it_does": "Switches on serverName to determine the correct domain URL, constructs full URL by appending the url parameter, retrieves Firebase auth token via auth.currentUser.getIdToken(), adds Authorization header with bearer token (unless data.ignoreAuth is true), executes axios request, and returns typed response or error details.",
+        "behavior_notes": [
+          "If data.ignoreAuth=true, removes it from data object before sending request",
+          "Authorization header format: 'bearer {firebaseToken}'",
+          "Returns response.data on success (axios unwraps response envelope)",
+          "Returns { serverName, method, url, error, ...details } object on failure (not thrown)",
+          "Logs detailed error info to console including request context and axios error response"
+        ],
+        "error_cases": [
+          {
+            "condition": "Axios request fails (network, 4xx, 5xx)",
+            "behavior": "Catches error, logs console.error with request details and error.response.data, returns ErrorDetails object instead of throwing"
+          },
+          {
+            "condition": "Firebase token retrieval fails",
+            "behavior": "Error propagates from auth.currentUser.getIdToken() (not caught by nxApiCall)"
+          }
+        ]
+      },
+      "locations": {
+        "source_line_start": 35,
+        "source_line_end": 90,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts#L35-L90",
+        "nx_kb_anchor": "function_nx_api_call"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Basic API call to devices service",
+          "code": "import { nxApiCall } from './api';\n\n// GET request - fetch device list\nconst response = await nxApiCall('devices', 'GET', 'list');\nif ('error' in response) {\n  console.error('Failed:', response.error);\n} else {\n  console.log('Devices:', response);\n}"
+        },
+        "extensive": {
+          "title": "Complete example with typing, error handling, and various methods",
+          "code": "import { nxApiCall } from './api';\nimport type { Device, NotificationMessage } from 'akeyless-types-commons';\n\n// GET request with response typing\nconst devices = await nxApiCall<Device[]>('devices', 'GET', 'list');\nif ('error' in devices) {\n  console.error(`Devices request failed: ${devices.error}`);\n  return;\n}\nconsole.log('Total devices:', devices.length);\n\n// POST request with data payload\nconst newNotif = await nxApiCall<NotificationMessage>(\n  'notifications',\n  'POST',\n  'send',\n  { recipientId: 'user123', message: 'Hello', title: 'Alert' }\n);\n\n// PUT request with update data\nconst updated = await nxApiCall('devices', 'PUT', 'device-123', {\n  name: 'New Name',\n  status: 'active'\n});\n\n// DELETE request\nconst deleted = await nxApiCall('devices', 'DELETE', 'device-456', {});\n\n// Skip Firebase auth for public endpoints\nconst publicData = await nxApiCall(\n  'end-users',\n  'GET',\n  'public/config',\n  { ignoreAuth: true }\n);"
+        },
+        "incorrect_pattern": {
+          "title": "Common mistake: Not checking for error in response",
+          "code": "// WRONG - assumes response is always the typed data\nconst devices = await nxApiCall<Device[]>('devices', 'GET', 'list');\ndevices.forEach(d => console.log(d.name)); // CRASH if error occurred!\n\n// CORRECT - check for ErrorDetails first\nconst devices = await nxApiCall<Device[]>('devices', 'GET', 'list');\nif ('error' in devices) {\n  console.error('Request failed:', devices.error);\n  return []; // return default value\n}\ndevices.forEach(d => console.log(d.name)); // now safe"
+        }
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high"
+  }
+}

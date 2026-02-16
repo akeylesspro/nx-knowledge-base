@@ -1,0 +1,90 @@
+{
+  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "hooks/index.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": ["hooks", "barrel-export"]
+  },
+  "summary": {
+    "purpose": "Barrel export aggregating all React hooks (global, Firebase snapshots, Web Workers) into single import point.",
+    "problem_solved": "Allows importing all hooks with single statement: import { useDbSnapshots, useWebWorker, ... } from 'hooks'."
+  },
+  "dependencies": {"external": [], "internal": [
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/global.ts.json", "why_used": "Global hooks", "import_path": "./global", "resolved_file_path": "hooks/global.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/global.ts"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/react.ts.json", "why_used": "React utility hooks", "import_path": "./react", "resolved_file_path": "hooks/react.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/WebWorker.ts.json", "why_used": "Web Worker hook", "import_path": "./WebWorker", "resolved_file_path": "hooks/WebWorker.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/snapshots/index.ts.json", "why_used": "Firebase snapshot hooks", "import_path": "./snapshots", "resolved_file_path": "hooks/snapshots/index.ts", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/index.ts"}
+  ]},
+  "exports": [
+    {"name": "*", "kind": "value", "line": 1, "description_one_line": "Global hooks (useDocumentTitle, useSetUserCountry)", "symbol_id": "reexport_global"},
+    {"name": "*", "kind": "value", "line": 2, "description_one_line": "React utility hooks (useDeepCompareMemo, useSafeEffect, etc.)", "symbol_id": "reexport_react"},
+    {"name": "*", "kind": "value", "line": 3, "description_one_line": "Web Worker hook (useWebWorker)", "symbol_id": "reexport_webworker"},
+    {"name": "*", "kind": "value", "line": 4, "description_one_line": "Snapshot hooks (useDbSnapshots, useSmartSnapshots, useSocketSnapshots)", "symbol_id": "reexport_snapshots"}
+  ],
+  "symbols": [
+    {
+      "symbol_id": "reexport_global",
+      "name": "* from './global'",
+      "kind": "value",
+      "description_one_line": "Global application hooks.",
+      "details": {
+        "what_it_does": "Re-exports: useDocumentTitle (set page title), useSetUserCountry (geolocation and language)."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/index.ts#L1",
+        "nx_kb_anchor": "reexport_global"
+      }
+    },
+    {
+      "symbol_id": "reexport_react",
+      "name": "* from './react'",
+      "kind": "value",
+      "description_one_line": "React utility hooks.",
+      "details": {
+        "what_it_does": "Re-exports: useSafeEffect (error boundary), useDeepCompareMemo (deep equality memoization), useDeepCompareEffect (deep equality effects)."
+      },
+      "locations": {
+        "source_line_start": 2,
+        "source_line_end": 2,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/index.ts#L2",
+        "nx_kb_anchor": "reexport_react"
+      }
+    },
+    {
+      "symbol_id": "reexport_webworker",
+      "name": "* from './WebWorker'",
+      "kind": "value",
+      "description_one_line": "Web Worker hook.",
+      "details": {
+        "what_it_does": "Re-exports: useWebWorker (run function in Web Worker with fallback), WebWorkerFunction type, UseWebWorkerOptions, RunWorkerFunction type."
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/index.ts#L3",
+        "nx_kb_anchor": "reexport_webworker"
+      }
+    },
+    {
+      "symbol_id": "reexport_snapshots",
+      "name": "* from './snapshots'",
+      "kind": "value",
+      "description_one_line": "Firebase snapshot hooks.",
+      "details": {
+        "what_it_does": "Re-exports: useDbSnapshots (Firestore collections), useDbDocumentSnapshots (specific documents), useSmartSnapshots (auto-route DB/cache), useSocketSnapshots (Socket.io cache), UseDbSnapshotsSettings type."
+      },
+      "locations": {
+        "source_line_start": 4,
+        "source_line_end": 4,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/index.ts#L4",
+        "nx_kb_anchor": "reexport_snapshots"
+      }
+    }
+  ],
+  "quality": {"generation_confidence": "high"}
+}

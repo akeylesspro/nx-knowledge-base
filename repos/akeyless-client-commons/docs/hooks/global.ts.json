@@ -1,0 +1,87 @@
+{
+  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "hooks/global.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": ["react", "hooks", "browser"]
+  },
+  "summary": {
+    "purpose": "Global React hooks for document title management and user country/language initialization via IP geolocation.",
+    "problem_solved": "Provides reusable hooks for setting page titles dynamically and detecting user location with optional language switching."
+  },
+  "dependencies": {
+    "external": [{"module": "react", "kind": "runtime", "why_used": "useEffect, useLayoutEffect, useState", "name": "react"}],
+    "internal": [
+      {
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/global.ts.json",
+        "why_used": "getUserCountryByIp for geolocation detection",
+        "import_path": "src/helpers",
+        "resolved_file_path": "helpers/global.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts"
+      }
+    ]
+  },
+  "exports": [
+    {"name": "useDocumentTitle", "kind": "function", "line": 7, "description_one_line": "Hook to set browser document title dynamically.", "symbol_id": "function_use_document_title"},
+    {"name": "useSetUserCountry", "kind": "function", "line": 14, "description_one_line": "Hook to detect user country and optionally set language.", "symbol_id": "function_use_set_user_country"}
+  ],
+  "symbols": [
+    {
+      "symbol_id": "function_use_document_title",
+      "name": "useDocumentTitle",
+      "kind": "function",
+      "description_one_line": "Set page title from component.",
+      "signature": {
+        "params": [{"name": "title", "type": "string", "required": true, "description": "Page title to display in browser tab"}],
+        "returns": {"type": "null", "description": "Returns null (no JSX)"}
+      },
+      "details": {
+        "what_it_does": "Uses useEffect to set document.title whenever title prop changes. Cleanup is automatic on unmount."
+      },
+      "locations": {
+        "source_line_start": 7,
+        "source_line_end": 12,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/global.ts#L7-L12",
+        "nx_kb_anchor": "function_use_document_title"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Set page title",
+          "code": "import { useDocumentTitle } from 'hooks';\n\nconst HomePage = () => {\n  useDocumentTitle('Home | My App');\n  return <h1>Welcome</h1>;\n};"
+        }
+      }
+    },
+    {
+      "symbol_id": "function_use_set_user_country",
+      "name": "useSetUserCountry",
+      "kind": "function",
+      "description_one_line": "Detect user country and set language.",
+      "signature": {
+        "params": [
+          {"name": "setUserCountry", "type": "Dispatch<SetStateAction<CountryOptions>>", "required": true, "description": "State setter from useState"},
+          {"name": "changLang", "type": "(lang: string) => void", "required": false, "description": "Optional callback to change language"}
+        ],
+        "returns": {"type": "null", "description": "Returns null (no JSX)"}
+      },
+      "details": {
+        "what_it_does": "Uses useLayoutEffect to call getUserCountryByIp, stores in localStorage, optionally calls changLang if no saved language preference. Sets country via dispatch."
+      },
+      "locations": {
+        "source_line_start": 14,
+        "source_line_end": 28,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/global.ts#L14-L28",
+        "nx_kb_anchor": "function_use_set_user_country"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Initialize user country and language",
+          "code": "import { useState } from 'react';\nimport { useSetUserCountry } from 'hooks';\nimport { CountryOptions } from 'akeyless-types-commons';\n\nconst App = () => {\n  const [country, setCountry] = useState<CountryOptions>(CountryOptions.US);\n  const [lang, setLang] = useState('en');\n  \n  useSetUserCountry(setCountry, (lang) => setLang(lang));\n  \n  return <div>User country: {country}, Language: {lang}</div>;\n};"
+        }
+      }
+    }
+  ],
+  "quality": {"generation_confidence": "high"}
+}

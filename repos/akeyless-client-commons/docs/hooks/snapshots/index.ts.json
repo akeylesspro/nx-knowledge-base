@@ -1,0 +1,91 @@
+{
+  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "hooks/snapshots/index.ts",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "ts",
+    "framework_tags": ["snapshots", "hooks", "barrel-export"]
+  },
+  "summary": {
+    "purpose": "Barrel export for Firestore snapshot hooks and configuration types.",
+    "problem_solved": "Single import point for snapshot-related hooks and settings."
+  },
+  "dependencies": {"external": [], "internal": []},
+  "exports": [
+    {"name": "useDbSnapshots", "kind": "function", "line": 1, "description_one_line": "Subscribe to Firestore collections", "symbol_id": "function_use_db_snapshots"},
+    {"name": "useDbDocumentSnapshots", "kind": "function", "line": 1, "description_one_line": "Subscribe to specific documents", "symbol_id": "function_use_db_document_snapshots"},
+    {"name": "useSmartSnapshots", "kind": "function", "line": 1, "description_one_line": "Auto-route between DB and cache", "symbol_id": "function_use_smart_snapshots"},
+    {"name": "useSocketSnapshots", "kind": "function", "line": 1, "description_one_line": "Subscribe via Socket.io cache", "symbol_id": "function_use_socket_snapshots"},
+    {"name": "UseDbSnapshotsSettings", "kind": "interface", "line": 1, "description_one_line": "Configuration interface", "symbol_id": "interface_use_db_snapshots_settings"}
+  ],
+  "symbols": [
+    {
+      "symbol_id": "function_use_db_snapshots",
+      "name": "useDbSnapshots",
+      "kind": "function",
+      "description_one_line": "Re-exported from index",
+      "details": {"what_it_does": "See hooks/snapshots/index.ts for full documentation"},
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/index.ts#L19",
+        "nx_kb_anchor": "function_use_db_snapshots"
+      }
+    },
+    {
+      "symbol_id": "function_use_db_document_snapshots",
+      "name": "useDbDocumentSnapshots",
+      "kind": "function",
+      "description_one_line": "Re-exported from index",
+      "details": {"what_it_does": "See hooks/snapshots/index.ts for full documentation"},
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/index.ts#L86",
+        "nx_kb_anchor": "function_use_db_document_snapshots"
+      }
+    },
+    {
+      "symbol_id": "function_use_smart_snapshots",
+      "name": "useSmartSnapshots",
+      "kind": "function",
+      "description_one_line": "Re-exported from index",
+      "details": {"what_it_does": "See hooks/snapshots/index.ts for full documentation"},
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/index.ts#L169",
+        "nx_kb_anchor": "function_use_smart_snapshots"
+      }
+    },
+    {
+      "symbol_id": "function_use_socket_snapshots",
+      "name": "useSocketSnapshots",
+      "kind": "function",
+      "description_one_line": "Re-exported from index",
+      "details": {"what_it_does": "See hooks/snapshots/index.ts for full documentation"},
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/index.ts#L202",
+        "nx_kb_anchor": "function_use_socket_snapshots"
+      }
+    },
+    {
+      "symbol_id": "interface_use_db_snapshots_settings",
+      "name": "UseDbSnapshotsSettings",
+      "kind": "interface",
+      "description_one_line": "Configuration for snapshot hooks",
+      "details": {"what_it_does": "See hooks/snapshots/index.ts for full documentation"},
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 1,
+        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/index.ts#L8",
+        "nx_kb_anchor": "interface_use_db_snapshots_settings"
+      }
+    }
+  ],
+  "quality": {"generation_confidence": "high"}
+}

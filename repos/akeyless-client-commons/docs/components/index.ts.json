@@ -1,0 +1,39 @@
+{
+  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
+  "file_name": "index.tsx",
+  "source": {
+    "file_path": "components/index.tsx",
+    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+    "generated_at_iso": "2026-02-16T00:00:00.000Z",
+    "language": "tsx",
+    "framework_tags": ["components", "barrel-export", "ui-system"],
+    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx",
+    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/index.ts.json"
+  },
+  "summary": {
+    "purpose": "Primary components barrel export aggregating all UI, form, table, and utility components. Central entry point for consuming all component modules.",
+    "problem_solved": "Unified components namespace enabling single import of all React components (UI primitives, forms, data tables, utilities) throughout the application."
+  },
+  "dependencies": {"external": [], "internal": [
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/index.ts.json", "why_used": "Utility components (Checkboxes, ErrorBoundary, Loaders, global utilities, LoginWithGoogle)", "import_path": "./utils", "resolved_file_path": "components/utils/index.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/index.ts.json", "why_used": "Table components (Table, sub-components, hooks, types)", "import_path": "./table", "resolved_file_path": "components/table/index.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/index.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/index.ts.json", "why_used": "Form components (ModularForm, ConfirmForm, DatePicker, DatePicker2)", "import_path": "./forms", "resolved_file_path": "components/forms/index.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/index.ts.json", "why_used": "Base UI components (Badge, Button, Input, Progress, MultiSelect, SearchSelect)", "import_path": "./ui", "resolved_file_path": "components/ui/index.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/index.tsx"},
+    {"link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/CodeInput.json", "why_used": "Code/OTP input component for multi-character input fields", "import_path": "./CodeInput", "resolved_file_path": "components/CodeInput.tsx", "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/CodeInput.tsx"}
+  ]},
+  "exports": [
+    {"name": "*", "kind": "value", "line": 2, "description_one_line": "Re-export utility components", "symbol_id": "reexport_comp_utils"},
+    {"name": "*", "kind": "value", "line": 3, "description_one_line": "Re-export table components and types", "symbol_id": "reexport_comp_table"},
+    {"name": "*", "kind": "value", "line": 4, "description_one_line": "Re-export form components", "symbol_id": "reexport_comp_forms"},
+    {"name": "*", "kind": "value", "line": 5, "description_one_line": "Re-export base UI components", "symbol_id": "reexport_comp_ui"},
+    {"name": "CodeInput", "kind": "value", "line": 6, "description_one_line": "Code/OTP input component", "symbol_id": "reexport_code_input"}
+  ],
+  "symbols": [
+    {"symbol_id": "reexport_comp_utils", "name": "* from './utils'", "kind": "value", "description_one_line": "Utility components barrel", "details": {"what_it_does": "Re-exports utility components including Checkboxes (checkbox groups), ErrorBoundary (React error handling), Loaders (loading spinners), global UI utilities, and LoginWithGoogle authentication"}, "locations": {"source_line_start": 2, "source_line_end": 2, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx#L2", "nx_kb_anchor": "reexport_comp_utils"}},
+    {"symbol_id": "reexport_comp_table", "name": "* from './table'", "kind": "value", "description_one_line": "Table components, hooks, and types barrel", "details": {"what_it_does": "Re-exports data table components (Table, TableProvider, TableContext), table sub-components (Filter, Search, ExportToExcel, cell renderers), table hooks (useTableContext, useFilter, useSort, etc.), and table type definitions"}, "locations": {"source_line_start": 3, "source_line_end": 3, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx#L3", "nx_kb_anchor": "reexport_comp_table"}},
+    {"symbol_id": "reexport_comp_forms", "name": "* from './forms'", "kind": "value", "description_one_line": "Form components barrel", "details": {"what_it_does": "Re-exports form-related components: ModularForm (flexible form builder with support for 10+ element types), ConfirmForm (confirmation dialogs with custom buttons), DatePicker (native date inputs), and DatePicker2 (React Aria calendar with i18n)"}, "locations": {"source_line_start": 4, "source_line_end": 4, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx#L4", "nx_kb_anchor": "reexport_comp_forms"}},
+    {"symbol_id": "reexport_comp_ui", "name": "* from './ui'", "kind": "value", "description_one_line": "Base UI components barrel", "details": {"what_it_does": "Re-exports design system base components: Badge (labeled tags), Button (styled action buttons), Input (text fields), Progress (progress indicators), MultiSelect (multi-select dropdowns), and SearchSelect (searchable selects)"}, "locations": {"source_line_start": 5, "source_line_end": 5, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx#L5", "nx_kb_anchor": "reexport_comp_ui"}},
+    {"symbol_id": "reexport_code_input", "name": "CodeInput", "kind": "value", "description_one_line": "Code/OTP multi-character input component", "details": {"what_it_does": "Re-exports CodeInput default export for handling multi-digit code inputs (OTP, verification codes). Includes Slot sub-component for custom rendering and CodeInputProps configuration interface"}, "locations": {"source_line_start": 6, "source_line_end": 6, "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/index.tsx#L6", "nx_kb_anchor": "reexport_code_input"}}
+  ],
+  "quality": {"generation_confidence": "high"}
+}
