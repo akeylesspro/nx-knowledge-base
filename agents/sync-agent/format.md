@@ -13,6 +13,9 @@
   - Example: `UserCard.tsx` → `UserCard.tsx.json` ✅
   - Example: `index.ts` → `index.json` ❌ (extension stripped — WRONG)
 - Path structure mirrors source: `repos/<repo>/docs/<relative-path-from-src>/<file>.json`
+- In JSON content, `file_path` MUST be relative to the source root and MUST NOT start with `src/`.
+  - Correct: `components/Button.tsx`
+  - Wrong: `src/components/Button.tsx`
 
 ## Duplicate File Prevention
 - Before writing a doc file, check the **same target folder** for existing files with the same base name but a different source extension suffix (e.g., `index.ts.json` vs `index.tsx.json` vs `index.json`).
@@ -51,6 +54,10 @@ Body:
 | Added    | N     |
 | Modified | N     |
 | Deleted  | N     |
+
+## Per-Folder Breakdown (processing order)
+src/components/  — touched: N | added: N | updated: N | deleted: N | skipped: N
+src/hooks/       — touched: N | added: N | updated: N | deleted: N | skipped: N
 
 ## Files
 <collapsible list of changed files>
