@@ -5,7 +5,7 @@
   },
   "file_name": "snapshot.ts",
   "source": {
-    "file_path": "src/helpers/redis/snapshot.ts",
+    "file_path": "helpers/redis/snapshot.ts",
     "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
     "generated_at_iso": "2026-02-18T08:11:51.000Z",
     "language": "ts",
@@ -28,28 +28,28 @@
     "internal": [
       {
         "import_path": "../../managers",
-        "resolved_file_path": "src/managers/index.ts",
+        "resolved_file_path": "managers/index.ts",
         "why_used": "Imports cache_manager and logger singletons.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
       },
       {
         "import_path": "../../types",
-        "resolved_file_path": "src/types/index.ts",
+        "resolved_file_path": "types/index.ts",
         "why_used": "Imports OnSnapshotConfig, RedisUpdatePayload, and RedisUpdateType types.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
       },
       {
         "import_path": "./initialize",
-        "resolved_file_path": "src/helpers/redis/initialize.ts",
+        "resolved_file_path": "helpers/redis/initialize.ts",
         "why_used": "Imports get_redis_commander and get_redis_listener for Redis client access.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/initialize.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/initialize.ts"
       },
       {
         "import_path": "./keys",
-        "resolved_file_path": "src/helpers/redis/keys.ts",
+        "resolved_file_path": "helpers/redis/keys.ts",
         "why_used": "Imports scan_redis_keys for initial data loading.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/keys.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/keys.ts"

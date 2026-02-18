@@ -5,7 +5,7 @@
   },
   "file_name": "index.ts",
   "source": {
-    "file_path": "src/helpers/redis/index.ts",
+    "file_path": "helpers/redis/index.ts",
     "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
     "generated_at_iso": "2026-02-18T08:11:51.000Z",
     "language": "ts",
@@ -22,21 +22,21 @@
     "internal": [
       {
         "import_path": "./initialize",
-        "resolved_file_path": "src/helpers/redis/initialize.ts",
+        "resolved_file_path": "helpers/redis/initialize.ts",
         "why_used": "Re-exports Redis client initialization helpers.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/initialize.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/initialize.ts"
       },
       {
         "import_path": "./keys",
-        "resolved_file_path": "src/helpers/redis/keys.ts",
+        "resolved_file_path": "helpers/redis/keys.ts",
         "why_used": "Re-exports Redis key generation and scanning utilities.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/keys.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/keys.ts"
       },
       {
         "import_path": "./snapshot",
-        "resolved_file_path": "src/helpers/redis/snapshot.ts",
+        "resolved_file_path": "helpers/redis/snapshot.ts",
         "why_used": "Re-exports Redis snapshot and data synchronization helpers.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/snapshot.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/snapshot.ts"

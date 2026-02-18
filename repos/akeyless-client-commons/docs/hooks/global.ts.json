@@ -18,7 +18,7 @@
       {
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/global.ts.json",
         "why_used": "getUserCountryByIp for geolocation detection",
-        "import_path": "src/helpers",
+        "import_path": "helpers",
         "resolved_file_path": "helpers/global.ts",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts"
       }

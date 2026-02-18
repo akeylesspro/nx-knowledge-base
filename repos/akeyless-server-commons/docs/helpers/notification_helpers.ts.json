@@ -5,7 +5,7 @@
   },
   "file_name": "notification_helpers.ts",
   "source": {
-    "file_path": "src/helpers/notification_helpers.ts",
+    "file_path": "helpers/notification_helpers.ts",
     "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
     "generated_at_iso": "2026-02-18T08:11:51.000Z",
     "language": "ts",
@@ -38,28 +38,28 @@
     "internal": [
       {
         "import_path": "./firebase_helpers",
-        "resolved_file_path": "src/helpers/firebase_helpers.ts",
+        "resolved_file_path": "helpers/firebase_helpers.ts",
         "why_used": "Imports Firestore query and document manipulation helpers.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts"
       },
       {
         "import_path": "./global_helpers",
-        "resolved_file_path": "src/helpers/global_helpers.ts",
+        "resolved_file_path": "helpers/global_helpers.ts",
         "why_used": "Imports ignore_ssl_request for Multisend/Monogoto HTTP calls.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/global_helpers.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts"
       },
       {
         "import_path": "./phone_number_helpers",
-        "resolved_file_path": "src/helpers/phone_number_helpers.ts",
+        "resolved_file_path": "helpers/phone_number_helpers.ts",
         "why_used": "Imports SIM provider detection functions to route SMS to the correct provider.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/phone_number_helpers.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts"
       },
       {
         "import_path": "../managers",
-        "resolved_file_path": "src/managers/index.ts",
+        "resolved_file_path": "managers/index.ts",
         "why_used": "Imports cache_manager and logger singletons.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"

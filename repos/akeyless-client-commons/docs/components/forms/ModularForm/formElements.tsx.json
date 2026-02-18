@@ -74,14 +74,14 @@
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts"
       },
       {
-        "import_path": "src/helpers",
+        "import_path": "helpers",
         "resolved_file_path": "helpers/index.ts",
         "why_used": "Utility functions: cn (CSS class merging), durationToSeconds, secondsToDuration, handleChange, propsAreEqual, useValidation for form field behavior.",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.json",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts"
       },
       {
-        "import_path": "src/types",
+        "import_path": "types",
         "resolved_file_path": "types/interfaces/forms.ts",
         "why_used": "TypeScript interfaces for all form element props and types (BaseElementProps, InputElement, SelectElement, MultiSelectProps, etc.).",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/interfaces/forms.ts.json",

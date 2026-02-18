@@ -5,7 +5,7 @@
   },
   "file_name": "firebase_types.ts",
   "source": {
-    "file_path": "src/types/types/firebase_types.ts",
+    "file_path": "types/types/firebase_types.ts",
     "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
     "generated_at_iso": "2026-02-18T08:11:51.000Z",
     "language": "ts",
@@ -28,14 +28,14 @@
     "internal": [
       {
         "import_path": "./global",
-        "resolved_file_path": "src/types/types/global.ts",
+        "resolved_file_path": "types/types/global.ts",
         "why_used": "Imports LangOptions and EntityOptions types.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/global.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts"
       },
       {
         "import_path": "../interfaces",
-        "resolved_file_path": "src/types/interfaces/index.ts",
+        "resolved_file_path": "types/interfaces/index.ts",
         "why_used": "Imports OnSnapshotConfig and related interface types.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/index.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/index.ts"

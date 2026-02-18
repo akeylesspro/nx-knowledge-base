@@ -18,7 +18,7 @@
       {
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/types/firebase.ts.json",
         "why_used": "OnSnapshotConfig and OnSnapshotConfigDocument types",
-        "import_path": "src/types",
+        "import_path": "types",
         "resolved_file_path": "types/types/firebase.ts",
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/firebase.ts"
       }

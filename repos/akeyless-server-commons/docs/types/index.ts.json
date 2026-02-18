@@ -5,7 +5,7 @@
   },
   "file_name": "index.ts",
   "source": {
-    "file_path": "src/types/index.ts",
+    "file_path": "types/index.ts",
     "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
     "generated_at_iso": "2026-02-18T08:11:51.000Z",
     "language": "ts",
@@ -22,21 +22,21 @@
     "internal": [
       {
         "import_path": "./interfaces",
-        "resolved_file_path": "src/types/interfaces/index.ts",
+        "resolved_file_path": "types/interfaces/index.ts",
         "why_used": "Re-exports all interface definitions.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/index.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/index.ts"
       },
       {
         "import_path": "./types",
-        "resolved_file_path": "src/types/types/index.ts",
+        "resolved_file_path": "types/types/index.ts",
         "why_used": "Re-exports all type alias definitions.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/index.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/index.ts"
       },
       {
         "import_path": "./enums",
-        "resolved_file_path": "src/types/enums/index.ts",
+        "resolved_file_path": "types/enums/index.ts",
         "why_used": "Re-exports all enum definitions.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/index.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/index.ts"

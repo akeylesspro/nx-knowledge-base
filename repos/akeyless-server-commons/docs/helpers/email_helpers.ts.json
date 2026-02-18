@@ -5,7 +5,7 @@
   },
   "file_name": "email_helpers.ts",
   "source": {
-    "file_path": "src/helpers/email_helpers.ts",
+    "file_path": "helpers/email_helpers.ts",
     "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
     "generated_at_iso": "2026-02-18T08:11:51.000Z",
     "language": "ts",
@@ -38,21 +38,21 @@
     "internal": [
       {
         "import_path": ".",
-        "resolved_file_path": "src/helpers/index.ts",
+        "resolved_file_path": "helpers/index.ts",
         "why_used": "Imports add_audit_record, get_document_by_id, and ignore_ssl_request helpers.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
       },
       {
         "import_path": "../types",
-        "resolved_file_path": "src/types/index.ts",
+        "resolved_file_path": "types/index.ts",
         "why_used": "Imports EmailSettings, EmailData, and EmailAttachment type definitions.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
       },
       {
         "import_path": "../managers",
-        "resolved_file_path": "src/managers/index.ts",
+        "resolved_file_path": "managers/index.ts",
         "why_used": "Imports the logger singleton for error and debug logging.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"

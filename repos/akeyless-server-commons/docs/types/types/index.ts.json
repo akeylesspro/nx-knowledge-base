@@ -5,7 +5,7 @@
   },
   "file_name": "index.ts",
   "source": {
-    "file_path": "src/types/types/index.ts",
+    "file_path": "types/types/index.ts",
     "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
     "generated_at_iso": "2026-02-18T08:11:51.000Z",
     "language": "ts",
@@ -22,14 +22,14 @@
     "internal": [
       {
         "import_path": "./global",
-        "resolved_file_path": "src/types/types/global.ts",
+        "resolved_file_path": "types/types/global.ts",
         "why_used": "Re-exports global type aliases (MW, Service, Route, etc.).",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/global.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts"
       },
       {
         "import_path": "./firebase_types",
-        "resolved_file_path": "src/types/types/firebase_types.ts",
+        "resolved_file_path": "types/types/firebase_types.ts",
         "why_used": "Re-exports Firebase-specific type aliases.",
         "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/firebase_types.ts",
         "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts"

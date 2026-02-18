@@ -5,7 +5,7 @@
   },
   "file_name": "location_helpers.ts",
   "source": {
-    "file_path": "src/helpers/location_helpers.ts",
+    "file_path": "helpers/location_helpers.ts",
     "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
     "generated_at_iso": "2026-02-18T08:11:51.000Z",
     "language": "ts",
