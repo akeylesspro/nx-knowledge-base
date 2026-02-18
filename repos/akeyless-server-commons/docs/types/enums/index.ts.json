@@ -1,0 +1,59 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "src/types/enums/index.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/index.ts"
+  },
+  "summary": {
+    "purpose": "Barrel export file for the enums sub-module.",
+    "problem_solved": "Provides a single import path for all enum definitions."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "import_path": "./global",
+        "resolved_file_path": "src/types/enums/global.ts",
+        "why_used": "Re-exports SimProvider, NxServiceName, and NxServiceNameMap.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/global.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/global.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "* from ./global",
+      "kind": "value",
+      "description_one_line": "All enum exports from global.ts",
+      "symbol_id": "enums_barrel"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "enums_barrel",
+      "name": "enums barrel",
+      "kind": "value",
+      "description_one_line": "Barrel re-export of all enum definitions.",
+      "details": {"what_it_does": "Re-exports everything from global.ts."},
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 2,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/index.ts#L1",
+        "nx_kb_anchor": "enums_barrel"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

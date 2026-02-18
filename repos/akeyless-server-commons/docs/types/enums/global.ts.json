@@ -1,0 +1,90 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "src/types/enums/global.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/global.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/global.ts"
+  },
+  "summary": {
+    "purpose": "Defines global enums and type aliases used across the server-commons library.",
+    "problem_solved": "Provides a single source of truth for SIM provider identifiers and service name types, preventing magic string usage."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "SimProvider",
+      "kind": "enum",
+      "description_one_line": "Enum of SIM card provider identifiers used for SMS routing.",
+      "symbol_id": "SimProvider"
+    },
+    {
+      "name": "NxServiceName",
+      "kind": "type",
+      "description_one_line": "Union type of all Nx microservice name strings.",
+      "symbol_id": "NxServiceName"
+    },
+    {
+      "name": "NxServiceNameMap",
+      "kind": "type",
+      "description_one_line": "Record mapping each NxServiceName to its base URL string.",
+      "symbol_id": "NxServiceNameMap"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "SimProvider",
+      "name": "SimProvider",
+      "kind": "enum",
+      "description_one_line": "Enum of SIM card provider identifiers used for SMS routing.",
+      "details": {
+        "what_it_does": "Defines the set of supported SIM providers: unknown, partner, pelephone, celcom, monogoto. Used by phone_number_helpers and notification_helpers to route SMS to the correct provider.",
+        "enum_values": [
+          {"name": "unknown", "value": "unknown"},
+          {"name": "partner", "value": "partner"},
+          {"name": "pelephone", "value": "pelephone"},
+          {"name": "celcom", "value": "celcom"},
+          {"name": "monogoto", "value": "monogoto"}
+        ]
+      },
+      "examples": {
+        "minimal_correct": {"title": "Use SimProvider in a switch", "code": "switch (provider) {\n  case SimProvider.monogoto: return send_via_monogoto(msg);\n  case SimProvider.celcom: return send_via_multisend(msg);\n  default: return send_via_twilio(msg);\n}"}
+      },
+      "locations": {"source_line_start": 1, "source_line_end": 8, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/global.ts#L1", "nx_kb_anchor": "SimProvider"}
+    },
+    {
+      "symbol_id": "NxServiceName",
+      "name": "NxServiceName",
+      "kind": "type",
+      "description_one_line": "Union type of all Nx microservice name strings.",
+      "details": {
+        "what_it_does": "A string literal union type representing all known Nx microservice names (e.g., 'devices', 'users', 'notifications', etc.)."
+      },
+      "locations": {"source_line_start": 10, "source_line_end": 10, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/global.ts#L10", "nx_kb_anchor": "NxServiceName"}
+    },
+    {
+      "symbol_id": "NxServiceNameMap",
+      "name": "NxServiceNameMap",
+      "kind": "type",
+      "description_one_line": "Record mapping each NxServiceName to its base URL string.",
+      "details": {
+        "what_it_does": "A Record<NxServiceName, string> type used by get_nx_service_urls to return environment-specific service URL maps."
+      },
+      "locations": {"source_line_start": 12, "source_line_end": 12, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/global.ts#L12", "nx_kb_anchor": "NxServiceNameMap"}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

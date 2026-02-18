@@ -1,0 +1,144 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "initialize.ts",
+  "source": {
+    "file_path": "src/helpers/redis/initialize.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node", "redis"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/initialize.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/initialize.ts"
+  },
+  "summary": {
+    "purpose": "Manages the lifecycle of Redis client instances (commander for commands and listener for pub/sub), including connection, retry logic, event handling, and pattern subscription.",
+    "problem_solved": "Provides a single, robust Redis initialization flow with automatic reconnection, connection status tracking, and pattern-based subscription management for real-time data updates."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "ioredis",
+        "kind": "runtime",
+        "why_used": "Provides the Redis client implementation with support for pub/sub and cluster mode."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../../managers",
+        "resolved_file_path": "src/managers/index.ts",
+        "why_used": "Imports the logger singleton for connection status logging.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "init_redis",
+      "kind": "function",
+      "description_one_line": "Initialises both the Redis commander and listener clients with connection and retry logic.",
+      "symbol_id": "init_redis"
+    },
+    {
+      "name": "get_redis_commander",
+      "kind": "function",
+      "description_one_line": "Returns the initialised Redis commander client instance.",
+      "symbol_id": "get_redis_commander"
+    },
+    {
+      "name": "get_redis_listener",
+      "kind": "function",
+      "description_one_line": "Returns the initialised Redis listener (pub/sub) client instance.",
+      "symbol_id": "get_redis_listener"
+    },
+    {
+      "name": "is_redis_connected",
+      "kind": "function",
+      "description_one_line": "Returns true if the Redis commander client is currently connected.",
+      "symbol_id": "is_redis_connected"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "init_redis",
+      "name": "init_redis",
+      "kind": "function",
+      "description_one_line": "Initialises both the Redis commander and listener clients with connection and retry logic.",
+      "signature": {
+        "params": [
+          {"name": "redis_ip", "type": "string", "required": true, "description": "The Redis server IP address or hostname."},
+          {"name": "redis_port", "type": "number", "required": true, "description": "The Redis server port number."},
+          {"name": "redis_password", "type": "string", "required": false, "description": "Optional Redis authentication password."}
+        ],
+        "returns": {"type": "Promise<void>", "description": "Resolves when both clients are connected and ready."}
+      },
+      "details": {
+        "what_it_does": "Creates two ioredis clients: a commander (for GET/SET/SCAN commands) and a listener (for PSUBSCRIBE). Configures retry strategy (max 10 retries, 500ms delay), registers connect/disconnect/error event handlers, and subscribes the listener to the '__keyevent@0__:*' pattern for keyspace notifications.",
+        "side_effects": ["Creates module-level commander and listener Redis client instances.", "Subscribes to Redis keyspace notification patterns."],
+        "error_cases": [
+          {"condition": "Connection fails after 10 retries", "behavior": "Logs a warning and stops retrying."},
+          {"condition": "Redis authentication fails", "behavior": "Logs the error and throws."}
+        ]
+      },
+      "examples": {
+        "minimal_correct": {"title": "Initialise Redis on startup", "code": "await init_redis(process.env.redis_ip, parseInt(process.env.redis_port), process.env.redis_password);"}
+      },
+      "locations": {"source_line_start": 10, "source_line_end": 100, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/initialize.ts#L10", "nx_kb_anchor": "init_redis"}
+    },
+    {
+      "symbol_id": "get_redis_commander",
+      "name": "get_redis_commander",
+      "kind": "function",
+      "description_one_line": "Returns the initialised Redis commander client instance.",
+      "signature": {
+        "params": [],
+        "returns": {"type": "Redis", "description": "The ioredis commander client."}
+      },
+      "details": {
+        "what_it_does": "Returns the module-level commander Redis client. Must be called after init_redis.",
+        "error_cases": [{"condition": "Called before init_redis", "behavior": "Returns undefined, which will cause errors on subsequent Redis calls."}]
+      },
+      "examples": {
+        "minimal_correct": {"title": "Get the Redis commander", "code": "const redis = get_redis_commander();\nawait redis.set('key', 'value');"}
+      },
+      "locations": {"source_line_start": 102, "source_line_end": 104, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/initialize.ts#L102", "nx_kb_anchor": "get_redis_commander"}
+    },
+    {
+      "symbol_id": "get_redis_listener",
+      "name": "get_redis_listener",
+      "kind": "function",
+      "description_one_line": "Returns the initialised Redis listener (pub/sub) client instance.",
+      "signature": {
+        "params": [],
+        "returns": {"type": "Redis", "description": "The ioredis listener client used for pub/sub subscriptions."}
+      },
+      "details": {"what_it_does": "Returns the module-level listener Redis client. Must be called after init_redis."},
+      "examples": {
+        "minimal_correct": {"title": "Get the Redis listener", "code": "const listener = get_redis_listener();\nlistener.on('pmessage', (pattern, channel, message) => { /* handle */ });"}
+      },
+      "locations": {"source_line_start": 106, "source_line_end": 108, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/initialize.ts#L106", "nx_kb_anchor": "get_redis_listener"}
+    },
+    {
+      "symbol_id": "is_redis_connected",
+      "name": "is_redis_connected",
+      "kind": "function",
+      "description_one_line": "Returns true if the Redis commander client is currently connected.",
+      "signature": {
+        "params": [],
+        "returns": {"type": "boolean", "description": "True if the commander client status is 'ready'."}
+      },
+      "details": {"what_it_does": "Checks the commander client's status property against 'ready'."},
+      "examples": {
+        "minimal_correct": {"title": "Check Redis connection status", "code": "if (is_redis_connected()) {\n  // use Redis\n} else {\n  // fall back to Firestore\n}"}
+      },
+      "locations": {"source_line_start": 110, "source_line_end": 112, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/initialize.ts#L110", "nx_kb_anchor": "is_redis_connected"}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

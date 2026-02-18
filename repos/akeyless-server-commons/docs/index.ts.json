@@ -1,0 +1,145 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "src/index.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/index.ts"
+  },
+  "summary": {
+    "purpose": "Root barrel export file that re-exports all public sub-modules (helpers, managers, middlewares, types) as named namespaces.",
+    "problem_solved": "Provides a single entry point for consumers of the library, allowing them to import any functionality from one location rather than from individual sub-module paths."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "import_path": "./helpers",
+        "resolved_file_path": "src/helpers/index.ts",
+        "why_used": "Re-exported as the 'helpers' namespace",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
+      },
+      {
+        "import_path": "./managers",
+        "resolved_file_path": "src/managers/index.ts",
+        "why_used": "Re-exported as the 'managers' namespace",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+      },
+      {
+        "import_path": "./middlewares",
+        "resolved_file_path": "src/middlewares/index.ts",
+        "why_used": "Re-exported as the 'middlewares' namespace",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/index.ts"
+      },
+      {
+        "import_path": "./types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Re-exported as the 'types' namespace",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "helpers",
+      "kind": "value",
+      "description_one_line": "Namespace re-export of all helper utilities (firebase, email, notifications, etc.)",
+      "symbol_id": "helpers_namespace"
+    },
+    {
+      "name": "managers",
+      "kind": "value",
+      "description_one_line": "Namespace re-export of all manager singletons (cache, logger, translation)",
+      "symbol_id": "managers_namespace"
+    },
+    {
+      "name": "middlewares",
+      "kind": "value",
+      "description_one_line": "Namespace re-export of all Express middlewares (auth, error handling, validation)",
+      "symbol_id": "middlewares_namespace"
+    },
+    {
+      "name": "types",
+      "kind": "value",
+      "description_one_line": "Namespace re-export of all shared TypeScript types, interfaces, and enums",
+      "symbol_id": "types_namespace"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "helpers_namespace",
+      "name": "helpers",
+      "kind": "value",
+      "description_one_line": "Aggregated namespace of all helper utilities exported from src/helpers/index.ts",
+      "details": {
+        "what_it_does": "Groups all helper functions (Firebase CRUD, email sending, SMS, notifications, time utilities, board helpers, location helpers, login helpers, phone number utilities, task helpers, Redis helpers, and server start utilities) under a single 'helpers' namespace object."
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/index.ts#L6",
+        "nx_kb_anchor": "helpers_namespace"
+      }
+    },
+    {
+      "symbol_id": "managers_namespace",
+      "name": "managers",
+      "kind": "value",
+      "description_one_line": "Aggregated namespace of all manager singletons exported from src/managers/index.ts",
+      "details": {
+        "what_it_does": "Groups CacheManager, LoggerManager, and TranslationManager singletons under a single 'managers' namespace object."
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/index.ts#L6",
+        "nx_kb_anchor": "managers_namespace"
+      }
+    },
+    {
+      "symbol_id": "middlewares_namespace",
+      "name": "middlewares",
+      "kind": "value",
+      "description_one_line": "Aggregated namespace of all Express middlewares exported from src/middlewares/index.ts",
+      "details": {
+        "what_it_does": "Groups auth middlewares (verify_user_auth, nx_user_login, client_login), validation middlewares (mandatory, optional), request logger, trim body middleware, and error handler under a single 'middlewares' namespace object."
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/index.ts#L6",
+        "nx_kb_anchor": "middlewares_namespace"
+      }
+    },
+    {
+      "symbol_id": "types_namespace",
+      "name": "types",
+      "kind": "value",
+      "description_one_line": "Aggregated namespace of all shared TypeScript types, interfaces, and enums exported from src/types/index.ts",
+      "details": {
+        "what_it_does": "Groups all shared type definitions (Firebase query types, snapshot types, Express handler types, email interfaces, enums like SimProvider) under a single 'types' namespace object."
+      },
+      "locations": {
+        "source_line_start": 6,
+        "source_line_end": 6,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/index.ts#L6",
+        "nx_kb_anchor": "types_namespace"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

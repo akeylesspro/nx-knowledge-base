@@ -10,8 +10,8 @@ type ApiDocsPageProps = {
     params: Promise<{ repo: string }>;
 };
 
-type OpenApiSpec = {
-    openapi: string;
+type SwaggerSpec = {
+    swagger: string;
     info: { title: string; version: string; description?: string };
     paths: Record<string, Record<string, { summary?: string; description?: string; operationId?: string; tags?: string[] }>>;
 };
@@ -22,12 +22,12 @@ export default async function ApiDocsPage({ params }: ApiDocsPageProps) {
 
     if (!meta) return notFound();
 
-    // Try to load OpenAPI spec
-    let spec: OpenApiSpec | null = null;
+    // Try to load Swagger spec
+    let spec: SwaggerSpec | null = null;
     try {
-        const specPath = path.join(process.cwd(), "repos", repo, "openapi", "openapi.json");
+        const specPath = path.join(process.cwd(), "repos", repo, "swagger", "swagger.json");
         const raw = await fs.readFile(specPath, "utf-8");
-        spec = JSON.parse(raw) as OpenApiSpec;
+        spec = JSON.parse(raw) as SwaggerSpec;
     } catch {
         spec = null;
     }
@@ -39,7 +39,7 @@ export default async function ApiDocsPage({ params }: ApiDocsPageProps) {
 
                 <div className="mt-6 mb-8">
                     <h1 className="text-2xl font-bold mb-2"><TranslatedText tKey="app.api_docs_title" /></h1>
-                    <p className="text-muted-foreground">{meta.display_name} — <TranslatedText tKey="app.api_docs_openapi" /></p>
+                    <p className="text-muted-foreground">{meta.display_name} — <TranslatedText tKey="app.api_docs_swagger" /></p>
                 </div>
 
                 {!spec ? (
@@ -57,7 +57,7 @@ export default async function ApiDocsPage({ params }: ApiDocsPageProps) {
                             <div className="flex items-center gap-3 mb-2">
                                 <h2 className="text-lg font-semibold">{spec.info.title}</h2>
                                 <Badge variant="outline">v{spec.info.version}</Badge>
-                                <Badge variant="secondary">OpenAPI {spec.openapi}</Badge>
+                                <Badge variant="secondary">Swagger {spec.swagger}</Badge>
                             </div>
                             {spec.info.description && <p className="text-sm text-muted-foreground">{spec.info.description}</p>}
                         </div>

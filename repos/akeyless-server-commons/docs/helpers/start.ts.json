@@ -1,0 +1,168 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "start.ts",
+  "source": {
+    "file_path": "src/helpers/start.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node", "express"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/start.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/start.ts"
+  },
+  "summary": {
+    "purpose": "Provides server startup functions that configure an Express application with standard middleware, routing, error handling, Redis, and Firebase snapshots.",
+    "problem_solved": "Eliminates boilerplate server setup code across multiple microservices by providing two opinionated startup functions: a low-level start_server and a high-level basic_init."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "express",
+        "kind": "runtime",
+        "why_used": "Creates and configures the Express application instance."
+      },
+      {
+        "name": "cors",
+        "kind": "runtime",
+        "why_used": "Adds CORS headers to all responses."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers/index.ts",
+        "why_used": "Imports the logger singleton for startup logging.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+      },
+      {
+        "import_path": "./",
+        "resolved_file_path": "src/helpers/index.ts",
+        "why_used": "Imports init_env_variables and init_snapshots.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
+      },
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Imports AppOptions, LogRequests, and MainRouter types.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+      },
+      {
+        "import_path": "../middlewares/error_handling",
+        "resolved_file_path": "src/middlewares/error_handling.ts",
+        "why_used": "Imports the global error_handler middleware.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/error_handling.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/error_handling.ts"
+      },
+      {
+        "import_path": "../middlewares",
+        "resolved_file_path": "src/middlewares/index.ts",
+        "why_used": "Imports request_logger and trim_body_middleware.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/index.ts"
+      },
+      {
+        "import_path": "./redis/initialize",
+        "resolved_file_path": "src/helpers/redis/initialize.ts",
+        "why_used": "Imports init_redis for optional Redis initialization on startup.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/initialize.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/initialize.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "start_server",
+      "kind": "function",
+      "description_one_line": "Creates and starts an Express server with standard middleware, routing, and optional Redis initialization.",
+      "symbol_id": "start_server"
+    },
+    {
+      "name": "basic_init",
+      "kind": "function",
+      "description_one_line": "High-level server initializer that starts the server and initializes Firebase snapshots.",
+      "symbol_id": "basic_init"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "start_server",
+      "name": "start_server",
+      "kind": "function",
+      "description_one_line": "Creates and starts an Express server with standard middleware, routing, and optional Redis initialization.",
+      "signature": {
+        "params": [
+          {"name": "main_router", "type": "MainRouter", "required": true, "description": "Function that registers all routes on the Express app."},
+          {"name": "project_name", "type": "string", "required": true, "description": "Name of the project, logged on startup."},
+          {"name": "version", "type": "string", "required": true, "description": "Version string, logged on startup."},
+          {"name": "options", "type": "AppOptions", "required": false, "description": "Optional: port, log_requests config, initialize_redis flag. Port defaults to process.env.port."}
+        ],
+        "returns": {
+          "type": "Promise<Express>",
+          "description": "The configured Express application instance after the server starts listening."
+        }
+      },
+      "details": {
+        "what_it_does": "Configures the Express app with cors, JSON body parser (10mb limit), URL-encoded parser, trim_body_middleware, request_logger, the provided main_router, and error_handler. Starts listening on the resolved port. Optionally initializes Redis (default: true), catching and warning on failure without crashing.",
+        "side_effects": ["Starts an HTTP server on the specified port.", "Optionally initializes Redis connections."]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Start a basic Express server",
+          "code": "const app = await start_server(\n  (app) => { app.get('/health', (req, res) => res.send('ok')); },\n  'my-service',\n  '1.0.0'\n);"
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 42,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/start.ts#L10",
+        "nx_kb_anchor": "start_server"
+      }
+    },
+    {
+      "symbol_id": "basic_init",
+      "name": "basic_init",
+      "kind": "function",
+      "description_one_line": "High-level server initializer that starts the server and initializes Firebase snapshots.",
+      "signature": {
+        "params": [
+          {"name": "main_router", "type": "MainRouter", "required": true, "description": "Function that registers all routes on the Express app."},
+          {"name": "project_name", "type": "string", "required": true, "description": "Name of the project."},
+          {"name": "version", "type": "string", "required": true, "description": "Version string."},
+          {"name": "options", "type": "AppOptions", "required": false, "description": "Optional: port, log_requests, init_snapshot_options, initialize_redis."}
+        ],
+        "returns": {
+          "type": "Promise<Express>",
+          "description": "The configured Express application instance."
+        }
+      },
+      "details": {
+        "what_it_does": "Calls start_server to boot the Express app, then calls init_snapshots with the provided init_snapshot_options to subscribe to Firebase Firestore collections. Calls process.exit(1) on any unhandled error.",
+        "error_cases": [
+          {"condition": "Any error during startup or snapshot initialization", "behavior": "Logs the error and calls process.exit(1)."}
+        ]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Initialize a full server with Firebase snapshots",
+          "code": "await basic_init(\n  (app) => { app.use('/api', myRouter); },\n  'devices-service',\n  '2.1.0',\n  { port: 9001 }\n);"
+        }
+      },
+      "locations": {
+        "source_line_start": 44,
+        "source_line_end": 58,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/start.ts#L44",
+        "nx_kb_anchor": "basic_init"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

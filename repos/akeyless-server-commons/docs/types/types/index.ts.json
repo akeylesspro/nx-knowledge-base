@@ -1,0 +1,66 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "src/types/types/index.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/index.ts"
+  },
+  "summary": {
+    "purpose": "Barrel export file for all type alias definitions.",
+    "problem_solved": "Provides a single import path for all shared TypeScript type aliases."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "import_path": "./global",
+        "resolved_file_path": "src/types/types/global.ts",
+        "why_used": "Re-exports global type aliases (MW, Service, Route, etc.).",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/global.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts"
+      },
+      {
+        "import_path": "./firebase_types",
+        "resolved_file_path": "src/types/types/firebase_types.ts",
+        "why_used": "Re-exports Firebase-specific type aliases.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/firebase_types.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "* from ./global",
+      "kind": "value",
+      "description_one_line": "All type alias exports from global.ts and firebase_types.ts",
+      "symbol_id": "types_types_barrel"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "types_types_barrel",
+      "name": "types/types barrel",
+      "kind": "value",
+      "description_one_line": "Barrel re-export of all type alias definitions from global.ts and firebase_types.ts.",
+      "details": {"what_it_does": "Re-exports everything from global.ts and firebase_types.ts."},
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/index.ts#L1",
+        "nx_kb_anchor": "types_types_barrel"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "tasks_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/tasks_helpers.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/tasks_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Provides a task execution framework with status tracking in Firestore, result caching in memory and Firebase Storage, and data retrieval utilities.",
+    "problem_solved": "Standardises long-running background task lifecycle management: tracking running/completed/failed status in Firestore, persisting large result data in Firebase Storage, and serving cached results to avoid redundant computation."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides the TObject generic type."
+      },
+      {
+        "name": "firebase-admin",
+        "kind": "runtime",
+        "why_used": "Used directly to access Firebase Storage for task data persistence."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers/index.ts",
+        "why_used": "Imports cache_manager and logger singletons.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+      },
+      {
+        "import_path": "./firebase_helpers",
+        "resolved_file_path": "src/helpers/firebase_helpers.ts",
+        "why_used": "Imports get_document_by_id_optional and set_document for Firestore task status tracking.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "TaskName",
+      "kind": "enum",
+      "description_one_line": "Enum of known background task names.",
+      "symbol_id": "TaskName"
+    },
+    {
+      "name": "TaskStatus",
+      "kind": "enum",
+      "description_one_line": "Enum of possible task execution statuses.",
+      "symbol_id": "TaskStatus"
+    },
+    {
+      "name": "TaskSaveOptions",
+      "kind": "type",
+      "description_one_line": "Union type specifying where task result data should be saved.",
+      "symbol_id": "TaskSaveOptions"
+    },
+    {
+      "name": "ExecuteTaskOptions",
+      "kind": "interface",
+      "description_one_line": "Options for the execute_task function controlling save location and debug logging.",
+      "symbol_id": "ExecuteTaskOptions"
+    },
+    {
+      "name": "execute_task",
+      "kind": "function",
+      "description_one_line": "Executes a task function with Firestore status tracking and optional result persistence.",
+      "symbol_id": "execute_task"
+    },
+    {
+      "name": "get_task_data",
+      "kind": "function",
+      "description_one_line": "Retrieves task result data from cache, Firestore, or Firebase Storage.",
+      "symbol_id": "get_task_data"
+    },
+    {
+      "name": "get_task_data_from_storage",
+      "kind": "function",
+      "description_one_line": "Downloads and parses task result JSON from Firebase Storage.",
+      "symbol_id": "get_task_data_from_storage"
+    },
+    {
+      "name": "keep_task_data_in_storage",
+      "kind": "function",
+      "description_one_line": "Serializes and uploads task result data to Firebase Storage, returning a signed URL.",
+      "symbol_id": "keep_task_data_in_storage"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "TaskName",
+      "name": "TaskName",
+      "kind": "enum",
+      "description_one_line": "Enum of known background task names used as Firestore document IDs in the nx-tasks collection.",
+      "signature": {
+        "params": [],
+        "returns": {"type": "enum", "description": "Enum values: send_reset_sms, collect_devices_health, collect_charge_locations, collect_charge_cdrs, auto_connect_to_call_center."}
+      },
+      "details": {"what_it_does": "Defines the set of recognized task names. Each value is used as the document ID in the 'nx-tasks' Firestore collection and as the cache key in CacheManager."},
+      "examples": {
+        "minimal_correct": {"title": "Use TaskName in execute_task", "code": "await execute_task('devices-service', TaskName.collect_devices_health, myTask);"}
+      },
+      "locations": {"source_line_start": 6, "source_line_end": 12, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L6", "nx_kb_anchor": "TaskName"}
+    },
+    {
+      "symbol_id": "TaskStatus",
+      "name": "TaskStatus",
+      "kind": "enum",
+      "description_one_line": "Enum of possible task execution statuses stored in Firestore.",
+      "signature": {
+        "params": [],
+        "returns": {"type": "enum", "description": "Enum values: running, completed, failed, suspeneded (note: typo in source)."}
+      },
+      "details": {"what_it_does": "Defines the lifecycle states of a task: running (started), completed (success), failed (error), suspeneded (paused — note the typo in source)."},
+      "examples": {
+        "minimal_correct": {"title": "Check task status", "code": "const task = await get_document_by_id('nx-tasks', TaskName.collect_devices_health);\nif (task.status === TaskStatus.running) { /* skip */ }"}
+      },
+      "locations": {"source_line_start": 14, "source_line_end": 19, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L14", "nx_kb_anchor": "TaskStatus"}
+    },
+    {
+      "symbol_id": "TaskSaveOptions",
+      "name": "TaskSaveOptions",
+      "kind": "type",
+      "description_one_line": "Union type specifying where task result data should be saved.",
+      "details": {
+        "what_it_does": "Controls where execute_task saves the task result: 'storage' (Firebase Storage + cache), 'db' (Firestore document), or 'none' (no data saved).",
+        "type_definition": "export type TaskSaveOptions = \"storage\" | \"db\" | \"none\";"
+      },
+      "examples": {
+        "minimal_correct": {"title": "Use TaskSaveOptions", "code": "await execute_task('svc', TaskName.collect_devices_health, myTask, { save_in: 'storage' });"}
+      },
+      "locations": {"source_line_start": 21, "source_line_end": 21, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L21", "nx_kb_anchor": "TaskSaveOptions"}
+    },
+    {
+      "symbol_id": "ExecuteTaskOptions",
+      "name": "ExecuteTaskOptions",
+      "kind": "interface",
+      "description_one_line": "Options for the execute_task function controlling save location and debug logging.",
+      "signature": {
+        "params": [],
+        "returns": {"type": "interface", "description": "Interface with optional save_in (TaskSaveOptions) and debug_logs (boolean, default true)."}
+      },
+      "details": {"what_it_does": "Configures execute_task behavior: save_in controls where results are persisted, debug_logs controls whether start/end timing is logged."},
+      "examples": {
+        "minimal_correct": {"title": "Pass options to execute_task", "code": "const opts: ExecuteTaskOptions = { save_in: 'storage', debug_logs: false };"}
+      },
+      "locations": {"source_line_start": 31, "source_line_end": 34, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L31", "nx_kb_anchor": "ExecuteTaskOptions"}
+    },
+    {
+      "symbol_id": "execute_task",
+      "name": "execute_task",
+      "kind": "function",
+      "description_one_line": "Executes a task function with Firestore status tracking and optional result persistence.",
+      "signature": {
+        "params": [
+          {"name": "source", "type": "string", "required": true, "description": "Identifier of the service/component running the task, stored in Firestore."},
+          {"name": "task_name", "type": "TaskName", "required": true, "description": "The task name enum value used as the Firestore document ID."},
+          {"name": "task", "type": "() => Promise<T>", "required": true, "description": "The async task function to execute."},
+          {"name": "options", "type": "ExecuteTaskOptions", "required": false, "description": "Optional save_in and debug_logs settings."}
+        ],
+        "returns": {"type": "Promise<void>", "description": "Resolves when the task completes (success or failure). Never rejects."}
+      },
+      "details": {
+        "what_it_does": "Sets Firestore task status to 'running', executes the task, then updates to 'completed' with result data (saved to cache and optionally Storage or Firestore). On error, sets status to 'failed' with the error message. Uses performance.now() for timing.",
+        "side_effects": ["Writes to Firestore 'nx-tasks' collection.", "Optionally uploads to Firebase Storage.", "Updates CacheManager with task result."]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Execute a data collection task",
+          "code": "await execute_task('devices-service', TaskName.collect_devices_health, async () => {\n  return await fetchDevicesHealth();\n}, { save_in: 'storage' });"
+        }
+      },
+      "locations": {"source_line_start": 36, "source_line_end": 91, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L36", "nx_kb_anchor": "execute_task"}
+    },
+    {
+      "symbol_id": "get_task_data",
+      "name": "get_task_data",
+      "kind": "function",
+      "description_one_line": "Retrieves task result data from cache, Firestore, or Firebase Storage.",
+      "signature": {
+        "params": [
+          {"name": "task_name", "type": "TaskName", "required": true, "description": "The task name to retrieve data for."}
+        ],
+        "returns": {"type": "Promise<T>", "description": "The task result data, or an empty array if not found."}
+      },
+      "details": {
+        "what_it_does": "Checks CacheManager first (array then object). If not cached, reads from Firestore 'nx-tasks'. If the Firestore data field is a Storage URL (starts with 'http'), downloads from Firebase Storage. Caches the result before returning."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Get collected task data",
+          "code": "const healthData = await get_task_data<DeviceHealth[]>(TaskName.collect_devices_health);"
+        }
+      },
+      "locations": {"source_line_start": 93, "source_line_end": 118, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L93", "nx_kb_anchor": "get_task_data"}
+    },
+    {
+      "symbol_id": "get_task_data_from_storage",
+      "name": "get_task_data_from_storage",
+      "kind": "function",
+      "description_one_line": "Downloads and parses task result JSON from Firebase Storage.",
+      "signature": {
+        "params": [
+          {"name": "task_name", "type": "TaskName", "required": true, "description": "The task name used to construct the Storage file path (tasks_data/{task_name}.json)."}
+        ],
+        "returns": {"type": "Promise<T | null>", "description": "Parsed JSON data or null if the file doesn't exist or download fails."}
+      },
+      "details": {
+        "what_it_does": "Downloads the file at 'tasks_data/{task_name}.json' from the default Firebase Storage bucket and parses it as JSON.",
+        "error_cases": [{"condition": "File not found or download error", "behavior": "Logs the error and returns null."}]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Download task data from Storage",
+          "code": "const data = await get_task_data_from_storage(TaskName.collect_charge_cdrs);"
+        }
+      },
+      "locations": {"source_line_start": 120, "source_line_end": 130, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L120", "nx_kb_anchor": "get_task_data_from_storage"}
+    },
+    {
+      "symbol_id": "keep_task_data_in_storage",
+      "name": "keep_task_data_in_storage",
+      "kind": "function",
+      "description_one_line": "Serializes and uploads task result data to Firebase Storage, returning a signed URL.",
+      "signature": {
+        "params": [
+          {"name": "task_name", "type": "TaskName", "required": true, "description": "The task name used to construct the Storage file path."},
+          {"name": "data", "type": "any[] | TObject<any>", "required": true, "description": "The data to serialize as JSON and upload."}
+        ],
+        "returns": {"type": "Promise<string>", "description": "A signed URL valid for 7 days, or an empty string on error."}
+      },
+      "details": {
+        "what_it_does": "Serializes data to JSON, uploads to 'tasks_data/{task_name}.json' in Firebase Storage with content-type 'application/json', and returns a signed URL with a 7-day TTL.",
+        "error_cases": [
+          {"condition": "data is not an array or object", "behavior": "Throws Error('Only arrays or objects can be written')"},
+          {"condition": "Upload fails", "behavior": "Logs the error and returns empty string ''."}
+        ]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Upload task data to Storage",
+          "code": "const url = await keep_task_data_in_storage(TaskName.collect_devices_health, devicesData);\n// url => 'https://storage.googleapis.com/...?Expires=...'"}
+        }
+      },
+      "locations": {"source_line_start": 132, "source_line_end": 154, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L132", "nx_kb_anchor": "keep_task_data_in_storage"}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": ["TaskStatus.suspeneded has a typo in source ('suspeneded' instead of 'suspended')."]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "src/helpers/redis/index.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node", "redis"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/index.ts"
+  },
+  "summary": {
+    "purpose": "Barrel export file for the Redis helpers sub-module.",
+    "problem_solved": "Provides a single import path for all Redis utilities (initialization, key generation, snapshot management)."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "import_path": "./initialize",
+        "resolved_file_path": "src/helpers/redis/initialize.ts",
+        "why_used": "Re-exports Redis client initialization helpers.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/initialize.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/initialize.ts"
+      },
+      {
+        "import_path": "./keys",
+        "resolved_file_path": "src/helpers/redis/keys.ts",
+        "why_used": "Re-exports Redis key generation and scanning utilities.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/keys.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/keys.ts"
+      },
+      {
+        "import_path": "./snapshot",
+        "resolved_file_path": "src/helpers/redis/snapshot.ts",
+        "why_used": "Re-exports Redis snapshot and data synchronization helpers.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/snapshot.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/snapshot.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "* from ./initialize",
+      "kind": "value",
+      "description_one_line": "All exports from redis/initialize.ts",
+      "symbol_id": "redis_barrel"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "redis_barrel",
+      "name": "redis barrel",
+      "kind": "value",
+      "description_one_line": "Barrel re-export of all Redis sub-modules: initialize, keys, and snapshot.",
+      "details": {
+        "what_it_does": "Re-exports everything from initialize.ts, keys.ts, and snapshot.ts into a flat namespace."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/index.ts#L1",
+        "nx_kb_anchor": "redis_barrel"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

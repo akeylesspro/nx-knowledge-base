@@ -10,7 +10,7 @@ You are a Design/Architecture Agent (AI Agent). Your task: to build a complete w
 - Creation approach: File-level documentation will be Fully AI-generated from code and diffs (Approach A), with PR review before merge.
 - Deep links: Both the NX-KNOWLEDGE-BASE view and the original file on GitHub should be supported (default: display within NX-KNOWLEDGE-BASE, with “Open in GitHub” button).
 - Branching in NX-KNOWLEDGE-BASE: There is only main (no develop docs).
-- API docs: The system must automatically generate OpenAPI/Swagger (from scans/inference from code/Routes) and integrate into NX-KNOWLEDGE-BASE.
+- API docs: The system must automatically generate Swagger (from scans/inference from code/Routes) and integrate into NX-KNOWLEDGE-BASE.
 - NX-KNOWLEDGE-BASE will be Public for reading (open internet).
 - Agents will only run within GitHub Actions.
 - Machine-readable docs: “Single source of truth” in rigid JSON format with a fixed schema for each code file.
@@ -81,7 +81,7 @@ In addition, you should propose an accurate JSON schema (with fields, types, exa
 4) Format and UI decisions
 ============================
 You should recommend:
-- A complete NX-KNOWLEDGE-BASE folder structure (including /repos/<name>/docs, /repos/<name>/openapi, /ui, /schemas, etc.).
+- A complete NX-KNOWLEDGE-BASE folder structure (including /repos/<name>/docs, /repos/<name>/swagger , /ui, /schemas, etc.).
 - How Next.js renders JSON to pages:
 - routing by repo/path
 - search index
@@ -144,7 +144,7 @@ In each Repo:
 ===========================
 8) QA and Testing
 = Review/Merge Agent + gates
-- Step 4: OpenAPI generation + UI
+- Step 4: Swagger generation + UI
 - Step 5: hardening (security/QA/perf)
 
 C) Distribution of responsibilities between components:

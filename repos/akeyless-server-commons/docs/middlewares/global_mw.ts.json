@@ -1,0 +1,144 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global_mw.ts",
+  "source": {
+    "file_path": "src/middlewares/global_mw.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node", "express"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/global_mw.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/global_mw.ts"
+  },
+  "summary": {
+    "purpose": "Provides Express middleware factories for request body/header validation (mandatory and optional parameters), request logging, and parameter type checking.",
+    "problem_solved": "Eliminates repetitive validation boilerplate in route handlers by providing reusable middleware factories that validate parameter presence, type, length, and nested object structure."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "express",
+        "kind": "runtime",
+        "why_used": "Provides Request, Response, NextFunction, and RequestHandler types."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../helpers",
+        "resolved_file_path": "src/helpers/index.ts",
+        "why_used": "Imports json_failed for validation error responses.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
+      },
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Imports LogRequests, MandatoryObject, MandatoryParams, MW, Route, and Service types.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+      },
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers/index.ts",
+        "why_used": "Imports the logger singleton for request logging.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "mandatory",
+      "kind": "function",
+      "description_one_line": "Middleware factory that validates required body and/or header parameters.",
+      "symbol_id": "mandatory"
+    },
+    {
+      "name": "optional",
+      "kind": "function",
+      "description_one_line": "Middleware factory that validates optional body and/or header parameters (type-checks without requiring presence).",
+      "symbol_id": "optional"
+    },
+    {
+      "name": "request_logger",
+      "kind": "function",
+      "description_one_line": "Middleware factory that logs request method, URL, headers, query, and/or body based on configuration.",
+      "symbol_id": "request_logger"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "mandatory",
+      "name": "mandatory",
+      "kind": "function",
+      "description_one_line": "Middleware factory that validates required body and/or header parameters.",
+      "signature": {
+        "params": [{"name": "{ body, headers }", "type": "MandatoryParams", "required": true, "description": "Object with optional body and headers arrays of MandatoryObject descriptors."}],
+        "returns": {"type": "MW", "description": "Express middleware that validates parameters and calls next() or returns json_failed."}
+      },
+      "details": {
+        "what_it_does": "For each MandatoryObject in body/headers, validates: presence (throws if missing), type match (string, number, boolean, object, array), minimum length for strings/arrays, array item types, and required_keys for objects. Returns json_failed on any validation failure.",
+        "error_cases": [
+          {"condition": "A required parameter is missing", "behavior": "Returns json_failed('missing mandatory parameter: {key}')"},
+          {"condition": "Parameter has wrong type", "behavior": "Returns json_failed('parameter {key} must be of type: {type}')"},
+          {"condition": "String/array is shorter than minimum length", "behavior": "Returns json_failed with length error message"},
+          {"condition": "Object is missing required_keys", "behavior": "Returns json_failed with missing keys message"}
+        ]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Validate required body parameters",
+          "code": "app.post('/api/send', mandatory({ body: [\n  { key: 'phone_number', type: 'string', length: 10 },\n  { key: 'message', type: 'string' }\n] }), handler);"
+        }
+      },
+      "locations": {"source_line_start": 56, "source_line_end": 79, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/global_mw.ts#L56", "nx_kb_anchor": "mandatory"}
+    },
+    {
+      "symbol_id": "optional",
+      "name": "optional",
+      "kind": "function",
+      "description_one_line": "Middleware factory that validates optional body and/or header parameters (type-checks without requiring presence).",
+      "signature": {
+        "params": [{"name": "{ body, headers }", "type": "MandatoryParams", "required": true, "description": "Object with optional body and headers arrays of MandatoryObject descriptors."}],
+        "returns": {"type": "MW", "description": "Express middleware that validates present parameters and calls next() or returns json_failed."}
+      },
+      "details": {
+        "what_it_does": "Same as mandatory but skips validation if the parameter is absent (undefined). Only validates type, length, and structure if the parameter is present."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Validate optional body parameters",
+          "code": "app.post('/api/search', optional({ body: [\n  { key: 'limit', type: 'number' },\n  { key: 'filters', type: 'object' }\n] }), handler);"
+        }
+      },
+      "locations": {"source_line_start": 81, "source_line_end": 104, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/global_mw.ts#L81", "nx_kb_anchor": "optional"}
+    },
+    {
+      "symbol_id": "request_logger",
+      "name": "request_logger",
+      "kind": "function",
+      "description_one_line": "Middleware factory that logs request method, URL, headers, query, and/or body based on configuration.",
+      "signature": {
+        "params": [{"name": "log_requests", "type": "LogRequests", "required": true, "description": "Object with optional boolean flags: url, headers, query, body."}],
+        "returns": {"type": "RequestHandler", "description": "Express middleware that logs the configured request details."}
+      },
+      "details": {
+        "what_it_does": "Logs the request method and URL if any flag is true. Logs headers if log_requests.headers is true. Logs query params if log_requests.query is true. Logs body (for POST/PUT/PATCH) if log_requests.body is true."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Log URL and body for all requests",
+          "code": "app.use(request_logger({ url: true, body: true }));"
+        }
+      },
+      "locations": {"source_line_start": 106, "source_line_end": 124, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/global_mw.ts#L106", "nx_kb_anchor": "request_logger"}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": ["The internal validateParameter function is not exported but is the core validation engine."]
+  }
+}

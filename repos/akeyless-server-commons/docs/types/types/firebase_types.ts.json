@@ -1,0 +1,145 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "firebase_types.ts",
+  "source": {
+    "file_path": "src/types/types/firebase_types.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node", "firebase"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/firebase_types.ts"
+  },
+  "summary": {
+    "purpose": "Defines TypeScript function type aliases for Firebase Firestore query and snapshot operations.",
+    "problem_solved": "Provides typed function signatures for all Firestore query patterns, snapshot listeners, and snapshot bulk initialisation helpers, enabling consistent usage across the codebase."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "firebase-admin",
+        "kind": "runtime",
+        "why_used": "Provides FirebaseFirestore.Timestamp and DocumentData types."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./global",
+        "resolved_file_path": "src/types/types/global.ts",
+        "why_used": "Imports LangOptions and EntityOptions types.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/global.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts"
+      },
+      {
+        "import_path": "../interfaces",
+        "resolved_file_path": "src/types/interfaces/index.ts",
+        "why_used": "Imports OnSnapshotConfig and related interface types.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {"name": "QueryDocument", "kind": "type", "description_one_line": "Function type for querying a single Firestore document by field (throws if not found).", "symbol_id": "QueryDocument"},
+    {"name": "QueryDocumentOptional", "kind": "type", "description_one_line": "Function type for querying a single Firestore document by field (returns null if not found).", "symbol_id": "QueryDocumentOptional"},
+    {"name": "QueryDocuments", "kind": "type", "description_one_line": "Function type for querying multiple Firestore documents by field.", "symbol_id": "QueryDocuments"},
+    {"name": "QueryDocumentsByConditions", "kind": "type", "description_one_line": "Function type for querying multiple Firestore documents by multiple conditions.", "symbol_id": "QueryDocumentsByConditions"},
+    {"name": "QueryDocumentByConditions", "kind": "type", "description_one_line": "Function type for querying a single Firestore document by multiple conditions.", "symbol_id": "QueryDocumentByConditions"},
+    {"name": "Snapshot", "kind": "type", "description_one_line": "Function type for setting up a single Firestore snapshot listener.", "symbol_id": "Snapshot"},
+    {"name": "SnapshotBulk", "kind": "type", "description_one_line": "Function type for setting up multiple Firestore snapshot listeners.", "symbol_id": "SnapshotBulk"},
+    {"name": "SnapshotBulkByNames", "kind": "type", "description_one_line": "Function type for setting up multiple Firestore snapshot listeners by collection names.", "symbol_id": "SnapshotBulkByNames"},
+    {"name": "InitSnapshotsOptions", "kind": "type", "description_one_line": "Options for the init_snapshots function.", "symbol_id": "InitSnapshotsOptions"},
+    {"name": "OnSnapshotCallback", "kind": "type", "description_one_line": "Callback function type for snapshot parser events.", "symbol_id": "OnSnapshotCallback"}
+  ],
+  "symbols": [
+    {
+      "symbol_id": "QueryDocument",
+      "name": "QueryDocument",
+      "kind": "type",
+      "description_one_line": "Function type for querying a single Firestore document by field (throws if not found).",
+      "signature": {"params": [{"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."}, {"name": "field_name", "type": "string", "required": true, "description": "Field to filter on."}, {"name": "operator", "type": "FirebaseFirestore.WhereFilterOp", "required": true, "description": "Comparison operator."}, {"name": "value", "type": "any", "required": true, "description": "Value to compare against."}, {"name": "ignore_log", "type": "boolean", "required": false, "description": "Suppress not-found logging."}], "returns": {"type": "Promise<TObject<any>>", "description": "The matching document."}},
+      "locations": {"source_line_start": 5, "source_line_end": 5, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts#L5", "nx_kb_anchor": "QueryDocument"}
+    },
+    {
+      "symbol_id": "QueryDocumentOptional",
+      "name": "QueryDocumentOptional",
+      "kind": "type",
+      "description_one_line": "Function type for querying a single Firestore document by field (returns null if not found).",
+      "signature": {"params": [{"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."}, {"name": "field_name", "type": "string", "required": true, "description": "Field to filter on."}, {"name": "operator", "type": "FirebaseFirestore.WhereFilterOp", "required": true, "description": "Comparison operator."}, {"name": "value", "type": "any", "required": true, "description": "Value to compare against."}, {"name": "ignore_log", "type": "boolean", "required": false, "description": "Suppress not-found logging."}], "returns": {"type": "Promise<TObject<any> | null>", "description": "The matching document or null."}},
+      "locations": {"source_line_start": 7, "source_line_end": 7, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts#L7", "nx_kb_anchor": "QueryDocumentOptional"}
+    },
+    {
+      "symbol_id": "QueryDocuments",
+      "name": "QueryDocuments",
+      "kind": "type",
+      "description_one_line": "Function type for querying multiple Firestore documents by field.",
+      "signature": {"params": [{"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."}, {"name": "field_name", "type": "string", "required": true, "description": "Field to filter on."}, {"name": "operator", "type": "FirebaseFirestore.WhereFilterOp", "required": true, "description": "Comparison operator."}, {"name": "value", "type": "any", "required": true, "description": "Value to compare against."}], "returns": {"type": "Promise<TObject<any>[]>", "description": "Array of matching documents."}},
+      "locations": {"source_line_start": 9, "source_line_end": 9, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts#L9", "nx_kb_anchor": "QueryDocuments"}
+    },
+    {
+      "symbol_id": "QueryDocumentsByConditions",
+      "name": "QueryDocumentsByConditions",
+      "kind": "type",
+      "description_one_line": "Function type for querying multiple Firestore documents by multiple conditions.",
+      "signature": {"params": [{"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."}, {"name": "where_conditions", "type": "WhereCondition[]", "required": true, "description": "Array of where conditions."}], "returns": {"type": "Promise<TObject<any>[]>", "description": "Array of matching documents."}},
+      "locations": {"source_line_start": 11, "source_line_end": 11, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts#L11", "nx_kb_anchor": "QueryDocumentsByConditions"}
+    },
+    {
+      "symbol_id": "QueryDocumentByConditions",
+      "name": "QueryDocumentByConditions",
+      "kind": "type",
+      "description_one_line": "Function type for querying a single Firestore document by multiple conditions.",
+      "signature": {"params": [{"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."}, {"name": "where_conditions", "type": "WhereCondition[]", "required": true, "description": "Array of where conditions."}, {"name": "log", "type": "boolean", "required": false, "description": "Log the query result."}], "returns": {"type": "Promise<TObject<any>>", "description": "The first matching document."}},
+      "locations": {"source_line_start": 13, "source_line_end": 13, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts#L13", "nx_kb_anchor": "QueryDocumentByConditions"}
+    },
+    {
+      "symbol_id": "Snapshot",
+      "name": "Snapshot",
+      "kind": "type",
+      "description_one_line": "Function type for setting up a single Firestore snapshot listener.",
+      "signature": {"params": [{"name": "config", "type": "OnSnapshotConfig", "required": true, "description": "Snapshot configuration."}], "returns": {"type": "Promise<void>", "description": "Resolves after initial snapshot."}},
+      "locations": {"source_line_start": 15, "source_line_end": 15, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts#L15", "nx_kb_anchor": "Snapshot"}
+    },
+    {
+      "symbol_id": "SnapshotBulk",
+      "name": "SnapshotBulk",
+      "kind": "type",
+      "description_one_line": "Function type for setting up multiple Firestore snapshot listeners.",
+      "signature": {"params": [{"name": "snapshots", "type": "ReturnType<Snapshot>[]", "required": true, "description": "Array of snapshot Promises."}, {"name": "label", "type": "string", "required": false, "description": "Label for logging."}], "returns": {"type": "Promise<void>", "description": "Resolves when all snapshots are initialised."}},
+      "locations": {"source_line_start": 17, "source_line_end": 17, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts#L17", "nx_kb_anchor": "SnapshotBulk"}
+    },
+    {
+      "symbol_id": "SnapshotBulkByNames",
+      "name": "SnapshotBulkByNames",
+      "kind": "type",
+      "description_one_line": "Function type for setting up multiple Firestore snapshot listeners by collection names.",
+      "signature": {"params": [{"name": "params", "type": "SnapshotBulkByNamesParam[]", "required": true, "description": "Array of collection names or config objects."}, {"name": "options", "type": "SnapshotBulkByNamesOptions", "required": false, "description": "Shared options."}], "returns": {"type": "Promise<void>", "description": "Resolves when all snapshots are initialised."}},
+      "locations": {"source_line_start": 19, "source_line_end": 19, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts#L19", "nx_kb_anchor": "SnapshotBulkByNames"}
+    },
+    {
+      "symbol_id": "InitSnapshotsOptions",
+      "name": "InitSnapshotsOptions",
+      "kind": "type",
+      "description_one_line": "Options for the init_snapshots function.",
+      "details": {
+        "what_it_does": "Defines optional configuration for init_snapshots: subscription_type ('redis' | 'firebase') and debug flag."
+      },
+      "locations": {"source_line_start": 21, "source_line_end": 21, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts#L21", "nx_kb_anchor": "InitSnapshotsOptions"}
+    },
+    {
+      "symbol_id": "OnSnapshotCallback",
+      "name": "OnSnapshotCallback",
+      "kind": "type",
+      "description_one_line": "Callback function type for snapshot parser events (on_add, on_modify, on_remove, on_first_time).",
+      "signature": {"params": [{"name": "documents", "type": "any[]", "required": true, "description": "Array of affected documents."}, {"name": "config", "type": "OnSnapshotConfig", "required": true, "description": "The snapshot configuration."}], "returns": {"type": "void | Promise<void>", "description": "Can be sync or async."}},
+      "locations": {"source_line_start": 23, "source_line_end": 23, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts#L23", "nx_kb_anchor": "OnSnapshotCallback"}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": ["Exact line numbers are estimated from the 80-line file. Some type aliases may have additional generic parameters not captured here."]
+  }
+}

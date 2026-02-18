@@ -1,0 +1,192 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "login_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/login_helpers.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/login_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/login_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Provides helper functions for looking up NxUser and MobileAppUser records from Firestore by phone number, email, or UID.",
+    "problem_solved": "Centralises user lookup logic used during authentication and login flows, supporting both email and phone-based identifiers."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides NxUser, DefaultClient, and MobileAppUser type definitions."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./firebase_helpers",
+        "resolved_file_path": "src/helpers/firebase_helpers.ts",
+        "why_used": "Imports query_document and query_document_optional for Firestore queries.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts"
+      },
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers/index.ts",
+        "why_used": "Imports the logger singleton.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "convert_to_short_phone_number",
+      "kind": "function",
+      "description_one_line": "Converts an Israeli international phone number (+972...) to its short local format (0...).",
+      "symbol_id": "convert_to_short_phone_number"
+    },
+    {
+      "name": "get_user_by_identifier",
+      "kind": "function",
+      "description_one_line": "Looks up an NxUser from Firestore by email or phone number identifier.",
+      "symbol_id": "get_user_by_identifier"
+    },
+    {
+      "name": "get_mobile_app_user_by_uid",
+      "kind": "function",
+      "description_one_line": "Looks up a MobileAppUser from Firestore by Firebase UID.",
+      "symbol_id": "get_mobile_app_user_by_uid"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "convert_to_short_phone_number",
+      "name": "convert_to_short_phone_number",
+      "kind": "function",
+      "description_one_line": "Converts an Israeli international phone number (+972...) to its short local format (0...).",
+      "signature": {
+        "params": [
+          {
+            "name": "phone_number",
+            "type": "string",
+            "required": true,
+            "description": "International Israeli phone number starting with +972."
+          }
+        ],
+        "returns": {
+          "type": "string",
+          "description": "Short local phone number starting with 0."
+        }
+      },
+      "details": {
+        "what_it_does": "Splits the phone number on '+972' and prepends '0' to the remaining digits."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Convert international to short format",
+          "code": "convert_to_short_phone_number('+972501234567');\n// => '0501234567'"
+        }
+      },
+      "locations": {
+        "source_line_start": 5,
+        "source_line_end": 7,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/login_helpers.ts#L5",
+        "nx_kb_anchor": "convert_to_short_phone_number"
+      }
+    },
+    {
+      "symbol_id": "get_user_by_identifier",
+      "name": "get_user_by_identifier",
+      "kind": "function",
+      "description_one_line": "Looks up an NxUser from Firestore by email or phone number identifier.",
+      "signature": {
+        "params": [
+          {
+            "name": "identifier",
+            "type": "string",
+            "required": true,
+            "description": "Either an email address (contains '@' and '.') or a phone number."
+          },
+          {
+            "name": "ignore_log",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, suppresses error logging for not-found results. Defaults to false."
+          }
+        ],
+        "returns": {
+          "type": "Promise<NxUser | null>",
+          "description": "The matching NxUser document or null if not found."
+        }
+      },
+      "details": {
+        "what_it_does": "If the identifier looks like an email (contains '@' and '.'), queries 'nx-users' by email field. Otherwise queries by phone_number field using both short and long formats (via convert_to_short_phone_number)."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Look up user by email",
+          "code": "const user = await get_user_by_identifier('admin@example.com');"
+        },
+        "extensive_correct": {
+          "title": "Look up user by phone number",
+          "code": "const user = await get_user_by_identifier('+972501234567', true);\nif (!user) { throw 'User not found'; }"
+        }
+      },
+      "locations": {
+        "source_line_start": 10,
+        "source_line_end": 24,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/login_helpers.ts#L10",
+        "nx_kb_anchor": "get_user_by_identifier"
+      }
+    },
+    {
+      "symbol_id": "get_mobile_app_user_by_uid",
+      "name": "get_mobile_app_user_by_uid",
+      "kind": "function",
+      "description_one_line": "Looks up a MobileAppUser from Firestore by Firebase UID.",
+      "signature": {
+        "params": [
+          {
+            "name": "uid",
+            "type": "string",
+            "required": true,
+            "description": "The Firebase Auth UID of the mobile app user."
+          },
+          {
+            "name": "ignore_log",
+            "type": "boolean",
+            "required": false,
+            "description": "If true, suppresses error logging for not-found results. Defaults to false."
+          }
+        ],
+        "returns": {
+          "type": "Promise<MobileAppUser | null>",
+          "description": "The matching MobileAppUser document or null if not found."
+        }
+      },
+      "details": {
+        "what_it_does": "Queries the 'mobile_users_app_pro' Firestore collection for a document where uid equals the given value."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Look up mobile app user by UID",
+          "code": "const mobileUser = await get_mobile_app_user_by_uid('firebase-uid-abc123');"
+        }
+      },
+      "locations": {
+        "source_line_start": 27,
+        "source_line_end": 30,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/login_helpers.ts#L27",
+        "nx_kb_anchor": "get_mobile_app_user_by_uid"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

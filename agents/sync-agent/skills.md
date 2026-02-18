@@ -21,10 +21,10 @@
 - Apply patches using JSON merge-patch (RFC 7386) strategy.
 - Detect conflicts between generated content and human overrides.
 
-## OpenAPI Generation
+## Swagger Generation
 - Scan Express/Next.js route files for HTTP endpoints.
 - Infer request/response schemas from code.
-- Produce OpenAPI 3.1 specification files in `repos/<repo>/openapi/`.
+- Produce Swagger 3.1 specification files in `repos/<repo>/swagger/`.
 
 ## Link Management
 - Generate GitHub permalinks using commit SHA.

@@ -1,0 +1,226 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "boards_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/boards_helpers.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/boards_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Provides helper functions and types for resolving the hardware board manufacturer (board maker) from board type strings or Car objects, using cached settings.",
+    "problem_solved": "Centralises the logic for mapping board type identifiers to their provider (erm, jimi, ruptela, servision, jimi_iothub), avoiding duplicated switch-case logic across services."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides the Board, Car, and TObject shared types used in function signatures."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers/index.ts",
+        "why_used": "Imports cache_manager singleton to read 'settings' and 'boards' cached data.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "extract_board_types_from_settings",
+      "kind": "function",
+      "description_one_line": "Extracts board provider-to-board-types mappings from a settings object.",
+      "symbol_id": "extract_board_types_from_settings"
+    },
+    {
+      "name": "BoardMakerResult",
+      "kind": "type",
+      "description_one_line": "Union type representing the possible board manufacturer identifiers.",
+      "symbol_id": "BoardMakerResult"
+    },
+    {
+      "name": "get_board_maker_by_board_type",
+      "kind": "function",
+      "description_one_line": "Returns the board maker name for a given board type string by checking cached settings.",
+      "symbol_id": "get_board_maker_by_board_type"
+    },
+    {
+      "name": "get_board_maker_by_car",
+      "kind": "function",
+      "description_one_line": "Returns the board maker name for a given Car object by looking up its IMEI in the cached boards list.",
+      "symbol_id": "get_board_maker_by_car"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "extract_board_types_from_settings",
+      "name": "extract_board_types_from_settings",
+      "kind": "function",
+      "description_one_line": "Extracts board provider-to-board-types mappings from a settings object.",
+      "signature": {
+        "params": [
+          {
+            "name": "settings",
+            "type": "TObject<any>",
+            "required": true,
+            "description": "The settings object (typically from cache_manager) containing *_board_types keys with a .values array."
+          }
+        ],
+        "returns": {
+          "type": "BoardProviderWithBoardTypes[]",
+          "description": "Array of objects each containing a board_provider name and its associated board_types string array."
+        }
+      },
+      "details": {
+        "what_it_does": "Reads erm_board_types, jimi_board_types, jimi_iothub_board_types, ruptela_board_types, and servision_board_types from the settings object and returns a structured array mapping each provider to its list of board type strings."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Extract board types from cached settings",
+          "code": "const settings = cache_manager.getObjectData('settings');\nconst board_types = extract_board_types_from_settings(settings);\n// board_types => [{ board_provider: 'erm', board_types: ['ERM100', ...] }, ...]"
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 18,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts#L8",
+        "nx_kb_anchor": "extract_board_types_from_settings"
+      }
+    },
+    {
+      "symbol_id": "BoardMakerResult",
+      "name": "BoardMakerResult",
+      "kind": "type",
+      "description_one_line": "Union type of all supported board manufacturer identifiers.",
+      "details": {
+        "what_it_does": "Constrains board maker return values to one of the five known providers.",
+        "type_definition": "export type BoardMakerResult = \"erm\" | \"jimi\" | \"ruptela\" | \"servision\" | \"jimi_iothub\";"
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Use BoardMakerResult as a type annotation",
+          "code": "const maker: BoardMakerResult = 'erm';"
+        }
+      },
+      "locations": {
+        "source_line_start": 20,
+        "source_line_end": 20,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts#L20",
+        "nx_kb_anchor": "BoardMakerResult"
+      }
+    },
+    {
+      "symbol_id": "get_board_maker_by_board_type",
+      "name": "get_board_maker_by_board_type",
+      "kind": "function",
+      "description_one_line": "Returns the board maker name for a given board type string by checking cached settings.",
+      "signature": {
+        "params": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true,
+            "description": "The board type identifier string to look up."
+          }
+        ],
+        "returns": {
+          "type": "BoardMakerResult",
+          "description": "The board manufacturer name ('erm', 'jimi', 'ruptela', 'servision', or 'jimi_iothub')."
+        }
+      },
+      "details": {
+        "what_it_does": "Reads the 'settings' object from cache_manager and checks each provider's board_types.values array to find which provider owns the given type string. Returns the matching provider name.",
+        "error_cases": [
+          {
+            "condition": "The type string does not match any provider's board_types list",
+            "behavior": "Throws Error('failed to get board maker from DB, type: ' + type)"
+          }
+        ]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Get board maker by type string",
+          "code": "const maker = get_board_maker_by_board_type('ERM100');\n// maker => 'erm'"
+        },
+        "incorrect": {
+          "title": "Passing an unknown type",
+          "code": "get_board_maker_by_board_type('UNKNOWN_TYPE');",
+          "why_incorrect": "Throws an Error because the type is not in any provider's board_types list."
+        }
+      },
+      "locations": {
+        "source_line_start": 22,
+        "source_line_end": 40,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts#L22",
+        "nx_kb_anchor": "get_board_maker_by_board_type"
+      }
+    },
+    {
+      "symbol_id": "get_board_maker_by_car",
+      "name": "get_board_maker_by_car",
+      "kind": "function",
+      "description_one_line": "Returns the board maker name for a given Car object by looking up its IMEI in the cached boards list.",
+      "signature": {
+        "params": [
+          {
+            "name": "car",
+            "type": "Car",
+            "required": true,
+            "description": "The Car object whose first peripheral's mac property is used as the IMEI."
+          }
+        ],
+        "returns": {
+          "type": "BoardMakerResult",
+          "description": "The board manufacturer name for the car's board."
+        }
+      },
+      "details": {
+        "what_it_does": "Extracts the IMEI from car.peripherals[0].mac, finds the matching Board in the cached 'boards' array, then looks up the board's type in cached settings to determine the provider.",
+        "error_cases": [
+          {
+            "condition": "car.peripherals[0].mac is missing or falsy",
+            "behavior": "Throws Error('IMEI not found for car number: ' + car.carId)"
+          },
+          {
+            "condition": "The 'boards' cache is empty",
+            "behavior": "Throws Error('Boards are not in cache')"
+          },
+          {
+            "condition": "No board found with the car's IMEI",
+            "behavior": "Throws Error('Board not found for imei: ' + imei)"
+          },
+          {
+            "condition": "The board's type does not match any provider",
+            "behavior": "Throws Error('failed to get board maker for board type: ' + board.type)"
+          }
+        ]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Get board maker for a car",
+          "code": "const car = cache_manager.getArrayData('units').find(u => u.carId === '1234');\nconst maker = get_board_maker_by_car(car);\n// maker => 'jimi'"
+        }
+      },
+      "locations": {
+        "source_line_start": 42,
+        "source_line_end": 73,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts#L42",
+        "nx_kb_anchor": "get_board_maker_by_car"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

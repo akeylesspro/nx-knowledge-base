@@ -1,0 +1,126 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "location_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/location_helpers.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/location_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/location_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Provides geographic utility functions for calculating distances between coordinates and generating Google Maps URLs.",
+    "problem_solved": "Centralises haversine-formula distance calculation and Google Maps link generation for use across services."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides the Geo type ({ lat: number; lng: number }) used in function parameters."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "get_distance_in_meters_between_geo_points",
+      "kind": "function",
+      "description_one_line": "Calculates the distance in meters between two geographic coordinates using the haversine formula.",
+      "symbol_id": "get_distance_in_meters_between_geo_points"
+    },
+    {
+      "name": "get_location_url",
+      "kind": "function",
+      "description_one_line": "Generates a Google Maps URL for a given geographic coordinate.",
+      "symbol_id": "get_location_url"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "get_distance_in_meters_between_geo_points",
+      "name": "get_distance_in_meters_between_geo_points",
+      "kind": "function",
+      "description_one_line": "Calculates the distance in meters between two geographic coordinates using the haversine formula.",
+      "signature": {
+        "params": [
+          {
+            "name": "location1",
+            "type": "Geo",
+            "required": true,
+            "description": "First geographic point with lat and lng in decimal degrees."
+          },
+          {
+            "name": "location2",
+            "type": "Geo",
+            "required": true,
+            "description": "Second geographic point with lat and lng in decimal degrees."
+          }
+        ],
+        "returns": {
+          "type": "number",
+          "description": "Distance in meters between the two points."
+        }
+      },
+      "details": {
+        "what_it_does": "Implements the haversine formula using Earth's radius of 6371e3 meters to compute the great-circle distance between two lat/lng points."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Calculate distance between Tel Aviv and Jerusalem",
+          "code": "const dist = get_distance_in_meters_between_geo_points(\n  { lat: 32.0853, lng: 34.7818 },\n  { lat: 31.7683, lng: 35.2137 }\n);\n// dist ≈ 55000 (meters)"
+        }
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 15,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/location_helpers.ts#L3",
+        "nx_kb_anchor": "get_distance_in_meters_between_geo_points"
+      }
+    },
+    {
+      "symbol_id": "get_location_url",
+      "name": "get_location_url",
+      "kind": "function",
+      "description_one_line": "Generates a Google Maps URL for a given geographic coordinate.",
+      "signature": {
+        "params": [
+          {
+            "name": "location",
+            "type": "Geo",
+            "required": true,
+            "description": "Geographic point with lat and lng in decimal degrees."
+          }
+        ],
+        "returns": {
+          "type": "string",
+          "description": "A Google Maps URL string pointing to the given coordinates."
+        }
+      },
+      "details": {
+        "what_it_does": "Constructs a Google Maps search URL using the format https://www.google.com/maps?q={lat},{lng}."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Get Google Maps URL for a location",
+          "code": "const url = get_location_url({ lat: 32.0853, lng: 34.7818 });\n// url => 'https://www.google.com/maps?q=32.0853,34.7818'"
+        }
+      },
+      "locations": {
+        "source_line_start": 17,
+        "source_line_end": 19,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/location_helpers.ts#L17",
+        "nx_kb_anchor": "get_location_url"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

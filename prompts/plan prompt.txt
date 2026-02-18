@@ -37,7 +37,7 @@ B) שלושת רכיבי התיעוד
 2) File-level documentation:
    - תיעוד לכל קובץ קוד (מפורט בהמשך)
 3) API Documentation:
-   - אם זה Node.js או Next.js עם endpoints: חייבים גם Swagger/OpenAPI שמציג את כל הניתובים.
+   - אם זה Node.js או Next.js עם endpoints: חייבים גם Swagger שמציג את כל הניתובים.
 
 ========================
 4) דרישות לתוכן של קבצי תיעוד לכל קובץ (Documentation Files Spec)

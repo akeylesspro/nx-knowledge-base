@@ -1,0 +1,304 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "phone_number_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/phone_number_helpers.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/phone_number_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Provides utility functions for phone number validation, classification, SIM provider detection, and format conversion between short (local) and long (international) formats.",
+    "problem_solved": "Centralises phone number logic to avoid duplicated regex and format-conversion code across services that handle Israeli, international, and ICCID-based phone identifiers."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides the TObject generic type used in long_short_phone_numbers return type."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../types/enums",
+        "resolved_file_path": "src/types/enums/index.ts",
+        "why_used": "Imports the SimProvider enum for SIM provider classification.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "is_long_phone_number",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number starts with '+' (international format).",
+      "symbol_id": "is_long_phone_number"
+    },
+    {
+      "name": "is_israel_long_phone_number",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number is an Israeli international number (+9725...).",
+      "symbol_id": "is_israel_long_phone_number"
+    },
+    {
+      "name": "is_thailand_long_phone_number",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number is a Thai international number (+66...).",
+      "symbol_id": "is_thailand_long_phone_number"
+    },
+    {
+      "name": "is_international_phone_number",
+      "kind": "function",
+      "description_one_line": "Returns true if the number is international (starts with '+') but not Israeli.",
+      "symbol_id": "is_international_phone_number"
+    },
+    {
+      "name": "is_iccid",
+      "kind": "function",
+      "description_one_line": "Returns true if the string is a valid ICCID (SIM card identifier).",
+      "symbol_id": "is_iccid"
+    },
+    {
+      "name": "convert_to_short_israel_phone",
+      "kind": "function",
+      "description_one_line": "Converts an Israeli international number (+972...) to local short format (0...).",
+      "symbol_id": "convert_to_short_israel_phone"
+    },
+    {
+      "name": "is_sim_provider_partner",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number belongs to the Partner SIM provider (054 prefix).",
+      "symbol_id": "is_sim_provider_partner"
+    },
+    {
+      "name": "is_sim_provider_pelephone",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number belongs to the Pelephone SIM provider (050 prefix).",
+      "symbol_id": "is_sim_provider_pelephone"
+    },
+    {
+      "name": "is_sim_provider_celcom",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number belongs to the Celcom SIM provider (052 prefix).",
+      "symbol_id": "is_sim_provider_celcom"
+    },
+    {
+      "name": "is_sim_provider_monogoto",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number is an ICCID (Monogoto SIM provider).",
+      "symbol_id": "is_sim_provider_monogoto"
+    },
+    {
+      "name": "get_sim_provider",
+      "kind": "function",
+      "description_one_line": "Returns the SimProvider enum value for a given phone number.",
+      "symbol_id": "get_sim_provider"
+    },
+    {
+      "name": "long_short_phone_numbers",
+      "kind": "function",
+      "description_one_line": "Returns both the short and long formats of a phone number along with an is_israeli flag.",
+      "symbol_id": "long_short_phone_numbers"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "is_long_phone_number",
+      "name": "is_long_phone_number",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number starts with '+' (international format).",
+      "signature": {
+        "params": [{"name": "phone_number", "type": "string", "required": true, "description": "Phone number string to check."}],
+        "returns": {"type": "boolean", "description": "True if the number starts with '+'."}
+      },
+      "details": {"what_it_does": "Simple prefix check: returns phone_number.startsWith('+')."},
+      "examples": {
+        "minimal_correct": {"title": "Check international format", "code": "is_long_phone_number('+972501234567'); // => true\nis_long_phone_number('0501234567'); // => false"}
+      },
+      "locations": {"source_line_start": 4, "source_line_end": 6, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L4", "nx_kb_anchor": "is_long_phone_number"}
+    },
+    {
+      "symbol_id": "is_israel_long_phone_number",
+      "name": "is_israel_long_phone_number",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number is an Israeli international number (+9725...).",
+      "signature": {
+        "params": [{"name": "phone_number", "type": "string", "required": true, "description": "Phone number string to check."}],
+        "returns": {"type": "boolean", "description": "True if starts with +9725 or '+972 5'."}
+      },
+      "details": {"what_it_does": "Checks if the number starts with '+9725' or '+972 5' (Israeli mobile prefix)."},
+      "examples": {
+        "minimal_correct": {"title": "Check Israeli international number", "code": "is_israel_long_phone_number('+972501234567'); // => true"}
+      },
+      "locations": {"source_line_start": 8, "source_line_end": 10, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L8", "nx_kb_anchor": "is_israel_long_phone_number"}
+    },
+    {
+      "symbol_id": "is_thailand_long_phone_number",
+      "name": "is_thailand_long_phone_number",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number is a Thai international number (+66...).",
+      "signature": {
+        "params": [{"name": "phone_number", "type": "string", "required": true, "description": "Phone number string to check."}],
+        "returns": {"type": "boolean", "description": "True if starts with '+66'."}
+      },
+      "details": {"what_it_does": "Checks if the number starts with '+66' (Thailand country code)."},
+      "examples": {
+        "minimal_correct": {"title": "Check Thai number", "code": "is_thailand_long_phone_number('+66812345678'); // => true"}
+      },
+      "locations": {"source_line_start": 12, "source_line_end": 14, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L12", "nx_kb_anchor": "is_thailand_long_phone_number"}
+    },
+    {
+      "symbol_id": "is_international_phone_number",
+      "name": "is_international_phone_number",
+      "kind": "function",
+      "description_one_line": "Returns true if the number is international (starts with '+') but not Israeli.",
+      "signature": {
+        "params": [{"name": "phone_number", "type": "string", "required": true, "description": "Phone number string to check."}],
+        "returns": {"type": "boolean", "description": "True if the number is a non-Israeli international number."}
+      },
+      "details": {"what_it_does": "Combines is_long_phone_number and !is_israel_long_phone_number checks."},
+      "examples": {
+        "minimal_correct": {"title": "Check non-Israeli international number", "code": "is_international_phone_number('+12025551234'); // => true\nis_international_phone_number('+972501234567'); // => false"}
+      },
+      "locations": {"source_line_start": 16, "source_line_end": 18, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L16", "nx_kb_anchor": "is_international_phone_number"}
+    },
+    {
+      "symbol_id": "is_iccid",
+      "name": "is_iccid",
+      "kind": "function",
+      "description_one_line": "Returns true if the string is a valid ICCID (SIM card identifier).",
+      "signature": {
+        "params": [{"name": "number", "type": "string", "required": true, "description": "String to validate as an ICCID."}],
+        "returns": {"type": "boolean", "description": "True if the string is a valid ICCID (19-22 digits, all numeric, starts with '89')."}
+      },
+      "details": {"what_it_does": "Validates that the string is 19-22 characters long, contains only digits, and starts with '89' (the ICCID industry identifier for telecom)."},
+      "examples": {
+        "minimal_correct": {"title": "Validate an ICCID", "code": "is_iccid('8972012345678901234'); // => true\nis_iccid('0501234567'); // => false"}
+      },
+      "locations": {"source_line_start": 20, "source_line_end": 25, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L20", "nx_kb_anchor": "is_iccid"}
+    },
+    {
+      "symbol_id": "convert_to_short_israel_phone",
+      "name": "convert_to_short_israel_phone",
+      "kind": "function",
+      "description_one_line": "Converts an Israeli international number (+972...) to local short format (0...).",
+      "signature": {
+        "params": [{"name": "international_number", "type": "string", "required": true, "description": "Israeli international phone number starting with +972."}],
+        "returns": {"type": "string", "description": "Short local phone number starting with 0."}
+      },
+      "details": {"what_it_does": "Replaces the '+972' prefix with '0'."},
+      "examples": {
+        "minimal_correct": {"title": "Convert to short format", "code": "convert_to_short_israel_phone('+972501234567'); // => '0501234567'"}
+      },
+      "locations": {"source_line_start": 27, "source_line_end": 29, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L27", "nx_kb_anchor": "convert_to_short_israel_phone"}
+    },
+    {
+      "symbol_id": "is_sim_provider_partner",
+      "name": "is_sim_provider_partner",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number belongs to the Partner SIM provider (054 prefix).",
+      "signature": {
+        "params": [{"name": "phone_number", "type": "string", "required": true, "description": "Phone number in any format."}],
+        "returns": {"type": "boolean", "description": "True if the short phone number starts with '054'."}
+      },
+      "details": {"what_it_does": "Converts to short format via long_short_phone_numbers and checks for '054' prefix."},
+      "examples": {
+        "minimal_correct": {"title": "Check Partner SIM", "code": "is_sim_provider_partner('0541234567'); // => true"}
+      },
+      "locations": {"source_line_start": 31, "source_line_end": 34, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L31", "nx_kb_anchor": "is_sim_provider_partner"}
+    },
+    {
+      "symbol_id": "is_sim_provider_pelephone",
+      "name": "is_sim_provider_pelephone",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number belongs to the Pelephone SIM provider (050 prefix).",
+      "signature": {
+        "params": [{"name": "phone_number", "type": "string", "required": true, "description": "Phone number in any format."}],
+        "returns": {"type": "boolean", "description": "True if the short phone number starts with '050'."}
+      },
+      "details": {"what_it_does": "Converts to short format and checks for '050' prefix."},
+      "examples": {
+        "minimal_correct": {"title": "Check Pelephone SIM", "code": "is_sim_provider_pelephone('0501234567'); // => true"}
+      },
+      "locations": {"source_line_start": 36, "source_line_end": 39, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L36", "nx_kb_anchor": "is_sim_provider_pelephone"}
+    },
+    {
+      "symbol_id": "is_sim_provider_celcom",
+      "name": "is_sim_provider_celcom",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number belongs to the Celcom SIM provider (052 prefix).",
+      "signature": {
+        "params": [{"name": "phone_number", "type": "string", "required": true, "description": "Phone number in any format."}],
+        "returns": {"type": "boolean", "description": "True if the short phone number starts with '052'."}
+      },
+      "details": {"what_it_does": "Converts to short format and checks for '052' prefix."},
+      "examples": {
+        "minimal_correct": {"title": "Check Celcom SIM", "code": "is_sim_provider_celcom('0521234567'); // => true"}
+      },
+      "locations": {"source_line_start": 41, "source_line_end": 44, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L41", "nx_kb_anchor": "is_sim_provider_celcom"}
+    },
+    {
+      "symbol_id": "is_sim_provider_monogoto",
+      "name": "is_sim_provider_monogoto",
+      "kind": "function",
+      "description_one_line": "Returns true if the phone number is an ICCID (Monogoto SIM provider).",
+      "signature": {
+        "params": [{"name": "phone_number", "type": "string", "required": true, "description": "Phone number or ICCID string."}],
+        "returns": {"type": "boolean", "description": "True if the string is a valid ICCID."}
+      },
+      "details": {"what_it_does": "Delegates to is_iccid to determine if the identifier is a Monogoto ICCID."},
+      "examples": {
+        "minimal_correct": {"title": "Check Monogoto ICCID", "code": "is_sim_provider_monogoto('8972012345678901234'); // => true"}
+      },
+      "locations": {"source_line_start": 46, "source_line_end": 48, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L46", "nx_kb_anchor": "is_sim_provider_monogoto"}
+    },
+    {
+      "symbol_id": "get_sim_provider",
+      "name": "get_sim_provider",
+      "kind": "function",
+      "description_one_line": "Returns the SimProvider enum value for a given phone number.",
+      "signature": {
+        "params": [{"name": "phone_number", "type": "string", "required": true, "description": "Phone number in any format."}],
+        "returns": {"type": "SimProvider", "description": "The detected SIM provider enum value, or SimProvider.unknown if unrecognized."}
+      },
+      "details": {"what_it_does": "Checks provider predicates in order: partner (054), pelephone (050), celcom (052), monogoto (ICCID). Returns SimProvider.unknown if none match."},
+      "examples": {
+        "minimal_correct": {"title": "Get SIM provider", "code": "get_sim_provider('0541234567'); // => SimProvider.partner"}
+      },
+      "locations": {"source_line_start": 50, "source_line_end": 64, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L50", "nx_kb_anchor": "get_sim_provider"}
+    },
+    {
+      "symbol_id": "long_short_phone_numbers",
+      "name": "long_short_phone_numbers",
+      "kind": "function",
+      "description_one_line": "Returns both the short and long formats of a phone number along with an is_israeli flag.",
+      "signature": {
+        "params": [{"name": "phone_number", "type": "string", "required": true, "description": "Phone number in any supported format (short Israeli, long Israeli, US, or ICCID)."}],
+        "returns": {"type": "TObject<any>", "description": "Object with short_phone_number, long_phone_number, and is_israeli boolean."}
+      },
+      "details": {
+        "what_it_does": "Trims the input, handles edge cases (empty string, ICCID), then converts between short (05x) and long (+9725x) Israeli formats, or US format (+1). Returns both formats and an is_israeli flag.",
+        "error_cases": [
+          {"condition": "Empty string input", "behavior": "Returns { short_phone_number: '', long_phone_number: '', is_israeli: true }"}
+        ]
+      },
+      "examples": {
+        "minimal_correct": {"title": "Get both formats for an Israeli number", "code": "long_short_phone_numbers('0501234567');\n// => { short_phone_number: '0501234567', long_phone_number: '+972501234567', is_israeli: true }"},
+        "extensive_correct": {"title": "Get both formats for an international number", "code": "long_short_phone_numbers('+972501234567');\n// => { short_phone_number: '0501234567', long_phone_number: '+972501234567', is_israeli: true }"}
+      },
+      "locations": {"source_line_start": 66, "source_line_end": 100, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L66", "nx_kb_anchor": "long_short_phone_numbers"}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

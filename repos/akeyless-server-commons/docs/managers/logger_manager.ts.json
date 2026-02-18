@@ -1,0 +1,96 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "logger_manager.ts",
+  "source": {
+    "file_path": "src/managers/logger_manager.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/logger_manager.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/logger_manager.ts"
+  },
+  "summary": {
+    "purpose": "Implements a singleton structured logger that prefixes all output with ISO timestamps and supports log, error, warn, and table output.",
+    "problem_solved": "Provides a consistent, timestamped logging interface across all microservices, replacing raw console calls with a structured logger that can be easily extended."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "LoggerManager",
+      "kind": "class",
+      "description_one_line": "Singleton class providing structured, timestamped console logging.",
+      "symbol_id": "LoggerManager"
+    },
+    {
+      "name": "logger",
+      "kind": "value",
+      "description_one_line": "The singleton LoggerManager instance for use throughout the application.",
+      "symbol_id": "logger_instance"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "LoggerManager",
+      "name": "LoggerManager",
+      "kind": "class",
+      "description_one_line": "Singleton class providing structured, timestamped console logging.",
+      "details": {
+        "what_it_does": "Wraps console.log, console.error, console.warn, and console.table with ISO timestamp prefixes. All methods accept a message string and an optional data argument.",
+        "methods": [
+          {"name": "log", "description": "Logs a message with timestamp using console.log."},
+          {"name": "error", "description": "Logs an error with timestamp using console.error."},
+          {"name": "warn", "description": "Logs a warning with timestamp using console.warn."},
+          {"name": "table", "description": "Logs tabular data with timestamp using console.table."}
+        ]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Log a message",
+          "code": "logger.log('Server started', { port: 3000 });"
+        },
+        "extensive_correct": {
+          "title": "Log an error with data",
+          "code": "try {\n  await riskyOperation();\n} catch (err) {\n  logger.error('Operation failed', err);\n}"
+        }
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 54,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/logger_manager.ts#L1",
+        "nx_kb_anchor": "LoggerManager"
+      }
+    },
+    {
+      "symbol_id": "logger_instance",
+      "name": "logger",
+      "kind": "value",
+      "description_one_line": "The singleton LoggerManager instance for use throughout the application.",
+      "details": {
+        "what_it_does": "Creates and exports the singleton LoggerManager instance. Import this directly instead of creating new LoggerManager instances."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Import and use logger",
+          "code": "import { logger } from '../managers';\nlogger.log('Initialising service');"
+        }
+      },
+      "locations": {
+        "source_line_start": 56,
+        "source_line_end": 58,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/logger_manager.ts#L56",
+        "nx_kb_anchor": "logger_instance"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

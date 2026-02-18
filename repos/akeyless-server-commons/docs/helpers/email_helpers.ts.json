@@ -1,0 +1,310 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "email_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/email_helpers.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/email_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Provides utilities for sending emails via SendGrid and creating email attachments from files, buffers, or URLs.",
+    "problem_solved": "Abstracts the complexity of SendGrid API integration, email group resolution, CC merging, attachment encoding, and audit logging into reusable helper functions."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "@sendgrid/mail",
+        "kind": "runtime",
+        "why_used": "Used to send transactional emails via the SendGrid API."
+      },
+      {
+        "name": "fs",
+        "kind": "runtime",
+        "why_used": "Used to read file contents synchronously when creating attachments from file paths."
+      },
+      {
+        "name": "path",
+        "kind": "runtime",
+        "why_used": "Used to extract file extensions and base names for MIME type detection and attachment naming."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": ".",
+        "resolved_file_path": "src/helpers/index.ts",
+        "why_used": "Imports add_audit_record, get_document_by_id, and ignore_ssl_request helpers.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
+      },
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Imports EmailSettings, EmailData, and EmailAttachment type definitions.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+      },
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers/index.ts",
+        "why_used": "Imports the logger singleton for error and debug logging.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "create_attachment_from_file",
+      "kind": "function",
+      "description_one_line": "Reads a local file and returns a base64-encoded EmailAttachment object.",
+      "symbol_id": "create_attachment_from_file"
+    },
+    {
+      "name": "create_attachment_from_buffer",
+      "kind": "function",
+      "description_one_line": "Converts a Buffer or Uint8Array into a base64-encoded EmailAttachment object.",
+      "symbol_id": "create_attachment_from_buffer"
+    },
+    {
+      "name": "create_attachment_from_url",
+      "kind": "function",
+      "description_one_line": "Downloads a remote file and returns a base64-encoded EmailAttachment object.",
+      "symbol_id": "create_attachment_from_url"
+    },
+    {
+      "name": "send_email",
+      "kind": "function",
+      "description_one_line": "Sends an email via SendGrid using settings fetched from Firestore, with group resolution and audit logging.",
+      "symbol_id": "send_email"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "create_attachment_from_file",
+      "name": "create_attachment_from_file",
+      "kind": "function",
+      "description_one_line": "Reads a local file and returns a base64-encoded EmailAttachment object.",
+      "signature": {
+        "params": [
+          {
+            "name": "file_path",
+            "type": "string",
+            "required": true,
+            "description": "Absolute or relative path to the local file to attach."
+          },
+          {
+            "name": "filename",
+            "type": "string",
+            "required": false,
+            "description": "Override for the attachment filename. Defaults to the file's basename."
+          },
+          {
+            "name": "disposition",
+            "type": "\"attachment\" | \"inline\"",
+            "required": false,
+            "description": "Content disposition. Defaults to 'attachment'."
+          }
+        ],
+        "returns": {
+          "type": "Promise<EmailAttachment>",
+          "description": "An EmailAttachment object with base64 content, filename, MIME type, and disposition."
+        }
+      },
+      "details": {
+        "what_it_does": "Reads the file synchronously using fs.readFileSync, encodes it as base64, detects the MIME type from the file extension, and returns an EmailAttachment object.",
+        "error_cases": [
+          {
+            "condition": "File does not exist or cannot be read",
+            "behavior": "Logs the error via logger.error and re-throws it."
+          }
+        ]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Create attachment from a PDF file",
+          "code": "const attachment = await create_attachment_from_file('/tmp/report.pdf');\n// attachment.type => 'application/pdf'"
+        }
+      },
+      "locations": {
+        "source_line_start": 8,
+        "source_line_end": 28,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts#L8",
+        "nx_kb_anchor": "create_attachment_from_file"
+      }
+    },
+    {
+      "symbol_id": "create_attachment_from_buffer",
+      "name": "create_attachment_from_buffer",
+      "kind": "function",
+      "description_one_line": "Converts a Buffer or Uint8Array into a base64-encoded EmailAttachment object.",
+      "signature": {
+        "params": [
+          {
+            "name": "buffer",
+            "type": "Buffer | Uint8Array",
+            "required": true,
+            "description": "The binary data to encode as an attachment."
+          },
+          {
+            "name": "filename",
+            "type": "string",
+            "required": true,
+            "description": "The filename to use for the attachment."
+          },
+          {
+            "name": "mime_type",
+            "type": "string",
+            "required": true,
+            "description": "The MIME type of the attachment (e.g., 'application/pdf')."
+          },
+          {
+            "name": "disposition",
+            "type": "\"attachment\" | \"inline\"",
+            "required": false,
+            "description": "Content disposition. Defaults to 'attachment'."
+          }
+        ],
+        "returns": {
+          "type": "EmailAttachment",
+          "description": "An EmailAttachment object with base64-encoded content."
+        }
+      },
+      "details": {
+        "what_it_does": "Ensures the input is a proper Buffer (converting Uint8Array if needed), encodes it as base64, and returns an EmailAttachment object. This is a synchronous operation."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Create attachment from an in-memory buffer",
+          "code": "const pdfBuffer = await generatePdf();\nconst attachment = create_attachment_from_buffer(pdfBuffer, 'invoice.pdf', 'application/pdf');"
+        }
+      },
+      "locations": {
+        "source_line_start": 30,
+        "source_line_end": 43,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts#L30",
+        "nx_kb_anchor": "create_attachment_from_buffer"
+      }
+    },
+    {
+      "symbol_id": "create_attachment_from_url",
+      "name": "create_attachment_from_url",
+      "kind": "function",
+      "description_one_line": "Downloads a remote file and returns a base64-encoded EmailAttachment object.",
+      "signature": {
+        "params": [
+          {
+            "name": "url",
+            "type": "string",
+            "required": true,
+            "description": "The URL of the remote file to download."
+          },
+          {
+            "name": "filename",
+            "type": "string",
+            "required": true,
+            "description": "The filename to use for the attachment."
+          }
+        ],
+        "returns": {
+          "type": "Promise<{ content: string; filename: string; type: string; disposition: string }>",
+          "description": "An attachment object with base64 content, filename, content-type, and disposition 'attachment'."
+        }
+      },
+      "details": {
+        "what_it_does": "Uses ignore_ssl_request (axios with optional SSL bypass in QA) to download the file as an arraybuffer, converts it to base64, and reads the content-type from the response headers (defaulting to 'application/pdf').",
+        "error_cases": [
+          {
+            "condition": "HTTP request fails or times out (20s timeout)",
+            "behavior": "Logs the error via logger.error and re-throws it."
+          }
+        ]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Create attachment from a remote PDF URL",
+          "code": "const attachment = await create_attachment_from_url('https://example.com/report.pdf', 'report.pdf');"
+        }
+      },
+      "locations": {
+        "source_line_start": 45,
+        "source_line_end": 67,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts#L45",
+        "nx_kb_anchor": "create_attachment_from_url"
+      }
+    },
+    {
+      "symbol_id": "send_email",
+      "name": "send_email",
+      "kind": "function",
+      "description_one_line": "Sends an email via SendGrid using settings fetched from Firestore, with group resolution and audit logging.",
+      "signature": {
+        "params": [
+          {
+            "name": "email_data",
+            "type": "EmailData",
+            "required": true,
+            "description": "Email payload including subject, to, from, cc, group_name, body_html or body_plain_text, entity_for_audit, and optional attachments."
+          },
+          {
+            "name": "options",
+            "type": "{ debug?: boolean }",
+            "required": false,
+            "description": "Optional options. When debug is true, logs success and payload details."
+          }
+        ],
+        "returns": {
+          "type": "Promise<void>",
+          "description": "Resolves when the email is sent and audit record is created. Errors are caught and logged (not re-thrown)."
+        }
+      },
+      "details": {
+        "what_it_does": "Fetches email settings (API key, groups, default_from, default_cc) from Firestore 'nx-settings/emails'. Resolves group_name to recipient lists, merges CC arrays, sets the SendGrid API key, constructs the MailDataRequired message, sends it, and writes an audit record. Errors are swallowed (logged but not re-thrown).",
+        "error_cases": [
+          {
+            "condition": "Neither 'to' nor 'group_name' is provided",
+            "behavior": "Throws a string error: \"must supply a 'group_name' or 'to' value\""
+          },
+          {
+            "condition": "Neither 'body_html' nor 'body_plain_text' is provided",
+            "behavior": "Throws a string error: \"must supply a 'body_plain_text' or 'html' value\""
+          },
+          {
+            "condition": "group_name is provided but not found in settings.groups",
+            "behavior": "Throws a string error: \"must supply a valid 'group_name'\""
+          },
+          {
+            "condition": "SendGrid returns a non-202 status code",
+            "behavior": "Throws the response body; error is caught and logged."
+          }
+        ]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Send a plain text email",
+          "code": "await send_email({\n  subject: 'Hello',\n  to: 'user@example.com',\n  body_plain_text: 'Hello world',\n  entity_for_audit: 'test'\n});"
+        },
+        "extensive_correct": {
+          "title": "Send HTML email with attachment and group",
+          "code": "await send_email({\n  subject: 'Monthly Report',\n  group_name: 'managers',\n  body_html: '<h1>Report</h1>',\n  entity_for_audit: 'report_service',\n  attachments: [await create_attachment_from_file('/tmp/report.pdf')]\n}, { debug: true });"
+        }
+      },
+      "locations": {
+        "source_line_start": 101,
+        "source_line_end": 169,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts#L101",
+        "nx_kb_anchor": "send_email"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": ["The internal get_mime_type function is not exported but supports 16+ MIME types; not documented as it is private."]
+  }
+}

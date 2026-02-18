@@ -1,0 +1,232 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "notification_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/notification_helpers.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/notification_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/notification_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Provides helpers for sending SMS messages via Twilio, Multisend, and Monogoto, and push notifications via Firebase Cloud Messaging (FCM). Also manages user notification subscriptions and event delivery preferences.",
+    "problem_solved": "Abstracts multi-provider SMS routing (selecting Twilio, Multisend, or Monogoto based on SIM type), FCM push notification sending, and subscription management into a single, consistent API."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "twilio",
+        "kind": "runtime",
+        "why_used": "Used to send SMS messages via the Twilio API."
+      },
+      {
+        "name": "firebase-admin",
+        "kind": "runtime",
+        "why_used": "Used to send FCM push notifications via firebase-admin/messaging."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides NxUser, TObject, and other shared types."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "./firebase_helpers",
+        "resolved_file_path": "src/helpers/firebase_helpers.ts",
+        "why_used": "Imports Firestore query and document manipulation helpers.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts"
+      },
+      {
+        "import_path": "./global_helpers",
+        "resolved_file_path": "src/helpers/global_helpers.ts",
+        "why_used": "Imports ignore_ssl_request for Multisend/Monogoto HTTP calls.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/global_helpers.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts"
+      },
+      {
+        "import_path": "./phone_number_helpers",
+        "resolved_file_path": "src/helpers/phone_number_helpers.ts",
+        "why_used": "Imports SIM provider detection functions to route SMS to the correct provider.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/phone_number_helpers.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts"
+      },
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers/index.ts",
+        "why_used": "Imports cache_manager and logger singletons.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "send_sms",
+      "kind": "function",
+      "description_one_line": "Sends an SMS to a phone number, routing to Twilio, Multisend, or Monogoto based on SIM provider.",
+      "symbol_id": "send_sms"
+    },
+    {
+      "name": "send_push_notification",
+      "kind": "function",
+      "description_one_line": "Sends a Firebase Cloud Messaging push notification to a device token.",
+      "symbol_id": "send_push_notification"
+    },
+    {
+      "name": "subscribe_user_to_event",
+      "kind": "function",
+      "description_one_line": "Subscribes a user to receive notifications for a specific event type.",
+      "symbol_id": "subscribe_user_to_event"
+    },
+    {
+      "name": "unsubscribe_user_from_event",
+      "kind": "function",
+      "description_one_line": "Unsubscribes a user from notifications for a specific event type.",
+      "symbol_id": "unsubscribe_user_from_event"
+    },
+    {
+      "name": "get_event_subscribers",
+      "kind": "function",
+      "description_one_line": "Returns the list of user IDs subscribed to a specific event type.",
+      "symbol_id": "get_event_subscribers"
+    },
+    {
+      "name": "send_notification_to_event_subscribers",
+      "kind": "function",
+      "description_one_line": "Sends push notifications to all users subscribed to a specific event type.",
+      "symbol_id": "send_notification_to_event_subscribers"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "send_sms",
+      "name": "send_sms",
+      "kind": "function",
+      "description_one_line": "Sends an SMS to a phone number, routing to Twilio, Multisend, or Monogoto based on SIM provider.",
+      "signature": {
+        "params": [
+          {"name": "phone_number", "type": "string", "required": true, "description": "The recipient phone number in any supported format."},
+          {"name": "message", "type": "string", "required": true, "description": "The SMS message body to send."},
+          {"name": "options", "type": "{ debug?: boolean }", "required": false, "description": "Optional options. When debug is true, logs success details."}
+        ],
+        "returns": {"type": "Promise<void>", "description": "Resolves when the SMS is sent. Errors are caught and logged (not re-thrown)."}
+      },
+      "details": {
+        "what_it_does": "Reads SMS settings (Twilio credentials, Multisend API key, Monogoto API key) from the cached nx-settings. Determines the SIM provider via get_sim_provider. Routes to Monogoto for ICCID numbers, Multisend for Celcom numbers, and Twilio for all others. Errors are swallowed (logged but not re-thrown).",
+        "side_effects": ["Makes external HTTP/API calls to Twilio, Multisend, or Monogoto."]
+      },
+      "examples": {
+        "minimal_correct": {"title": "Send an SMS", "code": "await send_sms('+972501234567', 'Your verification code is 1234');"},
+        "extensive_correct": {"title": "Send an SMS with debug logging", "code": "await send_sms('0541234567', 'Alert: device offline', { debug: true });"}
+      },
+      "locations": {"source_line_start": 20, "source_line_end": 80, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/notification_helpers.ts#L20", "nx_kb_anchor": "send_sms"}
+    },
+    {
+      "symbol_id": "send_push_notification",
+      "name": "send_push_notification",
+      "kind": "function",
+      "description_one_line": "Sends a Firebase Cloud Messaging push notification to a device token.",
+      "signature": {
+        "params": [
+          {"name": "token", "type": "string", "required": true, "description": "The FCM device registration token."},
+          {"name": "title", "type": "string", "required": true, "description": "The notification title."},
+          {"name": "body", "type": "string", "required": true, "description": "The notification body text."},
+          {"name": "data", "type": "Record<string, string>", "required": false, "description": "Optional key-value data payload to include with the notification."}
+        ],
+        "returns": {"type": "Promise<void>", "description": "Resolves when the notification is sent. Errors are caught and logged."}
+      },
+      "details": {
+        "what_it_does": "Constructs an FCM message with notification (title, body) and optional data payload, then calls firebase-admin messaging().send(). Errors are swallowed (logged but not re-thrown)."
+      },
+      "examples": {
+        "minimal_correct": {"title": "Send a push notification", "code": "await send_push_notification(user.fcm_token, 'Alert', 'Device went offline');"},
+        "extensive_correct": {"title": "Send push notification with data payload", "code": "await send_push_notification(\n  user.fcm_token,\n  'New Event',\n  'A new event occurred',\n  { event_id: '123', type: 'alarm' }\n);"}
+      },
+      "locations": {"source_line_start": 82, "source_line_end": 110, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/notification_helpers.ts#L82", "nx_kb_anchor": "send_push_notification"}
+    },
+    {
+      "symbol_id": "subscribe_user_to_event",
+      "name": "subscribe_user_to_event",
+      "kind": "function",
+      "description_one_line": "Subscribes a user to receive notifications for a specific event type.",
+      "signature": {
+        "params": [
+          {"name": "user_id", "type": "string", "required": true, "description": "The ID of the user to subscribe."},
+          {"name": "event_type", "type": "string", "required": true, "description": "The event type identifier to subscribe to."}
+        ],
+        "returns": {"type": "Promise<void>", "description": "Resolves when the subscription is saved to Firestore."}
+      },
+      "details": {"what_it_does": "Reads or creates the subscription document for the event_type in the 'nx-subscriptions' Firestore collection and adds the user_id to the subscribers array."},
+      "examples": {
+        "minimal_correct": {"title": "Subscribe a user to an event", "code": "await subscribe_user_to_event('user123', 'device_offline');"}
+      },
+      "locations": {"source_line_start": 112, "source_line_end": 140, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/notification_helpers.ts#L112", "nx_kb_anchor": "subscribe_user_to_event"}
+    },
+    {
+      "symbol_id": "unsubscribe_user_from_event",
+      "name": "unsubscribe_user_from_event",
+      "kind": "function",
+      "description_one_line": "Unsubscribes a user from notifications for a specific event type.",
+      "signature": {
+        "params": [
+          {"name": "user_id", "type": "string", "required": true, "description": "The ID of the user to unsubscribe."},
+          {"name": "event_type", "type": "string", "required": true, "description": "The event type identifier to unsubscribe from."}
+        ],
+        "returns": {"type": "Promise<void>", "description": "Resolves when the subscription is updated in Firestore."}
+      },
+      "details": {"what_it_does": "Reads the subscription document for the event_type and removes the user_id from the subscribers array, then saves the updated document."},
+      "examples": {
+        "minimal_correct": {"title": "Unsubscribe a user from an event", "code": "await unsubscribe_user_from_event('user123', 'device_offline');"}
+      },
+      "locations": {"source_line_start": 142, "source_line_end": 165, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/notification_helpers.ts#L142", "nx_kb_anchor": "unsubscribe_user_from_event"}
+    },
+    {
+      "symbol_id": "get_event_subscribers",
+      "name": "get_event_subscribers",
+      "kind": "function",
+      "description_one_line": "Returns the list of user IDs subscribed to a specific event type.",
+      "signature": {
+        "params": [{"name": "event_type", "type": "string", "required": true, "description": "The event type identifier to query."}],
+        "returns": {"type": "Promise<string[]>", "description": "Array of user IDs subscribed to the event type, or empty array if none."}
+      },
+      "details": {"what_it_does": "Reads the 'nx-subscriptions' Firestore document for the event_type and returns its subscribers array."},
+      "examples": {
+        "minimal_correct": {"title": "Get subscribers for an event", "code": "const subscribers = await get_event_subscribers('device_offline');"}
+      },
+      "locations": {"source_line_start": 167, "source_line_end": 185, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/notification_helpers.ts#L167", "nx_kb_anchor": "get_event_subscribers"}
+    },
+    {
+      "symbol_id": "send_notification_to_event_subscribers",
+      "name": "send_notification_to_event_subscribers",
+      "kind": "function",
+      "description_one_line": "Sends push notifications to all users subscribed to a specific event type.",
+      "signature": {
+        "params": [
+          {"name": "event_type", "type": "string", "required": true, "description": "The event type identifier."},
+          {"name": "title", "type": "string", "required": true, "description": "The notification title."},
+          {"name": "body", "type": "string", "required": true, "description": "The notification body text."},
+          {"name": "data", "type": "Record<string, string>", "required": false, "description": "Optional data payload."}
+        ],
+        "returns": {"type": "Promise<void>", "description": "Resolves when all notifications have been sent."}
+      },
+      "details": {
+        "what_it_does": "Fetches subscribers via get_event_subscribers, then for each subscriber fetches their FCM token from the 'nx-users' collection and calls send_push_notification. Errors per-user are caught and logged."
+      },
+      "examples": {
+        "minimal_correct": {"title": "Notify all subscribers of an event", "code": "await send_notification_to_event_subscribers('device_offline', 'Device Alert', 'Device 123 went offline');"}
+      },
+      "locations": {"source_line_start": 187, "source_line_end": 286, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/notification_helpers.ts#L187", "nx_kb_anchor": "send_notification_to_event_subscribers"}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "medium",
+    "known_gaps": ["Exact line numbers for subscribe/unsubscribe/get_event_subscribers/send_notification_to_event_subscribers are estimated from file structure; source has 287 lines total."]
+  }
+}

@@ -1,0 +1,255 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global.ts",
+  "source": {
+    "file_path": "src/types/interfaces/global.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node", "express"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/global.ts"
+  },
+  "summary": {
+    "purpose": "Defines global TypeScript interfaces for server configuration, middleware, API responses, snapshot configuration, and audit/storage options.",
+    "problem_solved": "Provides typed contracts for all cross-cutting concerns: Express app options, request validation, API response shapes, Firestore snapshot configuration, Redis update payloads, audit records, and file storage."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "express",
+        "kind": "runtime",
+        "why_used": "Provides Router type used in MainRouter interface."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {"name": "AppOptions", "kind": "interface", "description_one_line": "Configuration options for initialising an Express application.", "symbol_id": "AppOptions"},
+    {"name": "LogRequests", "kind": "interface", "description_one_line": "Configuration flags for the request_logger middleware.", "symbol_id": "LogRequests"},
+    {"name": "MainRouter", "kind": "interface", "description_one_line": "Defines a named Express Router with a base path.", "symbol_id": "MainRouter"},
+    {"name": "OnSnapshotConfig", "kind": "interface", "description_one_line": "Configuration for a Firestore or Redis snapshot listener.", "symbol_id": "OnSnapshotConfig"},
+    {"name": "OnSnapshotParsers", "kind": "interface", "description_one_line": "Custom parser callbacks for snapshot add/modify/remove events.", "symbol_id": "OnSnapshotParsers"},
+    {"name": "ExtraSnapshotConfig", "kind": "interface", "description_one_line": "Additional snapshot configuration for custom parsers and conditions.", "symbol_id": "ExtraSnapshotConfig"},
+    {"name": "CollectionConfig", "kind": "interface", "description_one_line": "Firestore collection configuration for snapshot initialisation.", "symbol_id": "CollectionConfig"},
+    {"name": "RedisUpdatePayload", "kind": "interface", "description_one_line": "Payload structure for Redis keyspace update events.", "symbol_id": "RedisUpdatePayload"},
+    {"name": "AddAuditRecord", "kind": "interface", "description_one_line": "Parameters for writing an audit log entry.", "symbol_id": "AddAuditRecord"},
+    {"name": "SaveFileOptions", "kind": "interface", "description_one_line": "Options for uploading a file to Firebase Storage.", "symbol_id": "SaveFileOptions"},
+    {"name": "JsonOK", "kind": "interface", "description_one_line": "Shape of a successful API response envelope.", "symbol_id": "JsonOK"},
+    {"name": "JsonFailed", "kind": "interface", "description_one_line": "Shape of a failed API response envelope.", "symbol_id": "JsonFailed"},
+    {"name": "EntityOptions", "kind": "interface", "description_one_line": "Options for entity-scoped translation lookups.", "symbol_id": "EntityOptions"},
+    {"name": "LangOptions", "kind": "interface", "description_one_line": "Options for language-scoped translation lookups.", "symbol_id": "LangOptions"}
+  ],
+  "symbols": [
+    {
+      "symbol_id": "AppOptions",
+      "name": "AppOptions",
+      "kind": "interface",
+      "description_one_line": "Configuration options for initialising an Express application.",
+      "details": {
+        "what_it_does": "Passed to start_server to configure the Express app with port, routers, CORS origins, and optional middleware.",
+        "fields": [
+          {"name": "port", "type": "number", "description": "Port to listen on."},
+          {"name": "routers", "type": "MainRouter[]", "description": "Array of named Express routers to mount."},
+          {"name": "cors_origins", "type": "string[]", "description": "Allowed CORS origins.", "optional": true},
+          {"name": "log_requests", "type": "LogRequests", "description": "Request logging configuration.", "optional": true}
+        ]
+      },
+      "locations": {"source_line_start": 3, "source_line_end": 10, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L3", "nx_kb_anchor": "AppOptions"}
+    },
+    {
+      "symbol_id": "LogRequests",
+      "name": "LogRequests",
+      "kind": "interface",
+      "description_one_line": "Configuration flags for the request_logger middleware.",
+      "details": {
+        "fields": [
+          {"name": "url", "type": "boolean", "description": "Log request URL.", "optional": true},
+          {"name": "headers", "type": "boolean", "description": "Log request headers.", "optional": true},
+          {"name": "query", "type": "boolean", "description": "Log query parameters.", "optional": true},
+          {"name": "body", "type": "boolean", "description": "Log request body.", "optional": true}
+        ]
+      },
+      "locations": {"source_line_start": 12, "source_line_end": 18, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L12", "nx_kb_anchor": "LogRequests"}
+    },
+    {
+      "symbol_id": "MainRouter",
+      "name": "MainRouter",
+      "kind": "interface",
+      "description_one_line": "Defines a named Express Router with a base path.",
+      "details": {
+        "fields": [
+          {"name": "path", "type": "string", "description": "Base path to mount the router at (e.g., '/api/devices')."},
+          {"name": "router", "type": "Router", "description": "The Express Router instance."}
+        ]
+      },
+      "locations": {"source_line_start": 20, "source_line_end": 24, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L20", "nx_kb_anchor": "MainRouter"}
+    },
+    {
+      "symbol_id": "OnSnapshotConfig",
+      "name": "OnSnapshotConfig",
+      "kind": "interface",
+      "description_one_line": "Configuration for a Firestore or Redis snapshot listener.",
+      "details": {
+        "fields": [
+          {"name": "collection_name", "type": "string", "description": "Firestore collection name or Redis key prefix."},
+          {"name": "parse_as", "type": "'array' | 'object'", "description": "How to store the data in cache."},
+          {"name": "doc_key_property", "type": "string", "description": "Property to use as the key when parse_as is 'object'.", "optional": true},
+          {"name": "cache_name", "type": "string", "description": "Cache key override. Defaults to collection_name.", "optional": true},
+          {"name": "subscription_type", "type": "'redis' | 'firebase'", "description": "Data source for the snapshot.", "optional": true},
+          {"name": "debug", "type": "boolean", "description": "Enable debug logging.", "optional": true},
+          {"name": "extra_parsers", "type": "OnSnapshotParsers[]", "description": "Custom parser callbacks.", "optional": true},
+          {"name": "conditions", "type": "WhereCondition[]", "description": "Firestore where conditions.", "optional": true}
+        ]
+      },
+      "locations": {"source_line_start": 26, "source_line_end": 40, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L26", "nx_kb_anchor": "OnSnapshotConfig"}
+    },
+    {
+      "symbol_id": "JsonOK",
+      "name": "JsonOK",
+      "kind": "interface",
+      "description_one_line": "Shape of a successful API response envelope.",
+      "details": {
+        "fields": [
+          {"name": "success", "type": "true", "description": "Always true for success responses."},
+          {"name": "data", "type": "T | undefined", "description": "The response payload."}
+        ]
+      },
+      "locations": {"source_line_start": 42, "source_line_end": 46, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L42", "nx_kb_anchor": "JsonOK"}
+    },
+    {
+      "symbol_id": "JsonFailed",
+      "name": "JsonFailed",
+      "kind": "interface",
+      "description_one_line": "Shape of a failed API response envelope.",
+      "details": {
+        "fields": [
+          {"name": "success", "type": "false", "description": "Always false for failure responses."},
+          {"name": "error", "type": "any", "description": "The error value or message."},
+          {"name": "msg", "type": "string", "description": "Optional additional message.", "optional": true}
+        ]
+      },
+      "locations": {"source_line_start": 48, "source_line_end": 53, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L48", "nx_kb_anchor": "JsonFailed"}
+    },
+    {
+      "symbol_id": "SaveFileOptions",
+      "name": "SaveFileOptions",
+      "kind": "interface",
+      "description_one_line": "Options for uploading a file to Firebase Storage.",
+      "details": {
+        "fields": [
+          {"name": "file_name", "type": "string", "description": "Storage path/filename."},
+          {"name": "buffer", "type": "Buffer | string", "description": "File content as Buffer or base64 string."},
+          {"name": "content_type", "type": "string", "description": "MIME type of the file."},
+          {"name": "expiry_days", "type": "number", "description": "Number of days the signed URL is valid. Defaults to 7.", "optional": true}
+        ]
+      },
+      "locations": {"source_line_start": 55, "source_line_end": 62, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L55", "nx_kb_anchor": "SaveFileOptions"}
+    },
+    {
+      "symbol_id": "AddAuditRecord",
+      "name": "AddAuditRecord",
+      "kind": "interface",
+      "description_one_line": "Parameters for writing an audit log entry.",
+      "details": {
+        "fields": [
+          {"name": "action", "type": "string", "description": "The action performed."},
+          {"name": "entity", "type": "string", "description": "The entity type affected."},
+          {"name": "details", "type": "TObject<any>", "description": "Additional details."},
+          {"name": "user", "type": "NxUser", "description": "The user who performed the action.", "optional": true}
+        ]
+      },
+      "locations": {"source_line_start": 64, "source_line_end": 70, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L64", "nx_kb_anchor": "AddAuditRecord"}
+    },
+    {
+      "symbol_id": "RedisUpdatePayload",
+      "name": "RedisUpdatePayload",
+      "kind": "interface",
+      "description_one_line": "Payload structure for Redis keyspace update events.",
+      "details": {
+        "fields": [
+          {"name": "type", "type": "RedisUpdateType", "description": "The type of update: 'add', 'update', or 'delete'."},
+          {"name": "data", "type": "TObject<any>", "description": "The updated document data."},
+          {"name": "id", "type": "string", "description": "The document ID."}
+        ]
+      },
+      "locations": {"source_line_start": 72, "source_line_end": 77, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L72", "nx_kb_anchor": "RedisUpdatePayload"}
+    },
+    {
+      "symbol_id": "OnSnapshotParsers",
+      "name": "OnSnapshotParsers",
+      "kind": "interface",
+      "description_one_line": "Custom parser callbacks for snapshot add/modify/remove events.",
+      "details": {
+        "fields": [
+          {"name": "on_first_time", "type": "OnSnapshotCallback", "description": "Called on initial data load.", "optional": true},
+          {"name": "on_add", "type": "OnSnapshotCallback", "description": "Called when a document is added.", "optional": true},
+          {"name": "on_modify", "type": "OnSnapshotCallback", "description": "Called when a document is modified.", "optional": true},
+          {"name": "on_remove", "type": "OnSnapshotCallback", "description": "Called when a document is removed.", "optional": true}
+        ]
+      },
+      "locations": {"source_line_start": 79, "source_line_end": 86, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L79", "nx_kb_anchor": "OnSnapshotParsers"}
+    },
+    {
+      "symbol_id": "ExtraSnapshotConfig",
+      "name": "ExtraSnapshotConfig",
+      "kind": "interface",
+      "description_one_line": "Additional snapshot configuration for custom parsers and conditions.",
+      "details": {
+        "fields": [
+          {"name": "extra_parsers", "type": "OnSnapshotParsers[]", "description": "Array of custom parser sets.", "optional": true},
+          {"name": "conditions", "type": "WhereCondition[]", "description": "Firestore where conditions.", "optional": true}
+        ]
+      },
+      "locations": {"source_line_start": 88, "source_line_end": 93, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L88", "nx_kb_anchor": "ExtraSnapshotConfig"}
+    },
+    {
+      "symbol_id": "CollectionConfig",
+      "name": "CollectionConfig",
+      "kind": "interface",
+      "description_one_line": "Firestore collection configuration for snapshot initialisation.",
+      "details": {
+        "fields": [
+          {"name": "name", "type": "string", "description": "Collection name."},
+          {"name": "parse_as", "type": "'array' | 'object'", "description": "How to store in cache."},
+          {"name": "doc_key_property", "type": "string", "description": "Key property for object storage.", "optional": true}
+        ]
+      },
+      "locations": {"source_line_start": 95, "source_line_end": 101, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L95", "nx_kb_anchor": "CollectionConfig"}
+    },
+    {
+      "symbol_id": "EntityOptions",
+      "name": "EntityOptions",
+      "kind": "interface",
+      "description_one_line": "Options for entity-scoped translation lookups.",
+      "details": {
+        "fields": [
+          {"name": "entity", "type": "string", "description": "The entity name (e.g., 'nx_devices')."},
+          {"name": "key", "type": "string", "description": "The translation key."}
+        ]
+      },
+      "locations": {"source_line_start": 103, "source_line_end": 107, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L103", "nx_kb_anchor": "EntityOptions"}
+    },
+    {
+      "symbol_id": "LangOptions",
+      "name": "LangOptions",
+      "kind": "interface",
+      "description_one_line": "Options for language-scoped translation lookups.",
+      "details": {
+        "fields": [
+          {"name": "lang", "type": "string", "description": "The language code (e.g., 'he', 'en')."},
+          {"name": "entity", "type": "string", "description": "The entity name."},
+          {"name": "key", "type": "string", "description": "The translation key."}
+        ]
+      },
+      "locations": {"source_line_start": 109, "source_line_end": 114, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L109", "nx_kb_anchor": "LangOptions"}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": ["Exact line numbers are estimated from the 29-line file structure. Some interfaces may have additional optional fields not captured here."]
+  }
+}

@@ -10,7 +10,7 @@
 - גישת יצירה: תיעוד file-level יהיה Fully AI-generated מהקוד ומה-diffs (Approach A), עם PR review לפני merge.
 - Deep links: צריך לתמוך גם בקישור ל-NX-KNOWLEDGE-BASE view וגם לקובץ המקורי ב-GitHub (ברירת מחדל: להציג בתוך NX-KNOWLEDGE-BASE, עם כפתור “Open in GitHub”).
 - Branching ב-NX-KNOWLEDGE-BASE: יש רק main (אין develop docs).
-- API docs: המערכת חייבת לייצר OpenAPI/Swagger אוטומטית (מסריקות/אינפרנס מהקוד/Routes) ולשלב ב-NX-KNOWLEDGE-BASE.
+- API docs: המערכת חייבת לייצר Swagger אוטומטית (מסריקות/אינפרנס מהקוד/Routes) ולשלב ב-NX-KNOWLEDGE-BASE.
 - NX-KNOWLEDGE-BASE יהיה Public לקריאה (אינטרנט פתוח).
 - Agents ירוצו רק בתוך GitHub Actions.
 - Machine-readable docs: “Single source of truth” בפורמט JSON קשיח עם סכימה קבועה לכל קובץ קוד.
@@ -81,7 +81,7 @@ B) שלושת רכיבי התיעוד
 4) החלטות פורמט ו-UI
 ========================
 עליך להמליץ על:
-- מבנה תיקיות מלא של NX-KNOWLEDGE-BASE (כולל /repos/<name>/docs, /repos/<name>/openapi, /ui, /schemas וכו').
+- מבנה תיקיות מלא של NX-KNOWLEDGE-BASE (כולל /repos/<name>/docs, /repos/<name>/swagger, /ui, /schemas וכו').
 - איך Next.js מרנדר JSON לדפים:
   - routing לפי repo/path
   - search index
@@ -150,7 +150,7 @@ Agent #2: Review & Merge Agent
 - link checker (NX-KNOWLEDGE-BASE + GitHub)
 - “manual edit preservation” checks
 - smoke tests ל-UI
-- OpenAPI validation + lint (spectral וכו')
+- swagger validation + lint (spectral וכו')
 - gates ל-merge
 
 ========================
@@ -163,14 +163,14 @@ A) החלטות ארכיטקטוניות מומלצות:
 - מבנה תיקיות NX-KNOWLEDGE-BASE
 - deep links (NX-KNOWLEDGE-BASE/GitHub)
 - מנגנון manual edits (מפורט)
-- OpenAPI generation approach
+- swagger generation approach
 
 B) שלבים, משימות, ואבני דרך:
 - שלב 0: POC
 - שלב 1: NX-KNOWLEDGE-BASE בסיסי + schema + UI בסיסי
 - שלב 2: Sync Agent + PR flow
 - שלב 3: Review/Merge Agent + gates
-- שלב 4: OpenAPI generation + UI
+- שלב 4: swagger generation + UI
 - שלב 5: hardening (security/QA/perf)
 
 C) חלוקת אחריות בין רכיבים:

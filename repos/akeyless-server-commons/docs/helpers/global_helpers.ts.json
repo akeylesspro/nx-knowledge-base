@@ -1,0 +1,370 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "global_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/global_helpers.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/global_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Provides general-purpose server utilities: environment variable validation, JSON response helpers, error parsing, version reading, sleep, service URL resolution, geocoding, type guards, and HTTP request utilities.",
+    "problem_solved": "Centralises cross-cutting concerns shared by all microservices: env validation with fail-fast, standardised API response shapes, multi-environment service URL maps, and SSL-bypass HTTP requests for QA environments."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "fs",
+        "kind": "runtime",
+        "why_used": "Used to read package.json for version extraction."
+      },
+      {
+        "name": "axios",
+        "kind": "runtime",
+        "why_used": "Used for HTTP requests in get_address_by_geo and ignore_ssl_request."
+      },
+      {
+        "name": "https",
+        "kind": "runtime",
+        "why_used": "Used to create an HTTPS agent with SSL verification disabled for QA environments."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides Geo, LanguageOptions, and TObject types."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Imports JsonFailed, JsonOK, and NxServiceNameMap type definitions.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+      },
+      {
+        "import_path": "../managers",
+        "resolved_file_path": "src/managers/index.ts",
+        "why_used": "Imports cache_manager and logger singletons.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "init_env_variables",
+      "kind": "function",
+      "description_one_line": "Validates required environment variables and returns all env vars as a typed object.",
+      "symbol_id": "init_env_variables"
+    },
+    {
+      "name": "json_ok",
+      "kind": "function",
+      "description_one_line": "Returns a standardised success API response object.",
+      "symbol_id": "json_ok"
+    },
+    {
+      "name": "json_failed",
+      "kind": "function",
+      "description_one_line": "Returns a standardised failure API response object.",
+      "symbol_id": "json_failed"
+    },
+    {
+      "name": "parse_error",
+      "kind": "function",
+      "description_one_line": "Converts an error value to a serializable object.",
+      "symbol_id": "parse_error"
+    },
+    {
+      "name": "get_version",
+      "kind": "function",
+      "description_one_line": "Reads and returns the version field from a package.json file.",
+      "symbol_id": "get_version"
+    },
+    {
+      "name": "sleep",
+      "kind": "function",
+      "description_one_line": "Returns a Promise that resolves after the specified number of milliseconds.",
+      "symbol_id": "sleep"
+    },
+    {
+      "name": "get_nx_service_urls",
+      "kind": "function",
+      "description_one_line": "Returns the NxServiceNameMap for the current environment (local, qa, or prod).",
+      "symbol_id": "get_nx_service_urls"
+    },
+    {
+      "name": "get_address_by_geo",
+      "kind": "function",
+      "description_one_line": "Reverse-geocodes a lat/lng coordinate to a formatted address string using Google Maps API.",
+      "symbol_id": "get_address_by_geo"
+    },
+    {
+      "name": "validate_and_cast",
+      "kind": "function",
+      "description_one_line": "Type guard that asserts a variable is of type T if a condition is truthy.",
+      "symbol_id": "validate_and_cast"
+    },
+    {
+      "name": "get_or_default",
+      "kind": "function",
+      "description_one_line": "Returns a value if defined, otherwise returns a default value or calls a default factory.",
+      "symbol_id": "get_or_default"
+    },
+    {
+      "name": "trim_strings",
+      "kind": "function",
+      "description_one_line": "Recursively trims all string values in an object, array, or primitive.",
+      "symbol_id": "trim_strings"
+    },
+    {
+      "name": "remove_nulls_and_undefined",
+      "kind": "function",
+      "description_one_line": "Filters out null and undefined values from a flat object.",
+      "symbol_id": "remove_nulls_and_undefined"
+    },
+    {
+      "name": "ignore_ssl_request",
+      "kind": "function",
+      "description_one_line": "Makes an axios HTTP request, disabling SSL verification in QA environments.",
+      "symbol_id": "ignore_ssl_request"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "init_env_variables",
+      "name": "init_env_variables",
+      "kind": "function",
+      "description_one_line": "Validates required environment variables and returns all env vars as a typed object.",
+      "signature": {
+        "params": [
+          {"name": "required_vars", "type": "string[]", "required": false, "description": "List of env var names that must be present. Defaults to empty array."}
+        ],
+        "returns": {"type": "TObject<string>", "description": "All process.env variables as a string-keyed object."}
+      },
+      "details": {
+        "what_it_does": "Iterates required_vars and calls process.exit(1) if any is missing. Then collects all process.env entries into a typed object and returns it.",
+        "side_effects": ["Calls process.exit(1) if any required variable is missing."],
+        "error_cases": [{"condition": "A required env var is missing", "behavior": "Logs an error and calls process.exit(1)."}]
+      },
+      "examples": {
+        "minimal_correct": {"title": "Validate and retrieve env vars", "code": "const env = init_env_variables(['mode', 'redis_ip']);\nconst mode = env.mode;"}
+      },
+      "locations": {"source_line_start": 8, "source_line_end": 22, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L8", "nx_kb_anchor": "init_env_variables"}
+    },
+    {
+      "symbol_id": "json_ok",
+      "name": "json_ok",
+      "kind": "function",
+      "description_one_line": "Returns a standardised success API response object.",
+      "signature": {
+        "params": [{"name": "data", "type": "TObject<any> | TObject<any>[]", "required": false, "description": "The response payload."}],
+        "returns": {"type": "{ success: true; data: T | undefined }", "description": "Success response wrapper."}
+      },
+      "details": {"what_it_does": "Wraps data in a { success: true, data } envelope for consistent API responses."},
+      "examples": {
+        "minimal_correct": {"title": "Return a success response", "code": "res.json(json_ok({ id: '123', name: 'test' }));"}
+      },
+      "locations": {"source_line_start": 24, "source_line_end": 29, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L24", "nx_kb_anchor": "json_ok"}
+    },
+    {
+      "symbol_id": "json_failed",
+      "name": "json_failed",
+      "kind": "function",
+      "description_one_line": "Returns a standardised failure API response object.",
+      "signature": {
+        "params": [
+          {"name": "error", "type": "any", "required": false, "description": "The error value. Uses error.message if available."},
+          {"name": "msg", "type": "string", "required": false, "description": "Optional additional message."}
+        ],
+        "returns": {"type": "{ success: false; error: any }", "description": "Failure response wrapper."}
+      },
+      "details": {"what_it_does": "Wraps an error in a { success: false, error, msg } envelope. Extracts error.message if the error is an Error instance."},
+      "examples": {
+        "minimal_correct": {"title": "Return a failure response", "code": "res.status(400).json(json_failed(new Error('Invalid input')));"}
+      },
+      "locations": {"source_line_start": 31, "source_line_end": 37, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L31", "nx_kb_anchor": "json_failed"}
+    },
+    {
+      "symbol_id": "parse_error",
+      "name": "parse_error",
+      "kind": "function",
+      "description_one_line": "Converts an error value to a serializable object.",
+      "signature": {
+        "params": [{"name": "error", "type": "any", "required": true, "description": "The error to parse."}],
+        "returns": {"type": "{ name: string; message: string } | any", "description": "If error is an Error instance, returns { name, message }. Otherwise returns the error as-is."}
+      },
+      "details": {"what_it_does": "Safely converts Error instances to plain objects for JSON serialization. Non-Error values are returned unchanged."},
+      "examples": {
+        "minimal_correct": {"title": "Parse an error for logging", "code": "logger.error('failed', parse_error(err));"}
+      },
+      "locations": {"source_line_start": 39, "source_line_end": 41, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L39", "nx_kb_anchor": "parse_error"}
+    },
+    {
+      "symbol_id": "get_version",
+      "name": "get_version",
+      "kind": "function",
+      "description_one_line": "Reads and returns the version field from a package.json file.",
+      "signature": {
+        "params": [{"name": "packageJsonPath", "type": "string", "required": true, "description": "Absolute or relative path to the package.json file."}],
+        "returns": {"type": "string", "description": "The version string from package.json."}
+      },
+      "details": {"what_it_does": "Reads the file synchronously, parses it as JSON, and returns the version field."},
+      "examples": {
+        "minimal_correct": {"title": "Get package version", "code": "const version = get_version(path.join(__dirname, '../package.json'));"}
+      },
+      "locations": {"source_line_start": 43, "source_line_end": 46, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L43", "nx_kb_anchor": "get_version"}
+    },
+    {
+      "symbol_id": "sleep",
+      "name": "sleep",
+      "kind": "function",
+      "description_one_line": "Returns a Promise that resolves after the specified number of milliseconds.",
+      "signature": {
+        "params": [{"name": "ms", "type": "number", "required": false, "description": "Milliseconds to sleep. Defaults to 2500."}],
+        "returns": {"type": "Promise<void>", "description": "Resolves after the specified delay."}
+      },
+      "details": {"what_it_does": "Wraps setTimeout in a Promise for use with async/await."},
+      "examples": {
+        "minimal_correct": {"title": "Pause execution for 1 second", "code": "await sleep(1000);"}
+      },
+      "locations": {"source_line_start": 48, "source_line_end": 48, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L48", "nx_kb_anchor": "sleep"}
+    },
+    {
+      "symbol_id": "get_nx_service_urls",
+      "name": "get_nx_service_urls",
+      "kind": "function",
+      "description_one_line": "Returns the NxServiceNameMap for the current environment (local, qa, or prod).",
+      "signature": {
+        "params": [{"name": "env_name", "type": "string", "required": false, "description": "Name of the env variable to read. Defaults to 'mode'."}],
+        "returns": {"type": "NxServiceNameMap", "description": "Map of service names to their base URLs for the current environment."}
+      },
+      "details": {
+        "what_it_does": "Reads the env variable specified by env_name, maps 'production'/'prod' to prod URLs, 'qa' to qa URLs, and anything else to local URLs.",
+        "error_cases": [{"condition": "The env variable is missing or empty", "behavior": "Throws Error(`missing [${env_name}] environment variable`)"}]
+      },
+      "examples": {
+        "minimal_correct": {"title": "Get service URLs for current environment", "code": "const urls = get_nx_service_urls();\nconst devicesUrl = urls.devices;"}
+      },
+      "locations": {"source_line_start": 86, "source_line_end": 92, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L86", "nx_kb_anchor": "get_nx_service_urls"}
+    },
+    {
+      "symbol_id": "get_address_by_geo",
+      "name": "get_address_by_geo",
+      "kind": "function",
+      "description_one_line": "Reverse-geocodes a lat/lng coordinate to a formatted address string using Google Maps API.",
+      "signature": {
+        "params": [
+          {"name": "{ lat, lng }", "type": "Geo", "required": true, "description": "Geographic coordinates to reverse-geocode."},
+          {"name": "currentLanguage", "type": "LanguageOptions", "required": true, "description": "Language for the returned address ('he' maps to 'iw', others map to 'en')."}
+        ],
+        "returns": {"type": "Promise<string>", "description": "Formatted address string (max 35 chars) or empty string if not found or coordinates are out of range."}
+      },
+      "details": {
+        "what_it_does": "Validates coordinate ranges, reads the Google geocode API key from cached nx-settings, calls the Google Maps Geocoding API, and returns the first result's formatted_address truncated to 35 characters.",
+        "error_cases": [
+          {"condition": "geocode_api_key is missing from nx-settings", "behavior": "Throws Error('missing env google api key')"},
+          {"condition": "Coordinates out of valid range (lat: -90..90, lng: -180..180)", "behavior": "Returns empty string immediately."}
+        ]
+      },
+      "examples": {
+        "minimal_correct": {"title": "Reverse geocode a location", "code": "const address = await get_address_by_geo({ lat: 32.0853, lng: 34.7818 }, LanguageOptions.He);"}
+      },
+      "locations": {"source_line_start": 94, "source_line_end": 117, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L94", "nx_kb_anchor": "get_address_by_geo"}
+    },
+    {
+      "symbol_id": "validate_and_cast",
+      "name": "validate_and_cast",
+      "kind": "function",
+      "description_one_line": "Type guard that asserts a variable is of type T if a condition is truthy.",
+      "signature": {
+        "params": [
+          {"name": "variable", "type": "any", "required": true, "description": "The variable to type-check."},
+          {"name": "condition", "type": "Boolean", "required": true, "description": "The condition that must be true for the type assertion."}
+        ],
+        "returns": {"type": "variable is T", "description": "True if condition is truthy, narrowing the type to T."}
+      },
+      "details": {"what_it_does": "Returns !!condition, acting as a TypeScript type predicate to narrow variable to type T."},
+      "examples": {
+        "minimal_correct": {"title": "Use as a type guard", "code": "if (validate_and_cast<NxUser>(user, !!user?.id)) {\n  console.log(user.id); // typed as NxUser\n}"}
+      },
+      "locations": {"source_line_start": 119, "source_line_end": 119, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L119", "nx_kb_anchor": "validate_and_cast"}
+    },
+    {
+      "symbol_id": "get_or_default",
+      "name": "get_or_default",
+      "kind": "function",
+      "description_one_line": "Returns a value if defined, otherwise returns a default value or calls a default factory.",
+      "signature": {
+        "params": [
+          {"name": "value", "type": "T | undefined", "required": true, "description": "The value to check."},
+          {"name": "default_value", "type": "T | (() => T)", "required": true, "description": "The fallback value or factory function."}
+        ],
+        "returns": {"type": "T", "description": "The value if defined, otherwise the default."}
+      },
+      "details": {"what_it_does": "Returns value if it is not undefined. If default_value is a function, calls it; otherwise returns it directly."},
+      "examples": {
+        "minimal_correct": {"title": "Get value with default", "code": "const port = get_or_default(options.port, 3000);\nconst name = get_or_default(options.name, () => 'default-name');"}
+      },
+      "locations": {"source_line_start": 121, "source_line_end": 126, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L121", "nx_kb_anchor": "get_or_default"}
+    },
+    {
+      "symbol_id": "trim_strings",
+      "name": "trim_strings",
+      "kind": "function",
+      "description_one_line": "Recursively trims all string values in an object, array, or primitive.",
+      "signature": {
+        "params": [{"name": "input", "type": "any", "required": true, "description": "The value to trim. Can be a string, array, object, or primitive."}],
+        "returns": {"type": "any", "description": "The input with all string values trimmed. Date, RegExp, Map, and Set instances are returned unchanged."}
+      },
+      "details": {"what_it_does": "Recursively processes strings (trims), arrays (maps recursively), and plain objects (trims all own property values). Preserves Date, RegExp, Map, and Set instances unchanged."},
+      "examples": {
+        "minimal_correct": {"title": "Trim strings in a request body", "code": "const cleaned = trim_strings({ name: '  John  ', age: 30 });\n// => { name: 'John', age: 30 }"}
+      },
+      "locations": {"source_line_start": 128, "source_line_end": 152, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L128", "nx_kb_anchor": "trim_strings"}
+    },
+    {
+      "symbol_id": "remove_nulls_and_undefined",
+      "name": "remove_nulls_and_undefined",
+      "kind": "function",
+      "description_one_line": "Filters out null and undefined values from a flat object.",
+      "signature": {
+        "params": [{"name": "obj", "type": "Record<string, any>", "required": true, "description": "The object to filter."}],
+        "returns": {"type": "Record<string, any>", "description": "A new object with null and undefined values removed."}
+      },
+      "details": {"what_it_does": "Uses Object.fromEntries and Object.entries to create a new object excluding entries where value is null or undefined."},
+      "examples": {
+        "minimal_correct": {"title": "Remove nulls from an object", "code": "remove_nulls_and_undefined({ a: 1, b: null, c: undefined, d: 'x' });\n// => { a: 1, d: 'x' }"}
+      },
+      "locations": {"source_line_start": 154, "source_line_end": 156, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L154", "nx_kb_anchor": "remove_nulls_and_undefined"}
+    },
+    {
+      "symbol_id": "ignore_ssl_request",
+      "name": "ignore_ssl_request",
+      "kind": "function",
+      "description_one_line": "Makes an axios HTTP request, disabling SSL verification in QA environments.",
+      "signature": {
+        "params": [{"name": "config", "type": "AxiosRequestConfig", "required": true, "description": "Axios request configuration object."}],
+        "returns": {"type": "Promise<AxiosResponse>", "description": "The axios response."}
+      },
+      "details": {
+        "what_it_does": "Reads the 'mode' env variable. If mode is 'qa', adds an httpsAgent with rejectUnauthorized: false to bypass SSL certificate validation. Then calls axios with the (possibly modified) config."
+      },
+      "examples": {
+        "minimal_correct": {"title": "Make an SSL-tolerant request", "code": "const response = await ignore_ssl_request({ method: 'GET', url: 'https://internal-service/api/data' });"}
+      },
+      "locations": {"source_line_start": 158, "source_line_end": 164, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L158", "nx_kb_anchor": "ignore_ssl_request"}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": ["BASE_URLS constant is not exported but documents all service URLs for local/qa/prod environments."]
+  }
+}

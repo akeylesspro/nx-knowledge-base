@@ -1,0 +1,109 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "translation_manager.ts",
+  "source": {
+    "file_path": "src/managers/translation_manager.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/translation_manager.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/translation_manager.ts"
+  },
+  "summary": {
+    "purpose": "Implements a singleton translation manager for internationalization (i18n), providing typed access to translation strings by scope, language, entity, and key.",
+    "problem_solved": "Centralises translation data storage and lookup, supporting multi-language SMS and email templates with a consistent API across services."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides the TObject generic type used in translation data storage."
+      }
+    ],
+    "internal": [
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Imports LangOptions and EntityOptions types.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "TranslationManager",
+      "kind": "class",
+      "description_one_line": "Singleton class for storing and retrieving i18n translation strings.",
+      "symbol_id": "TranslationManager"
+    },
+    {
+      "name": "translation_manager",
+      "kind": "value",
+      "description_one_line": "The singleton TranslationManager instance.",
+      "symbol_id": "translation_manager_instance"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "TranslationManager",
+      "name": "TranslationManager",
+      "kind": "class",
+      "description_one_line": "Singleton class for storing and retrieving i18n translation strings.",
+      "details": {
+        "what_it_does": "Stores translation data in a nested structure: scope → language → entity → key → value. Provides methods to set the entire translation dataset and to retrieve translations by scope/language/entity/key path. Includes convenience methods for SMS and email translation lookups.",
+        "methods": [
+          {"name": "setData", "description": "Stores the entire translation dataset."},
+          {"name": "getTranslation", "description": "Retrieves a translation string by scope, language, entity, and key."},
+          {"name": "getSmsTranslation", "description": "Convenience method for retrieving SMS-scoped translations."},
+          {"name": "getEmailTranslation", "description": "Convenience method for retrieving email-scoped translations."}
+        ]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Get an SMS translation",
+          "code": "const message = translation_manager.getSmsTranslation('he', 'nx_devices', 'device_offline');\n// => 'המכשיר כבוי'"
+        },
+        "extensive_correct": {
+          "title": "Set translation data and retrieve",
+          "code": "translation_manager.setData(translationsFromFirestore);\nconst emailSubject = translation_manager.getEmailTranslation('en', 'nx_devices', 'alert_subject');"
+        }
+      },
+      "locations": {
+        "source_line_start": 3,
+        "source_line_end": 38,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/translation_manager.ts#L3",
+        "nx_kb_anchor": "TranslationManager"
+      }
+    },
+    {
+      "symbol_id": "translation_manager_instance",
+      "name": "translation_manager",
+      "kind": "value",
+      "description_one_line": "The singleton TranslationManager instance.",
+      "details": {
+        "what_it_does": "Creates and exports the singleton TranslationManager instance. Import this directly to access translation functionality."
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Import and use translation_manager",
+          "code": "import { translation_manager } from '../managers';\nconst msg = translation_manager.getSmsTranslation('he', 'nx_devices', 'offline');"}
+      },
+      "locations": {
+        "source_line_start": 40,
+        "source_line_end": 41,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/translation_manager.ts#L40",
+        "nx_kb_anchor": "translation_manager_instance"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

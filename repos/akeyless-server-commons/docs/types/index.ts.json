@@ -1,0 +1,75 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "index.ts",
+  "source": {
+    "file_path": "src/types/index.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts"
+  },
+  "summary": {
+    "purpose": "Barrel export file for all types, interfaces, and enums in the types module.",
+    "problem_solved": "Provides a single import path for all shared TypeScript types used across the server-commons library."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "import_path": "./interfaces",
+        "resolved_file_path": "src/types/interfaces/index.ts",
+        "why_used": "Re-exports all interface definitions.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/index.ts"
+      },
+      {
+        "import_path": "./types",
+        "resolved_file_path": "src/types/types/index.ts",
+        "why_used": "Re-exports all type alias definitions.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/index.ts"
+      },
+      {
+        "import_path": "./enums",
+        "resolved_file_path": "src/types/enums/index.ts",
+        "why_used": "Re-exports all enum definitions.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "* from ./interfaces",
+      "kind": "value",
+      "description_one_line": "All interface exports (EmailSettings, EmailData, EmailAttachment, AppOptions, LogRequests, MainRouter, OnSnapshotConfig, etc.)",
+      "symbol_id": "types_barrel"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "types_barrel",
+      "name": "types barrel",
+      "kind": "value",
+      "description_one_line": "Barrel re-export of all types, interfaces, and enums.",
+      "details": {
+        "what_it_does": "Re-exports everything from interfaces/, types/, and enums/ sub-directories."
+      },
+      "locations": {
+        "source_line_start": 1,
+        "source_line_end": 3,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts#L1",
+        "nx_kb_anchor": "types_barrel"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

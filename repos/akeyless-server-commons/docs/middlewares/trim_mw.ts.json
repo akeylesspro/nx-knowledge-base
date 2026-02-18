@@ -1,0 +1,79 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "trim_mw.ts",
+  "source": {
+    "file_path": "src/middlewares/trim_mw.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node", "express"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/trim_mw.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/trim_mw.ts"
+  },
+  "summary": {
+    "purpose": "Provides an Express middleware factory that recursively trims whitespace from all string values in the request body.",
+    "problem_solved": "Prevents user input with leading/trailing whitespace from causing validation failures or data inconsistencies, without requiring manual trimming in every route handler."
+  },
+  "dependencies": {
+    "external": [],
+    "internal": [
+      {
+        "import_path": "../helpers",
+        "resolved_file_path": "src/helpers/index.ts",
+        "why_used": "Imports the trim_strings utility function.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
+      },
+      {
+        "import_path": "../types",
+        "resolved_file_path": "src/types/index.ts",
+        "why_used": "Imports the MW type for Express middleware signature.",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
+        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+      }
+    ]
+  },
+  "exports": [
+    {
+      "name": "trim_body_middleware",
+      "kind": "function",
+      "description_one_line": "Middleware factory that recursively trims all string values in req.body.",
+      "symbol_id": "trim_body_middleware"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "trim_body_middleware",
+      "name": "trim_body_middleware",
+      "kind": "function",
+      "description_one_line": "Middleware factory that recursively trims all string values in req.body.",
+      "signature": {
+        "params": [],
+        "returns": {"type": "MW", "description": "Express middleware that mutates req.body by trimming all string values."}
+      },
+      "details": {
+        "what_it_does": "Returns a middleware that checks if req.body is a non-null object, then replaces it with trim_strings(req.body) which recursively trims all string values. Calls next() after trimming.",
+        "side_effects": ["Mutates req.body in-place."]
+      },
+      "examples": {
+        "minimal_correct": {
+          "title": "Register trim middleware globally",
+          "code": "app.use(trim_body_middleware());"
+        }
+      },
+      "locations": {
+        "source_line_start": 4,
+        "source_line_end": 9,
+        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/trim_mw.ts#L4",
+        "nx_kb_anchor": "trim_body_middleware"
+      }
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}

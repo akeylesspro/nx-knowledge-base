@@ -1,0 +1,322 @@
+{
+  "repo": {
+    "name": "akeyless-server-commons",
+    "source_default_branch": "main"
+  },
+  "file_name": "time_helpers.ts",
+  "source": {
+    "file_path": "src/helpers/time_helpers.ts",
+    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "language": "ts",
+    "framework_tags": ["node"],
+    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/time_helpers.ts"
+  },
+  "summary": {
+    "purpose": "Provides comprehensive date and time utilities: sorting, difference calculation, formatting, and conversion between Firebase Timestamps, Dates, strings, and milliseconds.",
+    "problem_solved": "Normalises the variety of timestamp formats used across the codebase (Firebase Timestamp, JS Date, ISO string, Unix ms) into consistent, comparable values and human-readable strings."
+  },
+  "dependencies": {
+    "external": [
+      {
+        "name": "moment",
+        "kind": "runtime",
+        "why_used": "Used for date formatting, parsing, and locale-aware operations."
+      },
+      {
+        "name": "firebase-admin",
+        "kind": "runtime",
+        "why_used": "Provides the Timestamp type used in Firebase Firestore documents."
+      },
+      {
+        "name": "akeyless-types-commons",
+        "kind": "runtime",
+        "why_used": "Provides the TObject generic type."
+      }
+    ],
+    "internal": []
+  },
+  "exports": [
+    {
+      "name": "sort_by_timestamp",
+      "kind": "function",
+      "description_one_line": "Sorts an array of objects by a timestamp field in ascending or descending order.",
+      "symbol_id": "sort_by_timestamp"
+    },
+    {
+      "name": "get_time_diff_in_minutes",
+      "kind": "function",
+      "description_one_line": "Calculates the absolute difference in minutes between two timestamps.",
+      "symbol_id": "get_time_diff_in_minutes"
+    },
+    {
+      "name": "get_time_diff_in_seconds",
+      "kind": "function",
+      "description_one_line": "Calculates the absolute difference in seconds between two timestamps.",
+      "symbol_id": "get_time_diff_in_seconds"
+    },
+    {
+      "name": "get_time_diff_in_hours",
+      "kind": "function",
+      "description_one_line": "Calculates the absolute difference in hours between two timestamps.",
+      "symbol_id": "get_time_diff_in_hours"
+    },
+    {
+      "name": "get_time_diff_in_days",
+      "kind": "function",
+      "description_one_line": "Calculates the absolute difference in days between two timestamps.",
+      "symbol_id": "get_time_diff_in_days"
+    },
+    {
+      "name": "get_timestamp_from_date",
+      "kind": "function",
+      "description_one_line": "Converts a Date, string, or number to a Firebase Timestamp.",
+      "symbol_id": "get_timestamp_from_date"
+    },
+    {
+      "name": "get_date_from_timestamp",
+      "kind": "function",
+      "description_one_line": "Converts a Firebase Timestamp, Date, string, or number to a JavaScript Date.",
+      "symbol_id": "get_date_from_timestamp"
+    },
+    {
+      "name": "get_ms_from_timestamp",
+      "kind": "function",
+      "description_one_line": "Converts a Firebase Timestamp, Date, string, or number to Unix milliseconds.",
+      "symbol_id": "get_ms_from_timestamp"
+    },
+    {
+      "name": "format_date",
+      "kind": "function",
+      "description_one_line": "Formats a date-like value to a string using a moment.js format pattern.",
+      "symbol_id": "format_date"
+    },
+    {
+      "name": "format_timestamp",
+      "kind": "function",
+      "description_one_line": "Formats a Firebase Timestamp, Date, string, or number to a string using a moment.js format pattern.",
+      "symbol_id": "format_timestamp"
+    },
+    {
+      "name": "get_start_of_day_ms",
+      "kind": "function",
+      "description_one_line": "Returns the Unix milliseconds for the start of the day for a given timestamp.",
+      "symbol_id": "get_start_of_day_ms"
+    },
+    {
+      "name": "get_end_of_day_ms",
+      "kind": "function",
+      "description_one_line": "Returns the Unix milliseconds for the end of the day for a given timestamp.",
+      "symbol_id": "get_end_of_day_ms"
+    }
+  ],
+  "symbols": [
+    {
+      "symbol_id": "sort_by_timestamp",
+      "name": "sort_by_timestamp",
+      "kind": "function",
+      "description_one_line": "Sorts an array of objects by a timestamp field in ascending or descending order.",
+      "signature": {
+        "params": [
+          {"name": "arr", "type": "TObject<any>[]", "required": true, "description": "Array of objects to sort."},
+          {"name": "field", "type": "string", "required": true, "description": "The field name containing the timestamp value."},
+          {"name": "order", "type": "\"asc\" | \"desc\"", "required": false, "description": "Sort order. Defaults to 'asc'."}
+        ],
+        "returns": {"type": "TObject<any>[]", "description": "A new sorted array (does not mutate the original)."}
+      },
+      "details": {"what_it_does": "Converts each element's timestamp field to milliseconds via get_ms_from_timestamp, then sorts accordingly."},
+      "examples": {
+        "minimal_correct": {"title": "Sort events by timestamp descending", "code": "const sorted = sort_by_timestamp(events, 'created_at', 'desc');"}
+      },
+      "locations": {"source_line_start": 7, "source_line_end": 15, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L7", "nx_kb_anchor": "sort_by_timestamp"}
+    },
+    {
+      "symbol_id": "get_time_diff_in_minutes",
+      "name": "get_time_diff_in_minutes",
+      "kind": "function",
+      "description_one_line": "Calculates the absolute difference in minutes between two timestamps.",
+      "signature": {
+        "params": [
+          {"name": "timestamp1", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "First timestamp."},
+          {"name": "timestamp2", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "Second timestamp."}
+        ],
+        "returns": {"type": "number", "description": "Absolute difference in minutes."}
+      },
+      "details": {"what_it_does": "Converts both timestamps to milliseconds and returns Math.abs(diff) / 60000."},
+      "examples": {
+        "minimal_correct": {"title": "Get minute difference", "code": "const diff = get_time_diff_in_minutes(event.start, event.end);"}
+      },
+      "locations": {"source_line_start": 17, "source_line_end": 20, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L17", "nx_kb_anchor": "get_time_diff_in_minutes"}
+    },
+    {
+      "symbol_id": "get_time_diff_in_seconds",
+      "name": "get_time_diff_in_seconds",
+      "kind": "function",
+      "description_one_line": "Calculates the absolute difference in seconds between two timestamps.",
+      "signature": {
+        "params": [
+          {"name": "timestamp1", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "First timestamp."},
+          {"name": "timestamp2", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "Second timestamp."}
+        ],
+        "returns": {"type": "number", "description": "Absolute difference in seconds."}
+      },
+      "details": {"what_it_does": "Converts both timestamps to milliseconds and returns Math.abs(diff) / 1000."},
+      "examples": {
+        "minimal_correct": {"title": "Get second difference", "code": "const diff = get_time_diff_in_seconds(start, end);"}
+      },
+      "locations": {"source_line_start": 22, "source_line_end": 25, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L22", "nx_kb_anchor": "get_time_diff_in_seconds"}
+    },
+    {
+      "symbol_id": "get_time_diff_in_hours",
+      "name": "get_time_diff_in_hours",
+      "kind": "function",
+      "description_one_line": "Calculates the absolute difference in hours between two timestamps.",
+      "signature": {
+        "params": [
+          {"name": "timestamp1", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "First timestamp."},
+          {"name": "timestamp2", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "Second timestamp."}
+        ],
+        "returns": {"type": "number", "description": "Absolute difference in hours."}
+      },
+      "details": {"what_it_does": "Converts both timestamps to milliseconds and returns Math.abs(diff) / 3600000."},
+      "examples": {
+        "minimal_correct": {"title": "Get hour difference", "code": "const hours = get_time_diff_in_hours(sessionStart, sessionEnd);"}
+      },
+      "locations": {"source_line_start": 27, "source_line_end": 30, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L27", "nx_kb_anchor": "get_time_diff_in_hours"}
+    },
+    {
+      "symbol_id": "get_time_diff_in_days",
+      "name": "get_time_diff_in_days",
+      "kind": "function",
+      "description_one_line": "Calculates the absolute difference in days between two timestamps.",
+      "signature": {
+        "params": [
+          {"name": "timestamp1", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "First timestamp."},
+          {"name": "timestamp2", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "Second timestamp."}
+        ],
+        "returns": {"type": "number", "description": "Absolute difference in days."}
+      },
+      "details": {"what_it_does": "Converts both timestamps to milliseconds and returns Math.abs(diff) / 86400000."},
+      "examples": {
+        "minimal_correct": {"title": "Get day difference", "code": "const days = get_time_diff_in_days(subscriptionStart, Date.now());"}
+      },
+      "locations": {"source_line_start": 32, "source_line_end": 35, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L32", "nx_kb_anchor": "get_time_diff_in_days"}
+    },
+    {
+      "symbol_id": "get_timestamp_from_date",
+      "name": "get_timestamp_from_date",
+      "kind": "function",
+      "description_one_line": "Converts a Date, string, or number to a Firebase Timestamp.",
+      "signature": {
+        "params": [{"name": "date", "type": "Date | string | number", "required": true, "description": "The date value to convert."}],
+        "returns": {"type": "FirebaseFirestore.Timestamp", "description": "A Firebase Timestamp instance."}
+      },
+      "details": {"what_it_does": "Converts the input to a Date if needed, then calls Timestamp.fromDate()."},
+      "examples": {
+        "minimal_correct": {"title": "Convert Date to Firebase Timestamp", "code": "const ts = get_timestamp_from_date(new Date());\nawait set_document('events', id, { created_at: ts });"}
+      },
+      "locations": {"source_line_start": 37, "source_line_end": 40, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L37", "nx_kb_anchor": "get_timestamp_from_date"}
+    },
+    {
+      "symbol_id": "get_date_from_timestamp",
+      "name": "get_date_from_timestamp",
+      "kind": "function",
+      "description_one_line": "Converts a Firebase Timestamp, Date, string, or number to a JavaScript Date.",
+      "signature": {
+        "params": [{"name": "timestamp", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "The timestamp to convert."}],
+        "returns": {"type": "Date", "description": "A JavaScript Date instance."}
+      },
+      "details": {"what_it_does": "If the input has a .toDate() method (Firebase Timestamp), calls it. If it's already a Date, returns it. Otherwise creates a new Date from the value."},
+      "examples": {
+        "minimal_correct": {"title": "Convert Firebase Timestamp to Date", "code": "const date = get_date_from_timestamp(doc.created_at);"}
+      },
+      "locations": {"source_line_start": 42, "source_line_end": 50, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L42", "nx_kb_anchor": "get_date_from_timestamp"}
+    },
+    {
+      "symbol_id": "get_ms_from_timestamp",
+      "name": "get_ms_from_timestamp",
+      "kind": "function",
+      "description_one_line": "Converts a Firebase Timestamp, Date, string, or number to Unix milliseconds.",
+      "signature": {
+        "params": [{"name": "timestamp", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "The timestamp to convert."}],
+        "returns": {"type": "number", "description": "Unix timestamp in milliseconds."}
+      },
+      "details": {"what_it_does": "Converts to Date via get_date_from_timestamp then calls .getTime()."},
+      "examples": {
+        "minimal_correct": {"title": "Get milliseconds from a Firestore Timestamp", "code": "const ms = get_ms_from_timestamp(doc.updated_at);"}
+      },
+      "locations": {"source_line_start": 52, "source_line_end": 54, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L52", "nx_kb_anchor": "get_ms_from_timestamp"}
+    },
+    {
+      "symbol_id": "format_date",
+      "name": "format_date",
+      "kind": "function",
+      "description_one_line": "Formats a date-like value to a string using a moment.js format pattern.",
+      "signature": {
+        "params": [
+          {"name": "date", "type": "Date | string | number", "required": true, "description": "The date to format."},
+          {"name": "format", "type": "string", "required": false, "description": "moment.js format string. Defaults to 'DD/MM/YYYY HH:mm'."}
+        ],
+        "returns": {"type": "string", "description": "Formatted date string."}
+      },
+      "details": {"what_it_does": "Wraps moment(date).format(format) with a default format of 'DD/MM/YYYY HH:mm'."},
+      "examples": {
+        "minimal_correct": {"title": "Format a date", "code": "format_date(new Date(), 'YYYY-MM-DD'); // => '2026-02-18'"}
+      },
+      "locations": {"source_line_start": 56, "source_line_end": 58, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L56", "nx_kb_anchor": "format_date"}
+    },
+    {
+      "symbol_id": "format_timestamp",
+      "name": "format_timestamp",
+      "kind": "function",
+      "description_one_line": "Formats a Firebase Timestamp, Date, string, or number to a string using a moment.js format pattern.",
+      "signature": {
+        "params": [
+          {"name": "timestamp", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "The timestamp to format."},
+          {"name": "format", "type": "string", "required": false, "description": "moment.js format string. Defaults to 'DD/MM/YYYY HH:mm'."}
+        ],
+        "returns": {"type": "string", "description": "Formatted date string."}
+      },
+      "details": {"what_it_does": "Converts the timestamp to a Date via get_date_from_timestamp, then delegates to format_date."},
+      "examples": {
+        "minimal_correct": {"title": "Format a Firestore Timestamp", "code": "format_timestamp(doc.created_at); // => '18/02/2026 08:11'"}
+      },
+      "locations": {"source_line_start": 60, "source_line_end": 62, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L60", "nx_kb_anchor": "format_timestamp"}
+    },
+    {
+      "symbol_id": "get_start_of_day_ms",
+      "name": "get_start_of_day_ms",
+      "kind": "function",
+      "description_one_line": "Returns the Unix milliseconds for the start of the day for a given timestamp.",
+      "signature": {
+        "params": [{"name": "timestamp", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "The timestamp whose day start to compute."}],
+        "returns": {"type": "number", "description": "Unix milliseconds for 00:00:00.000 of the given day."}
+      },
+      "details": {"what_it_does": "Converts to Date, then uses moment().startOf('day').valueOf()."},
+      "examples": {
+        "minimal_correct": {"title": "Get start of day", "code": "const startMs = get_start_of_day_ms(Date.now());"}
+      },
+      "locations": {"source_line_start": 64, "source_line_end": 67, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L64", "nx_kb_anchor": "get_start_of_day_ms"}
+    },
+    {
+      "symbol_id": "get_end_of_day_ms",
+      "name": "get_end_of_day_ms",
+      "kind": "function",
+      "description_one_line": "Returns the Unix milliseconds for the end of the day for a given timestamp.",
+      "signature": {
+        "params": [{"name": "timestamp", "type": "FirebaseFirestore.Timestamp | Date | string | number", "required": true, "description": "The timestamp whose day end to compute."}],
+        "returns": {"type": "number", "description": "Unix milliseconds for 23:59:59.999 of the given day."}
+      },
+      "details": {"what_it_does": "Converts to Date, then uses moment().endOf('day').valueOf()."},
+      "examples": {
+        "minimal_correct": {"title": "Get end of day", "code": "const endMs = get_end_of_day_ms(Date.now());"}
+      },
+      "locations": {"source_line_start": 69, "source_line_end": 72, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L69", "nx_kb_anchor": "get_end_of_day_ms"}
+    }
+  ],
+  "quality": {
+    "generation_confidence": "high",
+    "known_gaps": []
+  }
+}
