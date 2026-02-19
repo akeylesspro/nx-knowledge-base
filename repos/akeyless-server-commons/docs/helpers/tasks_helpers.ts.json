@@ -251,9 +251,8 @@
         "minimal_correct": {
           "title": "Upload task data to Storage",
           "code": "const url = await keep_task_data_in_storage(TaskName.collect_devices_health, devicesData);\n// url => 'https://storage.googleapis.com/...?Expires=...'"}
-        }
       },
-      "locations": {"source_line_start": 132, "source_line_end": 154, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L132", "nx_kb_anchor": "keep_task_data_in_storage"}
+        "locations": {"source_line_start": 132, "source_line_end": 154, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L132", "nx_kb_anchor": "keep_task_data_in_storage"}
     }
   ],
   "quality": {
