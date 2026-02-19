@@ -9,10 +9,12 @@ export interface RepoMeta {
     name: string;
     display_name: string;
     description: string;
+    story: string;
     github_url: string;
     default_branch: string;
     language: string;
     framework_tags: string[];
+    capabilities: string[];
     last_synced_at?: string;
     last_synced_commit?: string;
     file_count?: number;

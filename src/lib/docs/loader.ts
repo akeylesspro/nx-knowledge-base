@@ -32,7 +32,9 @@ export const getRepoMeta = async (repoName: string): Promise<RepoMeta | null> =>
     try {
         const metaPath = path.join(REPOS_BASE, repoName, "meta.json");
         const raw = await fs.readFile(metaPath, "utf-8");
-        return JSON.parse(raw) as RepoMeta;
+        const parsed = JSON.parse(raw) as unknown;
+        if (!isRepoMeta(parsed)) return null;
+        return parsed;
     } catch {
         return null;
     }
@@ -236,4 +238,27 @@ const deepMerge = (source: Record<string, unknown>, target: Record<string, unkno
     }
 
     return result;
+};
+
+const isRepoMeta = (value: unknown): value is RepoMeta => {
+    if (!value || typeof value !== "object") return false;
+    const meta = value as Partial<RepoMeta>;
+
+    return (
+        typeof meta.name === "string" &&
+        typeof meta.display_name === "string" &&
+        typeof meta.description === "string" &&
+        typeof meta.story === "string" &&
+        typeof meta.github_url === "string" &&
+        typeof meta.default_branch === "string" &&
+        typeof meta.language === "string" &&
+        Array.isArray(meta.framework_tags) &&
+        meta.framework_tags.every((tag) => typeof tag === "string") &&
+        Array.isArray(meta.capabilities) &&
+        meta.capabilities.every((capability) => typeof capability === "string") &&
+        (meta.last_synced_at == null || typeof meta.last_synced_at === "string") &&
+        (meta.last_synced_commit == null || typeof meta.last_synced_commit === "string") &&
+        (meta.file_count == null || typeof meta.file_count === "number") &&
+        (meta.symbol_count == null || typeof meta.symbol_count === "number")
+    );
 };

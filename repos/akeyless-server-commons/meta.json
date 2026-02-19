@@ -1,0 +1,29 @@
+{
+    "name": "akeyless-server-commons",
+    "display_name": "Akeyless Server Commons",
+    "description": "Shared Node.js/TypeScript utility library for Akeyless server-side applications — including Firebase integration, Redis caching, Express middlewares, email/SMS/push notifications, authentication helpers, logging, translation, and shared type definitions.",
+    "story": "akeyless-server-commons is the foundational shared library used across all Akeyless backend services. It centralises the recurring concerns every Express/Node.js service must handle: bootstrapping a Firebase Admin app, reading and writing Firestore documents, managing a Redis cache layer with snapshot support, sending transactional emails and push notifications, validating and normalising phone numbers, resolving geographic distances, running authenticated login flows, and enforcing request-level middleware (auth verification, body trimming, structured error responses). By extracting these cross-cutting concerns into a single versioned package, individual microservices stay thin and consistent — they import from one well-tested location rather than duplicating infrastructure logic.",
+    "github_url": "https://github.com/akeylesspro/akeyless-server-commons",
+    "default_branch": "main",
+    "language": "typescript",
+    "framework_tags": ["node", "express", "firebase", "redis"],
+    "capabilities": [
+        "Firebase Admin SDK integration (Firestore CRUD, Auth, Storage, snapshots)",
+        "Redis cache management with key utilities and snapshot helpers",
+        "Express middleware (auth verification, body trimming, error handling, request logging)",
+        "Email sending with attachment support",
+        "SMS and push notification dispatch",
+        "Phone number validation and normalisation",
+        "Geographic distance calculation",
+        "User login and authentication helpers",
+        "Task execution and data persistence utilities",
+        "Board-maker resolution helpers",
+        "Structured logging via LoggerManager",
+        "Internationalisation / translation management",
+        "Shared TypeScript types, interfaces, and enums"
+    ],
+    "last_synced_at": "2026-02-19T07:19:27.000Z",
+    "last_synced_commit": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "file_count": 35,
+    "symbol_count": 161
+}

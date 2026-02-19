@@ -68,6 +68,31 @@ export default async function RepoPage({ params }: RepoPageProps) {
                     </div>
                 </div>
 
+                {/* Repository story */}
+                <div className="mb-8">
+                    <h2 className="text-lg font-semibold mb-3">Repository Story</h2>
+                    <div className="bg-card rounded-xl border border-border p-4">
+                        <p className="text-sm text-muted-foreground leading-6 whitespace-pre-wrap">{meta.story}</p>
+                    </div>
+                </div>
+
+                {/* Capabilities */}
+                <div className="mb-8">
+                    <h2 className="text-lg font-semibold mb-3">Capabilities</h2>
+                    {meta.capabilities.length === 0 ? (
+                        <div className="bg-card rounded-xl border border-border p-4 text-sm text-muted-foreground">No capabilities documented yet.</div>
+                    ) : (
+                        <ul className="bg-card rounded-xl border border-border divide-y divide-border">
+                            {meta.capabilities.map((capability) => (
+                                <li key={capability} className="px-4 py-3 text-sm text-foreground flex items-start gap-2">
+                                    <i className="fa-solid fa-check text-primary mt-0.5" />
+                                    <span>{capability}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
+
                 <Separator className="mb-8" />
 
                 {/* File listing */}
