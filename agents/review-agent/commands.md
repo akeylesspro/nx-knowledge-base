@@ -16,6 +16,19 @@ Input: { pr_number }
 Output: { valid: boolean, errors: SchemaError[] }
 ```
 
+### `review:validate-repo-meta`
+Validate repository metadata file and location.
+```
+Input: { pr_number, repo_name }
+Output: {
+  valid: boolean,
+  exists: boolean,
+  file: "repos/<repo>/meta.json",
+  schema: "schemas/repo-meta.schema.json",
+  errors: SchemaError[]
+}
+```
+
 ### `review:validate-links`
 Check all deep links in changed files.
 ```

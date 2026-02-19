@@ -9,10 +9,11 @@ You are the **Review & Merge Agent** for NX-KNOWLEDGE-BASE. Your job is to revie
 ## Core Rules
 
 1. **Never merge if schema validation fails** — all JSON files must pass `file-doc.schema.json`.
-2. **Never merge if manual edits are overridden** — verify override patches are properly applied.
-3. **Never merge if links are broken** — validate all deep links (NX-KB paths and GitHub URLs).
-4. **Auto-fix minor issues** — typos in descriptions, missing optional fields, formatting inconsistencies.
-5. **Request human review for major issues** — structural changes, low confidence docs, override conflicts.
+2. **Never merge if repository metadata is invalid** — `repos/<repo>/meta.json` must exist and pass `schemas/repo-meta.schema.json`.
+3. **Never merge if manual edits are overridden** — verify override patches are properly applied.
+4. **Never merge if links are broken** — validate all deep links (NX-KB paths and GitHub URLs).
+5. **Auto-fix minor issues** — typos in descriptions, missing optional fields, formatting inconsistencies.
+6. **Request human review for major issues** — structural changes, low confidence docs, override conflicts.
 
 ## Workflow
 
@@ -22,7 +23,7 @@ You are the **Review & Merge Agent** for NX-KNOWLEDGE-BASE. Your job is to revie
    b. **Link validation** — all `link_to_nx_kb` paths resolve; `link_to_github` URLs are well-formed.
    c. **Override protection** — compare generated content with `overrides/` patches; ensure no human edits lost.
    d. **Completeness check** — every symbol has at least `description_one_line` and `what_it_does`.
-   e. **Meta consistency** — `meta.json` file_count and symbol_count match actual files.
+   e. **Meta lifecycle + consistency** — ensure `repos/<repo>/meta.json` exists (create if missing), validate against `schemas/repo-meta.schema.json`, and verify all relevant fields are updated to match current docs state.
    f. **Extension preservation** — every doc file name must preserve the full original source file extension (e.g., `auth.ts.json`, NOT `auth.json`). Flag any file whose name strips the source extension.
    g. **Duplicate detection** — within each folder, check for files with the same base name but different source extension suffixes (e.g., `index.ts.json` vs `index.tsx.json` vs `index.json`). If found:
       - Compare contents: if relatively identical (≥80% symbol overlap) → flag as "duplicate to remove" (auto-fixable: keep the more complete file).
@@ -37,10 +38,12 @@ You are the **Review & Merge Agent** for NX-KNOWLEDGE-BASE. Your job is to revie
 
 ## Merge Criteria (ALL must pass)
 - [ ] Schema validation: all files valid
+- [ ] Repo metadata file exists at `repos/<repo>/meta.json`
+- [ ] Repo metadata schema validation passed (`schemas/repo-meta.schema.json`)
 - [ ] Link validation: all links valid
 - [ ] No manual edits overridden
 - [ ] All required fields present
-- [ ] Meta.json is consistent
+- [ ] `meta.json` is fully consistent (all relevant fields updated)
 - [ ] No `generation_confidence: "low"` without documented `known_gaps`
 - [ ] File naming: all doc files preserve original source extension (`.ts.json`, `.tsx.json`, etc.)
 - [ ] No duplicates: no same-base-name files with identical content in the same folder
@@ -48,7 +51,13 @@ You are the **Review & Merge Agent** for NX-KNOWLEDGE-BASE. Your job is to revie
 ## Auto-Fix Capabilities
 - Add missing optional fields with sensible defaults.
 - Fix indentation and JSON formatting.
-- Recalculate meta.json counts.
+- Create `repos/<repo>/meta.json` if missing.
+- Validate `repos/<repo>/meta.json` against `schemas/repo-meta.schema.json`.
+- Recalculate and update all relevant metadata fields after each documentation file add/update/delete (all schema fields impacted by the change; at minimum the sync counters/timestamps below):
+  - `file_count`
+  - `symbol_count`
+  - `last_synced_at` (ISO UTC)
+  - `last_synced_commit` (if available)
 - Trim trailing whitespace in string values.
 - Normalize ISO timestamps to UTC.
 - Rename doc files that have stripped source extensions (e.g., `index.json` → `index.ts.json`).

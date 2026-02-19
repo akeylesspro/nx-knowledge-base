@@ -5,11 +5,12 @@
     "description": "Schema for repository-level metadata in NX-KNOWLEDGE-BASE",
     "version": "1.0.0",
     "type": "object",
-    "required": ["name", "display_name", "description", "github_url", "default_branch", "language", "framework_tags"],
+    "required": ["name", "display_name", "description", "story", "github_url", "default_branch", "language", "framework_tags", "capabilities"],
     "properties": {
         "name": { "type": "string", "description": "Repository name (must match folder name)" },
         "display_name": { "type": "string", "description": "Human-readable display name" },
         "description": { "type": "string", "description": "Brief description of the repository" },
+        "story": { "type": "string", "description": "Detailed free-text narrative describing the project essence and goals" },
         "github_url": { "type": "string", "format": "uri", "description": "GitHub repository URL" },
         "default_branch": { "type": "string", "description": "Default branch name (e.g., develop, main)" },
         "language": { "type": "string", "description": "Primary language" },
@@ -17,6 +18,11 @@
             "type": "array",
             "items": { "type": "string" },
             "description": "Framework identifiers"
+        },
+        "capabilities": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "List of core capabilities offered by the project"
         },
         "last_synced_at": { "type": "string", "format": "date-time", "description": "Last sync timestamp" },
         "last_synced_commit": { "type": "string", "description": "Last synced commit SHA" },

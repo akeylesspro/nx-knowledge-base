@@ -29,6 +29,18 @@
 - Current schema version: `1.0.0`
 - Schema location: `schemas/file-doc.schema.json`
 - All generated files must pass schema validation before commit.
+- Repo metadata schema location: `schemas/repo-meta.schema.json`
+
+## Repository Metadata (`meta.json`)
+- Location: `repos/<repo>/meta.json` (sibling of `docs`).
+- If missing, create it before processing documentation changes.
+- Validate `meta.json` against `schemas/repo-meta.schema.json`.
+- After every doc add/update/delete, update all relevant metadata fields and re-validate.
+- At minimum keep these fields accurate:
+  - `file_count`
+  - `symbol_count`
+  - `last_synced_at` (ISO UTC)
+  - `last_synced_commit` (if available)
 
 ## Timestamps
 - All timestamps in ISO 8601 format: `YYYY-MM-DDTHH:mm:ss.sssZ`
@@ -64,6 +76,7 @@ src/hooks/       — touched: N | added: N | updated: N | deleted: N | skipped: 
 
 ## Validation
 - Schema: ✅ / ❌
+- Repo Meta Schema: ✅ / ❌
 - Links: ✅ / ❌
 - Overrides: ✅ No conflicts / ⚠️ N conflicts
 ```

@@ -30,6 +30,7 @@ Added: <N> | Modified: <N> | Deleted: <N>
 | Gate              | Status | Details        |
 |-------------------|--------|----------------|
 | Schema Validation | ✅/❌  | N files valid  |
+| Repo Meta Schema  | ✅/❌  | `repos/<repo>/meta.json` valid |
 | Link Validation   | ✅/❌  | N links valid  |
 | Override Safety   | ✅/⚠️  | N conflicts    |
 | Completeness      | ✅/⚠️  | N files complete |

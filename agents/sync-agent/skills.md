@@ -30,3 +30,9 @@
 - Generate GitHub permalinks using commit SHA.
 - Generate NX-KB internal paths matching the routing structure.
 - Validate all links are reachable.
+
+## Repository Metadata Lifecycle
+- Ensure `repos/<repo>/meta.json` exists at documentation root (sibling of `docs`); create if missing.
+- Validate `repos/<repo>/meta.json` against `schemas/repo-meta.schema.json`.
+- After each documentation file add/update/delete, update all relevant schema fields in `meta.json`.
+- At minimum keep these fields accurate: `file_count`, `symbol_count`, `last_synced_at`, `last_synced_commit` (if available).

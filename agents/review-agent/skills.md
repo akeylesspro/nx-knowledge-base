@@ -20,7 +20,13 @@
 - Fix JSON formatting issues (indentation, trailing commas).
 - Populate missing optional fields with defaults.
 - Normalize date formats and timezone issues.
-- Recalculate aggregate counts (file_count, symbol_count).
+- Ensure `repos/<repo>/meta.json` exists (create if missing).
+- Validate `repos/<repo>/meta.json` against `schemas/repo-meta.schema.json`.
+- Recalculate and update all relevant metadata fields after each documentation file add/update/delete (all schema-impacted fields, including at minimum):
+  - `file_count`
+  - `symbol_count`
+  - `last_synced_at` (ISO UTC)
+  - `last_synced_commit` (if available)
 
 ## PR Management
 - Read and analyze PR diffs.

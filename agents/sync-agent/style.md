@@ -42,6 +42,7 @@
 ## Naming Conventions
 - `symbol_id`: Format `<kind>_<name>` in snake_case (e.g., `function_get_user`, `component_login_form`).
 - File doc path: Mirror src path exactly, append `.json` (e.g., `src/routes/auth.ts` → `docs/routes/auth.ts.json`).
+- Repo metadata path: `repos/<repo>/meta.json` (documentation root, sibling of `docs`).
 
 ## Quality Markers
 - Set `generation_confidence` to `"high"` only when all symbols are fully documented with examples.

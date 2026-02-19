@@ -31,10 +31,13 @@ Output: { conflicts: ConflictReport[] }
 ```
 
 ### `sync:meta-update`
-Recalculate and update the repo meta.json (file counts, symbol counts).
+Ensure and update repository metadata:
+- Create `repos/<repo>/meta.json` if missing.
+- Validate against `schemas/repo-meta.schema.json`.
+- Update all relevant metadata fields after each doc add/update/delete.
 ```
 Input: { repo }
-Output: Updated meta.json
+Output: Updated `repos/<repo>/meta.json`
 ```
 
 ### `sync:cleanup`
