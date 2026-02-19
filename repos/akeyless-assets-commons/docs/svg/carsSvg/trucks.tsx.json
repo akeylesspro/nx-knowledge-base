@@ -1,0 +1,171 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "trucks.tsx",
+    "source": {
+        "file_path": "svg/carsSvg/trucks.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/trucks.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/trucks.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides four coloured truck SVG icon generator functions (red, yellow, green, gray) conforming to the VehicleSvg signature for use as map markers and menu icons.",
+        "problem_solved": "Supplies the truck vehicle type's state-specific icon variants so map and menu components can reflect real-time ignition and speed state visually."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "redTruckIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red truck SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_red_truck_icon"
+        },
+        {
+            "name": "yellowTruckIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow truck SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_yellow_truck_icon"
+        },
+        {
+            "name": "greenTruckIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green truck SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_green_truck_icon"
+        },
+        {
+            "name": "grayTruckIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray truck SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_gray_truck_icon"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_red_truck_icon",
+            "name": "redTruckIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red truck SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Red truck icon SVG element. Red indicates ignition is off." }
+            },
+            "details": { "what_it_does": "Generates a detailed truck SVG icon in red, indicating ignition is off." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a red truck icon",
+                    "code": "import { redTruckIcon } from 'akeyless-assets-commons';\n\nconst icon = redTruckIcon('30', '30', '#FF0000', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 256,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/trucks.tsx#L3",
+                "nx_kb_anchor": "#function_red_truck_icon"
+            }
+        },
+        {
+            "symbol_id": "function_yellow_truck_icon",
+            "name": "yellowTruckIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow truck SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Yellow truck icon SVG element. Yellow indicates idling." }
+            },
+            "details": { "what_it_does": "Generates a detailed truck SVG icon in yellow, indicating idle state." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a yellow truck icon",
+                    "code": "import { yellowTruckIcon } from 'akeyless-assets-commons';\n\nconst icon = yellowTruckIcon('30', '30', '#FFFF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 257,
+                "source_line_end": 510,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/trucks.tsx#L257",
+                "nx_kb_anchor": "#function_yellow_truck_icon"
+            }
+        },
+        {
+            "symbol_id": "function_green_truck_icon",
+            "name": "greenTruckIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green truck SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Green truck icon SVG element. Green indicates actively moving." }
+            },
+            "details": { "what_it_does": "Generates a detailed truck SVG icon in green, indicating the truck is actively moving." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a green truck icon",
+                    "code": "import { greenTruckIcon } from 'akeyless-assets-commons';\n\nconst icon = greenTruckIcon('30', '30', '#00FF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 511,
+                "source_line_end": 764,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/trucks.tsx#L511",
+                "nx_kb_anchor": "#function_green_truck_icon"
+            }
+        },
+        {
+            "symbol_id": "function_gray_truck_icon",
+            "name": "grayTruckIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray truck SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Gray truck icon SVG element. Gray indicates unknown telemetry." }
+            },
+            "details": { "what_it_does": "Generates a detailed truck SVG icon in gray, indicating telemetry is unavailable." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a gray truck icon",
+                    "code": "import { grayTruckIcon } from 'akeyless-assets-commons';\n\nconst icon = grayTruckIcon('30', '30', '#888888', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 765,
+                "source_line_end": 1018,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/trucks.tsx#L765",
+                "nx_kb_anchor": "#function_gray_truck_icon"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

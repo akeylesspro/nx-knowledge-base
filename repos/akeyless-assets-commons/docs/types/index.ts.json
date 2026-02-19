@@ -1,0 +1,73 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "types/index.ts",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/types/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/types/index.ts.json"
+    },
+    "summary": {
+        "purpose": "Serves as the public barrel for the types module, re-exporting all type definitions from global.ts.",
+        "problem_solved": "Provides a single stable import path for library consumers who need the VehicleSvg type, shielding them from the internal file structure."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "./global",
+                "resolved_file_path": "types/global.ts",
+                "why_used": "Re-exports the VehicleSvg type defined in global.ts.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/types/global.ts.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/types/global.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "* from './global'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from global.ts, including the VehicleSvg type.",
+            "symbol_id": "value_reexport_global_types"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "value_reexport_global_types",
+            "name": "* from './global'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from global.ts, including the VehicleSvg type.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards VehicleSvg from types/global.ts to consumers importing from the types barrel."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import VehicleSvg from the types barrel",
+                    "code": "import type { VehicleSvg } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/types/index.ts#L1",
+                "nx_kb_anchor": "#value_reexport_global_types"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

@@ -1,0 +1,171 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "bicycles.tsx",
+    "source": {
+        "file_path": "svg/carsSvg/bicycles.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/bicycles.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/bicycles.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides four coloured bicycle SVG icon generator functions (red, yellow, green, gray) conforming to the VehicleSvg signature for use as map markers and menu icons.",
+        "problem_solved": "Supplies the bicycle vehicle type's state-specific icon variants so map and menu components can reflect real-time state visually."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "redBicycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red bicycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_red_bicycle_icon"
+        },
+        {
+            "name": "yellowBicycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow bicycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_yellow_bicycle_icon"
+        },
+        {
+            "name": "greenBicycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green bicycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_green_bicycle_icon"
+        },
+        {
+            "name": "grayBicycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray bicycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_gray_bicycle_icon"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_red_bicycle_icon",
+            "name": "redBicycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red bicycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Red bicycle icon SVG element. Red indicates ignition is off." }
+            },
+            "details": { "what_it_does": "Generates a bicycle SVG icon in red, indicating the vehicle's ignition is off." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a red bicycle icon",
+                    "code": "import { redBicycleIcon } from 'akeyless-assets-commons';\n\nconst icon = redBicycleIcon('30', '30', '#FF0000', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 84,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/bicycles.tsx#L2",
+                "nx_kb_anchor": "#function_red_bicycle_icon"
+            }
+        },
+        {
+            "symbol_id": "function_yellow_bicycle_icon",
+            "name": "yellowBicycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow bicycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Yellow bicycle icon SVG element. Yellow indicates idling." }
+            },
+            "details": { "what_it_does": "Generates a bicycle SVG icon in yellow, indicating the vehicle is idle (ignition on, not moving)." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a yellow bicycle icon",
+                    "code": "import { yellowBicycleIcon } from 'akeyless-assets-commons';\n\nconst icon = yellowBicycleIcon('30', '30', '#FFFF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 85,
+                "source_line_end": 167,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/bicycles.tsx#L85",
+                "nx_kb_anchor": "#function_yellow_bicycle_icon"
+            }
+        },
+        {
+            "symbol_id": "function_green_bicycle_icon",
+            "name": "greenBicycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green bicycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Green bicycle icon SVG element. Green indicates actively moving." }
+            },
+            "details": { "what_it_does": "Generates a bicycle SVG icon in green, indicating the vehicle is actively moving." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a green bicycle icon",
+                    "code": "import { greenBicycleIcon } from 'akeyless-assets-commons';\n\nconst icon = greenBicycleIcon('30', '30', '#00FF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 168,
+                "source_line_end": 250,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/bicycles.tsx#L168",
+                "nx_kb_anchor": "#function_green_bicycle_icon"
+            }
+        },
+        {
+            "symbol_id": "function_gray_bicycle_icon",
+            "name": "grayBicycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray bicycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Gray bicycle icon SVG element. Gray indicates unknown telemetry state." }
+            },
+            "details": { "what_it_does": "Generates a bicycle SVG icon in gray, indicating telemetry is unavailable." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a gray bicycle icon",
+                    "code": "import { grayBicycleIcon } from 'akeyless-assets-commons';\n\nconst icon = grayBicycleIcon('30', '30', '#888888', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 251,
+                "source_line_end": 333,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/bicycles.tsx#L251",
+                "nx_kb_anchor": "#function_gray_bicycle_icon"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

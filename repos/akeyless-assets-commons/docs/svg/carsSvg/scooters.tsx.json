@@ -1,0 +1,171 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "scooters.tsx",
+    "source": {
+        "file_path": "svg/carsSvg/scooters.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/scooters.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/scooters.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides four coloured scooter SVG icon generator functions (red, yellow, green, gray) conforming to the VehicleSvg signature for use as map markers and menu icons.",
+        "problem_solved": "Supplies the scooter vehicle type's state-specific icon variants so map and menu components can reflect real-time ignition and speed state visually."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "redScooterIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red scooter SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_red_scooter_icon"
+        },
+        {
+            "name": "yellowScooterIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow scooter SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_yellow_scooter_icon"
+        },
+        {
+            "name": "greenScooterIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green scooter SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_green_scooter_icon"
+        },
+        {
+            "name": "grayScooterIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray scooter SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_gray_scooter_icon"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_red_scooter_icon",
+            "name": "redScooterIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red scooter SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Red scooter icon SVG element. Red indicates ignition is off." }
+            },
+            "details": { "what_it_does": "Generates a scooter SVG icon in red, indicating ignition is off." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a red scooter icon",
+                    "code": "import { redScooterIcon } from 'akeyless-assets-commons';\n\nconst icon = redScooterIcon('30', '30', '#FF0000', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 103,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/scooters.tsx#L3",
+                "nx_kb_anchor": "#function_red_scooter_icon"
+            }
+        },
+        {
+            "symbol_id": "function_yellow_scooter_icon",
+            "name": "yellowScooterIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow scooter SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Yellow scooter icon SVG element. Yellow indicates idling." }
+            },
+            "details": { "what_it_does": "Generates a scooter SVG icon in yellow, indicating idle state." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a yellow scooter icon",
+                    "code": "import { yellowScooterIcon } from 'akeyless-assets-commons';\n\nconst icon = yellowScooterIcon('30', '30', '#FFFF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 104,
+                "source_line_end": 201,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/scooters.tsx#L104",
+                "nx_kb_anchor": "#function_yellow_scooter_icon"
+            }
+        },
+        {
+            "symbol_id": "function_green_scooter_icon",
+            "name": "greenScooterIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green scooter SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Green scooter icon SVG element. Green indicates actively moving." }
+            },
+            "details": { "what_it_does": "Generates a scooter SVG icon in green, indicating the scooter is actively moving." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a green scooter icon",
+                    "code": "import { greenScooterIcon } from 'akeyless-assets-commons';\n\nconst icon = greenScooterIcon('30', '30', '#00FF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 202,
+                "source_line_end": 302,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/scooters.tsx#L202",
+                "nx_kb_anchor": "#function_green_scooter_icon"
+            }
+        },
+        {
+            "symbol_id": "function_gray_scooter_icon",
+            "name": "grayScooterIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray scooter SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Gray scooter icon SVG element. Gray indicates unknown telemetry." }
+            },
+            "details": { "what_it_does": "Generates a scooter SVG icon in gray, indicating telemetry is unavailable." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a gray scooter icon",
+                    "code": "import { grayScooterIcon } from 'akeyless-assets-commons';\n\nconst icon = grayScooterIcon('30', '30', '#888888', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 303,
+                "source_line_end": 403,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/scooters.tsx#L303",
+                "nx_kb_anchor": "#function_gray_scooter_icon"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

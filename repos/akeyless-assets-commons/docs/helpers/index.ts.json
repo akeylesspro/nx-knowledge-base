@@ -1,0 +1,212 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "helpers/index.ts",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/helpers/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/helpers/index.ts.json"
+    },
+    "summary": {
+        "purpose": "Exports utility functions for formatting vehicle license plate numbers, computing geographical bearings between two coordinates, and merging CSS class names.",
+        "problem_solved": "Centralizes shared helper logic used by SVG and UI components throughout the assets-commons library."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "clsx",
+                "kind": "runtime",
+                "why_used": "Used by the cn utility to conditionally combine CSS class values."
+            },
+            {
+                "name": "tailwind-merge",
+                "kind": "runtime",
+                "why_used": "Used by the cn utility to deduplicate and merge Tailwind CSS class strings."
+            }
+        ],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "formatCarNumber",
+            "kind": "function",
+            "description_one_line": "Formats a raw numeric car licence plate string into a human-readable, hyphen-separated format based on its length.",
+            "symbol_id": "function_format_car_number"
+        },
+        {
+            "name": "calculateBearing",
+            "kind": "function",
+            "description_one_line": "Computes the compass bearing in degrees from a start coordinate to an end coordinate.",
+            "symbol_id": "function_calculate_bearing"
+        },
+        {
+            "name": "cn",
+            "kind": "function",
+            "description_one_line": "Merges and deduplicates Tailwind CSS class names using clsx and tailwind-merge.",
+            "symbol_id": "function_cn"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_format_car_number",
+            "name": "formatCarNumber",
+            "kind": "function",
+            "description_one_line": "Formats a raw numeric car licence plate string into a human-readable, hyphen-separated format based on its length.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "car_number",
+                        "type": "string",
+                        "required": true,
+                        "description": "Raw licence plate number string (digits only, 5–8 characters)."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "Hyphen-separated licence plate string. Returns the original string unchanged when its length does not match any known pattern (5–8 characters)."
+                }
+            },
+            "details": {
+                "what_it_does": "Inspects the length of the car_number string and inserts hyphens at predefined positions to produce standard Israeli licence plate formats. Supports 5-character (X-XX-XX), 6-character (XX-XXX-XX), 7-character (XX-XXX-XX extended), and 8-character (XXX-XX-XXX) formats. Returns the input unchanged for any other length.",
+                "side_effects": [],
+                "error_cases": []
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Format a 7-digit plate",
+                    "code": "import { formatCarNumber } from 'akeyless-assets-commons';\n\nformatCarNumber('1234567'); // '12-345-67'"
+                },
+                "extensive_correct": {
+                    "title": "Format plates of varying lengths",
+                    "code": "import { formatCarNumber } from 'akeyless-assets-commons';\n\nconsole.log(formatCarNumber('12345'));   // '1-23-45'\nconsole.log(formatCarNumber('123456'));  // '12-34-56'\nconsole.log(formatCarNumber('1234567')); // '12-345-67'\nconsole.log(formatCarNumber('12345678')); // '123-45-678'"
+                },
+                "incorrect": {
+                    "title": "Passing a non-string value",
+                    "code": "formatCarNumber(1234567);",
+                    "why_incorrect": "The parameter type is string. Passing a number will produce unexpected behaviour because numeric string methods (.length, bracket indexing) are not available on a number type."
+                }
+            },
+            "locations": {
+                "source_line_start": 4,
+                "source_line_end": 11,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/helpers/index.ts#L4",
+                "nx_kb_anchor": "#function_format_car_number"
+            }
+        },
+        {
+            "symbol_id": "function_calculate_bearing",
+            "name": "calculateBearing",
+            "kind": "function",
+            "description_one_line": "Computes the compass bearing in degrees from a start coordinate to an end coordinate.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "startLat",
+                        "type": "number",
+                        "required": true,
+                        "description": "Latitude of the starting point in decimal degrees."
+                    },
+                    {
+                        "name": "startLng",
+                        "type": "number",
+                        "required": true,
+                        "description": "Longitude of the starting point in decimal degrees."
+                    },
+                    {
+                        "name": "endLat",
+                        "type": "number",
+                        "required": true,
+                        "description": "Latitude of the destination point in decimal degrees."
+                    },
+                    {
+                        "name": "endLng",
+                        "type": "number",
+                        "required": true,
+                        "description": "Longitude of the destination point in decimal degrees."
+                    }
+                ],
+                "returns": {
+                    "type": "number",
+                    "description": "Bearing angle in degrees in the range [0, 360). Returns 0 when either coordinate pair is identical or when any argument is undefined."
+                }
+            },
+            "details": {
+                "what_it_does": "Converts the start and end latitude/longitude values from degrees to radians, then applies the standard forward azimuth formula using Math.atan2 to compute the initial compass bearing from the start point to the end point. The result is normalised into the [0, 360) range by adding 360 and taking the remainder. Returns 0 immediately if the coordinates are identical or any argument is undefined, avoiding division-by-zero issues.",
+                "side_effects": [],
+                "error_cases": [
+                    {
+                        "condition": "Any argument is undefined",
+                        "behavior": "Returns 0 without performing any trigonometric computation."
+                    },
+                    {
+                        "condition": "Start and end coordinates are identical",
+                        "behavior": "Returns 0 because there is no directional vector."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Bearing from Tel Aviv to Jerusalem",
+                    "code": "import { calculateBearing } from 'akeyless-assets-commons';\n\nconst bearing = calculateBearing(32.0853, 34.7818, 31.7683, 35.2137);\nconsole.log(bearing); // approximately 134 degrees (south-east)"
+                },
+                "incorrect": {
+                    "title": "Passing the same coordinates for start and end",
+                    "code": "calculateBearing(32.0853, 34.7818, 32.0853, 34.7818);",
+                    "why_incorrect": "The function detects identical latitude/longitude pairs and returns 0, which may mislead callers who expect a real bearing. Ensure start and end points differ before calling."
+                }
+            },
+            "locations": {
+                "source_line_start": 12,
+                "source_line_end": 30,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/helpers/index.ts#L12",
+                "nx_kb_anchor": "#function_calculate_bearing"
+            }
+        },
+        {
+            "symbol_id": "function_cn",
+            "name": "cn",
+            "kind": "function",
+            "description_one_line": "Merges and deduplicates Tailwind CSS class names using clsx and tailwind-merge.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "inputs",
+                        "type": "ClassValue[]",
+                        "required": true,
+                        "description": "One or more class value arguments accepted by clsx (strings, arrays, objects with boolean values)."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "A single merged string of Tailwind-deduplicated class names."
+                }
+            },
+            "details": {
+                "what_it_does": "Passes all arguments through clsx to conditionally combine class values into a single string, then passes the result through twMerge to resolve Tailwind CSS class conflicts (e.g., duplicate spacing or color utilities). Returns the final merged class string.",
+                "side_effects": [],
+                "error_cases": []
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Merge conditional Tailwind classes",
+                    "code": "import { cn } from 'akeyless-assets-commons';\n\nconst cls = cn('text-red-500', isActive && 'font-bold', 'text-blue-500');\n// 'font-bold text-blue-500'  (text-red-500 is overridden by text-blue-500)"
+                }
+            },
+            "locations": {
+                "source_line_start": 32,
+                "source_line_end": 34,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/helpers/index.ts#L32",
+                "nx_kb_anchor": "#function_cn"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

@@ -1,0 +1,388 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "warningIcons.tsx",
+    "source": {
+        "file_path": "svg/warningIcons.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/warningIcons.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides a set of inline JSX SVG and icon constants for common vehicle dashboard warning indicators including low fuel, battery, tyre pressure, ABS, airbag, check engine, and charging state — in both compact and full-size variants.",
+        "problem_solved": "Centralises vehicle warning icon assets so that dashboard and alert UI components can import ready-to-use warning icons without embedding raw SVG markup inline."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "bellIco",
+            "kind": "constant",
+            "description_one_line": "Inline JSX icon for a bell notification indicator with yellow styling.",
+            "symbol_id": "constant_bell_ico"
+        },
+        {
+            "name": "low_fuel_levelSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a low fuel level warning indicator (yellow).",
+            "symbol_id": "constant_low_fuel_level_svg"
+        },
+        {
+            "name": "batterySvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a battery warning indicator (yellow).",
+            "symbol_id": "constant_battery_svg"
+        },
+        {
+            "name": "low_airSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a low tyre pressure warning indicator (yellow).",
+            "symbol_id": "constant_low_air_svg"
+        },
+        {
+            "name": "absSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an ABS (Anti-lock Braking System) warning indicator (yellow).",
+            "symbol_id": "constant_abs_svg"
+        },
+        {
+            "name": "air_bagSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an airbag warning indicator (yellow).",
+            "symbol_id": "constant_air_bag_svg"
+        },
+        {
+            "name": "check_engineSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a check engine warning indicator (yellow).",
+            "symbol_id": "constant_check_engine_svg"
+        },
+        {
+            "name": "low_battery_level_svg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a low battery level warning indicator (yellow).",
+            "symbol_id": "constant_low_battery_level_svg"
+        },
+        {
+            "name": "charging_icon",
+            "kind": "constant",
+            "description_one_line": "Inline JSX FontAwesome bolt icon representing a charging state (green).",
+            "symbol_id": "constant_charging_icon"
+        },
+        {
+            "name": "site_low_fuel_levelSvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for a low fuel level warning indicator for site-level display (yellow).",
+            "symbol_id": "constant_site_low_fuel_level_svg"
+        },
+        {
+            "name": "site_batterySvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for a battery warning indicator for site-level display (yellow).",
+            "symbol_id": "constant_site_battery_svg"
+        },
+        {
+            "name": "site_low_airSvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for a low tyre pressure warning indicator for site-level display (yellow).",
+            "symbol_id": "constant_site_low_air_svg"
+        },
+        {
+            "name": "site_absSvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for an ABS warning indicator for site-level display (yellow).",
+            "symbol_id": "constant_site_abs_svg"
+        },
+        {
+            "name": "site_air_bagSvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for an airbag warning indicator for site-level display (yellow).",
+            "symbol_id": "constant_site_air_bag_svg"
+        },
+        {
+            "name": "site_check_engineSvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for a check engine warning indicator for site-level display (yellow).",
+            "symbol_id": "constant_site_check_engine_svg"
+        },
+        {
+            "name": "site_low_battery_level_svg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for a low battery level warning indicator for site-level display (yellow).",
+            "symbol_id": "constant_site_low_battery_level_svg"
+        },
+        {
+            "name": "site_charging_icon",
+            "kind": "constant",
+            "description_one_line": "Inline JSX FontAwesome bolt icon representing a charging state for site-level display (green).",
+            "symbol_id": "constant_site_charging_icon"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "constant_bell_ico",
+            "name": "bellIco",
+            "kind": "constant",
+            "description_one_line": "Inline JSX icon for a bell notification indicator with yellow styling.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX div containing a FontAwesome solid bell icon (fa-sharp fa-solid fa-bell) in yellow (#F5D00A). Used as a notification or alarm indicator in vehicle dashboard warning lists."
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 6,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L2",
+                "nx_kb_anchor": "#constant_bell_ico"
+            }
+        },
+        {
+            "symbol_id": "constant_low_fuel_level_svg",
+            "name": "low_fuel_levelSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a low fuel level warning indicator (yellow).",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element (11x12 px) depicting a fuel pump symbol in yellow (#F5D00A). Used in compact vehicle dashboard warning lists to indicate low fuel."
+            },
+            "locations": {
+                "source_line_start": 7,
+                "source_line_end": 15,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L7",
+                "nx_kb_anchor": "#constant_low_fuel_level_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_battery_svg",
+            "name": "batterySvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a battery warning indicator (yellow).",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element (18x12 px) depicting a car battery symbol in yellow (#F5D00A). Used in compact vehicle dashboard warning lists to indicate a battery fault."
+            },
+            "locations": {
+                "source_line_start": 16,
+                "source_line_end": 25,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L16",
+                "nx_kb_anchor": "#constant_battery_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_low_air_svg",
+            "name": "low_airSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a low tyre pressure warning indicator (yellow).",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element (14x12 px) depicting a tyre pressure / flat tyre symbol in yellow (#F5D00A). Used in compact vehicle dashboard warning lists to indicate low tyre pressure."
+            },
+            "locations": {
+                "source_line_start": 26,
+                "source_line_end": 41,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L26",
+                "nx_kb_anchor": "#constant_low_air_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_abs_svg",
+            "name": "absSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an ABS warning indicator (yellow).",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element (19x12 px) depicting an ABS anti-lock braking symbol in yellow (#F5D00A). Used in compact vehicle dashboard warning lists to indicate an ABS fault."
+            },
+            "locations": {
+                "source_line_start": 42,
+                "source_line_end": 69,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L42",
+                "nx_kb_anchor": "#constant_abs_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_air_bag_svg",
+            "name": "air_bagSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an airbag warning indicator (yellow).",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element depicting an airbag/SRS warning symbol in yellow (#F5D00A). Used in compact vehicle dashboard warning lists to indicate an airbag fault."
+            },
+            "locations": {
+                "source_line_start": 70,
+                "source_line_end": 93,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L70",
+                "nx_kb_anchor": "#constant_air_bag_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_check_engine_svg",
+            "name": "check_engineSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a check engine warning indicator (yellow).",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element depicting an engine/check-engine symbol in yellow (#F5D00A). Used in compact vehicle dashboard warning lists to indicate an engine fault."
+            },
+            "locations": {
+                "source_line_start": 94,
+                "source_line_end": 101,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L94",
+                "nx_kb_anchor": "#constant_check_engine_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_low_battery_level_svg",
+            "name": "low_battery_level_svg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a low battery level warning indicator (yellow).",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element depicting a low-charge battery symbol in yellow (#F5D00A). Used in compact vehicle dashboard warning lists to indicate a low battery charge level."
+            },
+            "locations": {
+                "source_line_start": 102,
+                "source_line_end": 109,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L102",
+                "nx_kb_anchor": "#constant_low_battery_level_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_charging_icon",
+            "name": "charging_icon",
+            "kind": "constant",
+            "description_one_line": "Inline JSX FontAwesome bolt icon representing a charging state (green).",
+            "details": {
+                "what_it_does": "A pre-rendered JSX element using a FontAwesome regular bolt icon (fa-regular fa-bolt) in green (#37a744). Used in compact vehicle dashboard warning lists to indicate that the vehicle is charging."
+            },
+            "locations": {
+                "source_line_start": 110,
+                "source_line_end": 110,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L110",
+                "nx_kb_anchor": "#constant_charging_icon"
+            }
+        },
+        {
+            "symbol_id": "constant_site_low_fuel_level_svg",
+            "name": "site_low_fuel_levelSvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for a low fuel level warning indicator for site-level display (yellow).",
+            "details": {
+                "what_it_does": "A larger pre-rendered JSX SVG element of a fuel pump symbol in yellow. Used in site-level vehicle alert panels where more space is available compared to the compact bellIco-series icons."
+            },
+            "locations": {
+                "source_line_start": 113,
+                "source_line_end": 120,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L113",
+                "nx_kb_anchor": "#constant_site_low_fuel_level_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_site_battery_svg",
+            "name": "site_batterySvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for a battery warning indicator for site-level display (yellow).",
+            "details": {
+                "what_it_does": "A larger pre-rendered JSX SVG element of a car battery symbol in yellow. Used in site-level vehicle alert panels."
+            },
+            "locations": {
+                "source_line_start": 121,
+                "source_line_end": 130,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L121",
+                "nx_kb_anchor": "#constant_site_battery_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_site_low_air_svg",
+            "name": "site_low_airSvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for a low tyre pressure warning indicator for site-level display (yellow).",
+            "details": {
+                "what_it_does": "A larger pre-rendered JSX SVG element of a tyre pressure symbol in yellow. Used in site-level vehicle alert panels."
+            },
+            "locations": {
+                "source_line_start": 131,
+                "source_line_end": 150,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L131",
+                "nx_kb_anchor": "#constant_site_low_air_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_site_abs_svg",
+            "name": "site_absSvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for an ABS warning indicator for site-level display (yellow).",
+            "details": {
+                "what_it_does": "A larger pre-rendered JSX SVG element of an ABS symbol in yellow. Used in site-level vehicle alert panels."
+            },
+            "locations": {
+                "source_line_start": 151,
+                "source_line_end": 178,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L151",
+                "nx_kb_anchor": "#constant_site_abs_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_site_air_bag_svg",
+            "name": "site_air_bagSvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for an airbag warning indicator for site-level display (yellow).",
+            "details": {
+                "what_it_does": "A larger pre-rendered JSX SVG element of an airbag symbol in yellow. Used in site-level vehicle alert panels."
+            },
+            "locations": {
+                "source_line_start": 179,
+                "source_line_end": 202,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L179",
+                "nx_kb_anchor": "#constant_site_air_bag_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_site_check_engine_svg",
+            "name": "site_check_engineSvg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for a check engine warning indicator for site-level display (yellow).",
+            "details": {
+                "what_it_does": "A larger pre-rendered JSX SVG element of a check-engine symbol in yellow. Used in site-level vehicle alert panels."
+            },
+            "locations": {
+                "source_line_start": 203,
+                "source_line_end": 210,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L203",
+                "nx_kb_anchor": "#constant_site_check_engine_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_site_low_battery_level_svg",
+            "name": "site_low_battery_level_svg",
+            "kind": "constant",
+            "description_one_line": "Full-size SVG constant for a low battery level warning indicator for site-level display (yellow).",
+            "details": {
+                "what_it_does": "A larger pre-rendered JSX SVG element of a low-charge battery symbol in yellow. Used in site-level vehicle alert panels."
+            },
+            "locations": {
+                "source_line_start": 211,
+                "source_line_end": 218,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L211",
+                "nx_kb_anchor": "#constant_site_low_battery_level_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_site_charging_icon",
+            "name": "site_charging_icon",
+            "kind": "constant",
+            "description_one_line": "Inline JSX FontAwesome bolt icon representing a charging state for site-level display (green).",
+            "details": {
+                "what_it_does": "A pre-rendered JSX element using a FontAwesome regular bolt icon in green (#37a744). Used in site-level vehicle alert panels to indicate that the vehicle battery is charging."
+            },
+            "locations": {
+                "source_line_start": 219,
+                "source_line_end": 219,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx#L219",
+                "nx_kb_anchor": "#constant_site_charging_icon"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

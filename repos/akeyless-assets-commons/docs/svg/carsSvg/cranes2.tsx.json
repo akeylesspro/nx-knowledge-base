@@ -1,0 +1,101 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "cranes2.tsx",
+    "source": {
+        "file_path": "svg/carsSvg/cranes2.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/cranes2.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/cranes2.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides green and gray crane SVG icon generator functions conforming to the VehicleSvg signature for use as map markers and menu icons.",
+        "problem_solved": "Supplies the crane vehicle type's green (moving) and gray (unknown) icon variants. Red and yellow crane variants are in cranes1.tsx."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "greenCraneIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green crane SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_green_crane_icon"
+        },
+        {
+            "name": "grayCraneIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray crane SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_gray_crane_icon"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_green_crane_icon",
+            "name": "greenCraneIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green crane SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Green crane icon SVG element. Green indicates the crane is actively moving." }
+            },
+            "details": { "what_it_does": "Generates a detailed crane SVG icon in green, indicating the crane vehicle is actively moving (speed > 0)." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a green crane icon",
+                    "code": "import { greenCraneIcon } from 'akeyless-assets-commons';\n\nconst icon = greenCraneIcon('30', '30', '#00FF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 1499,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/cranes2.tsx#L3",
+                "nx_kb_anchor": "#function_green_crane_icon"
+            }
+        },
+        {
+            "symbol_id": "function_gray_crane_icon",
+            "name": "grayCraneIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray crane SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Gray crane icon SVG element. Gray indicates unknown telemetry state." }
+            },
+            "details": { "what_it_does": "Generates a detailed crane SVG icon in gray, indicating telemetry data is unavailable for the crane vehicle." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a gray crane icon",
+                    "code": "import { grayCraneIcon } from 'akeyless-assets-commons';\n\nconst icon = grayCraneIcon('30', '30', '#888888', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 1500,
+                "source_line_end": 2994,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/cranes2.tsx#L1500",
+                "nx_kb_anchor": "#function_gray_crane_icon"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

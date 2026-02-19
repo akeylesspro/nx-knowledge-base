@@ -1,0 +1,191 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "buss.tsx",
+    "source": {
+        "file_path": "svg/carsSvg/buss.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/buss.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/buss.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides four coloured bus SVG icon generator functions (red, yellow, green, gray) conforming to the VehicleSvg signature for use as map markers and menu icons.",
+        "problem_solved": "Supplies the bus vehicle type's state-specific icon variants so map and menu components can reflect real-time ignition and speed state visually."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "redBusIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red bus SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_red_bus_icon"
+        },
+        {
+            "name": "yellowBusIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow bus SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_yellow_bus_icon"
+        },
+        {
+            "name": "greenBusIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green bus SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_green_bus_icon"
+        },
+        {
+            "name": "grayBusIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray bus SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_gray_bus_icon"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_red_bus_icon",
+            "name": "redBusIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red bus SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A React SVG element representing a red bus icon. Red indicates ignition is off."
+                }
+            },
+            "details": {
+                "what_it_does": "Generates a detailed bus SVG icon in red. Used for buses whose ignition is off (parked/stopped)."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a red bus icon",
+                    "code": "import { redBusIcon } from 'akeyless-assets-commons';\n\nconst icon = redBusIcon('30', '30', '#FF0000', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 171,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/buss.tsx#L3",
+                "nx_kb_anchor": "#function_red_bus_icon"
+            }
+        },
+        {
+            "symbol_id": "function_yellow_bus_icon",
+            "name": "yellowBusIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow bus SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A React SVG element representing a yellow bus icon. Yellow indicates ignition on but not moving."
+                }
+            },
+            "details": {
+                "what_it_does": "Generates a detailed bus SVG icon in yellow. Used for buses that are idling (ignition on, speed zero)."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a yellow bus icon",
+                    "code": "import { yellowBusIcon } from 'akeyless-assets-commons';\n\nconst icon = yellowBusIcon('30', '30', '#FF0000', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 172,
+                "source_line_end": 340,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/buss.tsx#L172",
+                "nx_kb_anchor": "#function_yellow_bus_icon"
+            }
+        },
+        {
+            "symbol_id": "function_green_bus_icon",
+            "name": "greenBusIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green bus SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A React SVG element representing a green bus icon. Green indicates the bus is actively moving."
+                }
+            },
+            "details": {
+                "what_it_does": "Generates a detailed bus SVG icon in green. Used for buses that are actively moving (speed > 0)."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a green bus icon",
+                    "code": "import { greenBusIcon } from 'akeyless-assets-commons';\n\nconst icon = greenBusIcon('30', '30', '#00FF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 341,
+                "source_line_end": 509,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/buss.tsx#L341",
+                "nx_kb_anchor": "#function_green_bus_icon"
+            }
+        },
+        {
+            "symbol_id": "function_gray_bus_icon",
+            "name": "grayBusIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray bus SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A React SVG element representing a gray bus icon. Gray indicates telemetry state is unknown."
+                }
+            },
+            "details": {
+                "what_it_does": "Generates a detailed bus SVG icon in gray. Used for buses whose telemetry data is unavailable."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a gray bus icon",
+                    "code": "import { grayBusIcon } from 'akeyless-assets-commons';\n\nconst icon = grayBusIcon('30', '30', '#888888', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 510,
+                "source_line_end": 678,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/buss.tsx#L510",
+                "nx_kb_anchor": "#function_gray_bus_icon"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

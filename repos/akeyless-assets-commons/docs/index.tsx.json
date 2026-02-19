@@ -1,0 +1,73 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.tsx",
+    "source": {
+        "file_path": "index.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/index.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/index.tsx.json"
+    },
+    "summary": {
+        "purpose": "Serves as the main public entry point for the akeyless-assets-commons package, re-exporting all SVG assets and components from the svg module.",
+        "problem_solved": "Provides a single import path for consumers of the library to access all exported assets."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "./svg",
+                "resolved_file_path": "svg/index.tsx",
+                "why_used": "Re-exports all SVG assets and components defined in the svg sub-module.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/index.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/index.tsx"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "* from './svg'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the svg module.",
+            "symbol_id": "value_reexport_svg"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "value_reexport_svg",
+            "name": "* from './svg'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the svg module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards every export from the svg sub-module to consumers of the package."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Importing from the package root",
+                    "code": "import { carMarkerSvg, GoogleSvg } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/index.tsx#L1",
+                "nx_kb_anchor": "#value_reexport_svg"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

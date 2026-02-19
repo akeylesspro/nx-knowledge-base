@@ -1,0 +1,1505 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "global.tsx",
+    "source": {
+        "file_path": "svg/global.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/global.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides a large collection of reusable inline SVG constants, functional SVG generators, and React components for general-purpose UI elements including map markers, vehicle plate renderers, action icons, and the Google sign-in logo.",
+        "problem_solved": "Centralises all generic UI SVG assets so that application code can import ready-to-use JSX elements without managing raw SVG markup inline."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "akeyless-types-commons",
+                "resolved_file_path": "akeyless-types-commons",
+                "why_used": "Imports the CountryOptions enum used by the CarPlate component to select between Israeli and US plate renderers.",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/index.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/main/src/index.tsx"
+            },
+            {
+                "import_path": "../helpers",
+                "resolved_file_path": "helpers/index.ts",
+                "why_used": "Imports cn (class merging) and formatCarNumber (licence plate formatting) used inside CarPlate, IlPlate, and UsPlate components.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/helpers/index.ts.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/helpers/index.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "carMarkerSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant representing a red car map marker pin.",
+            "symbol_id": "constant_car_marker_svg"
+        },
+        {
+            "name": "moveSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a four-direction move/drag handle icon.",
+            "symbol_id": "constant_move_svg"
+        },
+        {
+            "name": "searchSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a magnifying glass search icon.",
+            "symbol_id": "constant_search_svg"
+        },
+        {
+            "name": "trashSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a trash/delete bin icon.",
+            "symbol_id": "constant_trash_svg"
+        },
+        {
+            "name": "editPenSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a pencil/edit icon.",
+            "symbol_id": "constant_edit_pen_svg"
+        },
+        {
+            "name": "impersonatImg",
+            "kind": "constant",
+            "description_one_line": "Inline img element for an impersonate/user-switch action icon.",
+            "symbol_id": "constant_impersonat_img"
+        },
+        {
+            "name": "cutOnSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a cut/scissors vehicle action icon.",
+            "symbol_id": "constant_cut_on_svg"
+        },
+        {
+            "name": "openDorsSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an open-doors vehicle status icon.",
+            "symbol_id": "constant_open_dors_svg"
+        },
+        {
+            "name": "changeCoseSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a change-course or route refresh icon.",
+            "symbol_id": "constant_change_cose_svg"
+        },
+        {
+            "name": "vibretionSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant representing a vibration sensor icon.",
+            "symbol_id": "constant_vibretion_svg"
+        },
+        {
+            "name": "garegeModSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a garage mode indicator icon.",
+            "symbol_id": "constant_garege_mod_svg"
+        },
+        {
+            "name": "asteriskSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an asterisk symbol.",
+            "symbol_id": "constant_asterisk_svg"
+        },
+        {
+            "name": "deleteSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a delete/remove icon.",
+            "symbol_id": "constant_delete_svg"
+        },
+        {
+            "name": "tripsSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a trips history icon.",
+            "symbol_id": "constant_trips_svg"
+        },
+        {
+            "name": "cameraSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a camera icon.",
+            "symbol_id": "constant_camera_svg"
+        },
+        {
+            "name": "videoHistorySvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a video history playback icon.",
+            "symbol_id": "constant_video_history_svg"
+        },
+        {
+            "name": "carCardSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a vehicle card/detail view icon.",
+            "symbol_id": "constant_car_card_svg"
+        },
+        {
+            "name": "infoSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a circular information icon (variant 1).",
+            "symbol_id": "constant_info_svg"
+        },
+        {
+            "name": "infoSvg2",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a circular information icon (variant 2).",
+            "symbol_id": "constant_info_svg2"
+        },
+        {
+            "name": "redXSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a red X / close icon.",
+            "symbol_id": "constant_red_x_svg"
+        },
+        {
+            "name": "greenVSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a green checkmark / confirm icon.",
+            "symbol_id": "constant_green_v_svg"
+        },
+        {
+            "name": "garbageSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a garbage/waste bin icon.",
+            "symbol_id": "constant_garbage_svg"
+        },
+        {
+            "name": "editSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an edit action icon.",
+            "symbol_id": "constant_edit_svg"
+        },
+        {
+            "name": "addPolygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an add-polygon map drawing icon.",
+            "symbol_id": "constant_add_polygon_svg"
+        },
+        {
+            "name": "circlePolygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a circular polygon shape icon.",
+            "symbol_id": "constant_circle_polygon_svg"
+        },
+        {
+            "name": "circlePolygonSvgFun",
+            "kind": "function",
+            "description_one_line": "Returns a circular polygon SVG element with an optional custom fill colour.",
+            "symbol_id": "function_circle_polygon_svg_fun"
+        },
+        {
+            "name": "freeShapePolygonSvgFun",
+            "kind": "function",
+            "description_one_line": "Returns a free-shape polygon SVG element with an optional custom fill colour.",
+            "symbol_id": "function_free_shape_polygon_svg_fun"
+        },
+        {
+            "name": "freeShapePolygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a free-shape polygon drawing icon.",
+            "symbol_id": "constant_free_shape_polygon_svg"
+        },
+        {
+            "name": "circleDefaultPolygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for the default circular polygon icon.",
+            "symbol_id": "constant_circle_default_polygon_svg"
+        },
+        {
+            "name": "freeShapeDefaultPolygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for the default free-shape polygon icon.",
+            "symbol_id": "constant_free_shape_default_polygon_svg"
+        },
+        {
+            "name": "phoneSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a phone contact icon.",
+            "symbol_id": "constant_phone_svg"
+        },
+        {
+            "name": "userSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a user/person icon.",
+            "symbol_id": "constant_user_svg"
+        },
+        {
+            "name": "israelFlagSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for the Israeli flag.",
+            "symbol_id": "constant_israel_flag_svg"
+        },
+        {
+            "name": "usFlagSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for the United States flag.",
+            "symbol_id": "constant_us_flag_svg"
+        },
+        {
+            "name": "israelFlagSvgFun",
+            "kind": "function",
+            "description_one_line": "Returns an Israeli flag SVG element with optional width and height overrides.",
+            "symbol_id": "function_israel_flag_svg_fun"
+        },
+        {
+            "name": "usFlagSvgFun",
+            "kind": "function",
+            "description_one_line": "Returns a US flag SVG element with optional width and height overrides.",
+            "symbol_id": "function_us_flag_svg_fun"
+        },
+        {
+            "name": "thFlagSvgFun",
+            "kind": "function",
+            "description_one_line": "Returns a Thai flag SVG element with optional width and height overrides.",
+            "symbol_id": "function_th_flag_svg_fun"
+        },
+        {
+            "name": "xSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a close/dismiss X icon.",
+            "symbol_id": "constant_x_svg"
+        },
+        {
+            "name": "shrinkScrenSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a shrink/collapse screen icon.",
+            "symbol_id": "constant_shrink_scren_svg"
+        },
+        {
+            "name": "fullScrenSvg",
+            "kind": "constant",
+            "description_one_line": "Inline div element styled to represent a full-screen expand indicator.",
+            "symbol_id": "constant_full_scren_svg"
+        },
+        {
+            "name": "passwordSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a password/lock icon.",
+            "symbol_id": "constant_password_svg"
+        },
+        {
+            "name": "alertSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an alert/warning triangle icon.",
+            "symbol_id": "constant_alert_svg"
+        },
+        {
+            "name": "mapSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a map/location icon.",
+            "symbol_id": "constant_map_svg"
+        },
+        {
+            "name": "polygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a polygon shape icon.",
+            "symbol_id": "constant_polygon_svg"
+        },
+        {
+            "name": "carSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a generic car silhouette icon.",
+            "symbol_id": "constant_car_svg"
+        },
+        {
+            "name": "carCutSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a car cut/disconnect icon.",
+            "symbol_id": "constant_car_cut_svg"
+        },
+        {
+            "name": "carSvg2",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a second generic car silhouette icon variant.",
+            "symbol_id": "constant_car_svg2"
+        },
+        {
+            "name": "glassSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a glass/window icon.",
+            "symbol_id": "constant_glass_svg"
+        },
+        {
+            "name": "akeylessLogoSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for the Akeyless company brand logo.",
+            "symbol_id": "constant_akeyless_logo_svg"
+        },
+        {
+            "name": "menuSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a hamburger menu icon.",
+            "symbol_id": "constant_menu_svg"
+        },
+        {
+            "name": "endPointSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a route end-point map marker.",
+            "symbol_id": "constant_end_point_svg"
+        },
+        {
+            "name": "startPointSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a route start-point map marker.",
+            "symbol_id": "constant_start_point_svg"
+        },
+        {
+            "name": "CarPlate",
+            "kind": "component",
+            "description_one_line": "Renders a vehicle licence plate component for the appropriate country (Israel or US) based on the country prop.",
+            "symbol_id": "component_car_plate"
+        },
+        {
+            "name": "IlPlate",
+            "kind": "component",
+            "description_one_line": "Renders an Israeli-style vehicle licence plate with formatted car number and optional styling.",
+            "symbol_id": "component_il_plate"
+        },
+        {
+            "name": "UsPlate",
+            "kind": "component",
+            "description_one_line": "Renders a US-style vehicle licence plate with formatted car number and optional styling.",
+            "symbol_id": "component_us_plate"
+        },
+        {
+            "name": "GoogleSvgProps",
+            "kind": "interface",
+            "description_one_line": "Props interface for the GoogleSvg component defining optional width, height, and viewBox attributes.",
+            "symbol_id": "interface_google_svg_props"
+        },
+        {
+            "name": "GoogleSvg",
+            "kind": "component",
+            "description_one_line": "Renders the Google multi-colour logo SVG with configurable dimensions and viewBox.",
+            "symbol_id": "component_google_svg"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "constant_car_marker_svg",
+            "name": "carMarkerSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant representing a red car map marker pin.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element depicting a stylised red car-shaped map pin (33x47 px). Intended for use as a map marker to indicate vehicle position."
+            },
+            "locations": {
+                "source_line_start": 4,
+                "source_line_end": 11,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L4",
+                "nx_kb_anchor": "#constant_car_marker_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_move_svg",
+            "name": "moveSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a four-direction move/drag handle icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element showing four arrows pointing in cardinal directions (20x20 px). Used as a drag-handle or move-action button."
+            },
+            "locations": {
+                "source_line_start": 13,
+                "source_line_end": 20,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L13",
+                "nx_kb_anchor": "#constant_move_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_search_svg",
+            "name": "searchSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a magnifying glass search icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a magnifying glass in gold/amber colour (20x20 px). Used as a search input adornment or button."
+            },
+            "locations": {
+                "source_line_start": 22,
+                "source_line_end": 31,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L22",
+                "nx_kb_anchor": "#constant_search_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_trash_svg",
+            "name": "trashSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a trash/delete bin icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a rubbish bin (64x64 viewBox, 100% size). Used in delete or remove action buttons."
+            },
+            "locations": {
+                "source_line_start": 33,
+                "source_line_end": 37,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L33",
+                "nx_kb_anchor": "#constant_trash_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_edit_pen_svg",
+            "name": "editPenSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a pencil/edit icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a pen/pencil (24x24 viewBox, 100% size). Used in edit action buttons."
+            },
+            "locations": {
+                "source_line_start": 39,
+                "source_line_end": 43,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L39",
+                "nx_kb_anchor": "#constant_edit_pen_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_impersonat_img",
+            "name": "impersonatImg",
+            "kind": "constant",
+            "description_one_line": "Inline img element for an impersonate/user-switch action icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX img element pointing to /images/impersonateIcon.png at 100% width and height. Used to represent the impersonate-user action in admin UIs."
+            },
+            "locations": {
+                "source_line_start": 45,
+                "source_line_end": 45,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L45",
+                "nx_kb_anchor": "#constant_impersonat_img"
+            }
+        },
+        {
+            "symbol_id": "constant_cut_on_svg",
+            "name": "cutOnSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a cut/scissors vehicle action icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element depicting a vehicle cut/disconnect symbol (58x58 px, dark grey fill). Used in fleet management interfaces to indicate a cut-off action."
+            },
+            "locations": {
+                "source_line_start": 47,
+                "source_line_end": 86,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L47",
+                "nx_kb_anchor": "#constant_cut_on_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_open_dors_svg",
+            "name": "openDorsSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an open-doors vehicle status icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element representing a vehicle with open doors and a padlock (59x58 px). Used to indicate that a vehicle's doors are open or unlocked."
+            },
+            "locations": {
+                "source_line_start": 87,
+                "source_line_end": 118,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L87",
+                "nx_kb_anchor": "#constant_open_dors_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_change_cose_svg",
+            "name": "changeCoseSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a change-course or route refresh icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a circular refresh/route-change symbol with a checkmark (58x58 px). Used to indicate a course or route change action."
+            },
+            "locations": {
+                "source_line_start": 119,
+                "source_line_end": 146,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L119",
+                "nx_kb_anchor": "#constant_change_cose_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_vibretion_svg",
+            "name": "vibretionSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant representing a vibration sensor icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element showing a sensor body with concentric wave arcs on both sides (52x56 px). Used to represent a vibration or shock sensor state in fleet management dashboards."
+            },
+            "locations": {
+                "source_line_start": 147,
+                "source_line_end": 179,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L147",
+                "nx_kb_anchor": "#constant_vibretion_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_garege_mod_svg",
+            "name": "garegeModSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a garage mode indicator icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element. Used to indicate that a vehicle is in garage/maintenance mode."
+            },
+            "locations": {
+                "source_line_start": 182,
+                "source_line_end": 192,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L182",
+                "nx_kb_anchor": "#constant_garege_mod_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_asterisk_svg",
+            "name": "asteriskSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an asterisk symbol.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of an asterisk/star shape. Used as a required-field indicator or decorative marker."
+            },
+            "locations": {
+                "source_line_start": 193,
+                "source_line_end": 201,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L193",
+                "nx_kb_anchor": "#constant_asterisk_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_delete_svg",
+            "name": "deleteSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a delete/remove icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element for a delete action. Used in table rows or list items to remove an entry."
+            },
+            "locations": {
+                "source_line_start": 202,
+                "source_line_end": 214,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L202",
+                "nx_kb_anchor": "#constant_delete_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_trips_svg",
+            "name": "tripsSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a trips history icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element depicting a route or journey history. Used as a navigation icon to access trip history views."
+            },
+            "locations": {
+                "source_line_start": 215,
+                "source_line_end": 230,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L215",
+                "nx_kb_anchor": "#constant_trips_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_camera_svg",
+            "name": "cameraSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a camera icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a camera. Used to link to live camera or image capture functionality."
+            },
+            "locations": {
+                "source_line_start": 231,
+                "source_line_end": 245,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L231",
+                "nx_kb_anchor": "#constant_camera_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_video_history_svg",
+            "name": "videoHistorySvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a video history playback icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element representing video recording history. Used as a navigation icon for reviewing recorded video footage."
+            },
+            "locations": {
+                "source_line_start": 246,
+                "source_line_end": 258,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L246",
+                "nx_kb_anchor": "#constant_video_history_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_car_card_svg",
+            "name": "carCardSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a vehicle card/detail view icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element depicting a vehicle information card. Used to navigate to the vehicle detail/card view."
+            },
+            "locations": {
+                "source_line_start": 259,
+                "source_line_end": 296,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L259",
+                "nx_kb_anchor": "#constant_car_card_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_info_svg",
+            "name": "infoSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a circular information icon (variant 1).",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a circled 'i' information symbol. Used to show contextual help or informational tooltips."
+            },
+            "locations": {
+                "source_line_start": 297,
+                "source_line_end": 304,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L297",
+                "nx_kb_anchor": "#constant_info_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_info_svg2",
+            "name": "infoSvg2",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a circular information icon (variant 2).",
+            "details": {
+                "what_it_does": "A second pre-rendered JSX SVG element of a circled 'i' information symbol with a different visual style. Used as an alternate info icon."
+            },
+            "locations": {
+                "source_line_start": 305,
+                "source_line_end": 320,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L305",
+                "nx_kb_anchor": "#constant_info_svg2"
+            }
+        },
+        {
+            "symbol_id": "constant_red_x_svg",
+            "name": "redXSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a red X / close icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a red X mark. Used in cancel, close, or rejection action contexts."
+            },
+            "locations": {
+                "source_line_start": 321,
+                "source_line_end": 333,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L321",
+                "nx_kb_anchor": "#constant_red_x_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_green_v_svg",
+            "name": "greenVSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a green checkmark / confirm icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a green tick/checkmark. Used in approve, confirm, or success action contexts."
+            },
+            "locations": {
+                "source_line_start": 334,
+                "source_line_end": 346,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L334",
+                "nx_kb_anchor": "#constant_green_v_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_garbage_svg",
+            "name": "garbageSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a garbage/waste bin icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a rubbish bin with a lid. Used as an alternate delete icon in various list or form contexts."
+            },
+            "locations": {
+                "source_line_start": 347,
+                "source_line_end": 366,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L347",
+                "nx_kb_anchor": "#constant_garbage_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_edit_svg",
+            "name": "editSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an edit action icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a pen/edit symbol. Used as a compact edit button icon."
+            },
+            "locations": {
+                "source_line_start": 367,
+                "source_line_end": 375,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L367",
+                "nx_kb_anchor": "#constant_edit_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_add_polygon_svg",
+            "name": "addPolygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an add-polygon map drawing icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a polygon shape with a plus symbol. Used to trigger polygon zone creation on a map."
+            },
+            "locations": {
+                "source_line_start": 376,
+                "source_line_end": 387,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L376",
+                "nx_kb_anchor": "#constant_add_polygon_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_circle_polygon_svg",
+            "name": "circlePolygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a circular polygon shape icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a circle-based polygon. Used to represent the circular geofence/zone type in map drawing tools."
+            },
+            "locations": {
+                "source_line_start": 388,
+                "source_line_end": 399,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L388",
+                "nx_kb_anchor": "#constant_circle_polygon_svg"
+            }
+        },
+        {
+            "symbol_id": "function_circle_polygon_svg_fun",
+            "name": "circlePolygonSvgFun",
+            "kind": "function",
+            "description_one_line": "Returns a circular polygon SVG element with an optional custom fill colour.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "color",
+                        "type": "string | undefined",
+                        "required": false,
+                        "description": "Optional hex or CSS colour string for the SVG fill. Defaults to the SVG's built-in colour if omitted."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A React SVG element representing a circular polygon icon with the specified fill colour."
+                }
+            },
+            "details": {
+                "what_it_does": "Generates a circular polygon SVG element and applies the provided colour as the fill attribute. Used in map UI toolbars where the zone type icon must reflect the site's custom colour."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render with a custom colour",
+                    "code": "import { circlePolygonSvgFun } from 'akeyless-assets-commons';\n\nconst icon = circlePolygonSvgFun('#FF5733');"
+                }
+            },
+            "locations": {
+                "source_line_start": 400,
+                "source_line_end": 413,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L400",
+                "nx_kb_anchor": "#function_circle_polygon_svg_fun"
+            }
+        },
+        {
+            "symbol_id": "function_free_shape_polygon_svg_fun",
+            "name": "freeShapePolygonSvgFun",
+            "kind": "function",
+            "description_one_line": "Returns a free-shape polygon SVG element with an optional custom fill colour.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "color",
+                        "type": "string | undefined",
+                        "required": false,
+                        "description": "Optional hex or CSS colour string for the SVG fill. Defaults to the SVG's built-in colour if omitted."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A React SVG element representing a free-shape polygon icon with the specified fill colour."
+                }
+            },
+            "details": {
+                "what_it_does": "Generates a free-shape polygon SVG element and applies the provided colour as the fill attribute. Used in map UI toolbars to distinguish free-draw zone types with the site's colour."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render with a custom colour",
+                    "code": "import { freeShapePolygonSvgFun } from 'akeyless-assets-commons';\n\nconst icon = freeShapePolygonSvgFun('#3498DB');"
+                }
+            },
+            "locations": {
+                "source_line_start": 414,
+                "source_line_end": 423,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L414",
+                "nx_kb_anchor": "#function_free_shape_polygon_svg_fun"
+            }
+        },
+        {
+            "symbol_id": "constant_free_shape_polygon_svg",
+            "name": "freeShapePolygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a free-shape polygon drawing icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of an irregular polygon shape. Used as a static zone-type indicator for free-draw geofences."
+            },
+            "locations": {
+                "source_line_start": 424,
+                "source_line_end": 431,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L424",
+                "nx_kb_anchor": "#constant_free_shape_polygon_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_circle_default_polygon_svg",
+            "name": "circleDefaultPolygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for the default circular polygon icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a default-styled circle polygon. Used as a fallback or default icon for circular geofence zones."
+            },
+            "locations": {
+                "source_line_start": 432,
+                "source_line_end": 443,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L432",
+                "nx_kb_anchor": "#constant_circle_default_polygon_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_free_shape_default_polygon_svg",
+            "name": "freeShapeDefaultPolygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for the default free-shape polygon icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a default-styled free-shape polygon. Used as a fallback icon for free-draw geofence zones."
+            },
+            "locations": {
+                "source_line_start": 444,
+                "source_line_end": 452,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L444",
+                "nx_kb_anchor": "#constant_free_shape_default_polygon_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_phone_svg",
+            "name": "phoneSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a phone contact icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a phone handset. Used in contact or driver information display sections."
+            },
+            "locations": {
+                "source_line_start": 453,
+                "source_line_end": 462,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L453",
+                "nx_kb_anchor": "#constant_phone_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_user_svg",
+            "name": "userSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a user/person icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a person silhouette. Used to represent driver or user identity in vehicle/fleet UI."
+            },
+            "locations": {
+                "source_line_start": 463,
+                "source_line_end": 477,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L463",
+                "nx_kb_anchor": "#constant_user_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_israel_flag_svg",
+            "name": "israelFlagSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for the Israeli flag.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of the Israeli national flag. Used in country-selection UIs and localisation indicators."
+            },
+            "locations": {
+                "source_line_start": 478,
+                "source_line_end": 490,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L478",
+                "nx_kb_anchor": "#constant_israel_flag_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_us_flag_svg",
+            "name": "usFlagSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for the United States flag.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of the US national flag. Used in country-selection UIs and localisation indicators."
+            },
+            "locations": {
+                "source_line_start": 491,
+                "source_line_end": 514,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L491",
+                "nx_kb_anchor": "#constant_us_flag_svg"
+            }
+        },
+        {
+            "symbol_id": "function_israel_flag_svg_fun",
+            "name": "israelFlagSvgFun",
+            "kind": "function",
+            "description_one_line": "Returns an Israeli flag SVG element with optional width and height overrides.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "w",
+                        "type": "number | undefined",
+                        "required": false,
+                        "description": "Optional width in pixels for the SVG element."
+                    },
+                    {
+                        "name": "h",
+                        "type": "number | undefined",
+                        "required": false,
+                        "description": "Optional height in pixels for the SVG element."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A React SVG element of the Israeli flag sized to the provided dimensions."
+                }
+            },
+            "details": {
+                "what_it_does": "Renders the Israeli flag SVG with configurable dimensions. Falls back to the SVG's intrinsic dimensions when no width or height is supplied."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render Israeli flag at 32x20",
+                    "code": "import { israelFlagSvgFun } from 'akeyless-assets-commons';\n\nconst flag = israelFlagSvgFun(32, 20);"
+                }
+            },
+            "locations": {
+                "source_line_start": 515,
+                "source_line_end": 529,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L515",
+                "nx_kb_anchor": "#function_israel_flag_svg_fun"
+            }
+        },
+        {
+            "symbol_id": "function_us_flag_svg_fun",
+            "name": "usFlagSvgFun",
+            "kind": "function",
+            "description_one_line": "Returns a US flag SVG element with optional width and height overrides.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "w",
+                        "type": "number | undefined",
+                        "required": false,
+                        "description": "Optional width in pixels for the SVG element."
+                    },
+                    {
+                        "name": "h",
+                        "type": "number | undefined",
+                        "required": false,
+                        "description": "Optional height in pixels for the SVG element."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A React SVG element of the US flag sized to the provided dimensions."
+                }
+            },
+            "details": {
+                "what_it_does": "Renders the US flag SVG with configurable dimensions. Falls back to the SVG's intrinsic dimensions when no width or height is supplied."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render US flag at 32x20",
+                    "code": "import { usFlagSvgFun } from 'akeyless-assets-commons';\n\nconst flag = usFlagSvgFun(32, 20);"
+                }
+            },
+            "locations": {
+                "source_line_start": 530,
+                "source_line_end": 556,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L530",
+                "nx_kb_anchor": "#function_us_flag_svg_fun"
+            }
+        },
+        {
+            "symbol_id": "function_th_flag_svg_fun",
+            "name": "thFlagSvgFun",
+            "kind": "function",
+            "description_one_line": "Returns a Thai flag SVG element with optional width and height overrides.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "w",
+                        "type": "number | undefined",
+                        "required": false,
+                        "description": "Optional width in pixels for the SVG element."
+                    },
+                    {
+                        "name": "h",
+                        "type": "number | undefined",
+                        "required": false,
+                        "description": "Optional height in pixels for the SVG element."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A React SVG element of the Thai flag sized to the provided dimensions."
+                }
+            },
+            "details": {
+                "what_it_does": "Renders the Thai national flag SVG with configurable dimensions. Falls back to the SVG's intrinsic dimensions when no width or height is supplied."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render Thai flag at 32x20",
+                    "code": "import { thFlagSvgFun } from 'akeyless-assets-commons';\n\nconst flag = thFlagSvgFun(32, 20);"
+                }
+            },
+            "locations": {
+                "source_line_start": 557,
+                "source_line_end": 578,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L557",
+                "nx_kb_anchor": "#function_th_flag_svg_fun"
+            }
+        },
+        {
+            "symbol_id": "constant_x_svg",
+            "name": "xSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a close/dismiss X icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of an X mark used to close dialogs, dismiss notifications, or remove items."
+            },
+            "locations": {
+                "source_line_start": 579,
+                "source_line_end": 584,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L579",
+                "nx_kb_anchor": "#constant_x_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_shrink_scren_svg",
+            "name": "shrinkScrenSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a shrink/collapse screen icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element depicting inward-pointing arrows. Used in map or panel headers to exit fullscreen or collapse the view."
+            },
+            "locations": {
+                "source_line_start": 585,
+                "source_line_end": 589,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L585",
+                "nx_kb_anchor": "#constant_shrink_scren_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_full_scren_svg",
+            "name": "fullScrenSvg",
+            "kind": "constant",
+            "description_one_line": "Inline div element styled to represent a full-screen expand indicator.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX div element with a white 1px border (11x11 px) that simulates a fullscreen expand icon. Used alongside shrinkScrenSvg to toggle fullscreen map mode."
+            },
+            "locations": {
+                "source_line_start": 590,
+                "source_line_end": 590,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L590",
+                "nx_kb_anchor": "#constant_full_scren_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_password_svg",
+            "name": "passwordSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a password/lock icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a padlock. Used in authentication forms to label the password input field."
+            },
+            "locations": {
+                "source_line_start": 592,
+                "source_line_end": 602,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L592",
+                "nx_kb_anchor": "#constant_password_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_alert_svg",
+            "name": "alertSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for an alert/warning triangle icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a warning triangle with an exclamation mark. Used to signal error states or important notices to the user."
+            },
+            "locations": {
+                "source_line_start": 603,
+                "source_line_end": 618,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L603",
+                "nx_kb_anchor": "#constant_alert_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_map_svg",
+            "name": "mapSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a map/location icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a map pin or map overview symbol. Used as a navigation icon to open map views."
+            },
+            "locations": {
+                "source_line_start": 619,
+                "source_line_end": 638,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L619",
+                "nx_kb_anchor": "#constant_map_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_polygon_svg",
+            "name": "polygonSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a polygon shape icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a multi-sided polygon. Used in geofence zone management UIs."
+            },
+            "locations": {
+                "source_line_start": 639,
+                "source_line_end": 648,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L639",
+                "nx_kb_anchor": "#constant_polygon_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_car_svg",
+            "name": "carSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a generic car silhouette icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a car side-view silhouette. Used as a generic vehicle representation in menus and dashboards."
+            },
+            "locations": {
+                "source_line_start": 649,
+                "source_line_end": 682,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L649",
+                "nx_kb_anchor": "#constant_car_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_car_cut_svg",
+            "name": "carCutSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a car cut/disconnect icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element representing a vehicle with a cut/disconnected state. Used to indicate engine cut-off actions in fleet management."
+            },
+            "locations": {
+                "source_line_start": 683,
+                "source_line_end": 698,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L683",
+                "nx_kb_anchor": "#constant_car_cut_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_car_svg2",
+            "name": "carSvg2",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a second generic car silhouette icon variant.",
+            "details": {
+                "what_it_does": "A second pre-rendered JSX SVG element of a car, styled differently from carSvg. Used where an alternate car icon style is needed."
+            },
+            "locations": {
+                "source_line_start": 699,
+                "source_line_end": 718,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L699",
+                "nx_kb_anchor": "#constant_car_svg2"
+            }
+        },
+        {
+            "symbol_id": "constant_glass_svg",
+            "name": "glassSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a glass/window icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element depicting a glass or window symbol. Used in vehicle detail UIs to represent the windshield or window status."
+            },
+            "locations": {
+                "source_line_start": 719,
+                "source_line_end": 741,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L719",
+                "nx_kb_anchor": "#constant_glass_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_akeyless_logo_svg",
+            "name": "akeylessLogoSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for the Akeyless company brand logo.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of the Akeyless fleet management platform brand logo. Used in headers, login screens, and branded UI elements."
+            },
+            "locations": {
+                "source_line_start": 742,
+                "source_line_end": 865,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L742",
+                "nx_kb_anchor": "#constant_akeyless_logo_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_menu_svg",
+            "name": "menuSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a hamburger menu icon.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of three horizontal lines. Used to open or toggle a side navigation menu."
+            },
+            "locations": {
+                "source_line_start": 866,
+                "source_line_end": 872,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L866",
+                "nx_kb_anchor": "#constant_menu_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_end_point_svg",
+            "name": "endPointSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a route end-point map marker.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a red circular pin marking the end of a route on a map. Used in trip history and route display views."
+            },
+            "locations": {
+                "source_line_start": 874,
+                "source_line_end": 882,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L874",
+                "nx_kb_anchor": "#constant_end_point_svg"
+            }
+        },
+        {
+            "symbol_id": "constant_start_point_svg",
+            "name": "startPointSvg",
+            "kind": "constant",
+            "description_one_line": "Inline SVG constant for a route start-point map marker.",
+            "details": {
+                "what_it_does": "A pre-rendered JSX SVG element of a green circular pin marking the start of a route on a map. Used in trip history and route display views."
+            },
+            "locations": {
+                "source_line_start": 883,
+                "source_line_end": 892,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L883",
+                "nx_kb_anchor": "#constant_start_point_svg"
+            }
+        },
+        {
+            "symbol_id": "component_car_plate",
+            "name": "CarPlate",
+            "kind": "component",
+            "description_one_line": "Renders a vehicle licence plate component for the appropriate country (Israel or US) based on the country prop.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "carNumber",
+                        "type": "string",
+                        "required": true,
+                        "description": "Raw vehicle licence plate number string to display."
+                    },
+                    {
+                        "name": "country",
+                        "type": "CountryOptions",
+                        "required": true,
+                        "description": "Country code that determines which plate renderer to use (CountryOptions.IL for Israel, otherwise US)."
+                    },
+                    {
+                        "name": "options",
+                        "type": "CarPlanOptions",
+                        "required": false,
+                        "description": "Optional styling overrides for the plate container, image, and text spans."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "Renders either IlPlate or UsPlate depending on the country value."
+                }
+            },
+            "details": {
+                "what_it_does": "Acts as a smart dispatcher: when country equals CountryOptions.IL it delegates rendering to IlPlate, otherwise it delegates to UsPlate. The carNumber is automatically formatted via formatCarNumber inside the child components.",
+                "rendered_ui_description": "Displays a styled licence plate HTML element with the formatted car number overlaid on the appropriate country-specific plate background."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render an Israeli licence plate",
+                    "code": "import { CarPlate } from 'akeyless-assets-commons';\nimport { CountryOptions } from 'akeyless-types-commons';\n\n<CarPlate carNumber=\"1234567\" country={CountryOptions.IL} />"
+                },
+                "extensive_correct": {
+                    "title": "Render a US plate with custom styling",
+                    "code": "import { CarPlate } from 'akeyless-assets-commons';\nimport { CountryOptions } from 'akeyless-types-commons';\n\n<CarPlate\n  carNumber=\"ABC1234\"\n  country={CountryOptions.US}\n  options={{ className: 'my-plate', style: { fontSize: '14px' } }}\n/>"
+                }
+            },
+            "locations": {
+                "source_line_start": 915,
+                "source_line_end": 917,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L915",
+                "nx_kb_anchor": "#component_car_plate"
+            }
+        },
+        {
+            "symbol_id": "component_il_plate",
+            "name": "IlPlate",
+            "kind": "component",
+            "description_one_line": "Renders an Israeli-style vehicle licence plate with formatted car number and optional styling.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "carNumber",
+                        "type": "string",
+                        "required": true,
+                        "description": "Raw vehicle licence plate number string."
+                    },
+                    {
+                        "name": "options",
+                        "type": "CarPlanOptions | undefined",
+                        "required": false,
+                        "description": "Optional styling overrides for the plate container, image filter, and text spans."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A div containing an Israeli plate image with the formatted car number overlaid."
+                }
+            },
+            "details": {
+                "what_it_does": "Renders a div with class car_plate _car_plate. Inside it places an img tag pointing to /images/car_plate.png (styled via options.filter) and a span containing the car number formatted by formatCarNumber. Accepts optional className, style, spanContainerClassName, and spanClassName overrides via the options prop.",
+                "rendered_ui_description": "Displays an Israeli vehicle licence plate background image with the hyphen-formatted car number text overlaid on top."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render an Israeli plate directly",
+                    "code": "import { IlPlate } from 'akeyless-assets-commons';\n\n<IlPlate carNumber=\"1234567\" />"
+                }
+            },
+            "locations": {
+                "source_line_start": 919,
+                "source_line_end": 931,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L919",
+                "nx_kb_anchor": "#component_il_plate"
+            }
+        },
+        {
+            "symbol_id": "component_us_plate",
+            "name": "UsPlate",
+            "kind": "component",
+            "description_one_line": "Renders a US-style vehicle licence plate with formatted car number and optional styling.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "carNumber",
+                        "type": "string",
+                        "required": true,
+                        "description": "Raw vehicle licence plate number string."
+                    },
+                    {
+                        "name": "options",
+                        "type": "CarPlanOptions | undefined",
+                        "required": false,
+                        "description": "Optional styling overrides for the plate container and text spans."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A div styled as a US plate with grey background and the formatted car number."
+                }
+            },
+            "details": {
+                "what_it_does": "Renders a div with class car_plate _car_plate containing a grey-background container (bg-[#b9bebe]) with a dark blue span (text-[#102246]) displaying the hyphen-formatted car number. Accepts optional className, style, spanContainerClassName, and spanClassName overrides via the options prop.",
+                "rendered_ui_description": "Displays a US-style vehicle licence plate with a grey background and dark blue car number text."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a US plate directly",
+                    "code": "import { UsPlate } from 'akeyless-assets-commons';\n\n<UsPlate carNumber=\"ABC1234\" />"
+                }
+            },
+            "locations": {
+                "source_line_start": 933,
+                "source_line_end": 944,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L933",
+                "nx_kb_anchor": "#component_us_plate"
+            }
+        },
+        {
+            "symbol_id": "interface_google_svg_props",
+            "name": "GoogleSvgProps",
+            "kind": "interface",
+            "description_one_line": "Props interface for the GoogleSvg component defining optional width, height, and viewBox attributes.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Interface definition; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Defines the optional props accepted by the GoogleSvg component. All three fields are optional; GoogleSvg uses its own defaults when they are omitted."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Typing GoogleSvg props",
+                    "code": "import type { GoogleSvgProps } from 'akeyless-assets-commons';\n\nconst props: GoogleSvgProps = { width: '32px', height: '32px' };"
+                }
+            },
+            "locations": {
+                "source_line_start": 973,
+                "source_line_end": 977,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L973",
+                "nx_kb_anchor": "#interface_google_svg_props"
+            }
+        },
+        {
+            "symbol_id": "component_google_svg",
+            "name": "GoogleSvg",
+            "kind": "component",
+            "description_one_line": "Renders the Google multi-colour logo SVG with configurable dimensions and viewBox.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "width",
+                        "type": "string",
+                        "required": false,
+                        "description": "Width of the SVG element. Defaults to '20px'."
+                    },
+                    {
+                        "name": "height",
+                        "type": "string",
+                        "required": false,
+                        "description": "Height of the SVG element. Defaults to '20px'."
+                    },
+                    {
+                        "name": "viewBox",
+                        "type": "string",
+                        "required": false,
+                        "description": "SVG viewBox attribute. Defaults to '0 0 256 266'."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "An SVG element depicting the Google G logo in its four brand colours (blue, green, yellow, red)."
+                }
+            },
+            "details": {
+                "what_it_does": "Renders the official Google multi-colour logo SVG using four path elements, each filled with one of the four Google brand colours. Accepts optional width, height, and viewBox props for flexible sizing. Used in sign-in-with-Google buttons.",
+                "rendered_ui_description": "Displays the well-known Google G logo icon in blue, green, yellow, and red."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render default-size Google logo",
+                    "code": "import { GoogleSvg } from 'akeyless-assets-commons';\n\n<GoogleSvg />"
+                },
+                "extensive_correct": {
+                    "title": "Render with custom size in a sign-in button",
+                    "code": "import { GoogleSvg } from 'akeyless-assets-commons';\n\n<button className=\"google-signin-btn\">\n  <GoogleSvg width=\"24px\" height=\"24px\" />\n  Sign in with Google\n</button>"
+                }
+            },
+            "locations": {
+                "source_line_start": 978,
+                "source_line_end": 999,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx#L978",
+                "nx_kb_anchor": "#component_google_svg"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": [
+            "Several mid-file SVG constants (garegeModSvg, asteriskSvg, deleteSvg, tripsSvg, cameraSvg, videoHistorySvg, carCardSvg, infoSvg, infoSvg2, redXSvg, greenVSvg, garbageSvg, editSvg, addPolygonSvg, circlePolygonSvg, freeShapePolygonSvg, circleDefaultPolygonSvg, freeShapeDefaultPolygonSvg, phoneSvg, userSvg, xSvg, shrinkScrenSvg, passwordSvg, alertSvg, mapSvg, polygonSvg, carSvg, carCutSvg, carSvg2, glassSvg, akeylessLogoSvg, menuSvg) are documented at the constant level. Line ranges are approximate due to the large file size; exact boundaries may be off by a few lines."
+        ]
+    }
+}

@@ -1,0 +1,171 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "jeeps.tsx",
+    "source": {
+        "file_path": "svg/carsSvg/jeeps.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/jeeps.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/jeeps.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides four coloured jeep SVG icon generator functions (red, yellow, green, gray) conforming to the VehicleSvg signature for use as map markers and menu icons.",
+        "problem_solved": "Supplies the jeep vehicle type's state-specific icon variants so map and menu components can reflect real-time ignition and speed state visually."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "redJeepIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red jeep SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_red_jeep_icon"
+        },
+        {
+            "name": "yellowJeepIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow jeep SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_yellow_jeep_icon"
+        },
+        {
+            "name": "greenJeepIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green jeep SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_green_jeep_icon"
+        },
+        {
+            "name": "grayJeepIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray jeep SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_gray_jeep_icon"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_red_jeep_icon",
+            "name": "redJeepIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red jeep SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Red jeep icon SVG element. Red indicates ignition is off." }
+            },
+            "details": { "what_it_does": "Generates a detailed jeep SVG icon in red, indicating ignition is off." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a red jeep icon",
+                    "code": "import { redJeepIcon } from 'akeyless-assets-commons';\n\nconst icon = redJeepIcon('30', '30', '#FF0000', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 653,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/jeeps.tsx#L3",
+                "nx_kb_anchor": "#function_red_jeep_icon"
+            }
+        },
+        {
+            "symbol_id": "function_yellow_jeep_icon",
+            "name": "yellowJeepIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow jeep SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Yellow jeep icon SVG element. Yellow indicates idling." }
+            },
+            "details": { "what_it_does": "Generates a detailed jeep SVG icon in yellow, indicating the jeep is idle." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a yellow jeep icon",
+                    "code": "import { yellowJeepIcon } from 'akeyless-assets-commons';\n\nconst icon = yellowJeepIcon('30', '30', '#FFFF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 654,
+                "source_line_end": 1304,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/jeeps.tsx#L654",
+                "nx_kb_anchor": "#function_yellow_jeep_icon"
+            }
+        },
+        {
+            "symbol_id": "function_green_jeep_icon",
+            "name": "greenJeepIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green jeep SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Green jeep icon SVG element. Green indicates actively moving." }
+            },
+            "details": { "what_it_does": "Generates a detailed jeep SVG icon in green, indicating the jeep is actively moving." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a green jeep icon",
+                    "code": "import { greenJeepIcon } from 'akeyless-assets-commons';\n\nconst icon = greenJeepIcon('30', '30', '#00FF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 1305,
+                "source_line_end": 1955,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/jeeps.tsx#L1305",
+                "nx_kb_anchor": "#function_green_jeep_icon"
+            }
+        },
+        {
+            "symbol_id": "function_gray_jeep_icon",
+            "name": "grayJeepIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray jeep SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Gray jeep icon SVG element. Gray indicates unknown telemetry state." }
+            },
+            "details": { "what_it_does": "Generates a detailed jeep SVG icon in gray, indicating telemetry is unavailable." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a gray jeep icon",
+                    "code": "import { grayJeepIcon } from 'akeyless-assets-commons';\n\nconst icon = grayJeepIcon('30', '30', '#888888', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 1956,
+                "source_line_end": 2606,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/jeeps.tsx#L1956",
+                "nx_kb_anchor": "#function_gray_jeep_icon"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

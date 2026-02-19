@@ -1,0 +1,24 @@
+{
+    "name": "akeyless-assets-commons",
+    "display_name": "Akeyless Assets Commons",
+    "description": "Shared SVG asset library for the Akeyless fleet management platform, providing vehicle map icons, dashboard warning indicators, general UI SVGs, and helper utilities.",
+    "story": "akeyless-assets-commons is the centralised visual asset library for the Akeyless fleet management platform. It houses all inline SVG constants and JSX components used across the client applications: coloured vehicle map-marker icons for nine vehicle types (car, bus, truck, jeep, crane, forklift, motorcycle, scooter, bicycle) each in four ignition/speed-derived colour states; dashboard warning icons for standard OBD faults; general-purpose UI icons such as map markers, flags, and action buttons; and React components including CarPlate, IlPlate, UsPlate, and GoogleSvg. Helper utilities for licence-plate formatting, compass bearing calculation, and Tailwind class merging are also included. The library exposes a single entry point so consumers can import any asset with a single import statement.",
+    "github_url": "https://github.com/akeyless/akeyless-assets-commons",
+    "default_branch": "main",
+    "language": "TypeScript",
+    "framework_tags": ["react", "tailwindcss"],
+    "capabilities": [
+        "Vehicle map icon rendering (9 vehicle types x 4 colour states)",
+        "Dashboard warning icon set (low fuel, battery, tyre pressure, ABS, airbag, check engine, charging)",
+        "General-purpose UI SVG constants (map markers, action icons, logos, flags)",
+        "Car licence plate rendering (Israeli and US formats)",
+        "Google sign-in logo component",
+        "Compass bearing calculation for vehicle direction",
+        "Licence plate number formatting",
+        "Tailwind CSS class merging utility"
+    ],
+    "last_synced_at": "2026-02-19T00:00:00.000Z",
+    "last_synced_commit": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+    "file_count": 18,
+    "symbol_count": 132
+}

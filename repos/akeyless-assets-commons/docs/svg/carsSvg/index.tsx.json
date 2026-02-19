@@ -1,0 +1,609 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.tsx",
+    "source": {
+        "file_path": "svg/carsSvg/index.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/index.tsx.json"
+    },
+    "summary": {
+        "purpose": "Aggregates all vehicle icon functions from individual vehicle-type modules, exposes an allIcons lookup map, and provides utility functions for selecting and rendering the correct vehicle icon based on real-time vehicle state.",
+        "problem_solved": "Removes per-consumer responsibility for mapping vehicle type and ignition/speed state to the correct colour icon, and handles the directional pointer overlay composited with the vehicle icon for map display."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "akeyless-types-commons",
+                "kind": "runtime",
+                "why_used": "Imports the Car and LastLocationCar types used in generateVehicleIconForMenu to type-check vehicle and location data."
+            }
+        ],
+        "internal": [
+            {
+                "import_path": "./cranes2",
+                "resolved_file_path": "svg/carsSvg/cranes2.tsx",
+                "why_used": "Imports grayCraneIcon and greenCraneIcon for inclusion in the allIcons map.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/cranes2.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/cranes2.tsx"
+            },
+            {
+                "import_path": "./cranes1",
+                "resolved_file_path": "svg/carsSvg/cranes1.tsx",
+                "why_used": "Imports redCraneIcon and yellowCraneIcon for inclusion in the allIcons map.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/cranes1.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/cranes1.tsx"
+            },
+            {
+                "import_path": "./buss",
+                "resolved_file_path": "svg/carsSvg/buss.tsx",
+                "why_used": "Imports the four bus icon functions for inclusion in the allIcons map.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/buss.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/buss.tsx"
+            },
+            {
+                "import_path": "./cars",
+                "resolved_file_path": "svg/carsSvg/cars.tsx",
+                "why_used": "Imports the four car icon functions for inclusion in the allIcons map.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/cars.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/cars.tsx"
+            },
+            {
+                "import_path": "./jeeps",
+                "resolved_file_path": "svg/carsSvg/jeeps.tsx",
+                "why_used": "Imports the four jeep icon functions for inclusion in the allIcons map.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/jeeps.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/jeeps.tsx"
+            },
+            {
+                "import_path": "./trucks",
+                "resolved_file_path": "svg/carsSvg/trucks.tsx",
+                "why_used": "Imports the four truck icon functions for inclusion in the allIcons map.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/trucks.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/trucks.tsx"
+            },
+            {
+                "import_path": "./scooters",
+                "resolved_file_path": "svg/carsSvg/scooters.tsx",
+                "why_used": "Imports the four scooter icon functions for inclusion in the allIcons map.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/scooters.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/scooters.tsx"
+            },
+            {
+                "import_path": "./bicycles",
+                "resolved_file_path": "svg/carsSvg/bicycles.tsx",
+                "why_used": "Imports the four bicycle icon functions for inclusion in the allIcons map.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/bicycles.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/bicycles.tsx"
+            },
+            {
+                "import_path": "./forklifts",
+                "resolved_file_path": "svg/carsSvg/forklifts.tsx",
+                "why_used": "Imports the four forklift icon functions for inclusion in the allIcons map.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/forklifts.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/forklifts.tsx"
+            },
+            {
+                "import_path": "./motorcycles",
+                "resolved_file_path": "svg/carsSvg/motorcycles.tsx",
+                "why_used": "Imports the four motorcycle icon functions for inclusion in the allIcons map.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/motorcycles.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/motorcycles.tsx"
+            },
+            {
+                "import_path": "../../types",
+                "resolved_file_path": "types/index.ts",
+                "why_used": "Imports the VehicleSvg function type used in generateVehicleIconForMenu to type the icon variable.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/types/index.ts.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/types/index.ts"
+            },
+            {
+                "import_path": "../../helpers",
+                "resolved_file_path": "helpers/index.ts",
+                "why_used": "Imports calculateBearing to compute vehicle heading angle for the rotating pointer overlay.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/helpers/index.ts.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/helpers/index.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "* from './cranes1'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the cranes1 module.",
+            "symbol_id": "value_reexport_cranes1"
+        },
+        {
+            "name": "* from './cranes2'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the cranes2 module.",
+            "symbol_id": "value_reexport_cranes2"
+        },
+        {
+            "name": "* from './cars'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the cars module.",
+            "symbol_id": "value_reexport_cars"
+        },
+        {
+            "name": "* from './buss'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the buss module.",
+            "symbol_id": "value_reexport_buss"
+        },
+        {
+            "name": "* from './jeeps'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the jeeps module.",
+            "symbol_id": "value_reexport_jeeps"
+        },
+        {
+            "name": "* from './trucks'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the trucks module.",
+            "symbol_id": "value_reexport_trucks"
+        },
+        {
+            "name": "* from './scooters'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the scooters module.",
+            "symbol_id": "value_reexport_scooters"
+        },
+        {
+            "name": "* from './bicycles'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the bicycles module.",
+            "symbol_id": "value_reexport_bicycles"
+        },
+        {
+            "name": "* from './forklifts'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the forklifts module.",
+            "symbol_id": "value_reexport_forklifts"
+        },
+        {
+            "name": "* from './motorcycles'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the motorcycles module.",
+            "symbol_id": "value_reexport_motorcycles"
+        },
+        {
+            "name": "allIcons",
+            "kind": "constant",
+            "description_one_line": "Lookup map of all vehicle icon functions organised by vehicle type and colour state (red, yellow, green, gray).",
+            "symbol_id": "constant_all_icons"
+        },
+        {
+            "name": "getVehiclesIcon",
+            "kind": "function",
+            "description_one_line": "Selects and renders the correct vehicle icon with a direction pointer overlay based on real-time vehicle telemetry data.",
+            "symbol_id": "function_get_vehicles_icon"
+        },
+        {
+            "name": "generateVehicleIconForMenu",
+            "kind": "function",
+            "description_one_line": "Generates a vehicle icon element sized for menu display based on vehicle configuration and last known location data.",
+            "symbol_id": "function_generate_vehicle_icon_for_menu"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "value_reexport_cranes1",
+            "name": "* from './cranes1'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the cranes1 module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards redCraneIcon and yellowCraneIcon from cranes1.tsx."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access crane icons",
+                    "code": "import { redCraneIcon, yellowCraneIcon } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 15,
+                "source_line_end": 15,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L15",
+                "nx_kb_anchor": "#value_reexport_cranes1"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_cranes2",
+            "name": "* from './cranes2'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the cranes2 module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards grayCraneIcon and greenCraneIcon from cranes2.tsx."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access crane icons",
+                    "code": "import { grayCraneIcon, greenCraneIcon } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 16,
+                "source_line_end": 16,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L16",
+                "nx_kb_anchor": "#value_reexport_cranes2"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_cars",
+            "name": "* from './cars'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the cars module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards redCarIcon, yellowCarIcon, greenCarIcon, and grayCarIcon from cars.tsx."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access car icons",
+                    "code": "import { redCarIcon, greenCarIcon } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 17,
+                "source_line_end": 17,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L17",
+                "nx_kb_anchor": "#value_reexport_cars"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_buss",
+            "name": "* from './buss'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the buss module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards the four bus icon functions from buss.tsx."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access bus icons",
+                    "code": "import { redBusIcon, grayBusIcon } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 18,
+                "source_line_end": 18,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L18",
+                "nx_kb_anchor": "#value_reexport_buss"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_jeeps",
+            "name": "* from './jeeps'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the jeeps module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards the four jeep icon functions from jeeps.tsx."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access jeep icons",
+                    "code": "import { redJeepIcon, greenJeepIcon } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 19,
+                "source_line_end": 19,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L19",
+                "nx_kb_anchor": "#value_reexport_jeeps"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_trucks",
+            "name": "* from './trucks'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the trucks module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards the four truck icon functions from trucks.tsx."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access truck icons",
+                    "code": "import { redTruckIcon, grayTruckIcon } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 20,
+                "source_line_end": 20,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L20",
+                "nx_kb_anchor": "#value_reexport_trucks"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_scooters",
+            "name": "* from './scooters'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the scooters module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards the four scooter icon functions from scooters.tsx."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access scooter icons",
+                    "code": "import { redScooterIcon, greenScooterIcon } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 21,
+                "source_line_end": 21,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L21",
+                "nx_kb_anchor": "#value_reexport_scooters"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_bicycles",
+            "name": "* from './bicycles'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the bicycles module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards the four bicycle icon functions from bicycles.tsx."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access bicycle icons",
+                    "code": "import { redBicycleIcon, grayBicycleIcon } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 22,
+                "source_line_end": 22,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L22",
+                "nx_kb_anchor": "#value_reexport_bicycles"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_forklifts",
+            "name": "* from './forklifts'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the forklifts module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards the four forklift icon functions from forklifts.tsx."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access forklift icons",
+                    "code": "import { redForkliftIcon, yellowForkliftIcon } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 23,
+                "source_line_end": 23,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L23",
+                "nx_kb_anchor": "#value_reexport_forklifts"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_motorcycles",
+            "name": "* from './motorcycles'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the motorcycles module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards the four motorcycle icon functions from motorcycles.tsx."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access motorcycle icons",
+                    "code": "import { redMotorcycleIcon, greenMotorcycleIcon } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 24,
+                "source_line_end": 24,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L24",
+                "nx_kb_anchor": "#value_reexport_motorcycles"
+            }
+        },
+        {
+            "symbol_id": "constant_all_icons",
+            "name": "allIcons",
+            "kind": "constant",
+            "description_one_line": "Lookup map of all vehicle icon functions organised by vehicle type and colour state (red, yellow, green, gray).",
+            "details": {
+                "what_it_does": "A plain JavaScript object keyed by vehicle type strings ('car', 'motorcycle', 'truck', 'bus', 'scooter', 'bicycle', 'forklift', 'crane', 'jeep'). Each key maps to an object with four colour keys (red, yellow, green, gray) whose values are VehicleSvg functions. Used by getVehiclesIcon and generateVehicleIconForMenu to resolve the correct icon function from a vehicle's type and derived colour state."
+            },
+            "locations": {
+                "source_line_start": 26,
+                "source_line_end": 101,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L26",
+                "nx_kb_anchor": "#constant_all_icons"
+            }
+        },
+        {
+            "symbol_id": "function_get_vehicles_icon",
+            "name": "getVehiclesIcon",
+            "kind": "function",
+            "description_one_line": "Selects and renders the correct vehicle icon with a direction pointer overlay based on real-time vehicle telemetry data.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "vehicle",
+                        "type": "any",
+                        "required": true,
+                        "description": "Vehicle telemetry object with fields: icon (vehicle type string), ign (ignition state), spd (speed), prev_lat, prev_lng, lat, lng, car_number."
+                    },
+                    {
+                        "name": "isBig",
+                        "type": "boolean | undefined",
+                        "required": true,
+                        "description": "When true, renders a larger (100px) icon with the newBigIconCar CSS class; when false, renders a smaller (30px) icon."
+                    },
+                    {
+                        "name": "sitesData",
+                        "type": "any",
+                        "required": true,
+                        "description": "Array of site objects, each with a cars array and a color property, used to resolve the site colour for the pointer overlay."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A React fragment containing a rotating pointer SVG overlay and the vehicle icon SVG. Returns an empty fragment if vehicle or isBig is undefined."
+                }
+            },
+            "details": {
+                "what_it_does": "Determines the icon colour state from the vehicle telemetry: gray when ign/spd are undefined, red when ignition is off (ign===0), green when moving (spd!==0), yellow otherwise. Looks up the correct VehicleSvg function from allIcons using vehicle.icon. Computes the compass bearing from the previous to the current position via calculateBearing, and uses it to rotate a pointer arrow SVG. Resolves the site colour from sitesData by finding the site whose cars array contains the vehicle's car_number. Renders the pointer and vehicle icon composited in a React fragment.",
+                "side_effects": [],
+                "error_cases": [
+                    {
+                        "condition": "vehicle is undefined or isBig is undefined",
+                        "behavior": "Returns an empty React fragment."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a vehicle icon on a map",
+                    "code": "import { getVehiclesIcon } from 'akeyless-assets-commons';\n\nconst icon = getVehiclesIcon(\n  { icon: 'car', ign: 1, spd: 30, prev_lat: 32.0, prev_lng: 34.7, lat: 32.1, lng: 34.8, car_number: '1234567' },\n  false,\n  [{ cars: ['1234567'], color: '#FF0000' }]\n);"
+                }
+            },
+            "locations": {
+                "source_line_start": 102,
+                "source_line_end": 125,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L102",
+                "nx_kb_anchor": "#function_get_vehicles_icon"
+            }
+        },
+        {
+            "symbol_id": "function_generate_vehicle_icon_for_menu",
+            "name": "generateVehicleIconForMenu",
+            "kind": "function",
+            "description_one_line": "Generates a vehicle icon element sized for menu display based on vehicle configuration and last known location data.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "width",
+                        "type": "string | number",
+                        "required": true,
+                        "description": "Width to pass to the VehicleSvg function."
+                    },
+                    {
+                        "name": "height",
+                        "type": "string | number",
+                        "required": true,
+                        "description": "Height to pass to the VehicleSvg function."
+                    },
+                    {
+                        "name": "vehicle",
+                        "type": "Car",
+                        "required": true,
+                        "description": "Vehicle object containing at minimum an icon field for type lookup."
+                    },
+                    {
+                        "name": "locationCar",
+                        "type": "LastLocationCar",
+                        "required": true,
+                        "description": "Last known location/telemetry data for the vehicle; used to derive colour state."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "The vehicle icon JSX element at the specified dimensions, or the string 'N/A' wrapped in a fragment if the vehicle is falsy."
+                }
+            },
+            "details": {
+                "what_it_does": "Resolves the icon colour state from locationCar (gray when undefined fields, red when ign===0, green when spd!==0, yellow otherwise). Looks up the VehicleSvg function from allIcons using vehicle.icon, defaulting to 'car'. Calls the function with the provided width and height, passes 'undefined' as siteColor, the CSS class 'menu_vehicle_icon', and the viewBoxFor value 'menu_icon'. Returns a 'N/A' fragment when vehicle is falsy.",
+                "side_effects": [],
+                "error_cases": [
+                    {
+                        "condition": "vehicle is falsy",
+                        "behavior": "Returns a React fragment containing the string 'N/A'."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a vehicle icon for the side menu",
+                    "code": "import { generateVehicleIconForMenu } from 'akeyless-assets-commons';\n\nconst icon = generateVehicleIconForMenu(30, 30, vehicle, lastLocation);"
+                }
+            },
+            "locations": {
+                "source_line_start": 126,
+                "source_line_end": 140,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx#L126",
+                "nx_kb_anchor": "#function_generate_vehicle_icon_for_menu"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

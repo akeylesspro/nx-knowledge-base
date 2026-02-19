@@ -1,0 +1,63 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "global.ts",
+    "source": {
+        "file_path": "types/global.ts",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/types/global.ts",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/types/global.ts.json"
+    },
+    "summary": {
+        "purpose": "Defines and exports the VehicleSvg type, which is the standard function signature that all vehicle icon generator functions in this library must conform to.",
+        "problem_solved": "Establishes a shared contract for vehicle icon functions so that callers such as getVehiclesIcon and generateVehicleIconForMenu can invoke any vehicle icon interchangeably without knowing the concrete implementation."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "VehicleSvg",
+            "kind": "type",
+            "description_one_line": "Function type signature for all vehicle SVG icon generators, accepting size, colour, CSS class, and viewBox context parameters and returning a JSX element.",
+            "symbol_id": "type_vehicle_svg"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "type_vehicle_svg",
+            "name": "VehicleSvg",
+            "kind": "type",
+            "description_one_line": "Function type signature for all vehicle SVG icon generators, accepting size, colour, CSS class, and viewBox context parameters and returning a JSX element.",
+            "details": {
+                "what_it_does": "Defines the standard callable contract that every vehicle icon function (redCarIcon, greenBusIcon, grayForkliftIcon, etc.) must satisfy. The five parameters cover dimensions (width, height), site-specific fill colour (siteColor), CSS class attribution (className), and a rendering context hint (viewBoxFor). Any function conforming to VehicleSvg can be stored in the allIcons map and invoked uniformly by getVehiclesIcon and generateVehicleIconForMenu.",
+                "type_definition": "type VehicleSvg = (width: string | number, height: string | number, siteColor: string, className: string, viewBoxFor: string) => JSX.Element;"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Type a custom vehicle icon function",
+                    "code": "import type { VehicleSvg } from 'akeyless-assets-commons';\n\nconst myIcon: VehicleSvg = (width, height, siteColor, className, viewBoxFor) => (\n  <svg width={width} height={height} className={className}>\n    <circle cx=\"50%\" cy=\"50%\" r=\"40%\" fill={siteColor} />\n  </svg>\n);"
+                },
+                "extensive_correct": {
+                    "title": "Use VehicleSvg in a lookup map",
+                    "code": "import type { VehicleSvg } from 'akeyless-assets-commons';\nimport { redCarIcon, greenCarIcon } from 'akeyless-assets-commons';\n\nconst icons: Record<string, VehicleSvg> = {\n  red: redCarIcon,\n  green: greenCarIcon,\n};\n\nconst icon = icons['green']('30', '30', '#123456', 'myClass', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/types/global.ts#L1",
+                "nx_kb_anchor": "#type_vehicle_svg"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

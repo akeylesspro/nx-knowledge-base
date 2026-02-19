@@ -1,0 +1,171 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "motorcycles.tsx",
+    "source": {
+        "file_path": "svg/carsSvg/motorcycles.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/motorcycles.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/motorcycles.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides four coloured motorcycle SVG icon generator functions (red, yellow, green, gray) conforming to the VehicleSvg signature for use as map markers and menu icons.",
+        "problem_solved": "Supplies the motorcycle vehicle type's state-specific icon variants so map and menu components can reflect real-time ignition and speed state visually."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "redMotorcycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red motorcycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_red_motorcycle_icon"
+        },
+        {
+            "name": "yellowMotorcycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow motorcycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_yellow_motorcycle_icon"
+        },
+        {
+            "name": "greenMotorcycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green motorcycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_green_motorcycle_icon"
+        },
+        {
+            "name": "grayMotorcycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray motorcycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_gray_motorcycle_icon"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_red_motorcycle_icon",
+            "name": "redMotorcycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red motorcycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Red motorcycle icon SVG element. Red indicates ignition is off." }
+            },
+            "details": { "what_it_does": "Generates a motorcycle SVG icon in red, indicating ignition is off." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a red motorcycle icon",
+                    "code": "import { redMotorcycleIcon } from 'akeyless-assets-commons';\n\nconst icon = redMotorcycleIcon('30', '30', '#FF0000', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 185,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/motorcycles.tsx#L3",
+                "nx_kb_anchor": "#function_red_motorcycle_icon"
+            }
+        },
+        {
+            "symbol_id": "function_yellow_motorcycle_icon",
+            "name": "yellowMotorcycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow motorcycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Yellow motorcycle icon SVG element. Yellow indicates idling." }
+            },
+            "details": { "what_it_does": "Generates a motorcycle SVG icon in yellow, indicating idle state." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a yellow motorcycle icon",
+                    "code": "import { yellowMotorcycleIcon } from 'akeyless-assets-commons';\n\nconst icon = yellowMotorcycleIcon('30', '30', '#FFFF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 186,
+                "source_line_end": 368,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/motorcycles.tsx#L186",
+                "nx_kb_anchor": "#function_yellow_motorcycle_icon"
+            }
+        },
+        {
+            "symbol_id": "function_green_motorcycle_icon",
+            "name": "greenMotorcycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a green motorcycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Green motorcycle icon SVG element. Green indicates actively moving." }
+            },
+            "details": { "what_it_does": "Generates a motorcycle SVG icon in green, indicating the vehicle is actively moving." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a green motorcycle icon",
+                    "code": "import { greenMotorcycleIcon } from 'akeyless-assets-commons';\n\nconst icon = greenMotorcycleIcon('30', '30', '#00FF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 369,
+                "source_line_end": 551,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/motorcycles.tsx#L369",
+                "nx_kb_anchor": "#function_green_motorcycle_icon"
+            }
+        },
+        {
+            "symbol_id": "function_gray_motorcycle_icon",
+            "name": "grayMotorcycleIcon",
+            "kind": "function",
+            "description_one_line": "Returns a gray motorcycle SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Gray motorcycle icon SVG element. Gray indicates unknown telemetry." }
+            },
+            "details": { "what_it_does": "Generates a motorcycle SVG icon in gray, indicating telemetry is unavailable." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a gray motorcycle icon",
+                    "code": "import { grayMotorcycleIcon } from 'akeyless-assets-commons';\n\nconst icon = grayMotorcycleIcon('30', '30', '#888888', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 552,
+                "source_line_end": 734,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/motorcycles.tsx#L552",
+                "nx_kb_anchor": "#function_gray_motorcycle_icon"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

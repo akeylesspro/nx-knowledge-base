@@ -1,0 +1,101 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "cranes1.tsx",
+    "source": {
+        "file_path": "svg/carsSvg/cranes1.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/cranes1.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/cranes1.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides red and yellow crane SVG icon generator functions conforming to the VehicleSvg signature for use as map markers and menu icons.",
+        "problem_solved": "Supplies the crane vehicle type's red (ignition off) and yellow (idle) icon variants. Green and gray crane variants are in cranes2.tsx."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "redCraneIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red crane SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_red_crane_icon"
+        },
+        {
+            "name": "yellowCraneIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow crane SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "symbol_id": "function_yellow_crane_icon"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_red_crane_icon",
+            "name": "redCraneIcon",
+            "kind": "function",
+            "description_one_line": "Returns a red crane SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Red crane icon SVG element. Red indicates ignition is off." }
+            },
+            "details": { "what_it_does": "Generates a detailed crane SVG icon in red, indicating the crane vehicle's ignition is off (parked/stopped)." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a red crane icon",
+                    "code": "import { redCraneIcon } from 'akeyless-assets-commons';\n\nconst icon = redCraneIcon('30', '30', '#FF0000', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 1509,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/cranes1.tsx#L3",
+                "nx_kb_anchor": "#function_red_crane_icon"
+            }
+        },
+        {
+            "symbol_id": "function_yellow_crane_icon",
+            "name": "yellowCraneIcon",
+            "kind": "function",
+            "description_one_line": "Returns a yellow crane SVG element with configurable size, site colour, CSS class, and viewBox context.",
+            "signature": {
+                "params": [
+                    { "name": "width", "type": "string | number", "required": true, "description": "Width attribute for the SVG element." },
+                    { "name": "height", "type": "string | number", "required": true, "description": "Height attribute for the SVG element." },
+                    { "name": "siteColor", "type": "string", "required": true, "description": "Fill colour for site-specific colour accents." },
+                    { "name": "className", "type": "string", "required": true, "description": "CSS class name applied to the SVG element." },
+                    { "name": "viewBoxFor", "type": "string", "required": true, "description": "Context identifier ('map_icon' or 'menu_icon')." }
+                ],
+                "returns": { "type": "JSX.Element", "description": "Yellow crane icon SVG element. Yellow indicates idling." }
+            },
+            "details": { "what_it_does": "Generates a detailed crane SVG icon in yellow, indicating the crane vehicle is idle (ignition on, not moving)." },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Render a yellow crane icon",
+                    "code": "import { yellowCraneIcon } from 'akeyless-assets-commons';\n\nconst icon = yellowCraneIcon('30', '30', '#FFFF00', 'newIconCar', 'map_icon');"
+                }
+            },
+            "locations": {
+                "source_line_start": 1510,
+                "source_line_end": 3022,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/cranes1.tsx#L1510",
+                "nx_kb_anchor": "#function_yellow_crane_icon"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}

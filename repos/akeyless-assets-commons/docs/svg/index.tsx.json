@@ -1,0 +1,155 @@
+{
+    "repo": {
+        "name": "akeyless-assets-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.tsx",
+    "source": {
+        "file_path": "svg/index.tsx",
+        "commit_sha": "327dba7e9ef8cf073d69b9980965fcbc31cfa8aa",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": ["react"],
+        "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/index.tsx",
+        "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/index.tsx.json"
+    },
+    "summary": {
+        "purpose": "Acts as the aggregating barrel for the svg module, re-exporting all vehicle icon sets, global UI SVG constants, and warning icon constants.",
+        "problem_solved": "Provides a single unified import path for all SVG assets in the library, shielding consumers from internal sub-module structure."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "./carsSvg",
+                "resolved_file_path": "svg/carsSvg/index.tsx",
+                "why_used": "Re-exports all vehicle icon functions (car, bus, truck, etc.) organised by type and colour state.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/carsSvg/index.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/carsSvg/index.tsx"
+            },
+            {
+                "import_path": "./global",
+                "resolved_file_path": "svg/global.tsx",
+                "why_used": "Re-exports all general-purpose UI SVG constants and React components.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/global.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/global.tsx"
+            },
+            {
+                "import_path": "./warningIcons",
+                "resolved_file_path": "svg/warningIcons.tsx",
+                "why_used": "Re-exports all vehicle dashboard warning icon SVG constants.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/svg/warningIcons.tsx.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/warningIcons.tsx"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "* from './carsSvg'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the carsSvg sub-module.",
+            "symbol_id": "value_reexport_cars_svg"
+        },
+        {
+            "name": "* from './global'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the global SVG module.",
+            "symbol_id": "value_reexport_global"
+        },
+        {
+            "name": "* from './warningIcons'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the warningIcons module.",
+            "symbol_id": "value_reexport_warning_icons"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "value_reexport_cars_svg",
+            "name": "* from './carsSvg'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the carsSvg sub-module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards all vehicle icon functions and the allIcons map from the carsSvg sub-module."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Accessing vehicle icons via the svg barrel",
+                    "code": "import { redCarIcon, allIcons } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/index.tsx#L1",
+                "nx_kb_anchor": "#value_reexport_cars_svg"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_global",
+            "name": "* from './global'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the global SVG module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards all general-purpose SVG constants and components such as carMarkerSvg, GoogleSvg, CarPlate, IlPlate, and UsPlate."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Accessing global SVGs via the svg barrel",
+                    "code": "import { carMarkerSvg, GoogleSvg, CarPlate } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 2,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/index.tsx#L2",
+                "nx_kb_anchor": "#value_reexport_global"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_warning_icons",
+            "name": "* from './warningIcons'",
+            "kind": "value",
+            "description_one_line": "Re-exports all named exports from the warningIcons module.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Module-level re-export; not callable. Forwards all vehicle dashboard warning icon SVG constants such as bellIco, low_fuel_levelSvg, and batterySvg."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Accessing warning icons via the svg barrel",
+                    "code": "import { bellIco, low_fuel_levelSvg, batterySvg } from 'akeyless-assets-commons';"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 3,
+                "github_permalink": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/svg/index.tsx#L3",
+                "nx_kb_anchor": "#value_reexport_warning_icons"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}
