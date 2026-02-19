@@ -1,0 +1,156 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "interfaces/index.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/index.ts"
+    },
+    "summary": {
+        "purpose": "Barrel file that aggregates and re-exports all interface definitions from the interfaces sub-module.",
+        "problem_solved": "Provides a single import point for all platform interfaces so consumers do not need to know which specific file within interfaces/ defines each type."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "./global",
+                "resolved_file_path": "interfaces/global.ts",
+                "why_used": "Re-exports core domain interfaces: TimestampType, firebase_timestamp, Site, NxUser, MobileAppUser, GoUser, Client, Board, Peripheral, Car, UnitExtra, UsersUnits, LastLocationCar, CarState, CanbusParameter, Equipment, EquipmentOption, EventFromDevice, EventFromDevice_Ruptela, EventFromDevice_Erm, ErmStates, ReportMeta, ReportMetaHeader, ReportMetaDataType, ReportParameterDataType, ReportDataRow, GprsItem",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/global.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts"
+            },
+            {
+                "import_path": "./credits",
+                "resolved_file_path": "interfaces/credits.ts",
+                "why_used": "Re-exports credit management types: CreditType, CreditItem, CreditAuditAction, CreditAuditItem",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/credits.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/credits.ts"
+            },
+            {
+                "import_path": "./go",
+                "resolved_file_path": "interfaces/go.ts",
+                "why_used": "Re-exports Go mobile app types: GoMobileUserRole, GoAuthModel, GoUserRole, GoCarLink, RoleInToken, GoUserCar",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/go.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/go.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "global (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports all core domain interfaces from interfaces/global.ts",
+            "symbol_id": "value_reexport_interfaces_global"
+        },
+        {
+            "name": "credits (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports credit management types from interfaces/credits.ts",
+            "symbol_id": "value_reexport_interfaces_credits"
+        },
+        {
+            "name": "go (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports Go mobile app types from interfaces/go.ts",
+            "symbol_id": "value_reexport_interfaces_go"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "value_reexport_interfaces_global",
+            "name": "global (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of all core domain interfaces from interfaces/global.ts",
+            "details": {
+                "what_it_does": "Publishes TimestampType, firebase_timestamp, Site, NxUser, MobileAppUser, GoUser, Client, Board, Peripheral, Car, UnitExtra, UsersUnits, LastLocationCar, CarState, CanbusParameter, Equipment, EquipmentOption, EventFromDevice, EventFromDevice_Ruptela, EventFromDevice_Erm, ErmStates, ReportMeta, ReportMetaHeader, ReportMetaDataType, ReportParameterDataType, ReportDataRow, and GprsItem through the interfaces barrel."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import a core interface through the interfaces barrel",
+                    "code": "import type { Car, Client } from 'akeyless-types-commons';\n// Both are available because interfaces/index.ts re-exports interfaces/global.ts"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/index.ts#L1",
+                "nx_kb_anchor": "#value_reexport_interfaces_global"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_interfaces_credits",
+            "name": "credits (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of credit management types from interfaces/credits.ts",
+            "details": {
+                "what_it_does": "Publishes CreditType, CreditItem, CreditAuditAction, and CreditAuditItem through the interfaces barrel."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import credit types through the interfaces barrel",
+                    "code": "import type { CreditItem, CreditAuditItem } from 'akeyless-types-commons';\n// Available because interfaces/index.ts re-exports interfaces/credits.ts"
+                }
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 2,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/index.ts#L2",
+                "nx_kb_anchor": "#value_reexport_interfaces_credits"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_interfaces_go",
+            "name": "go (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of Go mobile app types from interfaces/go.ts",
+            "details": {
+                "what_it_does": "Publishes GoMobileUserRole, GoAuthModel, GoUserRole, GoCarLink, RoleInToken, and GoUserCar through the interfaces barrel."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import Go app types through the interfaces barrel",
+                    "code": "import type { GoUserCar, GoAuthModel } from 'akeyless-types-commons';\n// Available because interfaces/index.ts re-exports interfaces/go.ts"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 3,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/index.ts#L3",
+                "nx_kb_anchor": "#value_reexport_interfaces_go"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

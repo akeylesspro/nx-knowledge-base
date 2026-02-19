@@ -1,0 +1,156 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "index.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/index.ts"
+    },
+    "summary": {
+        "purpose": "Re-exports all types, interfaces, and enums from the library's three sub-modules as a single public entry point.",
+        "problem_solved": "Enables consumers to import any symbol from akeyless-types-commons through a single package path without knowing internal folder structure."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "./types",
+                "resolved_file_path": "types/index.ts",
+                "why_used": "Re-exports all type definitions (Geo, TObject, NumberObject, socket types)",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/index.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/index.ts"
+            },
+            {
+                "import_path": "./interfaces",
+                "resolved_file_path": "interfaces/index.ts",
+                "why_used": "Re-exports all interface definitions (Car, Client, Site, Board, Equipment, User, etc.)",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/index.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/index.ts"
+            },
+            {
+                "import_path": "./enums",
+                "resolved_file_path": "enums/index.ts",
+                "why_used": "Re-exports all enumeration definitions (feature flags, board/equipment/unit status, etc.)",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/index.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/index.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "types (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports everything from the types sub-module",
+            "symbol_id": "value_reexport_types"
+        },
+        {
+            "name": "interfaces (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports everything from the interfaces sub-module",
+            "symbol_id": "value_reexport_interfaces"
+        },
+        {
+            "name": "enums (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports everything from the enums sub-module",
+            "symbol_id": "value_reexport_enums"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "value_reexport_types",
+            "name": "types (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of all type definitions from the types sub-module",
+            "details": {
+                "what_it_does": "Publishes all exports from './types' (index.ts → global.ts, socket.ts) under the package root. Consumers receive Geo, TObject, NumberObject, SOCKET_EVENTS, SocketEventMap, RedisUpdateType, RedisUpdatePayload, SocketCallbackResponse, and CollectionConfig."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import a type from the root entry point",
+                    "code": "import type { Geo, TObject } from 'akeyless-types-commons';\n\nconst location: Geo = { lat: 31.7, lng: 35.2 };\nconst extras: TObject<string> = { brand: 'Toyota' };"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/index.ts#L1",
+                "nx_kb_anchor": "#value_reexport_types"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_interfaces",
+            "name": "interfaces (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of all interface definitions from the interfaces sub-module",
+            "details": {
+                "what_it_does": "Publishes all exports from './interfaces' (index.ts → global.ts, credits.ts, go.ts) under the package root. Consumers receive TimestampType, firebase_timestamp, Site, NxUser, MobileAppUser, GoUser, Client, Board, Peripheral, Car, UnitExtra, UsersUnits, LastLocationCar, CarState, CanbusParameter, Equipment, EquipmentOption, EventFromDevice, EventFromDevice_Ruptela, EventFromDevice_Erm, ErmStates, ReportMeta, ReportMetaHeader, ReportMetaDataType, ReportParameterDataType, ReportDataRow, GprsItem, CreditType, CreditItem, CreditAuditAction, CreditAuditItem, GoMobileUserRole, GoAuthModel, GoUserRole, GoCarLink, RoleInToken, and GoUserCar."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import domain interfaces from the root entry point",
+                    "code": "import type { Car, Client, Site } from 'akeyless-types-commons';\n\nfunction getClientName(client: Client): string {\n    return client.name ?? 'unknown';\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 2,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/index.ts#L2",
+                "nx_kb_anchor": "#value_reexport_interfaces"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_enums",
+            "name": "enums (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of all enum definitions from the enums sub-module",
+            "details": {
+                "what_it_does": "Publishes all exports from './enums' (index.ts → global.ts, car_events.ts, features.ts) under the package root. Consumers receive DefaultClient, BoardStatus, EquipmentStatus, EquipmentStatusReason, UnitStatus, ClientStatus, LanguageOptions, CountryOptions, SiteType, RuptelaEventEnum, FeaturesBoard, FeaturesClient, FeaturesDashboard, FeaturesInstaller, FeaturesToolbox, UserPermissionsObject, and userPermissionsObjectValue."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import enums from the root entry point",
+                    "code": "import { ClientStatus, LanguageOptions } from 'akeyless-types-commons';\n\nfunction isActive(status: ClientStatus): boolean {\n    return status === ClientStatus.Active;\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 3,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/index.ts#L3",
+                "nx_kb_anchor": "#value_reexport_enums"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

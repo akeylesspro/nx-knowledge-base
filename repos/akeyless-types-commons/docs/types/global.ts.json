@@ -1,0 +1,131 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "global.ts",
+    "source": {
+        "file_path": "types/global.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/global.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/global.ts"
+    },
+    "summary": {
+        "purpose": "Defines fundamental utility types and a geographic coordinate interface used throughout the platform.",
+        "problem_solved": "Provides lightweight, reusable type primitives for numeric-indexed maps, generic string-keyed objects, and GPS coordinate pairs, eliminating repeated ad-hoc type definitions across services."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "NumberObject",
+            "kind": "type",
+            "description_one_line": "A generic map with numeric keys and numeric values",
+            "symbol_id": "type_number_object"
+        },
+        {
+            "name": "TObject",
+            "kind": "type",
+            "description_one_line": "A generic string-keyed map with a configurable value type",
+            "symbol_id": "type_t_object"
+        },
+        {
+            "name": "Geo",
+            "kind": "interface",
+            "description_one_line": "A geographic coordinate pair with latitude and longitude",
+            "symbol_id": "interface_geo"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "type_number_object",
+            "name": "NumberObject",
+            "kind": "type",
+            "description_one_line": "A generic map with numeric keys and numeric values",
+            "details": {
+                "what_it_does": "Defines a plain JavaScript object type whose keys are numbers and values are numbers. Useful for lookup tables, frequency maps, or ID-to-value mappings where both key and value are numeric.",
+                "type_definition": "export type NumberObject = { [key: number]: number };"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use NumberObject as an event-ID-to-count map",
+                    "code": "import type { NumberObject } from 'akeyless-types-commons';\n\nconst eventCounts: NumberObject = {\n    1: 42,  // location events\n    2: 15,  // ignition_on events\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/global.ts#L1",
+                "nx_kb_anchor": "#type_number_object"
+            }
+        },
+        {
+            "symbol_id": "type_t_object",
+            "name": "TObject",
+            "kind": "type",
+            "description_one_line": "A generic string-keyed map with a configurable value type",
+            "details": {
+                "what_it_does": "Defines a generic plain JavaScript object type with string keys and a type parameter T for the value type. Used widely across entity interfaces (Car.camera_installation_details, Car.gov_info, GprsItem.details, etc.) as a flexible container for heterogeneous key-value data.",
+                "type_definition": "export type TObject<T> = { [key: string]: T };"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use TObject as a camera installation details map",
+                    "code": "import type { TObject } from 'akeyless-types-commons';\n\nconst cameraDetails: TObject<string> = {\n    angle: '45deg',\n    position: 'front-windshield',\n    installer: 'tech_001',\n};"
+                },
+                "extensive_correct": {
+                    "title": "Use TObject<any> for a mixed-value metadata map",
+                    "code": "import type { TObject } from 'akeyless-types-commons';\n\nconst govInfo: TObject<string | number> = {\n    plate_number: 'ABC123',\n    registration_year: 2022,\n    region_code: 'TLV',\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 2,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/global.ts#L2",
+                "nx_kb_anchor": "#type_t_object"
+            }
+        },
+        {
+            "symbol_id": "interface_geo",
+            "name": "Geo",
+            "kind": "interface",
+            "description_one_line": "A geographic coordinate pair with latitude and longitude",
+            "details": {
+                "what_it_does": "Represents a geographic point using WGS-84 decimal-degree coordinates. The lat field is the latitude and lng is the longitude, both typed as number. Used on Site.location, Client.geo, and LastLocationCar (as separate lat/lng fields) throughout the platform."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "Geo",
+                    "description": "An object with numeric lat and lng properties representing a geographic coordinate."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Create a Geo coordinate for Tel Aviv",
+                    "code": "import type { Geo } from 'akeyless-types-commons';\n\nconst telAviv: Geo = { lat: 32.0853, lng: 34.7818 };"
+                },
+                "incorrect": {
+                    "title": "Using lon instead of lng",
+                    "code": "// Wrong — the field is 'lng', not 'lon'\nconst point = { lat: 32.0, lon: 34.7 };\n\n// Correct\nconst point2: Geo = { lat: 32.0, lng: 34.7 };",
+                    "why_incorrect": "The interface uses 'lng' (not 'lon'). Using 'lon' will cause a TypeScript type error and the coordinate will be ignored at runtime."
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 6,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/global.ts#L3-L6",
+                "nx_kb_anchor": "#interface_geo"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

@@ -1,0 +1,75 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "car_events.ts",
+    "source": {
+        "file_path": "enums/car_events.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/car_events.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/car_events.ts"
+    },
+    "summary": {
+        "purpose": "Defines the RuptelaEventEnum enumeration mapping Ruptela GPS device event names to their numeric event IDs.",
+        "problem_solved": "Provides a type-safe, self-documenting mapping between Ruptela hardware event codes and their semantic meaning, preventing hard-coded magic numbers in event-processing code."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "RuptelaEventEnum",
+            "kind": "enum",
+            "description_one_line": "Numeric event IDs for Ruptela GPS device telemetry events",
+            "symbol_id": "enum_ruptela_event_enum"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "enum_ruptela_event_enum",
+            "name": "RuptelaEventEnum",
+            "kind": "enum",
+            "description_one_line": "Numeric event IDs for Ruptela GPS device telemetry events",
+            "details": {
+                "what_it_does": "Maps nine Ruptela GPS-tracker telemetry event types to their numeric IDs as defined by the Ruptela protocol. Members cover location updates (1) and paired ignition, engine, power-cut, and charging on/off events (2–9). Used by event-processing services to identify and route incoming device messages."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "RuptelaEventEnum",
+                    "description": "One of the nine named numeric event codes."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Match an incoming Ruptela event ID",
+                    "code": "import { RuptelaEventEnum } from 'akeyless-types-commons';\n\nfunction handleEvent(eventId: number): void {\n    if (eventId === RuptelaEventEnum.ignition_on) {\n        console.log('Engine ignition detected');\n    }\n}"
+                },
+                "extensive_correct": {
+                    "title": "Switch on all Ruptela event types",
+                    "code": "import { RuptelaEventEnum } from 'akeyless-types-commons';\n\nfunction processRuptelaEvent(eventId: RuptelaEventEnum): string {\n    switch (eventId) {\n        case RuptelaEventEnum.location:       return 'location update';\n        case RuptelaEventEnum.ignition_on:    return 'ignition on';\n        case RuptelaEventEnum.ignition_off:   return 'ignition off';\n        case RuptelaEventEnum.engine_on:      return 'engine on';\n        case RuptelaEventEnum.engine_off:     return 'engine off';\n        case RuptelaEventEnum.power_cut_on:   return 'power cut on';\n        case RuptelaEventEnum.power_cut_off:  return 'power cut off';\n        case RuptelaEventEnum.charging_on:    return 'charging started';\n        case RuptelaEventEnum.charging_off:   return 'charging stopped';\n        default:                              return 'unknown event';\n    }\n}"
+                },
+                "incorrect": {
+                    "title": "Using raw numbers instead of enum members",
+                    "code": "// Wrong — using magic numbers\nif (eventId === 2) { /* ignition on */ }\n\n// Correct\nif (eventId === RuptelaEventEnum.ignition_on) { /* ignition on */ }",
+                    "why_incorrect": "Magic numeric literals are unreadable and break silently if the Ruptela protocol ever renumbers events. Always use the enum member for type safety and searchability."
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 11,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/car_events.ts#L1-L11",
+                "nx_kb_anchor": "#enum_ruptela_event_enum"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

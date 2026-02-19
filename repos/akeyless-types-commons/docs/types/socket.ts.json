@@ -1,0 +1,242 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "socket.ts",
+    "source": {
+        "file_path": "types/socket.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript", "node"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/socket.ts"
+    },
+    "summary": {
+        "purpose": "Defines the shared type contracts for the WebSocket and Redis real-time data synchronisation layer used between server and client applications.",
+        "problem_solved": "Provides a single authoritative source for socket event names, Redis update payload shapes, callback response format, and collection sync configuration so that server-side emitters and client-side handlers use identical contracts without coordination drift."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "REDIS_UPDATES_PREFIX",
+            "kind": "constant",
+            "description_one_line": "String prefix used to namespace Redis update channel keys",
+            "symbol_id": "constant_redis_updates_prefix"
+        },
+        {
+            "name": "SOCKET_EVENTS",
+            "kind": "constant",
+            "description_one_line": "Frozen object mapping socket event names to their string values",
+            "symbol_id": "constant_socket_events"
+        },
+        {
+            "name": "SocketEventMap",
+            "kind": "type",
+            "description_one_line": "Mapped type deriving a typed event map from the SOCKET_EVENTS constant values",
+            "symbol_id": "type_socket_event_map"
+        },
+        {
+            "name": "RedisUpdateType",
+            "kind": "type",
+            "description_one_line": "Union of allowed Redis update operation types",
+            "symbol_id": "type_redis_update_type"
+        },
+        {
+            "name": "RedisUpdatePayload",
+            "kind": "interface",
+            "description_one_line": "Generic payload for a Redis real-time update event carrying the changed record and metadata",
+            "symbol_id": "interface_redis_update_payload"
+        },
+        {
+            "name": "SocketCallbackResponse",
+            "kind": "interface",
+            "description_one_line": "Standard callback response shape for socket event handlers",
+            "symbol_id": "interface_socket_callback_response"
+        },
+        {
+            "name": "CollectionConfig",
+            "kind": "interface",
+            "description_one_line": "Configuration options for a Firestore-to-Redis collection synchronisation subscription",
+            "symbol_id": "interface_collection_config"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "constant_redis_updates_prefix",
+            "name": "REDIS_UPDATES_PREFIX",
+            "kind": "constant",
+            "details": {
+                "what_it_does": "Exports the string constant 'redis_updates' used as a key prefix to namespace Redis pub/sub channels or key namespaces for real-time data updates. Ensures that all services subscribe and publish to consistently named channels."
+            },
+            "description_one_line": "The 'redis_updates' prefix string for namespacing Redis channel keys",
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts#L1",
+                "nx_kb_anchor": "#constant_redis_updates_prefix"
+            }
+        },
+        {
+            "symbol_id": "constant_socket_events",
+            "name": "SOCKET_EVENTS",
+            "kind": "constant",
+            "details": {
+                "what_it_does": "Exports a deeply immutable object (using `as const`) containing seven socket event name strings: SET_DATA, GET_DATA, DELETE_DATA, SUBSCRIBE_COLLECTIONS, UNSUBSCRIBE_COLLECTIONS, CLEAR_ALL_REDIS_DATA, DISCONNECT, and SESSION. Declared `as const` so TypeScript infers string literal types for each member rather than string, enabling SocketEventMap to be derived. Used by both the server Socket.IO emitter and the client socket listeners."
+            },
+            "description_one_line": "Immutable object of all Socket.IO event name string constants used for real-time data sync",
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 12,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts#L3-L12",
+                "nx_kb_anchor": "#constant_socket_events"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Emit a SET_DATA event using SOCKET_EVENTS",
+                    "code": "import { SOCKET_EVENTS } from 'akeyless-types-commons';\n\nsocket.emit(SOCKET_EVENTS.SET_DATA, { key: 'cars/ABC123', data: carData });"
+                }
+            }
+        },
+        {
+            "symbol_id": "type_socket_event_map",
+            "name": "SocketEventMap",
+            "kind": "type",
+            "description_one_line": "Mapped type deriving a typed event map from the SOCKET_EVENTS constant values",
+            "details": {
+                "what_it_does": "Creates a mapped type by iterating over the value union of the SOCKET_EVENTS object. Each key in the resulting type is a socket event name string literal (e.g., 'set_data', 'get_data'), and the value type for every key is any. Intended to be used as the type parameter for typed Socket.IO socket instances.",
+                "type_definition": "export type SocketEventMap = {\n    [K in (typeof SOCKET_EVENTS)[keyof typeof SOCKET_EVENTS]]: any;\n};"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Type a Socket.IO socket with SocketEventMap",
+                    "code": "import type { SocketEventMap } from 'akeyless-types-commons';\nimport { Socket } from 'socket.io-client';\n\nconst socket: Socket<SocketEventMap, SocketEventMap> = io('http://localhost:3000');\n\nsocket.on('set_data', (payload) => {\n    console.log('Received data update', payload);\n});"
+                }
+            },
+            "locations": {
+                "source_line_start": 14,
+                "source_line_end": 16,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts#L14-L16",
+                "nx_kb_anchor": "#type_socket_event_map"
+            }
+        },
+        {
+            "symbol_id": "type_redis_update_type",
+            "name": "RedisUpdateType",
+            "kind": "type",
+            "description_one_line": "Union of allowed Redis update operation types",
+            "details": {
+                "what_it_does": "Restricts Redis update operations to three string values: 'update' (modify an existing record), 'add' (insert a new record), and 'delete' (remove an existing record). Used as the UpdateType generic constraint on RedisUpdatePayload.",
+                "type_definition": "export type RedisUpdateType = \"update\" | \"add\" | \"delete\";"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Type a Redis update handler by operation type",
+                    "code": "import type { RedisUpdatePayload, RedisUpdateType } from 'akeyless-types-commons';\n\nfunction handleUpdate<T extends RedisUpdateType>(payload: RedisUpdatePayload<T>): void {\n    console.log(`Operation: ${payload.update_type} on ${payload.collection_name}`);\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 18,
+                "source_line_end": 18,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts#L18",
+                "nx_kb_anchor": "#type_redis_update_type"
+            }
+        },
+        {
+            "symbol_id": "interface_redis_update_payload",
+            "name": "RedisUpdatePayload",
+            "kind": "interface",
+            "description_one_line": "Generic payload for a Redis real-time update event carrying the changed record and metadata",
+            "details": {
+                "what_it_does": "Represents the data envelope broadcast via Socket.IO when a record changes in Redis. Generic type parameter UpdateType constrains the update_type field to a specific RedisUpdateType value, and DataType defaults to any for the data field. Fields: key (the Redis key for the record), collection_name (the Firestore/Redis collection), update_type (the operation kind), data (the full record payload), and update_time (a numeric Unix millisecond timestamp)."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "RedisUpdatePayload<UpdateType, DataType>",
+                    "description": "A typed real-time update envelope for a Redis record change."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Type a socket listener for car state updates",
+                    "code": "import type { RedisUpdatePayload } from 'akeyless-types-commons';\nimport type { CarState } from 'akeyless-types-commons';\nimport { SOCKET_EVENTS } from 'akeyless-types-commons';\n\ntype CarStateUpdate = RedisUpdatePayload<'update', CarState>;\n\nsocket.on(SOCKET_EVENTS.SET_DATA, (payload: CarStateUpdate) => {\n    console.log(`Car ${payload.key} state updated at ${payload.update_time}`);\n});"
+                }
+            },
+            "locations": {
+                "source_line_start": 20,
+                "source_line_end": 26,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts#L20-L26",
+                "nx_kb_anchor": "#interface_redis_update_payload"
+            }
+        },
+        {
+            "symbol_id": "interface_socket_callback_response",
+            "name": "SocketCallbackResponse",
+            "kind": "interface",
+            "description_one_line": "Standard callback response shape for socket event handlers",
+            "details": {
+                "what_it_does": "Defines the standard acknowledgement payload returned by socket event callbacks. Required field success (boolean) indicates overall operation outcome. Optional fields: key (the Redis key acted on), data (any return data), found (boolean for GET_DATA lookups), and message (human-readable error or info string)."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "SocketCallbackResponse",
+                    "description": "An acknowledgement payload for a socket event callback."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use SocketCallbackResponse as an acknowledgement callback type",
+                    "code": "import type { SocketCallbackResponse } from 'akeyless-types-commons';\nimport { SOCKET_EVENTS } from 'akeyless-types-commons';\n\nsocket.emit(SOCKET_EVENTS.GET_DATA, { key: 'cars/ABC123' }, (response: SocketCallbackResponse) => {\n    if (!response.success) {\n        console.error('Get failed:', response.message);\n        return;\n    }\n    console.log('Data retrieved:', response.data);\n});"
+                }
+            },
+            "locations": {
+                "source_line_start": 28,
+                "source_line_end": 34,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts#L28-L34",
+                "nx_kb_anchor": "#interface_socket_callback_response"
+            }
+        },
+        {
+            "symbol_id": "interface_collection_config",
+            "name": "CollectionConfig",
+            "kind": "interface",
+            "description_one_line": "Configuration options for a Firestore-to-Redis collection synchronisation subscription",
+            "details": {
+                "what_it_does": "Provides optional configuration for a collection subscription sent via the SUBSCRIBE_COLLECTIONS socket event. Optional fields: key (a scoping key within the collection), sync_direction ('firebase_to_redis' or 'redis_to_firebase', determining which direction data flows), and sync_period (an integer interval in milliseconds controlling how frequently the sync runs)."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "CollectionConfig",
+                    "description": "A collection synchronisation configuration object."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Subscribe to a collection with firebase-to-redis sync",
+                    "code": "import type { CollectionConfig } from 'akeyless-types-commons';\nimport { SOCKET_EVENTS } from 'akeyless-types-commons';\n\nconst config: CollectionConfig = {\n    sync_direction: 'firebase_to_redis',\n    sync_period: 5000,\n};\n\nsocket.emit(SOCKET_EVENTS.SUBSCRIBE_COLLECTIONS, {\n    collections: { car_states: config },\n});"
+                },
+                "extensive_correct": {
+                    "title": "Subscribe with a scoped key for a specific car",
+                    "code": "import type { CollectionConfig } from 'akeyless-types-commons';\nimport { SOCKET_EVENTS } from 'akeyless-types-commons';\n\nconst carConfig: CollectionConfig = {\n    key: 'ABC123',\n    sync_direction: 'firebase_to_redis',\n    sync_period: 3000,\n};\n\nsocket.emit(SOCKET_EVENTS.SUBSCRIBE_COLLECTIONS, {\n    collections: { car_states: carConfig },\n});"
+                }
+            },
+            "locations": {
+                "source_line_start": 36,
+                "source_line_end": 40,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts#L36-L40",
+                "nx_kb_anchor": "#interface_collection_config"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

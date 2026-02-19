@@ -1,0 +1,947 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "global.ts",
+    "source": {
+        "file_path": "interfaces/global.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript", "node"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/global.ts"
+    },
+    "summary": {
+        "purpose": "Defines the core domain interfaces and types for all major entities in the Akeyless vehicle-tracking platform, including users, clients, sites, vehicles, boards, equipment, events, reports, and GPRS items.",
+        "problem_solved": "Establishes a single authoritative type contract shared by backend Node.js services, the dashboard frontend, and mobile apps, ensuring that data passed between Firebase, Redis, and application layers is consistently shaped."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "firebase-admin",
+                "kind": "peer",
+                "why_used": "Imports the Firestore Timestamp class used as part of the TimestampType union and for specific timestamp fields (overspeed-alert, call_center)"
+            }
+        ],
+        "internal": [
+            {
+                "import_path": "../enums",
+                "resolved_file_path": "enums/index.ts",
+                "why_used": "Imports BoardStatus, ClientStatus, CountryOptions, EquipmentStatus, EquipmentStatusReason, LanguageOptions, SiteType, UnitStatus for typing entity status and configuration fields",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/index.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/index.ts"
+            },
+            {
+                "import_path": "../types",
+                "resolved_file_path": "types/index.ts",
+                "why_used": "Imports Geo and TObject utility types for geographic coordinates and generic string-keyed object fields",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/index.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/index.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "TimestampType",
+            "kind": "type",
+            "description_one_line": "Union type for Firebase Firestore timestamps in either plain-object or SDK form",
+            "symbol_id": "type_timestamp_type"
+        },
+        {
+            "name": "firebase_timestamp",
+            "kind": "interface",
+            "description_one_line": "Plain-object representation of a Firestore timestamp with seconds and nanoseconds",
+            "symbol_id": "interface_firebase_timestamp"
+        },
+        {
+            "name": "Site",
+            "kind": "interface",
+            "description_one_line": "Organisational site node with location, car assignments, and hierarchy metadata",
+            "symbol_id": "interface_site"
+        },
+        {
+            "name": "NxUser",
+            "kind": "interface",
+            "description_one_line": "Platform user record with identity, contact, and site assignment fields",
+            "symbol_id": "interface_nx_user"
+        },
+        {
+            "name": "MobileAppUser",
+            "kind": "interface",
+            "description_one_line": "Mobile application user with authentication, notification, and preference fields",
+            "symbol_id": "interface_mobile_app_user"
+        },
+        {
+            "name": "GoUser",
+            "kind": "interface",
+            "description_one_line": "Go mobile-app user with a list of associated clients and feature flags",
+            "symbol_id": "interface_go_user"
+        },
+        {
+            "name": "Client",
+            "kind": "interface",
+            "description_one_line": "Client account record with settings, status, and installation configuration",
+            "symbol_id": "interface_client"
+        },
+        {
+            "name": "Board",
+            "kind": "interface",
+            "description_one_line": "Hardware board record with IMEI, SIM, and lifecycle status",
+            "symbol_id": "interface_board"
+        },
+        {
+            "name": "Peripheral",
+            "kind": "interface",
+            "description_one_line": "Peripheral device attached to a board with installation and status metadata",
+            "symbol_id": "interface_peripheral"
+        },
+        {
+            "name": "Car",
+            "kind": "interface",
+            "description_one_line": "Comprehensive vehicle record covering installation, ownership, and tracking metadata",
+            "symbol_id": "interface_car"
+        },
+        {
+            "name": "UnitExtra",
+            "kind": "interface",
+            "description_one_line": "Supplementary per-unit data for overspeed alerts, installation location, and call centre details",
+            "symbol_id": "interface_unit_extra"
+        },
+        {
+            "name": "UsersUnits",
+            "kind": "interface",
+            "description_one_line": "Association record linking a user phone number to a vehicle with a role",
+            "symbol_id": "interface_users_units"
+        },
+        {
+            "name": "LastLocationCar",
+            "kind": "interface",
+            "description_one_line": "Most recent GPS position and telemetry snapshot for a vehicle",
+            "symbol_id": "interface_last_location_car"
+        },
+        {
+            "name": "CarState",
+            "kind": "interface",
+            "description_one_line": "Real-time state snapshot for a vehicle including engine, ignition, connectivity, and sensor values",
+            "symbol_id": "interface_car_state"
+        },
+        {
+            "name": "CanbusParameter",
+            "kind": "interface",
+            "description_one_line": "A single CAN-bus parameter reading from the vehicle with id, value, and optional timestamp",
+            "symbol_id": "interface_canbus_parameter"
+        },
+        {
+            "name": "Equipment",
+            "kind": "interface",
+            "description_one_line": "Peripheral equipment inventory record with serial number, option type, status, and audit fields",
+            "symbol_id": "interface_equipment"
+        },
+        {
+            "name": "EquipmentOption",
+            "kind": "interface",
+            "description_one_line": "Equipment category/option definition record used to classify equipment types",
+            "symbol_id": "interface_equipment_option"
+        },
+        {
+            "name": "EventFromDevice",
+            "kind": "interface",
+            "description_one_line": "Base event payload sent from a tracking device with position, speed, and event metadata",
+            "symbol_id": "interface_event_from_device"
+        },
+        {
+            "name": "EventFromDevice_Ruptela",
+            "kind": "interface",
+            "description_one_line": "Ruptela-device-specific event extending EventFromDevice with battery charge percentage",
+            "symbol_id": "interface_event_from_device_ruptela"
+        },
+        {
+            "name": "EventFromDevice_Erm",
+            "kind": "interface",
+            "description_one_line": "ERM-device-specific event extending EventFromDevice with a disarm code",
+            "symbol_id": "interface_event_from_device_erm"
+        },
+        {
+            "name": "ErmStates",
+            "kind": "interface",
+            "description_one_line": "ERM device real-time state record with connectivity, power, and ignition fields",
+            "symbol_id": "interface_erm_states"
+        },
+        {
+            "name": "ReportMetaDataType",
+            "kind": "type",
+            "description_one_line": "Union of column data type identifiers for report header definitions",
+            "symbol_id": "type_report_meta_data_type"
+        },
+        {
+            "name": "ReportParameterDataType",
+            "kind": "type",
+            "description_one_line": "Extended union of report data types including select and multi_select for parameter inputs",
+            "symbol_id": "type_report_parameter_data_type"
+        },
+        {
+            "name": "ReportMetaHeader",
+            "kind": "interface",
+            "description_one_line": "Defines a single column header for a report including name, data type, and optional styling",
+            "symbol_id": "interface_report_meta_header"
+        },
+        {
+            "name": "ReportMeta",
+            "kind": "interface",
+            "description_one_line": "Report metadata container holding the ordered list of column header definitions",
+            "symbol_id": "interface_report_meta"
+        },
+        {
+            "name": "ReportDataRow",
+            "kind": "type",
+            "description_one_line": "A single report data row as an array of primitive values",
+            "symbol_id": "type_report_data_row"
+        },
+        {
+            "name": "GprsItem",
+            "kind": "interface",
+            "description_one_line": "GPRS command/message record sent to a vehicle device with status tracking",
+            "symbol_id": "interface_gprs_item"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "type_timestamp_type",
+            "name": "TimestampType",
+            "kind": "type",
+            "description_one_line": "Union type for Firebase Firestore timestamps in either plain-object or SDK form",
+            "details": {
+                "what_it_does": "Accepts either a firebase_timestamp plain object (with _seconds and _nanoseconds) or a Firestore SDK Timestamp instance. This union is necessary because Firestore documents can return timestamps in either format depending on the SDK version and serialisation settings used.",
+                "type_definition": "export type TimestampType = firebase_timestamp | Timestamp;"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Type a field as TimestampType",
+                    "code": "import type { TimestampType } from 'akeyless-types-commons';\n\nfunction getSeconds(ts: TimestampType): number {\n    if ('_seconds' in ts) return ts._seconds;\n    return ts.seconds; // Firestore SDK Timestamp\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 6,
+                "source_line_end": 6,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L6",
+                "nx_kb_anchor": "#type_timestamp_type"
+            }
+        },
+        {
+            "symbol_id": "interface_firebase_timestamp",
+            "name": "firebase_timestamp",
+            "kind": "interface",
+            "description_one_line": "Plain-object representation of a Firestore timestamp with seconds and nanoseconds",
+            "details": {
+                "what_it_does": "Describes the serialised form of a Firestore Timestamp as a plain JavaScript object. Used throughout entity interfaces (Car, Board, NxUser, etc.) for created, updated, and event timestamp fields when documents are fetched without the Firestore SDK's automatic conversion."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "firebase_timestamp",
+                    "description": "An object with _nanoseconds (integer) and _seconds (Unix epoch seconds integer)."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Create a firebase_timestamp plain object",
+                    "code": "import type { firebase_timestamp } from 'akeyless-types-commons';\n\nconst ts: firebase_timestamp = { _seconds: 1700000000, _nanoseconds: 0 };\nconst asDate = new Date(ts._seconds * 1000);"
+                }
+            },
+            "locations": {
+                "source_line_start": 8,
+                "source_line_end": 11,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L8-L11",
+                "nx_kb_anchor": "#interface_firebase_timestamp"
+            }
+        },
+        {
+            "symbol_id": "interface_site",
+            "name": "Site",
+            "kind": "interface",
+            "description_one_line": "Organisational site node with location, car assignments, and hierarchy metadata",
+            "details": {
+                "what_it_does": "Represents a node in the organisational hierarchy (root, region, office, etc.). Contains address, colour, contact info, Geo coordinates, lists of associated cars and child sites, a SiteType classification, optional user assignments, and optional read-only flag. The created and updated fields use firebase_timestamp."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "Site",
+                    "description": "A site node object conforming to the organisational tree structure."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Define a minimal office site",
+                    "code": "import type { Site } from 'akeyless-types-commons';\nimport { SiteType } from 'akeyless-types-commons';\n\nconst office: Omit<Site, 'id'> = {\n    address: '123 Main St',\n    cars: [],\n    client: 'client_abc',\n    color: '#3498db',\n    email: 'office@example.com',\n    location: { lat: 32.07, lng: 34.78 },\n    name: 'Tel Aviv Office',\n    phone: '+972501234567',\n    polygons: [],\n    sites: [],\n    type: SiteType.office,\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 13,
+                "source_line_end": 32,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L13-L32",
+                "nx_kb_anchor": "#interface_site"
+            }
+        },
+        {
+            "symbol_id": "interface_nx_user",
+            "name": "NxUser",
+            "kind": "interface",
+            "description_one_line": "Platform user record with identity, contact, and site assignment fields",
+            "details": {
+                "what_it_does": "Describes a platform user stored in Firebase. All fields are optional to support partial updates. Includes id, a list of associated client IDs, first/last/full name, phone, email, status string, feature flag list, and site/sites assignments. Timestamps for created, updated, and last_login use firebase_timestamp."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "NxUser",
+                    "description": "A platform user object with optional identity and assignment fields."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a minimal NxUser record",
+                    "code": "import type { NxUser } from 'akeyless-types-commons';\n\nconst user: NxUser = {\n    id: 'user_001',\n    email: 'jane@example.com',\n    first_name: 'Jane',\n    last_name: 'Doe',\n    clients: ['client_abc'],\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 34,
+                "source_line_end": 49,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L34-L49",
+                "nx_kb_anchor": "#interface_nx_user"
+            }
+        },
+        {
+            "symbol_id": "interface_mobile_app_user",
+            "name": "MobileAppUser",
+            "kind": "interface",
+            "description_one_line": "Mobile application user with authentication, notification, and preference fields",
+            "details": {
+                "what_it_does": "Describes a user of the consumer mobile application. Required fields include uid (Firebase auth UID), created/updated timestamps, app_version, language ('en'|'ru'|'heb'), method ('sms'|'email'), and os ('android'|'ios'). Optional fields cover agreement signing, FCM push token, phone number (short and long), name, email/password, validation codes/tokens, feature flags, super-user flag, app identifier, and event suppression map."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "MobileAppUser",
+                    "description": "A mobile app user record suitable for Firebase authentication and push notifications."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a minimal MobileAppUser",
+                    "code": "import type { MobileAppUser } from 'akeyless-types-commons';\n\nconst mobileUser: MobileAppUser = {\n    uid: 'firebase_uid_abc',\n    created: { _seconds: 1700000000, _nanoseconds: 0 },\n    updated: { _seconds: 1700000000, _nanoseconds: 0 },\n    app_version: '2.1.0',\n    language: 'en',\n    method: 'sms',\n    os: 'android',\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 51,
+                "source_line_end": 77,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L51-L77",
+                "nx_kb_anchor": "#interface_mobile_app_user"
+            }
+        },
+        {
+            "symbol_id": "interface_go_user",
+            "name": "GoUser",
+            "kind": "interface",
+            "description_one_line": "Go mobile-app user with a list of associated clients and feature flags",
+            "details": {
+                "what_it_does": "Represents the user profile returned by the Go mobile application's authentication endpoint. Contains a clients array (each with the features, id, and name fields picked from Client), a string array of the user's own feature flags, and first/last name strings."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "GoUser",
+                    "description": "A Go app user profile with client associations and feature flags."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a GoUser record",
+                    "code": "import type { GoUser } from 'akeyless-types-commons';\n\nconst goUser: GoUser = {\n    clients: [{ id: 'client_abc', name: 'Acme Corp', features: ['cut_on_off'] }],\n    features: ['installer'],\n    first_name: 'John',\n    last_name: 'Smith',\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 79,
+                "source_line_end": 84,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L79-L84",
+                "nx_kb_anchor": "#interface_go_user"
+            }
+        },
+        {
+            "symbol_id": "interface_client",
+            "name": "Client",
+            "kind": "interface",
+            "description_one_line": "Client account record with settings, status, and installation configuration",
+            "details": {
+                "what_it_does": "Represents an Akeyless customer account. Required fields are language (LanguageOptions) and country (CountryOptions). Optional fields cover lifecycle timestamps, feature list, id, name, root_site, ClientStatus, API token, signing key, contact details, installation configuration (name, phone, root site), call-centre connection delay, and a Geo bounding area. Used across backend services and the dashboard to identify and manage customers."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "Client",
+                    "description": "A client account object with identity, configuration, and status fields."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Create a minimal Client record",
+                    "code": "import type { Client } from 'akeyless-types-commons';\nimport { LanguageOptions, CountryOptions } from 'akeyless-types-commons';\n\nconst client: Client = {\n    language: LanguageOptions.En,\n    country: CountryOptions.US,\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 86,
+                "source_line_end": 104,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L86-L104",
+                "nx_kb_anchor": "#interface_client"
+            }
+        },
+        {
+            "symbol_id": "interface_board",
+            "name": "Board",
+            "kind": "interface",
+            "description_one_line": "Hardware board record with IMEI, SIM, and lifecycle status",
+            "details": {
+                "what_it_does": "Describes a telematics hardware board stored in the inventory. Required fields: id, imei, sim, BoardStatus, type string, uploaded timestamp, and userId (technician who uploaded it). Optional fields: token for device authentication and comments string."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "Board",
+                    "description": "A board inventory record."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a Board record",
+                    "code": "import type { Board } from 'akeyless-types-commons';\nimport { BoardStatus } from 'akeyless-types-commons';\n\nconst board: Board = {\n    id: 'board_001',\n    imei: '123456789012345',\n    sim: '05012345678',\n    status: BoardStatus.ReadyForInstallation,\n    type: 'ruptela',\n    uploaded: { _seconds: 1700000000, _nanoseconds: 0 },\n    userId: 'tech_001',\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 106,
+                "source_line_end": 116,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L106-L116",
+                "nx_kb_anchor": "#interface_board"
+            }
+        },
+        {
+            "symbol_id": "interface_peripheral",
+            "name": "Peripheral",
+            "kind": "interface",
+            "description_one_line": "Peripheral device attached to a board with installation and status metadata",
+            "details": {
+                "what_it_does": "Describes an accessory device (e.g., relay, sensor) attached to a telematics board. All fields are optional and include board references, type identifiers, installation image URL, physical location string, MAC address, relay type (nullable), numeric status, technician ID, update timestamp, serial number, equipment option id/name, and device type."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "Peripheral",
+                    "description": "A peripheral device descriptor attached to a board."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Describe a peripheral with minimal known fields",
+                    "code": "import type { Peripheral } from 'akeyless-types-commons';\n\nconst peripheral: Peripheral = {\n    mac: 'AA:BB:CC:DD:EE:FF',\n    type: 'relay',\n    status: 1,\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 117,
+                "source_line_end": 132,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L117-L132",
+                "nx_kb_anchor": "#interface_peripheral"
+            }
+        },
+        {
+            "symbol_id": "interface_car",
+            "name": "Car",
+            "kind": "interface",
+            "description_one_line": "Comprehensive vehicle record covering installation, ownership, and tracking metadata",
+            "details": {
+                "what_it_does": "The central entity of the platform. Holds all data related to a tracked vehicle: confirmation_code, optional id, install_confirmation_date, carId, mainDriver, installation_status, name, contact fields (userPhone, userEmail, userAddress, userIdCard, userResidence), optional parking and marker strings, camera_installation_details map, UnitStatus, warranty information, protection plan fields, enforcement flags, site and client associations, installation timestamps, customer and technician identity, engine type, government info map, vehicle attributes (brand, manufacturer, year, color), commandOption, chassisNumber, subEnforcmentUser, peripherals array, and various optional flags (icon, vin, features, deactivated, comments, link_token, maker_icon, maintenance_timestamp, protection_description)."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "Car",
+                    "description": "A vehicle record as stored in the platform database."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Access key fields of a Car object",
+                    "code": "import type { Car } from 'akeyless-types-commons';\nimport { UnitStatus } from 'akeyless-types-commons';\n\nfunction isCarInstalled(car: Car): boolean {\n    return car.status === UnitStatus.Installed;\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 134,
+                "source_line_end": 188,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L134-L188",
+                "nx_kb_anchor": "#interface_car"
+            }
+        },
+        {
+            "symbol_id": "interface_unit_extra",
+            "name": "UnitExtra",
+            "kind": "interface",
+            "description_one_line": "Supplementary per-unit data for overspeed alerts, installation location, and call centre details",
+            "details": {
+                "what_it_does": "Holds additional metadata keyed by car_number that does not fit in the main Car record. Optional fields include an overspeed-alert configuration object (enabled, Firestore SDK Timestamp, threshold value), installation GPS coordinates and app identifier, call_centre account update timestamp, and a protection certificate URL."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "UnitExtra",
+                    "description": "Supplementary metadata for a vehicle unit."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a UnitExtra with overspeed alert",
+                    "code": "import type { UnitExtra } from 'akeyless-types-commons';\nimport { Timestamp } from 'firebase-admin/firestore';\n\nconst extra: UnitExtra = {\n    car_number: 'ABC123',\n    'overspeed-alert': {\n        enabled: true,\n        updated: Timestamp.now(),\n        value: 120,\n    },\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 190,
+                "source_line_end": 207,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L190-L207",
+                "nx_kb_anchor": "#interface_unit_extra"
+            }
+        },
+        {
+            "symbol_id": "interface_users_units",
+            "name": "UsersUnits",
+            "kind": "interface",
+            "description_one_line": "Association record linking a user phone number to a vehicle with a role",
+            "details": {
+                "what_it_does": "Describes a many-to-many relationship between users and vehicles, specifying the role the user holds for that vehicle. Role values are 'admin', 'user', 'installer', or 'guest'. Optional id field for the record's own Firestore document ID."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "UsersUnits",
+                    "description": "A user-to-vehicle association record."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Associate an admin user with a vehicle",
+                    "code": "import type { UsersUnits } from 'akeyless-types-commons';\n\nconst assoc: UsersUnits = {\n    carId: 'car_001',\n    phone: '+972501234567',\n    role: 'admin',\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 209,
+                "source_line_end": 214,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L209-L214",
+                "nx_kb_anchor": "#interface_users_units"
+            }
+        },
+        {
+            "symbol_id": "interface_last_location_car",
+            "name": "LastLocationCar",
+            "kind": "interface",
+            "description_one_line": "Most recent GPS position and telemetry snapshot for a vehicle",
+            "details": {
+                "what_it_does": "Stores the last known position of a tracked vehicle. Required fields: car_number, latitude, longitude, and timestamp (TimestampType). Optional fields include client, previous coordinates, site list, data source string, speed (spd), VIN flag, odometer (odo), ignition state (ign), and heading direction."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "LastLocationCar",
+                    "description": "A snapshot of the vehicle's last known GPS position and telemetry."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a LastLocationCar snapshot",
+                    "code": "import type { LastLocationCar } from 'akeyless-types-commons';\n\nconst loc: LastLocationCar = {\n    car_number: 'ABC123',\n    latitude: 32.07,\n    longitude: 34.78,\n    timestamp: { _seconds: 1700001000, _nanoseconds: 0 },\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 216,
+                "source_line_end": 231,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L216-L231",
+                "nx_kb_anchor": "#interface_last_location_car"
+            }
+        },
+        {
+            "symbol_id": "interface_car_state",
+            "name": "CarState",
+            "kind": "interface",
+            "description_one_line": "Real-time state snapshot for a vehicle including engine, ignition, connectivity, and sensor values",
+            "details": {
+                "what_it_does": "Describes the live operational state of a tracked vehicle as stored in the real-time database. All fields are optional to allow partial updates. Covers car_number, client, engine status, ignition (ign), online status (is_online), connectivity timestamps (last_offline, last_online), server assignment, site list, update timestamps, VIN, disarmed state with code, evacuator flag, enforcement flags (is_ce, is_ab, is_abs, is_tpms), battery disconnect state, and EV charging data (charge_percents, is_charging). Also includes remote-cut state."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "CarState",
+                    "description": "A real-time vehicle state record with all fields optional."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check if a vehicle is online and ignition is on",
+                    "code": "import type { CarState } from 'akeyless-types-commons';\n\nfunction isActivelyDriving(state: CarState): boolean {\n    return state.is_online === 1 && state.ign === 1;\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 233,
+                "source_line_end": 258,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L233-L258",
+                "nx_kb_anchor": "#interface_car_state"
+            }
+        },
+        {
+            "symbol_id": "interface_canbus_parameter",
+            "name": "CanbusParameter",
+            "kind": "interface",
+            "description_one_line": "A single CAN-bus parameter reading from the vehicle with id, value, and optional timestamp",
+            "details": {
+                "what_it_does": "Represents one diagnostic data point from the vehicle's CAN bus. The id can be a number or string parameter identifier, desc is an optional human-readable description (nullable), value is the numeric reading, and timestamp is an optional TimestampType."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "CanbusParameter",
+                    "description": "A single CAN-bus diagnostic parameter reading."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a CanbusParameter for fuel level",
+                    "code": "import type { CanbusParameter } from 'akeyless-types-commons';\n\nconst fuelLevel: CanbusParameter = {\n    id: 0x2F,\n    desc: 'Fuel level',\n    value: 75,\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 260,
+                "source_line_end": 265,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L260-L265",
+                "nx_kb_anchor": "#interface_canbus_parameter"
+            }
+        },
+        {
+            "symbol_id": "interface_equipment",
+            "name": "Equipment",
+            "kind": "interface",
+            "description_one_line": "Peripheral equipment inventory record with serial number, option type, status, and audit fields",
+            "details": {
+                "what_it_does": "Represents a physical peripheral device in the inventory (e.g., a camera or sensor). Required fields include id, serial_number, equipment_option and equipment_option_id (linking to EquipmentOption), EquipmentStatus, EquipmentStatusReason, a meta object with hardware/software version strings and optional attributes, comments string, firebase_timestamp created/updated, and updated_by user ID. Optional field: created_by."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "Equipment",
+                    "description": "An equipment inventory record with full audit trail."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct an Equipment record for a new camera",
+                    "code": "import type { Equipment } from 'akeyless-types-commons';\nimport { EquipmentStatus, EquipmentStatusReason } from 'akeyless-types-commons';\n\nconst camera: Equipment = {\n    id: 'eq_001',\n    serial_number: 'CAM-SN-12345',\n    equipment_option: 'dashcam',\n    equipment_option_id: 'opt_dashcam_01',\n    status: EquipmentStatus.Ready,\n    status_reason: EquipmentStatusReason.New,\n    meta: { version: { hw: '1.0', sw: '2.3.1' } },\n    comments: '',\n    created: { _seconds: 1700000000, _nanoseconds: 0 },\n    updated: { _seconds: 1700000000, _nanoseconds: 0 },\n    updated_by: 'tech_001',\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 267,
+                "source_line_end": 287,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L267-L287",
+                "nx_kb_anchor": "#interface_equipment"
+            }
+        },
+        {
+            "symbol_id": "interface_equipment_option",
+            "name": "EquipmentOption",
+            "kind": "interface",
+            "description_one_line": "Equipment category/option definition record used to classify equipment types",
+            "details": {
+                "what_it_does": "Defines a type of equipment available in the catalogue. Fields: id, name, equipment_category (grouping), description text, firebase_timestamp created/updated, and updated_by. Optional created_by."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "EquipmentOption",
+                    "description": "An equipment type definition record."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Define an EquipmentOption for dashcam",
+                    "code": "import type { EquipmentOption } from 'akeyless-types-commons';\n\nconst dashcamOption: EquipmentOption = {\n    id: 'opt_dashcam_01',\n    name: 'Front Dashcam',\n    equipment_category: 'cameras',\n    description: 'Wide-angle front-facing dashcam with night vision',\n    created: { _seconds: 1700000000, _nanoseconds: 0 },\n    updated: { _seconds: 1700000000, _nanoseconds: 0 },\n    updated_by: 'admin_001',\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 289,
+                "source_line_end": 298,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L289-L298",
+                "nx_kb_anchor": "#interface_equipment_option"
+            }
+        },
+        {
+            "symbol_id": "interface_event_from_device",
+            "name": "EventFromDevice",
+            "kind": "interface",
+            "description_one_line": "Base event payload sent from a tracking device with position, speed, and event metadata",
+            "details": {
+                "what_it_does": "Base interface for all telemetry events emitted by tracking hardware. Contains event_id (numeric), car_number, source identifier (device type/server), timestamp (TimestampType), speed (spd), VIN flag, GPS coordinates (latitude, longitude), and event_name string. Extended by EventFromDevice_Ruptela and EventFromDevice_Erm for device-specific fields."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "EventFromDevice",
+                    "description": "A generic telemetry event payload from a GPS tracking device."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Type-guard on a base device event",
+                    "code": "import type { EventFromDevice } from 'akeyless-types-commons';\n\nfunction logEvent(event: EventFromDevice): void {\n    console.log(`[${event.event_name}] car=${event.car_number} lat=${event.latitude} lng=${event.longitude}`);\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 299,
+                "source_line_end": 309,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L299-L309",
+                "nx_kb_anchor": "#interface_event_from_device"
+            }
+        },
+        {
+            "symbol_id": "interface_event_from_device_ruptela",
+            "name": "EventFromDevice_Ruptela",
+            "kind": "interface",
+            "description_one_line": "Ruptela-device-specific event extending EventFromDevice with battery charge percentage",
+            "details": {
+                "what_it_does": "Extends EventFromDevice with a charge_percents field (number) that carries the EV battery charge percentage as reported by Ruptela GPS devices. Used by Ruptela-specific event processors."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "EventFromDevice_Ruptela",
+                    "description": "A Ruptela device telemetry event including battery charge percentage."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Handle a Ruptela-specific charging event",
+                    "code": "import type { EventFromDevice_Ruptela } from 'akeyless-types-commons';\nimport { RuptelaEventEnum } from 'akeyless-types-commons';\n\nfunction handleRuptela(event: EventFromDevice_Ruptela): void {\n    if (event.event_id === RuptelaEventEnum.charging_on) {\n        console.log(`Charging started. Battery: ${event.charge_percents}%`);\n    }\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 311,
+                "source_line_end": 313,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L311-L313",
+                "nx_kb_anchor": "#interface_event_from_device_ruptela"
+            }
+        },
+        {
+            "symbol_id": "interface_event_from_device_erm",
+            "name": "EventFromDevice_Erm",
+            "kind": "interface",
+            "description_one_line": "ERM-device-specific event extending EventFromDevice with a disarm code",
+            "details": {
+                "what_it_does": "Extends EventFromDevice with a disarm_code string field used by ERM (Electronic Response Management) tracking devices. The disarm code is sent by the device when a disarm event occurs and is required for security validation workflows."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "EventFromDevice_Erm",
+                    "description": "An ERM device event payload including the disarm code string."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Process an ERM disarm event",
+                    "code": "import type { EventFromDevice_Erm } from 'akeyless-types-commons';\n\nfunction processErmDisarm(event: EventFromDevice_Erm): void {\n    console.log(`Disarm code received: ${event.disarm_code} for car ${event.car_number}`);\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 315,
+                "source_line_end": 317,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L315-L317",
+                "nx_kb_anchor": "#interface_event_from_device_erm"
+            }
+        },
+        {
+            "symbol_id": "interface_erm_states",
+            "name": "ErmStates",
+            "kind": "interface",
+            "description_one_line": "ERM device real-time state record with connectivity, power, and ignition fields",
+            "details": {
+                "what_it_does": "Represents the live state of an ERM tracking device. Required fields: car_number and server. Optional fields mirror a subset of CarState: ign, is_online, last_offline/last_online (as native Date), vin, and is_awake/battery_disconnected for ERM-specific power tracking. Timestamps here are native Date objects, not TimestampType."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "ErmStates",
+                    "description": "An ERM device state record."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a minimal ErmStates record",
+                    "code": "import type { ErmStates } from 'akeyless-types-commons';\n\nconst state: ErmStates = {\n    car_number: 'ABC123',\n    server: 'erm-server-01',\n    ign: 1,\n    is_online: 1,\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 319,
+                "source_line_end": 330,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L319-L330",
+                "nx_kb_anchor": "#interface_erm_states"
+            }
+        },
+        {
+            "symbol_id": "type_report_meta_data_type",
+            "name": "ReportMetaDataType",
+            "kind": "type",
+            "description_one_line": "Union of column data type identifiers for report header definitions",
+            "details": {
+                "what_it_does": "Restricts report column data types to ten recognised values: 'string', 'car_number', 'phone', 'date', 'time', 'datetime', 'number', 'email', 'boolean', 'geo', and 'duration'. Used to type the type field on ReportMetaHeader so UI report renderers can apply appropriate formatting and validation.",
+                "type_definition": "export type ReportMetaDataType =\n    | \"string\"\n    | \"car_number\"\n    | \"phone\"\n    | \"date\"\n    | \"time\"\n    | \"datetime\"\n    | \"number\"\n    | \"email\"\n    | \"boolean\"\n    | \"geo\"\n    | \"duration\";"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Define a report header with a ReportMetaDataType",
+                    "code": "import type { ReportMetaHeader, ReportMetaDataType } from 'akeyless-types-commons';\n\nconst header: ReportMetaHeader = { name: 'Start Time', type: 'datetime' };"
+                }
+            },
+            "locations": {
+                "source_line_start": 332,
+                "source_line_end": 343,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L332-L343",
+                "nx_kb_anchor": "#type_report_meta_data_type"
+            }
+        },
+        {
+            "symbol_id": "type_report_parameter_data_type",
+            "name": "ReportParameterDataType",
+            "kind": "type",
+            "description_one_line": "Extended union of report data types including select and multi_select for parameter inputs",
+            "details": {
+                "what_it_does": "Extends ReportMetaDataType with two additional values: 'select' and 'multi_select'. Used to type report filter/parameter fields that can present dropdown or multi-select UI controls in addition to the standard column data types.",
+                "type_definition": "export type ReportParameterDataType = ReportMetaDataType | \"select\" | \"multi_select\";"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use ReportParameterDataType for a filter parameter",
+                    "code": "import type { ReportParameterDataType } from 'akeyless-types-commons';\n\ninterface ReportFilter {\n    name: string;\n    type: ReportParameterDataType;\n}\n\nconst filter: ReportFilter = { name: 'Status', type: 'select' };"
+                }
+            },
+            "locations": {
+                "source_line_start": 345,
+                "source_line_end": 345,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L345",
+                "nx_kb_anchor": "#type_report_parameter_data_type"
+            }
+        },
+        {
+            "symbol_id": "interface_report_meta_header",
+            "name": "ReportMetaHeader",
+            "kind": "interface",
+            "description_one_line": "Defines a single column header for a report including name, data type, and optional styling",
+            "details": {
+                "what_it_does": "Describes one column in a report's header row. Required fields are name (column label) and type (ReportMetaDataType for rendering logic). Optional fields class_name and style allow the report renderer to apply custom CSS."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "ReportMetaHeader",
+                    "description": "A report column header descriptor."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Create report headers for a trip report",
+                    "code": "import type { ReportMetaHeader } from 'akeyless-types-commons';\n\nconst headers: ReportMetaHeader[] = [\n    { name: 'Car Number', type: 'car_number' },\n    { name: 'Start Time', type: 'datetime' },\n    { name: 'Distance (km)', type: 'number' },\n    { name: 'Driver Phone', type: 'phone' },\n];"
+                }
+            },
+            "locations": {
+                "source_line_start": 347,
+                "source_line_end": 352,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L347-L352",
+                "nx_kb_anchor": "#interface_report_meta_header"
+            }
+        },
+        {
+            "symbol_id": "interface_report_meta",
+            "name": "ReportMeta",
+            "kind": "interface",
+            "description_one_line": "Report metadata container holding the ordered list of column header definitions",
+            "details": {
+                "what_it_does": "A top-level report metadata envelope. Contains a single headers array of ReportMetaHeader objects that define the columns for a report table. Returned by report definition endpoints and consumed by the frontend report renderer."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "ReportMeta",
+                    "description": "A report metadata object with the column header array."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a ReportMeta for a speed report",
+                    "code": "import type { ReportMeta } from 'akeyless-types-commons';\n\nconst meta: ReportMeta = {\n    headers: [\n        { name: 'Car Number', type: 'car_number' },\n        { name: 'Max Speed', type: 'number' },\n        { name: 'Timestamp', type: 'datetime' },\n    ],\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 354,
+                "source_line_end": 356,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L354-L356",
+                "nx_kb_anchor": "#interface_report_meta"
+            }
+        },
+        {
+            "symbol_id": "type_report_data_row",
+            "name": "ReportDataRow",
+            "kind": "type",
+            "description_one_line": "A single report data row as an array of primitive values",
+            "details": {
+                "what_it_does": "Represents one row of report data as an ordered array of values corresponding to the column definitions in ReportMeta. Each element is one of string, number, Date, boolean, or null, matching the data types defined by the column's ReportMetaDataType.",
+                "type_definition": "export type ReportDataRow = (string | number | Date | boolean | null)[];"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Type a report data response",
+                    "code": "import type { ReportDataRow } from 'akeyless-types-commons';\n\nconst rows: ReportDataRow[] = [\n    ['ABC123', new Date('2024-01-01T10:00:00Z'), 45.5, true, null],\n    ['XYZ789', new Date('2024-01-01T11:00:00Z'), 62.0, false, 'note'],\n];"
+                }
+            },
+            "locations": {
+                "source_line_start": 358,
+                "source_line_end": 358,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L358",
+                "nx_kb_anchor": "#type_report_data_row"
+            }
+        },
+        {
+            "symbol_id": "interface_gprs_item",
+            "name": "GprsItem",
+            "kind": "interface",
+            "description_one_line": "GPRS command/message record sent to a vehicle device with status tracking",
+            "details": {
+                "what_it_does": "Represents a GPRS command or message dispatched to a vehicle tracking device. Contains id, created/updated TimestampType fields, external_id (numeric ID in the GPRS gateway), recipient car number, response string from the device, content string (the command), a details generic map (TObject<any>), and a status of 'new', 'failed', 'delivered', or 'responded'. Used by the command dispatch service to track GPRS message lifecycle."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "GprsItem",
+                    "description": "A GPRS command record with full lifecycle tracking."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a new GprsItem for an engine-cut command",
+                    "code": "import type { GprsItem } from 'akeyless-types-commons';\n\nconst command: GprsItem = {\n    id: 'gprs_001',\n    created: { _seconds: 1700001000, _nanoseconds: 0 },\n    updated: { _seconds: 1700001000, _nanoseconds: 0 },\n    external_id: 42,\n    recipient: 'ABC123',\n    response: '',\n    content: 'ENGINE_OFF',\n    details: {},\n    status: 'new',\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 360,
+                "source_line_end": 370,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts#L360-L370",
+                "nx_kb_anchor": "#interface_gprs_item"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

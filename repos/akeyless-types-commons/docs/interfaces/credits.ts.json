@@ -1,0 +1,164 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "credits.ts",
+    "source": {
+        "file_path": "interfaces/credits.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/credits.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/credits.ts"
+    },
+    "summary": {
+        "purpose": "Defines TypeScript types and interfaces for the credit management domain, covering credit items, audit actions, and audit trail records.",
+        "problem_solved": "Provides a shared, strongly-typed data contract for credit balance management operations so backend services and frontend views remain in sync without runtime type mismatches."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "./global",
+                "resolved_file_path": "interfaces/global.ts",
+                "why_used": "Imports TimestampType to type all timestamp fields on CreditItem and CreditAuditItem",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/global.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "CreditType",
+            "kind": "type",
+            "description_one_line": "String union type for credit transaction categories, open to extension via string intersection",
+            "symbol_id": "type_credit_type"
+        },
+        {
+            "name": "CreditItem",
+            "kind": "interface",
+            "description_one_line": "Represents a single credit pool record with amount, validity window, types, and lifecycle timestamps",
+            "symbol_id": "interface_credit_item"
+        },
+        {
+            "name": "CreditAuditAction",
+            "kind": "type",
+            "description_one_line": "Union of allowed audit actions for credit balance changes",
+            "symbol_id": "type_credit_audit_action"
+        },
+        {
+            "name": "CreditAuditItem",
+            "kind": "interface",
+            "description_one_line": "Represents a single entry in the credit audit trail recording who changed the balance and by how much",
+            "symbol_id": "interface_credit_audit_item"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "type_credit_type",
+            "name": "CreditType",
+            "kind": "type",
+            "description_one_line": "String union type for credit transaction categories, open to extension via string intersection",
+            "details": {
+                "what_it_does": "Defines a string type that accepts the literal values 'charge_home' or 'charge_external', plus any other arbitrary string via the `(string & {})` escape hatch. This pattern preserves autocomplete for the known literals while allowing custom credit type strings.",
+                "type_definition": "export type CreditType = \"charge_home\" | \"charge_external\" | (string & {});"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Annotate a credit type field",
+                    "code": "import type { CreditType } from 'akeyless-types-commons';\n\nconst creditType: CreditType = 'charge_home'; // known literal\nconst customType: CreditType = 'charge_workplace'; // custom string accepted"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 3,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/credits.ts#L3",
+                "nx_kb_anchor": "#type_credit_type"
+            }
+        },
+        {
+            "symbol_id": "interface_credit_item",
+            "name": "CreditItem",
+            "kind": "interface",
+            "description_one_line": "Represents a single credit pool record with amount, validity window, types, and lifecycle timestamps",
+            "details": {
+                "what_it_does": "Describes a credit balance record stored in the system. Fields include a unique id, a numeric amount, an optional car_number for vehicle-scoped credits, an expiration range (from/to as TimestampType), a list of applicable CreditType values, and created/updated/deleted lifecycle markers. Used by credit management services and the dashboard to display and manipulate client credit pools."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "CreditItem",
+                    "description": "An object containing credit pool data for a client."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a minimal CreditItem",
+                    "code": "import type { CreditItem } from 'akeyless-types-commons';\n\nconst credit: CreditItem = {\n    id: 'cr_001',\n    amount: 100,\n    expiration: { from: { _seconds: 1700000000, _nanoseconds: 0 }, to: { _seconds: 1800000000, _nanoseconds: 0 } },\n    types: ['charge_home'],\n    created: { _seconds: 1700000000, _nanoseconds: 0 },\n    updated: { _seconds: 1700000000, _nanoseconds: 0 },\n    deleted: false,\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 5,
+                "source_line_end": 17,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/credits.ts#L5-L17",
+                "nx_kb_anchor": "#interface_credit_item"
+            }
+        },
+        {
+            "symbol_id": "type_credit_audit_action",
+            "name": "CreditAuditAction",
+            "kind": "type",
+            "description_one_line": "Union of allowed audit actions for credit balance changes",
+            "details": {
+                "what_it_does": "Restricts credit audit entries to exactly three action types: 'subtract' (reduce balance), 'add' (increase balance), or 'delete' (remove the credit entry). Used on the CreditAuditItem interface to ensure audit records carry a valid action type.",
+                "type_definition": "export type CreditAuditAction = \"subtract\" | \"add\" | \"delete\";"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use CreditAuditAction in a function parameter",
+                    "code": "import type { CreditAuditAction } from 'akeyless-types-commons';\n\nfunction describeAction(action: CreditAuditAction): string {\n    const map: Record<CreditAuditAction, string> = {\n        add: 'Credits added',\n        subtract: 'Credits deducted',\n        delete: 'Credit entry removed',\n    };\n    return map[action];\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 19,
+                "source_line_end": 19,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/credits.ts#L19",
+                "nx_kb_anchor": "#type_credit_audit_action"
+            }
+        },
+        {
+            "symbol_id": "interface_credit_audit_item",
+            "name": "CreditAuditItem",
+            "kind": "interface",
+            "description_one_line": "Represents a single entry in the credit audit trail recording who changed the balance and by how much",
+            "details": {
+                "what_it_does": "Captures a full audit record for a credit balance change. Includes the unique audit id, the CreditAuditAction performed, the optional target car_number, the numeric amount of the change, an optional human-readable comment, a required reason string, the prev_balance before the change, the timestamp of the operation, and the id and name of the user who made the change. Linked back to the original credit record via credit_id."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "CreditAuditItem",
+                    "description": "An audit trail record for a credit balance operation."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a credit audit entry for a subtraction",
+                    "code": "import type { CreditAuditItem } from 'akeyless-types-commons';\n\nconst auditEntry: CreditAuditItem = {\n    id: 'audit_001',\n    action: 'subtract',\n    amount: 20,\n    reason: 'Car charged at home station',\n    prev_balance: 100,\n    timestamp: { _seconds: 1700001000, _nanoseconds: 0 },\n    user_id: 'user_abc',\n    user_name: 'Jane Doe',\n    credit_id: 'cr_001',\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 21,
+                "source_line_end": 33,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/credits.ts#L21-L33",
+                "nx_kb_anchor": "#interface_credit_audit_item"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

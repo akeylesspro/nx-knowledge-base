@@ -1,0 +1,24 @@
+{
+    "name": "akeyless-types-commons",
+    "display_name": "Akeyless Types Commons",
+    "description": "Shared TypeScript types, interfaces, and enums used across Akeyless platform services and applications",
+    "story": "akeyless-types-commons is a foundational shared library that centralises all domain-level TypeScript definitions for the Akeyless vehicle-tracking platform. It defines the canonical shapes for entities such as cars, clients, sites, users, equipment, boards, GPS events, socket communication, credit management, and feature-flag enumerations. By publishing these definitions as a standalone package, every consumer (server, client, mobile, toolbox) works from the same source of truth, eliminating type drift between services.",
+    "github_url": "https://github.com/akeyless/akeyless-types-commons",
+    "default_branch": "main",
+    "language": "TypeScript",
+    "framework_tags": ["typescript", "node"],
+    "capabilities": [
+        "Shared TypeScript type definitions",
+        "Domain entity interfaces (Car, Client, Site, Board, Equipment, User)",
+        "Feature-flag enumerations per application context",
+        "Socket event contracts and Redis update payload types",
+        "Credit management types",
+        "Go mobile app auth models",
+        "Report metadata types",
+        "Geo and timestamp utility types"
+    ],
+    "last_synced_at": "2026-02-19T00:00:00.000Z",
+    "last_synced_commit": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+    "file_count": 12,
+    "symbol_count": 75
+}

@@ -1,0 +1,115 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "types/index.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/index.ts"
+    },
+    "summary": {
+        "purpose": "Barrel file that aggregates and re-exports all type definitions from the types sub-module.",
+        "problem_solved": "Provides a single import point for all utility and socket types so consumers do not need to reference individual files within types/."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "./global",
+                "resolved_file_path": "types/global.ts",
+                "why_used": "Re-exports primitive utility types: NumberObject, TObject, Geo",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/global.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/global.ts"
+            },
+            {
+                "import_path": "./socket",
+                "resolved_file_path": "types/socket.ts",
+                "why_used": "Re-exports socket communication types: REDIS_UPDATES_PREFIX, SOCKET_EVENTS, SocketEventMap, RedisUpdateType, RedisUpdatePayload, SocketCallbackResponse, CollectionConfig",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/socket.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "global (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports primitive utility types from types/global.ts",
+            "symbol_id": "value_reexport_types_global"
+        },
+        {
+            "name": "socket (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports socket and Redis communication types from types/socket.ts",
+            "symbol_id": "value_reexport_types_socket"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "value_reexport_types_global",
+            "name": "global (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of primitive utility types from types/global.ts",
+            "details": {
+                "what_it_does": "Makes NumberObject, TObject, and Geo available through the types barrel."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import Geo and TObject through the types barrel",
+                    "code": "import type { Geo, TObject } from 'akeyless-types-commons';\n// Available because types/index.ts re-exports types/global.ts"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/index.ts#L1",
+                "nx_kb_anchor": "#value_reexport_types_global"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_types_socket",
+            "name": "socket (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of socket and Redis communication types from types/socket.ts",
+            "details": {
+                "what_it_does": "Makes REDIS_UPDATES_PREFIX, SOCKET_EVENTS, SocketEventMap, RedisUpdateType, RedisUpdatePayload, SocketCallbackResponse, and CollectionConfig available through the types barrel."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import SOCKET_EVENTS through the types barrel",
+                    "code": "import { SOCKET_EVENTS } from 'akeyless-types-commons';\n// Available because types/index.ts re-exports types/socket.ts"
+                }
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 2,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/index.ts#L2",
+                "nx_kb_anchor": "#value_reexport_types_socket"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

@@ -1,0 +1,273 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "features.ts",
+    "source": {
+        "file_path": "enums/features.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/features.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/features.ts"
+    },
+    "summary": {
+        "purpose": "Defines feature-flag enumerations scoped per application context (Board, Client, Dashboard, Installer, Toolbox) and a typed user-permissions interface.",
+        "problem_solved": "Centralises all feature-flag identifiers for the platform so that every application uses the same string keys, preventing typos, mismatches, and permission-check drift across services."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "FeaturesBoard",
+            "kind": "enum",
+            "description_one_line": "Feature flags available to board-level hardware configuration",
+            "symbol_id": "enum_features_board"
+        },
+        {
+            "name": "FeaturesClient",
+            "kind": "enum",
+            "description_one_line": "Feature flags that control capabilities visible to end-client users",
+            "symbol_id": "enum_features_client"
+        },
+        {
+            "name": "FeaturesDashboard",
+            "kind": "enum",
+            "description_one_line": "Feature flags representing role-based access levels in the dashboard application",
+            "symbol_id": "enum_features_dashboard"
+        },
+        {
+            "name": "FeaturesInstaller",
+            "kind": "enum",
+            "description_one_line": "Feature flags controlling installer-app capabilities and access levels",
+            "symbol_id": "enum_features_installer"
+        },
+        {
+            "name": "FeaturesToolbox",
+            "kind": "enum",
+            "description_one_line": "Feature flags for the toolbox admin application, declared as ambient enum",
+            "symbol_id": "enum_features_toolbox"
+        },
+        {
+            "name": "UserPermissionsObject",
+            "kind": "interface",
+            "description_one_line": "Typed map of per-application feature flag activation states for a user",
+            "symbol_id": "interface_user_permissions_object"
+        },
+        {
+            "name": "userPermissionsObjectValue",
+            "kind": "type",
+            "description_one_line": "Utility type extracting the key union for a given UserPermissionsObject application property",
+            "symbol_id": "type_user_permissions_object_value"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "enum_features_board",
+            "name": "FeaturesBoard",
+            "kind": "enum",
+            "description_one_line": "Feature flags available to board-level hardware configuration",
+            "details": {
+                "what_it_does": "Enumerates feature identifiers specific to hardware board configuration. Currently contains one member: extra_battery, enabling boards that support auxiliary battery management."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "FeaturesBoard",
+                    "description": "A string enum member identifying the board feature."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check if a board has the extra_battery feature",
+                    "code": "import { FeaturesBoard } from 'akeyless-types-commons';\n\nfunction hasBatteryFeature(features: string[]): boolean {\n    return features.includes(FeaturesBoard.extra_battery);\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 3,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/features.ts#L1-L3",
+                "nx_kb_anchor": "#enum_features_board"
+            }
+        },
+        {
+            "symbol_id": "enum_features_client",
+            "name": "FeaturesClient",
+            "kind": "enum",
+            "description_one_line": "Feature flags that control capabilities visible to end-client users",
+            "details": {
+                "what_it_does": "Enumerates 16 feature-flag string values that can be assigned to a client account to unlock specific application capabilities. Features include PDI workflows, alert management, biometry, EV charge tracking, SMS/email contact options, remote engine cut, door monitoring, keypad management, polygon scheduling, and more."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "FeaturesClient",
+                    "description": "A string enum member identifying the client feature."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check if a client has charge tracking enabled",
+                    "code": "import { FeaturesClient } from 'akeyless-types-commons';\n\nfunction hasChargeTracking(clientFeatures: string[]): boolean {\n    return clientFeatures.includes(FeaturesClient.charge_tracking);\n}"
+                },
+                "extensive_correct": {
+                    "title": "Filter UI actions based on client features",
+                    "code": "import { FeaturesClient } from 'akeyless-types-commons';\n\nconst CLIENT_ACTION_FEATURES: FeaturesClient[] = [\n    FeaturesClient.cut_on_off,\n    FeaturesClient.doors_open_close,\n    FeaturesClient.vibration_on_off,\n];\n\nfunction getAvailableActions(features: string[]): FeaturesClient[] {\n    return CLIENT_ACTION_FEATURES.filter(f => features.includes(f));\n}"
+                },
+                "incorrect": {
+                    "title": "Using raw string literals for feature checks",
+                    "code": "// Wrong\nif (features.includes('charge_tracking')) { ... }\n\n// Correct\nif (features.includes(FeaturesClient.charge_tracking)) { ... }",
+                    "why_incorrect": "Raw strings bypass TypeScript checks and will not be caught by IDE refactoring tools if a feature key is renamed."
+                }
+            },
+            "locations": {
+                "source_line_start": 5,
+                "source_line_end": 22,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/features.ts#L5-L22",
+                "nx_kb_anchor": "#enum_features_client"
+            }
+        },
+        {
+            "symbol_id": "enum_features_dashboard",
+            "name": "FeaturesDashboard",
+            "kind": "enum",
+            "description_one_line": "Feature flags representing role-based access levels in the dashboard application",
+            "details": {
+                "what_it_does": "Enumerates five role identifiers used by the dashboard application: client_admin, site_admin, capacity_admin, dashboard_user, and super_admin. Each member maps to an access tier that controls which sections of the dashboard UI are visible or editable."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "FeaturesDashboard",
+                    "description": "A string enum member identifying the dashboard role."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check if user has super-admin access in the dashboard",
+                    "code": "import { FeaturesDashboard } from 'akeyless-types-commons';\n\nfunction isSuperAdmin(features: string[]): boolean {\n    return features.includes(FeaturesDashboard.super_admin);\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 24,
+                "source_line_end": 30,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/features.ts#L24-L30",
+                "nx_kb_anchor": "#enum_features_dashboard"
+            }
+        },
+        {
+            "symbol_id": "enum_features_installer",
+            "name": "FeaturesInstaller",
+            "kind": "enum",
+            "description_one_line": "Feature flags controlling installer-app capabilities and access levels",
+            "details": {
+                "what_it_does": "Enumerates eight feature flags for the installer mobile/web application: super_technician, installer, uninstall, maintenance, desktop_mode, tests, tools, and access_all_clients. These flags determine which workflows and screens a field technician can access."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "FeaturesInstaller",
+                    "description": "A string enum member identifying the installer feature."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check if an installer can access all clients",
+                    "code": "import { FeaturesInstaller } from 'akeyless-types-commons';\n\nfunction canAccessAllClients(features: string[]): boolean {\n    return features.includes(FeaturesInstaller.access_all_clients);\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 32,
+                "source_line_end": 41,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/features.ts#L32-L41",
+                "nx_kb_anchor": "#enum_features_installer"
+            }
+        },
+        {
+            "symbol_id": "enum_features_toolbox",
+            "name": "FeaturesToolbox",
+            "kind": "enum",
+            "description_one_line": "Ambient enum of feature flags for the toolbox admin application",
+            "details": {
+                "what_it_does": "Declares (as an ambient enum, hence `declare enum`) 14 feature-flag string values for the toolbox administration panel. Members cover super_admin, toolbox_user, car_catalog, sms_configurations, tools, equipment_options, manage_equipment, manage_boards, manage_clients, manage_users, manage_cars, manage_credits, call_center_user, and clients_scope. Being ambient means the enum is expected to exist at runtime via an external definition."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "FeaturesToolbox",
+                    "description": "A string enum member identifying the toolbox feature."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check toolbox manage_clients permission",
+                    "code": "import { FeaturesToolbox } from 'akeyless-types-commons';\n\nfunction canManageClients(features: string[]): boolean {\n    return features.includes(FeaturesToolbox.manage_clients);\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 43,
+                "source_line_end": 58,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/features.ts#L43-L58",
+                "nx_kb_anchor": "#enum_features_toolbox"
+            }
+        },
+        {
+            "symbol_id": "interface_user_permissions_object",
+            "name": "UserPermissionsObject",
+            "kind": "interface",
+            "description_one_line": "Typed map of per-application feature flag activation states for a user",
+            "details": {
+                "what_it_does": "Describes a user's permission object as optional records keyed by each application's feature enum members. The toolbox, installer, and dashboard properties are each typed as Record<`${EnumType}`, boolean>, mapping every feature flag string to a boolean activation state. A reports property is typed as Record<string, boolean> for dynamic report keys."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "UserPermissionsObject",
+                    "description": "An object with optional keys for each application context, each mapping feature flag strings to booleans."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a UserPermissionsObject for a dashboard user",
+                    "code": "import type { UserPermissionsObject } from 'akeyless-types-commons';\nimport { FeaturesDashboard } from 'akeyless-types-commons';\n\nconst perms: UserPermissionsObject = {\n    dashboard: {\n        client_admin: false,\n        site_admin: true,\n        capacity_admin: false,\n        dashboard_user: true,\n        super_admin: false,\n    },\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 60,
+                "source_line_end": 65,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/features.ts#L60-L65",
+                "nx_kb_anchor": "#interface_user_permissions_object"
+            }
+        },
+        {
+            "symbol_id": "type_user_permissions_object_value",
+            "name": "userPermissionsObjectValue",
+            "kind": "type",
+            "description_one_line": "Utility type extracting the key union for a given UserPermissionsObject application property",
+            "details": {
+                "what_it_does": "A generic conditional type that, given a key T of UserPermissionsObject, yields the key union of the corresponding Record value. For example, userPermissionsObjectValue<'dashboard'> resolves to keyof Record<`${FeaturesDashboard}`, boolean>, which equals the string literal union of all FeaturesDashboard members.",
+                "type_definition": "export type userPermissionsObjectValue<T extends keyof UserPermissionsObject> = keyof UserPermissionsObject[T];"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use the type to type-safely extract dashboard feature keys",
+                    "code": "import type { userPermissionsObjectValue } from 'akeyless-types-commons';\n\ntype DashboardKey = userPermissionsObjectValue<'dashboard'>;\n// DashboardKey = 'client_admin' | 'site_admin' | 'capacity_admin' | 'dashboard_user' | 'super_admin'\n\nfunction hasDashboardFeature(\n    perms: Record<DashboardKey, boolean>,\n    key: DashboardKey\n): boolean {\n    return perms[key];\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 67,
+                "source_line_end": 67,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/features.ts#L67",
+                "nx_kb_anchor": "#type_user_permissions_object_value"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

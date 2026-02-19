@@ -1,0 +1,156 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.ts",
+    "source": {
+        "file_path": "enums/index.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/index.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/index.ts"
+    },
+    "summary": {
+        "purpose": "Barrel file that aggregates and re-exports all enum definitions from the enums sub-module.",
+        "problem_solved": "Provides a single import point for all enumerations so consumers do not need to know which specific file within enums/ defines each enum."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "./global",
+                "resolved_file_path": "enums/global.ts",
+                "why_used": "Re-exports global domain enums: DefaultClient, BoardStatus, EquipmentStatus, EquipmentStatusReason, UnitStatus, ClientStatus, LanguageOptions, CountryOptions, SiteType",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/global.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts"
+            },
+            {
+                "import_path": "./car_events",
+                "resolved_file_path": "enums/car_events.ts",
+                "why_used": "Re-exports RuptelaEventEnum for Ruptela GPS device event identification",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/car_events.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/car_events.ts"
+            },
+            {
+                "import_path": "./features",
+                "resolved_file_path": "enums/features.ts",
+                "why_used": "Re-exports all feature-flag enums and user permission types: FeaturesBoard, FeaturesClient, FeaturesDashboard, FeaturesInstaller, FeaturesToolbox, UserPermissionsObject, userPermissionsObjectValue",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/features.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/features.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "global (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports all global domain enums",
+            "symbol_id": "value_reexport_enums_global"
+        },
+        {
+            "name": "car_events (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports Ruptela car event enum",
+            "symbol_id": "value_reexport_enums_car_events"
+        },
+        {
+            "name": "features (re-export)",
+            "kind": "value",
+            "description_one_line": "Re-exports all feature-flag enums and permission types",
+            "symbol_id": "value_reexport_enums_features"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "value_reexport_enums_global",
+            "name": "global (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of all global domain enums from enums/global.ts",
+            "details": {
+                "what_it_does": "Makes DefaultClient, BoardStatus, EquipmentStatus, EquipmentStatusReason, UnitStatus, ClientStatus, LanguageOptions, CountryOptions, and SiteType available through the enums barrel."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import a global enum via the enums barrel",
+                    "code": "import { ClientStatus } from 'akeyless-types-commons';\n// ClientStatus is available because enums/index.ts re-exports enums/global.ts"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/index.ts#L1",
+                "nx_kb_anchor": "#value_reexport_enums_global"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_enums_car_events",
+            "name": "car_events (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of Ruptela car event enum from enums/car_events.ts",
+            "details": {
+                "what_it_does": "Makes RuptelaEventEnum available through the enums barrel."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import Ruptela event enum via the enums barrel",
+                    "code": "import { RuptelaEventEnum } from 'akeyless-types-commons';\n// Available because enums/index.ts re-exports enums/car_events.ts"
+                }
+            },
+            "locations": {
+                "source_line_start": 2,
+                "source_line_end": 2,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/index.ts#L2",
+                "nx_kb_anchor": "#value_reexport_enums_car_events"
+            }
+        },
+        {
+            "symbol_id": "value_reexport_enums_features",
+            "name": "features (re-export)",
+            "kind": "value",
+            "description_one_line": "Barrel re-export of all feature-flag enums and permission types from enums/features.ts",
+            "details": {
+                "what_it_does": "Makes FeaturesBoard, FeaturesClient, FeaturesDashboard, FeaturesInstaller, FeaturesToolbox, UserPermissionsObject, and userPermissionsObjectValue available through the enums barrel."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Module-level re-export; not callable."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import a feature enum via the enums barrel",
+                    "code": "import { FeaturesClient } from 'akeyless-types-commons';\n// Available because enums/index.ts re-exports enums/features.ts"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 3,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/index.ts#L3",
+                "nx_kb_anchor": "#value_reexport_enums_features"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

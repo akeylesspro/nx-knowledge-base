@@ -1,0 +1,342 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "global.ts",
+    "source": {
+        "file_path": "enums/global.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/global.ts"
+    },
+    "summary": {
+        "purpose": "Defines global-scope enumeration types representing domain-wide status, category, and configuration values shared across all platform services.",
+        "problem_solved": "Provides a single authoritative source for system-wide status codes, localisation options, and entity type identifiers, ensuring consistency across backend services, frontends, and mobile apps."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "DefaultClient",
+            "kind": "enum",
+            "description_one_line": "Default client identifier strings for standard and camera-installation contexts",
+            "symbol_id": "enum_default_client"
+        },
+        {
+            "name": "BoardStatus",
+            "kind": "enum",
+            "description_one_line": "Numeric lifecycle status codes for GPS/telematics hardware boards",
+            "symbol_id": "enum_board_status"
+        },
+        {
+            "name": "EquipmentStatus",
+            "kind": "enum",
+            "description_one_line": "String status values for peripheral equipment items",
+            "symbol_id": "enum_equipment_status"
+        },
+        {
+            "name": "EquipmentStatusReason",
+            "kind": "enum",
+            "description_one_line": "String reason codes explaining the current equipment status",
+            "symbol_id": "enum_equipment_status_reason"
+        },
+        {
+            "name": "UnitStatus",
+            "kind": "enum",
+            "description_one_line": "Numeric lifecycle status codes for installed vehicle tracking units",
+            "symbol_id": "enum_unit_status"
+        },
+        {
+            "name": "ClientStatus",
+            "kind": "enum",
+            "description_one_line": "String status values for client account lifecycle states",
+            "symbol_id": "enum_client_status"
+        },
+        {
+            "name": "LanguageOptions",
+            "kind": "enum",
+            "description_one_line": "ISO 639-1 language codes supported by the platform UI",
+            "symbol_id": "enum_language_options"
+        },
+        {
+            "name": "CountryOptions",
+            "kind": "enum",
+            "description_one_line": "Country codes supported for client account configuration",
+            "symbol_id": "enum_country_options"
+        },
+        {
+            "name": "SiteType",
+            "kind": "enum",
+            "description_one_line": "Hierarchical site type identifiers used in the organisational tree",
+            "symbol_id": "enum_site_type"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "enum_default_client",
+            "name": "DefaultClient",
+            "kind": "enum",
+            "description_one_line": "Default client identifier strings for standard and camera-installation contexts",
+            "details": {
+                "what_it_does": "Provides named string constants for the default client identifier used when no specific client is selected. Both members (default and camera_installation) resolve to the string 'akeyless', indicating a single shared default client slug for both contexts."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "DefaultClient",
+                    "description": "The string 'akeyless' for either member."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use DefaultClient as a fallback client identifier",
+                    "code": "import { DefaultClient } from 'akeyless-types-commons';\n\nfunction resolveClient(clientId?: string): string {\n    return clientId ?? DefaultClient.default;\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 4,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts#L1-L4",
+                "nx_kb_anchor": "#enum_default_client"
+            }
+        },
+        {
+            "symbol_id": "enum_board_status",
+            "name": "BoardStatus",
+            "kind": "enum",
+            "description_one_line": "Numeric lifecycle status codes for GPS/telematics hardware boards",
+            "details": {
+                "what_it_does": "Defines four numeric states a hardware board can occupy: ReadyForInstallation (1), Installed (2), Malfunction (3), and NoSim (4). Used by board-management services and installer apps to track the physical board lifecycle."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "BoardStatus",
+                    "description": "A numeric status code (1–4)."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Filter boards that are ready for installation",
+                    "code": "import { BoardStatus } from 'akeyless-types-commons';\nimport type { Board } from 'akeyless-types-commons';\n\nfunction getReadyBoards(boards: Board[]): Board[] {\n    return boards.filter(b => b.status === BoardStatus.ReadyForInstallation);\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 6,
+                "source_line_end": 11,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts#L6-L11",
+                "nx_kb_anchor": "#enum_board_status"
+            }
+        },
+        {
+            "symbol_id": "enum_equipment_status",
+            "name": "EquipmentStatus",
+            "kind": "enum",
+            "description_one_line": "String status values for peripheral equipment items",
+            "details": {
+                "what_it_does": "Provides three string status values for peripheral equipment: Ready ('ready'), InUse ('in_use'), and Malfunction ('malfunction'). Used by the equipment management module to reflect the current operational state of accessories like cameras and sensors."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "EquipmentStatus",
+                    "description": "A string status value ('ready', 'in_use', or 'malfunction')."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check whether equipment is available for assignment",
+                    "code": "import { EquipmentStatus } from 'akeyless-types-commons';\nimport type { Equipment } from 'akeyless-types-commons';\n\nfunction isAvailable(equipment: Equipment): boolean {\n    return equipment.status === EquipmentStatus.Ready;\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 12,
+                "source_line_end": 16,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts#L12-L16",
+                "nx_kb_anchor": "#enum_equipment_status"
+            }
+        },
+        {
+            "symbol_id": "enum_equipment_status_reason",
+            "name": "EquipmentStatusReason",
+            "kind": "enum",
+            "description_one_line": "String reason codes explaining the current equipment status",
+            "details": {
+                "what_it_does": "Provides six reason codes that classify why equipment has its current status: Kit, Installed, Broken, Lost, Defect, and New. Paired with EquipmentStatus to give a complete picture of equipment health and disposition in service workflows."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "EquipmentStatusReason",
+                    "description": "A lowercase string reason code."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Mark equipment as broken with reason",
+                    "code": "import { EquipmentStatus, EquipmentStatusReason } from 'akeyless-types-commons';\nimport type { Equipment } from 'akeyless-types-commons';\n\nfunction markBroken(equipment: Equipment): Partial<Equipment> {\n    return {\n        status: EquipmentStatus.Malfunction,\n        status_reason: EquipmentStatusReason.Broken,\n    };\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 17,
+                "source_line_end": 24,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts#L17-L24",
+                "nx_kb_anchor": "#enum_equipment_status_reason"
+            }
+        },
+        {
+            "symbol_id": "enum_unit_status",
+            "name": "UnitStatus",
+            "kind": "enum",
+            "description_one_line": "Numeric lifecycle status codes for installed vehicle tracking units",
+            "details": {
+                "what_it_does": "Defines five numeric stages in a tracking unit's lifecycle: NewOrder (0), Installed (1), WaitingForService (2), InstalledButNotActive (3), and NewInstallation (4). Used on the Car entity's status field to track installation and activation progress."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "UnitStatus",
+                    "description": "A numeric status code (0–4)."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check if a vehicle unit is fully installed and active",
+                    "code": "import { UnitStatus } from 'akeyless-types-commons';\nimport type { Car } from 'akeyless-types-commons';\n\nfunction isFullyInstalled(car: Car): boolean {\n    return car.status === UnitStatus.Installed;\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 26,
+                "source_line_end": 32,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts#L26-L32",
+                "nx_kb_anchor": "#enum_unit_status"
+            }
+        },
+        {
+            "symbol_id": "enum_client_status",
+            "name": "ClientStatus",
+            "kind": "enum",
+            "description_one_line": "String status values for client account lifecycle states",
+            "details": {
+                "what_it_does": "Defines three client account states: Active ('active'), Suspended ('suspended'), and Deleted ('deleted'). Used on the Client entity to determine whether the account is operational, temporarily blocked, or permanently removed."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "ClientStatus",
+                    "description": "A string status value ('active', 'suspended', or 'deleted')."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Guard API access for active clients only",
+                    "code": "import { ClientStatus } from 'akeyless-types-commons';\nimport type { Client } from 'akeyless-types-commons';\n\nfunction assertActiveClient(client: Client): void {\n    if (client.status !== ClientStatus.Active) {\n        throw new Error(`Client is not active: ${client.status}`);\n    }\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 34,
+                "source_line_end": 38,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts#L34-L38",
+                "nx_kb_anchor": "#enum_client_status"
+            }
+        },
+        {
+            "symbol_id": "enum_language_options",
+            "name": "LanguageOptions",
+            "kind": "enum",
+            "description_one_line": "ISO 639-1 language codes supported by the platform UI",
+            "details": {
+                "what_it_does": "Enumerates four supported UI language codes: He (Hebrew), En (English), Ru (Russian), and Th (Thai). These values drive locale selection in client-facing applications and are stored on Client entities."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "LanguageOptions",
+                    "description": "A two-letter ISO 639-1 language code string."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Set a client's preferred language",
+                    "code": "import { LanguageOptions } from 'akeyless-types-commons';\nimport type { Client } from 'akeyless-types-commons';\n\nconst clientUpdate: Partial<Client> = { language: LanguageOptions.En };"
+                }
+            },
+            "locations": {
+                "source_line_start": 39,
+                "source_line_end": 44,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts#L39-L44",
+                "nx_kb_anchor": "#enum_language_options"
+            }
+        },
+        {
+            "symbol_id": "enum_country_options",
+            "name": "CountryOptions",
+            "kind": "enum",
+            "description_one_line": "Country codes supported for client account configuration",
+            "details": {
+                "what_it_does": "Enumerates three country codes: US ('us'), IL ('il'), and TH ('th'). Stored on Client entities to drive country-specific business rules, compliance requirements, and feature availability."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "CountryOptions",
+                    "description": "A two-letter lowercase country code string."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Create a client with country set to Israel",
+                    "code": "import { CountryOptions, LanguageOptions } from 'akeyless-types-commons';\nimport type { Client } from 'akeyless-types-commons';\n\nconst newClient: Partial<Client> = {\n    country: CountryOptions.IL,\n    language: LanguageOptions.He,\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 45,
+                "source_line_end": 49,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts#L45-L49",
+                "nx_kb_anchor": "#enum_country_options"
+            }
+        },
+        {
+            "symbol_id": "enum_site_type",
+            "name": "SiteType",
+            "kind": "enum",
+            "description_one_line": "Hierarchical site type identifiers used in the organisational tree",
+            "details": {
+                "what_it_does": "Defines six node types in the platform's organisational hierarchy: root, region, office, mobile_app_user, installation_site_root, and installation_site. These values classify Site entities within the tree and control which actions and views are available at each node level."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "SiteType",
+                    "description": "A string identifier for the site's position in the organisational hierarchy."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Create a root site node",
+                    "code": "import { SiteType } from 'akeyless-types-commons';\nimport type { Site } from 'akeyless-types-commons';\n\nconst rootSite: Partial<Site> = {\n    type: SiteType.root,\n    name: 'Headquarters',\n};"
+                },
+                "extensive_correct": {
+                    "title": "Filter sites by type for display purposes",
+                    "code": "import { SiteType } from 'akeyless-types-commons';\nimport type { Site } from 'akeyless-types-commons';\n\nconst INSTALLATION_TYPES: SiteType[] = [\n    SiteType.installation_site_root,\n    SiteType.installation_site,\n];\n\nfunction getInstallationSites(sites: Site[]): Site[] {\n    return sites.filter(s => INSTALLATION_TYPES.includes(s.type));\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 51,
+                "source_line_end": 58,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts#L51-L58",
+                "nx_kb_anchor": "#enum_site_type"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}

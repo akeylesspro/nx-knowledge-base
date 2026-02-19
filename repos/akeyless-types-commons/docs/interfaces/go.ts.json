@@ -1,0 +1,237 @@
+{
+    "repo": {
+        "name": "akeyless-types-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "go.ts",
+    "source": {
+        "file_path": "interfaces/go.ts",
+        "commit_sha": "e3a2ad0d47a79312ae36f2093930aa8fcf6000b7",
+        "generated_at_iso": "2026-02-19T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["typescript"],
+        "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/go.ts",
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/go.ts"
+    },
+    "summary": {
+        "purpose": "Defines types, interfaces, and enumerations specific to the Go mobile application's authentication, user roles, car linkage, and car detail models.",
+        "problem_solved": "Provides a shared type contract for the Go mobile app domain so that the Go app backend and frontend use identical data shapes for authentication tokens, user-car relationships, and car detail views."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "./global",
+                "resolved_file_path": "interfaces/global.ts",
+                "why_used": "Imports firebase_timestamp to type the created field on GoCarLink",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/global.ts",
+                "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "GoMobileUserRole",
+            "kind": "type",
+            "description_one_line": "Union type for Go mobile app user roles distinguishing regular users from installers",
+            "symbol_id": "type_go_mobile_user_role"
+        },
+        {
+            "name": "GoAuthModel",
+            "kind": "interface",
+            "description_one_line": "Authentication payload for a Go mobile app user including phone, role, and Firebase UID",
+            "symbol_id": "interface_go_auth_model"
+        },
+        {
+            "name": "GoUserRole",
+            "kind": "type",
+            "description_one_line": "Union type for Go app car-link roles distinguishing owners from guests",
+            "symbol_id": "type_go_user_role"
+        },
+        {
+            "name": "GoCarLink",
+            "kind": "interface",
+            "description_one_line": "Association record linking a Firebase UID to a car with a role and creation timestamp",
+            "symbol_id": "interface_go_car_link"
+        },
+        {
+            "name": "RoleInToken",
+            "kind": "enum",
+            "description_one_line": "Numeric string codes representing user roles as encoded in JWT tokens for the Go app",
+            "symbol_id": "enum_role_in_token"
+        },
+        {
+            "name": "GoUserCar",
+            "kind": "interface",
+            "description_one_line": "Detailed car record returned to a Go app user with vehicle attributes and linked users",
+            "symbol_id": "interface_go_user_car"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "type_go_mobile_user_role",
+            "name": "GoMobileUserRole",
+            "kind": "type",
+            "description_one_line": "Union type for Go mobile app user roles distinguishing regular users from installers",
+            "details": {
+                "what_it_does": "Restricts Go mobile app authentication roles to exactly two string values: 'go_user' (standard car owner/guest) and 'installer' (field technician). Used on GoAuthModel to determine which app features and screens are accessible after login.",
+                "type_definition": "export type GoMobileUserRole = \"go_user\" | \"installer\";"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check if a mobile user is an installer",
+                    "code": "import type { GoMobileUserRole } from 'akeyless-types-commons';\n\nfunction isInstaller(role: GoMobileUserRole): boolean {\n    return role === 'installer';\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 3,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/go.ts#L3",
+                "nx_kb_anchor": "#type_go_mobile_user_role"
+            }
+        },
+        {
+            "symbol_id": "interface_go_auth_model",
+            "name": "GoAuthModel",
+            "kind": "interface",
+            "description_one_line": "Authentication payload for a Go mobile app user including phone, role, and Firebase UID",
+            "details": {
+                "what_it_does": "Represents the authentication data associated with a Go mobile app session. Contains the user's phone_number, their GoMobileUserRole, and their Firebase auth uid. Used by the Go backend authentication service to validate and associate incoming requests with the correct user context."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "GoAuthModel",
+                    "description": "An authentication record for a Go mobile app user."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a GoAuthModel for a standard user",
+                    "code": "import type { GoAuthModel } from 'akeyless-types-commons';\n\nconst auth: GoAuthModel = {\n    phone_number: '+972501234567',\n    role: 'go_user',\n    uid: 'firebase_uid_abc',\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 5,
+                "source_line_end": 9,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/go.ts#L5-L9",
+                "nx_kb_anchor": "#interface_go_auth_model"
+            }
+        },
+        {
+            "symbol_id": "type_go_user_role",
+            "name": "GoUserRole",
+            "kind": "type",
+            "description_one_line": "Union type for Go app car-link roles distinguishing owners from guests",
+            "details": {
+                "what_it_does": "Defines two roles a Go app user can hold relative to a specific car: 'owner' (primary user with full control) or 'guest' (secondary user with limited access). Used on GoCarLink and GoUserCar.linked_users to determine the access level for car operations.",
+                "type_definition": "export type GoUserRole = \"owner\" | \"guest\";"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check if a user is the car owner",
+                    "code": "import type { GoCarLink, GoUserRole } from 'akeyless-types-commons';\n\nfunction isOwner(link: GoCarLink): boolean {\n    return link.role === 'owner';\n}"
+                }
+            },
+            "locations": {
+                "source_line_start": 11,
+                "source_line_end": 11,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/go.ts#L11",
+                "nx_kb_anchor": "#type_go_user_role"
+            }
+        },
+        {
+            "symbol_id": "interface_go_car_link",
+            "name": "GoCarLink",
+            "kind": "interface",
+            "description_one_line": "Association record linking a Firebase UID to a car with a role and creation timestamp",
+            "details": {
+                "what_it_does": "Represents the link between a Go mobile app user (identified by uid) and a specific vehicle (car_number). Stores the assigned GoUserRole ('owner' or 'guest') and a firebase_timestamp of when the link was created. The id field is the Firestore document ID for the link record."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "GoCarLink",
+                    "description": "A user-to-car association record for the Go mobile app."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a GoCarLink assigning an owner",
+                    "code": "import type { GoCarLink } from 'akeyless-types-commons';\n\nconst link: GoCarLink = {\n    id: 'link_001',\n    uid: 'firebase_uid_abc',\n    role: 'owner',\n    car_number: 'ABC123',\n    created: { _seconds: 1700000000, _nanoseconds: 0 },\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 13,
+                "source_line_end": 19,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/go.ts#L13-L19",
+                "nx_kb_anchor": "#interface_go_car_link"
+            }
+        },
+        {
+            "symbol_id": "enum_role_in_token",
+            "name": "RoleInToken",
+            "kind": "enum",
+            "description_one_line": "Numeric string codes representing user roles as encoded in JWT tokens for the Go app",
+            "details": {
+                "what_it_does": "Maps GoUserRole names to numeric string codes embedded in JWT tokens: owner maps to '3' and guest maps to '7'. Used by the token generation and validation services to encode and decode the user's role without transmitting the full role string."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "RoleInToken",
+                    "description": "A numeric string ('3' or '7') encoding the user's role in a JWT."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Encode a role into a token payload",
+                    "code": "import { RoleInToken } from 'akeyless-types-commons';\n\nconst tokenPayload = {\n    uid: 'firebase_uid_abc',\n    role: RoleInToken.owner, // '3'\n};"
+                },
+                "incorrect": {
+                    "title": "Using role string instead of RoleInToken in token payload",
+                    "code": "// Wrong — token consumers expect '3' or '7', not 'owner'/'guest'\nconst payload = { role: 'owner' };\n\n// Correct\nconst payload2 = { role: RoleInToken.owner };",
+                    "why_incorrect": "JWT token consumers decode the numeric string code, not the role name. Using the role name will cause authentication failures."
+                }
+            },
+            "locations": {
+                "source_line_start": 21,
+                "source_line_end": 24,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/go.ts#L21-L24",
+                "nx_kb_anchor": "#enum_role_in_token"
+            }
+        },
+        {
+            "symbol_id": "interface_go_user_car",
+            "name": "GoUserCar",
+            "kind": "interface",
+            "description_one_line": "Detailed car record returned to a Go app user with vehicle attributes and linked users",
+            "details": {
+                "what_it_does": "Describes the car detail view model sent to Go mobile app users. Contains vehicle identity fields (car_number, vin, brand, model, year, color, serial_number, brand_icon), owner contact details (owner_phone, owner_email, owner_name), the current user's role string, and a linked_users array listing all users linked to the car with their phone numbers, role (GoUserRole), and uid."
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "GoUserCar",
+                    "description": "A car detail view model for the Go mobile app."
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Construct a GoUserCar for display in the Go app",
+                    "code": "import type { GoUserCar } from 'akeyless-types-commons';\n\nconst car: GoUserCar = {\n    car_number: 'ABC123',\n    vin: '1HGCM82633A004352',\n    brand: 'Toyota',\n    model: 'Corolla',\n    year: '2022',\n    color: 'White',\n    serial_number: 'SN-001',\n    brand_icon: 'https://cdn.example.com/toyota.png',\n    owner_phone: '+972501234567',\n    owner_email: 'owner@example.com',\n    owner_name: 'John Doe',\n    role: 'owner',\n    linked_users: [\n        { short_phone_number: '0501234567', long_phone_number: '+972501234567', role: 'owner', uid: 'uid_abc' },\n    ],\n};"
+                }
+            },
+            "locations": {
+                "source_line_start": 26,
+                "source_line_end": 45,
+                "github_permalink": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/go.ts#L26-L45",
+                "nx_kb_anchor": "#interface_go_user_car"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
+    }
+}
