@@ -1,93 +1,93 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "cars.ts",
-  "source": {
-    "file_path": "helpers/cars.ts",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T00:00:00.000Z",
-    "language": "ts",
-    "framework_tags": [
-      "formatting",
-      "vehicle",
-      "license-plate"
-    ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/cars.ts",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/cars.ts.json"
-  },
-  "summary": {
-    "purpose": "Utility for formatting Israeli vehicle license plate numbers with standard dashes based on plate length.",
-    "problem_solved": "Normalizes vehicle license plate display across the application by applying correct formatting conventions for Israeli plates (5-8 characters) with appropriate dash placement for readability."
-  },
-  "dependencies": {
-    "external": [],
-    "internal": []
-  },
-  "exports": [
-    {
-      "name": "formatCarNumber",
-      "kind": "function",
-      "line": 3,
-      "description_one_line": "Formats vehicle license plate with dashes based on Israeli license plate standards.",
-      "symbol_id": "function_format_car_number"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "function_format_car_number",
-      "name": "formatCarNumber",
-      "kind": "function",
-      "description_one_line": "Adds dashes to Israeli license plate based on length using standard formatting rules.",
-      "signature": {
-        "params": [
-          {
-            "name": "car_number",
-            "type": "string",
-            "required": true,
-            "description": "Unformatted license plate string (5-8 characters)"
-          }
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "cars.ts",
+    "source": {
+        "file_path": "helpers/cars.ts",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "formatting",
+            "vehicle",
+            "license-plate"
         ],
-        "returns": {
-          "type": "string",
-          "description": "Formatted license plate with dashes, or original string if length is not 5-8"
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/cars.ts",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/cars.ts.json"
+    },
+    "summary": {
+        "purpose": "Utility for formatting Israeli vehicle license plate numbers with standard dashes based on plate length.",
+        "problem_solved": "Normalizes vehicle license plate display across the application by applying correct formatting conventions for Israeli plates (5-8 characters) with appropriate dash placement for readability."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "formatCarNumber",
+            "kind": "function",
+            "line": 3,
+            "description_one_line": "Formats vehicle license plate with dashes based on Israeli license plate standards.",
+            "symbol_id": "function_format_car_number"
         }
-      },
-      "details": {
-        "what_it_does": "Uses a switch statement on string length to format Israeli license plates: 8 chars → 'XXX-XX-XXX', 7 chars → 'XX-XXX-XX', 6 chars → 'XX-XX-XX', 5 chars → 'X-XX-XX'. Returns input unchanged if length doesn't match these patterns.",
-        "behavior_notes": [
-          "Handles null/undefined gracefully: returns original value if falsy",
-          "8-character plates: format as 3-2-3 (most common for modern Israeli vehicles)",
-          "7-character plates: format as 2-3-2",
-          "6-character plates: format as 2-2-2",
-          "5-character plates: format as 1-2-2",
-          "Returns unformatted input for unusual lengths (4 chars, 9+ chars)"
-        ]
-      },
-      "locations": {
-        "source_line_start": 3,
-        "source_line_end": 10,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/cars.ts#L3-L10",
-        "nx_kb_anchor": "function_format_car_number"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Format Israeli license plates",
-          "code": "import { formatCarNumber } from './cars';\n\nformatCarNumber('12345678');  // '123-45-678'\nformatCarNumber('1234567');   // '12-345-67'\nformatCarNumber('123456');    // '12-34-56'\nformatCarNumber('12345');     // '1-23-45'"
-        },
-        "extensive": {
-          "title": "Using with vehicle data in table",
-          "code": "import { formatCarNumber } from './cars';\nimport type { Vehicle } from './types';\n\nconst vehicles: Vehicle[] = [\n  { id: 1, plateNumber: '12345678', make: 'Honda' },\n  { id: 2, plateNumber: '1234567', make: 'Toyota' },\n  { id: 3, plateNumber: '234567', make: 'Mercedes' }\n];\n\n// Display formatted plates in UI\nvehicles.forEach(v => {\n  console.log(`${v.make}: ${formatCarNumber(v.plateNumber)}`);\n  // Output:\n  // Honda: 123-45-678\n  // Toyota: 12-345-67\n  // Mercedes: 23-45-67\n});"
-        },
-        "incorrect_pattern": {
-          "title": "Common mistake: Assuming all plates are 8 characters",
-          "code": "// WRONG - assumes all Israeli plates are 8 characters\nconst formatted = car_number.slice(0, 3) + '-' + car_number.slice(3, 5) + '-' + car_number.slice(5);\n// May format 7-char plate '1234567' incorrectly as '123-45-67' instead of '12-345-67'\n\n// CORRECT - use formatCarNumber which handles all standard lengths\nconst formatted = formatCarNumber(car_number);"
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_format_car_number",
+            "name": "formatCarNumber",
+            "kind": "function",
+            "description_one_line": "Adds dashes to Israeli license plate based on length using standard formatting rules.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "car_number",
+                        "type": "string",
+                        "required": true,
+                        "description": "Unformatted license plate string (5-8 characters)"
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "Formatted license plate with dashes, or original string if length is not 5-8"
+                }
+            },
+            "details": {
+                "what_it_does": "Uses a switch statement on string length to format Israeli license plates: 8 chars → 'XXX-XX-XXX', 7 chars → 'XX-XXX-XX', 6 chars → 'XX-XX-XX', 5 chars → 'X-XX-XX'. Returns input unchanged if length doesn't match these patterns.",
+                "behavior_notes": [
+                    "Handles null/undefined gracefully: returns original value if falsy",
+                    "8-character plates: format as 3-2-3 (most common for modern Israeli vehicles)",
+                    "7-character plates: format as 2-3-2",
+                    "6-character plates: format as 2-2-2",
+                    "5-character plates: format as 1-2-2",
+                    "Returns unformatted input for unusual lengths (4 chars, 9+ chars)"
+                ]
+            },
+            "locations": {
+                "source_line_start": 3,
+                "source_line_end": 10,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/cars.ts#L3-L10",
+                "nx_kb_anchor": "function_format_car_number"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Format Israeli license plates",
+                    "code": "import { formatCarNumber } from './cars';\n\nformatCarNumber('12345678');  // '123-45-678'\nformatCarNumber('1234567');   // '12-345-67'\nformatCarNumber('123456');    // '12-34-56'\nformatCarNumber('12345');     // '1-23-45'"
+                },
+                "extensive": {
+                    "title": "Using with vehicle data in table",
+                    "code": "import { formatCarNumber } from './cars';\nimport type { Vehicle } from './types';\n\nconst vehicles: Vehicle[] = [\n  { id: 1, plateNumber: '12345678', make: 'Honda' },\n  { id: 2, plateNumber: '1234567', make: 'Toyota' },\n  { id: 3, plateNumber: '234567', make: 'Mercedes' }\n];\n\n// Display formatted plates in UI\nvehicles.forEach(v => {\n  console.log(`${v.make}: ${formatCarNumber(v.plateNumber)}`);\n  // Output:\n  // Honda: 123-45-678\n  // Toyota: 12-345-67\n  // Mercedes: 23-45-67\n});"
+                },
+                "incorrect_pattern": {
+                    "title": "Common mistake: Assuming all plates are 8 characters",
+                    "code": "// WRONG - assumes all Israeli plates are 8 characters\nconst formatted = car_number.slice(0, 3) + '-' + car_number.slice(3, 5) + '-' + car_number.slice(5);\n// May format 7-char plate '1234567' incorrectly as '123-45-67' instead of '12-345-67'\n\n// CORRECT - use formatCarNumber which handles all standard lengths\nconst formatted = formatCarNumber(car_number);"
+                }
+            }
         }
-      }
+    ],
+    "quality": {
+        "generation_confidence": "high"
     }
-  ],
-  "quality": {
-    "generation_confidence": "high"
-  }
 }

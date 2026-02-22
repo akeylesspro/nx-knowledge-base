@@ -34,7 +34,11 @@
                     "format": "uri",
                     "description": "Direct link to the file on GitHub (preferably with commit SHA)"
                 },
-                "link_to_nx_kb": { "type": "string", "description": "Path to the documentation page within NX-KNOWLEDGE-BASE" }
+                "link_to_nx_kb": {
+                    "type": "string",
+                    "description": "Path to the documentation page within NX-KNOWLEDGE-BASE. Format: /repos/<repo>/docs/<file_path> where <file_path> includes the source file extension (e.g. /repos/my-repo/docs/helpers/index.ts). The source extension must be preserved and .json must be appended (e.g. /repos/my-repo/docs/helpers/index.ts.json).",
+                    "pattern": "^/repos/[^/]+/docs/.+\\.(ts|tsx|js|jsx|vue)\\.json$"
+                }
             }
         },
         "summary": {
@@ -70,7 +74,11 @@
                             "import_path": { "type": "string" },
                             "resolved_file_path": { "type": "string" },
                             "why_used": { "type": "string" },
-                            "link_to_nx_kb": { "type": "string" },
+                            "link_to_nx_kb": {
+                                "type": "string",
+                                "description": "Path to the dependency's documentation page within NX-KNOWLEDGE-BASE. Format: /repos/<repo>/docs/<file_path> where <file_path> includes the source file extension (e.g. /repos/my-repo/docs/helpers/index.ts). The source extension must be preserved and .json must be appended (e.g. /repos/my-repo/docs/helpers/index.ts.json).",
+                                "pattern": "^/repos/[^/]+/docs/.+\\.(ts|tsx|js|jsx|vue)\\.json$"
+                            },
                             "link_to_github": { "type": "string", "format": "uri" }
                         }
                     }

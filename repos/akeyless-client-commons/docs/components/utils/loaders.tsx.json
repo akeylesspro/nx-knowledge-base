@@ -1,97 +1,97 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "loaders.tsx",
-  "source": {
-    "file_path": "components/utils/loaders.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-15T11:42:40+02:00",
-    "language": "tsx",
-    "framework_tags": [
-      "react",
-      "react-spinners"
-    ],
-    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/loaders.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/loaders.tsx.json"
-  },
-  "summary": {
-    "purpose": "Loading spinner component.",
-    "problem_solved": "Wrapper around react-spinners ClipLoader."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "react",
-        "kind": "runtime",
-        "why_used": "React component."
-      },
-      {
-        "name": "react-spinners",
-        "kind": "runtime",
-        "why_used": "ClipLoader."
-      }
-    ],
-    "internal": [
-      {
-        "import_path": "helpers",
-        "why_used": "cn utility.",
-        "resolved_file_path": "helpers",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/helpers",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "Loader",
-      "kind": "component",
-      "description_one_line": "Loading spinner.",
-      "symbol_id": "Loader"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "Loader",
-      "name": "Loader",
-      "kind": "component",
-      "description_one_line": "Spinner UI.",
-      "signature": {
-        "params": [
-          {
-            "name": "color",
-            "type": "string",
-            "required": false
-          },
-          {
-            "name": "size",
-            "type": "number",
-            "required": false
-          }
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "loaders.tsx",
+    "source": {
+        "file_path": "components/utils/loaders.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-15T11:42:40+02:00",
+        "language": "tsx",
+        "framework_tags": [
+            "react",
+            "react-spinners"
         ],
-        "returns": {
-          "type": "JSX.Element"
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/loaders.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/loaders.tsx.json"
+    },
+    "summary": {
+        "purpose": "Loading spinner component.",
+        "problem_solved": "Wrapper around react-spinners ClipLoader."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "react",
+                "kind": "runtime",
+                "why_used": "React component."
+            },
+            {
+                "name": "react-spinners",
+                "kind": "runtime",
+                "why_used": "ClipLoader."
+            }
+        ],
+        "internal": [
+            {
+                "import_path": "helpers",
+                "why_used": "cn utility.",
+                "resolved_file_path": "helpers",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "Loader",
+            "kind": "component",
+            "description_one_line": "Loading spinner.",
+            "symbol_id": "Loader"
         }
-      },
-      "details": {
-        "what_it_does": "Spinner UI."
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/loaders.tsx#L1",
-        "nx_kb_anchor": "Loader"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of Loader",
-          "code": "<Loader />"
+    ],
+    "symbols": [
+        {
+            "symbol_id": "Loader",
+            "name": "Loader",
+            "kind": "component",
+            "description_one_line": "Spinner UI.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "color",
+                        "type": "string",
+                        "required": false
+                    },
+                    {
+                        "name": "size",
+                        "type": "number",
+                        "required": false
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element"
+                }
+            },
+            "details": {
+                "what_it_does": "Spinner UI."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/loaders.tsx#L1",
+                "nx_kb_anchor": "Loader"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of Loader",
+                    "code": "<Loader />"
+                }
+            }
         }
-      }
+    ],
+    "quality": {
+        "generation_confidence": "high"
     }
-  ],
-  "quality": {
-    "generation_confidence": "high"
-  }
 }

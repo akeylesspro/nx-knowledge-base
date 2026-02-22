@@ -1,401 +1,407 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "forms.ts",
-  "source": {
-    "file_path": "types/interfaces/forms.ts",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T00:00:00.000Z",
-    "language": "ts",
-    "framework_tags": ["forms", "react", "interfaces"]
-  },
-  "summary": {
-    "purpose": "Comprehensive form element interfaces defining structure for input, select, multiselect, date picker, duration, phone, and custom form fields with styling and validation.",
-    "problem_solved": "Provides type-safe form element definitions for ModularForm component system, enabling flexible form creation with validated inputs, selects, date pickers, phone inputs, and duration pickers."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "module": "react",
-        "kind": "runtime",
-        "why_used": "React types for event handlers and component props",
-        "name": "react"
-      },
-      {
-        "module": "react-phone-number-input",
-        "kind": "runtime",
-        "why_used": "Phone input component types and Country type",
-        "name": "react-phone-number-input"
-      }
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "forms.ts",
+    "source": {
+        "file_path": "types/interfaces/forms.ts",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "forms",
+            "react",
+            "interfaces"
+        ]
+    },
+    "summary": {
+        "purpose": "Comprehensive form element interfaces defining structure for input, select, multiselect, date picker, duration, phone, and custom form fields with styling and validation.",
+        "problem_solved": "Provides type-safe form element definitions for ModularForm component system, enabling flexible form creation with validated inputs, selects, date pickers, phone inputs, and duration pickers."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "react",
+                "kind": "runtime",
+                "why_used": "React types for event handlers and component props",
+                "name": "react"
+            },
+            {
+                "module": "react-phone-number-input",
+                "kind": "runtime",
+                "why_used": "Phone input component types and Country type",
+                "name": "react-phone-number-input"
+            }
+        ],
+        "internal": [
+            {
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/types/global.ts.json",
+                "why_used": "Direction type for RTL/LTR layout specification",
+                "import_path": "../types",
+                "resolved_file_path": "types/types/global.ts",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/global.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "BaseElementProps",
+            "kind": "interface",
+            "line": 10,
+            "description_one_line": "Base props shared by all form elements with labels, validation, and styling.",
+            "symbol_id": "interface_base_element_props"
+        },
+        {
+            "name": "InputElement",
+            "kind": "interface",
+            "line": 30,
+            "description_one_line": "Text input form element with type, validation, and event handlers.",
+            "symbol_id": "interface_input_element"
+        },
+        {
+            "name": "DateInputElement",
+            "kind": "interface",
+            "line": 42,
+            "description_one_line": "Date picker input with calendar styling customization.",
+            "symbol_id": "interface_date_input_element"
+        },
+        {
+            "name": "TextAreaElement",
+            "kind": "interface",
+            "line": 55,
+            "description_one_line": "Multi-line textarea form element.",
+            "symbol_id": "interface_text_area_element"
+        },
+        {
+            "name": "SelectElement",
+            "kind": "interface",
+            "line": 65,
+            "description_one_line": "Dropdown select with option array and sorting.",
+            "symbol_id": "interface_select_element"
+        },
+        {
+            "name": "MultiSelectProps",
+            "kind": "interface",
+            "line": 79,
+            "description_one_line": "Multi-select dropdown with async/sync search and custom styling.",
+            "symbol_id": "interface_multi_select_props"
+        },
+        {
+            "name": "SelectWithSearchProps",
+            "kind": "interface",
+            "line": 108,
+            "description_one_line": "Searchable dropdown with custom dropdown styling.",
+            "symbol_id": "interface_select_with_search_props"
+        },
+        {
+            "name": "InternationalInputProps",
+            "kind": "interface",
+            "line": 132,
+            "description_one_line": "International phone input with country selection and flag display.",
+            "symbol_id": "interface_international_input_props"
+        },
+        {
+            "name": "CustomElementProps",
+            "kind": "interface",
+            "line": 151,
+            "description_one_line": "Custom form element with JSX.Element content.",
+            "symbol_id": "interface_custom_element_props"
+        },
+        {
+            "name": "FormSeparatorProps",
+            "kind": "interface",
+            "line": 155,
+            "description_one_line": "Visual separator element in forms.",
+            "symbol_id": "interface_form_separator_props"
+        },
+        {
+            "name": "DurationValues",
+            "kind": "interface",
+            "line": 167,
+            "description_one_line": "Time duration with days, hours, minutes, seconds breakdown.",
+            "symbol_id": "interface_duration_values"
+        },
+        {
+            "name": "DurationInputProps",
+            "kind": "interface",
+            "line": 176,
+            "description_one_line": "Duration picker with time unit selection and label toggle.",
+            "symbol_id": "interface_duration_input_props"
+        },
+        {
+            "name": "ModularFormProps",
+            "kind": "interface",
+            "line": 197,
+            "description_one_line": "Complete form configuration with elements, styling, and callbacks.",
+            "symbol_id": "interface_modular_form_props"
+        },
+        {
+            "name": "ConfirmFormProps",
+            "kind": "interface",
+            "line": 218,
+            "description_one_line": "Confirmation dialog with accept/reject callbacks.",
+            "symbol_id": "interface_confirm_form_props"
+        },
+        {
+            "name": "DatePickerProps",
+            "kind": "interface",
+            "line": 234,
+            "description_one_line": "Date range picker with from/to date selection.",
+            "symbol_id": "interface_date_picker_props"
+        },
+        {
+            "name": "FormElement",
+            "kind": "type",
+            "line": 184,
+            "description_one_line": "Union of all supported form element types.",
+            "symbol_id": "type_form_element"
+        }
     ],
-    "internal": [
-      {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/types/global.ts.json",
-        "why_used": "Direction type for RTL/LTR layout specification",
-        "import_path": "../types",
-        "resolved_file_path": "types/types/global.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/types/global.ts"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "BaseElementProps",
-      "kind": "interface",
-      "line": 10,
-      "description_one_line": "Base props shared by all form elements with labels, validation, and styling.",
-      "symbol_id": "interface_base_element_props"
-    },
-    {
-      "name": "InputElement",
-      "kind": "interface",
-      "line": 30,
-      "description_one_line": "Text input form element with type, validation, and event handlers.",
-      "symbol_id": "interface_input_element"
-    },
-    {
-      "name": "DateInputElement",
-      "kind": "interface",
-      "line": 42,
-      "description_one_line": "Date picker input with calendar styling customization.",
-      "symbol_id": "interface_date_input_element"
-    },
-    {
-      "name": "TextAreaElement",
-      "kind": "interface",
-      "line": 55,
-      "description_one_line": "Multi-line textarea form element.",
-      "symbol_id": "interface_text_area_element"
-    },
-    {
-      "name": "SelectElement",
-      "kind": "interface",
-      "line": 65,
-      "description_one_line": "Dropdown select with option array and sorting.",
-      "symbol_id": "interface_select_element"
-    },
-    {
-      "name": "MultiSelectProps",
-      "kind": "interface",
-      "line": 79,
-      "description_one_line": "Multi-select dropdown with async/sync search and custom styling.",
-      "symbol_id": "interface_multi_select_props"
-    },
-    {
-      "name": "SelectWithSearchProps",
-      "kind": "interface",
-      "line": 108,
-      "description_one_line": "Searchable dropdown with custom dropdown styling.",
-      "symbol_id": "interface_select_with_search_props"
-    },
-    {
-      "name": "InternationalInputProps",
-      "kind": "interface",
-      "line": 132,
-      "description_one_line": "International phone input with country selection and flag display.",
-      "symbol_id": "interface_international_input_props"
-    },
-    {
-      "name": "CustomElementProps",
-      "kind": "interface",
-      "line": 151,
-      "description_one_line": "Custom form element with JSX.Element content.",
-      "symbol_id": "interface_custom_element_props"
-    },
-    {
-      "name": "FormSeparatorProps",
-      "kind": "interface",
-      "line": 155,
-      "description_one_line": "Visual separator element in forms.",
-      "symbol_id": "interface_form_separator_props"
-    },
-    {
-      "name": "DurationValues",
-      "kind": "interface",
-      "line": 167,
-      "description_one_line": "Time duration with days, hours, minutes, seconds breakdown.",
-      "symbol_id": "interface_duration_values"
-    },
-    {
-      "name": "DurationInputProps",
-      "kind": "interface",
-      "line": 176,
-      "description_one_line": "Duration picker with time unit selection and label toggle.",
-      "symbol_id": "interface_duration_input_props"
-    },
-    {
-      "name": "ModularFormProps",
-      "kind": "interface",
-      "line": 197,
-      "description_one_line": "Complete form configuration with elements, styling, and callbacks.",
-      "symbol_id": "interface_modular_form_props"
-    },
-    {
-      "name": "ConfirmFormProps",
-      "kind": "interface",
-      "line": 218,
-      "description_one_line": "Confirmation dialog with accept/reject callbacks.",
-      "symbol_id": "interface_confirm_form_props"
-    },
-    {
-      "name": "DatePickerProps",
-      "kind": "interface",
-      "line": 234,
-      "description_one_line": "Date range picker with from/to date selection.",
-      "symbol_id": "interface_date_picker_props"
-    },
-    {
-      "name": "FormElement",
-      "kind": "type",
-      "line": 184,
-      "description_one_line": "Union of all supported form element types.",
-      "symbol_id": "type_form_element"
+    "symbols": [
+        {
+            "symbol_id": "interface_base_element_props",
+            "name": "BaseElementProps",
+            "kind": "interface",
+            "description_one_line": "Base form element properties.",
+            "details": {
+                "what_it_does": "Shared interface for all form elements: name, label, required flag, className customization for label/container/element, validation error message, direction (RTL/LTR), tooltip title, label styling."
+            },
+            "locations": {
+                "source_line_start": 10,
+                "source_line_end": 25,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L10-L25",
+                "nx_kb_anchor": "interface_base_element_props"
+            }
+        },
+        {
+            "symbol_id": "interface_input_element",
+            "name": "InputElement",
+            "kind": "interface",
+            "description_one_line": "Text input field with validation.",
+            "details": {
+                "what_it_does": "Extends BaseElementProps with text input properties: type='input', inputType (text/email/number), defaultValue, validationName (validation pattern), event handlers (onKeyDown, onChange), placeholder, and native input props."
+            },
+            "locations": {
+                "source_line_start": 30,
+                "source_line_end": 40,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L30-L40",
+                "nx_kb_anchor": "interface_input_element"
+            }
+        },
+        {
+            "symbol_id": "interface_date_input_element",
+            "name": "DateInputElement",
+            "kind": "interface",
+            "description_one_line": "Date picker input field.",
+            "details": {
+                "what_it_does": "Extends BaseElementProps with date picker: type='dateInput', calendar styling (calendarClassName, selectedDayClassName, todayDayClassName), input styling, defaultValue/onChange handlers."
+            },
+            "locations": {
+                "source_line_start": 42,
+                "source_line_end": 54,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L42-L54",
+                "nx_kb_anchor": "interface_date_input_element"
+            }
+        },
+        {
+            "symbol_id": "interface_text_area_element",
+            "name": "TextAreaElement",
+            "kind": "interface",
+            "description_one_line": "Multi-line text input.",
+            "details": {
+                "what_it_does": "Extends BaseElementProps with textarea: type='textarea', defaultValue, onChange/onKeyDown handlers, placeholder, native textarea attributes."
+            },
+            "locations": {
+                "source_line_start": 55,
+                "source_line_end": 63,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L55-L63",
+                "nx_kb_anchor": "interface_text_area_element"
+            }
+        },
+        {
+            "symbol_id": "interface_select_element",
+            "name": "SelectElement",
+            "kind": "interface",
+            "description_one_line": "Dropdown select element.",
+            "details": {
+                "what_it_does": "Extends BaseElementProps with dropdown: type='select', options array with value/label pairs, defaultValue, onChange callback, optional sorting (abc/cba direction, as number), icon styling."
+            },
+            "locations": {
+                "source_line_start": 65,
+                "source_line_end": 77,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L65-L77",
+                "nx_kb_anchor": "interface_select_element"
+            }
+        },
+        {
+            "symbol_id": "interface_multi_select_props",
+            "name": "MultiSelectProps",
+            "kind": "interface",
+            "description_one_line": "Multi-select dropdown with async/sync search.",
+            "details": {
+                "what_it_does": "Multi-select with async/sync search, options array, custom styling (container/badge/dropdown classes), selected options state, sorting, unremovable options, group by field, create new option support."
+            },
+            "locations": {
+                "source_line_start": 79,
+                "source_line_end": 107,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L79-L107",
+                "nx_kb_anchor": "interface_multi_select_props"
+            }
+        },
+        {
+            "symbol_id": "interface_select_with_search_props",
+            "name": "SelectWithSearchProps",
+            "kind": "interface",
+            "description_one_line": "Searchable select dropdown.",
+            "details": {
+                "what_it_does": "Select with built-in search: type='selectWithSearch', options, onChange, value, dropdown styling, search styling, not found label, sort direction, disabled flag, create new option support."
+            },
+            "locations": {
+                "source_line_start": 108,
+                "source_line_end": 131,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L108-L131",
+                "nx_kb_anchor": "interface_select_with_search_props"
+            }
+        },
+        {
+            "symbol_id": "interface_international_input_props",
+            "name": "InternationalInputProps",
+            "kind": "interface",
+            "description_one_line": "International phone number input.",
+            "details": {
+                "what_it_does": "Phone input: type='internationalPhoneInput', phoneValue, setPhoneValue, country selection, flag display, RTL/LTR support, default country/countries filter, onEnter callback, disabled flag."
+            },
+            "locations": {
+                "source_line_start": 132,
+                "source_line_end": 150,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L132-L150",
+                "nx_kb_anchor": "interface_international_input_props"
+            }
+        },
+        {
+            "symbol_id": "interface_custom_element_props",
+            "name": "CustomElementProps",
+            "kind": "interface",
+            "description_one_line": "Custom React element in form.",
+            "details": {
+                "what_it_does": "Allows arbitrary JSX.Element in form: type='custom', element property with the React component."
+            },
+            "locations": {
+                "source_line_start": 151,
+                "source_line_end": 154,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L151-L154",
+                "nx_kb_anchor": "interface_custom_element_props"
+            }
+        },
+        {
+            "symbol_id": "interface_form_separator_props",
+            "name": "FormSeparatorProps",
+            "kind": "interface",
+            "description_one_line": "Visual separator line in form.",
+            "details": {
+                "what_it_does": "Separator element: type='separator', optional div props, optional children content, direction support for RTL."
+            },
+            "locations": {
+                "source_line_start": 155,
+                "source_line_end": 160,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L155-L160",
+                "nx_kb_anchor": "interface_form_separator_props"
+            }
+        },
+        {
+            "symbol_id": "interface_duration_values",
+            "name": "DurationValues",
+            "kind": "interface",
+            "description_one_line": "Time duration breakdown.",
+            "details": {
+                "what_it_does": "Interface with days, hours, minutes, seconds numeric values. Used for duration picker breakdown."
+            },
+            "locations": {
+                "source_line_start": 167,
+                "source_line_end": 172,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L167-L172",
+                "nx_kb_anchor": "interface_duration_values"
+            }
+        },
+        {
+            "symbol_id": "interface_duration_input_props",
+            "name": "DurationInputProps",
+            "kind": "interface",
+            "description_one_line": "Duration/time picker input.",
+            "details": {
+                "what_it_does": "Duration picker: type='duration', value in seconds, onChange callback with seconds, hideLabels flag, options array limiting which time units to display."
+            },
+            "locations": {
+                "source_line_start": 176,
+                "source_line_end": 182,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L176-L182",
+                "nx_kb_anchor": "interface_duration_input_props"
+            }
+        },
+        {
+            "symbol_id": "interface_modular_form_props",
+            "name": "ModularFormProps",
+            "kind": "interface",
+            "description_one_line": "Complete form component configuration.",
+            "details": {
+                "what_it_does": "ModularForm configuration: submitFunction, FormElement array, button content/className, header content/className, direction, submitRef for button access, footer styling, loader props, auto-fix label widths, form-level className."
+            },
+            "locations": {
+                "source_line_start": 197,
+                "source_line_end": 217,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L197-L217",
+                "nx_kb_anchor": "interface_modular_form_props"
+            }
+        },
+        {
+            "symbol_id": "interface_confirm_form_props",
+            "name": "ConfirmFormProps",
+            "kind": "interface",
+            "description_one_line": "Confirmation dialog with yes/no buttons.",
+            "details": {
+                "what_it_does": "Confirm form: onV (confirm callback), onX (cancel callback), headline, direction, custom button elements/styling/props, container styling."
+            },
+            "locations": {
+                "source_line_start": 218,
+                "source_line_end": 232,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L218-L232",
+                "nx_kb_anchor": "interface_confirm_form_props"
+            }
+        },
+        {
+            "symbol_id": "interface_date_picker_props",
+            "name": "DatePickerProps",
+            "kind": "interface",
+            "description_one_line": "Date range picker configuration.",
+            "details": {
+                "what_it_does": "Date range picker: submit callback, form/label/input/button styling, defaultFrom/defaultTo, from/to/button text, calendar styling (selected day, today day), direction."
+            },
+            "locations": {
+                "source_line_start": 234,
+                "source_line_end": 250,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L234-L250",
+                "nx_kb_anchor": "interface_date_picker_props"
+            }
+        },
+        {
+            "symbol_id": "type_form_element",
+            "name": "FormElement",
+            "kind": "type",
+            "description_one_line": "Union of all supported form element types.",
+            "details": {
+                "what_it_does": "Type alias for InputElement | DateInputElement | SelectElement | MultiSelectProps | InternationalInputProps | CustomElementProps | TextAreaElement | SelectWithSearchProps | FormSeparatorProps | CheckboxContainerProps | DurationInputProps.",
+                "type_definition": "type FormElement = InputElement | DateInputElement | SelectElement | MultiSelectProps | InternationalInputProps | CustomElementProps | TextAreaElement | SelectWithSearchProps | FormSeparatorProps | CheckboxContainerProps | DurationInputProps;"
+            },
+            "locations": {
+                "source_line_start": 184,
+                "source_line_end": 195,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L184-L195",
+                "nx_kb_anchor": "type_form_element"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
     }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "interface_base_element_props",
-      "name": "BaseElementProps",
-      "kind": "interface",
-      "description_one_line": "Base form element properties.",
-      "details": {
-        "what_it_does": "Shared interface for all form elements: name, label, required flag, className customization for label/container/element, validation error message, direction (RTL/LTR), tooltip title, label styling."
-      },
-      "locations": {
-        "source_line_start": 10,
-        "source_line_end": 25,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L10-L25",
-        "nx_kb_anchor": "interface_base_element_props"
-      }
-    },
-    {
-      "symbol_id": "interface_input_element",
-      "name": "InputElement",
-      "kind": "interface",
-      "description_one_line": "Text input field with validation.",
-      "details": {
-        "what_it_does": "Extends BaseElementProps with text input properties: type='input', inputType (text/email/number), defaultValue, validationName (validation pattern), event handlers (onKeyDown, onChange), placeholder, and native input props."
-      },
-      "locations": {
-        "source_line_start": 30,
-        "source_line_end": 40,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L30-L40",
-        "nx_kb_anchor": "interface_input_element"
-      }
-    },
-    {
-      "symbol_id": "interface_date_input_element",
-      "name": "DateInputElement",
-      "kind": "interface",
-      "description_one_line": "Date picker input field.",
-      "details": {
-        "what_it_does": "Extends BaseElementProps with date picker: type='dateInput', calendar styling (calendarClassName, selectedDayClassName, todayDayClassName), input styling, defaultValue/onChange handlers."
-      },
-      "locations": {
-        "source_line_start": 42,
-        "source_line_end": 54,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L42-L54",
-        "nx_kb_anchor": "interface_date_input_element"
-      }
-    },
-    {
-      "symbol_id": "interface_text_area_element",
-      "name": "TextAreaElement",
-      "kind": "interface",
-      "description_one_line": "Multi-line text input.",
-      "details": {
-        "what_it_does": "Extends BaseElementProps with textarea: type='textarea', defaultValue, onChange/onKeyDown handlers, placeholder, native textarea attributes."
-      },
-      "locations": {
-        "source_line_start": 55,
-        "source_line_end": 63,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L55-L63",
-        "nx_kb_anchor": "interface_text_area_element"
-      }
-    },
-    {
-      "symbol_id": "interface_select_element",
-      "name": "SelectElement",
-      "kind": "interface",
-      "description_one_line": "Dropdown select element.",
-      "details": {
-        "what_it_does": "Extends BaseElementProps with dropdown: type='select', options array with value/label pairs, defaultValue, onChange callback, optional sorting (abc/cba direction, as number), icon styling."
-      },
-      "locations": {
-        "source_line_start": 65,
-        "source_line_end": 77,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L65-L77",
-        "nx_kb_anchor": "interface_select_element"
-      }
-    },
-    {
-      "symbol_id": "interface_multi_select_props",
-      "name": "MultiSelectProps",
-      "kind": "interface",
-      "description_one_line": "Multi-select dropdown with async/sync search.",
-      "details": {
-        "what_it_does": "Multi-select with async/sync search, options array, custom styling (container/badge/dropdown classes), selected options state, sorting, unremovable options, group by field, create new option support."
-      },
-      "locations": {
-        "source_line_start": 79,
-        "source_line_end": 107,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L79-L107",
-        "nx_kb_anchor": "interface_multi_select_props"
-      }
-    },
-    {
-      "symbol_id": "interface_select_with_search_props",
-      "name": "SelectWithSearchProps",
-      "kind": "interface",
-      "description_one_line": "Searchable select dropdown.",
-      "details": {
-        "what_it_does": "Select with built-in search: type='selectWithSearch', options, onChange, value, dropdown styling, search styling, not found label, sort direction, disabled flag, create new option support."
-      },
-      "locations": {
-        "source_line_start": 108,
-        "source_line_end": 131,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L108-L131",
-        "nx_kb_anchor": "interface_select_with_search_props"
-      }
-    },
-    {
-      "symbol_id": "interface_international_input_props",
-      "name": "InternationalInputProps",
-      "kind": "interface",
-      "description_one_line": "International phone number input.",
-      "details": {
-        "what_it_does": "Phone input: type='internationalPhoneInput', phoneValue, setPhoneValue, country selection, flag display, RTL/LTR support, default country/countries filter, onEnter callback, disabled flag."
-      },
-      "locations": {
-        "source_line_start": 132,
-        "source_line_end": 150,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L132-L150",
-        "nx_kb_anchor": "interface_international_input_props"
-      }
-    },
-    {
-      "symbol_id": "interface_custom_element_props",
-      "name": "CustomElementProps",
-      "kind": "interface",
-      "description_one_line": "Custom React element in form.",
-      "details": {
-        "what_it_does": "Allows arbitrary JSX.Element in form: type='custom', element property with the React component."
-      },
-      "locations": {
-        "source_line_start": 151,
-        "source_line_end": 154,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L151-L154",
-        "nx_kb_anchor": "interface_custom_element_props"
-      }
-    },
-    {
-      "symbol_id": "interface_form_separator_props",
-      "name": "FormSeparatorProps",
-      "kind": "interface",
-      "description_one_line": "Visual separator line in form.",
-      "details": {
-        "what_it_does": "Separator element: type='separator', optional div props, optional children content, direction support for RTL."
-      },
-      "locations": {
-        "source_line_start": 155,
-        "source_line_end": 160,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L155-L160",
-        "nx_kb_anchor": "interface_form_separator_props"
-      }
-    },
-    {
-      "symbol_id": "interface_duration_values",
-      "name": "DurationValues",
-      "kind": "interface",
-      "description_one_line": "Time duration breakdown.",
-      "details": {
-        "what_it_does": "Interface with days, hours, minutes, seconds numeric values. Used for duration picker breakdown."
-      },
-      "locations": {
-        "source_line_start": 167,
-        "source_line_end": 172,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L167-L172",
-        "nx_kb_anchor": "interface_duration_values"
-      }
-    },
-    {
-      "symbol_id": "interface_duration_input_props",
-      "name": "DurationInputProps",
-      "kind": "interface",
-      "description_one_line": "Duration/time picker input.",
-      "details": {
-        "what_it_does": "Duration picker: type='duration', value in seconds, onChange callback with seconds, hideLabels flag, options array limiting which time units to display."
-      },
-      "locations": {
-        "source_line_start": 176,
-        "source_line_end": 182,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L176-L182",
-        "nx_kb_anchor": "interface_duration_input_props"
-      }
-    },
-    {
-      "symbol_id": "interface_modular_form_props",
-      "name": "ModularFormProps",
-      "kind": "interface",
-      "description_one_line": "Complete form component configuration.",
-      "details": {
-        "what_it_does": "ModularForm configuration: submitFunction, FormElement array, button content/className, header content/className, direction, submitRef for button access, footer styling, loader props, auto-fix label widths, form-level className."
-      },
-      "locations": {
-        "source_line_start": 197,
-        "source_line_end": 217,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L197-L217",
-        "nx_kb_anchor": "interface_modular_form_props"
-      }
-    },
-    {
-      "symbol_id": "interface_confirm_form_props",
-      "name": "ConfirmFormProps",
-      "kind": "interface",
-      "description_one_line": "Confirmation dialog with yes/no buttons.",
-      "details": {
-        "what_it_does": "Confirm form: onV (confirm callback), onX (cancel callback), headline, direction, custom button elements/styling/props, container styling."
-      },
-      "locations": {
-        "source_line_start": 218,
-        "source_line_end": 232,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L218-L232",
-        "nx_kb_anchor": "interface_confirm_form_props"
-      }
-    },
-    {
-      "symbol_id": "interface_date_picker_props",
-      "name": "DatePickerProps",
-      "kind": "interface",
-      "description_one_line": "Date range picker configuration.",
-      "details": {
-        "what_it_does": "Date range picker: submit callback, form/label/input/button styling, defaultFrom/defaultTo, from/to/button text, calendar styling (selected day, today day), direction."
-      },
-      "locations": {
-        "source_line_start": 234,
-        "source_line_end": 250,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L234-L250",
-        "nx_kb_anchor": "interface_date_picker_props"
-      }
-    },
-    {
-      "symbol_id": "type_form_element",
-      "name": "FormElement",
-      "kind": "type",
-      "description_one_line": "Union of all supported form element types.",
-      "details": {
-        "what_it_does": "Type alias for InputElement | DateInputElement | SelectElement | MultiSelectProps | InternationalInputProps | CustomElementProps | TextAreaElement | SelectWithSearchProps | FormSeparatorProps | CheckboxContainerProps | DurationInputProps.",
-        "type_definition": "type FormElement = InputElement | DateInputElement | SelectElement | MultiSelectProps | InternationalInputProps | CustomElementProps | TextAreaElement | SelectWithSearchProps | FormSeparatorProps | CheckboxContainerProps | DurationInputProps;"
-      },
-      "locations": {
-        "source_line_start": 184,
-        "source_line_end": 195,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts#L184-L195",
-        "nx_kb_anchor": "type_form_element"
-      }
-    }
-  ],
-  "quality": {"generation_confidence": "high"}
 }

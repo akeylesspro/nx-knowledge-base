@@ -1,128 +1,128 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "index.tsx",
-  "source": {
-    "file_path": "assets/index.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T10:00:00.000Z",
-    "language": "tsx",
-    "framework_tags": [
-      "react"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.tsx",
+    "source": {
+        "file_path": "assets/index.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T10:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": [
+            "react"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.tsx.json"
+    },
+    "summary": {
+        "purpose": "Barrel export file that re-exports all symbols from the svg and table asset submodules, providing a unified single-entry point for importing all asset components and functions.",
+        "problem_solved": "Centralizes and simplifies asset imports by allowing consumers to import SVG status indicator components (RedXSvg, RedXSvg2, GreenVSvg) and table helper functions (sortSvg, emptyFilterSvg, slashFilterSvg, exportToExcelSvg) from a single 'assets' namespace instead of from separate submodules."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "import_path": "./svg",
+                "resolved_file_path": "assets/svg.tsx",
+                "why_used": "Exports all SVG status indicator components (RedXSvg, RedXSvg2, GreenVSvg) and the SvgProps interface",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/svg.tsx.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx"
+            },
+            {
+                "import_path": "./table",
+                "resolved_file_path": "assets/table.tsx",
+                "why_used": "Exports all table control SVG factory functions (sortSvg, emptyFilterSvg, slashFilterSvg, exportToExcelSvg)",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/table.tsx.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/table.tsx"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "RedXSvg",
+            "kind": "component",
+            "description_one_line": "React component rendering a red X icon inside a circle for error/failure indication",
+            "symbol_id": "AssetExports"
+        },
+        {
+            "name": "RedXSvg2",
+            "kind": "component",
+            "description_one_line": "React component rendering a standalone red X icon for close/dismiss actions",
+            "symbol_id": "AssetExports"
+        },
+        {
+            "name": "GreenVSvg",
+            "kind": "component",
+            "description_one_line": "React component rendering a green checkmark icon inside a circle for success/valid indication",
+            "symbol_id": "AssetExports"
+        },
+        {
+            "name": "sortSvg",
+            "kind": "function",
+            "description_one_line": "Factory function creating a sort direction arrow SVG icon with optional 180-degree rotation",
+            "symbol_id": "AssetExports"
+        },
+        {
+            "name": "emptyFilterSvg",
+            "kind": "function",
+            "description_one_line": "Factory function creating a filter state indicator SVG icon with solid or outline variants",
+            "symbol_id": "AssetExports"
+        },
+        {
+            "name": "slashFilterSvg",
+            "kind": "function",
+            "description_one_line": "Factory function creating a slashed filter (no-filter) indicator SVG icon",
+            "symbol_id": "AssetExports"
+        },
+        {
+            "name": "exportToExcelSvg",
+            "kind": "function",
+            "description_one_line": "Factory function creating an export-to-Excel button SVG icon with customizable dimensions",
+            "symbol_id": "AssetExports"
+        }
     ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.tsx.json"
-  },
-  "summary": {
-    "purpose": "Barrel export file that re-exports all symbols from the svg and table asset submodules, providing a unified single-entry point for importing all asset components and functions.",
-    "problem_solved": "Centralizes and simplifies asset imports by allowing consumers to import SVG status indicator components (RedXSvg, RedXSvg2, GreenVSvg) and table helper functions (sortSvg, emptyFilterSvg, slashFilterSvg, exportToExcelSvg) from a single 'assets' namespace instead of from separate submodules."
-  },
-  "dependencies": {
-    "external": [],
-    "internal": [
-      {
-        "import_path": "./svg",
-        "resolved_file_path": "assets/svg.tsx",
-        "why_used": "Exports all SVG status indicator components (RedXSvg, RedXSvg2, GreenVSvg) and the SvgProps interface",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/svg.tsx.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx"
-      },
-      {
-        "import_path": "./table",
-        "resolved_file_path": "assets/table.tsx",
-        "why_used": "Exports all table control SVG factory functions (sortSvg, emptyFilterSvg, slashFilterSvg, exportToExcelSvg)",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/table.tsx.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/table.tsx"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "RedXSvg",
-      "kind": "component",
-      "description_one_line": "React component rendering a red X icon inside a circle for error/failure indication",
-      "symbol_id": "AssetExports"
-    },
-    {
-      "name": "RedXSvg2",
-      "kind": "component",
-      "description_one_line": "React component rendering a standalone red X icon for close/dismiss actions",
-      "symbol_id": "AssetExports"
-    },
-    {
-      "name": "GreenVSvg",
-      "kind": "component",
-      "description_one_line": "React component rendering a green checkmark icon inside a circle for success/valid indication",
-      "symbol_id": "AssetExports"
-    },
-    {
-      "name": "sortSvg",
-      "kind": "function",
-      "description_one_line": "Factory function creating a sort direction arrow SVG icon with optional 180-degree rotation",
-      "symbol_id": "AssetExports"
-    },
-    {
-      "name": "emptyFilterSvg",
-      "kind": "function",
-      "description_one_line": "Factory function creating a filter state indicator SVG icon with solid or outline variants",
-      "symbol_id": "AssetExports"
-    },
-    {
-      "name": "slashFilterSvg",
-      "kind": "function",
-      "description_one_line": "Factory function creating a slashed filter (no-filter) indicator SVG icon",
-      "symbol_id": "AssetExports"
-    },
-    {
-      "name": "exportToExcelSvg",
-      "kind": "function",
-      "description_one_line": "Factory function creating an export-to-Excel button SVG icon with customizable dimensions",
-      "symbol_id": "AssetExports"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "AssetExports",
-      "name": "Asset Module Exports",
-      "kind": "value",
-      "description_one_line": "Aggregated export of all SVG icon components and factory functions from svg and table submodules",
-      "details": {
-        "what_it_does": "This barrel export file re-exports all named exports from ./svg and ./table modules. It serves as the primary entry point for the assets module, consolidating all SVG icon components and factory functions into a single namespace. Consumers import from 'akeyless-client-commons/assets' rather than managing imports from individual submodules."
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 2,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx#L1-L2",
-        "nx_kb_anchor": "#AssetExports"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "namespace",
-          "description": "Re-exports from svg and table submodules"
+    "symbols": [
+        {
+            "symbol_id": "AssetExports",
+            "name": "Asset Module Exports",
+            "kind": "value",
+            "description_one_line": "Aggregated export of all SVG icon components and factory functions from svg and table submodules",
+            "details": {
+                "what_it_does": "This barrel export file re-exports all named exports from ./svg and ./table modules. It serves as the primary entry point for the assets module, consolidating all SVG icon components and factory functions into a single namespace. Consumers import from 'akeyless-client-commons/assets' rather than managing imports from individual submodules."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 2,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx#L1-L2",
+                "nx_kb_anchor": "#AssetExports"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "namespace",
+                    "description": "Re-exports from svg and table submodules"
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic import from assets barrel",
+                    "code": "// Instead of multiple imports from submodules...\nimport { RedXSvg } from 'akeyless-client-commons/assets/svg';\nimport { sortSvg } from 'akeyless-client-commons/assets/table';\n\n// Use the barrel export for cleaner imports\nimport { RedXSvg, sortSvg } from 'akeyless-client-commons/assets';"
+                },
+                "extensive_correct": {
+                    "title": "Complete assets module usage",
+                    "code": "import {\n  // SVG Status Indicator Components\n  RedXSvg,\n  RedXSvg2,\n  GreenVSvg,\n  // Table Control Functions\n  sortSvg,\n  emptyFilterSvg,\n  slashFilterSvg,\n  exportToExcelSvg\n} from 'akeyless-client-commons/assets';\n\nconst DataTable = () => (\n  <table>\n    <thead>\n      <tr>\n        <th>\n          Name {sortSvg()}\n          <button>{emptyFilterSvg()}</button>\n        </th>\n        <th>\n          Status\n        </th>\n        <th>\n          <button>{exportToExcelSvg()}</button>\n        </th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>Valid Item</td>\n        <td><GreenVSvg /></td>\n      </tr>\n      <tr>\n        <td>Invalid Item</td>\n        <td><RedXSvg /></td>\n      </tr>\n    </tbody>\n  </table>\n);"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Importing from submodules when barrel available",
+                    "code": "// Avoid this pattern when the barrel export exists\nimport { RedXSvg } from 'akeyless-client-commons/assets/svg';\nimport { sortSvg } from 'akeyless-client-commons/assets/table';\nimport { GreenVSvg } from 'akeyless-client-commons/assets/svg';\n\n// This works but is unnecessarily verbose",
+                    "why_incorrect": "While importing from submodules works, it's cleaner and more maintainable to use the barrel export. The barrel pattern centralizes exports and makes refactoring easier. Future reorganization of submodules won't require updating imports if they go through the barrel."
+                }
+            }
         }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic import from assets barrel",
-          "code": "// Instead of multiple imports from submodules...\nimport { RedXSvg } from 'akeyless-client-commons/assets/svg';\nimport { sortSvg } from 'akeyless-client-commons/assets/table';\n\n// Use the barrel export for cleaner imports\nimport { RedXSvg, sortSvg } from 'akeyless-client-commons/assets';"
-        },
-        "extensive_correct": {
-          "title": "Complete assets module usage",
-          "code": "import {\n  // SVG Status Indicator Components\n  RedXSvg,\n  RedXSvg2,\n  GreenVSvg,\n  // Table Control Functions\n  sortSvg,\n  emptyFilterSvg,\n  slashFilterSvg,\n  exportToExcelSvg\n} from 'akeyless-client-commons/assets';\n\nconst DataTable = () => (\n  <table>\n    <thead>\n      <tr>\n        <th>\n          Name {sortSvg()}\n          <button>{emptyFilterSvg()}</button>\n        </th>\n        <th>\n          Status\n        </th>\n        <th>\n          <button>{exportToExcelSvg()}</button>\n        </th>\n      </tr>\n    </thead>\n    <tbody>\n      <tr>\n        <td>Valid Item</td>\n        <td><GreenVSvg /></td>\n      </tr>\n      <tr>\n        <td>Invalid Item</td>\n        <td><RedXSvg /></td>\n      </tr>\n    </tbody>\n  </table>\n);"
-        },
-        "incorrect": {
-          "title": "Incorrect: Importing from submodules when barrel available",
-          "code": "// Avoid this pattern when the barrel export exists\nimport { RedXSvg } from 'akeyless-client-commons/assets/svg';\nimport { sortSvg } from 'akeyless-client-commons/assets/table';\nimport { GreenVSvg } from 'akeyless-client-commons/assets/svg';\n\n// This works but is unnecessarily verbose",
-          "why_incorrect": "While importing from submodules works, it's cleaner and more maintainable to use the barrel export. The barrel pattern centralizes exports and makes refactoring easier. Future reorganization of submodules won't require updating imports if they go through the barrel."
-        }
-      }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }

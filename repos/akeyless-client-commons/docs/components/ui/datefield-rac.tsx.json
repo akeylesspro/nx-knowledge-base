@@ -1,217 +1,217 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "datefield-rac.tsx",
-  "source": {
-    "file_path": "components/ui/datefield-rac.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-15T11:42:40+02:00",
-    "language": "tsx",
-    "framework_tags": [
-      "react",
-      "react-aria-components"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "datefield-rac.tsx",
+    "source": {
+        "file_path": "components/ui/datefield-rac.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-15T11:42:40+02:00",
+        "language": "tsx",
+        "framework_tags": [
+            "react",
+            "react-aria-components"
+        ],
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/datefield-rac.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/datefield-rac.tsx.json"
+    },
+    "summary": {
+        "purpose": "DateField components (RAC).",
+        "problem_solved": "Accessible date and time fields using React Aria Components."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "react-aria-components",
+                "kind": "runtime",
+                "why_used": "Headless UI components."
+            }
+        ],
+        "internal": [
+            {
+                "import_path": "@/lib/utils",
+                "why_used": "cn utility.",
+                "resolved_file_path": "lib/utils",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "DateField",
+            "kind": "component",
+            "description_one_line": "Date field.",
+            "symbol_id": "DateField"
+        },
+        {
+            "name": "DateInput",
+            "kind": "component",
+            "description_one_line": "Date input.",
+            "symbol_id": "DateInput"
+        },
+        {
+            "name": "DateSegment",
+            "kind": "component",
+            "description_one_line": "Each segment of date.",
+            "symbol_id": "DateSegment"
+        },
+        {
+            "name": "TimeField",
+            "kind": "component",
+            "description_one_line": "Time field.",
+            "symbol_id": "TimeField"
+        },
+        {
+            "name": "dateInputStyle",
+            "kind": "value",
+            "description_one_line": "Shared style class string.",
+            "symbol_id": "dateInputStyle"
+        }
     ],
-    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/datefield-rac.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/datefield-rac.tsx.json"
-  },
-  "summary": {
-    "purpose": "DateField components (RAC).",
-    "problem_solved": "Accessible date and time fields using React Aria Components."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "react-aria-components",
-        "kind": "runtime",
-        "why_used": "Headless UI components."
-      }
+    "symbols": [
+        {
+            "symbol_id": "DateField",
+            "name": "DateField",
+            "kind": "component",
+            "description_one_line": "Date Field wrapper.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "JSX.Element"
+                }
+            },
+            "details": {
+                "what_it_does": "Date Field wrapper."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/datefield-rac.tsx#L1",
+                "nx_kb_anchor": "DateField"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of DateField",
+                    "code": "<DateFieldRACComponent />"
+                }
+            }
+        },
+        {
+            "symbol_id": "DateInput",
+            "name": "DateInput",
+            "kind": "component",
+            "description_one_line": "Date input.",
+            "details": {
+                "what_it_does": "Date input."
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#DateInput"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of DateInput",
+                    "code": "<DateFieldRACComponent />"
+                }
+            }
+        },
+        {
+            "symbol_id": "DateSegment",
+            "name": "DateSegment",
+            "kind": "component",
+            "description_one_line": "Each segment of date.",
+            "details": {
+                "what_it_does": "Each segment of date."
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#DateSegment"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of DateSegment",
+                    "code": "<DateFieldRACComponent />"
+                }
+            }
+        },
+        {
+            "symbol_id": "TimeField",
+            "name": "TimeField",
+            "kind": "component",
+            "description_one_line": "Time field.",
+            "details": {
+                "what_it_does": "Time field."
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#TimeField"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of TimeField",
+                    "code": "<DateFieldRACComponent />"
+                }
+            }
+        },
+        {
+            "symbol_id": "dateInputStyle",
+            "name": "dateInputStyle",
+            "kind": "value",
+            "description_one_line": "Shared style class string.",
+            "details": {
+                "what_it_does": "Shared style class string."
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#dateInputStyle"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of dateInputStyle",
+                    "code": "<DateFieldRACComponent />"
+                }
+            }
+        }
     ],
-    "internal": [
-      {
-        "import_path": "@/lib/utils",
-        "why_used": "cn utility.",
-        "resolved_file_path": "lib/utils",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "DateField",
-      "kind": "component",
-      "description_one_line": "Date field.",
-      "symbol_id": "DateField"
-    },
-    {
-      "name": "DateInput",
-      "kind": "component",
-      "description_one_line": "Date input.",
-      "symbol_id": "DateInput"
-    },
-    {
-      "name": "DateSegment",
-      "kind": "component",
-      "description_one_line": "Each segment of date.",
-      "symbol_id": "DateSegment"
-    },
-    {
-      "name": "TimeField",
-      "kind": "component",
-      "description_one_line": "Time field.",
-      "symbol_id": "TimeField"
-    },
-    {
-      "name": "dateInputStyle",
-      "kind": "value",
-      "description_one_line": "Shared style class string.",
-      "symbol_id": "dateInputStyle"
+    "quality": {
+        "generation_confidence": "high"
     }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "DateField",
-      "name": "DateField",
-      "kind": "component",
-      "description_one_line": "Date Field wrapper.",
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "JSX.Element"
-        }
-      },
-      "details": {
-        "what_it_does": "Date Field wrapper."
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/datefield-rac.tsx#L1",
-        "nx_kb_anchor": "DateField"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of DateField",
-          "code": "<DateFieldRACComponent />"
-        }
-      }
-    },
-    {
-      "symbol_id": "DateInput",
-      "name": "DateInput",
-      "kind": "component",
-      "description_one_line": "Date input.",
-      "details": {
-        "what_it_does": "Date input."
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#DateInput"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of DateInput",
-          "code": "<DateFieldRACComponent />"
-        }
-      }
-    },
-    {
-      "symbol_id": "DateSegment",
-      "name": "DateSegment",
-      "kind": "component",
-      "description_one_line": "Each segment of date.",
-      "details": {
-        "what_it_does": "Each segment of date."
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#DateSegment"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of DateSegment",
-          "code": "<DateFieldRACComponent />"
-        }
-      }
-    },
-    {
-      "symbol_id": "TimeField",
-      "name": "TimeField",
-      "kind": "component",
-      "description_one_line": "Time field.",
-      "details": {
-        "what_it_does": "Time field."
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#TimeField"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of TimeField",
-          "code": "<DateFieldRACComponent />"
-        }
-      }
-    },
-    {
-      "symbol_id": "dateInputStyle",
-      "name": "dateInputStyle",
-      "kind": "value",
-      "description_one_line": "Shared style class string.",
-      "details": {
-        "what_it_does": "Shared style class string."
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#dateInputStyle"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of dateInputStyle",
-          "code": "<DateFieldRACComponent />"
-        }
-      }
-    }
-  ],
-  "quality": {
-    "generation_confidence": "high"
-  }
 }

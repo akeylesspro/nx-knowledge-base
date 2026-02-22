@@ -1,230 +1,230 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "ModularForm.tsx",
-  "source": {
-    "file_path": "components/forms/ModularForm/ModularForm.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-12T00:00:00.000Z",
-    "language": "tsx",
-    "framework_tags": [
-      "react"
-    ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/ModularForm.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/ModularForm.tsx.json"
-  },
-  "summary": {
-    "purpose": "Implements the ModularForm component, a data-driven form builder that renders a dynamic set of form elements based on a declarative configuration array.",
-    "problem_solved": "Eliminates the need to manually compose forms by accepting an array of element descriptors (input, select, checkbox, textarea, date, phone, duration, multiSelect, selectWithSearch, separator, custom) and rendering the appropriate sub-components with unified styling, validation, error display, auto-label-width alignment, and loading state management."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "react",
-        "usage": "cloneElement, useEffect, useMemo, useRef, useState for component state and DOM refs; MouseEvent type for submit click tracking",
-        "kind": "runtime",
-        "why_used": "External dependency"
-      }
-    ],
-    "internal": [
-      {
-        "resolved_path": "types/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "FormElement, ModularFormProps",
-        "resolved_file_path": "FormElement, ModularFormProps",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/FormElement, ModularFormProps"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "CheckboxContainer",
-        "resolved_file_path": "CheckboxContainer",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/CheckboxContainer"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "DurationPicker",
-        "resolved_file_path": "DurationPicker",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/DurationPicker"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "FormElementContainer",
-        "resolved_file_path": "FormElementContainer",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/FormElementContainer"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "FormSeparator",
-        "resolved_file_path": "FormSeparator",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/FormSeparator"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "InputContainer",
-        "resolved_file_path": "InputContainer",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/InputContainer"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "DateInputContainer",
-        "resolved_file_path": "DateInputContainer",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/DateInputContainer"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "MultiSelect",
-        "resolved_file_path": "MultiSelect",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/MultiSelect"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "SelectContainer",
-        "resolved_file_path": "SelectContainer",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/SelectContainer"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "SelectWithSearch",
-        "resolved_file_path": "SelectWithSearch",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/SelectWithSearch"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "TextAreaContainer",
-        "resolved_file_path": "TextAreaContainer",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/TextAreaContainer"
-      },
-      {
-        "resolved_path": "components/utils/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/index.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "Loader",
-        "resolved_file_path": "Loader",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/Loader"
-      },
-      {
-        "resolved_path": "helpers/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "cn",
-        "resolved_file_path": "cn",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/cn"
-      },
-      {
-        "resolved_path": "helpers/index",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "getFormElementValue",
-        "resolved_file_path": "getFormElementValue",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/getFormElementValue"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/InternationalPhonePicker",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/InternationalPhonePicker.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "InternationalPhonePicker",
-        "resolved_file_path": "InternationalPhonePicker",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/InternationalPhonePicker"
-      },
-      {
-        "resolved_path": "hooks/react",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/react.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "useDeepCompareEffect",
-        "resolved_file_path": "useDeepCompareEffect",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/useDeepCompareEffect"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "ModularForm",
-      "kind": "component",
-      "is_default": true,
-      "description": "A data-driven form component that renders dynamic form elements from a configuration array, with built-in validation, error handling, auto-label-width alignment, and loading state.",
-      "description_one_line": "ModularForm export",
-      "symbol_id": "ModularForm"
-    }
-  ],
-  "symbols": [
-    {
-      "kind": "component",
-      "name": "ModularForm",
-      "signature": "({ submitFunction, elements, headerContent, buttonContent, className, elementsContainerClassName, headerClassName, direction, buttonClassName, submitRef, footerClassName, errorClassName, labelsCommonClassName, elementsCommonClassName, autoFixLabelsWidth, loaderProps, autoFixLabelsWidthDeps, onLoad }: ModularFormProps) => JSX.Element",
-      "description": "A declarative form builder component. Accepts an array of FormElement descriptors and renders the appropriate UI element for each (input, dateInput, textarea, select, checkbox, multiSelect, selectWithSearch, internationalPhoneInput, duration, separator, custom). Features include: automatic label width equalization across all elements, minLength validation with custom error messages, error display area, a submit button with loading spinner, and forwarding of the native MouseEvent from the submit button click to the submitFunction callback. Supports RTL/LTR direction and extensive className customization.",
-      "details": {
-        "rendered_ui_description": "A vertical form container (350px wide by default) with an optional header section styled with a green bottom border, a stack of dynamically rendered form elements (inputs, selects, checkboxes, date pickers, phone pickers, duration pickers, textareas, separators, or custom elements), and a footer row containing an error message area on the left and a green submit button on the right that shows a loading spinner during submission.",
-        "what_it_does": "Exported symbol: ModularForm"
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/ModularForm.tsx#L1",
-        "nx_kb_anchor": "ModularForm"
-      },
-      "symbol_id": "component_modular_form",
-      "description_one_line": "A declarative form builder component. Accepts an array of FormElement descriptors and renders the appropriate UI element for each (input, dateInput, textarea, select, checkbox, multiSelect, selectWithSearch, internationalPhoneInput, duration, separator, custom). Features include: automatic label width equalization across all elements, minLength validation with custom error messages, error display area, a submit button with loading spinner, and forwarding of the native MouseEvent from the submit button click to the submitFunction callback. Supports RTL/LTR direction and extensive className customization.",
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of ModularForm",
-          "code": "<ModularForm {...props} />"
-        }
-      }
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
     },
-    {
-      "symbol_id": "ModularForm",
-      "name": "ModularForm",
-      "kind": "component",
-      "description_one_line": "ModularForm export",
-      "details": {
-        "what_it_does": "ModularForm export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#ModularForm"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
+    "file_name": "ModularForm.tsx",
+    "source": {
+        "file_path": "components/forms/ModularForm/ModularForm.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": [
+            "react"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/ModularForm.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/ModularForm.tsx.json"
+    },
+    "summary": {
+        "purpose": "Implements the ModularForm component, a data-driven form builder that renders a dynamic set of form elements based on a declarative configuration array.",
+        "problem_solved": "Eliminates the need to manually compose forms by accepting an array of element descriptors (input, select, checkbox, textarea, date, phone, duration, multiSelect, selectWithSearch, separator, custom) and rendering the appropriate sub-components with unified styling, validation, error display, auto-label-width alignment, and loading state management."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "react",
+                "usage": "cloneElement, useEffect, useMemo, useRef, useState for component state and DOM refs; MouseEvent type for submit click tracking",
+                "kind": "runtime",
+                "why_used": "External dependency"
+            }
+        ],
+        "internal": [
+            {
+                "resolved_path": "types/index",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/FormElement, ModularFormProps.json",
+                "why_used": "Required dependency",
+                "import_path": "FormElement, ModularFormProps",
+                "resolved_file_path": "FormElement, ModularFormProps",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/FormElement, ModularFormProps"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/CheckboxContainer.json",
+                "why_used": "Required dependency",
+                "import_path": "CheckboxContainer",
+                "resolved_file_path": "CheckboxContainer",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/CheckboxContainer"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/DurationPicker.json",
+                "why_used": "Required dependency",
+                "import_path": "DurationPicker",
+                "resolved_file_path": "DurationPicker",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/DurationPicker"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/FormElementContainer.json",
+                "why_used": "Required dependency",
+                "import_path": "FormElementContainer",
+                "resolved_file_path": "FormElementContainer",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/FormElementContainer"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/FormSeparator.json",
+                "why_used": "Required dependency",
+                "import_path": "FormSeparator",
+                "resolved_file_path": "FormSeparator",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/FormSeparator"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/InputContainer.json",
+                "why_used": "Required dependency",
+                "import_path": "InputContainer",
+                "resolved_file_path": "InputContainer",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/InputContainer"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/DateInputContainer.json",
+                "why_used": "Required dependency",
+                "import_path": "DateInputContainer",
+                "resolved_file_path": "DateInputContainer",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/DateInputContainer"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/MultiSelect.json",
+                "why_used": "Required dependency",
+                "import_path": "MultiSelect",
+                "resolved_file_path": "MultiSelect",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/MultiSelect"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/SelectContainer.json",
+                "why_used": "Required dependency",
+                "import_path": "SelectContainer",
+                "resolved_file_path": "SelectContainer",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/SelectContainer"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/SelectWithSearch.json",
+                "why_used": "Required dependency",
+                "import_path": "SelectWithSearch",
+                "resolved_file_path": "SelectWithSearch",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/SelectWithSearch"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/TextAreaContainer.json",
+                "why_used": "Required dependency",
+                "import_path": "TextAreaContainer",
+                "resolved_file_path": "TextAreaContainer",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/TextAreaContainer"
+            },
+            {
+                "resolved_path": "components/utils/index",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/Loader.json",
+                "why_used": "Required dependency",
+                "import_path": "Loader",
+                "resolved_file_path": "Loader",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/Loader"
+            },
+            {
+                "resolved_path": "helpers/index",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/cn.json",
+                "why_used": "Required dependency",
+                "import_path": "cn",
+                "resolved_file_path": "cn",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/cn"
+            },
+            {
+                "resolved_path": "helpers/index",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/getFormElementValue.json",
+                "why_used": "Required dependency",
+                "import_path": "getFormElementValue",
+                "resolved_file_path": "getFormElementValue",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/getFormElementValue"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/InternationalPhonePicker",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/InternationalPhonePicker.json",
+                "why_used": "Required dependency",
+                "import_path": "InternationalPhonePicker",
+                "resolved_file_path": "InternationalPhonePicker",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/InternationalPhonePicker"
+            },
+            {
+                "resolved_path": "hooks/react",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/useDeepCompareEffect.json",
+                "why_used": "Required dependency",
+                "import_path": "useDeepCompareEffect",
+                "resolved_file_path": "useDeepCompareEffect",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/useDeepCompareEffect"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "ModularForm",
+            "kind": "component",
+            "is_default": true,
+            "description": "A data-driven form component that renders dynamic form elements from a configuration array, with built-in validation, error handling, auto-label-width alignment, and loading state.",
+            "description_one_line": "ModularForm export",
+            "symbol_id": "ModularForm"
         }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of ModularForm",
-          "code": "<ModularForm {...props} />"
+    ],
+    "symbols": [
+        {
+            "kind": "component",
+            "name": "ModularForm",
+            "signature": "({ submitFunction, elements, headerContent, buttonContent, className, elementsContainerClassName, headerClassName, direction, buttonClassName, submitRef, footerClassName, errorClassName, labelsCommonClassName, elementsCommonClassName, autoFixLabelsWidth, loaderProps, autoFixLabelsWidthDeps, onLoad }: ModularFormProps) => JSX.Element",
+            "description": "A declarative form builder component. Accepts an array of FormElement descriptors and renders the appropriate UI element for each (input, dateInput, textarea, select, checkbox, multiSelect, selectWithSearch, internationalPhoneInput, duration, separator, custom). Features include: automatic label width equalization across all elements, minLength validation with custom error messages, error display area, a submit button with loading spinner, and forwarding of the native MouseEvent from the submit button click to the submitFunction callback. Supports RTL/LTR direction and extensive className customization.",
+            "details": {
+                "rendered_ui_description": "A vertical form container (350px wide by default) with an optional header section styled with a green bottom border, a stack of dynamically rendered form elements (inputs, selects, checkboxes, date pickers, phone pickers, duration pickers, textareas, separators, or custom elements), and a footer row containing an error message area on the left and a green submit button on the right that shows a loading spinner during submission.",
+                "what_it_does": "Exported symbol: ModularForm"
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/forms/ModularForm/ModularForm.tsx#L1",
+                "nx_kb_anchor": "ModularForm"
+            },
+            "symbol_id": "component_modular_form",
+            "description_one_line": "A declarative form builder component. Accepts an array of FormElement descriptors and renders the appropriate UI element for each (input, dateInput, textarea, select, checkbox, multiSelect, selectWithSearch, internationalPhoneInput, duration, separator, custom). Features include: automatic label width equalization across all elements, minLength validation with custom error messages, error display area, a submit button with loading spinner, and forwarding of the native MouseEvent from the submit button click to the submitFunction callback. Supports RTL/LTR direction and extensive className customization.",
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of ModularForm",
+                    "code": "<ModularForm {...props} />"
+                }
+            }
+        },
+        {
+            "symbol_id": "ModularForm",
+            "name": "ModularForm",
+            "kind": "component",
+            "description_one_line": "ModularForm export",
+            "details": {
+                "what_it_does": "ModularForm export"
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#ModularForm"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of ModularForm",
+                    "code": "<ModularForm {...props} />"
+                }
+            }
         }
-      }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }

@@ -1,462 +1,453 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "phoneNumber.ts",
-  "source": {
-    "file_path": "helpers/phoneNumber.ts",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T00:00:00.000Z",
-    "language": "ts",
-    "framework_tags": [
-      "phone"
-    ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/phoneNumber.ts.json"
-  },
-  "summary": {
-    "purpose": "Phone number validation, formatting, and conversion utilities with special support for Israeli phone numbers. Handles international format conversion, display formatting with separators, and validation of mobile, landline, VoIP, and service numbers.",
-    "problem_solved": "Provides consistent phone number handling across international and local Israeli formats, formats numbers for display, and validates phone types (mobile, landline, VoIP, service numbers, ICCID, MSISDN)."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "module": "libphonenumber-js",
-        "kind": "runtime",
-        "why_used": "Lightweight phone number parsing and formatting for international numbers.",
-        "name": "libphonenumber-js"
-      }
-    ],
-    "internal": []
-  },
-  "exports": [
-    {
-      "name": "isInternational",
-      "kind": "function",
-      "line": 6,
-      "description_one_line": "Checks if phone number is in international format (starts with +).",
-      "symbol_id": "function_is_international"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
     },
-    {
-      "name": "isInternationalIsraelPhone",
-      "kind": "function",
-      "line": 10,
-      "description_one_line": "Checks if phone number is Israeli international format (+9725).",
-      "symbol_id": "function_is_international_israel_phone"
-    },
-    {
-      "name": "local_israel_phone_format",
-      "kind": "function",
-      "line": 14,
-      "description_one_line": "Converts Israeli international format (+972) to local format (0).",
-      "symbol_id": "function_local_israel_phone_format"
-    },
-    {
-      "name": "international_israel_phone_format",
-      "kind": "function",
-      "line": 18,
-      "description_one_line": "Converts local Israeli phone number to international format (+972).",
-      "symbol_id": "function_international_israel_phone_format"
-    },
-    {
-      "name": "get_international_phone_number",
-      "kind": "function",
-      "line": 23,
-      "description_one_line": "Returns phone number in international format, converting if necessary.",
-      "symbol_id": "function_get_international_phone_number"
-    },
-    {
-      "name": "displayFormatPhoneNumber",
-      "kind": "function",
-      "line": 28,
-      "description_one_line": "Formats phone number for display with separator (default hyphen).",
-      "symbol_id": "function_display_format_phone_number"
-    },
-    {
-      "name": "is_iccid",
-      "kind": "function",
-      "line": 58,
-      "description_one_line": "Validates if number is ICCID (SIM card identifier).",
-      "symbol_id": "function_is_iccid"
-    },
-    {
-      "name": "is_msisdn",
-      "kind": "function",
-      "line": 65,
-      "description_one_line": "Validates if number is MSISDN (mobile subscriber number).",
-      "symbol_id": "function_is_msisdn"
-    },
-    {
-      "name": "is_fixed_or_service_number",
-      "kind": "function",
-      "line": 71,
-      "description_one_line": "Checks if number is Israeli fixed line, VoIP, or service number.",
-      "symbol_id": "function_is_fixed_or_service_number"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "function_is_international",
-      "kind": "function",
-      "name": "isInternational",
-      "signature": "(phone_number: string) => boolean",
-      "description": "Simple check if phone number starts with + indicating international format.",
-      "description_one_line": "Checks if phone number is in international format (starts with +).",
-      "line": 6,
-      "locations": {
-        "source_line_start": 6,
-        "source_line_end": 8,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L6-L8",
-        "nx_kb_anchor": "isInternational"
-      },
-      "details": {
-        "what_it_does": "Returns true if phone_number.startsWith('+'), false otherwise."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "phone_number",
-            "type": "string",
-            "required": true,
-            "description": "Phone number to check."
-          }
+    "file_name": "phoneNumber.ts",
+    "source": {
+        "file_path": "helpers/phoneNumber.ts",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "phone"
         ],
-        "returns": {
-          "type": "boolean",
-          "description": "True if number starts with +, false otherwise."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Check international format",
-          "code": "console.log(isInternational('+1234567890')); // true\nconsole.log(isInternational('1234567890'));  // false"
-        }
-      }
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/phoneNumber.ts.json"
     },
-    {
-      "symbol_id": "function_is_international_israel_phone",
-      "kind": "function",
-      "name": "isInternationalIsraelPhone",
-      "signature": "(phone_number: string) => boolean",
-      "description": "Checks if phone number is Israeli international format starting with +9725 (Israel country code +972, first 0 digit).",
-      "description_one_line": "Checks if phone number is Israeli international format (+9725).",
-      "line": 10,
-      "locations": {
-        "source_line_start": 10,
-        "source_line_end": 12,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L10-L12",
-        "nx_kb_anchor": "isInternationalIsraelPhone"
-      },
-      "details": {
-        "what_it_does": "Returns true if phone_number.startsWith('+9725')."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "phone_number",
-            "type": "string",
-            "required": true,
-            "description": "Phone number to check."
-          }
-        ],
-        "returns": {
-          "type": "boolean",
-          "description": "True if Israeli international format, false otherwise."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Check Israeli international format",
-          "code": "console.log(isInternationalIsraelPhone('+972501234567')); // true (mobile)\nconsole.log(isInternationalIsraelPhone('+972228888888')); // true (landline)\nconsole.log(isInternationalIsraelPhone('+1234567890'));   // false"
-        }
-      }
+    "summary": {
+        "purpose": "Phone number validation, formatting, and conversion utilities with special support for Israeli phone numbers. Handles international format conversion, display formatting with separators, and validation of mobile, landline, VoIP, and service numbers.",
+        "problem_solved": "Provides consistent phone number handling across international and local Israeli formats, formats numbers for display, and validates phone types (mobile, landline, VoIP, service numbers, ICCID, MSISDN)."
     },
-    {
-      "symbol_id": "function_local_israel_phone_format",
-      "kind": "function",
-      "name": "local_israel_phone_format",
-      "signature": "(international_number: string) => string",
-      "description": "Converts Israeli international format (+972...) to local format (0...) by replacing +972 prefix with 0.",
-      "description_one_line": "Converts Israeli international format (+972) to local format (0).",
-      "line": 14,
-      "locations": {
-        "source_line_start": 14,
-        "source_line_end": 16,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L14-L16",
-        "nx_kb_anchor": "local_israel_phone_format"
-      },
-      "details": {
-        "what_it_does": "Returns international_number.replace('+972', '0'). Simple string replacement."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "international_number",
-            "type": "string",
-            "required": true,
-            "description": "Phone number in international format (+972...)."
-          }
+    "dependencies": {
+        "external": [
+            {
+                "module": "libphonenumber-js",
+                "kind": "runtime",
+                "why_used": "Lightweight phone number parsing and formatting for international numbers.",
+                "name": "libphonenumber-js"
+            }
         ],
-        "returns": {
-          "type": "string",
-          "description": "Phone number in local Israeli format (0...)."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Convert to local format",
-          "code": "console.log(local_israel_phone_format('+972501234567')); // '0501234567'\nconsole.log(local_israel_phone_format('+972228888888')); // '0228888888'"
-        }
-      }
+        "internal": []
     },
-    {
-      "symbol_id": "function_international_israel_phone_format",
-      "kind": "function",
-      "name": "international_israel_phone_format",
-      "signature": "(phone: string) => string",
-      "description": "Converts local Israeli phone number (0...) to international format (+972...) by removing first digit (0) and prepending +972.",
-      "description_one_line": "Converts local Israeli phone number to international format (+972).",
-      "line": 18,
-      "locations": {
-        "source_line_start": 18,
-        "source_line_end": 21,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L18-L21",
-        "nx_kb_anchor": "international_israel_phone_format"
-      },
-      "details": {
-        "what_it_does": "Takes substring from index 1 (removing leading 0) and concatenates with '+972' prefix."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "phone",
-            "type": "string",
-            "required": true,
-            "description": "Phone number in local Israeli format (0...)."
-          }
-        ],
-        "returns": {
-          "type": "string",
-          "description": "Phone number in international format (+972...)."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Convert to international format",
-          "code": "console.log(international_israel_phone_format('0501234567')); // '+972501234567'\nconsole.log(international_israel_phone_format('0228888888')); // '+972228888888'"
-        }
-      }
-    },
-    {
-      "symbol_id": "function_get_international_phone_number",
-      "kind": "function",
-      "name": "get_international_phone_number",
-      "signature": "(phone: string) => string",
-      "description": "Returns phone number in international format. If already international, returns as-is. If local, converts to international. Returns '-' if phone is empty/falsy.",
-      "description_one_line": "Returns phone number in international format, converting if necessary.",
-      "line": 23,
-      "locations": {
-        "source_line_start": 23,
-        "source_line_end": 26,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L23-L26",
-        "nx_kb_anchor": "get_international_phone_number"
-      },
-      "details": {
-        "what_it_does": "Checks if phone is already international via isInternational(). If true, returns as-is. If false, converts via international_israel_phone_format(). Returns '-' if phone is falsy."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "phone",
-            "type": "string",
-            "required": true,
-            "description": "Phone number in any Israeli format (local or international)."
-          }
-        ],
-        "returns": {
-          "type": "string",
-          "description": "Phone number in international format, or '-' if input empty."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Normalize any format to international",
-          "code": "console.log(get_international_phone_number('0501234567'));   // '+972501234567'\nconsole.log(get_international_phone_number('+972501234567')); // '+972501234567' (unchanged)\nconsole.log(get_international_phone_number(''));             // '-'"
-        }
-      }
-    },
-    {
-      "symbol_id": "function_display_format_phone_number",
-      "kind": "function",
-      "name": "displayFormatPhoneNumber",
-      "signature": "(phoneNumber: string, separator?: string) => string",
-      "description": "Formats phone number for UI display with customizable separator (default hyphen). Removes spaces and hyphens from input. For international numbers, uses libphonenumber-js formatting. For Israeli numbers, applies pattern-specific formatting based on phone type (landline, VoIP, service). Returns cleaned number if no pattern matches.",
-      "description_one_line": "Formats phone number for display with separator (default hyphen).",
-      "line": 28,
-      "locations": {
-        "source_line_start": 28,
-        "source_line_end": 56,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L28-L56",
-        "nx_kb_anchor": "displayFormatPhoneNumber"
-      },
-      "details": {
-        "what_it_does": "Cleans input by removing spaces and hyphens. For international numbers, uses parsePhoneNumberFromString and formatInternational(). For Israeli numbers, checks phone type via is_fixed_or_service_number() and applies regex pattern specific to landlines, VoIP (072-078), or service numbers (1700, 1800, 1900, 1599). Default pattern: XXX-XXX-XXXX. Returns cleaned number if falsy input."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "phoneNumber",
-            "type": "string",
-            "required": true,
-            "description": "Phone number to format (any format)."
-          },
-          {
-            "name": "separator",
-            "type": "string",
-            "required": false,
-            "default": "'-'",
-            "description": "Separator character for grouping. Defaults to hyphen."
-          }
-        ],
-        "returns": {
-          "type": "string",
-          "description": "Formatted phone number with separators, or empty string if input falsy."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Format for display",
-          "code": "console.log(displayFormatPhoneNumber('0501234567'));     // '050-123-4567'\nconsole.log(displayFormatPhoneNumber('0228888888'));     // '02-388-8888'\nconsole.log(displayFormatPhoneNumber('+972501234567')); // '+972 50 123 4567' (international format)"
+    "exports": [
+        {
+            "name": "isInternational",
+            "kind": "function",
+            "line": 6,
+            "description_one_line": "Checks if phone number is in international format (starts with +).",
+            "symbol_id": "function_is_international"
         },
-        "extensive_correct": {
-          "title": "Format with custom separator",
-          "code": "const phones = [\n  { local: '0501234567', type: 'mobile' },\n  { local: '0228888888', type: 'landline' },\n  { local: '1800123456', type: 'service' }\n];\n\nphones.forEach(p => {\n  const formatted = displayFormatPhoneNumber(p.local, ' ');\n  console.log(`${p.type}: ${formatted}`);\n});"
+        {
+            "name": "isInternationalIsraelPhone",
+            "kind": "function",
+            "line": 10,
+            "description_one_line": "Checks if phone number is Israeli international format (+9725).",
+            "symbol_id": "function_is_international_israel_phone"
+        },
+        {
+            "name": "local_israel_phone_format",
+            "kind": "function",
+            "line": 14,
+            "description_one_line": "Converts Israeli international format (+972) to local format (0).",
+            "symbol_id": "function_local_israel_phone_format"
+        },
+        {
+            "name": "international_israel_phone_format",
+            "kind": "function",
+            "line": 18,
+            "description_one_line": "Converts local Israeli phone number to international format (+972).",
+            "symbol_id": "function_international_israel_phone_format"
+        },
+        {
+            "name": "get_international_phone_number",
+            "kind": "function",
+            "line": 23,
+            "description_one_line": "Returns phone number in international format, converting if necessary.",
+            "symbol_id": "function_get_international_phone_number"
+        },
+        {
+            "name": "displayFormatPhoneNumber",
+            "kind": "function",
+            "line": 28,
+            "description_one_line": "Formats phone number for display with separator (default hyphen).",
+            "symbol_id": "function_display_format_phone_number"
+        },
+        {
+            "name": "is_iccid",
+            "kind": "function",
+            "line": 58,
+            "description_one_line": "Validates if number is ICCID (SIM card identifier).",
+            "symbol_id": "function_is_iccid"
+        },
+        {
+            "name": "is_msisdn",
+            "kind": "function",
+            "line": 65,
+            "description_one_line": "Validates if number is MSISDN (mobile subscriber number).",
+            "symbol_id": "function_is_msisdn"
+        },
+        {
+            "name": "is_fixed_or_service_number",
+            "kind": "function",
+            "line": 71,
+            "description_one_line": "Checks if number is Israeli fixed line, VoIP, or service number.",
+            "symbol_id": "function_is_fixed_or_service_number"
         }
-      }
-    },
-    {
-      "symbol_id": "function_is_iccid",
-      "kind": "function",
-      "name": "is_iccid",
-      "signature": "(number: string) => boolean",
-      "description": "Validates if string is ICCID (SIM card Integrated Circuit Card ID). ICCID is 19-22 digit number starting with 89. Used for SIM card identification.",
-      "description_one_line": "Validates if number is ICCID (SIM card identifier).",
-      "line": 58,
-      "locations": {
-        "source_line_start": 58,
-        "source_line_end": 63,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L58-L63",
-        "nx_kb_anchor": "is_iccid"
-      },
-      "details": {
-        "what_it_does": "Checks length 19-22, all digits via /^\\d+$/, and starts with '89'. Returns true only if all conditions met."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "number",
-            "type": "string",
-            "required": true,
-            "description": "String to validate as ICCID."
-          }
-        ],
-        "returns": {
-          "type": "boolean",
-          "description": "True if valid ICCID format, false otherwise."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Validate ICCID",
-          "code": "console.log(is_iccid('8931234567890123456'));    // true (19 digits, starts with 89)\nconsole.log(is_iccid('89312345678901234567890')); // true (22 digits)\nconsole.log(is_iccid('1234567890123456789'));     // false (doesn't start with 89)\nconsole.log(is_iccid('893123456789012345'));      // false (only 18 digits)"
-        }
-      }
-    },
-    {
-      "symbol_id": "function_is_msisdn",
-      "kind": "function",
-      "name": "is_msisdn",
-      "signature": "(number: string) => boolean",
-      "description": "Validates if string is MSISDN (Mobile Subscriber ISDN Number). MSISDN is 10-15 digit number containing only digits. Standard format for mobile phone numbers in telecom systems.",
-      "description_one_line": "Validates if number is MSISDN (mobile subscriber number).",
-      "line": 65,
-      "locations": {
-        "source_line_start": 65,
-        "source_line_end": 69,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L65-L69",
-        "nx_kb_anchor": "is_msisdn"
-      },
-      "details": {
-        "what_it_does": "Checks length 10-15 and all digits via /^\\d+$/. Returns true only if both conditions met."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "number",
-            "type": "string",
-            "required": true,
-            "description": "String to validate as MSISDN."
-          }
-        ],
-        "returns": {
-          "type": "boolean",
-          "description": "True if valid MSISDN format, false otherwise."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Validate MSISDN",
-          "code": "console.log(is_msisdn('0501234567'));     // true (10 digits)\nconsole.log(is_msisdn('972501234567'));    // true (12 digits, no +)\nconsole.log(is_msisdn('+972501234567'));   // false (contains +)\nconsole.log(is_msisdn('050123456789'));    // false (11 digits, borderline)"
-        }
-      }
-    },
-    {
-      "symbol_id": "function_is_fixed_or_service_number",
-      "kind": "function",
-      "name": "is_fixed_or_service_number",
-      "signature": "(number: string) => boolean",
-      "description": "Checks if number is Israeli fixed line, VoIP, or service number. Validates against known Israeli phone number prefixes (landlines: 02-04,08-09; VoIP: 072-078; service: 1700,1800,1900,1599,1200,1212). Returns false for mobile numbers (050-054), international format, and invalid formats.",
-      "description_one_line": "Checks if number is Israeli fixed line, VoIP, or service number.",
-      "line": 71,
-      "locations": {
-        "source_line_start": 71,
-        "source_line_end": 91,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L71-L91",
-        "nx_kb_anchor": "is_fixed_or_service_number"
-      },
-      "details": {
-        "what_it_does": "Cleans input (removes spaces/hyphens). Validates non-empty, all-digits, and length 7-15. Checks if starts with landline prefix (02,03,04,08,09), VoIP prefix (072,073,074,076,077,078), or service prefix (1700,1800,1900,1599,1200,1212). Returns true if any match, false for mobile or invalid."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "number",
-            "type": "string",
-            "required": true,
-            "description": "Phone number to check (local format)."
-          }
-        ],
-        "returns": {
-          "type": "boolean",
-          "description": "True if fixed line, VoIP, or service number; false if mobile or invalid."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Check phone type",
-          "code": "console.log(is_fixed_or_service_number('0228888888')); // true (landline)\nconsole.log(is_fixed_or_service_number('0501234567')); // false (mobile)\nconsole.log(is_fixed_or_service_number('0731234567')); // true (VoIP)\nconsole.log(is_fixed_or_service_number('1800123456')); // true (service)"
-        }
-      }
-    }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": [
-      "Formatting patterns assume valid Israeli numbers; invalid inputs return cleaned version.",
-      "No validation for subscriber number after prefix (e.g., landline '02' can be followed by any digits).",
-      "libphonenumber-js dependency adds bundle size; consider for lightweight alternatives."
     ],
-    "documentation_completeness": "Comprehensive: All 9 exported functions fully documented with complete signatures, parameter documentation with types, return types, and real-world examples. Israeli-specific formats explained. Phone type validation patterns documented. Display formatting for UI use cases with custom separator support."
-  }
+    "symbols": [
+        {
+            "symbol_id": "function_is_international",
+            "kind": "function",
+            "name": "isInternational",
+            "signature": {
+                "params": [
+                    {
+                        "name": "phone_number",
+                        "type": "string",
+                        "required": true,
+                        "description": "Phone number to check."
+                    }
+                ],
+                "returns": {
+                    "type": "boolean",
+                    "description": "True if number starts with +, false otherwise."
+                }
+            },
+            "description": "Simple check if phone number starts with + indicating international format.",
+            "description_one_line": "Checks if phone number is in international format (starts with +).",
+            "line": 6,
+            "locations": {
+                "source_line_start": 6,
+                "source_line_end": 8,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L6-L8",
+                "nx_kb_anchor": "isInternational"
+            },
+            "details": {
+                "what_it_does": "Returns true if phone_number.startsWith('+'), false otherwise."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check international format",
+                    "code": "console.log(isInternational('+1234567890')); // true\nconsole.log(isInternational('1234567890'));  // false"
+                }
+            }
+        },
+        {
+            "symbol_id": "function_is_international_israel_phone",
+            "kind": "function",
+            "name": "isInternationalIsraelPhone",
+            "signature": {
+                "params": [
+                    {
+                        "name": "phone_number",
+                        "type": "string",
+                        "required": true,
+                        "description": "Phone number to check."
+                    }
+                ],
+                "returns": {
+                    "type": "boolean",
+                    "description": "True if Israeli international format, false otherwise."
+                }
+            },
+            "description": "Checks if phone number is Israeli international format starting with +9725 (Israel country code +972, first 0 digit).",
+            "description_one_line": "Checks if phone number is Israeli international format (+9725).",
+            "line": 10,
+            "locations": {
+                "source_line_start": 10,
+                "source_line_end": 12,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L10-L12",
+                "nx_kb_anchor": "isInternationalIsraelPhone"
+            },
+            "details": {
+                "what_it_does": "Returns true if phone_number.startsWith('+9725')."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check Israeli international format",
+                    "code": "console.log(isInternationalIsraelPhone('+972501234567')); // true (mobile)\nconsole.log(isInternationalIsraelPhone('+972228888888')); // true (landline)\nconsole.log(isInternationalIsraelPhone('+1234567890'));   // false"
+                }
+            }
+        },
+        {
+            "symbol_id": "function_local_israel_phone_format",
+            "kind": "function",
+            "name": "local_israel_phone_format",
+            "signature": {
+                "params": [
+                    {
+                        "name": "international_number",
+                        "type": "string",
+                        "required": true,
+                        "description": "Phone number in international format (+972...)."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "Phone number in local Israeli format (0...)."
+                }
+            },
+            "description": "Converts Israeli international format (+972...) to local format (0...) by replacing +972 prefix with 0.",
+            "description_one_line": "Converts Israeli international format (+972) to local format (0).",
+            "line": 14,
+            "locations": {
+                "source_line_start": 14,
+                "source_line_end": 16,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L14-L16",
+                "nx_kb_anchor": "local_israel_phone_format"
+            },
+            "details": {
+                "what_it_does": "Returns international_number.replace('+972', '0'). Simple string replacement."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Convert to local format",
+                    "code": "console.log(local_israel_phone_format('+972501234567')); // '0501234567'\nconsole.log(local_israel_phone_format('+972228888888')); // '0228888888'"
+                }
+            }
+        },
+        {
+            "symbol_id": "function_international_israel_phone_format",
+            "kind": "function",
+            "name": "international_israel_phone_format",
+            "signature": {
+                "params": [
+                    {
+                        "name": "phone",
+                        "type": "string",
+                        "required": true,
+                        "description": "Phone number in local Israeli format (0...)."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "Phone number in international format (+972...)."
+                }
+            },
+            "description": "Converts local Israeli phone number (0...) to international format (+972...) by removing first digit (0) and prepending +972.",
+            "description_one_line": "Converts local Israeli phone number to international format (+972).",
+            "line": 18,
+            "locations": {
+                "source_line_start": 18,
+                "source_line_end": 21,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L18-L21",
+                "nx_kb_anchor": "international_israel_phone_format"
+            },
+            "details": {
+                "what_it_does": "Takes substring from index 1 (removing leading 0) and concatenates with '+972' prefix."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Convert to international format",
+                    "code": "console.log(international_israel_phone_format('0501234567')); // '+972501234567'\nconsole.log(international_israel_phone_format('0228888888')); // '+972228888888'"
+                }
+            }
+        },
+        {
+            "symbol_id": "function_get_international_phone_number",
+            "kind": "function",
+            "name": "get_international_phone_number",
+            "signature": {
+                "params": [
+                    {
+                        "name": "phone",
+                        "type": "string",
+                        "required": true,
+                        "description": "Phone number in any Israeli format (local or international)."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "Phone number in international format, or '-' if input empty."
+                }
+            },
+            "description": "Returns phone number in international format. If already international, returns as-is. If local, converts to international. Returns '-' if phone is empty/falsy.",
+            "description_one_line": "Returns phone number in international format, converting if necessary.",
+            "line": 23,
+            "locations": {
+                "source_line_start": 23,
+                "source_line_end": 26,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L23-L26",
+                "nx_kb_anchor": "get_international_phone_number"
+            },
+            "details": {
+                "what_it_does": "Checks if phone is already international via isInternational(). If true, returns as-is. If false, converts via international_israel_phone_format(). Returns '-' if phone is falsy."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Normalize any format to international",
+                    "code": "console.log(get_international_phone_number('0501234567'));   // '+972501234567'\nconsole.log(get_international_phone_number('+972501234567')); // '+972501234567' (unchanged)\nconsole.log(get_international_phone_number(''));             // '-'"
+                }
+            }
+        },
+        {
+            "symbol_id": "function_display_format_phone_number",
+            "kind": "function",
+            "name": "displayFormatPhoneNumber",
+            "signature": {
+                "params": [
+                    {
+                        "name": "phoneNumber",
+                        "type": "string",
+                        "required": true,
+                        "description": "Phone number to format (any format)."
+                    },
+                    {
+                        "name": "separator",
+                        "type": "string",
+                        "required": false,
+                        "default": "'-'",
+                        "description": "Separator character for grouping. Defaults to hyphen."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "Formatted phone number with separators, or empty string if input falsy."
+                }
+            },
+            "description": "Formats phone number for UI display with customizable separator (default hyphen). Removes spaces and hyphens from input. For international numbers, uses libphonenumber-js formatting. For Israeli numbers, applies pattern-specific formatting based on phone type (landline, VoIP, service). Returns cleaned number if no pattern matches.",
+            "description_one_line": "Formats phone number for display with separator (default hyphen).",
+            "line": 28,
+            "locations": {
+                "source_line_start": 28,
+                "source_line_end": 56,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L28-L56",
+                "nx_kb_anchor": "displayFormatPhoneNumber"
+            },
+            "details": {
+                "what_it_does": "Cleans input by removing spaces and hyphens. For international numbers, uses parsePhoneNumberFromString and formatInternational(). For Israeli numbers, checks phone type via is_fixed_or_service_number() and applies regex pattern specific to landlines, VoIP (072-078), or service numbers (1700, 1800, 1900, 1599). Default pattern: XXX-XXX-XXXX. Returns cleaned number if falsy input."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Format for display",
+                    "code": "console.log(displayFormatPhoneNumber('0501234567'));     // '050-123-4567'\nconsole.log(displayFormatPhoneNumber('0228888888'));     // '02-388-8888'\nconsole.log(displayFormatPhoneNumber('+972501234567')); // '+972 50 123 4567' (international format)"
+                },
+                "extensive_correct": {
+                    "title": "Format with custom separator",
+                    "code": "const phones = [\n  { local: '0501234567', type: 'mobile' },\n  { local: '0228888888', type: 'landline' },\n  { local: '1800123456', type: 'service' }\n];\n\nphones.forEach(p => {\n  const formatted = displayFormatPhoneNumber(p.local, ' ');\n  console.log(`${p.type}: ${formatted}`);\n});"
+                }
+            }
+        },
+        {
+            "symbol_id": "function_is_iccid",
+            "kind": "function",
+            "name": "is_iccid",
+            "signature": {
+                "params": [
+                    {
+                        "name": "number",
+                        "type": "string",
+                        "required": true,
+                        "description": "String to validate as ICCID."
+                    }
+                ],
+                "returns": {
+                    "type": "boolean",
+                    "description": "True if valid ICCID format, false otherwise."
+                }
+            },
+            "description": "Validates if string is ICCID (SIM card Integrated Circuit Card ID). ICCID is 19-22 digit number starting with 89. Used for SIM card identification.",
+            "description_one_line": "Validates if number is ICCID (SIM card identifier).",
+            "line": 58,
+            "locations": {
+                "source_line_start": 58,
+                "source_line_end": 63,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L58-L63",
+                "nx_kb_anchor": "is_iccid"
+            },
+            "details": {
+                "what_it_does": "Checks length 19-22, all digits via /^\\d+$/, and starts with '89'. Returns true only if all conditions met."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Validate ICCID",
+                    "code": "console.log(is_iccid('8931234567890123456'));    // true (19 digits, starts with 89)\nconsole.log(is_iccid('89312345678901234567890')); // true (22 digits)\nconsole.log(is_iccid('1234567890123456789'));     // false (doesn't start with 89)\nconsole.log(is_iccid('893123456789012345'));      // false (only 18 digits)"
+                }
+            }
+        },
+        {
+            "symbol_id": "function_is_msisdn",
+            "kind": "function",
+            "name": "is_msisdn",
+            "signature": {
+                "params": [
+                    {
+                        "name": "number",
+                        "type": "string",
+                        "required": true,
+                        "description": "String to validate as MSISDN."
+                    }
+                ],
+                "returns": {
+                    "type": "boolean",
+                    "description": "True if valid MSISDN format, false otherwise."
+                }
+            },
+            "description": "Validates if string is MSISDN (Mobile Subscriber ISDN Number). MSISDN is 10-15 digit number containing only digits. Standard format for mobile phone numbers in telecom systems.",
+            "description_one_line": "Validates if number is MSISDN (mobile subscriber number).",
+            "line": 65,
+            "locations": {
+                "source_line_start": 65,
+                "source_line_end": 69,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L65-L69",
+                "nx_kb_anchor": "is_msisdn"
+            },
+            "details": {
+                "what_it_does": "Checks length 10-15 and all digits via /^\\d+$/. Returns true only if both conditions met."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Validate MSISDN",
+                    "code": "console.log(is_msisdn('0501234567'));     // true (10 digits)\nconsole.log(is_msisdn('972501234567'));    // true (12 digits, no +)\nconsole.log(is_msisdn('+972501234567'));   // false (contains +)\nconsole.log(is_msisdn('050123456789'));    // false (11 digits, borderline)"
+                }
+            }
+        },
+        {
+            "symbol_id": "function_is_fixed_or_service_number",
+            "kind": "function",
+            "name": "is_fixed_or_service_number",
+            "signature": {
+                "params": [
+                    {
+                        "name": "number",
+                        "type": "string",
+                        "required": true,
+                        "description": "Phone number to check (local format)."
+                    }
+                ],
+                "returns": {
+                    "type": "boolean",
+                    "description": "True if fixed line, VoIP, or service number; false if mobile or invalid."
+                }
+            },
+            "description": "Checks if number is Israeli fixed line, VoIP, or service number. Validates against known Israeli phone number prefixes (landlines: 02-04,08-09; VoIP: 072-078; service: 1700,1800,1900,1599,1200,1212). Returns false for mobile numbers (050-054), international format, and invalid formats.",
+            "description_one_line": "Checks if number is Israeli fixed line, VoIP, or service number.",
+            "line": 71,
+            "locations": {
+                "source_line_start": 71,
+                "source_line_end": 91,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts#L71-L91",
+                "nx_kb_anchor": "is_fixed_or_service_number"
+            },
+            "details": {
+                "what_it_does": "Cleans input (removes spaces/hyphens). Validates non-empty, all-digits, and length 7-15. Checks if starts with landline prefix (02,03,04,08,09), VoIP prefix (072,073,074,076,077,078), or service prefix (1700,1800,1900,1599,1200,1212). Returns true if any match, false for mobile or invalid."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Check phone type",
+                    "code": "console.log(is_fixed_or_service_number('0228888888')); // true (landline)\nconsole.log(is_fixed_or_service_number('0501234567')); // false (mobile)\nconsole.log(is_fixed_or_service_number('0731234567')); // true (VoIP)\nconsole.log(is_fixed_or_service_number('1800123456')); // true (service)"
+                }
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": [
+            "Formatting patterns assume valid Israeli numbers; invalid inputs return cleaned version.",
+            "No validation for subscriber number after prefix (e.g., landline '02' can be followed by any digits).",
+            "libphonenumber-js dependency adds bundle size; consider for lightweight alternatives."
+        ],
+        "documentation_completeness": "Comprehensive: All 9 exported functions fully documented with complete signatures, parameter documentation with types, return types, and real-world examples. Israeli-specific formats explained. Phone type validation patterns documented. Display formatting for UI use cases with custom separator support."
+    }
 }

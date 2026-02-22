@@ -9,7 +9,9 @@
         "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
         "generated_at_iso": "2026-02-12T00:00:00.000Z",
         "language": "ts",
-        "framework_tags": ["react"],
+        "framework_tags": [
+            "react"
+        ],
         "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/HOC/index.ts",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/HOC/index.ts.json"
     },

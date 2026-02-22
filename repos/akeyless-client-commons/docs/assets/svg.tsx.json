@@ -1,202 +1,202 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "svg.tsx",
-  "source": {
-    "file_path": "assets/svg.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T10:00:00.000Z",
-    "language": "tsx",
-    "framework_tags": [
-      "react"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "svg.tsx",
+    "source": {
+        "file_path": "assets/svg.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T10:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": [
+            "react"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/svg.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides reusable SVG icon React components for status indicators: red X icons (error/failure) in two variants and a green checkmark (success/valid). These are pure React components that accept optional dimension props.",
+        "problem_solved": "Eliminates the need to duplicate inline SVG markup across the application for common status indicator icons, providing a consistent, customizable way to display validation and status states."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "RedXSvg",
+            "kind": "component",
+            "description_one_line": "React component rendering a red X icon inside a circle, used for error/failure status indication",
+            "symbol_id": "RedXSvg"
+        },
+        {
+            "name": "RedXSvg2",
+            "kind": "component",
+            "description_one_line": "React component rendering a standalone red X icon without circle border, used for dismissal or close actions",
+            "symbol_id": "RedXSvg2"
+        },
+        {
+            "name": "GreenVSvg",
+            "kind": "component",
+            "description_one_line": "React component rendering a green checkmark icon inside a circle, used for success/valid status indication",
+            "symbol_id": "GreenVSvg"
+        }
     ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/svg.tsx.json"
-  },
-  "summary": {
-    "purpose": "Provides reusable SVG icon React components for status indicators: red X icons (error/failure) in two variants and a green checkmark (success/valid). These are pure React components that accept optional dimension props.",
-    "problem_solved": "Eliminates the need to duplicate inline SVG markup across the application for common status indicator icons, providing a consistent, customizable way to display validation and status states."
-  },
-  "dependencies": {
-    "external": [],
-    "internal": []
-  },
-  "exports": [
-    {
-      "name": "RedXSvg",
-      "kind": "component",
-      "description_one_line": "React component rendering a red X icon inside a circle, used for error/failure status indication",
-      "symbol_id": "RedXSvg"
-    },
-    {
-      "name": "RedXSvg2",
-      "kind": "component",
-      "description_one_line": "React component rendering a standalone red X icon without circle border, used for dismissal or close actions",
-      "symbol_id": "RedXSvg2"
-    },
-    {
-      "name": "GreenVSvg",
-      "kind": "component",
-      "description_one_line": "React component rendering a green checkmark icon inside a circle, used for success/valid status indication",
-      "symbol_id": "GreenVSvg"
+    "symbols": [
+        {
+            "symbol_id": "SvgProps_interface",
+            "name": "SvgProps",
+            "kind": "interface",
+            "description_one_line": "Interface defining optional SVG dimension and viewBox properties for SVG icon components",
+            "details": {
+                "what_it_does": "Defines the optional properties that can be passed to SVG icon components to customize their rendering dimensions and coordinate system. Provides a consistent interface across all SVG component exports."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 5,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx#L1-L5",
+                "nx_kb_anchor": "#SvgProps"
+            }
+        },
+        {
+            "symbol_id": "RedXSvg",
+            "name": "RedXSvg",
+            "kind": "component",
+            "description_one_line": "React component rendering a red X icon inside a circle (32x32px by default), commonly used to indicate error, failure, or invalid status",
+            "signature": {
+                "params": [
+                    {
+                        "name": "props",
+                        "type": "SvgProps",
+                        "required": false,
+                        "description": "Optional object containing width, height, and viewBox string properties to customize SVG dimensions"
+                    }
+                ],
+                "returns": {
+                    "type": "React.ReactElement",
+                    "description": "A JSX.Element representing an SVG element with red (#FF4C2B) X and circle"
+                }
+            },
+            "details": {
+                "what_it_does": "Returns an SVG element displaying a red X mark (#FF4C2B) centered inside a red circular outline. The component is a stateless functional component that uses the optional SvgProps to customize dimensions. Default dimensions are 32x32 pixels with viewBox '0 0 32 32'.",
+                "rendered_ui_description": "A 32x32px SVG icon displaying a red X mark (#FF4C2B) centered inside a red circular outline (#FF4C2B). The icon uses absolute positioning when used in tables via CSS classes."
+            },
+            "locations": {
+                "source_line_start": 7,
+                "source_line_end": 18,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx#L7-L18",
+                "nx_kb_anchor": "#RedXSvg"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage with default dimensions",
+                    "code": "import { RedXSvg } from 'akeyless-client-commons/assets';\n\nconst ValidationStatus = () => (\n  <RedXSvg />\n);"
+                },
+                "extensive_correct": {
+                    "title": "Using with custom dimensions",
+                    "code": "import { RedXSvg } from 'akeyless-client-commons/assets';\n\nconst CustomSizedStatus = () => (\n  <div>\n    {/* Large icon */}\n    <RedXSvg width=\"64\" height=\"64\" viewBox=\"0 0 32 32\" />\n    \n    {/* Small icon */}\n    <RedXSvg width=\"16\" height=\"16\" />\n    \n    {/* In error message context */}\n    <div className=\"error-container\">\n      <RedXSvg width=\"24\" height=\"24\" />\n      <span>Validation failed</span>\n    </div>\n  </div>\n);"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Trying to pass unsupported props",
+                    "code": "import { RedXSvg } from 'akeyless-client-commons/assets';\n\nconst BadUsage = () => (\n  {/* This will NOT work - color prop doesn't exist */}\n  <RedXSvg color=\"blue\" />\n);",
+                    "why_incorrect": "The RedXSvg component only accepts the SvgProps interface properties (width, height, viewBox). Trying to pass additional props like 'color' will be ignored. The color is hardcoded as #FF4C2B in the SVG itself."
+                }
+            }
+        },
+        {
+            "symbol_id": "RedXSvg2",
+            "name": "RedXSvg2",
+            "kind": "component",
+            "description_one_line": "React component rendering a standalone red X icon without circle border (18x18px by default), commonly used for close/dismiss actions",
+            "signature": {
+                "params": [
+                    {
+                        "name": "props",
+                        "type": "SvgProps",
+                        "required": false,
+                        "description": "Optional object containing width, height, and viewBox string properties to customize SVG dimensions"
+                    }
+                ],
+                "returns": {
+                    "type": "React.ReactElement",
+                    "description": "A JSX.Element representing an SVG element with red (#e90404) X mark"
+                }
+            },
+            "details": {
+                "what_it_does": "Returns an SVG element displaying a standalone red X mark (#e90404) without a surrounding circle. The component is a stateless functional component optimized for smaller display sizes than RedXSvg. Default dimensions are 18x18 pixels with viewBox '0,0,256,256'.",
+                "rendered_ui_description": "An 18x18px SVG icon displaying a clean red X mark (#e90404) suitable for close buttons, dismissal actions, or compact error indicators."
+            },
+            "locations": {
+                "source_line_start": 19,
+                "source_line_end": 41,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx#L19-L41",
+                "nx_kb_anchor": "#RedXSvg2"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic close button usage",
+                    "code": "import { RedXSvg2 } from 'akeyless-client-commons/assets';\n\nconst CloseButton = ({ onClose }) => (\n  <button onClick={onClose}>\n    <RedXSvg2 />\n  </button>\n);"
+                },
+                "extensive_correct": {
+                    "title": "Using in modal close and error states",
+                    "code": "import { RedXSvg2 } from 'akeyless-client-commons/assets';\n\nconst Modal = ({ isOpen, onClose }) => {\n  if (!isOpen) return null;\n  \n  return (\n    <div className=\"modal-overlay\">\n      <div className=\"modal-content\">\n        <div className=\"modal-header\">\n          <h2>Confirm Action</h2>\n          <button className=\"close-btn\" onClick={onClose}>\n            <RedXSvg2 width=\"20\" height=\"20\" />\n          </button>\n        </div>\n        <div className=\"modal-body\">\n          {/* Modal content */}\n        </div>\n      </div>\n    </div>\n  );\n};"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Using in situations where circle border is needed",
+                    "code": "import { RedXSvg2 } from 'akeyless-client-commons/assets';\n\nconst ValidationError = () => (\n  <div className=\"form-validation\">\n    <RedXSvg2 /> {/* Should use RedXSvg for this */}\n    <p>This field is required</p>\n  </div>\n);",
+                    "why_incorrect": "RedXSvg2 is designed for close buttons and dismissal actions with its standalone X. For validation error messages, use RedXSvg which includes the circular border for better visual emphasis and status indication."
+                }
+            }
+        },
+        {
+            "symbol_id": "GreenVSvg",
+            "name": "GreenVSvg",
+            "kind": "component",
+            "description_one_line": "React component rendering a green checkmark icon inside a circle (32x32px by default), commonly used to indicate success, completion, or valid status",
+            "signature": {
+                "params": [
+                    {
+                        "name": "props",
+                        "type": "SvgProps",
+                        "required": false,
+                        "description": "Optional object containing width, height, and viewBox string properties to customize SVG dimensions"
+                    }
+                ],
+                "returns": {
+                    "type": "React.ReactElement",
+                    "description": "A JSX.Element representing an SVG element with green (#3B8F08) checkmark and circle"
+                }
+            },
+            "details": {
+                "what_it_does": "Returns an SVG element displaying a green checkmark (#3B8F08) centered inside a green circular outline. The component is a stateless functional component mirroring RedXSvg but using green colors for positive status indication. Default dimensions are 32x32 pixels with viewBox '0 0 32 32'.",
+                "rendered_ui_description": "A 32x32px SVG icon displaying a green checkmark (#3B8F08) centered inside a green circular outline (#3B8F08). The icon provides a clear visual indicator of successful validation or completion."
+            },
+            "locations": {
+                "source_line_start": 43,
+                "source_line_end": 54,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx#L43-L54",
+                "nx_kb_anchor": "#GreenVSvg"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic success status display",
+                    "code": "import { GreenVSvg } from 'akeyless-client-commons/assets';\n\nconst SuccessMessage = () => (\n  <div className=\"success-message\">\n    <GreenVSvg />\n    <span>Operation completed successfully</span>\n  </div>\n);"
+                },
+                "extensive_correct": {
+                    "title": "Using in form validation feedback",
+                    "code": "import { GreenVSvg, RedXSvg } from 'akeyless-client-commons/assets';\n\nconst FormField = ({ value, isValid }) => (\n  <div className=\"form-field\">\n    <input type=\"text\" value={value} />\n    <div className=\"validation-icon\">\n      {isValid ? (\n        <GreenVSvg width=\"24\" height=\"24\" />\n      ) : (\n        <RedXSvg width=\"24\" height=\"24\" />\n      )}\n    </div>\n  </div>\n);"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Using GreenVSvg for error states",
+                    "code": "import { GreenVSvg } from 'akeyless-client-commons/assets';\n\nconst ErrorDisplay = ({ error }) => (\n  error && (\n    <div className=\"error\">\n      <GreenVSvg /> {/* This is confusing */}\n      <p>{error}</p>\n    </div>\n  )\n);",
+                    "why_incorrect": "GreenVSvg is specifically for success and valid states. Using it for error messages creates a confusing UX where the green checkmark contradicts the error message. Use RedXSvg for error states instead."
+                }
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "SvgProps_interface",
-      "name": "SvgProps",
-      "kind": "interface",
-      "description_one_line": "Interface defining optional SVG dimension and viewBox properties for SVG icon components",
-      "details": {
-        "what_it_does": "Defines the optional properties that can be passed to SVG icon components to customize their rendering dimensions and coordinate system. Provides a consistent interface across all SVG component exports."
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 5,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx#L1-L5",
-        "nx_kb_anchor": "#SvgProps"
-      }
-    },
-    {
-      "symbol_id": "RedXSvg",
-      "name": "RedXSvg",
-      "kind": "component",
-      "description_one_line": "React component rendering a red X icon inside a circle (32x32px by default), commonly used to indicate error, failure, or invalid status",
-      "signature": {
-        "params": [
-          {
-            "name": "props",
-            "type": "SvgProps",
-            "required": false,
-            "description": "Optional object containing width, height, and viewBox string properties to customize SVG dimensions"
-          }
-        ],
-        "returns": {
-          "type": "React.ReactElement",
-          "description": "A JSX.Element representing an SVG element with red (#FF4C2B) X and circle"
-        }
-      },
-      "details": {
-        "what_it_does": "Returns an SVG element displaying a red X mark (#FF4C2B) centered inside a red circular outline. The component is a stateless functional component that uses the optional SvgProps to customize dimensions. Default dimensions are 32x32 pixels with viewBox '0 0 32 32'.",
-        "rendered_ui_description": "A 32x32px SVG icon displaying a red X mark (#FF4C2B) centered inside a red circular outline (#FF4C2B). The icon uses absolute positioning when used in tables via CSS classes."
-      },
-      "locations": {
-        "source_line_start": 7,
-        "source_line_end": 18,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx#L7-L18",
-        "nx_kb_anchor": "#RedXSvg"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage with default dimensions",
-          "code": "import { RedXSvg } from 'akeyless-client-commons/assets';\n\nconst ValidationStatus = () => (\n  <RedXSvg />\n);"
-        },
-        "extensive_correct": {
-          "title": "Using with custom dimensions",
-          "code": "import { RedXSvg } from 'akeyless-client-commons/assets';\n\nconst CustomSizedStatus = () => (\n  <div>\n    {/* Large icon */}\n    <RedXSvg width=\"64\" height=\"64\" viewBox=\"0 0 32 32\" />\n    \n    {/* Small icon */}\n    <RedXSvg width=\"16\" height=\"16\" />\n    \n    {/* In error message context */}\n    <div className=\"error-container\">\n      <RedXSvg width=\"24\" height=\"24\" />\n      <span>Validation failed</span>\n    </div>\n  </div>\n);"
-        },
-        "incorrect": {
-          "title": "Incorrect: Trying to pass unsupported props",
-          "code": "import { RedXSvg } from 'akeyless-client-commons/assets';\n\nconst BadUsage = () => (\n  {/* This will NOT work - color prop doesn't exist */}\n  <RedXSvg color=\"blue\" />\n);",
-          "why_incorrect": "The RedXSvg component only accepts the SvgProps interface properties (width, height, viewBox). Trying to pass additional props like 'color' will be ignored. The color is hardcoded as #FF4C2B in the SVG itself."
-        }
-      }
-    },
-    {
-      "symbol_id": "RedXSvg2",
-      "name": "RedXSvg2",
-      "kind": "component",
-      "description_one_line": "React component rendering a standalone red X icon without circle border (18x18px by default), commonly used for close/dismiss actions",
-      "signature": {
-        "params": [
-          {
-            "name": "props",
-            "type": "SvgProps",
-            "required": false,
-            "description": "Optional object containing width, height, and viewBox string properties to customize SVG dimensions"
-          }
-        ],
-        "returns": {
-          "type": "React.ReactElement",
-          "description": "A JSX.Element representing an SVG element with red (#e90404) X mark"
-        }
-      },
-      "details": {
-        "what_it_does": "Returns an SVG element displaying a standalone red X mark (#e90404) without a surrounding circle. The component is a stateless functional component optimized for smaller display sizes than RedXSvg. Default dimensions are 18x18 pixels with viewBox '0,0,256,256'.",
-        "rendered_ui_description": "An 18x18px SVG icon displaying a clean red X mark (#e90404) suitable for close buttons, dismissal actions, or compact error indicators."
-      },
-      "locations": {
-        "source_line_start": 19,
-        "source_line_end": 41,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx#L19-L41",
-        "nx_kb_anchor": "#RedXSvg2"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic close button usage",
-          "code": "import { RedXSvg2 } from 'akeyless-client-commons/assets';\n\nconst CloseButton = ({ onClose }) => (\n  <button onClick={onClose}>\n    <RedXSvg2 />\n  </button>\n);"
-        },
-        "extensive_correct": {
-          "title": "Using in modal close and error states",
-          "code": "import { RedXSvg2 } from 'akeyless-client-commons/assets';\n\nconst Modal = ({ isOpen, onClose }) => {\n  if (!isOpen) return null;\n  \n  return (\n    <div className=\"modal-overlay\">\n      <div className=\"modal-content\">\n        <div className=\"modal-header\">\n          <h2>Confirm Action</h2>\n          <button className=\"close-btn\" onClick={onClose}>\n            <RedXSvg2 width=\"20\" height=\"20\" />\n          </button>\n        </div>\n        <div className=\"modal-body\">\n          {/* Modal content */}\n        </div>\n      </div>\n    </div>\n  );\n};"
-        },
-        "incorrect": {
-          "title": "Incorrect: Using in situations where circle border is needed",
-          "code": "import { RedXSvg2 } from 'akeyless-client-commons/assets';\n\nconst ValidationError = () => (\n  <div className=\"form-validation\">\n    <RedXSvg2 /> {/* Should use RedXSvg for this */}\n    <p>This field is required</p>\n  </div>\n);",
-          "why_incorrect": "RedXSvg2 is designed for close buttons and dismissal actions with its standalone X. For validation error messages, use RedXSvg which includes the circular border for better visual emphasis and status indication."
-        }
-      }
-    },
-    {
-      "symbol_id": "GreenVSvg",
-      "name": "GreenVSvg",
-      "kind": "component",
-      "description_one_line": "React component rendering a green checkmark icon inside a circle (32x32px by default), commonly used to indicate success, completion, or valid status",
-      "signature": {
-        "params": [
-          {
-            "name": "props",
-            "type": "SvgProps",
-            "required": false,
-            "description": "Optional object containing width, height, and viewBox string properties to customize SVG dimensions"
-          }
-        ],
-        "returns": {
-          "type": "React.ReactElement",
-          "description": "A JSX.Element representing an SVG element with green (#3B8F08) checkmark and circle"
-        }
-      },
-      "details": {
-        "what_it_does": "Returns an SVG element displaying a green checkmark (#3B8F08) centered inside a green circular outline. The component is a stateless functional component mirroring RedXSvg but using green colors for positive status indication. Default dimensions are 32x32 pixels with viewBox '0 0 32 32'.",
-        "rendered_ui_description": "A 32x32px SVG icon displaying a green checkmark (#3B8F08) centered inside a green circular outline (#3B8F08). The icon provides a clear visual indicator of successful validation or completion."
-      },
-      "locations": {
-        "source_line_start": 43,
-        "source_line_end": 54,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/svg.tsx#L43-L54",
-        "nx_kb_anchor": "#GreenVSvg"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic success status display",
-          "code": "import { GreenVSvg } from 'akeyless-client-commons/assets';\n\nconst SuccessMessage = () => (\n  <div className=\"success-message\">\n    <GreenVSvg />\n    <span>Operation completed successfully</span>\n  </div>\n);"
-        },
-        "extensive_correct": {
-          "title": "Using in form validation feedback",
-          "code": "import { GreenVSvg, RedXSvg } from 'akeyless-client-commons/assets';\n\nconst FormField = ({ value, isValid }) => (\n  <div className=\"form-field\">\n    <input type=\"text\" value={value} />\n    <div className=\"validation-icon\">\n      {isValid ? (\n        <GreenVSvg width=\"24\" height=\"24\" />\n      ) : (\n        <RedXSvg width=\"24\" height=\"24\" />\n      )}\n    </div>\n  </div>\n);"
-        },
-        "incorrect": {
-          "title": "Incorrect: Using GreenVSvg for error states",
-          "code": "import { GreenVSvg } from 'akeyless-client-commons/assets';\n\nconst ErrorDisplay = ({ error }) => (\n  error && (\n    <div className=\"error\">\n      <GreenVSvg /> {/* This is confusing */}\n      <p>{error}</p>\n    </div>\n  )\n);",
-          "why_incorrect": "GreenVSvg is specifically for success and valid states. Using it for error messages creates a confusing UX where the green checkmark contradicts the error message. Use RedXSvg for error states instead."
-        }
-      }
-    }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }

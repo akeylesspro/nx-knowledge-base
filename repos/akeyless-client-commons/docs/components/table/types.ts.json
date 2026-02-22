@@ -1,419 +1,419 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "types.ts",
-  "source": {
-    "file_path": "components/table/types.ts",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-12T00:00:00.000Z",
-    "language": "ts",
-    "framework_tags": [
-      "react"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "types.ts",
+    "source": {
+        "file_path": "components/table/types.ts",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "react"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/types.ts",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json"
+    },
+    "summary": {
+        "purpose": "TypeScript type definitions for the table module: the main TableProps configuration interface, the TableProviderType context shape, the UseFilterProps hook input, the FilterProps component props, and the internal FilterableColumn interface.",
+        "problem_solved": "Centralises all type contracts for the table system so that the Table component, its sub-components, and its hooks share a single source of truth for prop shapes and state types."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "akeyless-types-commons",
+                "kind": "runtime",
+                "why_used": "External dependency",
+                "name": "unknown-dependency"
+            },
+            {
+                "module": "react",
+                "kind": "runtime",
+                "why_used": "External dependency",
+                "name": "unknown-dependency"
+            }
+        ],
+        "internal": [
+            {
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
+                "why_used": "Required dependency",
+                "import_path": "../../types",
+                "resolved_file_path": "types/index.ts",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/types/index.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "TableProviderType",
+            "kind": "interface",
+            "line": 10,
+            "description_one_line": "TableProviderType export",
+            "symbol_id": "TableProviderType"
+        },
+        {
+            "name": "UseFilterProps",
+            "kind": "interface",
+            "line": 31,
+            "description_one_line": "UseFilterProps export",
+            "symbol_id": "UseFilterProps"
+        },
+        {
+            "name": "TableProps",
+            "kind": "interface",
+            "line": 35,
+            "description_one_line": "TableProps export",
+            "symbol_id": "TableProps"
+        },
+        {
+            "name": "FilterProps",
+            "kind": "interface",
+            "line": 99,
+            "description_one_line": "FilterProps export",
+            "symbol_id": "FilterProps"
+        }
     ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/types.ts",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json"
-  },
-  "summary": {
-    "purpose": "TypeScript type definitions for the table module: the main TableProps configuration interface, the TableProviderType context shape, the UseFilterProps hook input, the FilterProps component props, and the internal FilterableColumn interface.",
-    "problem_solved": "Centralises all type contracts for the table system so that the Table component, its sub-components, and its hooks share a single source of truth for prop shapes and state types."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "module": "akeyless-types-commons",
-        "kind": "runtime",
-        "why_used": "External dependency",
-        "name": "unknown-dependency"
-      },
-      {
-        "module": "react",
-        "kind": "runtime",
-        "why_used": "External dependency",
-        "name": "unknown-dependency"
-      }
+    "symbols": [
+        {
+            "kind": "interface",
+            "name": "FilterableColumn",
+            "signature": "{ header: string; dataKey: string; ui?: (value: any) => ReactNode }",
+            "description": "Internal (non-exported) interface describing a filterable column definition: the display header, the data key to filter on, and an optional UI renderer for filter option display.",
+            "line": 5,
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts#L1",
+                "nx_kb_anchor": "FilterableColumn"
+            },
+            "details": {
+                "what_it_does": "Exported symbol: FilterableColumn"
+            },
+            "symbol_id": "interface_filterable_column",
+            "description_one_line": "Internal (non-exported) interface describing a filterable column definition: the display header, the data key to filter on, and an optional UI renderer for filter option display.",
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of FilterableColumn",
+                    "code": "const column: FilterableColumn = {\n  header: 'Status',\n  dataKey: 'status',\n  ui: (val) => <span className={val}>{val}</span>\n};"
+                }
+            }
+        },
+        {
+            "kind": "interface",
+            "name": "TableProviderType",
+            "signature": "{ sortColumn: number; sortOrder: 'asc' | 'desc'; handleSort: (columnIndex: number) => void; searchQuery: string; deferredSearchQuery: string; handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void; dataToRender: { renderedData: TObject<any>[]; filtered: TObject<any>[] }; filters: TObject<string[]>; filterPopupsDisplay: string; filterOptions: any; handleFilterChange: (dataKey: string, value: string) => void; handleFilterClick: (dataKey: string) => void; closeFilterWindow: () => void; displayAllRows: boolean; setDisplayAllRows: (value: boolean) => void; clearFilter: () => void }",
+            "description": "Interface describing the dynamic state and handler functions that the TableProvider injects into the TableContext. Includes sort state, search state, filter state, the computed dataToRender, display-all toggle, and all corresponding handler functions.",
+            "line": 10,
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts#L1",
+                "nx_kb_anchor": "TableProviderType"
+            },
+            "details": {
+                "what_it_does": "Exported symbol: TableProviderType"
+            },
+            "symbol_id": "interface_table_provider_type",
+            "description_one_line": "Interface describing the dynamic state and handler functions that the TableProvider injects into the TableContext. Includes sort state, search state, filter state, the computed dataToRender, display-all toggle, and all corresponding handler functions.",
+            "examples": {
+                "minimal_correct": {
+                    "title": "TableProviderType context value",
+                    "code": "const context: TableProviderType = {\n  sortColumn: 0,\n  sortOrder: 'asc',\n  handleSort: (idx) => console.log(idx),\n  searchQuery: 'test',\n  filters: { status: ['active'] },\n  displayAllRows: false\n};"
+                }
+            }
+        },
+        {
+            "kind": "interface",
+            "name": "UseFilterProps",
+            "signature": "{ data: Record<string, any>[]; filterableColumns: FilterableColumn[] }",
+            "description": "Input props interface for the useFilter hook: the source data array and the list of filterable column definitions.",
+            "line": 31,
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts#L1",
+                "nx_kb_anchor": "UseFilterProps"
+            },
+            "details": {
+                "what_it_does": "Exported symbol: UseFilterProps"
+            },
+            "symbol_id": "interface_use_filter_props",
+            "description_one_line": "Input props interface for the useFilter hook: the source data array and the list of filterable column definitions.",
+            "examples": {
+                "minimal_correct": {
+                    "title": "UseFilterProps hook input",
+                    "code": "const filterProps: UseFilterProps = {\n  data: users,\n  filterableColumns: [{header: 'Status', dataKey: 'status'}]\n};"
+                }
+            }
+        },
+        {
+            "kind": "interface",
+            "name": "TableProps",
+            "signature": "{ data, headers, keysToRender, optionalElement?, containerStyle?, containerClassName?, containerHeaderClassName?, includeSearch?, autoFocus?, searchInputStyle?, searchInputClassName?, searchContainerClassName?, tableContainerStyle?, tableContainerClass?, tableStyle?, tableBodyClassName?, rowStyles?, rowClassName?, headerStyle?, headerClassName?, headerCellStyle?, headerCellClassName?, cellStyle?, cellClassName?, filterableColumns?, sortKeys?, exportToExcelKeys?, excelFileName?, excelHeadline?, exportExcelContent?, exportToExcelClassName?, dataToAddToExcelTable?, sumColumns?, searchPlaceHolder?, summaryContainerStyle?, summaryLabelStyle?, summaryRowStyle?, summaryLabel?, filterLabel?, sortLabel?, exportExcelTitle?, onRowClick?, direction?, maxRows?, maxRowsLabel1?, maxRowsLabel2?, showDisplayAllRowsButton?, displayAllRowsButtonProps?, displayAllRowsButtonLabel?, maxRowsContainerClassName?, zebraStriping?, selectedRow?, rowClassNameFunction?, noneSearchKeys? }",
+            "description": "The main configuration interface for the Table component. Includes required data/headers/keysToRender, and extensive optional props for: styling (container, table, header, row, cell), search (input style, placeholder, autofocus, excluded keys), sorting (sortKeys, sortLabel), filtering (filterableColumns, filterLabel), Excel export (keys, filename, headline, extra data, summary), summary/totals (sumColumns, labels, styles), pagination (maxRows, display-all toggle), row interaction (onRowClick, selectedRow, zebraStriping, rowClassNameFunction), and layout direction (ltr/rtl).",
+            "line": 35,
+            "members": [
+                {
+                    "name": "data",
+                    "type": "Record<string, any>[]",
+                    "required": true,
+                    "description": "The array of data objects to render in the table."
+                },
+                {
+                    "name": "headers",
+                    "type": "string[]",
+                    "required": true,
+                    "description": "Column header labels to display in the table head."
+                },
+                {
+                    "name": "keysToRender",
+                    "type": "string[]",
+                    "required": true,
+                    "description": "Object keys to render as cell values, in column order."
+                },
+                {
+                    "name": "optionalElement",
+                    "type": "ReactNode",
+                    "required": false,
+                    "description": "An optional custom ReactNode to render in the table toolbar area."
+                },
+                {
+                    "name": "direction",
+                    "type": "Direction",
+                    "required": false,
+                    "description": "Text/layout direction, 'ltr' or 'rtl'."
+                },
+                {
+                    "name": "onRowClick",
+                    "type": "(data?: any, rowIndex?: number) => void",
+                    "required": false,
+                    "description": "Callback invoked when a row is clicked, receiving the row data and index."
+                },
+                {
+                    "name": "includeSearch",
+                    "type": "boolean",
+                    "required": false,
+                    "description": "Whether to show the search input in the toolbar."
+                },
+                {
+                    "name": "sortKeys",
+                    "type": "string[]",
+                    "required": false,
+                    "description": "Array of data keys corresponding to columns that are sortable."
+                },
+                {
+                    "name": "filterableColumns",
+                    "type": "FilterableColumn[]",
+                    "required": false,
+                    "description": "Array of column definitions that support filtering."
+                },
+                {
+                    "name": "exportToExcelKeys",
+                    "type": "string[]",
+                    "required": false,
+                    "description": "Data keys to include in Excel export. Presence enables the export button."
+                },
+                {
+                    "name": "sumColumns",
+                    "type": "{ label: string; dataKey: string; ui?: (value: any) => ReactNode }[]",
+                    "required": false,
+                    "description": "Columns to compute and display sum totals for in the summary footer."
+                },
+                {
+                    "name": "maxRows",
+                    "type": "number",
+                    "required": false,
+                    "description": "Maximum number of rows to display at once. Defaults to data.length."
+                },
+                {
+                    "name": "showDisplayAllRowsButton",
+                    "type": "boolean",
+                    "required": false,
+                    "description": "Whether to show a button to toggle between limited and all rows."
+                },
+                {
+                    "name": "zebraStriping",
+                    "type": "{ oddRowClassName?: string; evenRowClassName?: string }",
+                    "required": false,
+                    "description": "Zebra-striping configuration with separate CSS classes for odd and even rows."
+                },
+                {
+                    "name": "selectedRow",
+                    "type": "{ className?: string; rowIndex?: number | null; onChange?: (rowIndex: number) => void }",
+                    "required": false,
+                    "description": "Configuration for visually highlighting a selected row and tracking selection changes."
+                },
+                {
+                    "name": "rowClassNameFunction",
+                    "type": "(data?: any) => string",
+                    "required": false,
+                    "description": "Function that returns a CSS class name based on row data for dynamic row styling."
+                },
+                {
+                    "name": "noneSearchKeys",
+                    "type": "string[]",
+                    "required": false,
+                    "description": "Keys to exclude from search matching."
+                }
+            ],
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts#L1",
+                "nx_kb_anchor": "TableProps"
+            },
+            "details": {
+                "what_it_does": "Exported symbol: TableProps"
+            },
+            "symbol_id": "interface_table_props",
+            "description_one_line": "The main configuration interface for the Table component. Includes required data/headers/keysToRender, and extensive optional props for: styling (container, table, header, row, cell), search (input style, placeholder, autofocus, excluded keys), sorting (sortKeys, sortLabel), filtering (filterableColumns, filterLabel), Excel export (keys, filename, headline, extra data, summary), summary/totals (sumColumns, labels, styles), pagination (maxRows, display-all toggle), row interaction (onRowClick, selectedRow, zebraStriping, rowClassNameFunction), and layout direction (ltr/rtl).",
+            "examples": {
+                "minimal_correct": {
+                    "title": "Main table configuration",
+                    "code": "<Table data={items} filterableColumns={columns} />"
+                }
+            }
+        },
+        {
+            "kind": "interface",
+            "name": "FilterProps",
+            "signature": "{ index: number; filterableColumn: FilterableColumn }",
+            "description": "Props interface for the Filter component: the column index in the headers array and the FilterableColumn definition.",
+            "line": 99,
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts#L1",
+                "nx_kb_anchor": "FilterProps"
+            },
+            "details": {
+                "what_it_does": "Exported symbol: FilterProps"
+            },
+            "symbol_id": "interface_filter_props",
+            "description_one_line": "Props interface for the Filter component: the column index in the headers array and the FilterableColumn definition.",
+            "examples": {
+                "minimal_correct": {
+                    "title": "Filter component props",
+                    "code": "const filterProps = { columnIndex: 0, filterableColumn: {header: 'Status', dataKey: 'status'} };"
+                }
+            }
+        },
+        {
+            "symbol_id": "TableProviderType",
+            "name": "TableProviderType",
+            "kind": "interface",
+            "description_one_line": "TableProviderType export",
+            "details": {
+                "what_it_does": "TableProviderType export"
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#TableProviderType"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "TableProviderType context value",
+                    "code": "const context: TableProviderType = {\n  sortColumn: 0,\n  sortOrder: 'asc',\n  handleSort: (idx) => console.log(idx),\n  searchQuery: 'test',\n  filters: { status: ['active'] },\n  displayAllRows: false\n};"
+                }
+            }
+        },
+        {
+            "symbol_id": "UseFilterProps",
+            "name": "UseFilterProps",
+            "kind": "interface",
+            "description_one_line": "UseFilterProps export",
+            "details": {
+                "what_it_does": "UseFilterProps export"
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#UseFilterProps"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "UseFilterProps hook usage",
+                    "code": "const result = useFilter({data: users, filterableColumns: cols});"
+                }
+            }
+        },
+        {
+            "symbol_id": "TableProps",
+            "name": "TableProps",
+            "kind": "interface",
+            "description_one_line": "TableProps export",
+            "details": {
+                "what_it_does": "TableProps export"
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#TableProps"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Table props with data",
+                    "code": "const props = {data: users, filterableColumns: [{header: 'ID', dataKey: 'id'}]};"
+                }
+            }
+        },
+        {
+            "symbol_id": "FilterProps",
+            "name": "FilterProps",
+            "kind": "interface",
+            "description_one_line": "FilterProps export",
+            "details": {
+                "what_it_does": "FilterProps export"
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#FilterProps"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Filter component initialization",
+                    "code": "const filterProps = {columnIndex: 0, filterableColumn: column};"
+                }
+            }
+        }
     ],
-    "internal": [
-      {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/index.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "../../types",
-        "resolved_file_path": "types/index.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/types/index.ts"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "TableProviderType",
-      "kind": "interface",
-      "line": 10,
-      "description_one_line": "TableProviderType export",
-      "symbol_id": "TableProviderType"
-    },
-    {
-      "name": "UseFilterProps",
-      "kind": "interface",
-      "line": 31,
-      "description_one_line": "UseFilterProps export",
-      "symbol_id": "UseFilterProps"
-    },
-    {
-      "name": "TableProps",
-      "kind": "interface",
-      "line": 35,
-      "description_one_line": "TableProps export",
-      "symbol_id": "TableProps"
-    },
-    {
-      "name": "FilterProps",
-      "kind": "interface",
-      "line": 99,
-      "description_one_line": "FilterProps export",
-      "symbol_id": "FilterProps"
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "symbols": [
-    {
-      "kind": "interface",
-      "name": "FilterableColumn",
-      "signature": "{ header: string; dataKey: string; ui?: (value: any) => ReactNode }",
-      "description": "Internal (non-exported) interface describing a filterable column definition: the display header, the data key to filter on, and an optional UI renderer for filter option display.",
-      "line": 5,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts#L1",
-        "nx_kb_anchor": "FilterableColumn"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: FilterableColumn"
-      },
-      "symbol_id": "interface_filterable_column",
-      "description_one_line": "Internal (non-exported) interface describing a filterable column definition: the display header, the data key to filter on, and an optional UI renderer for filter option display.",
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of FilterableColumn",
-          "code": "const column: FilterableColumn = {\n  header: 'Status',\n  dataKey: 'status',\n  ui: (val) => <span className={val}>{val}</span>\n};"
-        }
-      }
-    },
-    {
-      "kind": "interface",
-      "name": "TableProviderType",
-      "signature": "{ sortColumn: number; sortOrder: 'asc' | 'desc'; handleSort: (columnIndex: number) => void; searchQuery: string; deferredSearchQuery: string; handleSearch: (e: React.ChangeEvent<HTMLInputElement>) => void; dataToRender: { renderedData: TObject<any>[]; filtered: TObject<any>[] }; filters: TObject<string[]>; filterPopupsDisplay: string; filterOptions: any; handleFilterChange: (dataKey: string, value: string) => void; handleFilterClick: (dataKey: string) => void; closeFilterWindow: () => void; displayAllRows: boolean; setDisplayAllRows: (value: boolean) => void; clearFilter: () => void }",
-      "description": "Interface describing the dynamic state and handler functions that the TableProvider injects into the TableContext. Includes sort state, search state, filter state, the computed dataToRender, display-all toggle, and all corresponding handler functions.",
-      "line": 10,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts#L1",
-        "nx_kb_anchor": "TableProviderType"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: TableProviderType"
-      },
-      "symbol_id": "interface_table_provider_type",
-      "description_one_line": "Interface describing the dynamic state and handler functions that the TableProvider injects into the TableContext. Includes sort state, search state, filter state, the computed dataToRender, display-all toggle, and all corresponding handler functions.",
-      "examples": {
-        "minimal_correct": {
-          "title": "TableProviderType context value",
-          "code": "const context: TableProviderType = {\n  sortColumn: 0,\n  sortOrder: 'asc',\n  handleSort: (idx) => console.log(idx),\n  searchQuery: 'test',\n  filters: { status: ['active'] },\n  displayAllRows: false\n};"
-        }
-      }
-    },
-    {
-      "kind": "interface",
-      "name": "UseFilterProps",
-      "signature": "{ data: Record<string, any>[]; filterableColumns: FilterableColumn[] }",
-      "description": "Input props interface for the useFilter hook: the source data array and the list of filterable column definitions.",
-      "line": 31,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts#L1",
-        "nx_kb_anchor": "UseFilterProps"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: UseFilterProps"
-      },
-      "symbol_id": "interface_use_filter_props",
-      "description_one_line": "Input props interface for the useFilter hook: the source data array and the list of filterable column definitions.",
-      "examples": {
-        "minimal_correct": {
-          "title": "UseFilterProps hook input",
-          "code": "const filterProps: UseFilterProps = {\n  data: users,\n  filterableColumns: [{header: 'Status', dataKey: 'status'}]\n};"
-        }
-      }
-    },
-    {
-      "kind": "interface",
-      "name": "TableProps",
-      "signature": "{ data, headers, keysToRender, optionalElement?, containerStyle?, containerClassName?, containerHeaderClassName?, includeSearch?, autoFocus?, searchInputStyle?, searchInputClassName?, searchContainerClassName?, tableContainerStyle?, tableContainerClass?, tableStyle?, tableBodyClassName?, rowStyles?, rowClassName?, headerStyle?, headerClassName?, headerCellStyle?, headerCellClassName?, cellStyle?, cellClassName?, filterableColumns?, sortKeys?, exportToExcelKeys?, excelFileName?, excelHeadline?, exportExcelContent?, exportToExcelClassName?, dataToAddToExcelTable?, sumColumns?, searchPlaceHolder?, summaryContainerStyle?, summaryLabelStyle?, summaryRowStyle?, summaryLabel?, filterLabel?, sortLabel?, exportExcelTitle?, onRowClick?, direction?, maxRows?, maxRowsLabel1?, maxRowsLabel2?, showDisplayAllRowsButton?, displayAllRowsButtonProps?, displayAllRowsButtonLabel?, maxRowsContainerClassName?, zebraStriping?, selectedRow?, rowClassNameFunction?, noneSearchKeys? }",
-      "description": "The main configuration interface for the Table component. Includes required data/headers/keysToRender, and extensive optional props for: styling (container, table, header, row, cell), search (input style, placeholder, autofocus, excluded keys), sorting (sortKeys, sortLabel), filtering (filterableColumns, filterLabel), Excel export (keys, filename, headline, extra data, summary), summary/totals (sumColumns, labels, styles), pagination (maxRows, display-all toggle), row interaction (onRowClick, selectedRow, zebraStriping, rowClassNameFunction), and layout direction (ltr/rtl).",
-      "line": 35,
-      "members": [
-        {
-          "name": "data",
-          "type": "Record<string, any>[]",
-          "required": true,
-          "description": "The array of data objects to render in the table."
-        },
-        {
-          "name": "headers",
-          "type": "string[]",
-          "required": true,
-          "description": "Column header labels to display in the table head."
-        },
-        {
-          "name": "keysToRender",
-          "type": "string[]",
-          "required": true,
-          "description": "Object keys to render as cell values, in column order."
-        },
-        {
-          "name": "optionalElement",
-          "type": "ReactNode",
-          "required": false,
-          "description": "An optional custom ReactNode to render in the table toolbar area."
-        },
-        {
-          "name": "direction",
-          "type": "Direction",
-          "required": false,
-          "description": "Text/layout direction, 'ltr' or 'rtl'."
-        },
-        {
-          "name": "onRowClick",
-          "type": "(data?: any, rowIndex?: number) => void",
-          "required": false,
-          "description": "Callback invoked when a row is clicked, receiving the row data and index."
-        },
-        {
-          "name": "includeSearch",
-          "type": "boolean",
-          "required": false,
-          "description": "Whether to show the search input in the toolbar."
-        },
-        {
-          "name": "sortKeys",
-          "type": "string[]",
-          "required": false,
-          "description": "Array of data keys corresponding to columns that are sortable."
-        },
-        {
-          "name": "filterableColumns",
-          "type": "FilterableColumn[]",
-          "required": false,
-          "description": "Array of column definitions that support filtering."
-        },
-        {
-          "name": "exportToExcelKeys",
-          "type": "string[]",
-          "required": false,
-          "description": "Data keys to include in Excel export. Presence enables the export button."
-        },
-        {
-          "name": "sumColumns",
-          "type": "{ label: string; dataKey: string; ui?: (value: any) => ReactNode }[]",
-          "required": false,
-          "description": "Columns to compute and display sum totals for in the summary footer."
-        },
-        {
-          "name": "maxRows",
-          "type": "number",
-          "required": false,
-          "description": "Maximum number of rows to display at once. Defaults to data.length."
-        },
-        {
-          "name": "showDisplayAllRowsButton",
-          "type": "boolean",
-          "required": false,
-          "description": "Whether to show a button to toggle between limited and all rows."
-        },
-        {
-          "name": "zebraStriping",
-          "type": "{ oddRowClassName?: string; evenRowClassName?: string }",
-          "required": false,
-          "description": "Zebra-striping configuration with separate CSS classes for odd and even rows."
-        },
-        {
-          "name": "selectedRow",
-          "type": "{ className?: string; rowIndex?: number | null; onChange?: (rowIndex: number) => void }",
-          "required": false,
-          "description": "Configuration for visually highlighting a selected row and tracking selection changes."
-        },
-        {
-          "name": "rowClassNameFunction",
-          "type": "(data?: any) => string",
-          "required": false,
-          "description": "Function that returns a CSS class name based on row data for dynamic row styling."
-        },
-        {
-          "name": "noneSearchKeys",
-          "type": "string[]",
-          "required": false,
-          "description": "Keys to exclude from search matching."
-        }
-      ],
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts#L1",
-        "nx_kb_anchor": "TableProps"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: TableProps"
-      },
-      "symbol_id": "interface_table_props",
-      "description_one_line": "The main configuration interface for the Table component. Includes required data/headers/keysToRender, and extensive optional props for: styling (container, table, header, row, cell), search (input style, placeholder, autofocus, excluded keys), sorting (sortKeys, sortLabel), filtering (filterableColumns, filterLabel), Excel export (keys, filename, headline, extra data, summary), summary/totals (sumColumns, labels, styles), pagination (maxRows, display-all toggle), row interaction (onRowClick, selectedRow, zebraStriping, rowClassNameFunction), and layout direction (ltr/rtl).",
-      "examples": {
-        "minimal_correct": {
-          "title": "Main table configuration",
-          "code": "<Table data={items} filterableColumns={columns} />"
-        }
-      }
-    },
-    {
-      "kind": "interface",
-      "name": "FilterProps",
-      "signature": "{ index: number; filterableColumn: FilterableColumn }",
-      "description": "Props interface for the Filter component: the column index in the headers array and the FilterableColumn definition.",
-      "line": 99,
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts#L1",
-        "nx_kb_anchor": "FilterProps"
-      },
-      "details": {
-        "what_it_does": "Exported symbol: FilterProps"
-      },
-      "symbol_id": "interface_filter_props",
-      "description_one_line": "Props interface for the Filter component: the column index in the headers array and the FilterableColumn definition.",
-      "examples": {
-        "minimal_correct": {
-          "title": "Filter component props",
-          "code": "const filterProps = { columnIndex: 0, filterableColumn: {header: 'Status', dataKey: 'status'} };"
-        }
-      }
-    },
-    {
-      "symbol_id": "TableProviderType",
-      "name": "TableProviderType",
-      "kind": "interface",
-      "description_one_line": "TableProviderType export",
-      "details": {
-        "what_it_does": "TableProviderType export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#TableProviderType"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "TableProviderType context value",
-          "code": "const context: TableProviderType = {\n  sortColumn: 0,\n  sortOrder: 'asc',\n  handleSort: (idx) => console.log(idx),\n  searchQuery: 'test',\n  filters: { status: ['active'] },\n  displayAllRows: false\n};"
-        }
-      }
-    },
-    {
-      "symbol_id": "UseFilterProps",
-      "name": "UseFilterProps",
-      "kind": "interface",
-      "description_one_line": "UseFilterProps export",
-      "details": {
-        "what_it_does": "UseFilterProps export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#UseFilterProps"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "UseFilterProps hook usage",
-          "code": "const result = useFilter({data: users, filterableColumns: cols});"
-        }
-      }
-    },
-    {
-      "symbol_id": "TableProps",
-      "name": "TableProps",
-      "kind": "interface",
-      "description_one_line": "TableProps export",
-      "details": {
-        "what_it_does": "TableProps export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#TableProps"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Table props with data",
-          "code": "const props = {data: users, filterableColumns: [{header: 'ID', dataKey: 'id'}]};"
-        }
-      }
-    },
-    {
-      "symbol_id": "FilterProps",
-      "name": "FilterProps",
-      "kind": "interface",
-      "description_one_line": "FilterProps export",
-      "details": {
-        "what_it_does": "FilterProps export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#FilterProps"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Filter component initialization",
-          "code": "const filterProps = {columnIndex: 0, filterableColumn: column};"
-        }
-      }
-    }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }

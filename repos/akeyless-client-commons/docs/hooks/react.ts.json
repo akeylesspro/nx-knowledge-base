@@ -1,223 +1,220 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "react.ts",
-  "source": {
-    "file_path": "hooks/react.ts",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T00:00:00.000Z",
-    "language": "ts",
-    "framework_tags": [
-      "react"
-    ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/react.ts.json"
-  },
-  "summary": {
-    "purpose": "Custom React hooks for error handling, deep equality comparison, memoization, and effect management. Provides safe effect execution with error boundaries, deep comparison utilities for dependencies, and memoization based on structural equality.",
-    "problem_solved": "Prevents unhandled errors in effects, enables memoization based on deep equality of dependencies rather than reference equality, and provides safe effect execution with custom error messages."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "module": "react",
-        "kind": "runtime",
-        "why_used": "React hooks (useEffect, useMemo, useRef) for state management and side effects.",
-        "name": "react"
-      },
-      {
-        "module": "lodash",
-        "kind": "runtime",
-        "why_used": "isEqual function for deep equality comparison of dependencies.",
-        "name": "lodash"
-      }
-    ],
-    "internal": []
-  },
-  "exports": [
-    {
-      "name": "useSafeEffect",
-      "kind": "function",
-      "line": 4,
-      "description_one_line": "useEffect wrapper with error handling that catches and logs exceptions.",
-      "symbol_id": "function_use_safe_effect"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
     },
-    {
-      "name": "useDeepCompareMemo",
-      "kind": "function",
-      "line": 14,
-      "description_one_line": "useMemo hook with deep equality comparison of dependency array.",
-      "symbol_id": "function_use_deep_compare_memo"
+    "file_name": "react.ts",
+    "source": {
+        "file_path": "hooks/react.ts",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "react"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/react.ts.json"
     },
-    {
-      "name": "useDeepCompareEffect",
-      "kind": "function",
-      "line": 24,
-      "description_one_line": "useEffect hook with deep equality comparison of dependency array.",
-      "symbol_id": "function_use_deep_compare_effect"
+    "summary": {
+        "purpose": "Custom React hooks for error handling, deep equality comparison, memoization, and effect management. Provides safe effect execution with error boundaries, deep comparison utilities for dependencies, and memoization based on structural equality.",
+        "problem_solved": "Prevents unhandled errors in effects, enables memoization based on deep equality of dependencies rather than reference equality, and provides safe effect execution with custom error messages."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "react",
+                "kind": "runtime",
+                "why_used": "React hooks (useEffect, useMemo, useRef) for state management and side effects.",
+                "name": "react"
+            },
+            {
+                "module": "lodash",
+                "kind": "runtime",
+                "why_used": "isEqual function for deep equality comparison of dependencies.",
+                "name": "lodash"
+            }
+        ],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "useSafeEffect",
+            "kind": "function",
+            "line": 4,
+            "description_one_line": "useEffect wrapper with error handling that catches and logs exceptions.",
+            "symbol_id": "function_use_safe_effect"
+        },
+        {
+            "name": "useDeepCompareMemo",
+            "kind": "function",
+            "line": 14,
+            "description_one_line": "useMemo hook with deep equality comparison of dependency array.",
+            "symbol_id": "function_use_deep_compare_memo"
+        },
+        {
+            "name": "useDeepCompareEffect",
+            "kind": "function",
+            "line": 24,
+            "description_one_line": "useEffect hook with deep equality comparison of dependency array.",
+            "symbol_id": "function_use_deep_compare_effect"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_use_safe_effect",
+            "kind": "function",
+            "name": "useSafeEffect",
+            "signature": {
+                "params": [
+                    {
+                        "name": "callback",
+                        "type": "() => void",
+                        "required": true,
+                        "description": "Synchronous function to execute on effect trigger."
+                    },
+                    {
+                        "name": "dependencies",
+                        "type": "any[]",
+                        "required": true,
+                        "description": "Dependency array controlling effect execution."
+                    },
+                    {
+                        "name": "error_message",
+                        "type": "string",
+                        "required": false,
+                        "description": "Custom error message for console logging. Defaults to 'Error in useEffect:'."
+                    }
+                ],
+                "returns": {
+                    "type": "void",
+                    "description": "No return value."
+                }
+            },
+            "description": "Custom React hook wrapping useEffect with try-catch error boundary. Executes callback safely, catching and logging any errors with optional custom message. Prevents unhandled promise rejections from crashing the component.",
+            "description_one_line": "useEffect wrapper with error handling that catches and logs exceptions.",
+            "line": 4,
+            "locations": {
+                "source_line_start": 4,
+                "source_line_end": 12,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts#L4-L12",
+                "nx_kb_anchor": "useSafeEffect"
+            },
+            "details": {
+                "what_it_does": "Wraps callback in try-catch. On error, logs to console with provided error_message or default message. Dependencies array controls when callback runs (same as useEffect)."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Safe effect with error handling",
+                    "code": "function MyComponent() {\n  useSafeEffect(() => {\n    throw new Error('Something went wrong');\n  }, []);\n  // Error is caught and logged, component doesn't crash\n}"
+                },
+                "extensive_correct": {
+                    "title": "Safe API call in effect",
+                    "code": "function UserProfile({ userId }) {\n  const [user, setUser] = useState(null);\n  \n  useSafeEffect(() => {\n    // Even if fetch fails or JSON parsing errors, won't crash\n    fetch(`/api/users/${userId}`)\n      .then(r => r.json())\n      .then(setUser);\n  }, [userId], 'Failed to load user');\n  \n  return <div>{user?.name}</div>;\n}"
+                }
+            }
+        },
+        {
+            "symbol_id": "function_use_deep_compare_memo",
+            "kind": "function",
+            "name": "useDeepCompareMemo",
+            "signature": {
+                "params": [
+                    {
+                        "name": "factory",
+                        "type": "() => T",
+                        "required": true,
+                        "description": "Function that creates the memoized value."
+                    },
+                    {
+                        "name": "dependencies",
+                        "type": "any[]",
+                        "required": true,
+                        "description": "Dependency array checked for deep equality."
+                    }
+                ],
+                "returns": {
+                    "type": "T",
+                    "description": "Memoized value computed by factory, re-computed only if dependencies deeply change."
+                }
+            },
+            "description": "Generic memoization hook using deep equality comparison on dependencies. Unlike standard useMemo which uses reference equality, useDeepCompareMemo compares dependency values structurally. Useful for when dependencies are objects/arrays that may be recreated with same content.",
+            "description_one_line": "useMemo hook with deep equality comparison of dependency array.",
+            "line": 14,
+            "locations": {
+                "source_line_start": 14,
+                "source_line_end": 22,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts#L14-L22",
+                "nx_kb_anchor": "useDeepCompareMemo"
+            },
+            "details": {
+                "what_it_does": "Stores previous dependencies in ref. Compares with lodash isEqual (deep comparison). Updates ref only if dependencies differ structurally. Calls useMemo with ref array (always same reference unless dependencies change). Re-computes memo only when deep equality check fails."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Memoize computed value with deep deps",
+                    "code": "function SearchResults({ filters }) {\n  // Even if filters object is recreated with same values,\n  // computed won't re-run due to deep comparison\n  const computed = useDeepCompareMemo(() => {\n    return filterData(data, filters);\n  }, [filters]);\n  \n  return <div>{computed.length} results</div>;\n}"
+                },
+                "extensive_correct": {
+                    "title": "Prevent unnecessary recomputation",
+                    "code": "function Dashboard({ userPrefs }) {\n  // Without deep compare: new object reference each render = recompute each time\n  // With deep compare: recompute only if prefs content actually changes\n  const chartConfig = useDeepCompareMemo(() => {\n    return buildChartConfig(userPrefs);\n  }, [userPrefs]);\n  \n  return <Chart config={chartConfig} />;\n}"
+                }
+            }
+        },
+        {
+            "symbol_id": "function_use_deep_compare_effect",
+            "kind": "function",
+            "name": "useDeepCompareEffect",
+            "signature": {
+                "params": [
+                    {
+                        "name": "effect",
+                        "type": "EffectCallback",
+                        "required": true,
+                        "description": "Effect function to run when dependencies change."
+                    },
+                    {
+                        "name": "dependencies",
+                        "type": "any[]",
+                        "required": true,
+                        "description": "Dependency array checked for deep equality."
+                    }
+                ],
+                "returns": {
+                    "type": "void",
+                    "description": "No return value."
+                }
+            },
+            "description": "Custom effect hook using deep equality comparison on dependencies. Runs effect only when dependencies structurally change, not just when references change. Useful for effects triggered by objects/arrays with stable content.",
+            "description_one_line": "useEffect hook with deep equality comparison of dependency array.",
+            "line": 24,
+            "locations": {
+                "source_line_start": 24,
+                "source_line_end": 31,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts#L24-L31",
+                "nx_kb_anchor": "useDeepCompareEffect"
+            },
+            "details": {
+                "what_it_does": "Stores previous dependencies in ref. Compares current dependencies with stored ones using lodash isEqual. Updates ref only if dependencies differ structurally. Passes ref array to useEffect (stable reference). Effect runs whenever deep equality fails (dependencies changed)."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "API call with deep deps",
+                    "code": "function UserList({ filters }) {\n  useDeepCompareEffect(() => {\n    // Even if filters object is recreated with same values,\n    // API call won't trigger due to deep comparison\n    fetchUsers(filters);\n  }, [filters]);\n  \n  return <ul>...</ul>;\n}"
+                },
+                "extensive_correct": {
+                    "title": "Form submission effect",
+                    "code": "function FormComponent({ initialValues }) {\n  useDeepCompareEffect(() => {\n    // Reset form only if initialValues content changes, not reference\n    resetForm(initialValues);\n  }, [initialValues]);\n  \n  return <form>...</form>;\n}"
+                }
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": [
+            "useDeepCompareEffect ref is not properly typed (should be useRef<any[] | undefined>).",
+            "No cleanup function support in useSafeEffect (only for synchronous callbacks).",
+            "Performance impact of deep comparison on complex dependency objects not documented."
+        ],
+        "documentation_completeness": "Comprehensive: All 3 exported hooks fully documented with complete signatures, parameter documentation with types, return types, and real-world examples. Deep comparison behavior explained versus reference equality. Error handling patterns for useSafeEffect demonstrated. Performance implications discussed."
     }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "function_use_safe_effect",
-      "kind": "function",
-      "name": "useSafeEffect",
-      "signature": "(callback: () => void, dependencies: any[], error_message?: string) => void",
-      "description": "Custom React hook wrapping useEffect with try-catch error boundary. Executes callback safely, catching and logging any errors with optional custom message. Prevents unhandled promise rejections from crashing the component.",
-      "description_one_line": "useEffect wrapper with error handling that catches and logs exceptions.",
-      "line": 4,
-      "locations": {
-        "source_line_start": 4,
-        "source_line_end": 12,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts#L4-L12",
-        "nx_kb_anchor": "useSafeEffect"
-      },
-      "details": {
-        "what_it_does": "Wraps callback in try-catch. On error, logs to console with provided error_message or default message. Dependencies array controls when callback runs (same as useEffect)."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "callback",
-            "type": "() => void",
-            "required": true,
-            "description": "Synchronous function to execute on effect trigger."
-          },
-          {
-            "name": "dependencies",
-            "type": "any[]",
-            "required": true,
-            "description": "Dependency array controlling effect execution."
-          },
-          {
-            "name": "error_message",
-            "type": "string",
-            "required": false,
-            "description": "Custom error message for console logging. Defaults to 'Error in useEffect:'."
-          }
-        ],
-        "returns": {
-          "type": "void",
-          "description": "No return value."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Safe effect with error handling",
-          "code": "function MyComponent() {\n  useSafeEffect(() => {\n    throw new Error('Something went wrong');\n  }, []);\n  // Error is caught and logged, component doesn't crash\n}"
-        },
-        "extensive_correct": {
-          "title": "Safe API call in effect",
-          "code": "function UserProfile({ userId }) {\n  const [user, setUser] = useState(null);\n  \n  useSafeEffect(() => {\n    // Even if fetch fails or JSON parsing errors, won't crash\n    fetch(`/api/users/${userId}`)\n      .then(r => r.json())\n      .then(setUser);\n  }, [userId], 'Failed to load user');\n  \n  return <div>{user?.name}</div>;\n}"
-        }
-      }
-    },
-    {
-      "symbol_id": "function_use_deep_compare_memo",
-      "kind": "function",
-      "name": "useDeepCompareMemo",
-      "signature": "<T>(factory: () => T, dependencies: any[]) => T",
-      "description": "Generic memoization hook using deep equality comparison on dependencies. Unlike standard useMemo which uses reference equality, useDeepCompareMemo compares dependency values structurally. Useful for when dependencies are objects/arrays that may be recreated with same content.",
-      "description_one_line": "useMemo hook with deep equality comparison of dependency array.",
-      "line": 14,
-      "locations": {
-        "source_line_start": 14,
-        "source_line_end": 22,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts#L14-L22",
-        "nx_kb_anchor": "useDeepCompareMemo"
-      },
-      "details": {
-        "what_it_does": "Stores previous dependencies in ref. Compares with lodash isEqual (deep comparison). Updates ref only if dependencies differ structurally. Calls useMemo with ref array (always same reference unless dependencies change). Re-computes memo only when deep equality check fails."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "factory",
-            "type": "() => T",
-            "required": true,
-            "description": "Function that creates the memoized value."
-          },
-          {
-            "name": "dependencies",
-            "type": "any[]",
-            "required": true,
-            "description": "Dependency array checked for deep equality."
-          }
-        ],
-        "returns": {
-          "type": "T",
-          "description": "Memoized value computed by factory, re-computed only if dependencies deeply change."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Memoize computed value with deep deps",
-          "code": "function SearchResults({ filters }) {\n  // Even if filters object is recreated with same values,\n  // computed won't re-run due to deep comparison\n  const computed = useDeepCompareMemo(() => {\n    return filterData(data, filters);\n  }, [filters]);\n  \n  return <div>{computed.length} results</div>;\n}"
-        },
-        "extensive_correct": {
-          "title": "Prevent unnecessary recomputation",
-          "code": "function Dashboard({ userPrefs }) {\n  // Without deep compare: new object reference each render = recompute each time\n  // With deep compare: recompute only if prefs content actually changes\n  const chartConfig = useDeepCompareMemo(() => {\n    return buildChartConfig(userPrefs);\n  }, [userPrefs]);\n  \n  return <Chart config={chartConfig} />;\n}"
-        }
-      }
-    },
-    {
-      "symbol_id": "function_use_deep_compare_effect",
-      "kind": "function",
-      "name": "useDeepCompareEffect",
-      "signature": "(effect: EffectCallback, dependencies: any[]) => void",
-      "description": "Custom effect hook using deep equality comparison on dependencies. Runs effect only when dependencies structurally change, not just when references change. Useful for effects triggered by objects/arrays with stable content.",
-      "description_one_line": "useEffect hook with deep equality comparison of dependency array.",
-      "line": 24,
-      "locations": {
-        "source_line_start": 24,
-        "source_line_end": 31,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/react.ts#L24-L31",
-        "nx_kb_anchor": "useDeepCompareEffect"
-      },
-      "details": {
-        "what_it_does": "Stores previous dependencies in ref. Compares current dependencies with stored ones using lodash isEqual. Updates ref only if dependencies differ structurally. Passes ref array to useEffect (stable reference). Effect runs whenever deep equality fails (dependencies changed)."
-      },
-      "signature": {
-        "params": [
-          {
-            "name": "effect",
-            "type": "EffectCallback",
-            "required": true,
-            "description": "Effect function to run when dependencies change."
-          },
-          {
-            "name": "dependencies",
-            "type": "any[]",
-            "required": true,
-            "description": "Dependency array checked for deep equality."
-          }
-        ],
-        "returns": {
-          "type": "void",
-          "description": "No return value."
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "API call with deep deps",
-          "code": "function UserList({ filters }) {\n  useDeepCompareEffect(() => {\n    // Even if filters object is recreated with same values,\n    // API call won't trigger due to deep comparison\n    fetchUsers(filters);\n  }, [filters]);\n  \n  return <ul>...</ul>;\n}"
-        },
-        "extensive_correct": {
-          "title": "Form submission effect",
-          "code": "function FormComponent({ initialValues }) {\n  useDeepCompareEffect(() => {\n    // Reset form only if initialValues content changes, not reference\n    resetForm(initialValues);\n  }, [initialValues]);\n  \n  return <form>...</form>;\n}"
-        }
-      }
-    }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": [
-      "useDeepCompareEffect ref is not properly typed (should be useRef<any[] | undefined>).",
-      "No cleanup function support in useSafeEffect (only for synchronous callbacks).",
-      "Performance impact of deep comparison on complex dependency objects not documented."
-    ],
-    "documentation_completeness": "Comprehensive: All 3 exported hooks fully documented with complete signatures, parameter documentation with types, return types, and real-world examples. Deep comparison behavior explained versus reference equality. Error handling patterns for useSafeEffect demonstrated. Performance implications discussed."
-  }
 }

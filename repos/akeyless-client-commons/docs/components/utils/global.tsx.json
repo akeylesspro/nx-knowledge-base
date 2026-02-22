@@ -1,132 +1,132 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "global.tsx",
-  "source": {
-    "file_path": "components/utils/global.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-15T11:42:40+02:00",
-    "language": "tsx",
-    "framework_tags": [
-      "react"
-    ],
-    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/global.tsx.json"
-  },
-  "summary": {
-    "purpose": "Global utility components.",
-    "problem_solved": "Provides Version display and LeftToRightDiv for direction handling."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "react",
-        "kind": "runtime",
-        "why_used": "React components."
-      }
-    ],
-    "internal": [
-      {
-        "import_path": "@/lib/utils",
-        "why_used": "cn utility.",
-        "resolved_file_path": "lib/utils",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
-      },
-      {
-        "import_path": "types",
-        "why_used": "Direction type.",
-        "resolved_file_path": "types",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/types",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "Version",
-      "kind": "component",
-      "description_one_line": "Displays version number.",
-      "symbol_id": "Version"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
     },
-    {
-      "name": "LeftToRightDiv",
-      "kind": "component",
-      "description_one_line": "LTR enforcement container.",
-      "symbol_id": "LeftToRightDiv"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "Version",
-      "name": "Version",
-      "kind": "component",
-      "description_one_line": "Version string UI.",
-      "signature": {
-        "params": [
-          {
-            "name": "version",
-            "type": "string",
-            "required": true
-          }
+    "file_name": "global.tsx",
+    "source": {
+        "file_path": "components/utils/global.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-15T11:42:40+02:00",
+        "language": "tsx",
+        "framework_tags": [
+            "react"
         ],
-        "returns": {
-          "type": "JSX.Element"
-        }
-      },
-      "details": {
-        "what_it_does": "Version string UI."
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx#L1",
-        "nx_kb_anchor": "Version"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of Version",
-          "code": "const util = useUtil();"
-        }
-      }
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/global.tsx.json"
     },
-    {
-      "symbol_id": "LeftToRightDiv",
-      "name": "LeftToRightDiv",
-      "kind": "component",
-      "description_one_line": "Div with direction: ltr.",
-      "signature": {
-        "params": [
-          {
-            "name": "direction",
-            "type": "Direction",
-            "required": true
-          }
+    "summary": {
+        "purpose": "Global utility components.",
+        "problem_solved": "Provides Version display and LeftToRightDiv for direction handling."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "react",
+                "kind": "runtime",
+                "why_used": "React components."
+            }
         ],
-        "returns": {
-          "type": "JSX.Element"
+        "internal": [
+            {
+                "import_path": "@/lib/utils",
+                "why_used": "cn utility.",
+                "resolved_file_path": "lib/utils",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
+            },
+            {
+                "import_path": "types",
+                "why_used": "Direction type.",
+                "resolved_file_path": "types",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "Version",
+            "kind": "component",
+            "description_one_line": "Displays version number.",
+            "symbol_id": "Version"
+        },
+        {
+            "name": "LeftToRightDiv",
+            "kind": "component",
+            "description_one_line": "LTR enforcement container.",
+            "symbol_id": "LeftToRightDiv"
         }
-      },
-      "details": {
-        "what_it_does": "Div with direction: ltr."
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx#L1",
-        "nx_kb_anchor": "LeftToRightDiv"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of LeftToRightDiv",
-          "code": "const util = useUtil();"
+    ],
+    "symbols": [
+        {
+            "symbol_id": "Version",
+            "name": "Version",
+            "kind": "component",
+            "description_one_line": "Version string UI.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "version",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element"
+                }
+            },
+            "details": {
+                "what_it_does": "Version string UI."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx#L1",
+                "nx_kb_anchor": "Version"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of Version",
+                    "code": "const util = useUtil();"
+                }
+            }
+        },
+        {
+            "symbol_id": "LeftToRightDiv",
+            "name": "LeftToRightDiv",
+            "kind": "component",
+            "description_one_line": "Div with direction: ltr.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "direction",
+                        "type": "Direction",
+                        "required": true
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element"
+                }
+            },
+            "details": {
+                "what_it_does": "Div with direction: ltr."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/global.tsx#L1",
+                "nx_kb_anchor": "LeftToRightDiv"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of LeftToRightDiv",
+                    "code": "const util = useUtil();"
+                }
+            }
         }
-      }
+    ],
+    "quality": {
+        "generation_confidence": "high"
     }
-  ],
-  "quality": {
-    "generation_confidence": "high"
-  }
 }

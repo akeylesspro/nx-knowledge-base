@@ -1,243 +1,243 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "popover.tsx",
-  "source": {
-    "file_path": "components/ui/popover.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T14:00:00.000Z",
-    "language": "tsx",
-    "framework_tags": [
-      "react",
-      "radix-ui"
-    ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/popover.json"
-  },
-  "summary": {
-    "purpose": "Provides a comprehensive set of Popover components built on Radix UI's popover primitive, including root, trigger, content, and anchor components with built-in animations, styling, and optional arrow support.",
-    "problem_solved": "Simplifies creating accessible, animated popover menus and floating panels by wrapping Radix UI's Popover with pre-styled components, consistent Tailwind CSS styling, configurable positioning, and optional arrow indicators."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "@radix-ui/react-popover",
-        "kind": "runtime",
-        "why_used": "Provides accessible Popover primitive components (Root, Trigger, Content, Portal, Arrow, Anchor) with positioning and keyboard interaction"
-      },
-      {
-        "name": "react",
-        "kind": "runtime",
-        "why_used": "Core React library for component creation and ComponentProps type"
-      }
-    ],
-    "internal": [
-      {
-        "import_path": "@/lib/utils",
-        "resolved_file_path": "lib/utils",
-        "why_used": "Provides the cn() utility function for conditionally merging CSS classes",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "Popover",
-      "kind": "component",
-      "description_one_line": "Root popover component managing open/closed state and containing all popover sub-components",
-      "symbol_id": "Popover"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
     },
-    {
-      "name": "PopoverTrigger",
-      "kind": "component",
-      "description_one_line": "Button or element that toggles the popover open/closed state",
-      "symbol_id": "PopoverTrigger"
-    },
-    {
-      "name": "PopoverContent",
-      "kind": "component",
-      "description_one_line": "The popover content panel with animations, positioning, and optional arrow indicator",
-      "symbol_id": "PopoverContent"
-    },
-    {
-      "name": "PopoverAnchor",
-      "kind": "component",
-      "description_one_line": "Anchor element for positioning the popover relative to a reference element",
-      "symbol_id": "PopoverAnchor"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "Popover",
-      "name": "Popover",
-      "kind": "component",
-      "description_one_line": "Root popover component wrapping Radix UI's PopoverPrimitive.Root",
-      "details": {
-        "what_it_does": "Manages the popover's open/closed state and coordinates all child components (trigger, content, anchor). Wraps PopoverPrimitive.Root with a data-slot='popover' attribute for styling hooks. Passes all Radix Popover Root props through."
-      },
-      "locations": {
-        "source_line_start": 8,
-        "source_line_end": 10,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx#L8-L10",
-        "nx_kb_anchor": "#Popover"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic popover with trigger and content",
-          "code": "import { Popover, PopoverTrigger, PopoverContent } from 'akeyless-client-commons/components/ui';\n\nconst MyPopover = () => (\n  <Popover>\n    <PopoverTrigger asChild>\n      <button>Open Menu</button>\n    </PopoverTrigger>\n    <PopoverContent>\n      <p>Popover content goes here</p>\n    </PopoverContent>\n  </Popover>\n);"
-        },
-        "extensive_correct": {
-          "title": "Popover with custom content and arrow",
-          "code": "import { Popover, PopoverTrigger, PopoverContent } from 'akeyless-client-commons/components/ui';\n\nconst SettingsPopover = () => (\n  <Popover>\n    <PopoverTrigger asChild>\n      <button className=\"px-3 py-2 rounded bg-blue-500 text-white\">\n        Settings\n      </button>\n    </PopoverTrigger>\n    <PopoverContent align=\"end\" showArrow>\n      <div className=\"space-y-2\">\n        <h3 className=\"font-semibold\">Settings</h3>\n        <label className=\"flex items-center\">\n          <input type=\"checkbox\" /> Enable notifications\n        </label>\n        <label className=\"flex items-center\">\n          <input type=\"checkbox\" /> Dark mode\n        </label>\n      </div>\n    </PopoverContent>\n  </Popover>\n);"
-        },
-        "incorrect": {
-          "title": "Incorrect: Missing Popover wrapper",
-          "code": "// This won't work - components must be inside Popover\nconst BadPopover = () => (\n  <div>\n    <PopoverTrigger>Open</PopoverTrigger>\n    <PopoverContent>Content</PopoverContent>\n  </div>\n);",
-          "why_incorrect": "All popover sub-components must be wrapped within a Popover root component. Without it, the state management and accessibility features won't function. The Popover root manages the open/closed state that all other components depend on."
-        }
-      }
-    },
-    {
-      "symbol_id": "PopoverTrigger",
-      "name": "PopoverTrigger",
-      "kind": "component",
-      "description_one_line": "Button or element that toggles the popover open/closed when clicked",
-      "details": {
-        "what_it_does": "Wraps PopoverPrimitive.Trigger with a data-slot='popover-trigger' attribute. When clicked, toggles the associated popover's open/closed state. Can accept any child element via the asChild prop."
-      },
-      "locations": {
-        "source_line_start": 12,
-        "source_line_end": 14,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx#L12-L14",
-        "nx_kb_anchor": "#PopoverTrigger"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic trigger button",
-          "code": "<Popover>\n  <PopoverTrigger>Click me</PopoverTrigger>\n  <PopoverContent>Content</PopoverContent>\n</Popover>"
-        },
-        "extensive_correct": {
-          "title": "Trigger with custom styling and icon",
-          "code": "<Popover>\n  <PopoverTrigger asChild>\n    <button className=\"flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-100\">\n      <span>Options</span>\n      <svg className=\"w-4 h-4\">...</svg>\n    </button>\n  </PopoverTrigger>\n  <PopoverContent>\n    {/* Content */}\n  </PopoverContent>\n</Popover>"
-        },
-        "incorrect": {
-          "title": "Incorrect: PopoverTrigger outside Popover",
-          "code": "// This won't trigger anything\nconst BadTrigger = () => (\n  <PopoverTrigger>Open</PopoverTrigger>\n);",
-          "why_incorrect": "PopoverTrigger must be inside a Popover root component to work. It relies on the Popover's state context to manage opening/closing."
-        }
-      }
-    },
-    {
-      "symbol_id": "PopoverContent",
-      "name": "PopoverContent",
-      "kind": "component",
-      "description_one_line": "Floating content panel rendered in a portal with animations, positioning, and optional arrow",
-      "signature": {
-        "params": [
-          {
-            "name": "className",
-            "type": "string",
-            "required": false,
-            "description": "Optional CSS classes to merge with default content styles"
-          },
-          {
-            "name": "align",
-            "type": "'start' | 'center' | 'end'",
-            "required": false,
-            "description": "Horizontal alignment of the popover relative to the trigger. Defaults to 'center'."
-          },
-          {
-            "name": "sideOffset",
-            "type": "number",
-            "required": false,
-            "description": "Distance in pixels between the popover and the trigger element. Defaults to 4."
-          },
-          {
-            "name": "showArrow",
-            "type": "boolean",
-            "required": false,
-            "description": "Whether to display an arrow pointing to the trigger element. Defaults to false."
-          },
-          {
-            "name": "children",
-            "type": "React.ReactNode",
-            "required": false,
-            "description": "Content to render inside the popover panel"
-          },
-          {
-            "name": "...props",
-            "type": "React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>",
-            "required": false,
-            "description": "All standard Radix UI Content props (side, avoidCollisions, etc.)"
-          }
+    "file_name": "popover.tsx",
+    "source": {
+        "file_path": "components/ui/popover.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T14:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": [
+            "react",
+            "radix-ui"
         ],
-        "returns": {
-          "type": "React.ReactElement",
-          "description": "A styled floating panel with animations and positioning"
-        }
-      },
-      "details": {
-        "what_it_does": "Renders the popover content in a portal outside the normal DOM tree. Pre-styled with a light background, foreground text color, rounded borders, padding, and shadow. Automatically positioned relative to the trigger with configurable alignment and offset. Includes fade-in/fade-out animations and slide animations based on the popover's side (top, bottom, left, right). Optionally displays an arrow pointing to the trigger.",
-        "rendered_ui_description": "A floating panel with max-width 18rem (w-72), rounded borders (rounded-md), border color, background color, padding, and subtle shadow. Smoothly animates in when popover opens (fade-in, zoom-in, slide-in from appropriate side). Optional arrow indicator at the edge pointing to the trigger element."
-      },
-      "locations": {
-        "source_line_start": 16,
-        "source_line_end": 42,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx#L16-L42",
-        "nx_kb_anchor": "#PopoverContent"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic popover content",
-          "code": "<Popover>\n  <PopoverTrigger>Menu</PopoverTrigger>\n  <PopoverContent>\n    <p>Your content here</p>\n  </PopoverContent>\n</Popover>"
-        },
-        "extensive_correct": {
-          "title": "Popover with custom alignment, offset, and arrow",
-          "code": "<Popover>\n  <PopoverTrigger>Help</PopoverTrigger>\n  <PopoverContent \n    align=\"end\" \n    sideOffset={8}\n    showArrow\n    side=\"top\"\n  >\n    <div className=\"space-y-2\">\n      <h4 className=\"font-semibold text-sm\">Help Content</h4>\n      <p className=\"text-xs text-muted-foreground\">\n        This is helpful information about the feature.\n      </p>\n      <a href=\"#learn-more\" className=\"text-xs text-blue-500 hover:underline\">\n        Learn more\n      </a>\n    </div>\n  </PopoverContent>\n</Popover>"
-        },
-        "incorrect": {
-          "title": "Incorrect: PopoverContent without trigger",
-          "code": "// This won't work\n<Popover>\n  <PopoverContent>Content without trigger</PopoverContent>\n</Popover>",
-          "why_incorrect": "PopoverContent needs a PopoverTrigger to position against. Without a trigger, there's no reference element for positioning the floating panel."
-        }
-      }
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/popover.tsx.json"
     },
-    {
-      "symbol_id": "PopoverAnchor",
-      "name": "PopoverAnchor",
-      "kind": "component",
-      "description_one_line": "Alternative anchor element for positioning the popover relative to",
-      "details": {
-        "what_it_does": "Wraps PopoverPrimitive.Anchor with a data-slot='popover-anchor' attribute. Provides an alternative positioning reference for the popover content. Can be used instead of or alongside PopoverTrigger to position the popover relative to a specific element."
-      },
-      "locations": {
-        "source_line_start": 44,
-        "source_line_end": 46,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx#L44-L46",
-        "nx_kb_anchor": "#PopoverAnchor"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Using anchor for positioning",
-          "code": "<Popover>\n  <PopoverAnchor asChild>\n    <div id=\"anchor-element\">Reference element</div>\n  </PopoverAnchor>\n  <PopoverTrigger>Open</PopoverTrigger>\n  <PopoverContent>\n    Content positioned relative to anchor\n  </PopoverContent>\n</Popover>"
+    "summary": {
+        "purpose": "Provides a comprehensive set of Popover components built on Radix UI's popover primitive, including root, trigger, content, and anchor components with built-in animations, styling, and optional arrow support.",
+        "problem_solved": "Simplifies creating accessible, animated popover menus and floating panels by wrapping Radix UI's Popover with pre-styled components, consistent Tailwind CSS styling, configurable positioning, and optional arrow indicators."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "@radix-ui/react-popover",
+                "kind": "runtime",
+                "why_used": "Provides accessible Popover primitive components (Root, Trigger, Content, Portal, Arrow, Anchor) with positioning and keyboard interaction"
+            },
+            {
+                "name": "react",
+                "kind": "runtime",
+                "why_used": "Core React library for component creation and ComponentProps type"
+            }
+        ],
+        "internal": [
+            {
+                "import_path": "@/lib/utils",
+                "resolved_file_path": "lib/utils",
+                "why_used": "Provides the cn() utility function for conditionally merging CSS classes",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "Popover",
+            "kind": "component",
+            "description_one_line": "Root popover component managing open/closed state and containing all popover sub-components",
+            "symbol_id": "Popover"
         },
-        "extensive_correct": {
-          "title": "Anchor with separate trigger",
-          "code": "<Popover>\n  <div className=\"flex gap-4\">\n    <PopoverAnchor asChild>\n      <div className=\"h-10 border-2 border-dashed border-gray-300\">\n        Anchor point\n      </div>\n    </PopoverAnchor>\n    <PopoverTrigger asChild>\n      <button>Show Info</button>\n    </PopoverTrigger>\n  </div>\n  <PopoverContent>\n    This content positions relative to the anchor element\n  </PopoverContent>\n</Popover>"
+        {
+            "name": "PopoverTrigger",
+            "kind": "component",
+            "description_one_line": "Button or element that toggles the popover open/closed state",
+            "symbol_id": "PopoverTrigger"
         },
-        "incorrect": {
-          "title": "Incorrect: Anchor as only positioning element",
-          "code": "// Anchor alone may not provide expected interaction\n<Popover>\n  <PopoverAnchor>Anchor only</PopoverAnchor>\n  <PopoverContent>Content</PopoverContent>\n</Popover>",
-          "why_incorrect": "PopoverAnchor provides positioning but not interaction. Use PopoverTrigger to make the popover interactive, or use Anchor in combination with Trigger for more complex layouts."
+        {
+            "name": "PopoverContent",
+            "kind": "component",
+            "description_one_line": "The popover content panel with animations, positioning, and optional arrow indicator",
+            "symbol_id": "PopoverContent"
+        },
+        {
+            "name": "PopoverAnchor",
+            "kind": "component",
+            "description_one_line": "Anchor element for positioning the popover relative to a reference element",
+            "symbol_id": "PopoverAnchor"
         }
-      }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "Popover",
+            "name": "Popover",
+            "kind": "component",
+            "description_one_line": "Root popover component wrapping Radix UI's PopoverPrimitive.Root",
+            "details": {
+                "what_it_does": "Manages the popover's open/closed state and coordinates all child components (trigger, content, anchor). Wraps PopoverPrimitive.Root with a data-slot='popover' attribute for styling hooks. Passes all Radix Popover Root props through."
+            },
+            "locations": {
+                "source_line_start": 8,
+                "source_line_end": 10,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx#L8-L10",
+                "nx_kb_anchor": "#Popover"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic popover with trigger and content",
+                    "code": "import { Popover, PopoverTrigger, PopoverContent } from 'akeyless-client-commons/components/ui';\n\nconst MyPopover = () => (\n  <Popover>\n    <PopoverTrigger asChild>\n      <button>Open Menu</button>\n    </PopoverTrigger>\n    <PopoverContent>\n      <p>Popover content goes here</p>\n    </PopoverContent>\n  </Popover>\n);"
+                },
+                "extensive_correct": {
+                    "title": "Popover with custom content and arrow",
+                    "code": "import { Popover, PopoverTrigger, PopoverContent } from 'akeyless-client-commons/components/ui';\n\nconst SettingsPopover = () => (\n  <Popover>\n    <PopoverTrigger asChild>\n      <button className=\"px-3 py-2 rounded bg-blue-500 text-white\">\n        Settings\n      </button>\n    </PopoverTrigger>\n    <PopoverContent align=\"end\" showArrow>\n      <div className=\"space-y-2\">\n        <h3 className=\"font-semibold\">Settings</h3>\n        <label className=\"flex items-center\">\n          <input type=\"checkbox\" /> Enable notifications\n        </label>\n        <label className=\"flex items-center\">\n          <input type=\"checkbox\" /> Dark mode\n        </label>\n      </div>\n    </PopoverContent>\n  </Popover>\n);"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Missing Popover wrapper",
+                    "code": "// This won't work - components must be inside Popover\nconst BadPopover = () => (\n  <div>\n    <PopoverTrigger>Open</PopoverTrigger>\n    <PopoverContent>Content</PopoverContent>\n  </div>\n);",
+                    "why_incorrect": "All popover sub-components must be wrapped within a Popover root component. Without it, the state management and accessibility features won't function. The Popover root manages the open/closed state that all other components depend on."
+                }
+            }
+        },
+        {
+            "symbol_id": "PopoverTrigger",
+            "name": "PopoverTrigger",
+            "kind": "component",
+            "description_one_line": "Button or element that toggles the popover open/closed when clicked",
+            "details": {
+                "what_it_does": "Wraps PopoverPrimitive.Trigger with a data-slot='popover-trigger' attribute. When clicked, toggles the associated popover's open/closed state. Can accept any child element via the asChild prop."
+            },
+            "locations": {
+                "source_line_start": 12,
+                "source_line_end": 14,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx#L12-L14",
+                "nx_kb_anchor": "#PopoverTrigger"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic trigger button",
+                    "code": "<Popover>\n  <PopoverTrigger>Click me</PopoverTrigger>\n  <PopoverContent>Content</PopoverContent>\n</Popover>"
+                },
+                "extensive_correct": {
+                    "title": "Trigger with custom styling and icon",
+                    "code": "<Popover>\n  <PopoverTrigger asChild>\n    <button className=\"flex items-center gap-2 px-3 py-2 rounded hover:bg-gray-100\">\n      <span>Options</span>\n      <svg className=\"w-4 h-4\">...</svg>\n    </button>\n  </PopoverTrigger>\n  <PopoverContent>\n    {/* Content */}\n  </PopoverContent>\n</Popover>"
+                },
+                "incorrect": {
+                    "title": "Incorrect: PopoverTrigger outside Popover",
+                    "code": "// This won't trigger anything\nconst BadTrigger = () => (\n  <PopoverTrigger>Open</PopoverTrigger>\n);",
+                    "why_incorrect": "PopoverTrigger must be inside a Popover root component to work. It relies on the Popover's state context to manage opening/closing."
+                }
+            }
+        },
+        {
+            "symbol_id": "PopoverContent",
+            "name": "PopoverContent",
+            "kind": "component",
+            "description_one_line": "Floating content panel rendered in a portal with animations, positioning, and optional arrow",
+            "signature": {
+                "params": [
+                    {
+                        "name": "className",
+                        "type": "string",
+                        "required": false,
+                        "description": "Optional CSS classes to merge with default content styles"
+                    },
+                    {
+                        "name": "align",
+                        "type": "'start' | 'center' | 'end'",
+                        "required": false,
+                        "description": "Horizontal alignment of the popover relative to the trigger. Defaults to 'center'."
+                    },
+                    {
+                        "name": "sideOffset",
+                        "type": "number",
+                        "required": false,
+                        "description": "Distance in pixels between the popover and the trigger element. Defaults to 4."
+                    },
+                    {
+                        "name": "showArrow",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "Whether to display an arrow pointing to the trigger element. Defaults to false."
+                    },
+                    {
+                        "name": "children",
+                        "type": "React.ReactNode",
+                        "required": false,
+                        "description": "Content to render inside the popover panel"
+                    },
+                    {
+                        "name": "...props",
+                        "type": "React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>",
+                        "required": false,
+                        "description": "All standard Radix UI Content props (side, avoidCollisions, etc.)"
+                    }
+                ],
+                "returns": {
+                    "type": "React.ReactElement",
+                    "description": "A styled floating panel with animations and positioning"
+                }
+            },
+            "details": {
+                "what_it_does": "Renders the popover content in a portal outside the normal DOM tree. Pre-styled with a light background, foreground text color, rounded borders, padding, and shadow. Automatically positioned relative to the trigger with configurable alignment and offset. Includes fade-in/fade-out animations and slide animations based on the popover's side (top, bottom, left, right). Optionally displays an arrow pointing to the trigger.",
+                "rendered_ui_description": "A floating panel with max-width 18rem (w-72), rounded borders (rounded-md), border color, background color, padding, and subtle shadow. Smoothly animates in when popover opens (fade-in, zoom-in, slide-in from appropriate side). Optional arrow indicator at the edge pointing to the trigger element."
+            },
+            "locations": {
+                "source_line_start": 16,
+                "source_line_end": 42,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx#L16-L42",
+                "nx_kb_anchor": "#PopoverContent"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic popover content",
+                    "code": "<Popover>\n  <PopoverTrigger>Menu</PopoverTrigger>\n  <PopoverContent>\n    <p>Your content here</p>\n  </PopoverContent>\n</Popover>"
+                },
+                "extensive_correct": {
+                    "title": "Popover with custom alignment, offset, and arrow",
+                    "code": "<Popover>\n  <PopoverTrigger>Help</PopoverTrigger>\n  <PopoverContent \n    align=\"end\" \n    sideOffset={8}\n    showArrow\n    side=\"top\"\n  >\n    <div className=\"space-y-2\">\n      <h4 className=\"font-semibold text-sm\">Help Content</h4>\n      <p className=\"text-xs text-muted-foreground\">\n        This is helpful information about the feature.\n      </p>\n      <a href=\"#learn-more\" className=\"text-xs text-blue-500 hover:underline\">\n        Learn more\n      </a>\n    </div>\n  </PopoverContent>\n</Popover>"
+                },
+                "incorrect": {
+                    "title": "Incorrect: PopoverContent without trigger",
+                    "code": "// This won't work\n<Popover>\n  <PopoverContent>Content without trigger</PopoverContent>\n</Popover>",
+                    "why_incorrect": "PopoverContent needs a PopoverTrigger to position against. Without a trigger, there's no reference element for positioning the floating panel."
+                }
+            }
+        },
+        {
+            "symbol_id": "PopoverAnchor",
+            "name": "PopoverAnchor",
+            "kind": "component",
+            "description_one_line": "Alternative anchor element for positioning the popover relative to",
+            "details": {
+                "what_it_does": "Wraps PopoverPrimitive.Anchor with a data-slot='popover-anchor' attribute. Provides an alternative positioning reference for the popover content. Can be used instead of or alongside PopoverTrigger to position the popover relative to a specific element."
+            },
+            "locations": {
+                "source_line_start": 44,
+                "source_line_end": 46,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/popover.tsx#L44-L46",
+                "nx_kb_anchor": "#PopoverAnchor"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Using anchor for positioning",
+                    "code": "<Popover>\n  <PopoverAnchor asChild>\n    <div id=\"anchor-element\">Reference element</div>\n  </PopoverAnchor>\n  <PopoverTrigger>Open</PopoverTrigger>\n  <PopoverContent>\n    Content positioned relative to anchor\n  </PopoverContent>\n</Popover>"
+                },
+                "extensive_correct": {
+                    "title": "Anchor with separate trigger",
+                    "code": "<Popover>\n  <div className=\"flex gap-4\">\n    <PopoverAnchor asChild>\n      <div className=\"h-10 border-2 border-dashed border-gray-300\">\n        Anchor point\n      </div>\n    </PopoverAnchor>\n    <PopoverTrigger asChild>\n      <button>Show Info</button>\n    </PopoverTrigger>\n  </div>\n  <PopoverContent>\n    This content positions relative to the anchor element\n  </PopoverContent>\n</Popover>"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Anchor as only positioning element",
+                    "code": "// Anchor alone may not provide expected interaction\n<Popover>\n  <PopoverAnchor>Anchor only</PopoverAnchor>\n  <PopoverContent>Content</PopoverContent>\n</Popover>",
+                    "why_incorrect": "PopoverAnchor provides positioning but not interaction. Use PopoverTrigger to make the popover interactive, or use Anchor in combination with Trigger for more complex layouts."
+                }
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }

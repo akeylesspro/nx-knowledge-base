@@ -1,123 +1,123 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "index.tsx",
-  "source": {
-    "file_path": "components/forms/ModularForm/index.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-12T00:00:00.000Z",
-    "language": "tsx",
-    "framework_tags": [
-      "react"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.tsx",
+    "source": {
+        "file_path": "components/forms/ModularForm/index.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": [
+            "react"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/index.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/index.tsx.json"
+    },
+    "summary": {
+        "purpose": "Barrel export file for the ModularForm sub-module, re-exporting the ModularForm component and all form element building blocks.",
+        "problem_solved": "Provides a single entry point for importing the ModularForm default component and all individual form element components (InputContainer, SelectContainer, etc.) from the formElements module."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "resolved_path": "components/forms/ModularForm/ModularForm",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/ModularForm.json",
+                "why_used": "Required dependency",
+                "import_path": "ModularForm",
+                "resolved_file_path": "ModularForm",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/ModularForm"
+            },
+            {
+                "resolved_path": "components/forms/ModularForm/formElements",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/formElements (all exports).json",
+                "why_used": "Required dependency",
+                "import_path": "formElements (all exports)",
+                "resolved_file_path": "formElements (all exports)",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/formElements (all exports)"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "ModularForm",
+            "kind": "value",
+            "source": "./ModularForm",
+            "description": "Re-exports the ModularForm component as a named export (originally the default export of ModularForm.tsx).",
+            "description_one_line": "ModularForm export",
+            "symbol_id": "ModularForm"
+        },
+        {
+            "name": "*",
+            "kind": "value",
+            "source": "./formElements",
+            "description": "Re-exports all named exports from formElements.tsx including InputContainer, SelectContainer, MultiSelect, TextAreaContainer, CheckboxContainer, FormSeparator, DateInputContainer, DurationPicker, SelectWithSearch, FormElementContainer, ElementLabel, ElementsContainer, InternationalPhonePicker, useSortValues, and CSS class name constants.",
+            "description_one_line": "* export",
+            "symbol_id": "reexport_1"
+        }
     ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/index.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/index.tsx.json"
-  },
-  "summary": {
-    "purpose": "Barrel export file for the ModularForm sub-module, re-exporting the ModularForm component and all form element building blocks.",
-    "problem_solved": "Provides a single entry point for importing the ModularForm default component and all individual form element components (InputContainer, SelectContainer, etc.) from the formElements module."
-  },
-  "dependencies": {
-    "external": [],
-    "internal": [
-      {
-        "resolved_path": "components/forms/ModularForm/ModularForm",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/ModularForm.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "ModularForm",
-        "resolved_file_path": "ModularForm",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/ModularForm"
-      },
-      {
-        "resolved_path": "components/forms/ModularForm/formElements",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/formElements.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "formElements (all exports)",
-        "resolved_file_path": "formElements (all exports)",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/formElements (all exports)"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "ModularForm",
-      "kind": "value",
-      "source": "./ModularForm",
-      "description": "Re-exports the ModularForm component as a named export (originally the default export of ModularForm.tsx).",
-      "description_one_line": "ModularForm export",
-      "symbol_id": "ModularForm"
-    },
-    {
-      "name": "*",
-      "kind": "value",
-      "source": "./formElements",
-      "description": "Re-exports all named exports from formElements.tsx including InputContainer, SelectContainer, MultiSelect, TextAreaContainer, CheckboxContainer, FormSeparator, DateInputContainer, DurationPicker, SelectWithSearch, FormElementContainer, ElementLabel, ElementsContainer, InternationalPhonePicker, useSortValues, and CSS class name constants.",
-      "description_one_line": "* export",
-      "symbol_id": "reexport_1"
+    "symbols": [
+        {
+            "symbol_id": "ModularForm",
+            "name": "ModularForm",
+            "kind": "value",
+            "description_one_line": "ModularForm export",
+            "details": {
+                "what_it_does": "ModularForm export"
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#ModularForm"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of ModularForm",
+                    "code": "import { ModularForm } from '@/components/forms/ModularForm';"
+                }
+            }
+        },
+        {
+            "symbol_id": "reexport_1",
+            "name": "*",
+            "kind": "value",
+            "description_one_line": "* export",
+            "details": {
+                "what_it_does": "* export"
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#reexport_1"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of *",
+                    "code": "import { ModularForm } from '@/components/forms/ModularForm';"
+                }
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "ModularForm",
-      "name": "ModularForm",
-      "kind": "value",
-      "description_one_line": "ModularForm export",
-      "details": {
-        "what_it_does": "ModularForm export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#ModularForm"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of ModularForm",
-          "code": "import { ModularForm } from '@/components/forms/ModularForm';"
-        }
-      }
-    },
-    {
-      "symbol_id": "reexport_1",
-      "name": "*",
-      "kind": "value",
-      "description_one_line": "* export",
-      "details": {
-        "what_it_does": "* export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#reexport_1"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of *",
-          "code": "import { ModularForm } from '@/components/forms/ModularForm';"
-        }
-      }
-    }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }

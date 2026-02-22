@@ -1,129 +1,129 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "calendar-rac.tsx",
-  "source": {
-    "file_path": "components/ui/calendar-rac.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-15T11:42:40+02:00",
-    "language": "tsx",
-    "framework_tags": [
-      "react",
-      "react-aria-components"
-    ],
-    "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/calendar-rac.tsx.json"
-  },
-  "summary": {
-    "purpose": "Calendar component (RAC).",
-    "problem_solved": "Accessible date picker calendar using React Aria."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "react",
-        "kind": "runtime",
-        "why_used": "React components."
-      },
-      {
-        "name": "react-aria-components",
-        "kind": "runtime",
-        "why_used": "Headless UI components."
-      },
-      {
-        "name": "@internationalized/date",
-        "kind": "runtime",
-        "why_used": "Date logic."
-      },
-      {
-        "name": "lucide-react",
-        "kind": "runtime",
-        "why_used": "Icons."
-      }
-    ],
-    "internal": [
-      {
-        "import_path": "@/lib/utils",
-        "why_used": "cn utility.",
-        "resolved_file_path": "lib/utils",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/src/lib/utils",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "Calendar",
-      "kind": "component",
-      "description_one_line": "Calendar UI.",
-      "symbol_id": "Calendar"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
     },
-    {
-      "name": "RangeCalendar",
-      "kind": "component",
-      "description_one_line": "Range Calendar UI.",
-      "symbol_id": "RangeCalendar"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "Calendar",
-      "name": "Calendar",
-      "kind": "component",
-      "description_one_line": "Single date calendar.",
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "JSX.Element"
-        }
-      },
-      "details": {
-        "what_it_does": "Single date calendar."
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx#L1",
-        "nx_kb_anchor": "Calendar"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of Calendar",
-          "code": "const cal = <Calendar />;"
-        }
-      }
+    "file_name": "calendar-rac.tsx",
+    "source": {
+        "file_path": "components/ui/calendar-rac.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-15T11:42:40+02:00",
+        "language": "tsx",
+        "framework_tags": [
+            "react",
+            "react-aria-components"
+        ],
+        "link_to_github": "https://github.com/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/calendar-rac.tsx.json"
     },
-    {
-      "symbol_id": "RangeCalendar",
-      "name": "RangeCalendar",
-      "kind": "component",
-      "description_one_line": "Date range calendar.",
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "JSX.Element"
+    "summary": {
+        "purpose": "Calendar component (RAC).",
+        "problem_solved": "Accessible date picker calendar using React Aria."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "react",
+                "kind": "runtime",
+                "why_used": "React components."
+            },
+            {
+                "name": "react-aria-components",
+                "kind": "runtime",
+                "why_used": "Headless UI components."
+            },
+            {
+                "name": "@internationalized/date",
+                "kind": "runtime",
+                "why_used": "Date logic."
+            },
+            {
+                "name": "lucide-react",
+                "kind": "runtime",
+                "why_used": "Icons."
+            }
+        ],
+        "internal": [
+            {
+                "import_path": "@/lib/utils",
+                "why_used": "cn utility.",
+                "resolved_file_path": "lib/utils",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "Calendar",
+            "kind": "component",
+            "description_one_line": "Calendar UI.",
+            "symbol_id": "Calendar"
+        },
+        {
+            "name": "RangeCalendar",
+            "kind": "component",
+            "description_one_line": "Range Calendar UI.",
+            "symbol_id": "RangeCalendar"
         }
-      },
-      "details": {
-        "what_it_does": "Date range calendar."
-      },
-      "locations": {
-        "source_line_start": 1,
-        "source_line_end": 1,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx#L1",
-        "nx_kb_anchor": "RangeCalendar"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of RangeCalendar",
-          "code": "const cal = <Calendar />;"
+    ],
+    "symbols": [
+        {
+            "symbol_id": "Calendar",
+            "name": "Calendar",
+            "kind": "component",
+            "description_one_line": "Single date calendar.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "JSX.Element"
+                }
+            },
+            "details": {
+                "what_it_does": "Single date calendar."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx#L1",
+                "nx_kb_anchor": "Calendar"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of Calendar",
+                    "code": "const cal = <Calendar />;"
+                }
+            }
+        },
+        {
+            "symbol_id": "RangeCalendar",
+            "name": "RangeCalendar",
+            "kind": "component",
+            "description_one_line": "Date range calendar.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "JSX.Element"
+                }
+            },
+            "details": {
+                "what_it_does": "Date range calendar."
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 1,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx#L1",
+                "nx_kb_anchor": "RangeCalendar"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of RangeCalendar",
+                    "code": "const cal = <Calendar />;"
+                }
+            }
         }
-      }
+    ],
+    "quality": {
+        "generation_confidence": "high"
     }
-  ],
-  "quality": {
-    "generation_confidence": "high"
-  }
 }

@@ -1,131 +1,180 @@
 {
-  "repo": {"name": "akeyless-client-commons", "source_default_branch": "main"},
-  "file_name": "WebWorker.ts",
-  "source": {
-    "file_path": "hooks/WebWorker.ts",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T00:00:00.000Z",
-    "language": "ts",
-    "framework_tags": ["react", "hooks", "web-worker", "performance"]
-  },
-  "summary": {
-    "purpose": "React hook for running expensive computations in Web Workers with lazy initialization, error handling, job queue management, and transparent fallback to main thread.",
-    "problem_solved": "Offloads CPU-intensive work to Web Workers without blocking the UI, with automatic fallback for unsupported browsers or errors, and support for transferable objects for zero-copy data passing."
-  },
-  "dependencies": {
-    "external": [
-      {"module": "react", "kind": "runtime", "why_used": "useCallback, useEffect, useRef hooks", "name": "react"}
-    ],
-    "internal": [
-      {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/snapshots/snapshotWorker.ts.json",
-        "why_used": "WrapWorkerOptions type for worker configuration",
-        "import_path": "./snapshots/snapshotWorker",
-        "resolved_file_path": "hooks/snapshots/snapshotWorker.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/snapshotWorker.ts"
-      }
-    ]
-  },
-  "exports": [
-    {"name": "WebWorkerFunction", "kind": "type", "line": 4, "description_one_line": "Synchronous or async worker function type.", "symbol_id": "type_web_worker_function"},
-    {"name": "UseWebWorkerOptions", "kind": "interface", "line": 6, "description_one_line": "Configuration for useWebWorker hook.", "symbol_id": "interface_use_web_worker_options"},
-    {"name": "RunWorkerFunction", "kind": "type", "line": 15, "description_one_line": "Worker execution function with status methods.", "symbol_id": "type_run_worker_function"},
-    {"name": "useWebWorker", "kind": "function", "line": 22, "description_one_line": "Hook to run function in Web Worker.", "symbol_id": "function_use_web_worker"}
-  ],
-  "symbols": [
-    {
-      "symbol_id": "type_web_worker_function",
-      "name": "WebWorkerFunction",
-      "kind": "type",
-      "description_one_line": "Worker computation function type.",
-      "details": {
-        "what_it_does": "Generic function accepting input TInput and returning TOutput or Promise<TOutput>. Can be sync or async.",
-        "type_definition": "type WebWorkerFunction<TInput, TOutput> = (data: TInput) => TOutput | Promise<TOutput>;"
-      },
-      "locations": {
-        "source_line_start": 4,
-        "source_line_end": 4,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts#L4",
-        "nx_kb_anchor": "type_web_worker_function"
-      }
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
     },
-    {
-      "symbol_id": "interface_use_web_worker_options",
-      "name": "UseWebWorkerOptions",
-      "kind": "interface",
-      "description_one_line": "Worker configuration options.",
-      "details": {
-        "what_it_does": "debug (logging), name (for debug), onError (error callback), warmStart (create worker eagerly), recreateOnError (restart on failure), options (WrapWorkerOptions for snapshot workers)."
-      },
-      "locations": {
-        "source_line_start": 6,
-        "source_line_end": 13,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts#L6-L13",
-        "nx_kb_anchor": "interface_use_web_worker_options"
-      }
-    },
-    {
-      "symbol_id": "type_run_worker_function",
-      "name": "RunWorkerFunction",
-      "kind": "type",
-      "description_one_line": "Worker execution function with status properties.",
-      "details": {
-        "what_it_does": "Function that runs computation in worker: (data: TInput, transfer?: Transferable[]) => Promise<TOutput>. Also provides isSupported(), isUsingWorker(), pendingJobs(), lastError() methods.",
-        "type_definition": "type RunWorkerFunction<TInput, TOutput> = ((data: TInput, transfer?: Transferable[]) => Promise<TOutput>) & {\n  isSupported: () => boolean;\n  isUsingWorker: () => boolean;\n  pendingJobs: () => number;\n  lastError: () => Error | null;\n};"
-      },
-      "locations": {
-        "source_line_start": 15,
-        "source_line_end": 20,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts#L15-L20",
-        "nx_kb_anchor": "type_run_worker_function"
-      }
-    },
-    {
-      "symbol_id": "function_use_web_worker",
-      "name": "useWebWorker",
-      "kind": "function",
-      "description_one_line": "Run function in Web Worker with fallback.",
-      "signature": {
-        "params": [
-          {"name": "fn", "type": "WebWorkerFunction<TInput, TOutput>", "required": true, "description": "Function to run in worker (sync or async)"},
-          {"name": "options", "type": "UseWebWorkerOptions", "required": false, "description": "Configuration (debug, warmStart, onError, etc.)"}
-        ],
-        "returns": {
-          "type": "RunWorkerFunction<TInput, TOutput>",
-          "description": "Function to execute worker with status methods"
-        }
-      },
-      "details": {
-        "what_it_does": "Creates/reuses Web Worker, converts function to worker blob, manages job queue with Promise resolution, supports transferable objects for zero-copy. Falls back to main thread if Worker unsupported or lazy-creates on first call. Cleanup on unmount.",
-        "behavior_notes": [
-          "Lazy worker creation on first call (avoids StrictMode double-mount)",
-          "warmStart option eagerly creates worker on mount",
-          "Auto-detects transferable ArrayBuffers (e.g., TypedArray.buffer)",
-          "Explicit transfer list passed to postMessage if provided",
-          "recreateOnError restarts worker after uncaught errors",
-          "Rejects pending jobs on worker error or cleanup",
-          "isSupported() checks for Worker availability",
-          "isUsingWorker() confirms worker is initialized and ready",
-          "pendingJobs() shows job count in queue"
+    "file_name": "WebWorker.ts",
+    "source": {
+        "file_path": "hooks/WebWorker.ts",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "react",
+            "hooks",
+            "web-worker",
+            "performance"
         ]
-      },
-      "locations": {
-        "source_line_start": 22,
-        "source_line_end": 218,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts#L22-L218",
-        "nx_kb_anchor": "function_use_web_worker"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Simple worker for expensive computation",
-          "code": "import { useWebWorker } from 'hooks';\n\nconst MyComponent = () => {\n  const expensive = (data: number[]) => {\n    return data.reduce((sum, n) => sum + n, 0);\n  };\n  \n  const runWorker = useWebWorker(expensive);\n  \n  const handleClick = async () => {\n    try {\n      const result = await runWorker([1, 2, 3, 4, 5]);\n      console.log('Sum:', result);\n    } catch (error) {\n      console.error('Worker error:', error);\n    }\n  };\n  \n  return <button onClick={handleClick}>Run</button>;\n};"
+    },
+    "summary": {
+        "purpose": "React hook for running expensive computations in Web Workers with lazy initialization, error handling, job queue management, and transparent fallback to main thread.",
+        "problem_solved": "Offloads CPU-intensive work to Web Workers without blocking the UI, with automatic fallback for unsupported browsers or errors, and support for transferable objects for zero-copy data passing."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "react",
+                "kind": "runtime",
+                "why_used": "useCallback, useEffect, useRef hooks",
+                "name": "react"
+            }
+        ],
+        "internal": [
+            {
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/hooks/snapshots/snapshotWorker.ts.json",
+                "why_used": "WrapWorkerOptions type for worker configuration",
+                "import_path": "./snapshots/snapshotWorker",
+                "resolved_file_path": "hooks/snapshots/snapshotWorker.ts",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/snapshots/snapshotWorker.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "WebWorkerFunction",
+            "kind": "type",
+            "line": 4,
+            "description_one_line": "Synchronous or async worker function type.",
+            "symbol_id": "type_web_worker_function"
         },
-        "extensive": {
-          "title": "Worker with error handling, status, and transferables",
-          "code": "import { useWebWorker, UseWebWorkerOptions } from 'hooks';\n\nconst ImageProcessor = () => {\n  const processImage = async (imageData: ImageData) => {\n    // Expensive computation on pixel data\n    const { data } = imageData;\n    for (let i = 0; i < data.length; i += 4) {\n      // Invert colors\n      data[i] = 255 - data[i];\n      data[i+1] = 255 - data[i+1];\n      data[i+2] = 255 - data[i+2];\n    }\n    return imageData;\n  };\n  \n  const options: UseWebWorkerOptions = {\n    debug: true,\n    name: 'ImageProcessor',\n    warmStart: true,\n    onError: (error) => console.error('Worker error:', error)\n  };\n  \n  const runProcessor = useWebWorker(processImage, options);\n  \n  const handleProcess = async (imageData: ImageData) => {\n    if (!runProcessor.isSupported()) {\n      console.warn('Worker not supported');\n      return;\n    }\n    \n    try {\n      // Pass ImageData.data.buffer as transferable for zero-copy\n      const result = await runProcessor(imageData, [imageData.data.buffer]);\n      console.log(`Jobs pending: ${runProcessor.pendingJobs()}`);\n      return result;\n    } catch (error) {\n      console.error(`Error: ${runProcessor.lastError()?.message}`);\n    }\n  };\n  \n  return <button onClick={() => handleProcess(ctx.getImageData(0,0,100,100))}>Process</button>;\n};"
+        {
+            "name": "UseWebWorkerOptions",
+            "kind": "interface",
+            "line": 6,
+            "description_one_line": "Configuration for useWebWorker hook.",
+            "symbol_id": "interface_use_web_worker_options"
+        },
+        {
+            "name": "RunWorkerFunction",
+            "kind": "type",
+            "line": 15,
+            "description_one_line": "Worker execution function with status methods.",
+            "symbol_id": "type_run_worker_function"
+        },
+        {
+            "name": "useWebWorker",
+            "kind": "function",
+            "line": 22,
+            "description_one_line": "Hook to run function in Web Worker.",
+            "symbol_id": "function_use_web_worker"
         }
-      }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "type_web_worker_function",
+            "name": "WebWorkerFunction",
+            "kind": "type",
+            "description_one_line": "Worker computation function type.",
+            "details": {
+                "what_it_does": "Generic function accepting input TInput and returning TOutput or Promise<TOutput>. Can be sync or async.",
+                "type_definition": "type WebWorkerFunction<TInput, TOutput> = (data: TInput) => TOutput | Promise<TOutput>;"
+            },
+            "locations": {
+                "source_line_start": 4,
+                "source_line_end": 4,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts#L4",
+                "nx_kb_anchor": "type_web_worker_function"
+            }
+        },
+        {
+            "symbol_id": "interface_use_web_worker_options",
+            "name": "UseWebWorkerOptions",
+            "kind": "interface",
+            "description_one_line": "Worker configuration options.",
+            "details": {
+                "what_it_does": "debug (logging), name (for debug), onError (error callback), warmStart (create worker eagerly), recreateOnError (restart on failure), options (WrapWorkerOptions for snapshot workers)."
+            },
+            "locations": {
+                "source_line_start": 6,
+                "source_line_end": 13,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts#L6-L13",
+                "nx_kb_anchor": "interface_use_web_worker_options"
+            }
+        },
+        {
+            "symbol_id": "type_run_worker_function",
+            "name": "RunWorkerFunction",
+            "kind": "type",
+            "description_one_line": "Worker execution function with status properties.",
+            "details": {
+                "what_it_does": "Function that runs computation in worker: (data: TInput, transfer?: Transferable[]) => Promise<TOutput>. Also provides isSupported(), isUsingWorker(), pendingJobs(), lastError() methods.",
+                "type_definition": "type RunWorkerFunction<TInput, TOutput> = ((data: TInput, transfer?: Transferable[]) => Promise<TOutput>) & {\n  isSupported: () => boolean;\n  isUsingWorker: () => boolean;\n  pendingJobs: () => number;\n  lastError: () => Error | null;\n};"
+            },
+            "locations": {
+                "source_line_start": 15,
+                "source_line_end": 20,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts#L15-L20",
+                "nx_kb_anchor": "type_run_worker_function"
+            }
+        },
+        {
+            "symbol_id": "function_use_web_worker",
+            "name": "useWebWorker",
+            "kind": "function",
+            "description_one_line": "Run function in Web Worker with fallback.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "fn",
+                        "type": "WebWorkerFunction<TInput, TOutput>",
+                        "required": true,
+                        "description": "Function to run in worker (sync or async)"
+                    },
+                    {
+                        "name": "options",
+                        "type": "UseWebWorkerOptions",
+                        "required": false,
+                        "description": "Configuration (debug, warmStart, onError, etc.)"
+                    }
+                ],
+                "returns": {
+                    "type": "RunWorkerFunction<TInput, TOutput>",
+                    "description": "Function to execute worker with status methods"
+                }
+            },
+            "details": {
+                "what_it_does": "Creates/reuses Web Worker, converts function to worker blob, manages job queue with Promise resolution, supports transferable objects for zero-copy. Falls back to main thread if Worker unsupported or lazy-creates on first call. Cleanup on unmount.",
+                "behavior_notes": [
+                    "Lazy worker creation on first call (avoids StrictMode double-mount)",
+                    "warmStart option eagerly creates worker on mount",
+                    "Auto-detects transferable ArrayBuffers (e.g., TypedArray.buffer)",
+                    "Explicit transfer list passed to postMessage if provided",
+                    "recreateOnError restarts worker after uncaught errors",
+                    "Rejects pending jobs on worker error or cleanup",
+                    "isSupported() checks for Worker availability",
+                    "isUsingWorker() confirms worker is initialized and ready",
+                    "pendingJobs() shows job count in queue"
+                ]
+            },
+            "locations": {
+                "source_line_start": 22,
+                "source_line_end": 218,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/hooks/WebWorker.ts#L22-L218",
+                "nx_kb_anchor": "function_use_web_worker"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Simple worker for expensive computation",
+                    "code": "import { useWebWorker } from 'hooks';\n\nconst MyComponent = () => {\n  const expensive = (data: number[]) => {\n    return data.reduce((sum, n) => sum + n, 0);\n  };\n  \n  const runWorker = useWebWorker(expensive);\n  \n  const handleClick = async () => {\n    try {\n      const result = await runWorker([1, 2, 3, 4, 5]);\n      console.log('Sum:', result);\n    } catch (error) {\n      console.error('Worker error:', error);\n    }\n  };\n  \n  return <button onClick={handleClick}>Run</button>;\n};"
+                },
+                "extensive": {
+                    "title": "Worker with error handling, status, and transferables",
+                    "code": "import { useWebWorker, UseWebWorkerOptions } from 'hooks';\n\nconst ImageProcessor = () => {\n  const processImage = async (imageData: ImageData) => {\n    // Expensive computation on pixel data\n    const { data } = imageData;\n    for (let i = 0; i < data.length; i += 4) {\n      // Invert colors\n      data[i] = 255 - data[i];\n      data[i+1] = 255 - data[i+1];\n      data[i+2] = 255 - data[i+2];\n    }\n    return imageData;\n  };\n  \n  const options: UseWebWorkerOptions = {\n    debug: true,\n    name: 'ImageProcessor',\n    warmStart: true,\n    onError: (error) => console.error('Worker error:', error)\n  };\n  \n  const runProcessor = useWebWorker(processImage, options);\n  \n  const handleProcess = async (imageData: ImageData) => {\n    if (!runProcessor.isSupported()) {\n      console.warn('Worker not supported');\n      return;\n    }\n    \n    try {\n      // Pass ImageData.data.buffer as transferable for zero-copy\n      const result = await runProcessor(imageData, [imageData.data.buffer]);\n      console.log(`Jobs pending: ${runProcessor.pendingJobs()}`);\n      return result;\n    } catch (error) {\n      console.error(`Error: ${runProcessor.lastError()?.message}`);\n    }\n  };\n  \n  return <button onClick={() => handleProcess(ctx.getImageData(0,0,100,100))}>Process</button>;\n};"
+                }
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
     }
-  ],
-  "quality": {"generation_confidence": "high"}
 }

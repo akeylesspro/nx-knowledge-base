@@ -1,492 +1,492 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "index.tsx",
-  "source": {
-    "file_path": "components/forms/index.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T19:30:00.000Z",
-    "language": "tsx",
-    "framework_tags": [
-      "react",
-      "forms",
-      "date-picker"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.tsx",
+    "source": {
+        "file_path": "components/forms/index.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T19:30:00.000Z",
+        "language": "tsx",
+        "framework_tags": [
+            "react",
+            "forms",
+            "date-picker"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/index.tsx.json"
+    },
+    "summary": {
+        "purpose": "Barrel export file for the forms module providing re-exports of ModularForm and its related components, plus three additional form components: ConfirmForm for confirmation dialogs, DatePicker for basic HTML date range selection, and DatePicker2 for accessible calendar-based date range selection using react-aria-components.",
+        "problem_solved": "Centralizes form exports for easier importing. Provides specialized form components including a confirmation dialog with customizable buttons/callbacks, a lightweight HTML5 date range picker, and an enhanced calendar-based date picker with popover support, accessibility features, and keyboard navigation."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "react",
+                "kind": "runtime",
+                "why_used": "Core hooks (useState) for loading state management in DatePicker and DatePicker2."
+            },
+            {
+                "name": "moment",
+                "kind": "runtime",
+                "why_used": "Date formatting utility to generate default date values in YYYY-MM-DD format for HTML date inputs."
+            },
+            {
+                "name": "lucide-react",
+                "kind": "runtime",
+                "why_used": "CalendarIcon for calendar trigger buttons in DatePicker2."
+            },
+            {
+                "name": "react-aria-components",
+                "kind": "runtime",
+                "why_used": "Accessible date picker primitives (DatePicker, Dialog, Group, Label, Popover, Button, I18nProvider) for DatePicker2 accessibility and internationalization."
+            },
+            {
+                "name": "@internationalized/date",
+                "kind": "runtime",
+                "why_used": "Date parsing and timezone utilities (parseDate, today, getLocalTimeZone) for converting string dates to DateValue objects in DatePicker2."
+            }
+        ],
+        "internal": [
+            {
+                "import_path": "./ModularForm",
+                "resolved_file_path": "components/forms/ModularForm/index.tsx",
+                "why_used": "Barrel re-exports ModularForm component and all related form elements and utilities.",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/index.tsx.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/index.tsx"
+            },
+            {
+                "import_path": "@/assets",
+                "resolved_file_path": "assets/index.tsx",
+                "why_used": "GreenVSvg and RedXSvg icons for ConfirmForm button elements (default checkmark and X icons).",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.tsx.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx"
+            },
+            {
+                "import_path": "@/components/utils",
+                "resolved_file_path": "components/utils/index.ts",
+                "why_used": "Loader component for loading state display during form submission in DatePicker and DatePicker2.",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.ts"
+            },
+            {
+                "import_path": "@/types",
+                "resolved_file_path": "types/interfaces/forms.ts",
+                "why_used": "Type definitions for ConfirmFormProps and DatePickerProps interfaces.",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/interfaces/forms.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts"
+            },
+            {
+                "import_path": "@/lib/utils",
+                "resolved_file_path": "lib/utils.ts",
+                "why_used": "cn utility for conditional CSS class merging in all components.",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
+            },
+            {
+                "import_path": "@/components/ui/calendar-rac",
+                "resolved_file_path": "components/ui/calendar-rac.tsx",
+                "why_used": "Calendar component for popover date selection in DatePicker2.",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/calendar-rac.tsx.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx"
+            },
+            {
+                "import_path": "@/components/ui/datefield-rac",
+                "resolved_file_path": "components/ui/datefield-rac.tsx",
+                "why_used": "DateInput component wrapper from react-aria-components for accessible date text entry in DatePicker2.",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/datefield-rac.tsx.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/datefield-rac.tsx"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "* from ModularForm",
+            "kind": "value",
+            "description_one_line": "Re-exports all ModularForm exports including ModularForm component, formElements, and InternationalPhonePicker.",
+            "symbol_id": "ModularForm_exports"
+        },
+        {
+            "name": "ConfirmForm",
+            "kind": "component",
+            "description_one_line": "Confirmation dialog with customizable headline and confirm/cancel button elements.",
+            "symbol_id": "ConfirmForm"
+        },
+        {
+            "name": "DatePicker",
+            "kind": "component",
+            "description_one_line": "Simple HTML5 date range picker with from/to date inputs and submit button.",
+            "symbol_id": "DatePicker"
+        },
+        {
+            "name": "DatePicker2",
+            "kind": "component",
+            "description_one_line": "Accessible calendar-based date range picker using react-aria-components with popover support.",
+            "symbol_id": "DatePicker2"
+        }
     ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/index.tsx.json"
-  },
-  "summary": {
-    "purpose": "Barrel export file for the forms module providing re-exports of ModularForm and its related components, plus three additional form components: ConfirmForm for confirmation dialogs, DatePicker for basic HTML date range selection, and DatePicker2 for accessible calendar-based date range selection using react-aria-components.",
-    "problem_solved": "Centralizes form exports for easier importing. Provides specialized form components including a confirmation dialog with customizable buttons/callbacks, a lightweight HTML5 date range picker, and an enhanced calendar-based date picker with popover support, accessibility features, and keyboard navigation."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "react",
-        "kind": "runtime",
-        "why_used": "Core hooks (useState) for loading state management in DatePicker and DatePicker2."
-      },
-      {
-        "name": "moment",
-        "kind": "runtime",
-        "why_used": "Date formatting utility to generate default date values in YYYY-MM-DD format for HTML date inputs."
-      },
-      {
-        "name": "lucide-react",
-        "kind": "runtime",
-        "why_used": "CalendarIcon for calendar trigger buttons in DatePicker2."
-      },
-      {
-        "name": "react-aria-components",
-        "kind": "runtime",
-        "why_used": "Accessible date picker primitives (DatePicker, Dialog, Group, Label, Popover, Button, I18nProvider) for DatePicker2 accessibility and internationalization."
-      },
-      {
-        "name": "@internationalized/date",
-        "kind": "runtime",
-        "why_used": "Date parsing and timezone utilities (parseDate, today, getLocalTimeZone) for converting string dates to DateValue objects in DatePicker2."
-      }
+    "symbols": [
+        {
+            "symbol_id": "ConfirmForm",
+            "name": "ConfirmForm",
+            "kind": "component",
+            "description_one_line": "Confirmation dialog with customizable headline, buttons, and callback handlers.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "onV",
+                        "type": "() => Promise<void> | void",
+                        "required": true,
+                        "description": "Callback fired when confirm button is clicked. Can be async for loading state support."
+                    },
+                    {
+                        "name": "onX",
+                        "type": "() => Promise<void> | void",
+                        "required": true,
+                        "description": "Callback fired when cancel button is clicked. Can be async for loading state support."
+                    },
+                    {
+                        "name": "headline",
+                        "type": "string",
+                        "required": false,
+                        "description": "Confirmation message displayed at the top of the dialog. Defaults to empty string."
+                    },
+                    {
+                        "name": "direction",
+                        "type": "Direction",
+                        "required": false,
+                        "description": "Text direction ('rtl' or 'ltr'). Defaults to 'rtl' (right-to-left)."
+                    },
+                    {
+                        "name": "containerClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for the outer container. Default provides flex column layout with gaps."
+                    },
+                    {
+                        "name": "headlineClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for the headline text. Default provides large bold text."
+                    },
+                    {
+                        "name": "buttonsContainerClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for the buttons container. Default centers buttons horizontally with gap."
+                    },
+                    {
+                        "name": "confirmButtonClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for the confirm button. Default provides opacity and disabled cursor styling."
+                    },
+                    {
+                        "name": "cancelButtonClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for the cancel button. Default provides opacity and disabled cursor styling."
+                    },
+                    {
+                        "name": "confirmButtonProps",
+                        "type": "ComponentProps<'button'>",
+                        "required": false,
+                        "description": "Additional HTML button attributes passed to confirm button."
+                    },
+                    {
+                        "name": "cancelButtonProps",
+                        "type": "ComponentProps<'button'>",
+                        "required": false,
+                        "description": "Additional HTML button attributes passed to cancel button."
+                    },
+                    {
+                        "name": "confirmElement",
+                        "type": "ReactNode",
+                        "required": false,
+                        "description": "Custom React element for confirm button. Defaults to GreenVSvg (checkmark icon)."
+                    },
+                    {
+                        "name": "cancelElement",
+                        "type": "ReactNode",
+                        "required": false,
+                        "description": "Custom React element for cancel button. Defaults to RedXSvg (X icon)."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "Confirmation dialog with headline and two buttons."
+                }
+            },
+            "details": {
+                "what_it_does": "Renders a modal-like confirmation dialog container with a headline at the top, followed by two buttons (confirm and cancel) centered below. The confirm button triggers onV callback, the cancel button triggers onX callback. Both buttons have default icons (green checkmark, red X) but can be customized via confirmElement and cancelElement props. The dialog always has padding and respects the direction prop for RTL layouts.",
+                "rendered_ui_description": "Vertical container with 30px padding containing bold headline text at top, followed by centered horizontal button area with two interactive buttons separated by a small gap. Buttons have default styling with opacity and disabled state cursor handling."
+            },
+            "locations": {
+                "source_line_start": 16,
+                "source_line_end": 45,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L16-L45",
+                "nx_kb_anchor": "#ConfirmForm"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic confirmation dialog with callbacks",
+                    "code": "import { ConfirmForm } from '@/components/forms';\n\nconst DeleteConfirm = () => {\n  const handleDelete = async () => {\n    await fetch('/api/delete', { method: 'DELETE' });\n  };\n\n  const handleCancel = () => {\n    console.log('Cancelled');\n  };\n\n  return (\n    <ConfirmForm\n      headline=\"Are you sure you want to delete?\"\n      onV={handleDelete}\n      onX={handleCancel}\n    />\n  );\n};"
+                },
+                "extensive_correct": {
+                    "title": "Fully customized confirmation dialog",
+                    "code": "import { ConfirmForm } from '@/components/forms';\nimport { Trash2, XCircle } from 'lucide-react';\n\nconst CustomConfirmDialog = () => {\n  return (\n    <ConfirmForm\n      headline=\"Delete this record permanently?\"\n      onV={async () => {\n        console.log('Deleting...');\n        await new Promise(r => setTimeout(r, 1000));\n        console.log('Deleted!');\n      }}\n      onX={() => alert('Cancelled')}\n      direction=\"ltr\"\n      containerClassName=\"bg-red-50 border-2 border-red-300 rounded-lg\"\n      headlineClassName=\"text-red-700 text-xl font-bold\"\n      confirmElement={<Trash2 size={24} className=\"text-red-600\" />}\n      cancelElement={<XCircle size={24} className=\"text-gray-600\" />}\n      confirmButtonClassName=\"bg-red-600 hover:bg-red-700 p-2 rounded\"\n      cancelButtonClassName=\"bg-gray-400 hover:bg-gray-500 p-2 rounded\"\n    />\n  );\n};"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Not providing required callbacks",
+                    "code": "// Problem: onV and onX are required but not provided\n<ConfirmForm\n  headline=\"Confirm action\"\n  // Missing onV and onX callbacks!\n/>\n// Result: TypeScript error - missing required props",
+                    "why_incorrect": "ConfirmForm requires both onV (confirm) and onX (cancel) callbacks. Always provide these callbacks to handle user interactions."
+                }
+            }
+        },
+        {
+            "symbol_id": "DatePicker",
+            "name": "DatePicker",
+            "kind": "component",
+            "description_one_line": "Simple HTML5-based date range picker with from/to date inputs and submit button.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "submit",
+                        "type": "(form: React.FormEvent<HTMLFormElement>) => Promise<void>",
+                        "required": false,
+                        "description": "Async callback fired when form is submitted. Receives form event. Can be used to validate and send date range to server. Defaults to empty async function."
+                    },
+                    {
+                        "name": "formClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for the form element. Default provides flex row layout with gaps and center alignment."
+                    },
+                    {
+                        "name": "labelsClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes applied to both label elements."
+                    },
+                    {
+                        "name": "inputsClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes applied to both date input fields."
+                    },
+                    {
+                        "name": "buttonClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for the submit button. Default provides green background, white text, fixed width and height."
+                    },
+                    {
+                        "name": "buttonStyle",
+                        "type": "React.CSSProperties",
+                        "required": false,
+                        "description": "Inline CSS styles for the submit button."
+                    },
+                    {
+                        "name": "defaultFrom",
+                        "type": "string",
+                        "required": false,
+                        "description": "Default value for 'from' date input in YYYY-MM-DD format. Defaults to today's date."
+                    },
+                    {
+                        "name": "defaultTo",
+                        "type": "string",
+                        "required": false,
+                        "description": "Default value for 'to' date input in YYYY-MM-DD format. Defaults to today's date."
+                    },
+                    {
+                        "name": "direction",
+                        "type": "Direction",
+                        "required": false,
+                        "description": "Text direction ('rtl' or 'ltr'). Defaults to 'rtl' (right-to-left)."
+                    },
+                    {
+                        "name": "fromText",
+                        "type": "string",
+                        "required": false,
+                        "description": "Label text for the 'from' date input. Defaults to 'From date'."
+                    },
+                    {
+                        "name": "toText",
+                        "type": "string",
+                        "required": false,
+                        "description": "Label text for the 'to' date input. Defaults to 'To date'."
+                    },
+                    {
+                        "name": "buttonText",
+                        "type": "string",
+                        "required": false,
+                        "description": "Text displayed in submit button. Defaults to 'Search'. Replaced with Loader spinner during submission."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "Inline form with two date inputs and submit button."
+                }
+            },
+            "details": {
+                "what_it_does": "Renders a lightweight date range picker form using native HTML5 date inputs (type='date'). Form contains two inline labels with associated date input fields and a submit button. On submission, prevents default, shows loading state, calls submit callback, then hides loading state. Form values are accessible via FormData or by name attributes ('from' and 'to'). Uses moment.js to generate default date values in YYYY-MM-DD format."
+            },
+            "locations": {
+                "source_line_start": 47,
+                "source_line_end": 102,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L47-L102",
+                "nx_kb_anchor": "#DatePicker"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic date range picker",
+                    "code": "import { DatePicker } from '@/components/forms';\n\nconst SearchForm = () => (\n  <DatePicker\n    submit={async (e) => {\n      const formData = new FormData(e.currentTarget);\n      const from = formData.get('from');\n      const to = formData.get('to');\n      console.log('Search from', from, 'to', to);\n    }}\n  />\n);"
+                },
+                "extensive_correct": {
+                    "title": "Customized date picker with styling",
+                    "code": "import { DatePicker } from '@/components/forms';\n\nconst CustomDatePicker = () => (\n  <DatePicker\n    fromText=\"Start Date\"\n    toText=\"End Date\"\n    buttonText=\"Filter\"\n    direction=\"ltr\"\n    defaultFrom=\"2025-01-01\"\n    defaultTo=\"2025-12-31\"\n    formClassName=\"bg-gray-100 p-4 rounded-lg\"\n    inputsClassName=\"border-blue-500\"\n    buttonClassName=\"bg-blue-600 hover:bg-blue-700\"\n    submit={async (e) => {\n      const formData = new FormData(e.currentTarget);\n      const response = await fetch('/api/search', {\n        method: 'POST',\n        body: formData\n      });\n      const results = await response.json();\n      console.log('Results:', results);\n    }}\n  />\n);"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Using async submit without error handling",
+                    "code": "// Problem: submit error could be silently ignored\n<DatePicker\n  submit={async (e) => {\n    const formData = new FormData(e.currentTarget);\n    // If this fails, user won't know!\n    await fetch('/api/search', { method: 'POST', body: formData });\n  }}\n/>\n// Result: Network errors cause silent failures",
+                    "why_incorrect": "Always handle errors in submit callbacks. Use try/catch or .catch() to handle failures and inform the user."
+                }
+            }
+        },
+        {
+            "symbol_id": "DatePicker2",
+            "name": "DatePicker2",
+            "kind": "component",
+            "description_one_line": "Accessible calendar-based date range picker with popover selection using react-aria-components.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "submit",
+                        "type": "(form: React.FormEvent<HTMLFormElement>) => Promise<void>",
+                        "required": false,
+                        "description": "Async callback fired on form submission. Receives form event. Defaults to empty async function."
+                    },
+                    {
+                        "name": "formClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for the form element. Default provides flex row layout."
+                    },
+                    {
+                        "name": "labelsClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes applied to label elements."
+                    },
+                    {
+                        "name": "inputsClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes applied to date input fields within calendar icon group."
+                    },
+                    {
+                        "name": "buttonClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for submit button."
+                    },
+                    {
+                        "name": "calendarClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for the calendar component. Default is white background."
+                    },
+                    {
+                        "name": "selectedDayClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for the selected day cell in calendar."
+                    },
+                    {
+                        "name": "todayDayClassName",
+                        "type": "string",
+                        "required": false,
+                        "description": "CSS classes for today's date cell in calendar."
+                    },
+                    {
+                        "name": "buttonStyle",
+                        "type": "React.CSSProperties",
+                        "required": false,
+                        "description": "Inline CSS styles for submit button."
+                    },
+                    {
+                        "name": "defaultFrom",
+                        "type": "string",
+                        "required": false,
+                        "description": "Default 'from' date in YYYY-MM-DD format. Defaults to today."
+                    },
+                    {
+                        "name": "defaultTo",
+                        "type": "string",
+                        "required": false,
+                        "description": "Default 'to' date in YYYY-MM-DD format. Defaults to today."
+                    },
+                    {
+                        "name": "direction",
+                        "type": "Direction",
+                        "required": false,
+                        "description": "Text direction ('rtl' or 'ltr'). Defaults to 'rtl'."
+                    },
+                    {
+                        "name": "fromText",
+                        "type": "string",
+                        "required": false,
+                        "description": "Label for from date picker. Defaults to 'From date'."
+                    },
+                    {
+                        "name": "toText",
+                        "type": "string",
+                        "required": false,
+                        "description": "Label for to date picker. Defaults to 'To date'."
+                    },
+                    {
+                        "name": "buttonText",
+                        "type": "string",
+                        "required": false,
+                        "description": "Submit button text. Defaults to 'Search'."
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "Inline form with two calendar-based date pickers and submit button."
+                }
+            },
+            "details": {
+                "what_it_does": "Renders an accessible date range picker form using react-aria-components DatePicker primitives. Features two calendar-based date selectors (from and to dates) with calendar popover UI for visual date selection. Each date picker shows a text input field with a calendar icon button that opens a popover with a full month calendar view. Date selection automatically updates the input field. Wrapped in I18nProvider with en-GB locale. Supports keyboard navigation, arrow keys for date navigation, and accessibility best practices. On form submit, calls submit callback with loading state management.",
+                "rendered_ui_description": "Inline form containing two date picker sections side-by-side (or stacked based on form layout). Each section has a label and a date input field with an integrated calendar icon button. Clicking the icon opens a popover calendar below the input showing the current month with today highlighted and selected date emphasized. Calendar has accessible keyboard navigation."
+            },
+            "locations": {
+                "source_line_start": 104,
+                "source_line_end": 209,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L104-L209",
+                "nx_kb_anchor": "#DatePicker2"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic calendar date range picker",
+                    "code": "import { DatePicker2 } from '@/components/forms';\n\nconst ReportFilter = () => (\n  <DatePicker2\n    submit={async (e) => {\n      const formData = new FormData(e.currentTarget);\n      const from = formData.get('from');\n      const to = formData.get('to');\n      console.log('Report period:', from, 'to', to);\n    }}\n  />\n);"
+                },
+                "extensive_correct": {
+                    "title": "Fully styled calendar picker with custom styling",
+                    "code": "import { DatePicker2 } from '@/components/forms';\n\nconst AnalyticsDashboard = () => (\n  <DatePicker2\n    fromText=\"Report Start\"\n    toText=\"Report End\"\n    buttonText=\"Generate Report\"\n    direction=\"ltr\"\n    defaultFrom=\"2025-01-01\"\n    defaultTo=\"2025-01-31\"\n    formClassName=\"bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-sm\"\n    labelsClassName=\"font-semibold text-blue-900\"\n    calendarClassName=\"bg-white border-blue-200\"\n    selectedDayClassName=\"bg-blue-600 text-white rounded\"\n    todayDayClassName=\"border-2 border-blue-400\"\n    buttonClassName=\"bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold\"\n    submit={async (e) => {\n      const formData = new FormData(e.currentTarget);\n      const startDate = formData.get('from');\n      const endDate = formData.get('to');\n      const response = await fetch('/api/reports/generate', {\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify({ startDate, endDate })\n      });\n      const report = await response.json();\n      console.log('Report generated:', report);\n    }}\n  />\n);"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Trying to access form values without proper extraction",
+                    "code": "// Problem: improper form data handling\n<DatePicker2\n  submit={async (e) => {\n    // Won't work! Form structure doesn't expose values this way\n    const { from, to } = e.currentTarget;\n    console.log(from, to);\n  }}\n/>\n// Result: TypeError - form elements aren't directly destructurable",
+                    "why_incorrect": "DatePicker2 uses react-aria-components DatePicker which has its own internal state. Extract values via FormData API: new FormData(e.currentTarget).get('from') and .get('to')."
+                }
+            }
+        }
     ],
-    "internal": [
-      {
-        "import_path": "./ModularForm",
-        "resolved_file_path": "components/forms/ModularForm/index.tsx",
-        "why_used": "Barrel re-exports ModularForm component and all related form elements and utilities.",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/forms/ModularForm/index.tsx.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/ModularForm/index.tsx"
-      },
-      {
-        "import_path": "@/assets",
-        "resolved_file_path": "assets/index.tsx",
-        "why_used": "GreenVSvg and RedXSvg icons for ConfirmForm button elements (default checkmark and X icons).",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/assets/index.tsx.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/assets/index.tsx"
-      },
-      {
-        "import_path": "@/components/utils",
-        "resolved_file_path": "components/utils/index.ts",
-        "why_used": "Loader component for loading state display during form submission in DatePicker and DatePicker2.",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/index.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/index.ts"
-      },
-      {
-        "import_path": "@/types",
-        "resolved_file_path": "types/interfaces/forms.ts",
-        "why_used": "Type definitions for ConfirmFormProps and DatePickerProps interfaces.",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/types/interfaces/forms.ts.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/types/interfaces/forms.ts"
-      },
-      {
-        "import_path": "@/lib/utils",
-        "resolved_file_path": "lib/utils.ts",
-        "why_used": "cn utility for conditional CSS class merging in all components.",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
-      },
-      {
-        "import_path": "@/components/ui/calendar-rac",
-        "resolved_file_path": "components/ui/calendar-rac.tsx",
-        "why_used": "Calendar component for popover date selection in DatePicker2.",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/calendar-rac.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/calendar-rac.tsx"
-      },
-      {
-        "import_path": "@/components/ui/datefield-rac",
-        "resolved_file_path": "components/ui/datefield-rac.tsx",
-        "why_used": "DateInput component wrapper from react-aria-components for accessible date text entry in DatePicker2.",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/datefield-rac.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/datefield-rac.tsx"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "* from ModularForm",
-      "kind": "value",
-      "description_one_line": "Re-exports all ModularForm exports including ModularForm component, formElements, and InternationalPhonePicker.",
-      "symbol_id": "ModularForm_exports"
-    },
-    {
-      "name": "ConfirmForm",
-      "kind": "component",
-      "description_one_line": "Confirmation dialog with customizable headline and confirm/cancel button elements.",
-      "symbol_id": "ConfirmForm"
-    },
-    {
-      "name": "DatePicker",
-      "kind": "component",
-      "description_one_line": "Simple HTML5 date range picker with from/to date inputs and submit button.",
-      "symbol_id": "DatePicker"
-    },
-    {
-      "name": "DatePicker2",
-      "kind": "component",
-      "description_one_line": "Accessible calendar-based date range picker using react-aria-components with popover support.",
-      "symbol_id": "DatePicker2"
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "ConfirmForm",
-      "name": "ConfirmForm",
-      "kind": "component",
-      "description_one_line": "Confirmation dialog with customizable headline, buttons, and callback handlers.",
-      "signature": {
-        "params": [
-          {
-            "name": "onV",
-            "type": "() => Promise<void> | void",
-            "required": true,
-            "description": "Callback fired when confirm button is clicked. Can be async for loading state support."
-          },
-          {
-            "name": "onX",
-            "type": "() => Promise<void> | void",
-            "required": true,
-            "description": "Callback fired when cancel button is clicked. Can be async for loading state support."
-          },
-          {
-            "name": "headline",
-            "type": "string",
-            "required": false,
-            "description": "Confirmation message displayed at the top of the dialog. Defaults to empty string."
-          },
-          {
-            "name": "direction",
-            "type": "Direction",
-            "required": false,
-            "description": "Text direction ('rtl' or 'ltr'). Defaults to 'rtl' (right-to-left)."
-          },
-          {
-            "name": "containerClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for the outer container. Default provides flex column layout with gaps."
-          },
-          {
-            "name": "headlineClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for the headline text. Default provides large bold text."
-          },
-          {
-            "name": "buttonsContainerClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for the buttons container. Default centers buttons horizontally with gap."
-          },
-          {
-            "name": "confirmButtonClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for the confirm button. Default provides opacity and disabled cursor styling."
-          },
-          {
-            "name": "cancelButtonClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for the cancel button. Default provides opacity and disabled cursor styling."
-          },
-          {
-            "name": "confirmButtonProps",
-            "type": "ComponentProps<'button'>",
-            "required": false,
-            "description": "Additional HTML button attributes passed to confirm button."
-          },
-          {
-            "name": "cancelButtonProps",
-            "type": "ComponentProps<'button'>",
-            "required": false,
-            "description": "Additional HTML button attributes passed to cancel button."
-          },
-          {
-            "name": "confirmElement",
-            "type": "ReactNode",
-            "required": false,
-            "description": "Custom React element for confirm button. Defaults to GreenVSvg (checkmark icon)."
-          },
-          {
-            "name": "cancelElement",
-            "type": "ReactNode",
-            "required": false,
-            "description": "Custom React element for cancel button. Defaults to RedXSvg (X icon)."
-          }
-        ],
-        "returns": {
-          "type": "JSX.Element",
-          "description": "Confirmation dialog with headline and two buttons."
-        }
-      },
-      "details": {
-        "what_it_does": "Renders a modal-like confirmation dialog container with a headline at the top, followed by two buttons (confirm and cancel) centered below. The confirm button triggers onV callback, the cancel button triggers onX callback. Both buttons have default icons (green checkmark, red X) but can be customized via confirmElement and cancelElement props. The dialog always has padding and respects the direction prop for RTL layouts.",
-        "rendered_ui_description": "Vertical container with 30px padding containing bold headline text at top, followed by centered horizontal button area with two interactive buttons separated by a small gap. Buttons have default styling with opacity and disabled state cursor handling."
-      },
-      "locations": {
-        "source_line_start": 16,
-        "source_line_end": 45,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L16-L45",
-        "nx_kb_anchor": "#ConfirmForm"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic confirmation dialog with callbacks",
-          "code": "import { ConfirmForm } from '@/components/forms';\n\nconst DeleteConfirm = () => {\n  const handleDelete = async () => {\n    await fetch('/api/delete', { method: 'DELETE' });\n  };\n\n  const handleCancel = () => {\n    console.log('Cancelled');\n  };\n\n  return (\n    <ConfirmForm\n      headline=\"Are you sure you want to delete?\"\n      onV={handleDelete}\n      onX={handleCancel}\n    />\n  );\n};"
-        },
-        "extensive_correct": {
-          "title": "Fully customized confirmation dialog",
-          "code": "import { ConfirmForm } from '@/components/forms';\nimport { Trash2, XCircle } from 'lucide-react';\n\nconst CustomConfirmDialog = () => {\n  return (\n    <ConfirmForm\n      headline=\"Delete this record permanently?\"\n      onV={async () => {\n        console.log('Deleting...');\n        await new Promise(r => setTimeout(r, 1000));\n        console.log('Deleted!');\n      }}\n      onX={() => alert('Cancelled')}\n      direction=\"ltr\"\n      containerClassName=\"bg-red-50 border-2 border-red-300 rounded-lg\"\n      headlineClassName=\"text-red-700 text-xl font-bold\"\n      confirmElement={<Trash2 size={24} className=\"text-red-600\" />}\n      cancelElement={<XCircle size={24} className=\"text-gray-600\" />}\n      confirmButtonClassName=\"bg-red-600 hover:bg-red-700 p-2 rounded\"\n      cancelButtonClassName=\"bg-gray-400 hover:bg-gray-500 p-2 rounded\"\n    />\n  );\n};"
-        },
-        "incorrect": {
-          "title": "Incorrect: Not providing required callbacks",
-          "code": "// Problem: onV and onX are required but not provided\n<ConfirmForm\n  headline=\"Confirm action\"\n  // Missing onV and onX callbacks!\n/>\n// Result: TypeScript error - missing required props",
-          "why_incorrect": "ConfirmForm requires both onV (confirm) and onX (cancel) callbacks. Always provide these callbacks to handle user interactions."
-        }
-      }
-    },
-    {
-      "symbol_id": "DatePicker",
-      "name": "DatePicker",
-      "kind": "component",
-      "description_one_line": "Simple HTML5-based date range picker with from/to date inputs and submit button.",
-      "signature": {
-        "params": [
-          {
-            "name": "submit",
-            "type": "(form: React.FormEvent<HTMLFormElement>) => Promise<void>",
-            "required": false,
-            "description": "Async callback fired when form is submitted. Receives form event. Can be used to validate and send date range to server. Defaults to empty async function."
-          },
-          {
-            "name": "formClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for the form element. Default provides flex row layout with gaps and center alignment."
-          },
-          {
-            "name": "labelsClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes applied to both label elements."
-          },
-          {
-            "name": "inputsClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes applied to both date input fields."
-          },
-          {
-            "name": "buttonClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for the submit button. Default provides green background, white text, fixed width and height."
-          },
-          {
-            "name": "buttonStyle",
-            "type": "React.CSSProperties",
-            "required": false,
-            "description": "Inline CSS styles for the submit button."
-          },
-          {
-            "name": "defaultFrom",
-            "type": "string",
-            "required": false,
-            "description": "Default value for 'from' date input in YYYY-MM-DD format. Defaults to today's date."
-          },
-          {
-            "name": "defaultTo",
-            "type": "string",
-            "required": false,
-            "description": "Default value for 'to' date input in YYYY-MM-DD format. Defaults to today's date."
-          },
-          {
-            "name": "direction",
-            "type": "Direction",
-            "required": false,
-            "description": "Text direction ('rtl' or 'ltr'). Defaults to 'rtl' (right-to-left)."
-          },
-          {
-            "name": "fromText",
-            "type": "string",
-            "required": false,
-            "description": "Label text for the 'from' date input. Defaults to 'From date'."
-          },
-          {
-            "name": "toText",
-            "type": "string",
-            "required": false,
-            "description": "Label text for the 'to' date input. Defaults to 'To date'."
-          },
-          {
-            "name": "buttonText",
-            "type": "string",
-            "required": false,
-            "description": "Text displayed in submit button. Defaults to 'Search'. Replaced with Loader spinner during submission."
-          }
-        ],
-        "returns": {
-          "type": "JSX.Element",
-          "description": "Inline form with two date inputs and submit button."
-        }
-      },
-      "details": {
-        "what_it_does": "Renders a lightweight date range picker form using native HTML5 date inputs (type='date'). Form contains two inline labels with associated date input fields and a submit button. On submission, prevents default, shows loading state, calls submit callback, then hides loading state. Form values are accessible via FormData or by name attributes ('from' and 'to'). Uses moment.js to generate default date values in YYYY-MM-DD format."
-      },
-      "locations": {
-        "source_line_start": 47,
-        "source_line_end": 102,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L47-L102",
-        "nx_kb_anchor": "#DatePicker"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic date range picker",
-          "code": "import { DatePicker } from '@/components/forms';\n\nconst SearchForm = () => (\n  <DatePicker\n    submit={async (e) => {\n      const formData = new FormData(e.currentTarget);\n      const from = formData.get('from');\n      const to = formData.get('to');\n      console.log('Search from', from, 'to', to);\n    }}\n  />\n);"
-        },
-        "extensive_correct": {
-          "title": "Customized date picker with styling",
-          "code": "import { DatePicker } from '@/components/forms';\n\nconst CustomDatePicker = () => (\n  <DatePicker\n    fromText=\"Start Date\"\n    toText=\"End Date\"\n    buttonText=\"Filter\"\n    direction=\"ltr\"\n    defaultFrom=\"2025-01-01\"\n    defaultTo=\"2025-12-31\"\n    formClassName=\"bg-gray-100 p-4 rounded-lg\"\n    inputsClassName=\"border-blue-500\"\n    buttonClassName=\"bg-blue-600 hover:bg-blue-700\"\n    submit={async (e) => {\n      const formData = new FormData(e.currentTarget);\n      const response = await fetch('/api/search', {\n        method: 'POST',\n        body: formData\n      });\n      const results = await response.json();\n      console.log('Results:', results);\n    }}\n  />\n);"
-        },
-        "incorrect": {
-          "title": "Incorrect: Using async submit without error handling",
-          "code": "// Problem: submit error could be silently ignored\n<DatePicker\n  submit={async (e) => {\n    const formData = new FormData(e.currentTarget);\n    // If this fails, user won't know!\n    await fetch('/api/search', { method: 'POST', body: formData });\n  }}\n/>\n// Result: Network errors cause silent failures",
-          "why_incorrect": "Always handle errors in submit callbacks. Use try/catch or .catch() to handle failures and inform the user."
-        }
-      }
-    },
-    {
-      "symbol_id": "DatePicker2",
-      "name": "DatePicker2",
-      "kind": "component",
-      "description_one_line": "Accessible calendar-based date range picker with popover selection using react-aria-components.",
-      "signature": {
-        "params": [
-          {
-            "name": "submit",
-            "type": "(form: React.FormEvent<HTMLFormElement>) => Promise<void>",
-            "required": false,
-            "description": "Async callback fired on form submission. Receives form event. Defaults to empty async function."
-          },
-          {
-            "name": "formClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for the form element. Default provides flex row layout."
-          },
-          {
-            "name": "labelsClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes applied to label elements."
-          },
-          {
-            "name": "inputsClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes applied to date input fields within calendar icon group."
-          },
-          {
-            "name": "buttonClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for submit button."
-          },
-          {
-            "name": "calendarClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for the calendar component. Default is white background."
-          },
-          {
-            "name": "selectedDayClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for the selected day cell in calendar."
-          },
-          {
-            "name": "todayDayClassName",
-            "type": "string",
-            "required": false,
-            "description": "CSS classes for today's date cell in calendar."
-          },
-          {
-            "name": "buttonStyle",
-            "type": "React.CSSProperties",
-            "required": false,
-            "description": "Inline CSS styles for submit button."
-          },
-          {
-            "name": "defaultFrom",
-            "type": "string",
-            "required": false,
-            "description": "Default 'from' date in YYYY-MM-DD format. Defaults to today."
-          },
-          {
-            "name": "defaultTo",
-            "type": "string",
-            "required": false,
-            "description": "Default 'to' date in YYYY-MM-DD format. Defaults to today."
-          },
-          {
-            "name": "direction",
-            "type": "Direction",
-            "required": false,
-            "description": "Text direction ('rtl' or 'ltr'). Defaults to 'rtl'."
-          },
-          {
-            "name": "fromText",
-            "type": "string",
-            "required": false,
-            "description": "Label for from date picker. Defaults to 'From date'."
-          },
-          {
-            "name": "toText",
-            "type": "string",
-            "required": false,
-            "description": "Label for to date picker. Defaults to 'To date'."
-          },
-          {
-            "name": "buttonText",
-            "type": "string",
-            "required": false,
-            "description": "Submit button text. Defaults to 'Search'."
-          }
-        ],
-        "returns": {
-          "type": "JSX.Element",
-          "description": "Inline form with two calendar-based date pickers and submit button."
-        }
-      },
-      "details": {
-        "what_it_does": "Renders an accessible date range picker form using react-aria-components DatePicker primitives. Features two calendar-based date selectors (from and to dates) with calendar popover UI for visual date selection. Each date picker shows a text input field with a calendar icon button that opens a popover with a full month calendar view. Date selection automatically updates the input field. Wrapped in I18nProvider with en-GB locale. Supports keyboard navigation, arrow keys for date navigation, and accessibility best practices. On form submit, calls submit callback with loading state management.",
-        "rendered_ui_description": "Inline form containing two date picker sections side-by-side (or stacked based on form layout). Each section has a label and a date input field with an integrated calendar icon button. Clicking the icon opens a popover calendar below the input showing the current month with today highlighted and selected date emphasized. Calendar has accessible keyboard navigation."
-      },
-      "locations": {
-        "source_line_start": 104,
-        "source_line_end": 209,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/forms/index.tsx#L104-L209",
-        "nx_kb_anchor": "#DatePicker2"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic calendar date range picker",
-          "code": "import { DatePicker2 } from '@/components/forms';\n\nconst ReportFilter = () => (\n  <DatePicker2\n    submit={async (e) => {\n      const formData = new FormData(e.currentTarget);\n      const from = formData.get('from');\n      const to = formData.get('to');\n      console.log('Report period:', from, 'to', to);\n    }}\n  />\n);"
-        },
-        "extensive_correct": {
-          "title": "Fully styled calendar picker with custom styling",
-          "code": "import { DatePicker2 } from '@/components/forms';\n\nconst AnalyticsDashboard = () => (\n  <DatePicker2\n    fromText=\"Report Start\"\n    toText=\"Report End\"\n    buttonText=\"Generate Report\"\n    direction=\"ltr\"\n    defaultFrom=\"2025-01-01\"\n    defaultTo=\"2025-01-31\"\n    formClassName=\"bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl shadow-sm\"\n    labelsClassName=\"font-semibold text-blue-900\"\n    calendarClassName=\"bg-white border-blue-200\"\n    selectedDayClassName=\"bg-blue-600 text-white rounded\"\n    todayDayClassName=\"border-2 border-blue-400\"\n    buttonClassName=\"bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold\"\n    submit={async (e) => {\n      const formData = new FormData(e.currentTarget);\n      const startDate = formData.get('from');\n      const endDate = formData.get('to');\n      const response = await fetch('/api/reports/generate', {\n        method: 'POST',\n        headers: { 'Content-Type': 'application/json' },\n        body: JSON.stringify({ startDate, endDate })\n      });\n      const report = await response.json();\n      console.log('Report generated:', report);\n    }}\n  />\n);"
-        },
-        "incorrect": {
-          "title": "Incorrect: Trying to access form values without proper extraction",
-          "code": "// Problem: improper form data handling\n<DatePicker2\n  submit={async (e) => {\n    // Won't work! Form structure doesn't expose values this way\n    const { from, to } = e.currentTarget;\n    console.log(from, to);\n  }}\n/>\n// Result: TypeError - form elements aren't directly destructurable",
-          "why_incorrect": "DatePicker2 uses react-aria-components DatePicker which has its own internal state. Extract values via FormData API: new FormData(e.currentTarget).get('from') and .get('to')."
-        }
-      }
-    }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }

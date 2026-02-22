@@ -1,161 +1,161 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "index.tsx",
-  "source": {
-    "file_path": "components/table/index.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-12T00:00:00.000Z",
-    "language": "tsx",
-    "framework_tags": [
-      "react"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "index.tsx",
+    "source": {
+        "file_path": "components/table/index.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-12T00:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": [
+            "react"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/index.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/index.tsx.json"
+    },
+    "summary": {
+        "purpose": "Barrel file that re-exports all public API members from the table module, including components, the main Table component, and type definitions.",
+        "problem_solved": "Provides a single import entry point for consumers of the table module, so they can import everything from 'components/table' without knowing the internal file structure."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": [
+            {
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/components.tsx.json",
+                "why_used": "Required dependency",
+                "import_path": "./components",
+                "resolved_file_path": "components/table/components.tsx",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx"
+            },
+            {
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/Table.tsx.json",
+                "why_used": "Required dependency",
+                "import_path": "./Table",
+                "resolved_file_path": "components/table/Table.tsx",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx"
+            },
+            {
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json",
+                "why_used": "Required dependency",
+                "import_path": "./types",
+                "resolved_file_path": "components/table/types.ts",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "*",
+            "kind": "value",
+            "source_module": "./components",
+            "description_one_line": "* export",
+            "symbol_id": "reexport_0"
+        },
+        {
+            "name": "*",
+            "kind": "value",
+            "source_module": "./Table",
+            "description_one_line": "* export",
+            "symbol_id": "reexport_1"
+        },
+        {
+            "name": "*",
+            "kind": "value",
+            "source_module": "./types",
+            "description_one_line": "* export",
+            "symbol_id": "reexport_2"
+        }
     ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/index.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/index.tsx.json"
-  },
-  "summary": {
-    "purpose": "Barrel file that re-exports all public API members from the table module, including components, the main Table component, and type definitions.",
-    "problem_solved": "Provides a single import entry point for consumers of the table module, so they can import everything from 'components/table' without knowing the internal file structure."
-  },
-  "dependencies": {
-    "external": [],
-    "internal": [
-      {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/components.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "./components",
-        "resolved_file_path": "components/table/components.tsx",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/components.tsx"
-      },
-      {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/Table.tsx.json",
-        "why_used": "Required dependency",
-        "import_path": "./Table",
-        "resolved_file_path": "components/table/Table.tsx",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/Table.tsx"
-      },
-      {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json",
-        "why_used": "Required dependency",
-        "import_path": "./types",
-        "resolved_file_path": "components/table/types.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/components/table/types.ts"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "*",
-      "kind": "value",
-      "source_module": "./components",
-      "description_one_line": "* export",
-      "symbol_id": "reexport_0"
-    },
-    {
-      "name": "*",
-      "kind": "value",
-      "source_module": "./Table",
-      "description_one_line": "* export",
-      "symbol_id": "reexport_1"
-    },
-    {
-      "name": "*",
-      "kind": "value",
-      "source_module": "./types",
-      "description_one_line": "* export",
-      "symbol_id": "reexport_2"
+    "symbols": [
+        {
+            "symbol_id": "reexport_0",
+            "name": "*",
+            "kind": "value",
+            "description_one_line": "* export",
+            "details": {
+                "what_it_does": "* export"
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#reexport_0"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of *",
+                    "code": "import * as Table from '@/components/table';"
+                }
+            }
+        },
+        {
+            "symbol_id": "reexport_1",
+            "name": "*",
+            "kind": "value",
+            "description_one_line": "* export",
+            "details": {
+                "what_it_does": "* export"
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#reexport_1"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of *",
+                    "code": "import * as Table from '@/components/table';"
+                }
+            }
+        },
+        {
+            "symbol_id": "reexport_2",
+            "name": "*",
+            "kind": "value",
+            "description_one_line": "* export",
+            "details": {
+                "what_it_does": "* export"
+            },
+            "locations": {
+                "source_line_start": 0,
+                "source_line_end": 0,
+                "github_permalink": "",
+                "nx_kb_anchor": "#reexport_2"
+            },
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": ""
+                }
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic usage of *",
+                    "code": "import * as Table from '@/components/table';"
+                }
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "reexport_0",
-      "name": "*",
-      "kind": "value",
-      "description_one_line": "* export",
-      "details": {
-        "what_it_does": "* export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#reexport_0"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of *",
-          "code": "import * as Table from '@/components/table';"
-        }
-      }
-    },
-    {
-      "symbol_id": "reexport_1",
-      "name": "*",
-      "kind": "value",
-      "description_one_line": "* export",
-      "details": {
-        "what_it_does": "* export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#reexport_1"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of *",
-          "code": "import * as Table from '@/components/table';"
-        }
-      }
-    },
-    {
-      "symbol_id": "reexport_2",
-      "name": "*",
-      "kind": "value",
-      "description_one_line": "* export",
-      "details": {
-        "what_it_does": "* export"
-      },
-      "locations": {
-        "source_line_start": 0,
-        "source_line_end": 0,
-        "github_permalink": "",
-        "nx_kb_anchor": "#reexport_2"
-      },
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "void",
-          "description": ""
-        }
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic usage of *",
-          "code": "import * as Table from '@/components/table';"
-        }
-      }
-    }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }

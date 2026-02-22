@@ -1,351 +1,351 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "hooks.tsx",
-  "source": {
-    "file_path": "components/table/hooks.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T20:00:00.000Z",
-    "language": "tsx",
-    "framework_tags": [
-      "react",
-      "hooks",
-      "state-management",
-      "table"
-    ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/hooks.tsx.json"
-  },
-  "summary": {
-    "purpose": "Provides custom React hooks that encapsulate table state management including context access, column filtering with multi-select, column sorting with direction toggle, debounced multi-term search with '+' syntax, display-all-rows pagination toggle, and Zustand store factory for extensible state management.",
-    "problem_solved": "Separates complex table interactive logic (filtering, sorting, searching, pagination) into reusable, composable hooks. Enables TableProvider to orchestrate multiple features cleanly, allows sub-components to access table context without prop drilling, supports debounced search for performance, and provides clean state mutation patterns via custom hooks."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "react",
-        "kind": "runtime",
-        "why_used": "Core hooks (useState, useCallback, useMemo, useContext, useEffect, useTransition, useDeferredValue) for state management and memoization."
-      },
-      {
-        "name": "lodash",
-        "kind": "runtime",
-        "why_used": "debounce for search input debouncing, isEqual for deep comparison of filter state changes."
-      },
-      {
-        "name": "zustand",
-        "kind": "runtime",
-        "why_used": "create function for creating zustand stores in useCreateTableStore factory."
-      },
-      {
-        "name": "akeyless-types-commons",
-        "kind": "runtime",
-        "why_used": "TObject type for typed filter state object structure."
-      }
-    ],
-    "internal": [
-      {
-        "import_path": "./Table",
-        "resolved_file_path": "components/table/Table.tsx",
-        "why_used": "TableContext for context-based access to table state in useTableContext hook.",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/Table.tsx.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/Table.tsx"
-      },
-      {
-        "import_path": "./types",
-        "resolved_file_path": "components/table/types.ts",
-        "why_used": "UseFilterProps interface for filter hook configuration.",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/types.ts"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "useTableContext",
-      "kind": "function",
-      "description_one_line": "Hook to access TableContext value with error boundary protection.",
-      "symbol_id": "useTableContext"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
     },
-    {
-      "name": "useFilter",
-      "kind": "function",
-      "description_one_line": "Hook for managing column filtering state with multi-select options.",
-      "symbol_id": "useFilter"
-    },
-    {
-      "name": "useSort",
-      "kind": "function",
-      "description_one_line": "Hook for managing column sorting with ascending/descending toggle.",
-      "symbol_id": "useSort"
-    },
-    {
-      "name": "useDisplayToggle",
-      "kind": "function",
-      "description_one_line": "Hook for toggling display-all-rows pagination state.",
-      "symbol_id": "useDisplayToggle"
-    },
-    {
-      "name": "useSearch",
-      "kind": "function",
-      "description_one_line": "Hook for managing debounced search with multi-term '+' syntax support.",
-      "symbol_id": "useSearch"
-    },
-    {
-      "name": "useCreateTableStore",
-      "kind": "function",
-      "description_one_line": "Factory function for creating zustand stores for table extensibility.",
-      "symbol_id": "useCreateTableStore"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "useTableContext",
-      "name": "useTableContext",
-      "kind": "function",
-      "description_one_line": "Hook to safely access TableContext with error boundary.",
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "TableProps & TableProviderType",
-          "description": "Table context object containing all table state and handlers."
-        }
-      },
-      "details": {
-        "what_it_does": "Wraps useContext(TableContext) with error checking. Throws descriptive error if used outside Table component (context is null). Returns the full table state object containing all configuration, data, state handlers, and context values."
-      },
-      "locations": {
-        "source_line_start": 7,
-        "source_line_end": 13,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L7-L13",
-        "nx_kb_anchor": "#useTableContext"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Accessing table context in a sub-component",
-          "code": "import { useTableContext } from '@/components/table';\n\nconst TableHeader = () => {\n  const { headers, sortColumn, handleSort } = useTableContext();\n\n  return (\n    <div>\n      {headers.map((header, idx) => (\n        <button key={idx} onClick={() => handleSort(idx)}>\n          {header.label} {sortColumn === idx ? '↓' : ''}\n        </button>\n      ))}\n    </div>\n  );\n};"
-        },
-        "extensive_correct": {
-          "title": "Using context to access all table state",
-          "code": "import { useTableContext } from '@/components/table';\n\nconst TableFooter = () => {\n  const {\n    data,\n    filters,\n    searchQuery,\n    sortColumn,\n    sortOrder,\n    displayAllRows,\n    maxRows,\n    handleSort,\n    handleFilterChange\n  } = useTableContext();\n\n  const visibleRowCount = displayAllRows ? data.length : Math.min(maxRows, data.length);\n\n  return (\n    <div>\n      <p>Showing {visibleRowCount} of {data.length} rows</p>\n      <p>Active filters: {Object.values(filters).flat().length}</p>\n      <p>Search: {searchQuery}</p>\n      {sortColumn !== null && <p>Sorted by column {sortColumn} ({sortOrder})</p>}\n    </div>\n  );\n};"
-        },
-        "incorrect": {
-          "title": "Incorrect: Using hook outside Table context",
-          "code": "// Problem: hook used in component not wrapped by TableProvider\nconst StandaloneComponent = () => {\n  const context = useTableContext();  // Throws error!\n  return <div>{context.data.length}</div>;\n};\n\n// This component must be inside TableProvider tree to work",
-          "why_incorrect": "useTableContext throws an error if used outside a Table component. Always ensure the component using this hook is rendered inside the TableProvider."
-        }
-      }
-    },
-    {
-      "symbol_id": "useFilter",
-      "name": "useFilter",
-      "kind": "function",
-      "description_one_line": "Hook managing column filter state, options, and UI popups.",
-      "signature": {
-        "params": [
-          {
-            "name": "data",
-            "type": "TObject[]",
-            "required": true,
-            "description": "Array of data objects to extract unique filter values from."
-          },
-          {
-            "name": "filterableColumns",
-            "type": "FilterableColumn[]",
-            "required": true,
-            "description": "Array of columns that support filtering, each with a dataKey to filter by."
-          }
+    "file_name": "hooks.tsx",
+    "source": {
+        "file_path": "components/table/hooks.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T20:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": [
+            "react",
+            "hooks",
+            "state-management",
+            "table"
         ],
-        "returns": {
-          "type": "{ filters, filterPopupsDisplay, filterOptions, handleFilterChange, handleFilterClick, closeFilterWindow, clearFilter }",
-          "description": "Filter state object with handlers and options."
-        }
-      },
-      "details": {
-        "what_it_does": "Manages multi-select filtering state. Initializes filter state for each filterable column (empty arrays). Extracts unique values from data for each filterable column to create filterOptions. Provides handlers to toggle filter selections (handleFilterChange), control filter popup visibility (handleFilterClick), close popups (closeFilterWindow), and clear all filters (clearFilter). Uses deep comparison (isEqual) to avoid redundant updates."
-      },
-      "locations": {
-        "source_line_start": 15,
-        "source_line_end": 60,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L15-L60",
-        "nx_kb_anchor": "#useFilter"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic filter hook usage",
-          "code": "import { useFilter } from '@/components/table';\n\nconst FilterExample = () => {\n  const data = [\n    { id: 1, status: 'active', region: 'US' },\n    { id: 2, status: 'inactive', region: 'EU' },\n    { id: 3, status: 'active', region: 'US' }\n  ];\n\n  const { filters, filterOptions, handleFilterChange } = useFilter({\n    data,\n    filterableColumns: [{ dataKey: 'status' }, { dataKey: 'region' }]\n  });\n\n  // filterOptions = { status: ['active', 'inactive'], region: ['US', 'EU'] }\n  // filters = { status: [], region: [] }\n\n  return (\n    <select onChange={(e) => handleFilterChange('status', e.target.value)}>\n      <option value=\"\">All</option>\n      {filterOptions.status?.map(opt => <option key={opt}>{opt}</option>)}\n    </select>\n  );\n};"
-        },
-        "extensive_correct": {
-          "title": "Complete filter implementation with popup control",
-          "code": "import { useState } from 'react';\nimport { useFilter } from '@/components/table';\n\nconst AdvancedFilter = () => {\n  const data = [\n    { id: 1, status: 'active', priority: 'high' },\n    { id: 2, status: 'pending', priority: 'low' }\n  ];\n\n  const {\n    filters,\n    filterOptions,\n    filterPopupsDisplay,\n    handleFilterChange,\n    handleFilterClick,\n    closeFilterWindow,\n    clearFilter\n  } = useFilter({\n    data,\n    filterableColumns: [{ dataKey: 'status' }, { dataKey: 'priority' }]\n  });\n\n  return (\n    <div>\n      {['status', 'priority'].map(column => (\n        <div key={column}>\n          <button onClick={() => handleFilterClick(column)}>\n            {column} ({filters[column].length} selected)\n          </button>\n          {filterPopupsDisplay === column && (\n            <div className=\"popup\">\n              {filterOptions[column]?.map(opt => (\n                <label key={opt}>\n                  <input\n                    type=\"checkbox\"\n                    checked={filters[column].includes(opt)}\n                    onChange={() => handleFilterChange(column, opt)}\n                  />\n                  {opt}\n                </label>\n              ))}\n              <button onClick={closeFilterWindow}>Close</button>\n            </div>\n          )}\n        </div>\n      ))}\n      <button onClick={clearFilter}>Clear All Filters</button>\n    </div>\n  );\n};"
-        },
-        "incorrect": {
-          "title": "Incorrect: Not using deep comparison for filter reset",
-          "code": "// Problem: clearing filters always resets even when already empty\nconst BadFilter = ({ data, columns }) => {\n  const [filters, setFilters] = useState({});\n\n  const clearFilter = () => {\n    setFilters({});  // Always updates, causes unnecessary re-renders\n  };\n\n  return <button onClick={clearFilter}>Clear</button>;\n};\n\n// Should use isEqual to check if state actually changed",
-          "why_incorrect": "The proper implementation uses isEqual() to compare before updating state, preventing unnecessary renders when filters are already in the cleared state."
-        }
-      }
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/hooks.tsx.json"
     },
-    {
-      "symbol_id": "useSort",
-      "name": "useSort",
-      "kind": "function",
-      "description_one_line": "Hook managing column sort state with ascending/descending toggle.",
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "{ sortColumn, sortOrder, handleSort, clearSort }",
-          "description": "Sort state and handlers."
-        }
-      },
-      "details": {
-        "what_it_does": "Manages column sorting state. Tracks sortColumn (column index) and sortOrder ('asc' or 'desc'). handleSort toggles the sort direction when clicking same column (asc -> desc -> clear) and sets new column on different column click. clearSort resets both column and order to null."
-      },
-      "locations": {
-        "source_line_start": 62,
-        "source_line_end": 84,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L62-L84",
-        "nx_kb_anchor": "#useSort"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic sort hook usage",
-          "code": "import { useSort } from '@/components/table';\n\nconst SortExample = () => {\n  const { sortColumn, sortOrder, handleSort } = useSort();\n\n  const headers = ['Name', 'Date', 'Status'];\n\n  return (\n    <tr>\n      {headers.map((header, idx) => (\n        <th\n          key={idx}\n          onClick={() => handleSort(idx)}\n          style={{\n            cursor: 'pointer',\n            fontWeight: sortColumn === idx ? 'bold' : 'normal'\n          }}\n        >\n          {header}\n          {sortColumn === idx && <span>{sortOrder === 'asc' ? ' ↑' : ' ↓'}</span>}\n        </th>\n      ))}\n    </tr>\n  );\n};"
-        },
-        "extensive_correct": {
-          "title": "Sort with data application",
-          "code": "import { useSort } from '@/components/table';\nimport { useMemo } from 'react';\n\nconst SortedTable = ({ data, headers }) => {\n  const { sortColumn, sortOrder, handleSort, clearSort } = useSort();\n\n  const sortedData = useMemo(() => {\n    if (sortColumn === null) return data;\n\n    const dataKey = headers[sortColumn].key;\n    const sorted = [...data].sort((a, b) => {\n      const aVal = a[dataKey];\n      const bVal = b[dataKey];\n\n      if (aVal < bVal) return sortOrder === 'asc' ? -1 : 1;\n      if (aVal > bVal) return sortOrder === 'asc' ? 1 : -1;\n      return 0;\n    });\n\n    return sorted;\n  }, [data, sortColumn, sortOrder, headers]);\n\n  return (\n    <table>\n      <thead>\n        <tr>\n          {headers.map((header, idx) => (\n            <th key={idx} onClick={() => handleSort(idx)}>\n              {header.label}\n              {sortColumn === idx && <span> {sortOrder === 'asc' ? '↑' : '↓'}</span>}\n            </th>\n          ))}\n        </tr>\n      </thead>\n      <tbody>\n        {sortedData.map(row => (\n          <tr key={row.id}>\n            {headers.map(header => <td key={header.key}>{row[header.key]}</td>)}\n          </tr>\n        ))}\n      </tbody>\n    </table>\n  );\n};"
-        },
-        "incorrect": {
-          "title": "Incorrect: Direct array sort mutation",
-          "code": "// Problem: mutating original data array\nconst BadSort = ({ data }) => {\n  const { sortColumn, sortOrder } = useSort();\n\n  if (sortColumn !== null) {\n    data.sort((a, b) => a[sortColumn] - b[sortColumn]);  // Mutates!\n  }\n\n  return <table>{/* render data */}</table>;\n};\n\n// Should use useMemo and create new sorted array",
-          "why_incorrect": "Never mutate the original data array. Always create a new array ([...data].sort(...)) to ensure React detects changes and updates correctly."
-        }
-      }
+    "summary": {
+        "purpose": "Provides custom React hooks that encapsulate table state management including context access, column filtering with multi-select, column sorting with direction toggle, debounced multi-term search with '+' syntax, display-all-rows pagination toggle, and Zustand store factory for extensible state management.",
+        "problem_solved": "Separates complex table interactive logic (filtering, sorting, searching, pagination) into reusable, composable hooks. Enables TableProvider to orchestrate multiple features cleanly, allows sub-components to access table context without prop drilling, supports debounced search for performance, and provides clean state mutation patterns via custom hooks."
     },
-    {
-      "symbol_id": "useDisplayToggle",
-      "name": "useDisplayToggle",
-      "kind": "function",
-      "description_one_line": "Hook for toggling between paginated and show-all-rows display modes.",
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "{ displayAllRows, setDisplayAllRows }",
-          "description": "Display toggle state and setter."
-        }
-      },
-      "details": {
-        "what_it_does": "Simple boolean state toggle for controlling row display. When displayAllRows is true, all rows are shown (ignoring maxRows). When false, only maxRows are displayed. Manages pagination toggling for 'Display All Rows' buttons."
-      },
-      "locations": {
-        "source_line_start": 85,
-        "source_line_end": 88,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L85-L88",
-        "nx_kb_anchor": "#useDisplayToggle"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic display toggle",
-          "code": "import { useDisplayToggle } from '@/components/table';\n\nconst PaginationControl = ({ data, maxRows }) => {\n  const { displayAllRows, setDisplayAllRows } = useDisplayToggle();\n\n  const visibleRowCount = displayAllRows ? data.length : maxRows;\n\n  return (\n    <div>\n      <p>Showing {visibleRowCount} of {data.length} rows</p>\n      <button onClick={() => setDisplayAllRows(!displayAllRows)}>\n        {displayAllRows ? 'Show Limited' : 'Show All'}\n      </button>\n    </div>\n  );\n};"
-        },
-        "extensive_correct": {
-          "title": "Display toggle with dynamic data slicing",
-          "code": "import { useDisplayToggle } from '@/components/table';\nimport { useMemo } from 'react';\n\nconst PaginatedTable = ({ data, maxRows = 10 }) => {\n  const { displayAllRows, setDisplayAllRows } = useDisplayToggle();\n\n  const displayData = useMemo(() => {\n    return displayAllRows ? data : data.slice(0, maxRows);\n  }, [data, displayAllRows, maxRows]);\n\n  return (\n    <>\n      <table>\n        <tbody>\n          {displayData.map(row => (\n            <tr key={row.id}>\n              <td>{row.name}</td>\n              <td>{row.value}</td>\n            </tr>\n          ))}\n        </tbody>\n      </table>\n      {data.length > maxRows && (\n        <button onClick={() => setDisplayAllRows(!displayAllRows)}>\n          {displayAllRows ? 'Show Less' : `Show All ${data.length} Rows`}\n        </button>\n      )}\n    </>\n  );\n};"
-        },
-        "incorrect": {
-          "title": "Incorrect: Using for visibility control instead of data filtering",
-          "code": "// Problem: showing all DOM elements but hiding with CSS\nconst BadToggle = ({ data, maxRows }) => {\n  const { displayAllRows } = useDisplayToggle();\n\n  return (\n    <table>\n      <tbody>\n        {data.map((row, idx) => (\n          <tr\n            key={idx}\n            style={{\n              display: idx < maxRows || displayAllRows ? 'table-row' : 'none'\n            }}\n          >\n            <td>{row.name}</td>\n          </tr>\n        ))}\n      </tbody>\n    </table>\n  );\n};\n\n// Should slice data array instead of hiding rows with CSS",
-          "why_incorrect": "Using CSS display:none keeps all DOM elements in memory. Better to actually slice the data array (data.slice(0, maxRows)) so unused rows aren't rendered at all."
-        }
-      }
-    },
-    {
-      "symbol_id": "useSearch",
-      "name": "useSearch",
-      "kind": "function",
-      "description_one_line": "Hook managing debounced search with multi-term '+' syntax support.",
-      "signature": {
-        "params": [
-          {
-            "name": "debounceDelay",
-            "type": "number",
-            "required": false,
-            "description": "Debounce delay in milliseconds. Defaults to 300ms."
-          }
+    "dependencies": {
+        "external": [
+            {
+                "name": "react",
+                "kind": "runtime",
+                "why_used": "Core hooks (useState, useCallback, useMemo, useContext, useEffect, useTransition, useDeferredValue) for state management and memoization."
+            },
+            {
+                "name": "lodash",
+                "kind": "runtime",
+                "why_used": "debounce for search input debouncing, isEqual for deep comparison of filter state changes."
+            },
+            {
+                "name": "zustand",
+                "kind": "runtime",
+                "why_used": "create function for creating zustand stores in useCreateTableStore factory."
+            },
+            {
+                "name": "akeyless-types-commons",
+                "kind": "runtime",
+                "why_used": "TObject type for typed filter state object structure."
+            }
         ],
-        "returns": {
-          "type": "{ searchQuery, debouncedSearchQuery, handleSearch, clearSearch }",
-          "description": "Search state and handlers."
-        }
-      },
-      "details": {
-        "what_it_does": "Manages two search states: searchQuery (immediate, for input display) and debouncedSearchQuery (delayed, for actual filtering). Uses lodash debounce to delay filter operations by specified delay. handleSearch updates both states immediately and schedules debounced update. Supports multi-term search via '+' delimiters (e.g., 'active+users' searches for both terms). clearSearch resets both states synchronously."
-      },
-      "locations": {
-        "source_line_start": 113,
-        "source_line_end": 145,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L113-L145",
-        "nx_kb_anchor": "#useSearch"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic search hook with input",
-          "code": "import { useSearch } from '@/components/table';\n\nconst SearchInput = () => {\n  const { searchQuery, handleSearch, clearSearch } = useSearch();\n\n  return (\n    <div>\n      <input\n        type=\"text\"\n        value={searchQuery}\n        onChange={handleSearch}\n        placeholder=\"Search...\"\n      />\n      <button onClick={clearSearch}>Clear</button>\n    </div>\n  );\n};"
-        },
-        "extensive_correct": {
-          "title": "Search with multi-term support and debounce visibility",
-          "code": "import { useSearch } from '@/components/table';\nimport { useMemo } from 'react';\n\nconst SearchableTable = ({ data, columns }) => {\n  const { searchQuery, debouncedSearchQuery, handleSearch } = useSearch(300);\n\n  const filteredData = useMemo(() => {\n    if (!debouncedSearchQuery) return data;\n\n    const terms = debouncedSearchQuery\n      .split('+')\n      .map(t => t.toLowerCase().trim())\n      .filter(Boolean);\n\n    return data.filter(row =>\n      terms.every(term =>\n        columns.some(col =>\n          String(row[col.key]).toLowerCase().includes(term)\n        )\n      )\n    );\n  }, [data, debouncedSearchQuery, columns]);\n\n  return (\n    <>\n      <input\n        type=\"text\"\n        value={searchQuery}\n        onChange={handleSearch}\n        placeholder='Search (use + for multiple terms, e.g. \"active+users\")'\n      />\n      <p>\n        {searchQuery && searchQuery !== debouncedSearchQuery && <span>Searching...</span>}\n        Found {filteredData.length} results\n      </p>\n      <table>\n        <tbody>\n          {filteredData.map(row => (\n            <tr key={row.id}>\n              {columns.map(col => <td key={col.key}>{row[col.key]}</td>)}\n            </tr>\n          ))}\n        </tbody>\n      </table>\n    </>\n  );\n};"
-        },
-        "incorrect": {
-          "title": "Incorrect: Filtering on every keystroke without debounce",
-          "code": "// Problem: filtering happens immediately, bad performance\nconst BadSearch = ({ data }) => {\n  const [searchQuery, setSearchQuery] = useState('');\n\n  const filtered = useMemo(() => {\n    // This re-runs on EVERY keystroke!\n    return data.filter(row =>\n      row.name.toLowerCase().includes(searchQuery)\n    );\n  }, [searchQuery, data]);\n\n  return (\n    <>\n      <input\n        value={searchQuery}\n        onChange={(e) => setSearchQuery(e.target.value)}\n      />\n      <p>Found {filtered.length}</p>\n    </>\n  );\n};\n\n// Should debounce the search query before filtering",
-          "why_incorrect": "Without debouncing, filtering runs on every character typed, causing performance issues with large datasets. Use debounce to delay filtering until user stops typing."
-        }
-      }
+        "internal": [
+            {
+                "import_path": "./Table",
+                "resolved_file_path": "components/table/Table.tsx",
+                "why_used": "TableContext for context-based access to table state in useTableContext hook.",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/Table.tsx.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/Table.tsx"
+            },
+            {
+                "import_path": "./types",
+                "resolved_file_path": "components/table/types.ts",
+                "why_used": "UseFilterProps interface for filter hook configuration.",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/table/types.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/types.ts"
+            }
+        ]
     },
-    {
-      "symbol_id": "useCreateTableStore",
-      "name": "useCreateTableStore",
-      "kind": "function",
-      "description_one_line": "Factory function for creating extensible zustand stores.",
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "(set: (state: any) => void) => object",
-          "description": "Zustand store instance with empty initial state."
-        }
-      },
-      "details": {
-        "what_it_does": "Returns a zustand store instance initialized with an empty state object. Provides foundation for extensible table state management. Can be used to add custom table state beyond built-in filters, sorting, and search."
-      },
-      "locations": {
-        "source_line_start": 147,
-        "source_line_end": 149,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L147-L149",
-        "nx_kb_anchor": "#useCreateTableStore"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Creating a table store for custom state",
-          "code": "import { useCreateTableStore } from '@/components/table';\n\nconst useCustomTableStore = useCreateTableStore();\n\nconst Component = () => {\n  const store = useCustomTableStore();\n  return <div>{JSON.stringify(store)}</div>;\n};"
+    "exports": [
+        {
+            "name": "useTableContext",
+            "kind": "function",
+            "description_one_line": "Hook to access TableContext value with error boundary protection.",
+            "symbol_id": "useTableContext"
         },
-        "extensive_correct": {
-          "title": "Extending store with custom table state",
-          "code": "import { create } from 'zustand';\n\nconst useTableStore = create((set) => ({\n  selectedRows: [],\n  columnVisibility: {},\n  expandedRows: [],\n  \n  toggleRow: (rowId) => set(state => ({\n    selectedRows: state.selectedRows.includes(rowId)\n      ? state.selectedRows.filter(id => id !== rowId)\n      : [...state.selectedRows, rowId]\n  })),\n  \n  toggleColumnVisibility: (columnKey) => set(state => ({\n    columnVisibility: {\n      ...state.columnVisibility,\n      [columnKey]: !state.columnVisibility[columnKey]\n    }\n  }))\n}));\n\nconst TableWithCustomState = () => {\n  const { selectedRows, toggleRow } = useTableStore();\n  return (\n    <table>\n      <tbody>\n        {data.map(row => (\n          <tr\n            key={row.id}\n            style={{\n              backgroundColor: selectedRows.includes(row.id) ? '#e0e0e0' : 'white'\n            }}\n            onClick={() => toggleRow(row.id)}\n          >\n            <td>{row.name}</td>\n          </tr>\n        ))}\n      </tbody>\n    </table>\n  );\n};"
+        {
+            "name": "useFilter",
+            "kind": "function",
+            "description_one_line": "Hook for managing column filtering state with multi-select options.",
+            "symbol_id": "useFilter"
         },
-        "incorrect": {
-          "title": "Incorrect: Using hook as store instance directly",
-          "code": "// Problem: useCreateTableStore is a factory, not a store hook\nconst BadUsage = () => {\n  const store = useCreateTableStore();  // Returns store creator function\n  const state = store.getState();  // Won't work, not the right API\n};\n\n// Should call the factory once to create a named hook first",
-          "why_incorrect": "useCreateTableStore returns a zustand store creator function, not a usable hook. You must call it once to create the hook, then use that hook in components."
+        {
+            "name": "useSort",
+            "kind": "function",
+            "description_one_line": "Hook for managing column sorting with ascending/descending toggle.",
+            "symbol_id": "useSort"
+        },
+        {
+            "name": "useDisplayToggle",
+            "kind": "function",
+            "description_one_line": "Hook for toggling display-all-rows pagination state.",
+            "symbol_id": "useDisplayToggle"
+        },
+        {
+            "name": "useSearch",
+            "kind": "function",
+            "description_one_line": "Hook for managing debounced search with multi-term '+' syntax support.",
+            "symbol_id": "useSearch"
+        },
+        {
+            "name": "useCreateTableStore",
+            "kind": "function",
+            "description_one_line": "Factory function for creating zustand stores for table extensibility.",
+            "symbol_id": "useCreateTableStore"
         }
-      }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "useTableContext",
+            "name": "useTableContext",
+            "kind": "function",
+            "description_one_line": "Hook to safely access TableContext with error boundary.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "TableProps & TableProviderType",
+                    "description": "Table context object containing all table state and handlers."
+                }
+            },
+            "details": {
+                "what_it_does": "Wraps useContext(TableContext) with error checking. Throws descriptive error if used outside Table component (context is null). Returns the full table state object containing all configuration, data, state handlers, and context values."
+            },
+            "locations": {
+                "source_line_start": 7,
+                "source_line_end": 13,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L7-L13",
+                "nx_kb_anchor": "#useTableContext"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Accessing table context in a sub-component",
+                    "code": "import { useTableContext } from '@/components/table';\n\nconst TableHeader = () => {\n  const { headers, sortColumn, handleSort } = useTableContext();\n\n  return (\n    <div>\n      {headers.map((header, idx) => (\n        <button key={idx} onClick={() => handleSort(idx)}>\n          {header.label} {sortColumn === idx ? '↓' : ''}\n        </button>\n      ))}\n    </div>\n  );\n};"
+                },
+                "extensive_correct": {
+                    "title": "Using context to access all table state",
+                    "code": "import { useTableContext } from '@/components/table';\n\nconst TableFooter = () => {\n  const {\n    data,\n    filters,\n    searchQuery,\n    sortColumn,\n    sortOrder,\n    displayAllRows,\n    maxRows,\n    handleSort,\n    handleFilterChange\n  } = useTableContext();\n\n  const visibleRowCount = displayAllRows ? data.length : Math.min(maxRows, data.length);\n\n  return (\n    <div>\n      <p>Showing {visibleRowCount} of {data.length} rows</p>\n      <p>Active filters: {Object.values(filters).flat().length}</p>\n      <p>Search: {searchQuery}</p>\n      {sortColumn !== null && <p>Sorted by column {sortColumn} ({sortOrder})</p>}\n    </div>\n  );\n};"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Using hook outside Table context",
+                    "code": "// Problem: hook used in component not wrapped by TableProvider\nconst StandaloneComponent = () => {\n  const context = useTableContext();  // Throws error!\n  return <div>{context.data.length}</div>;\n};\n\n// This component must be inside TableProvider tree to work",
+                    "why_incorrect": "useTableContext throws an error if used outside a Table component. Always ensure the component using this hook is rendered inside the TableProvider."
+                }
+            }
+        },
+        {
+            "symbol_id": "useFilter",
+            "name": "useFilter",
+            "kind": "function",
+            "description_one_line": "Hook managing column filter state, options, and UI popups.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "data",
+                        "type": "TObject[]",
+                        "required": true,
+                        "description": "Array of data objects to extract unique filter values from."
+                    },
+                    {
+                        "name": "filterableColumns",
+                        "type": "FilterableColumn[]",
+                        "required": true,
+                        "description": "Array of columns that support filtering, each with a dataKey to filter by."
+                    }
+                ],
+                "returns": {
+                    "type": "{ filters, filterPopupsDisplay, filterOptions, handleFilterChange, handleFilterClick, closeFilterWindow, clearFilter }",
+                    "description": "Filter state object with handlers and options."
+                }
+            },
+            "details": {
+                "what_it_does": "Manages multi-select filtering state. Initializes filter state for each filterable column (empty arrays). Extracts unique values from data for each filterable column to create filterOptions. Provides handlers to toggle filter selections (handleFilterChange), control filter popup visibility (handleFilterClick), close popups (closeFilterWindow), and clear all filters (clearFilter). Uses deep comparison (isEqual) to avoid redundant updates."
+            },
+            "locations": {
+                "source_line_start": 15,
+                "source_line_end": 60,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L15-L60",
+                "nx_kb_anchor": "#useFilter"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic filter hook usage",
+                    "code": "import { useFilter } from '@/components/table';\n\nconst FilterExample = () => {\n  const data = [\n    { id: 1, status: 'active', region: 'US' },\n    { id: 2, status: 'inactive', region: 'EU' },\n    { id: 3, status: 'active', region: 'US' }\n  ];\n\n  const { filters, filterOptions, handleFilterChange } = useFilter({\n    data,\n    filterableColumns: [{ dataKey: 'status' }, { dataKey: 'region' }]\n  });\n\n  // filterOptions = { status: ['active', 'inactive'], region: ['US', 'EU'] }\n  // filters = { status: [], region: [] }\n\n  return (\n    <select onChange={(e) => handleFilterChange('status', e.target.value)}>\n      <option value=\"\">All</option>\n      {filterOptions.status?.map(opt => <option key={opt}>{opt}</option>)}\n    </select>\n  );\n};"
+                },
+                "extensive_correct": {
+                    "title": "Complete filter implementation with popup control",
+                    "code": "import { useState } from 'react';\nimport { useFilter } from '@/components/table';\n\nconst AdvancedFilter = () => {\n  const data = [\n    { id: 1, status: 'active', priority: 'high' },\n    { id: 2, status: 'pending', priority: 'low' }\n  ];\n\n  const {\n    filters,\n    filterOptions,\n    filterPopupsDisplay,\n    handleFilterChange,\n    handleFilterClick,\n    closeFilterWindow,\n    clearFilter\n  } = useFilter({\n    data,\n    filterableColumns: [{ dataKey: 'status' }, { dataKey: 'priority' }]\n  });\n\n  return (\n    <div>\n      {['status', 'priority'].map(column => (\n        <div key={column}>\n          <button onClick={() => handleFilterClick(column)}>\n            {column} ({filters[column].length} selected)\n          </button>\n          {filterPopupsDisplay === column && (\n            <div className=\"popup\">\n              {filterOptions[column]?.map(opt => (\n                <label key={opt}>\n                  <input\n                    type=\"checkbox\"\n                    checked={filters[column].includes(opt)}\n                    onChange={() => handleFilterChange(column, opt)}\n                  />\n                  {opt}\n                </label>\n              ))}\n              <button onClick={closeFilterWindow}>Close</button>\n            </div>\n          )}\n        </div>\n      ))}\n      <button onClick={clearFilter}>Clear All Filters</button>\n    </div>\n  );\n};"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Not using deep comparison for filter reset",
+                    "code": "// Problem: clearing filters always resets even when already empty\nconst BadFilter = ({ data, columns }) => {\n  const [filters, setFilters] = useState({});\n\n  const clearFilter = () => {\n    setFilters({});  // Always updates, causes unnecessary re-renders\n  };\n\n  return <button onClick={clearFilter}>Clear</button>;\n};\n\n// Should use isEqual to check if state actually changed",
+                    "why_incorrect": "The proper implementation uses isEqual() to compare before updating state, preventing unnecessary renders when filters are already in the cleared state."
+                }
+            }
+        },
+        {
+            "symbol_id": "useSort",
+            "name": "useSort",
+            "kind": "function",
+            "description_one_line": "Hook managing column sort state with ascending/descending toggle.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "{ sortColumn, sortOrder, handleSort, clearSort }",
+                    "description": "Sort state and handlers."
+                }
+            },
+            "details": {
+                "what_it_does": "Manages column sorting state. Tracks sortColumn (column index) and sortOrder ('asc' or 'desc'). handleSort toggles the sort direction when clicking same column (asc -> desc -> clear) and sets new column on different column click. clearSort resets both column and order to null."
+            },
+            "locations": {
+                "source_line_start": 62,
+                "source_line_end": 84,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L62-L84",
+                "nx_kb_anchor": "#useSort"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic sort hook usage",
+                    "code": "import { useSort } from '@/components/table';\n\nconst SortExample = () => {\n  const { sortColumn, sortOrder, handleSort } = useSort();\n\n  const headers = ['Name', 'Date', 'Status'];\n\n  return (\n    <tr>\n      {headers.map((header, idx) => (\n        <th\n          key={idx}\n          onClick={() => handleSort(idx)}\n          style={{\n            cursor: 'pointer',\n            fontWeight: sortColumn === idx ? 'bold' : 'normal'\n          }}\n        >\n          {header}\n          {sortColumn === idx && <span>{sortOrder === 'asc' ? ' ↑' : ' ↓'}</span>}\n        </th>\n      ))}\n    </tr>\n  );\n};"
+                },
+                "extensive_correct": {
+                    "title": "Sort with data application",
+                    "code": "import { useSort } from '@/components/table';\nimport { useMemo } from 'react';\n\nconst SortedTable = ({ data, headers }) => {\n  const { sortColumn, sortOrder, handleSort, clearSort } = useSort();\n\n  const sortedData = useMemo(() => {\n    if (sortColumn === null) return data;\n\n    const dataKey = headers[sortColumn].key;\n    const sorted = [...data].sort((a, b) => {\n      const aVal = a[dataKey];\n      const bVal = b[dataKey];\n\n      if (aVal < bVal) return sortOrder === 'asc' ? -1 : 1;\n      if (aVal > bVal) return sortOrder === 'asc' ? 1 : -1;\n      return 0;\n    });\n\n    return sorted;\n  }, [data, sortColumn, sortOrder, headers]);\n\n  return (\n    <table>\n      <thead>\n        <tr>\n          {headers.map((header, idx) => (\n            <th key={idx} onClick={() => handleSort(idx)}>\n              {header.label}\n              {sortColumn === idx && <span> {sortOrder === 'asc' ? '↑' : '↓'}</span>}\n            </th>\n          ))}\n        </tr>\n      </thead>\n      <tbody>\n        {sortedData.map(row => (\n          <tr key={row.id}>\n            {headers.map(header => <td key={header.key}>{row[header.key]}</td>)}\n          </tr>\n        ))}\n      </tbody>\n    </table>\n  );\n};"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Direct array sort mutation",
+                    "code": "// Problem: mutating original data array\nconst BadSort = ({ data }) => {\n  const { sortColumn, sortOrder } = useSort();\n\n  if (sortColumn !== null) {\n    data.sort((a, b) => a[sortColumn] - b[sortColumn]);  // Mutates!\n  }\n\n  return <table>{/* render data */}</table>;\n};\n\n// Should use useMemo and create new sorted array",
+                    "why_incorrect": "Never mutate the original data array. Always create a new array ([...data].sort(...)) to ensure React detects changes and updates correctly."
+                }
+            }
+        },
+        {
+            "symbol_id": "useDisplayToggle",
+            "name": "useDisplayToggle",
+            "kind": "function",
+            "description_one_line": "Hook for toggling between paginated and show-all-rows display modes.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "{ displayAllRows, setDisplayAllRows }",
+                    "description": "Display toggle state and setter."
+                }
+            },
+            "details": {
+                "what_it_does": "Simple boolean state toggle for controlling row display. When displayAllRows is true, all rows are shown (ignoring maxRows). When false, only maxRows are displayed. Manages pagination toggling for 'Display All Rows' buttons."
+            },
+            "locations": {
+                "source_line_start": 85,
+                "source_line_end": 88,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L85-L88",
+                "nx_kb_anchor": "#useDisplayToggle"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic display toggle",
+                    "code": "import { useDisplayToggle } from '@/components/table';\n\nconst PaginationControl = ({ data, maxRows }) => {\n  const { displayAllRows, setDisplayAllRows } = useDisplayToggle();\n\n  const visibleRowCount = displayAllRows ? data.length : maxRows;\n\n  return (\n    <div>\n      <p>Showing {visibleRowCount} of {data.length} rows</p>\n      <button onClick={() => setDisplayAllRows(!displayAllRows)}>\n        {displayAllRows ? 'Show Limited' : 'Show All'}\n      </button>\n    </div>\n  );\n};"
+                },
+                "extensive_correct": {
+                    "title": "Display toggle with dynamic data slicing",
+                    "code": "import { useDisplayToggle } from '@/components/table';\nimport { useMemo } from 'react';\n\nconst PaginatedTable = ({ data, maxRows = 10 }) => {\n  const { displayAllRows, setDisplayAllRows } = useDisplayToggle();\n\n  const displayData = useMemo(() => {\n    return displayAllRows ? data : data.slice(0, maxRows);\n  }, [data, displayAllRows, maxRows]);\n\n  return (\n    <>\n      <table>\n        <tbody>\n          {displayData.map(row => (\n            <tr key={row.id}>\n              <td>{row.name}</td>\n              <td>{row.value}</td>\n            </tr>\n          ))}\n        </tbody>\n      </table>\n      {data.length > maxRows && (\n        <button onClick={() => setDisplayAllRows(!displayAllRows)}>\n          {displayAllRows ? 'Show Less' : `Show All ${data.length} Rows`}\n        </button>\n      )}\n    </>\n  );\n};"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Using for visibility control instead of data filtering",
+                    "code": "// Problem: showing all DOM elements but hiding with CSS\nconst BadToggle = ({ data, maxRows }) => {\n  const { displayAllRows } = useDisplayToggle();\n\n  return (\n    <table>\n      <tbody>\n        {data.map((row, idx) => (\n          <tr\n            key={idx}\n            style={{\n              display: idx < maxRows || displayAllRows ? 'table-row' : 'none'\n            }}\n          >\n            <td>{row.name}</td>\n          </tr>\n        ))}\n      </tbody>\n    </table>\n  );\n};\n\n// Should slice data array instead of hiding rows with CSS",
+                    "why_incorrect": "Using CSS display:none keeps all DOM elements in memory. Better to actually slice the data array (data.slice(0, maxRows)) so unused rows aren't rendered at all."
+                }
+            }
+        },
+        {
+            "symbol_id": "useSearch",
+            "name": "useSearch",
+            "kind": "function",
+            "description_one_line": "Hook managing debounced search with multi-term '+' syntax support.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "debounceDelay",
+                        "type": "number",
+                        "required": false,
+                        "description": "Debounce delay in milliseconds. Defaults to 300ms."
+                    }
+                ],
+                "returns": {
+                    "type": "{ searchQuery, debouncedSearchQuery, handleSearch, clearSearch }",
+                    "description": "Search state and handlers."
+                }
+            },
+            "details": {
+                "what_it_does": "Manages two search states: searchQuery (immediate, for input display) and debouncedSearchQuery (delayed, for actual filtering). Uses lodash debounce to delay filter operations by specified delay. handleSearch updates both states immediately and schedules debounced update. Supports multi-term search via '+' delimiters (e.g., 'active+users' searches for both terms). clearSearch resets both states synchronously."
+            },
+            "locations": {
+                "source_line_start": 113,
+                "source_line_end": 145,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L113-L145",
+                "nx_kb_anchor": "#useSearch"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic search hook with input",
+                    "code": "import { useSearch } from '@/components/table';\n\nconst SearchInput = () => {\n  const { searchQuery, handleSearch, clearSearch } = useSearch();\n\n  return (\n    <div>\n      <input\n        type=\"text\"\n        value={searchQuery}\n        onChange={handleSearch}\n        placeholder=\"Search...\"\n      />\n      <button onClick={clearSearch}>Clear</button>\n    </div>\n  );\n};"
+                },
+                "extensive_correct": {
+                    "title": "Search with multi-term support and debounce visibility",
+                    "code": "import { useSearch } from '@/components/table';\nimport { useMemo } from 'react';\n\nconst SearchableTable = ({ data, columns }) => {\n  const { searchQuery, debouncedSearchQuery, handleSearch } = useSearch(300);\n\n  const filteredData = useMemo(() => {\n    if (!debouncedSearchQuery) return data;\n\n    const terms = debouncedSearchQuery\n      .split('+')\n      .map(t => t.toLowerCase().trim())\n      .filter(Boolean);\n\n    return data.filter(row =>\n      terms.every(term =>\n        columns.some(col =>\n          String(row[col.key]).toLowerCase().includes(term)\n        )\n      )\n    );\n  }, [data, debouncedSearchQuery, columns]);\n\n  return (\n    <>\n      <input\n        type=\"text\"\n        value={searchQuery}\n        onChange={handleSearch}\n        placeholder='Search (use + for multiple terms, e.g. \"active+users\")'\n      />\n      <p>\n        {searchQuery && searchQuery !== debouncedSearchQuery && <span>Searching...</span>}\n        Found {filteredData.length} results\n      </p>\n      <table>\n        <tbody>\n          {filteredData.map(row => (\n            <tr key={row.id}>\n              {columns.map(col => <td key={col.key}>{row[col.key]}</td>)}\n            </tr>\n          ))}\n        </tbody>\n      </table>\n    </>\n  );\n};"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Filtering on every keystroke without debounce",
+                    "code": "// Problem: filtering happens immediately, bad performance\nconst BadSearch = ({ data }) => {\n  const [searchQuery, setSearchQuery] = useState('');\n\n  const filtered = useMemo(() => {\n    // This re-runs on EVERY keystroke!\n    return data.filter(row =>\n      row.name.toLowerCase().includes(searchQuery)\n    );\n  }, [searchQuery, data]);\n\n  return (\n    <>\n      <input\n        value={searchQuery}\n        onChange={(e) => setSearchQuery(e.target.value)}\n      />\n      <p>Found {filtered.length}</p>\n    </>\n  );\n};\n\n// Should debounce the search query before filtering",
+                    "why_incorrect": "Without debouncing, filtering runs on every character typed, causing performance issues with large datasets. Use debounce to delay filtering until user stops typing."
+                }
+            }
+        },
+        {
+            "symbol_id": "useCreateTableStore",
+            "name": "useCreateTableStore",
+            "kind": "function",
+            "description_one_line": "Factory function for creating extensible zustand stores.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "(set: (state: any) => void) => object",
+                    "description": "Zustand store instance with empty initial state."
+                }
+            },
+            "details": {
+                "what_it_does": "Returns a zustand store instance initialized with an empty state object. Provides foundation for extensible table state management. Can be used to add custom table state beyond built-in filters, sorting, and search."
+            },
+            "locations": {
+                "source_line_start": 147,
+                "source_line_end": 149,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/table/hooks.tsx#L147-L149",
+                "nx_kb_anchor": "#useCreateTableStore"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Creating a table store for custom state",
+                    "code": "import { useCreateTableStore } from '@/components/table';\n\nconst useCustomTableStore = useCreateTableStore();\n\nconst Component = () => {\n  const store = useCustomTableStore();\n  return <div>{JSON.stringify(store)}</div>;\n};"
+                },
+                "extensive_correct": {
+                    "title": "Extending store with custom table state",
+                    "code": "import { create } from 'zustand';\n\nconst useTableStore = create((set) => ({\n  selectedRows: [],\n  columnVisibility: {},\n  expandedRows: [],\n  \n  toggleRow: (rowId) => set(state => ({\n    selectedRows: state.selectedRows.includes(rowId)\n      ? state.selectedRows.filter(id => id !== rowId)\n      : [...state.selectedRows, rowId]\n  })),\n  \n  toggleColumnVisibility: (columnKey) => set(state => ({\n    columnVisibility: {\n      ...state.columnVisibility,\n      [columnKey]: !state.columnVisibility[columnKey]\n    }\n  }))\n}));\n\nconst TableWithCustomState = () => {\n  const { selectedRows, toggleRow } = useTableStore();\n  return (\n    <table>\n      <tbody>\n        {data.map(row => (\n          <tr\n            key={row.id}\n            style={{\n              backgroundColor: selectedRows.includes(row.id) ? '#e0e0e0' : 'white'\n            }}\n            onClick={() => toggleRow(row.id)}\n          >\n            <td>{row.name}</td>\n          </tr>\n        ))}\n      </tbody>\n    </table>\n  );\n};"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Using hook as store instance directly",
+                    "code": "// Problem: useCreateTableStore is a factory, not a store hook\nconst BadUsage = () => {\n  const store = useCreateTableStore();  // Returns store creator function\n  const state = store.getState();  // Won't work, not the right API\n};\n\n// Should call the factory once to create a named hook first",
+                    "why_incorrect": "useCreateTableStore returns a zustand store creator function, not a usable hook. You must call it once to create the hook, then use that hook in components."
+                }
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }

@@ -1,128 +1,128 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "socket.ts",
-  "source": {
-    "file_path": "helpers/socket.ts",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T00:00:00.000Z",
-    "language": "ts",
-    "framework_tags": [
-      "socket.io",
-      "websocket",
-      "real-time",
-      "singleton"
-    ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/socket.ts",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/socket.ts.json"
-  },
-  "summary": {
-    "purpose": "Singleton WebSocket service using Socket.io with automatic reconnection, collection subscription management, real-time data CRUD operations, and session persistence.",
-    "problem_solved": "Provides a centralized, reusable WebSocket connection manager that handles authentication, reconnection logic, collection subscriptions with multiple parsers, and data synchronization with Redis backend via Socket.io emit/listen patterns."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "module": "socket.io-client",
-        "kind": "runtime",
-        "why_used": "WebSocket client library for establishing real-time bi-directional communication with Socket.io server.",
-        "name": "socket.io-client"
-      },
-      {
-        "module": "akeyless-types-commons",
-        "kind": "runtime",
-        "why_used": "Provides types: RedisUpdatePayload, RedisUpdateType, SocketCallbackResponse for type-safe data operations.",
-        "name": "akeyless-types-commons"
-      }
-    ],
-    "internal": [
-      {
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/global.ts.json",
-        "why_used": "Provides isLocal and mode configuration for determining Socket.io server URL (localhost vs QA vs production).",
-        "import_path": "./global",
-        "resolved_file_path": "helpers/global.ts",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "SocketService",
-      "kind": "class",
-      "line": 14,
-      "description_one_line": "Singleton class providing WebSocket connection management with real-time data operations.",
-      "symbol_id": "class_socket_service"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
     },
-    {
-      "name": "socketServiceInstance",
-      "kind": "constant",
-      "line": 297,
-      "description_one_line": "Exported singleton instance of SocketService for application-wide use.",
-      "symbol_id": "constant_socket_service_instance"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "class_socket_service",
-      "name": "SocketService",
-      "kind": "class",
-      "description_one_line": "Singleton WebSocket manager with auto-reconnect, collection subscriptions, and data sync.",
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "SocketService",
-          "description": "Singleton instance via getInstance() static method"
-        }
-      },
-      "details": {
-        "what_it_does": "Manages Socket.io connection lifecycle with private constructor (singleton pattern), auto-initialization on first getInstance() call, stores connection/disconnection callbacks, manages authentication token and session ID, handles multiple collection subscriptions with custom parsers, provides CRUD operations (create/read/update/delete) via Socket.io emit/callback pattern."
-      },
-      "locations": {
-        "source_line_start": 14,
-        "source_line_end": 295,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/socket.ts#L14-L295",
-        "nx_kb_anchor": "class_socket_service"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Get socket service instance and start session",
-          "code": "import { socketServiceInstance } from './socket';\n\n// Start session with Firebase auth token\nsocketServiceInstance.startSession('firebase-token-xyz');\n\n// Listen for connection\nsocketServiceInstance.onConnect(() => {\n  console.log('Socket connected!');\n});"
-        },
-        "extensive": {
-          "title": "Full example: subscribe to collections, perform CRUD",
-          "code": "import { socketServiceInstance } from './socket';\n\nconst socket = socketServiceInstance;\n\n// 1. Start session with auth token\nsocket.startSession('firebase-token');\n\n// 2. Subscribe to collection changes\nconst unsubscribe = socket.subscribeToCollections([\n  {\n    collectionName: 'clients',\n    onFirstTime: (data) => console.log('Initial clients:', data),\n    onAdd: (doc) => console.log('New client:', doc.id, doc.data),\n    onModify: (doc) => console.log('Updated client:', doc.id),\n    onRemove: (doc) => console.log('Deleted client:', doc.id)\n  },\n  {\n    collectionName: 'users',\n    onFirstTime: (data) => console.log('Initial users:', data),\n    onAdd: (user) => console.log('New user:', user.name)\n  }\n]);\n\n// 3. Create data via Socket\ntry {\n  const result = await socket.setData({\n    collection_name: 'clients',\n    data: { name: 'Acme Corp', country: 'IL' }\n  });\n  console.log('Client created:', result);\n} catch (error) {\n  console.error('Create failed:', error.message);\n}\n\n// 4. Read data\nsocket.getCollectionData({\n  collection_name: 'clients',\n  callback: (clients) => console.log('All clients:', clients),\n  defaultValue: []\n});\n\n// 5. Update data\nawait socket.setData({\n  collection_name: 'clients',\n  key: 'client-123',\n  data: { name: 'Updated Corp' }\n});\n\n// 6. Delete data\nawait socket.deleteData({\n  collection_name: 'clients',\n  key: 'client-123'\n});\n\n// 7. Cleanup\nunsubscribe(); // stops receiving collection updates"
-        },
-        "incorrect_pattern": {
-          "title": "Common mistake: Not checking socket connection before operations",
-          "code": "// WRONG - socket may not be initialized yet\nconst socket = socketServiceInstance;\nsocket.setData({ collection_name: 'users', data: {} }); // may fail silently\n\n// CORRECT - wait for connection\nconst socket = socketServiceInstance;\nsocket.startSession('token');\n\nconst unsubscribe = socket.onConnect(() => {\n  socket.setData({ collection_name: 'users', data: {} });\n  unsubscribe(); // cleanup listener\n});"
-        }
-      }
+    "file_name": "socket.ts",
+    "source": {
+        "file_path": "helpers/socket.ts",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "socket.io",
+            "websocket",
+            "real-time",
+            "singleton"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/socket.ts",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/socket.ts.json"
     },
-    {
-      "symbol_id": "constant_socket_service_instance",
-      "name": "socketServiceInstance",
-      "kind": "constant",
-      "description_one_line": "Pre-instantiated singleton SocketService exported for global use.",
-      "details": {
-        "what_it_does": "Calls SocketService.getInstance() at module load time, returns the singleton instance. Allows importing directly without manual singleton initialization: import { socketServiceInstance } from './socket'."
-      },
-      "locations": {
-        "source_line_start": 297,
-        "source_line_end": 297,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/socket.ts#L297",
-        "nx_kb_anchor": "constant_socket_service_instance"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Import and use socket service singleton",
-          "code": "import { socketServiceInstance } from './socket';\n\n// No need to call getInstance() - already a singleton\nsocketServiceInstance.startSession('token');"
+    "summary": {
+        "purpose": "Singleton WebSocket service using Socket.io with automatic reconnection, collection subscription management, real-time data CRUD operations, and session persistence.",
+        "problem_solved": "Provides a centralized, reusable WebSocket connection manager that handles authentication, reconnection logic, collection subscriptions with multiple parsers, and data synchronization with Redis backend via Socket.io emit/listen patterns."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "module": "socket.io-client",
+                "kind": "runtime",
+                "why_used": "WebSocket client library for establishing real-time bi-directional communication with Socket.io server.",
+                "name": "socket.io-client"
+            },
+            {
+                "module": "akeyless-types-commons",
+                "kind": "runtime",
+                "why_used": "Provides types: RedisUpdatePayload, RedisUpdateType, SocketCallbackResponse for type-safe data operations.",
+                "name": "akeyless-types-commons"
+            }
+        ],
+        "internal": [
+            {
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/global.ts.json",
+                "why_used": "Provides isLocal and mode configuration for determining Socket.io server URL (localhost vs QA vs production).",
+                "import_path": "./global",
+                "resolved_file_path": "helpers/global.ts",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "SocketService",
+            "kind": "class",
+            "line": 14,
+            "description_one_line": "Singleton class providing WebSocket connection management with real-time data operations.",
+            "symbol_id": "class_socket_service"
+        },
+        {
+            "name": "socketServiceInstance",
+            "kind": "constant",
+            "line": 297,
+            "description_one_line": "Exported singleton instance of SocketService for application-wide use.",
+            "symbol_id": "constant_socket_service_instance"
         }
-      }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "class_socket_service",
+            "name": "SocketService",
+            "kind": "class",
+            "description_one_line": "Singleton WebSocket manager with auto-reconnect, collection subscriptions, and data sync.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "SocketService",
+                    "description": "Singleton instance via getInstance() static method"
+                }
+            },
+            "details": {
+                "what_it_does": "Manages Socket.io connection lifecycle with private constructor (singleton pattern), auto-initialization on first getInstance() call, stores connection/disconnection callbacks, manages authentication token and session ID, handles multiple collection subscriptions with custom parsers, provides CRUD operations (create/read/update/delete) via Socket.io emit/callback pattern."
+            },
+            "locations": {
+                "source_line_start": 14,
+                "source_line_end": 295,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/socket.ts#L14-L295",
+                "nx_kb_anchor": "class_socket_service"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Get socket service instance and start session",
+                    "code": "import { socketServiceInstance } from './socket';\n\n// Start session with Firebase auth token\nsocketServiceInstance.startSession('firebase-token-xyz');\n\n// Listen for connection\nsocketServiceInstance.onConnect(() => {\n  console.log('Socket connected!');\n});"
+                },
+                "extensive": {
+                    "title": "Full example: subscribe to collections, perform CRUD",
+                    "code": "import { socketServiceInstance } from './socket';\n\nconst socket = socketServiceInstance;\n\n// 1. Start session with auth token\nsocket.startSession('firebase-token');\n\n// 2. Subscribe to collection changes\nconst unsubscribe = socket.subscribeToCollections([\n  {\n    collectionName: 'clients',\n    onFirstTime: (data) => console.log('Initial clients:', data),\n    onAdd: (doc) => console.log('New client:', doc.id, doc.data),\n    onModify: (doc) => console.log('Updated client:', doc.id),\n    onRemove: (doc) => console.log('Deleted client:', doc.id)\n  },\n  {\n    collectionName: 'users',\n    onFirstTime: (data) => console.log('Initial users:', data),\n    onAdd: (user) => console.log('New user:', user.name)\n  }\n]);\n\n// 3. Create data via Socket\ntry {\n  const result = await socket.setData({\n    collection_name: 'clients',\n    data: { name: 'Acme Corp', country: 'IL' }\n  });\n  console.log('Client created:', result);\n} catch (error) {\n  console.error('Create failed:', error.message);\n}\n\n// 4. Read data\nsocket.getCollectionData({\n  collection_name: 'clients',\n  callback: (clients) => console.log('All clients:', clients),\n  defaultValue: []\n});\n\n// 5. Update data\nawait socket.setData({\n  collection_name: 'clients',\n  key: 'client-123',\n  data: { name: 'Updated Corp' }\n});\n\n// 6. Delete data\nawait socket.deleteData({\n  collection_name: 'clients',\n  key: 'client-123'\n});\n\n// 7. Cleanup\nunsubscribe(); // stops receiving collection updates"
+                },
+                "incorrect_pattern": {
+                    "title": "Common mistake: Not checking socket connection before operations",
+                    "code": "// WRONG - socket may not be initialized yet\nconst socket = socketServiceInstance;\nsocket.setData({ collection_name: 'users', data: {} }); // may fail silently\n\n// CORRECT - wait for connection\nconst socket = socketServiceInstance;\nsocket.startSession('token');\n\nconst unsubscribe = socket.onConnect(() => {\n  socket.setData({ collection_name: 'users', data: {} });\n  unsubscribe(); // cleanup listener\n});"
+                }
+            }
+        },
+        {
+            "symbol_id": "constant_socket_service_instance",
+            "name": "socketServiceInstance",
+            "kind": "constant",
+            "description_one_line": "Pre-instantiated singleton SocketService exported for global use.",
+            "details": {
+                "what_it_does": "Calls SocketService.getInstance() at module load time, returns the singleton instance. Allows importing directly without manual singleton initialization: import { socketServiceInstance } from './socket'."
+            },
+            "locations": {
+                "source_line_start": 297,
+                "source_line_end": 297,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/socket.ts#L297",
+                "nx_kb_anchor": "constant_socket_service_instance"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Import and use socket service singleton",
+                    "code": "import { socketServiceInstance } from './socket';\n\n// No need to call getInstance() - already a singleton\nsocketServiceInstance.startSession('token');"
+                }
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
     }
-  ],
-  "quality": {
-    "generation_confidence": "high"
-  }
 }

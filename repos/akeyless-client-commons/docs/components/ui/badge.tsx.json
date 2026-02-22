@@ -1,180 +1,180 @@
 {
-  "repo": {
-    "name": "akeyless-client-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "badge.tsx",
-  "source": {
-    "file_path": "components/ui/badge.tsx",
-    "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "generated_at_iso": "2026-02-16T11:00:00.000Z",
-    "language": "tsx",
-    "framework_tags": [
-      "react"
-    ],
-    "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/badge.tsx",
-    "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/badge.json"
-  },
-  "summary": {
-    "purpose": "Provides a versatile Badge component for displaying small status indicators, labels, or tags with multiple visual variants and styling support.",
-    "problem_solved": "Offers a reusable, styled badge element with configurable variants (default, secondary, destructive, outline) for consistent status and label display across the application."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "class-variance-authority",
-        "kind": "runtime",
-        "why_used": "CVA library for managing component variant styles declaratively. Used to define multiple badge styling variants with proper TypeScript support."
-      },
-      {
-        "name": "react",
-        "kind": "runtime",
-        "why_used": "Core React library for component creation, props typing (HTMLAttributes), and JSX rendering"
-      }
-    ],
-    "internal": [
-      {
-        "import_path": "@/lib/utils",
-        "resolved_file_path": "lib/utils",
-        "why_used": "Provides the cn() utility function for conditionally merging CSS classes and variant classes",
-        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "Badge",
-      "kind": "component",
-      "description_one_line": "React component rendering a styled badge element with variant support",
-      "symbol_id": "Badge"
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
     },
-    {
-      "name": "badgeVariants",
-      "kind": "value",
-      "description_one_line": "CVA variant configuration function for badge styling with all available variants",
-      "symbol_id": "badgeVariants"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "BadgeProps",
-      "name": "BadgeProps",
-      "kind": "interface",
-      "description_one_line": "Props interface extending HTML div attributes with badge-specific variant options",
-      "details": {
-        "what_it_does": "Extends React HTMLAttributes<HTMLDivElement> with VariantProps from CVA badgeVariants. Allows consumers to pass standard HTML div attributes plus the badge variant prop for styling customization."
-      },
-      "locations": {
-        "source_line_start": 26,
-        "source_line_end": 28,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/badge.tsx#L26-L28",
-        "nx_kb_anchor": "#BadgeProps"
-      }
-    },
-    {
-      "symbol_id": "badgeVariants",
-      "name": "badgeVariants",
-      "kind": "value",
-      "description_one_line": "CVA variant configuration defining all badge styling variants and defaults",
-      "signature": {
-        "params": [],
-        "returns": {
-          "type": "CVAReturnType",
-          "description": "CVA variant function that returns CSS classes based on variant prop"
-        }
-      },
-      "details": {
-        "what_it_does": "CVA (class-variance-authority) configuration that defines the base badge styles and four variant styles: 'default' (primary blue background), 'secondary' (secondary background), 'destructive' (red warning background), and 'outline' (text only, no background). Base styles include flex layout, rounded corners, padding, small text, semibold font, transitions, and focus ring styling."
-      },
-      "locations": {
-        "source_line_start": 6,
-        "source_line_end": 24,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/badge.tsx#L6-L24",
-        "nx_kb_anchor": "#badgeVariants"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Using badgeVariants directly",
-          "code": "import { badgeVariants } from 'akeyless-client-commons/components/ui/badge';\n\nconst customClasses = badgeVariants({ variant: 'destructive' });\n// Returns all Tailwind classes for destructive badge variant"
-        },
-        "extensive_correct": {
-          "title": "All badge variants with badgeVariants",
-          "code": "import { badgeVariants } from 'akeyless-client-commons/components/ui/badge';\n\nconst variantExamples = {\n  default: badgeVariants({ variant: 'default' }),     // Primary blue\n  secondary: badgeVariants({ variant: 'secondary' }),  // Secondary color\n  destructive: badgeVariants({ variant: 'destructive' }), // Red warning\n  outline: badgeVariants({ variant: 'outline' })       // Text only\n};"
-        },
-        "incorrect": {
-          "title": "Incorrect: Using invalid variant",
-          "code": "badgeVariants({ variant: 'invalid' }); // TypeScript error",
-          "why_incorrect": "badgeVariants only accepts 'default', 'secondary', 'destructive', or 'outline' as variant values. TypeScript will prevent invalid variants at compile time."
-        }
-      }
-    },
-    {
-      "symbol_id": "Badge",
-      "name": "Badge",
-      "kind": "component",
-      "description_one_line": "Badge component rendering a styled inline-flex element with text content and variant support",
-      "signature": {
-        "params": [
-          {
-            "name": "className",
-            "type": "string",
-            "required": false,
-            "description": "Optional CSS classes to merge with badge variant styles using cn() utility"
-          },
-          {
-            "name": "variant",
-            "type": "'default' | 'secondary' | 'destructive' | 'outline'",
-            "required": false,
-            "description": "Visual variant style. Defaults to 'default' (primary blue background). 'outline' shows text only."
-          },
-          {
-            "name": "children",
-            "type": "React.ReactNode",
-            "required": false,
-            "description": "Content to display inside the badge (text, numbers, icons, etc.)"
-          },
-          {
-            "name": "...props",
-            "type": "React.HTMLAttributes<HTMLDivElement>",
-            "required": false,
-            "description": "Standard HTML div attributes (id, data-*, onClick, etc.)"
-          }
+    "file_name": "badge.tsx",
+    "source": {
+        "file_path": "components/ui/badge.tsx",
+        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
+        "generated_at_iso": "2026-02-16T11:00:00.000Z",
+        "language": "tsx",
+        "framework_tags": [
+            "react"
         ],
-        "returns": {
-          "type": "JSX.Element",
-          "description": "A styled div element with badge classes and content"
-        }
-      },
-      "details": {
-        "what_it_does": "Renders a styled div element using badgeVariants for the specified variant. Merges variant classes with any additional className prop using cn(). Accepts all standard HTML div attributes which are spread onto the resulting element. Simple presentational component suitable for displaying status, labels, tags, or indicators.",
-        "rendered_ui_description": "An inline-flex element with rounded corners, padding, small text (text-xs), and semibold font. Appearance depends on variant: default shows primary blue background with shadow, secondary shows secondary background, destructive shows red background with shadow, outline shows text-only (no background). All variants support hover state and focus ring styling."
-      },
-      "locations": {
-        "source_line_start": 30,
-        "source_line_end": 34,
-        "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/badge.tsx#L30-L34",
-        "nx_kb_anchor": "#Badge"
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Basic badge with default variant",
-          "code": "import { Badge } from 'akeyless-client-commons/components/ui/badge';\n\nconst MyComponent = () => (\n  <Badge>Active</Badge>\n);"
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/badge.tsx",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/ui/badge.tsx.json"
+    },
+    "summary": {
+        "purpose": "Provides a versatile Badge component for displaying small status indicators, labels, or tags with multiple visual variants and styling support.",
+        "problem_solved": "Offers a reusable, styled badge element with configurable variants (default, secondary, destructive, outline) for consistent status and label display across the application."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "class-variance-authority",
+                "kind": "runtime",
+                "why_used": "CVA library for managing component variant styles declaratively. Used to define multiple badge styling variants with proper TypeScript support."
+            },
+            {
+                "name": "react",
+                "kind": "runtime",
+                "why_used": "Core React library for component creation, props typing (HTMLAttributes), and JSX rendering"
+            }
+        ],
+        "internal": [
+            {
+                "import_path": "@/lib/utils",
+                "resolved_file_path": "lib/utils",
+                "why_used": "Provides the cn() utility function for conditionally merging CSS classes and variant classes",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
+            }
+        ]
+    },
+    "exports": [
+        {
+            "name": "Badge",
+            "kind": "component",
+            "description_one_line": "React component rendering a styled badge element with variant support",
+            "symbol_id": "Badge"
         },
-        "extensive_correct": {
-          "title": "Badges with all variant styles",
-          "code": "import { Badge } from 'akeyless-client-commons/components/ui/badge';\n\nconst StatusDisplay = () => (\n  <div className=\"flex gap-2\">\n    {/* Default blue badge */}\n    <Badge variant=\"default\">Active</Badge>\n    \n    {/* Secondary gray badge */}\n    <Badge variant=\"secondary\">Pending</Badge>\n    \n    {/* Destructive red badge */}\n    <Badge variant=\"destructive\">Error</Badge>\n    \n    {/* Outline text-only badge */}\n    <Badge variant=\"outline\">Info</Badge>\n    \n    {/* With custom className */}\n    <Badge className=\"font-bold\" variant=\"default\">\n      Important\n    </Badge>\n  </div>\n);"
-        },
-        "incorrect": {
-          "title": "Incorrect: Using non-existent variant or passing invalid props",
-          "code": "// These will not work correctly:\n<Badge variant=\"success\" /> {/* Invalid variant - no TypeScript error but won't style */}\n<Badge variant={['default', 'secondary']} /> {/* Variant should be string, not array */}",
-          "why_incorrect": "Badge variant must be one of: 'default', 'secondary', 'destructive', or 'outline'. Other values will be silently ignored by CVA and won't apply the correct styling. TypeScript will catch invalid variants if strict typing is enabled."
+        {
+            "name": "badgeVariants",
+            "kind": "value",
+            "description_one_line": "CVA variant configuration function for badge styling with all available variants",
+            "symbol_id": "badgeVariants"
         }
-      }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "BadgeProps",
+            "name": "BadgeProps",
+            "kind": "interface",
+            "description_one_line": "Props interface extending HTML div attributes with badge-specific variant options",
+            "details": {
+                "what_it_does": "Extends React HTMLAttributes<HTMLDivElement> with VariantProps from CVA badgeVariants. Allows consumers to pass standard HTML div attributes plus the badge variant prop for styling customization."
+            },
+            "locations": {
+                "source_line_start": 26,
+                "source_line_end": 28,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/badge.tsx#L26-L28",
+                "nx_kb_anchor": "#BadgeProps"
+            }
+        },
+        {
+            "symbol_id": "badgeVariants",
+            "name": "badgeVariants",
+            "kind": "value",
+            "description_one_line": "CVA variant configuration defining all badge styling variants and defaults",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "CVAReturnType",
+                    "description": "CVA variant function that returns CSS classes based on variant prop"
+                }
+            },
+            "details": {
+                "what_it_does": "CVA (class-variance-authority) configuration that defines the base badge styles and four variant styles: 'default' (primary blue background), 'secondary' (secondary background), 'destructive' (red warning background), and 'outline' (text only, no background). Base styles include flex layout, rounded corners, padding, small text, semibold font, transitions, and focus ring styling."
+            },
+            "locations": {
+                "source_line_start": 6,
+                "source_line_end": 24,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/badge.tsx#L6-L24",
+                "nx_kb_anchor": "#badgeVariants"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Using badgeVariants directly",
+                    "code": "import { badgeVariants } from 'akeyless-client-commons/components/ui/badge';\n\nconst customClasses = badgeVariants({ variant: 'destructive' });\n// Returns all Tailwind classes for destructive badge variant"
+                },
+                "extensive_correct": {
+                    "title": "All badge variants with badgeVariants",
+                    "code": "import { badgeVariants } from 'akeyless-client-commons/components/ui/badge';\n\nconst variantExamples = {\n  default: badgeVariants({ variant: 'default' }),     // Primary blue\n  secondary: badgeVariants({ variant: 'secondary' }),  // Secondary color\n  destructive: badgeVariants({ variant: 'destructive' }), // Red warning\n  outline: badgeVariants({ variant: 'outline' })       // Text only\n};"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Using invalid variant",
+                    "code": "badgeVariants({ variant: 'invalid' }); // TypeScript error",
+                    "why_incorrect": "badgeVariants only accepts 'default', 'secondary', 'destructive', or 'outline' as variant values. TypeScript will prevent invalid variants at compile time."
+                }
+            }
+        },
+        {
+            "symbol_id": "Badge",
+            "name": "Badge",
+            "kind": "component",
+            "description_one_line": "Badge component rendering a styled inline-flex element with text content and variant support",
+            "signature": {
+                "params": [
+                    {
+                        "name": "className",
+                        "type": "string",
+                        "required": false,
+                        "description": "Optional CSS classes to merge with badge variant styles using cn() utility"
+                    },
+                    {
+                        "name": "variant",
+                        "type": "'default' | 'secondary' | 'destructive' | 'outline'",
+                        "required": false,
+                        "description": "Visual variant style. Defaults to 'default' (primary blue background). 'outline' shows text only."
+                    },
+                    {
+                        "name": "children",
+                        "type": "React.ReactNode",
+                        "required": false,
+                        "description": "Content to display inside the badge (text, numbers, icons, etc.)"
+                    },
+                    {
+                        "name": "...props",
+                        "type": "React.HTMLAttributes<HTMLDivElement>",
+                        "required": false,
+                        "description": "Standard HTML div attributes (id, data-*, onClick, etc.)"
+                    }
+                ],
+                "returns": {
+                    "type": "JSX.Element",
+                    "description": "A styled div element with badge classes and content"
+                }
+            },
+            "details": {
+                "what_it_does": "Renders a styled div element using badgeVariants for the specified variant. Merges variant classes with any additional className prop using cn(). Accepts all standard HTML div attributes which are spread onto the resulting element. Simple presentational component suitable for displaying status, labels, tags, or indicators.",
+                "rendered_ui_description": "An inline-flex element with rounded corners, padding, small text (text-xs), and semibold font. Appearance depends on variant: default shows primary blue background with shadow, secondary shows secondary background, destructive shows red background with shadow, outline shows text-only (no background). All variants support hover state and focus ring styling."
+            },
+            "locations": {
+                "source_line_start": 30,
+                "source_line_end": 34,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/ui/badge.tsx#L30-L34",
+                "nx_kb_anchor": "#Badge"
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic badge with default variant",
+                    "code": "import { Badge } from 'akeyless-client-commons/components/ui/badge';\n\nconst MyComponent = () => (\n  <Badge>Active</Badge>\n);"
+                },
+                "extensive_correct": {
+                    "title": "Badges with all variant styles",
+                    "code": "import { Badge } from 'akeyless-client-commons/components/ui/badge';\n\nconst StatusDisplay = () => (\n  <div className=\"flex gap-2\">\n    {/* Default blue badge */}\n    <Badge variant=\"default\">Active</Badge>\n    \n    {/* Secondary gray badge */}\n    <Badge variant=\"secondary\">Pending</Badge>\n    \n    {/* Destructive red badge */}\n    <Badge variant=\"destructive\">Error</Badge>\n    \n    {/* Outline text-only badge */}\n    <Badge variant=\"outline\">Info</Badge>\n    \n    {/* With custom className */}\n    <Badge className=\"font-bold\" variant=\"default\">\n      Important\n    </Badge>\n  </div>\n);"
+                },
+                "incorrect": {
+                    "title": "Incorrect: Using non-existent variant or passing invalid props",
+                    "code": "// These will not work correctly:\n<Badge variant=\"success\" /> {/* Invalid variant - no TypeScript error but won't style */}\n<Badge variant={['default', 'secondary']} /> {/* Variant should be string, not array */}",
+                    "why_incorrect": "Badge variant must be one of: 'default', 'secondary', 'destructive', or 'outline'. Other values will be silently ignored by CVA and won't apply the correct styling. TypeScript will catch invalid variants if strict typing is enabled."
+                }
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }
