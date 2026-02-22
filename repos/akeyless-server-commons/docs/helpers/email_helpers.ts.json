@@ -6,12 +6,12 @@
   "file_name": "email_helpers.ts",
   "source": {
     "file_path": "helpers/email_helpers.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/email_helpers.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/email_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/email_helpers.ts.json"
   },
   "summary": {
     "purpose": "Provides utilities for sending emails via SendGrid and creating email attachments from files, buffers, or URLs.",
@@ -40,22 +40,22 @@
         "import_path": ".",
         "resolved_file_path": "helpers/index.ts",
         "why_used": "Imports add_audit_record, get_document_by_id, and ignore_ssl_request helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/index.ts"
       },
       {
         "import_path": "../types",
         "resolved_file_path": "types/index.ts",
         "why_used": "Imports EmailSettings, EmailData, and EmailAttachment type definitions.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts"
       },
       {
         "import_path": "../managers",
         "resolved_file_path": "managers/index.ts",
         "why_used": "Imports the logger singleton for error and debug logging.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
       }
     ]
   },
@@ -135,7 +135,7 @@
       "locations": {
         "source_line_start": 8,
         "source_line_end": 28,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts#L8",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/email_helpers.ts#L8",
         "nx_kb_anchor": "create_attachment_from_file"
       }
     },
@@ -188,7 +188,7 @@
       "locations": {
         "source_line_start": 30,
         "source_line_end": 43,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts#L30",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/email_helpers.ts#L30",
         "nx_kb_anchor": "create_attachment_from_buffer"
       }
     },
@@ -235,7 +235,7 @@
       "locations": {
         "source_line_start": 45,
         "source_line_end": 67,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts#L45",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/email_helpers.ts#L45",
         "nx_kb_anchor": "create_attachment_from_url"
       }
     },
@@ -298,7 +298,7 @@
       "locations": {
         "source_line_start": 101,
         "source_line_end": 169,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts#L101",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/email_helpers.ts#L101",
         "nx_kb_anchor": "send_email"
       }
     }

@@ -6,12 +6,12 @@
   "file_name": "global_mw.ts",
   "source": {
     "file_path": "middlewares/global_mw.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node", "express"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/global_mw.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/global_mw.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/global_mw.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/global_mw.ts.json"
   },
   "summary": {
     "purpose": "Provides Express middleware factories for request body/header validation (mandatory and optional parameters), request logging, and parameter type checking.",
@@ -30,22 +30,22 @@
         "import_path": "../helpers",
         "resolved_file_path": "helpers/index.ts",
         "why_used": "Imports json_failed for validation error responses.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/index.ts"
       },
       {
         "import_path": "../types",
         "resolved_file_path": "types/index.ts",
         "why_used": "Imports LogRequests, MandatoryObject, MandatoryParams, MW, Route, and Service types.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts"
       },
       {
         "import_path": "../managers",
         "resolved_file_path": "managers/index.ts",
         "why_used": "Imports the logger singleton for request logging.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
       }
     ]
   },
@@ -94,7 +94,7 @@
           "code": "app.post('/api/send', mandatory({ body: [\n  { key: 'phone_number', type: 'string', length: 10 },\n  { key: 'message', type: 'string' }\n] }), handler);"
         }
       },
-      "locations": {"source_line_start": 56, "source_line_end": 79, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/global_mw.ts#L56", "nx_kb_anchor": "mandatory"}
+      "locations": {"source_line_start": 56, "source_line_end": 79, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/global_mw.ts#L56", "nx_kb_anchor": "mandatory"}
     },
     {
       "symbol_id": "optional",
@@ -114,7 +114,7 @@
           "code": "app.post('/api/search', optional({ body: [\n  { key: 'limit', type: 'number' },\n  { key: 'filters', type: 'object' }\n] }), handler);"
         }
       },
-      "locations": {"source_line_start": 81, "source_line_end": 104, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/global_mw.ts#L81", "nx_kb_anchor": "optional"}
+      "locations": {"source_line_start": 81, "source_line_end": 104, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/global_mw.ts#L81", "nx_kb_anchor": "optional"}
     },
     {
       "symbol_id": "request_logger",
@@ -134,7 +134,7 @@
           "code": "app.use(request_logger({ url: true, body: true }));"
         }
       },
-      "locations": {"source_line_start": 106, "source_line_end": 124, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/global_mw.ts#L106", "nx_kb_anchor": "request_logger"}
+      "locations": {"source_line_start": 106, "source_line_end": 124, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/global_mw.ts#L106", "nx_kb_anchor": "request_logger"}
     }
   ],
   "quality": {

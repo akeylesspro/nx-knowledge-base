@@ -11,7 +11,7 @@
         "language": "ts",
         "framework_tags": ["typescript", "node"],
         "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts",
-        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/socket.ts"
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/socket.ts.json"
     },
     "summary": {
         "purpose": "Defines the shared type contracts for the WebSocket and Redis real-time data synchronisation layer used between server and client applications.",
@@ -86,7 +86,7 @@
             "name": "SOCKET_EVENTS",
             "kind": "constant",
             "details": {
-                "what_it_does": "Exports a deeply immutable object (using `as const`) containing seven socket event name strings: SET_DATA, GET_DATA, DELETE_DATA, SUBSCRIBE_COLLECTIONS, UNSUBSCRIBE_COLLECTIONS, CLEAR_ALL_REDIS_DATA, DISCONNECT, and SESSION. Declared `as const` so TypeScript infers string literal types for each member rather than string, enabling SocketEventMap to be derived. Used by both the server Socket.IO emitter and the client socket listeners."
+                "what_it_does": "Exports a deeply immutable object (using `as const`) containing eight socket event name strings: SET_DATA, GET_DATA, DELETE_DATA, SUBSCRIBE_COLLECTIONS, UNSUBSCRIBE_COLLECTIONS, CLEAR_ALL_REDIS_DATA, DISCONNECT, and SESSION. Declared `as const` so TypeScript infers string literal types for each member rather than string, enabling SocketEventMap to be derived. Used by both the server Socket.IO emitter and the client socket listeners."
             },
             "description_one_line": "Immutable object of all Socket.IO event name string constants used for real-time data sync",
             "locations": {

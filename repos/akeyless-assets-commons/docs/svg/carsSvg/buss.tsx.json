@@ -19,7 +19,15 @@
     },
     "dependencies": {
         "external": [],
-        "internal": []
+        "internal": [
+            {
+                "import_path": "../../types",
+                "resolved_file_path": "types/index.ts",
+                "why_used": "Imports the VehicleSvg function type used to type the exported icon functions.",
+                "link_to_nx_kb": "/repos/akeyless-assets-commons/docs/types/index.ts.json",
+                "link_to_github": "https://github.com/akeyless/akeyless-assets-commons/blob/327dba7e9ef8cf073d69b9980965fcbc31cfa8aa/src/types/index.ts"
+            }
+        ]
     },
     "exports": [
         {

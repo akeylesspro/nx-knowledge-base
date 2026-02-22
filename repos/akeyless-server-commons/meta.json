@@ -22,8 +22,8 @@
         "Internationalisation / translation management",
         "Shared TypeScript types, interfaces, and enums"
     ],
-    "last_synced_at": "2026-02-19T07:19:27.000Z",
-    "last_synced_commit": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
+    "last_synced_at": "2026-02-22T00:00:00.000Z",
+    "last_synced_commit": "39596d3",
     "file_count": 35,
-    "symbol_count": 161
+    "symbol_count": 171
 }

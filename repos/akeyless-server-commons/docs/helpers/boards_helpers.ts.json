@@ -6,12 +6,12 @@
   "file_name": "boards_helpers.ts",
   "source": {
     "file_path": "helpers/boards_helpers.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/boards_helpers.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/boards_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/boards_helpers.ts.json"
   },
   "summary": {
     "purpose": "Provides helper functions and types for resolving the hardware board manufacturer (board maker) from board type strings or Car objects, using cached settings.",
@@ -30,8 +30,8 @@
         "import_path": "../managers",
         "resolved_file_path": "managers/index.ts",
         "why_used": "Imports cache_manager singleton to read 'settings' and 'boards' cached data.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
       }
     ]
   },
@@ -93,7 +93,7 @@
       "locations": {
         "source_line_start": 8,
         "source_line_end": 18,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts#L8",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/boards_helpers.ts#L8",
         "nx_kb_anchor": "extract_board_types_from_settings"
       }
     },
@@ -115,7 +115,7 @@
       "locations": {
         "source_line_start": 20,
         "source_line_end": 20,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts#L20",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/boards_helpers.ts#L20",
         "nx_kb_anchor": "BoardMakerResult"
       }
     },
@@ -161,7 +161,7 @@
       "locations": {
         "source_line_start": 22,
         "source_line_end": 40,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts#L22",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/boards_helpers.ts#L22",
         "nx_kb_anchor": "get_board_maker_by_board_type"
       }
     },
@@ -214,7 +214,7 @@
       "locations": {
         "source_line_start": 42,
         "source_line_end": 73,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts#L42",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/boards_helpers.ts#L42",
         "nx_kb_anchor": "get_board_maker_by_car"
       }
     }

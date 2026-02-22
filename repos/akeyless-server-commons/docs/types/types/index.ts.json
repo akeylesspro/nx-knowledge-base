@@ -6,12 +6,12 @@
   "file_name": "index.ts",
   "source": {
     "file_path": "types/types/index.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/index.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/index.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/index.ts.json"
   },
   "summary": {
     "purpose": "Barrel export file for all type alias definitions.",
@@ -24,15 +24,15 @@
         "import_path": "./global",
         "resolved_file_path": "types/types/global.ts",
         "why_used": "Re-exports global type aliases (MW, Service, Route, etc.).",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/global.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/global.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts"
       },
       {
         "import_path": "./firebase_types",
         "resolved_file_path": "types/types/firebase_types.ts",
         "why_used": "Re-exports Firebase-specific type aliases.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/firebase_types.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/firebase_types.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/firebase_types.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/firebase_types.ts"
       }
     ]
   },
@@ -54,7 +54,7 @@
       "locations": {
         "source_line_start": 1,
         "source_line_end": 3,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/index.ts#L1",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/index.ts#L1",
         "nx_kb_anchor": "types_types_barrel"
       }
     }

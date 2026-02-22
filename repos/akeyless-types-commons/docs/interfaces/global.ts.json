@@ -11,7 +11,7 @@
         "language": "ts",
         "framework_tags": ["typescript", "node"],
         "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts",
-        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/global.ts"
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/global.ts.json"
     },
     "summary": {
         "purpose": "Defines the core domain interfaces and types for all major entities in the Akeyless vehicle-tracking platform, including users, clients, sites, vehicles, boards, equipment, events, reports, and GPRS items.",
@@ -30,14 +30,14 @@
                 "import_path": "../enums",
                 "resolved_file_path": "enums/index.ts",
                 "why_used": "Imports BoardStatus, ClientStatus, CountryOptions, EquipmentStatus, EquipmentStatusReason, LanguageOptions, SiteType, UnitStatus for typing entity status and configuration fields",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/index.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/index.ts"
             },
             {
                 "import_path": "../types",
                 "resolved_file_path": "types/index.ts",
                 "why_used": "Imports Geo and TObject utility types for geographic coordinates and generic string-keyed object fields",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/index.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/index.ts"
             }
         ]

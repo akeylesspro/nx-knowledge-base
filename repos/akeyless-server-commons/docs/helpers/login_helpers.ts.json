@@ -6,12 +6,12 @@
   "file_name": "login_helpers.ts",
   "source": {
     "file_path": "helpers/login_helpers.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/login_helpers.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/login_helpers.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/login_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/login_helpers.ts.json"
   },
   "summary": {
     "purpose": "Provides helper functions for looking up NxUser and MobileAppUser records from Firestore by phone number, email, or UID.",
@@ -30,15 +30,15 @@
         "import_path": "./firebase_helpers",
         "resolved_file_path": "helpers/firebase_helpers.ts",
         "why_used": "Imports query_document and query_document_optional for Firestore queries.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts"
       },
       {
         "import_path": "../managers",
         "resolved_file_path": "managers/index.ts",
         "why_used": "Imports the logger singleton.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
       }
     ]
   },
@@ -94,7 +94,7 @@
       "locations": {
         "source_line_start": 5,
         "source_line_end": 7,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/login_helpers.ts#L5",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/login_helpers.ts#L5",
         "nx_kb_anchor": "convert_to_short_phone_number"
       }
     },
@@ -139,7 +139,7 @@
       "locations": {
         "source_line_start": 10,
         "source_line_end": 24,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/login_helpers.ts#L10",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/login_helpers.ts#L10",
         "nx_kb_anchor": "get_user_by_identifier"
       }
     },
@@ -180,7 +180,7 @@
       "locations": {
         "source_line_start": 27,
         "source_line_end": 30,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/login_helpers.ts#L27",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/login_helpers.ts#L27",
         "nx_kb_anchor": "get_mobile_app_user_by_uid"
       }
     }

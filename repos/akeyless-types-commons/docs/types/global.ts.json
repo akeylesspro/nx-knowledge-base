@@ -11,7 +11,7 @@
         "language": "ts",
         "framework_tags": ["typescript"],
         "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/global.ts",
-        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/global.ts"
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/global.ts.json"
     },
     "summary": {
         "purpose": "Defines fundamental utility types and a geographic coordinate interface used throughout the platform.",

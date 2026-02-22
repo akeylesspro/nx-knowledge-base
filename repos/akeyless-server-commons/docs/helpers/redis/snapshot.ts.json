@@ -1,113 +1,140 @@
 {
-  "repo": {
-    "name": "akeyless-server-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "snapshot.ts",
-  "source": {
-    "file_path": "helpers/redis/snapshot.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
-    "language": "ts",
-    "framework_tags": ["node", "redis"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/snapshot.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/snapshot.ts"
-  },
-  "summary": {
-    "purpose": "Manages real-time data synchronisation from Redis to the application's in-memory cache, handling add/update/delete events from Redis keyspace notifications and applying them to the CacheManager.",
-    "problem_solved": "Provides a Redis-based alternative to Firestore snapshot listeners, enabling lower-latency real-time cache updates by subscribing to Redis keyspace events instead of Firestore change streams."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "ioredis",
-        "kind": "runtime",
-        "why_used": "Provides the Redis client types used in function parameters."
-      }
-    ],
-    "internal": [
-      {
-        "import_path": "../../managers",
-        "resolved_file_path": "managers/index.ts",
-        "why_used": "Imports cache_manager and logger singletons.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
-      },
-      {
-        "import_path": "../../types",
-        "resolved_file_path": "types/index.ts",
-        "why_used": "Imports OnSnapshotConfig, RedisUpdatePayload, and RedisUpdateType types.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
-      },
-      {
-        "import_path": "./initialize",
-        "resolved_file_path": "helpers/redis/initialize.ts",
-        "why_used": "Imports get_redis_commander and get_redis_listener for Redis client access.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/initialize.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/initialize.ts"
-      },
-      {
-        "import_path": "./keys",
-        "resolved_file_path": "helpers/redis/keys.ts",
-        "why_used": "Imports scan_redis_keys for initial data loading.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/keys.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/keys.ts"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "on_redis_snapshot",
-      "kind": "function",
-      "description_one_line": "Sets up a Redis-based real-time data synchronisation listener for a collection.",
-      "symbol_id": "on_redis_snapshot"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "on_redis_snapshot",
-      "name": "on_redis_snapshot",
-      "kind": "function",
-      "description_one_line": "Sets up a Redis-based real-time data synchronisation listener for a collection.",
-      "signature": {
-        "params": [
-          {"name": "config", "type": "OnSnapshotConfig", "required": true, "description": "Snapshot configuration including collection_name, parse_as, doc_key_property, extra_parsers, cache_name, and debug options."}
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "snapshot.ts",
+    "source": {
+        "file_path": "helpers/redis/snapshot.ts",
+        "commit_sha": "39596d3",
+        "generated_at_iso": "2026-02-22T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["node", "redis"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/snapshot.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/snapshot.ts.json"
+    },
+    "summary": {
+        "purpose": "Manages Redis-based real-time data synchronisation: bulk loads collection data from Redis on startup and handles ongoing add/update/delete events from Redis pub/sub messages.",
+        "problem_solved": "Provides a lower-latency alternative to Firestore snapshot listeners by reading and subscribing to Redis-cached data, with fallback to Firestore when Redis is unavailable or not configured for a collection."
+    },
+    "dependencies": {
+        "external": [
+            {
+                "name": "akeyless-types-commons",
+                "kind": "runtime",
+                "why_used": "Provides CollectionConfig, RedisUpdatePayload, RedisUpdateType, and TObject types."
+            },
+            {
+                "name": "firebase-admin",
+                "kind": "runtime",
+                "why_used": "Imports Timestamp from firebase-admin/firestore for converting Redis-stored timestamp objects back to Firestore Timestamps."
+            }
         ],
-        "returns": {"type": "Promise<void>", "description": "Resolves after the initial data load from Redis is complete."}
-      },
-      "details": {
-        "what_it_does": "Performs an initial bulk load of all Redis keys matching the collection_name pattern using scan_redis_keys and MGET. Then subscribes to the Redis listener's 'pmessage' event to receive keyspace notifications. On each notification, parses the update payload (add/update/delete), applies it to the in-memory cache via cache_manager, and calls the appropriate extra_parsers (on_add, on_modify, on_remove). Validates configuration before proceeding.",
-        "side_effects": [
-          "Registers a persistent 'pmessage' event handler on the Redis listener.",
-          "Populates cache_manager with initial collection data.",
-          "Updates cache_manager on each Redis keyspace event."
-        ],
-        "error_cases": [
-          {"condition": "collection_name is missing from config", "behavior": "Logs an error and returns without setting up the listener."},
-          {"condition": "Redis is not connected", "behavior": "Falls back to Firestore snapshot listener via on_snapshot."}
+        "internal": [
+            {
+                "import_path": "./initialize",
+                "resolved_file_path": "helpers/redis/initialize.ts",
+                "why_used": "Imports get_redis_commander, get_redis_listener, redis_commander_connected, and redis_listener_connected to check connection status and access clients.",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/initialize.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/initialize.ts"
+            },
+            {
+                "import_path": "../../types",
+                "resolved_file_path": "types/index.ts",
+                "why_used": "Imports OnSnapshotConfig type.",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts"
+            },
+            {
+                "import_path": "../firebase_helpers",
+                "resolved_file_path": "helpers/firebase_helpers.ts",
+                "why_used": "Imports get_nx_settings (to read cache_collections_config), parse_add_update_as_array, parse_add_update_as_object, parse_delete_as_array, parse_delete_as_object, and snapshot (for Firebase fallback).",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts"
+            },
+            {
+                "import_path": "./keys",
+                "resolved_file_path": "helpers/redis/keys.ts",
+                "why_used": "Imports get_collection_keys and scan_redis_keys for loading initial collection data.",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/keys.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/keys.ts"
+            },
+            {
+                "import_path": "../../managers",
+                "resolved_file_path": "managers/index.ts",
+                "why_used": "Imports the logger singleton for warning and error logging.",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
+            }
         ]
-      },
-      "examples": {
-        "minimal_correct": {
-          "title": "Set up a Redis snapshot for a collection",
-          "code": "await on_redis_snapshot({\n  collection_name: 'nx-devices',\n  parse_as: 'array',\n  cache_name: 'devices'\n});"
-        },
-        "extensive_correct": {
-          "title": "Redis snapshot with custom parsers",
-          "code": "await on_redis_snapshot({\n  collection_name: 'nx-devices',\n  parse_as: 'object',\n  doc_key_property: 'imei',\n  cache_name: 'devices',\n  extra_parsers: [{\n    on_add: (docs, config) => { /* custom add logic */ },\n    on_modify: (docs, config) => { /* custom modify logic */ }\n  }]\n});"
+    },
+    "exports": [
+        {
+            "name": "redis_snapshots_bulk",
+            "kind": "function",
+            "description_one_line": "Bulk-initialises Redis snapshot listeners for a list of OnSnapshotConfig objects, with per-collection fallback to Firestore.",
+            "symbol_id": "function_redis_snapshots_bulk"
         }
-      },
-      "locations": {
-        "source_line_start": 20,
-        "source_line_end": 205,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/snapshot.ts#L20",
-        "nx_kb_anchor": "on_redis_snapshot"
-      }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_redis_snapshots_bulk",
+            "name": "redis_snapshots_bulk",
+            "kind": "function",
+            "description_one_line": "Bulk-initialises Redis snapshot listeners for a list of OnSnapshotConfig objects, with per-collection fallback to Firestore.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "configs",
+                        "type": "OnSnapshotConfig[]",
+                        "required": true,
+                        "description": "Array of snapshot configurations, one per collection to subscribe."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves after all collections are initialised (either from Redis or via Firestore fallback)."
+                }
+            },
+            "details": {
+                "what_it_does": "For each config, calls validate_config to check Redis connection status, whether both clients are connected, whether the collection is configured in nx-settings cache_collections_config, and whether it has a valid sync_direction. On validation failure, optionally triggers a Firebase snapshot fallback. On success, calls parse_redis_snapshot to perform initial bulk load from Redis. Also registers a persistent 'pmessage' handler on the Redis listener to handle subsequent add/update/delete events from Redis pub/sub, dispatching each update to the appropriate parsers.",
+                "side_effects": [
+                    "Reads all Redis keys for each collection using SCAN + MGET.",
+                    "Populates cache_manager with initial collection data.",
+                    "Registers a persistent 'pmessage' event handler on the Redis listener for ongoing updates.",
+                    "May trigger Firestore snapshot listeners as fallback."
+                ],
+                "error_cases": [
+                    {
+                        "condition": "Redis commander or listener not connected",
+                        "behavior": "Logs a warning and falls back to Firebase snapshot for the affected collection."
+                    },
+                    {
+                        "condition": "Collection not in cache_collections_config or sync_direction is redis_to_firebase",
+                        "behavior": "Logs a warning and falls back to Firebase snapshot."
+                    },
+                    {
+                        "condition": "Collection already has a subscription",
+                        "behavior": "Skips the duplicate without triggering a fallback."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Bulk initialise Redis snapshots",
+                    "code": "await redis_snapshots_bulk([\n  { collection_name: 'units', parse_as: 'array' },\n  { collection_name: 'nx-settings', parse_as: 'object' }\n]);"
+                }
+            },
+            "locations": {
+                "source_line_start": 18,
+                "source_line_end": 40,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/snapshot.ts#L18",
+                "nx_kb_anchor": "function_redis_snapshots_bulk"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": ["Internal helpers validate_config, parse_redis_snapshot, get_collection_data, convert_object_timestamps, and default_parsers are private and not documented as they are not exported."]
     }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": ["Internal helper functions (validate_config, parse_redis_update, apply_update_to_cache) are not exported and not documented here."]
-  }
 }

@@ -6,12 +6,12 @@
   "file_name": "index.ts",
   "source": {
     "file_path": "middlewares/index.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node", "express"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/index.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/index.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/index.ts.json"
   },
   "summary": {
     "purpose": "Barrel export file for all Express middleware modules.",
@@ -24,29 +24,29 @@
         "import_path": "./global_mw",
         "resolved_file_path": "middlewares/global_mw.ts",
         "why_used": "Re-exports mandatory, optional, and request_logger middleware factories.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/global_mw.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/global_mw.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/global_mw.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/global_mw.ts"
       },
       {
         "import_path": "./auth_mw",
         "resolved_file_path": "middlewares/auth_mw.ts",
         "why_used": "Re-exports verify_user_auth, nx_user_login, and client_login middleware.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/auth_mw.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/auth_mw.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/auth_mw.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/auth_mw.ts"
       },
       {
         "import_path": "./error_handling",
         "resolved_file_path": "middlewares/error_handling.ts",
         "why_used": "Re-exports error_handler and async_error_handler.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/error_handling.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/error_handling.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/error_handling.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/error_handling.ts"
       },
       {
         "import_path": "./trim_mw",
         "resolved_file_path": "middlewares/trim_mw.ts",
         "why_used": "Re-exports trim_body_middleware.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/trim_mw.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/trim_mw.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/trim_mw.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/trim_mw.ts"
       }
     ]
   },
@@ -70,7 +70,7 @@
       "locations": {
         "source_line_start": 1,
         "source_line_end": 4,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/index.ts#L1",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/index.ts#L1",
         "nx_kb_anchor": "middlewares_barrel"
       }
     }

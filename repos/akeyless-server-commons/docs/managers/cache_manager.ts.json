@@ -6,12 +6,12 @@
   "file_name": "cache_manager.ts",
   "source": {
     "file_path": "managers/cache_manager.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/cache_manager.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/cache_manager.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/cache_manager.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/cache_manager.ts.json"
   },
   "summary": {
     "purpose": "Implements a singleton in-memory cache manager that stores and retrieves data as either typed arrays or keyed objects.",
@@ -69,7 +69,7 @@
       "locations": {
         "source_line_start": 3,
         "source_line_end": 38,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/cache_manager.ts#L3",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/cache_manager.ts#L3",
         "nx_kb_anchor": "CacheManager"
       }
     },
@@ -90,7 +90,7 @@
       "locations": {
         "source_line_start": 40,
         "source_line_end": 41,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/cache_manager.ts#L40",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/cache_manager.ts#L40",
         "nx_kb_anchor": "cache_manager_instance"
       }
     }

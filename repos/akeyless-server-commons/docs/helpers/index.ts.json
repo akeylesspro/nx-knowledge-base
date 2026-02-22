@@ -6,12 +6,12 @@
   "file_name": "index.ts",
   "source": {
     "file_path": "helpers/index.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts.json"
   },
   "summary": {
     "purpose": "Barrel export file that re-exports all helper sub-modules as a flat namespace.",
@@ -24,85 +24,85 @@
         "import_path": "./global_helpers",
         "resolved_file_path": "helpers/global_helpers.ts",
         "why_used": "Re-exports general-purpose utilities.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/global_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/global_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts"
       },
       {
         "import_path": "./firebase_helpers",
         "resolved_file_path": "helpers/firebase_helpers.ts",
         "why_used": "Re-exports Firebase Firestore, Auth, Storage, and snapshot helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts"
       },
       {
         "import_path": "./start",
         "resolved_file_path": "helpers/start.ts",
         "why_used": "Re-exports server startup helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/start.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/start.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/start.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/start.ts"
       },
       {
         "import_path": "./time_helpers",
         "resolved_file_path": "helpers/time_helpers.ts",
         "why_used": "Re-exports time/timestamp conversion utilities.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/time_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/time_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts"
       },
       {
         "import_path": "./login_helpers",
         "resolved_file_path": "helpers/login_helpers.ts",
         "why_used": "Re-exports user login/lookup helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/login_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/login_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/login_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/login_helpers.ts"
       },
       {
         "import_path": "./notification_helpers",
         "resolved_file_path": "helpers/notification_helpers.ts",
         "why_used": "Re-exports SMS and push notification helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/notification_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/notification_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/notification_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/notification_helpers.ts"
       },
       {
         "import_path": "./email_helpers",
         "resolved_file_path": "helpers/email_helpers.ts",
         "why_used": "Re-exports email sending and attachment helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/email_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/email_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/email_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/email_helpers.ts"
       },
       {
         "import_path": "./phone_number_helpers",
         "resolved_file_path": "helpers/phone_number_helpers.ts",
         "why_used": "Re-exports phone number validation and conversion helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/phone_number_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/phone_number_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts"
       },
       {
         "import_path": "./tasks_helpers",
         "resolved_file_path": "helpers/tasks_helpers.ts",
         "why_used": "Re-exports task execution and data persistence helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/tasks_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/tasks_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/tasks_helpers.ts"
       },
       {
         "import_path": "./boards_helpers",
         "resolved_file_path": "helpers/boards_helpers.ts",
         "why_used": "Re-exports board maker resolution helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/boards_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/boards_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/boards_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/boards_helpers.ts"
       },
       {
         "import_path": "./redis",
         "resolved_file_path": "helpers/redis/index.ts",
         "why_used": "Re-exports Redis initialization, key utilities, and snapshot helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/index.ts"
       },
       {
         "import_path": "./location_helpers",
         "resolved_file_path": "helpers/location_helpers.ts",
         "why_used": "Re-exports geographic distance and URL helpers.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/location_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/location_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/location_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/location_helpers.ts"
       }
     ]
   },
@@ -126,7 +126,7 @@
       "locations": {
         "source_line_start": 1,
         "source_line_end": 12,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts#L1",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/index.ts#L1",
         "nx_kb_anchor": "helpers_barrel"
       }
     }

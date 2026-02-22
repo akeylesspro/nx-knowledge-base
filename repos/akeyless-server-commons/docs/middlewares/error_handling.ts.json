@@ -6,12 +6,12 @@
   "file_name": "error_handling.ts",
   "source": {
     "file_path": "middlewares/error_handling.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node", "express"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/error_handling.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/error_handling.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/error_handling.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/error_handling.ts.json"
   },
   "summary": {
     "purpose": "Provides Express error handling utilities: a global error handler middleware and an async error wrapper.",
@@ -30,15 +30,15 @@
         "import_path": "../types",
         "resolved_file_path": "types/index.ts",
         "why_used": "Imports the Service type (async route handler signature).",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts"
       },
       {
         "import_path": "../managers",
         "resolved_file_path": "managers/index.ts",
         "why_used": "Imports the logger singleton for error logging.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
       }
     ]
   },
@@ -78,7 +78,7 @@
       "examples": {
         "minimal_correct": {"title": "Register as global error handler", "code": "app.use(error_handler);"}
       },
-      "locations": {"source_line_start": 17, "source_line_end": 24, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/error_handling.ts#L17", "nx_kb_anchor": "error_handler"}
+      "locations": {"source_line_start": 17, "source_line_end": 24, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/error_handling.ts#L17", "nx_kb_anchor": "error_handler"}
     },
     {
       "symbol_id": "async_error_handler",
@@ -95,7 +95,7 @@
       "examples": {
         "minimal_correct": {"title": "Wrap an async route handler", "code": "app.get('/data', async_error_handler(async (req, res) => {\n  const data = await fetchData();\n  res.json(json_ok(data));\n}));"}
       },
-      "locations": {"source_line_start": 8, "source_line_end": 12, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/error_handling.ts#L8", "nx_kb_anchor": "async_error_handler"}
+      "locations": {"source_line_start": 8, "source_line_end": 12, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/error_handling.ts#L8", "nx_kb_anchor": "async_error_handler"}
     }
   ],
   "quality": {

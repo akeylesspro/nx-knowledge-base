@@ -6,12 +6,12 @@
   "file_name": "auth_mw.ts",
   "source": {
     "file_path": "middlewares/auth_mw.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node", "express"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/auth_mw.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/auth_mw.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/auth_mw.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/auth_mw.ts.json"
   },
   "summary": {
     "purpose": "Provides Express authentication middleware for verifying Firebase Auth tokens and resolving user identities (NxUser or Client) from Firestore.",
@@ -30,22 +30,22 @@
         "import_path": "../helpers",
         "resolved_file_path": "helpers/index.ts",
         "why_used": "Imports verify_token, json_failed, query_document_optional, and get_user_by_identifier.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/index.ts"
       },
       {
         "import_path": "../managers",
         "resolved_file_path": "managers/index.ts",
         "why_used": "Imports the logger singleton.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
       },
       {
         "import_path": "../types",
         "resolved_file_path": "types/index.ts",
         "why_used": "Imports the MW type for Express middleware signature.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts"
       }
     ]
   },
@@ -90,7 +90,7 @@
       "examples": {
         "minimal_correct": {"title": "Use as route middleware", "code": "app.get('/protected', verify_user_auth, (req, res) => {\n  const user = req.body.firebase_user;\n  res.json(json_ok(user));\n});"}
       },
-      "locations": {"source_line_start": 6, "source_line_end": 15, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/auth_mw.ts#L6", "nx_kb_anchor": "verify_user_auth"}
+      "locations": {"source_line_start": 6, "source_line_end": 15, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/auth_mw.ts#L6", "nx_kb_anchor": "verify_user_auth"}
     },
     {
       "symbol_id": "nx_user_login",
@@ -115,7 +115,7 @@
       "examples": {
         "minimal_correct": {"title": "Use for NxUser-authenticated routes", "code": "app.post('/api/action', nx_user_login, (req, res) => {\n  const user: NxUser = req.body.user;\n  res.json(json_ok({ user_id: user.id }));\n});"}
       },
-      "locations": {"source_line_start": 17, "source_line_end": 35, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/auth_mw.ts#L17", "nx_kb_anchor": "nx_user_login"}
+      "locations": {"source_line_start": 17, "source_line_end": 35, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/auth_mw.ts#L17", "nx_kb_anchor": "nx_user_login"}
     },
     {
       "symbol_id": "client_login",
@@ -140,7 +140,7 @@
       "examples": {
         "minimal_correct": {"title": "Use for API client authentication", "code": "app.post('/api/data', client_login, (req, res) => {\n  const client: Client = req.body.client;\n  res.json(json_ok({ client_id: client.id }));\n});"}
       },
-      "locations": {"source_line_start": 37, "source_line_end": 52, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/auth_mw.ts#L37", "nx_kb_anchor": "client_login"}
+      "locations": {"source_line_start": 37, "source_line_end": 52, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/auth_mw.ts#L37", "nx_kb_anchor": "client_login"}
     }
   ],
   "quality": {

@@ -6,12 +6,12 @@
   "file_name": "location_helpers.ts",
   "source": {
     "file_path": "helpers/location_helpers.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/location_helpers.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/location_helpers.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/location_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/location_helpers.ts.json"
   },
   "summary": {
     "purpose": "Provides geographic utility functions for calculating distances between coordinates and generating Google Maps URLs.",
@@ -79,7 +79,7 @@
       "locations": {
         "source_line_start": 3,
         "source_line_end": 15,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/location_helpers.ts#L3",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/location_helpers.ts#L3",
         "nx_kb_anchor": "get_distance_in_meters_between_geo_points"
       }
     },
@@ -114,7 +114,7 @@
       "locations": {
         "source_line_start": 17,
         "source_line_end": 19,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/location_helpers.ts#L17",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/location_helpers.ts#L17",
         "nx_kb_anchor": "get_location_url"
       }
     }

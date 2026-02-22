@@ -6,12 +6,12 @@
   "file_name": "index.ts",
   "source": {
     "file_path": "managers/index.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json"
   },
   "summary": {
     "purpose": "Barrel export file for all manager singletons.",
@@ -24,22 +24,22 @@
         "import_path": "./cache_manager",
         "resolved_file_path": "managers/cache_manager.ts",
         "why_used": "Re-exports the CacheManager class and cache_manager singleton.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/cache_manager.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/cache_manager.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/cache_manager.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/cache_manager.ts"
       },
       {
         "import_path": "./translation_manager",
         "resolved_file_path": "managers/translation_manager.ts",
         "why_used": "Re-exports the TranslationManager class and translation_manager singleton.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/translation_manager.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/translation_manager.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/translation_manager.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/translation_manager.ts"
       },
       {
         "import_path": "./logger_manager",
         "resolved_file_path": "managers/logger_manager.ts",
         "why_used": "Re-exports the LoggerManager class and logger singleton.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/logger_manager.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/logger_manager.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/logger_manager.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/logger_manager.ts"
       }
     ]
   },
@@ -63,7 +63,7 @@
       "locations": {
         "source_line_start": 1,
         "source_line_end": 4,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts#L1",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts#L1",
         "nx_kb_anchor": "managers_barrel"
       }
     }

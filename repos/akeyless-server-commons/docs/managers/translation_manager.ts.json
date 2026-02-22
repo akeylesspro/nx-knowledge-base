@@ -6,12 +6,12 @@
   "file_name": "translation_manager.ts",
   "source": {
     "file_path": "managers/translation_manager.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/translation_manager.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/translation_manager.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/translation_manager.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/translation_manager.ts.json"
   },
   "summary": {
     "purpose": "Implements a singleton translation manager for internationalization (i18n), providing typed access to translation strings by scope, language, entity, and key.",
@@ -30,8 +30,8 @@
         "import_path": "../types",
         "resolved_file_path": "types/index.ts",
         "why_used": "Imports LangOptions and EntityOptions types.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts"
       }
     ]
   },
@@ -77,7 +77,7 @@
       "locations": {
         "source_line_start": 3,
         "source_line_end": 38,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/translation_manager.ts#L3",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/translation_manager.ts#L3",
         "nx_kb_anchor": "TranslationManager"
       }
     },
@@ -97,7 +97,7 @@
       "locations": {
         "source_line_start": 40,
         "source_line_end": 41,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/translation_manager.ts#L40",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/translation_manager.ts#L40",
         "nx_kb_anchor": "translation_manager_instance"
       }
     }

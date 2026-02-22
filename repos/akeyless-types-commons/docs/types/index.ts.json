@@ -11,7 +11,7 @@
         "language": "ts",
         "framework_tags": ["typescript"],
         "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/index.ts",
-        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/index.ts.json"
     },
     "summary": {
         "purpose": "Barrel file that aggregates and re-exports all type definitions from the types sub-module.",
@@ -24,14 +24,14 @@
                 "import_path": "./global",
                 "resolved_file_path": "types/global.ts",
                 "why_used": "Re-exports primitive utility types: NumberObject, TObject, Geo",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/global.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/global.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/global.ts"
             },
             {
                 "import_path": "./socket",
                 "resolved_file_path": "types/socket.ts",
                 "why_used": "Re-exports socket communication types: REDIS_UPDATES_PREFIX, SOCKET_EVENTS, SocketEventMap, RedisUpdateType, RedisUpdatePayload, SocketCallbackResponse, CollectionConfig",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/socket.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/socket.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/socket.ts"
             }
         ]

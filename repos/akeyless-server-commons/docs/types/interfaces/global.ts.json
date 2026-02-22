@@ -6,12 +6,12 @@
   "file_name": "global.ts",
   "source": {
     "file_path": "types/interfaces/global.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node", "express"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/global.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/global.ts.json"
   },
   "summary": {
     "purpose": "Defines global TypeScript interfaces for server configuration, middleware, API responses, snapshot configuration, and audit/storage options.",
@@ -58,7 +58,7 @@
           {"name": "log_requests", "type": "LogRequests", "description": "Request logging configuration.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 3, "source_line_end": 10, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L3", "nx_kb_anchor": "AppOptions"}
+      "locations": {"source_line_start": 3, "source_line_end": 10, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L3", "nx_kb_anchor": "AppOptions"}
     },
     {
       "symbol_id": "LogRequests",
@@ -73,7 +73,7 @@
           {"name": "body", "type": "boolean", "description": "Log request body.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 12, "source_line_end": 18, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L12", "nx_kb_anchor": "LogRequests"}
+      "locations": {"source_line_start": 12, "source_line_end": 18, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L12", "nx_kb_anchor": "LogRequests"}
     },
     {
       "symbol_id": "MainRouter",
@@ -86,7 +86,7 @@
           {"name": "router", "type": "Router", "description": "The Express Router instance."}
         ]
       },
-      "locations": {"source_line_start": 20, "source_line_end": 24, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L20", "nx_kb_anchor": "MainRouter"}
+      "locations": {"source_line_start": 20, "source_line_end": 24, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L20", "nx_kb_anchor": "MainRouter"}
     },
     {
       "symbol_id": "OnSnapshotConfig",
@@ -105,7 +105,7 @@
           {"name": "conditions", "type": "WhereCondition[]", "description": "Firestore where conditions.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 26, "source_line_end": 40, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L26", "nx_kb_anchor": "OnSnapshotConfig"}
+      "locations": {"source_line_start": 26, "source_line_end": 40, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L26", "nx_kb_anchor": "OnSnapshotConfig"}
     },
     {
       "symbol_id": "JsonOK",
@@ -118,7 +118,7 @@
           {"name": "data", "type": "T | undefined", "description": "The response payload."}
         ]
       },
-      "locations": {"source_line_start": 42, "source_line_end": 46, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L42", "nx_kb_anchor": "JsonOK"}
+      "locations": {"source_line_start": 42, "source_line_end": 46, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L42", "nx_kb_anchor": "JsonOK"}
     },
     {
       "symbol_id": "JsonFailed",
@@ -132,7 +132,7 @@
           {"name": "msg", "type": "string", "description": "Optional additional message.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 48, "source_line_end": 53, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L48", "nx_kb_anchor": "JsonFailed"}
+      "locations": {"source_line_start": 48, "source_line_end": 53, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L48", "nx_kb_anchor": "JsonFailed"}
     },
     {
       "symbol_id": "SaveFileOptions",
@@ -147,7 +147,7 @@
           {"name": "expiry_days", "type": "number", "description": "Number of days the signed URL is valid. Defaults to 7.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 55, "source_line_end": 62, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L55", "nx_kb_anchor": "SaveFileOptions"}
+      "locations": {"source_line_start": 55, "source_line_end": 62, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L55", "nx_kb_anchor": "SaveFileOptions"}
     },
     {
       "symbol_id": "AddAuditRecord",
@@ -162,7 +162,7 @@
           {"name": "user", "type": "NxUser", "description": "The user who performed the action.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 64, "source_line_end": 70, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L64", "nx_kb_anchor": "AddAuditRecord"}
+      "locations": {"source_line_start": 64, "source_line_end": 70, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L64", "nx_kb_anchor": "AddAuditRecord"}
     },
     {
       "symbol_id": "RedisUpdatePayload",
@@ -176,7 +176,7 @@
           {"name": "id", "type": "string", "description": "The document ID."}
         ]
       },
-      "locations": {"source_line_start": 72, "source_line_end": 77, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L72", "nx_kb_anchor": "RedisUpdatePayload"}
+      "locations": {"source_line_start": 72, "source_line_end": 77, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L72", "nx_kb_anchor": "RedisUpdatePayload"}
     },
     {
       "symbol_id": "OnSnapshotParsers",
@@ -191,7 +191,7 @@
           {"name": "on_remove", "type": "OnSnapshotCallback", "description": "Called when a document is removed.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 79, "source_line_end": 86, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L79", "nx_kb_anchor": "OnSnapshotParsers"}
+      "locations": {"source_line_start": 79, "source_line_end": 86, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L79", "nx_kb_anchor": "OnSnapshotParsers"}
     },
     {
       "symbol_id": "ExtraSnapshotConfig",
@@ -204,7 +204,7 @@
           {"name": "conditions", "type": "WhereCondition[]", "description": "Firestore where conditions.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 88, "source_line_end": 93, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L88", "nx_kb_anchor": "ExtraSnapshotConfig"}
+      "locations": {"source_line_start": 88, "source_line_end": 93, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L88", "nx_kb_anchor": "ExtraSnapshotConfig"}
     },
     {
       "symbol_id": "CollectionConfig",
@@ -218,7 +218,7 @@
           {"name": "doc_key_property", "type": "string", "description": "Key property for object storage.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 95, "source_line_end": 101, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L95", "nx_kb_anchor": "CollectionConfig"}
+      "locations": {"source_line_start": 95, "source_line_end": 101, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L95", "nx_kb_anchor": "CollectionConfig"}
     },
     {
       "symbol_id": "EntityOptions",
@@ -231,7 +231,7 @@
           {"name": "key", "type": "string", "description": "The translation key."}
         ]
       },
-      "locations": {"source_line_start": 103, "source_line_end": 107, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L103", "nx_kb_anchor": "EntityOptions"}
+      "locations": {"source_line_start": 103, "source_line_end": 107, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L103", "nx_kb_anchor": "EntityOptions"}
     },
     {
       "symbol_id": "LangOptions",
@@ -245,7 +245,7 @@
           {"name": "key", "type": "string", "description": "The translation key."}
         ]
       },
-      "locations": {"source_line_start": 109, "source_line_end": 114, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts#L109", "nx_kb_anchor": "LangOptions"}
+      "locations": {"source_line_start": 109, "source_line_end": 114, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts#L109", "nx_kb_anchor": "LangOptions"}
     }
   ],
   "quality": {

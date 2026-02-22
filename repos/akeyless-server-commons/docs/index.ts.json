@@ -6,12 +6,12 @@
   "file_name": "index.ts",
   "source": {
     "file_path": "index.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/index.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/index.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/index.ts.json"
   },
   "summary": {
     "purpose": "Root barrel export file that re-exports all public sub-modules (helpers, managers, middlewares, types) as named namespaces.",
@@ -24,29 +24,29 @@
         "import_path": "./helpers",
         "resolved_file_path": "helpers/index.ts",
         "why_used": "Re-exported as the 'helpers' namespace",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/index.ts"
       },
       {
         "import_path": "./managers",
         "resolved_file_path": "managers/index.ts",
         "why_used": "Re-exported as the 'managers' namespace",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
       },
       {
         "import_path": "./middlewares",
         "resolved_file_path": "middlewares/index.ts",
         "why_used": "Re-exported as the 'middlewares' namespace",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/index.ts"
       },
       {
         "import_path": "./types",
         "resolved_file_path": "types/index.ts",
         "why_used": "Re-exported as the 'types' namespace",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts"
       }
     ]
   },
@@ -88,7 +88,7 @@
       "locations": {
         "source_line_start": 6,
         "source_line_end": 6,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/index.ts#L6",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/index.ts#L6",
         "nx_kb_anchor": "helpers_namespace"
       }
     },
@@ -103,7 +103,7 @@
       "locations": {
         "source_line_start": 6,
         "source_line_end": 6,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/index.ts#L6",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/index.ts#L6",
         "nx_kb_anchor": "managers_namespace"
       }
     },
@@ -118,7 +118,7 @@
       "locations": {
         "source_line_start": 6,
         "source_line_end": 6,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/index.ts#L6",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/index.ts#L6",
         "nx_kb_anchor": "middlewares_namespace"
       }
     },
@@ -133,7 +133,7 @@
       "locations": {
         "source_line_start": 6,
         "source_line_end": 6,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/index.ts#L6",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/index.ts#L6",
         "nx_kb_anchor": "types_namespace"
       }
     }

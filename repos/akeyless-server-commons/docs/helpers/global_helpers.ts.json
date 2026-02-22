@@ -6,12 +6,12 @@
   "file_name": "global_helpers.ts",
   "source": {
     "file_path": "helpers/global_helpers.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/global_helpers.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/global_helpers.ts.json"
   },
   "summary": {
     "purpose": "Provides general-purpose server utilities: environment variable validation, JSON response helpers, error parsing, version reading, sleep, service URL resolution, geocoding, type guards, and HTTP request utilities.",
@@ -45,15 +45,15 @@
         "import_path": "../types",
         "resolved_file_path": "types/index.ts",
         "why_used": "Imports JsonFailed, JsonOK, and NxServiceNameMap type definitions.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts"
       },
       {
         "import_path": "../managers",
         "resolved_file_path": "managers/index.ts",
         "why_used": "Imports cache_manager and logger singletons.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
       }
     ]
   },
@@ -157,7 +157,7 @@
       "examples": {
         "minimal_correct": {"title": "Validate and retrieve env vars", "code": "const env = init_env_variables(['mode', 'redis_ip']);\nconst mode = env.mode;"}
       },
-      "locations": {"source_line_start": 8, "source_line_end": 22, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L8", "nx_kb_anchor": "init_env_variables"}
+      "locations": {"source_line_start": 8, "source_line_end": 22, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L8", "nx_kb_anchor": "init_env_variables"}
     },
     {
       "symbol_id": "json_ok",
@@ -172,7 +172,7 @@
       "examples": {
         "minimal_correct": {"title": "Return a success response", "code": "res.json(json_ok({ id: '123', name: 'test' }));"}
       },
-      "locations": {"source_line_start": 24, "source_line_end": 29, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L24", "nx_kb_anchor": "json_ok"}
+      "locations": {"source_line_start": 24, "source_line_end": 29, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L24", "nx_kb_anchor": "json_ok"}
     },
     {
       "symbol_id": "json_failed",
@@ -190,7 +190,7 @@
       "examples": {
         "minimal_correct": {"title": "Return a failure response", "code": "res.status(400).json(json_failed(new Error('Invalid input')));"}
       },
-      "locations": {"source_line_start": 31, "source_line_end": 37, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L31", "nx_kb_anchor": "json_failed"}
+      "locations": {"source_line_start": 31, "source_line_end": 37, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L31", "nx_kb_anchor": "json_failed"}
     },
     {
       "symbol_id": "parse_error",
@@ -205,7 +205,7 @@
       "examples": {
         "minimal_correct": {"title": "Parse an error for logging", "code": "logger.error('failed', parse_error(err));"}
       },
-      "locations": {"source_line_start": 39, "source_line_end": 41, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L39", "nx_kb_anchor": "parse_error"}
+      "locations": {"source_line_start": 39, "source_line_end": 41, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L39", "nx_kb_anchor": "parse_error"}
     },
     {
       "symbol_id": "get_version",
@@ -220,7 +220,7 @@
       "examples": {
         "minimal_correct": {"title": "Get package version", "code": "const version = get_version(path.join(__dirname, '../package.json'));"}
       },
-      "locations": {"source_line_start": 43, "source_line_end": 46, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L43", "nx_kb_anchor": "get_version"}
+      "locations": {"source_line_start": 43, "source_line_end": 46, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L43", "nx_kb_anchor": "get_version"}
     },
     {
       "symbol_id": "sleep",
@@ -235,7 +235,7 @@
       "examples": {
         "minimal_correct": {"title": "Pause execution for 1 second", "code": "await sleep(1000);"}
       },
-      "locations": {"source_line_start": 48, "source_line_end": 48, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L48", "nx_kb_anchor": "sleep"}
+      "locations": {"source_line_start": 48, "source_line_end": 48, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L48", "nx_kb_anchor": "sleep"}
     },
     {
       "symbol_id": "get_nx_service_urls",
@@ -253,7 +253,7 @@
       "examples": {
         "minimal_correct": {"title": "Get service URLs for current environment", "code": "const urls = get_nx_service_urls();\nconst devicesUrl = urls.devices;"}
       },
-      "locations": {"source_line_start": 86, "source_line_end": 92, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L86", "nx_kb_anchor": "get_nx_service_urls"}
+      "locations": {"source_line_start": 86, "source_line_end": 92, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L86", "nx_kb_anchor": "get_nx_service_urls"}
     },
     {
       "symbol_id": "get_address_by_geo",
@@ -277,7 +277,7 @@
       "examples": {
         "minimal_correct": {"title": "Reverse geocode a location", "code": "const address = await get_address_by_geo({ lat: 32.0853, lng: 34.7818 }, LanguageOptions.He);"}
       },
-      "locations": {"source_line_start": 94, "source_line_end": 117, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L94", "nx_kb_anchor": "get_address_by_geo"}
+      "locations": {"source_line_start": 94, "source_line_end": 117, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L94", "nx_kb_anchor": "get_address_by_geo"}
     },
     {
       "symbol_id": "validate_and_cast",
@@ -295,7 +295,7 @@
       "examples": {
         "minimal_correct": {"title": "Use as a type guard", "code": "if (validate_and_cast<NxUser>(user, !!user?.id)) {\n  console.log(user.id); // typed as NxUser\n}"}
       },
-      "locations": {"source_line_start": 119, "source_line_end": 119, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L119", "nx_kb_anchor": "validate_and_cast"}
+      "locations": {"source_line_start": 119, "source_line_end": 119, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L119", "nx_kb_anchor": "validate_and_cast"}
     },
     {
       "symbol_id": "get_or_default",
@@ -313,7 +313,7 @@
       "examples": {
         "minimal_correct": {"title": "Get value with default", "code": "const port = get_or_default(options.port, 3000);\nconst name = get_or_default(options.name, () => 'default-name');"}
       },
-      "locations": {"source_line_start": 121, "source_line_end": 126, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L121", "nx_kb_anchor": "get_or_default"}
+      "locations": {"source_line_start": 121, "source_line_end": 126, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L121", "nx_kb_anchor": "get_or_default"}
     },
     {
       "symbol_id": "trim_strings",
@@ -328,7 +328,7 @@
       "examples": {
         "minimal_correct": {"title": "Trim strings in a request body", "code": "const cleaned = trim_strings({ name: '  John  ', age: 30 });\n// => { name: 'John', age: 30 }"}
       },
-      "locations": {"source_line_start": 128, "source_line_end": 152, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L128", "nx_kb_anchor": "trim_strings"}
+      "locations": {"source_line_start": 128, "source_line_end": 152, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L128", "nx_kb_anchor": "trim_strings"}
     },
     {
       "symbol_id": "remove_nulls_and_undefined",
@@ -343,7 +343,7 @@
       "examples": {
         "minimal_correct": {"title": "Remove nulls from an object", "code": "remove_nulls_and_undefined({ a: 1, b: null, c: undefined, d: 'x' });\n// => { a: 1, d: 'x' }"}
       },
-      "locations": {"source_line_start": 154, "source_line_end": 156, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L154", "nx_kb_anchor": "remove_nulls_and_undefined"}
+      "locations": {"source_line_start": 154, "source_line_end": 156, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L154", "nx_kb_anchor": "remove_nulls_and_undefined"}
     },
     {
       "symbol_id": "ignore_ssl_request",
@@ -360,7 +360,7 @@
       "examples": {
         "minimal_correct": {"title": "Make an SSL-tolerant request", "code": "const response = await ignore_ssl_request({ method: 'GET', url: 'https://internal-service/api/data' });"}
       },
-      "locations": {"source_line_start": 158, "source_line_end": 164, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/global_helpers.ts#L158", "nx_kb_anchor": "ignore_ssl_request"}
+      "locations": {"source_line_start": 158, "source_line_end": 164, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts#L158", "nx_kb_anchor": "ignore_ssl_request"}
     }
   ],
   "quality": {

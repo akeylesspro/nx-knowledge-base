@@ -6,12 +6,12 @@
   "file_name": "tasks_helpers.ts",
   "source": {
     "file_path": "helpers/tasks_helpers.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/tasks_helpers.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/tasks_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/tasks_helpers.ts.json"
   },
   "summary": {
     "purpose": "Provides a task execution framework with status tracking in Firestore, result caching in memory and Firebase Storage, and data retrieval utilities.",
@@ -35,15 +35,15 @@
         "import_path": "../managers",
         "resolved_file_path": "managers/index.ts",
         "why_used": "Imports cache_manager and logger singletons.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
       },
       {
         "import_path": "./firebase_helpers",
         "resolved_file_path": "helpers/firebase_helpers.ts",
         "why_used": "Imports get_document_by_id_optional and set_document for Firestore task status tracking.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts"
       }
     ]
   },
@@ -111,7 +111,7 @@
       "examples": {
         "minimal_correct": {"title": "Use TaskName in execute_task", "code": "await execute_task('devices-service', TaskName.collect_devices_health, myTask);"}
       },
-      "locations": {"source_line_start": 6, "source_line_end": 12, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L6", "nx_kb_anchor": "TaskName"}
+      "locations": {"source_line_start": 6, "source_line_end": 12, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/tasks_helpers.ts#L6", "nx_kb_anchor": "TaskName"}
     },
     {
       "symbol_id": "TaskStatus",
@@ -126,7 +126,7 @@
       "examples": {
         "minimal_correct": {"title": "Check task status", "code": "const task = await get_document_by_id('nx-tasks', TaskName.collect_devices_health);\nif (task.status === TaskStatus.running) { /* skip */ }"}
       },
-      "locations": {"source_line_start": 14, "source_line_end": 19, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L14", "nx_kb_anchor": "TaskStatus"}
+      "locations": {"source_line_start": 14, "source_line_end": 19, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/tasks_helpers.ts#L14", "nx_kb_anchor": "TaskStatus"}
     },
     {
       "symbol_id": "TaskSaveOptions",
@@ -140,7 +140,7 @@
       "examples": {
         "minimal_correct": {"title": "Use TaskSaveOptions", "code": "await execute_task('svc', TaskName.collect_devices_health, myTask, { save_in: 'storage' });"}
       },
-      "locations": {"source_line_start": 21, "source_line_end": 21, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L21", "nx_kb_anchor": "TaskSaveOptions"}
+      "locations": {"source_line_start": 21, "source_line_end": 21, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/tasks_helpers.ts#L21", "nx_kb_anchor": "TaskSaveOptions"}
     },
     {
       "symbol_id": "ExecuteTaskOptions",
@@ -155,7 +155,7 @@
       "examples": {
         "minimal_correct": {"title": "Pass options to execute_task", "code": "const opts: ExecuteTaskOptions = { save_in: 'storage', debug_logs: false };"}
       },
-      "locations": {"source_line_start": 31, "source_line_end": 34, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L31", "nx_kb_anchor": "ExecuteTaskOptions"}
+      "locations": {"source_line_start": 31, "source_line_end": 34, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/tasks_helpers.ts#L31", "nx_kb_anchor": "ExecuteTaskOptions"}
     },
     {
       "symbol_id": "execute_task",
@@ -181,7 +181,7 @@
           "code": "await execute_task('devices-service', TaskName.collect_devices_health, async () => {\n  return await fetchDevicesHealth();\n}, { save_in: 'storage' });"
         }
       },
-      "locations": {"source_line_start": 36, "source_line_end": 91, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L36", "nx_kb_anchor": "execute_task"}
+      "locations": {"source_line_start": 36, "source_line_end": 91, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/tasks_helpers.ts#L36", "nx_kb_anchor": "execute_task"}
     },
     {
       "symbol_id": "get_task_data",
@@ -203,7 +203,7 @@
           "code": "const healthData = await get_task_data<DeviceHealth[]>(TaskName.collect_devices_health);"
         }
       },
-      "locations": {"source_line_start": 93, "source_line_end": 118, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L93", "nx_kb_anchor": "get_task_data"}
+      "locations": {"source_line_start": 93, "source_line_end": 118, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/tasks_helpers.ts#L93", "nx_kb_anchor": "get_task_data"}
     },
     {
       "symbol_id": "get_task_data_from_storage",
@@ -226,7 +226,7 @@
           "code": "const data = await get_task_data_from_storage(TaskName.collect_charge_cdrs);"
         }
       },
-      "locations": {"source_line_start": 120, "source_line_end": 130, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L120", "nx_kb_anchor": "get_task_data_from_storage"}
+      "locations": {"source_line_start": 120, "source_line_end": 130, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/tasks_helpers.ts#L120", "nx_kb_anchor": "get_task_data_from_storage"}
     },
     {
       "symbol_id": "keep_task_data_in_storage",
@@ -252,7 +252,7 @@
           "title": "Upload task data to Storage",
           "code": "const url = await keep_task_data_in_storage(TaskName.collect_devices_health, devicesData);\n// url => 'https://storage.googleapis.com/...?Expires=...'"}
       },
-        "locations": {"source_line_start": 132, "source_line_end": 154, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/tasks_helpers.ts#L132", "nx_kb_anchor": "keep_task_data_in_storage"}
+        "locations": {"source_line_start": 132, "source_line_end": 154, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/tasks_helpers.ts#L132", "nx_kb_anchor": "keep_task_data_in_storage"}
     }
   ],
   "quality": {

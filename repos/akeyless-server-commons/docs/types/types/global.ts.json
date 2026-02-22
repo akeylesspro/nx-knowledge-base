@@ -6,12 +6,12 @@
   "file_name": "global.ts",
   "source": {
     "file_path": "types/types/global.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node", "express"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/global.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/global.ts.json"
   },
   "summary": {
     "purpose": "Defines global TypeScript function type aliases for Express middleware, route handlers, API response helpers, and audit logging.",
@@ -95,7 +95,7 @@
       "kind": "type",
       "description_one_line": "Function type for creating a success API response.",
       "signature": {"params": [{"name": "data", "type": "T", "required": false, "description": "Optional response payload."}], "returns": {"type": "{ success: true; data: T | undefined }", "description": "Success envelope."}},
-      "locations": {"source_line_start": 4, "source_line_end": 4, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts#L4", "nx_kb_anchor": "JsonOK_type"}
+      "locations": {"source_line_start": 4, "source_line_end": 4, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts#L4", "nx_kb_anchor": "JsonOK_type"}
     },
     {
       "symbol_id": "JsonFailed_type",
@@ -103,7 +103,7 @@
       "kind": "type",
       "description_one_line": "Function type for creating a failure API response.",
       "signature": {"params": [{"name": "error", "type": "any", "required": false, "description": "The error value."}, {"name": "msg", "type": "string", "required": false, "description": "Optional message."}], "returns": {"type": "{ success: false; error: any }", "description": "Failure envelope."}},
-      "locations": {"source_line_start": 6, "source_line_end": 6, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts#L6", "nx_kb_anchor": "JsonFailed_type"}
+      "locations": {"source_line_start": 6, "source_line_end": 6, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts#L6", "nx_kb_anchor": "JsonFailed_type"}
     },
     {
       "symbol_id": "MainRouter_type",
@@ -111,7 +111,7 @@
       "kind": "type",
       "description_one_line": "Function type for registering routes on an Express app.",
       "signature": {"params": [{"name": "app", "type": "Express", "required": true, "description": "The Express application instance."}], "returns": {"type": "void", "description": "No return value."}},
-      "locations": {"source_line_start": 8, "source_line_end": 8, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts#L8", "nx_kb_anchor": "MainRouter_type"}
+      "locations": {"source_line_start": 8, "source_line_end": 8, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts#L8", "nx_kb_anchor": "MainRouter_type"}
     },
     {
       "symbol_id": "MW_type",
@@ -119,7 +119,7 @@
       "kind": "type",
       "description_one_line": "Standard Express middleware function type.",
       "signature": {"params": [{"name": "req", "type": "Request", "required": true, "description": "Express request."}, {"name": "res", "type": "Response", "required": true, "description": "Express response."}, {"name": "next", "type": "NextFunction", "required": true, "description": "Express next function."}], "returns": {"type": "void", "description": "No return value."}},
-      "locations": {"source_line_start": 10, "source_line_end": 10, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts#L10", "nx_kb_anchor": "MW_type"}
+      "locations": {"source_line_start": 10, "source_line_end": 10, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts#L10", "nx_kb_anchor": "MW_type"}
     },
     {
       "symbol_id": "Service_type",
@@ -127,7 +127,7 @@
       "kind": "type",
       "description_one_line": "Async route handler function type used with async_error_handler.",
       "signature": {"params": [{"name": "req", "type": "Request", "required": true, "description": "Express request."}, {"name": "res", "type": "Response", "required": true, "description": "Express response."}], "returns": {"type": "void", "description": "No return value (async side effects)."}},
-      "locations": {"source_line_start": 12, "source_line_end": 12, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts#L12", "nx_kb_anchor": "Service_type"}
+      "locations": {"source_line_start": 12, "source_line_end": 12, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts#L12", "nx_kb_anchor": "Service_type"}
     },
     {
       "symbol_id": "Route_type",
@@ -135,7 +135,7 @@
       "kind": "type",
       "description_one_line": "Route handler function type that returns a Response.",
       "signature": {"params": [{"name": "req", "type": "Request", "required": true, "description": "Express request."}, {"name": "res", "type": "Response", "required": true, "description": "Express response."}, {"name": "next", "type": "NextFunction", "required": false, "description": "Optional next function."}], "returns": {"type": "Response", "description": "The Express response object."}},
-      "locations": {"source_line_start": 14, "source_line_end": 14, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts#L14", "nx_kb_anchor": "Route_type"}
+      "locations": {"source_line_start": 14, "source_line_end": 14, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts#L14", "nx_kb_anchor": "Route_type"}
     },
     {
       "symbol_id": "AddAuditRecord_type",
@@ -143,7 +143,7 @@
       "kind": "type",
       "description_one_line": "Function type for writing an audit log entry to Firestore.",
       "signature": {"params": [{"name": "action", "type": "string", "required": true, "description": "The action performed."}, {"name": "entity", "type": "string", "required": true, "description": "The entity type."}, {"name": "details", "type": "TObject<any>", "required": true, "description": "Additional details."}, {"name": "user", "type": "NxUser", "required": false, "description": "The user who performed the action."}], "returns": {"type": "Promise<void>", "description": "Resolves when the audit record is written."}},
-      "locations": {"source_line_start": 16, "source_line_end": 16, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts#L16", "nx_kb_anchor": "AddAuditRecord_type"}
+      "locations": {"source_line_start": 16, "source_line_end": 16, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts#L16", "nx_kb_anchor": "AddAuditRecord_type"}
     },
     {
       "symbol_id": "LangOptions_type",
@@ -151,7 +151,7 @@
       "kind": "type",
       "description_one_line": "Union type of supported language codes: 'he' | 'en' | 'ru' | string.",
       "details": {"what_it_does": "Allows 'he', 'en', 'ru' as well as any other string (via string & {}) for forward compatibility."},
-      "locations": {"source_line_start": 18, "source_line_end": 18, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts#L18", "nx_kb_anchor": "LangOptions_type"}
+      "locations": {"source_line_start": 18, "source_line_end": 18, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts#L18", "nx_kb_anchor": "LangOptions_type"}
     },
     {
       "symbol_id": "EntityOptions_type",
@@ -159,7 +159,7 @@
       "kind": "type",
       "description_one_line": "Union type of known entity names: 'nx_devices' | string.",
       "details": {"what_it_does": "Allows 'nx_devices' as a known entity name as well as any other string for extensibility."},
-      "locations": {"source_line_start": 20, "source_line_end": 20, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/global.ts#L20", "nx_kb_anchor": "EntityOptions_type"}
+      "locations": {"source_line_start": 20, "source_line_end": 20, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/global.ts#L20", "nx_kb_anchor": "EntityOptions_type"}
     }
   ],
   "quality": {

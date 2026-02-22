@@ -1,106 +1,219 @@
 {
-  "repo": {
-    "name": "akeyless-server-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "keys.ts",
-  "source": {
-    "file_path": "helpers/redis/keys.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
-    "language": "ts",
-    "framework_tags": ["node", "redis"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/keys.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/keys.ts"
-  },
-  "summary": {
-    "purpose": "Provides utilities for generating Redis key and channel names, and for scanning all keys matching a given pattern.",
-    "problem_solved": "Standardises Redis key naming conventions (using ':' as separator) and provides a cursor-based SCAN implementation to safely iterate over large key sets."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "ioredis",
-        "kind": "runtime",
-        "why_used": "Provides the Redis type used in scan_redis_keys parameter."
-      }
-    ],
-    "internal": []
-  },
-  "exports": [
-    {
-      "name": "get_redis_key",
-      "kind": "function",
-      "description_one_line": "Generates a Redis key string by joining parts with ':'.",
-      "symbol_id": "get_redis_key"
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
     },
-    {
-      "name": "get_redis_channel",
-      "kind": "function",
-      "description_one_line": "Generates a Redis channel name string by joining parts with ':'.",
-      "symbol_id": "get_redis_channel"
+    "file_name": "keys.ts",
+    "source": {
+        "file_path": "helpers/redis/keys.ts",
+        "commit_sha": "39596d3",
+        "generated_at_iso": "2026-02-22T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["node", "redis"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/keys.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/keys.ts.json"
     },
-    {
-      "name": "scan_redis_keys",
-      "kind": "function",
-      "description_one_line": "Scans all Redis keys matching a pattern using cursor-based SCAN.",
-      "symbol_id": "scan_redis_keys"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "get_redis_key",
-      "name": "get_redis_key",
-      "kind": "function",
-      "description_one_line": "Generates a Redis key string by joining parts with ':'.",
-      "signature": {
-        "params": [{"name": "...parts", "type": "string[]", "required": true, "description": "Key parts to join with ':'."}],
-        "returns": {"type": "string", "description": "Redis key string in the format 'part1:part2:...'"}
-      },
-      "details": {"what_it_does": "Joins the provided string parts with ':' to form a namespaced Redis key."},
-      "examples": {
-        "minimal_correct": {"title": "Generate a Redis key", "code": "get_redis_key('nx-devices', 'device123', 'status');\n// => 'nx-devices:device123:status'"}
-      },
-      "locations": {"source_line_start": 3, "source_line_end": 5, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/keys.ts#L3", "nx_kb_anchor": "get_redis_key"}
+    "summary": {
+        "purpose": "Provides utilities for generating Redis document keys, collection wildcard patterns, pub/sub channel names, and scanning all keys matching a given pattern.",
+        "problem_solved": "Standardises Redis key and channel naming conventions (colon-separated) and provides a safe cursor-based SCAN implementation for iterating large key sets without blocking Redis."
     },
-    {
-      "symbol_id": "get_redis_channel",
-      "name": "get_redis_channel",
-      "kind": "function",
-      "description_one_line": "Generates a Redis channel name string by joining parts with ':'.",
-      "signature": {
-        "params": [{"name": "...parts", "type": "string[]", "required": true, "description": "Channel name parts to join with ':'."}],
-        "returns": {"type": "string", "description": "Redis channel name string in the format 'part1:part2:...'"}
-      },
-      "details": {"what_it_does": "Identical to get_redis_key but semantically used for pub/sub channel names."},
-      "examples": {
-        "minimal_correct": {"title": "Generate a Redis channel name", "code": "get_redis_channel('nx-devices', 'updates');\n// => 'nx-devices:updates'"}
-      },
-      "locations": {"source_line_start": 7, "source_line_end": 9, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/keys.ts#L7", "nx_kb_anchor": "get_redis_channel"}
-    },
-    {
-      "symbol_id": "scan_redis_keys",
-      "name": "scan_redis_keys",
-      "kind": "function",
-      "description_one_line": "Scans all Redis keys matching a pattern using cursor-based SCAN.",
-      "signature": {
-        "params": [
-          {"name": "commander", "type": "Redis", "required": true, "description": "The ioredis commander client to use for scanning."},
-          {"name": "pattern", "type": "string", "required": true, "description": "The glob pattern to match keys against (e.g., 'nx-devices:*')."}
+    "dependencies": {
+        "external": [
+            {
+                "name": "ioredis",
+                "kind": "runtime",
+                "why_used": "Provides the Redis type used in scan_redis_keys parameter."
+            },
+            {
+                "name": "akeyless-types-commons",
+                "kind": "runtime",
+                "why_used": "Imports REDIS_UPDATES_PREFIX constant for constructing channel names via get_channel."
+            }
         ],
-        "returns": {"type": "Promise<string[]>", "description": "Array of all matching Redis key strings."}
-      },
-      "details": {
-        "what_it_does": "Iterates through Redis keys using cursor-based SCAN with COUNT 100, collecting all keys matching the pattern. Continues until cursor returns to '0' (full scan complete). This is safe for large datasets as it does not block Redis."
-      },
-      "examples": {
-        "minimal_correct": {"title": "Scan all device keys", "code": "const commander = get_redis_commander();\nconst keys = await scan_redis_keys(commander, 'nx-devices:*');"}
-      },
-      "locations": {"source_line_start": 11, "source_line_end": 29, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/redis/keys.ts#L11", "nx_kb_anchor": "scan_redis_keys"}
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "get_doc_key",
+            "kind": "function",
+            "description_one_line": "Generates a Redis key for a specific document: '<collection>:<doc_id>'.",
+            "symbol_id": "function_get_doc_key"
+        },
+        {
+            "name": "get_collection_keys",
+            "kind": "function",
+            "description_one_line": "Generates a Redis wildcard pattern to match all keys in a collection: '<collection>:*'.",
+            "symbol_id": "function_get_collection_keys"
+        },
+        {
+            "name": "get_channel",
+            "kind": "function",
+            "description_one_line": "Generates a Redis pub/sub channel name prefixed with REDIS_UPDATES_PREFIX.",
+            "symbol_id": "function_get_channel"
+        },
+        {
+            "name": "scan_redis_keys",
+            "kind": "function",
+            "description_one_line": "Scans all Redis keys matching a pattern using cursor-based SCAN, returning all matches.",
+            "symbol_id": "function_scan_redis_keys"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "function_get_doc_key",
+            "name": "get_doc_key",
+            "kind": "function",
+            "description_one_line": "Generates a Redis key for a specific document: '<collection>:<doc_id>'.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection",
+                        "type": "string",
+                        "required": true,
+                        "description": "The collection name (e.g., 'nx-devices')."
+                    },
+                    {
+                        "name": "doc_id",
+                        "type": "string",
+                        "required": true,
+                        "description": "The document ID."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "Redis key in the format 'collection:doc_id'."
+                }
+            },
+            "details": {
+                "what_it_does": "Joins collection and doc_id with ':' to form a namespaced Redis key for a specific document."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Get a document key",
+                    "code": "const key = get_doc_key('nx-devices', 'abc123');\n// => 'nx-devices:abc123'"
+                }
+            },
+            "locations": {
+                "source_line_start": 8,
+                "source_line_end": 10,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/keys.ts#L8",
+                "nx_kb_anchor": "function_get_doc_key"
+            }
+        },
+        {
+            "symbol_id": "function_get_collection_keys",
+            "name": "get_collection_keys",
+            "kind": "function",
+            "description_one_line": "Generates a Redis wildcard pattern to match all keys in a collection: '<collection>:*'.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection",
+                        "type": "string",
+                        "required": true,
+                        "description": "The collection name."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "Redis glob pattern 'collection:*' for matching all keys in the collection."
+                }
+            },
+            "details": {
+                "what_it_does": "Appends ':*' to the collection name to form a glob pattern used with SCAN or PSUBSCRIBE."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Get collection wildcard pattern",
+                    "code": "const pattern = get_collection_keys('nx-devices');\n// => 'nx-devices:*'"
+                }
+            },
+            "locations": {
+                "source_line_start": 12,
+                "source_line_end": 14,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/keys.ts#L12",
+                "nx_kb_anchor": "function_get_collection_keys"
+            }
+        },
+        {
+            "symbol_id": "function_get_channel",
+            "name": "get_channel",
+            "kind": "function",
+            "description_one_line": "Generates a Redis pub/sub channel name prefixed with REDIS_UPDATES_PREFIX.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "...args",
+                        "type": "string[]",
+                        "required": true,
+                        "description": "Additional channel name parts appended after REDIS_UPDATES_PREFIX."
+                    }
+                ],
+                "returns": {
+                    "type": "string",
+                    "description": "Channel name in the format 'REDIS_UPDATES_PREFIX:arg1:arg2:...'."
+                }
+            },
+            "details": {
+                "what_it_does": "Prepends REDIS_UPDATES_PREFIX to the provided args and joins all parts with ':' to form a pub/sub channel name."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Build a channel name for a collection update",
+                    "code": "const channel = get_channel('nx-devices', 'device123');\n// => 'nx-updates:nx-devices:device123' (prefix-dependent)"
+                }
+            },
+            "locations": {
+                "source_line_start": 16,
+                "source_line_end": 18,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/keys.ts#L16",
+                "nx_kb_anchor": "function_get_channel"
+            }
+        },
+        {
+            "symbol_id": "function_scan_redis_keys",
+            "name": "scan_redis_keys",
+            "kind": "function",
+            "description_one_line": "Scans all Redis keys matching a pattern using cursor-based SCAN, returning all matches.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "pattern",
+                        "type": "string",
+                        "required": true,
+                        "description": "The glob pattern to match keys against (e.g., 'nx-devices:*')."
+                    },
+                    {
+                        "name": "redis_publisher",
+                        "type": "Redis",
+                        "required": true,
+                        "description": "The ioredis commander client to use for scanning."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<string[]>",
+                    "description": "Array of all matching Redis key strings."
+                }
+            },
+            "details": {
+                "what_it_does": "Iterates through Redis keys using cursor-based SCAN with COUNT 100, collecting all keys matching the pattern until the cursor returns to '0'. Safe for large datasets as it yields control between iterations."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Scan all keys for a collection",
+                    "code": "const commander = get_redis_commander();\nconst keys = await scan_redis_keys('nx-devices:*', commander);"
+                }
+            },
+            "locations": {
+                "source_line_start": 20,
+                "source_line_end": 29,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/keys.ts#L20",
+                "nx_kb_anchor": "function_scan_redis_keys"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "quality": {
-    "generation_confidence": "high",
-    "known_gaps": []
-  }
 }

@@ -6,12 +6,12 @@
   "file_name": "time_helpers.ts",
   "source": {
     "file_path": "helpers/time_helpers.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/time_helpers.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/time_helpers.ts.json"
   },
   "summary": {
     "purpose": "Provides comprehensive date and time utilities: sorting, difference calculation, formatting, and conversion between Firebase Timestamps, Dates, strings, and milliseconds.",
@@ -129,7 +129,7 @@
       "examples": {
         "minimal_correct": {"title": "Sort events by timestamp descending", "code": "const sorted = sort_by_timestamp(events, 'created_at', 'desc');"}
       },
-      "locations": {"source_line_start": 7, "source_line_end": 15, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L7", "nx_kb_anchor": "sort_by_timestamp"}
+      "locations": {"source_line_start": 7, "source_line_end": 15, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L7", "nx_kb_anchor": "sort_by_timestamp"}
     },
     {
       "symbol_id": "get_time_diff_in_minutes",
@@ -147,7 +147,7 @@
       "examples": {
         "minimal_correct": {"title": "Get minute difference", "code": "const diff = get_time_diff_in_minutes(event.start, event.end);"}
       },
-      "locations": {"source_line_start": 17, "source_line_end": 20, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L17", "nx_kb_anchor": "get_time_diff_in_minutes"}
+      "locations": {"source_line_start": 17, "source_line_end": 20, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L17", "nx_kb_anchor": "get_time_diff_in_minutes"}
     },
     {
       "symbol_id": "get_time_diff_in_seconds",
@@ -165,7 +165,7 @@
       "examples": {
         "minimal_correct": {"title": "Get second difference", "code": "const diff = get_time_diff_in_seconds(start, end);"}
       },
-      "locations": {"source_line_start": 22, "source_line_end": 25, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L22", "nx_kb_anchor": "get_time_diff_in_seconds"}
+      "locations": {"source_line_start": 22, "source_line_end": 25, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L22", "nx_kb_anchor": "get_time_diff_in_seconds"}
     },
     {
       "symbol_id": "get_time_diff_in_hours",
@@ -183,7 +183,7 @@
       "examples": {
         "minimal_correct": {"title": "Get hour difference", "code": "const hours = get_time_diff_in_hours(sessionStart, sessionEnd);"}
       },
-      "locations": {"source_line_start": 27, "source_line_end": 30, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L27", "nx_kb_anchor": "get_time_diff_in_hours"}
+      "locations": {"source_line_start": 27, "source_line_end": 30, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L27", "nx_kb_anchor": "get_time_diff_in_hours"}
     },
     {
       "symbol_id": "get_time_diff_in_days",
@@ -201,7 +201,7 @@
       "examples": {
         "minimal_correct": {"title": "Get day difference", "code": "const days = get_time_diff_in_days(subscriptionStart, Date.now());"}
       },
-      "locations": {"source_line_start": 32, "source_line_end": 35, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L32", "nx_kb_anchor": "get_time_diff_in_days"}
+      "locations": {"source_line_start": 32, "source_line_end": 35, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L32", "nx_kb_anchor": "get_time_diff_in_days"}
     },
     {
       "symbol_id": "get_timestamp_from_date",
@@ -216,7 +216,7 @@
       "examples": {
         "minimal_correct": {"title": "Convert Date to Firebase Timestamp", "code": "const ts = get_timestamp_from_date(new Date());\nawait set_document('events', id, { created_at: ts });"}
       },
-      "locations": {"source_line_start": 37, "source_line_end": 40, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L37", "nx_kb_anchor": "get_timestamp_from_date"}
+      "locations": {"source_line_start": 37, "source_line_end": 40, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L37", "nx_kb_anchor": "get_timestamp_from_date"}
     },
     {
       "symbol_id": "get_date_from_timestamp",
@@ -231,7 +231,7 @@
       "examples": {
         "minimal_correct": {"title": "Convert Firebase Timestamp to Date", "code": "const date = get_date_from_timestamp(doc.created_at);"}
       },
-      "locations": {"source_line_start": 42, "source_line_end": 50, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L42", "nx_kb_anchor": "get_date_from_timestamp"}
+      "locations": {"source_line_start": 42, "source_line_end": 50, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L42", "nx_kb_anchor": "get_date_from_timestamp"}
     },
     {
       "symbol_id": "get_ms_from_timestamp",
@@ -246,7 +246,7 @@
       "examples": {
         "minimal_correct": {"title": "Get milliseconds from a Firestore Timestamp", "code": "const ms = get_ms_from_timestamp(doc.updated_at);"}
       },
-      "locations": {"source_line_start": 52, "source_line_end": 54, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L52", "nx_kb_anchor": "get_ms_from_timestamp"}
+      "locations": {"source_line_start": 52, "source_line_end": 54, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L52", "nx_kb_anchor": "get_ms_from_timestamp"}
     },
     {
       "symbol_id": "format_date",
@@ -264,7 +264,7 @@
       "examples": {
         "minimal_correct": {"title": "Format a date", "code": "format_date(new Date(), 'YYYY-MM-DD'); // => '2026-02-18'"}
       },
-      "locations": {"source_line_start": 56, "source_line_end": 58, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L56", "nx_kb_anchor": "format_date"}
+      "locations": {"source_line_start": 56, "source_line_end": 58, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L56", "nx_kb_anchor": "format_date"}
     },
     {
       "symbol_id": "format_timestamp",
@@ -282,7 +282,7 @@
       "examples": {
         "minimal_correct": {"title": "Format a Firestore Timestamp", "code": "format_timestamp(doc.created_at); // => '18/02/2026 08:11'"}
       },
-      "locations": {"source_line_start": 60, "source_line_end": 62, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L60", "nx_kb_anchor": "format_timestamp"}
+      "locations": {"source_line_start": 60, "source_line_end": 62, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L60", "nx_kb_anchor": "format_timestamp"}
     },
     {
       "symbol_id": "get_start_of_day_ms",
@@ -297,7 +297,7 @@
       "examples": {
         "minimal_correct": {"title": "Get start of day", "code": "const startMs = get_start_of_day_ms(Date.now());"}
       },
-      "locations": {"source_line_start": 64, "source_line_end": 67, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L64", "nx_kb_anchor": "get_start_of_day_ms"}
+      "locations": {"source_line_start": 64, "source_line_end": 67, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L64", "nx_kb_anchor": "get_start_of_day_ms"}
     },
     {
       "symbol_id": "get_end_of_day_ms",
@@ -312,7 +312,7 @@
       "examples": {
         "minimal_correct": {"title": "Get end of day", "code": "const endMs = get_end_of_day_ms(Date.now());"}
       },
-      "locations": {"source_line_start": 69, "source_line_end": 72, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/time_helpers.ts#L69", "nx_kb_anchor": "get_end_of_day_ms"}
+      "locations": {"source_line_start": 69, "source_line_end": 72, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/time_helpers.ts#L69", "nx_kb_anchor": "get_end_of_day_ms"}
     }
   ],
   "quality": {

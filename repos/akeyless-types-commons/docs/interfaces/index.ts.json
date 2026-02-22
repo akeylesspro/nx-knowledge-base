@@ -11,7 +11,7 @@
         "language": "ts",
         "framework_tags": ["typescript"],
         "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/index.ts",
-        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/index.ts.json"
     },
     "summary": {
         "purpose": "Barrel file that aggregates and re-exports all interface definitions from the interfaces sub-module.",
@@ -24,21 +24,21 @@
                 "import_path": "./global",
                 "resolved_file_path": "interfaces/global.ts",
                 "why_used": "Re-exports core domain interfaces: TimestampType, firebase_timestamp, Site, NxUser, MobileAppUser, GoUser, Client, Board, Peripheral, Car, UnitExtra, UsersUnits, LastLocationCar, CarState, CanbusParameter, Equipment, EquipmentOption, EventFromDevice, EventFromDevice_Ruptela, EventFromDevice_Erm, ErmStates, ReportMeta, ReportMetaHeader, ReportMetaDataType, ReportParameterDataType, ReportDataRow, GprsItem",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/global.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/global.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/global.ts"
             },
             {
                 "import_path": "./credits",
                 "resolved_file_path": "interfaces/credits.ts",
                 "why_used": "Re-exports credit management types: CreditType, CreditItem, CreditAuditAction, CreditAuditItem",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/credits.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/credits.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/credits.ts"
             },
             {
                 "import_path": "./go",
                 "resolved_file_path": "interfaces/go.ts",
                 "why_used": "Re-exports Go mobile app types: GoMobileUserRole, GoAuthModel, GoUserRole, GoCarLink, RoleInToken, GoUserCar",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/go.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/go.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/go.ts"
             }
         ]

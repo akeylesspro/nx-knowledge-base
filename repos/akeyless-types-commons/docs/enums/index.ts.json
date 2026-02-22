@@ -11,7 +11,7 @@
         "language": "ts",
         "framework_tags": ["typescript"],
         "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/index.ts",
-        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/index.ts.json"
     },
     "summary": {
         "purpose": "Barrel file that aggregates and re-exports all enum definitions from the enums sub-module.",
@@ -24,21 +24,21 @@
                 "import_path": "./global",
                 "resolved_file_path": "enums/global.ts",
                 "why_used": "Re-exports global domain enums: DefaultClient, BoardStatus, EquipmentStatus, EquipmentStatusReason, UnitStatus, ClientStatus, LanguageOptions, CountryOptions, SiteType",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/global.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/global.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/global.ts"
             },
             {
                 "import_path": "./car_events",
                 "resolved_file_path": "enums/car_events.ts",
                 "why_used": "Re-exports RuptelaEventEnum for Ruptela GPS device event identification",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/car_events.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/car_events.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/car_events.ts"
             },
             {
                 "import_path": "./features",
                 "resolved_file_path": "enums/features.ts",
                 "why_used": "Re-exports all feature-flag enums and user permission types: FeaturesBoard, FeaturesClient, FeaturesDashboard, FeaturesInstaller, FeaturesToolbox, UserPermissionsObject, userPermissionsObjectValue",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/features.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/features.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/features.ts"
             }
         ]

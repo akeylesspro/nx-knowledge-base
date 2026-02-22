@@ -6,12 +6,12 @@
   "file_name": "index.ts",
   "source": {
     "file_path": "types/index.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json"
   },
   "summary": {
     "purpose": "Barrel export file for all types, interfaces, and enums in the types module.",
@@ -24,22 +24,22 @@
         "import_path": "./interfaces",
         "resolved_file_path": "types/interfaces/index.ts",
         "why_used": "Re-exports all interface definitions.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/index.ts"
       },
       {
         "import_path": "./types",
         "resolved_file_path": "types/types/index.ts",
         "why_used": "Re-exports all type alias definitions.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/types/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/types/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/types/index.ts"
       },
       {
         "import_path": "./enums",
         "resolved_file_path": "types/enums/index.ts",
         "why_used": "Re-exports all enum definitions.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/enums/index.ts"
       }
     ]
   },
@@ -63,7 +63,7 @@
       "locations": {
         "source_line_start": 1,
         "source_line_end": 3,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts#L1",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts#L1",
         "nx_kb_anchor": "types_barrel"
       }
     }

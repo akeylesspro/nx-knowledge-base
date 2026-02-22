@@ -6,12 +6,12 @@
   "file_name": "index.ts",
   "source": {
     "file_path": "types/interfaces/index.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/index.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/index.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/index.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/index.ts.json"
   },
   "summary": {
     "purpose": "Barrel export file for all interface definitions.",
@@ -24,15 +24,15 @@
         "import_path": "./global",
         "resolved_file_path": "types/interfaces/global.ts",
         "why_used": "Re-exports all global interface definitions.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/global.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/global.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/global.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/global.ts"
       },
       {
         "import_path": "./email",
         "resolved_file_path": "types/interfaces/email.ts",
         "why_used": "Re-exports email interface definitions.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/email.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/email.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/email.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/email.ts"
       }
     ]
   },
@@ -54,7 +54,7 @@
       "locations": {
         "source_line_start": 1,
         "source_line_end": 2,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/index.ts#L1",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/index.ts#L1",
         "nx_kb_anchor": "interfaces_barrel"
       }
     }

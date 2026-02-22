@@ -11,7 +11,7 @@
         "language": "ts",
         "framework_tags": ["typescript"],
         "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/index.ts",
-        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-types-commons/docs/index.ts.json"
     },
     "summary": {
         "purpose": "Re-exports all types, interfaces, and enums from the library's three sub-modules as a single public entry point.",
@@ -24,21 +24,21 @@
                 "import_path": "./types",
                 "resolved_file_path": "types/index.ts",
                 "why_used": "Re-exports all type definitions (Geo, TObject, NumberObject, socket types)",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/types/index.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/types/index.ts"
             },
             {
                 "import_path": "./interfaces",
                 "resolved_file_path": "interfaces/index.ts",
                 "why_used": "Re-exports all interface definitions (Car, Client, Site, Board, Equipment, User, etc.)",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/interfaces/index.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/interfaces/index.ts"
             },
             {
                 "import_path": "./enums",
                 "resolved_file_path": "enums/index.ts",
                 "why_used": "Re-exports all enumeration definitions (feature flags, board/equipment/unit status, etc.)",
-                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/index.ts",
+                "link_to_nx_kb": "/repos/akeyless-types-commons/docs/enums/index.ts.json",
                 "link_to_github": "https://github.com/akeyless/akeyless-types-commons/blob/e3a2ad0d47a79312ae36f2093930aa8fcf6000b7/src/enums/index.ts"
             }
         ]

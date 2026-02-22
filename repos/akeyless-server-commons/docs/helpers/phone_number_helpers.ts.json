@@ -6,12 +6,12 @@
   "file_name": "phone_number_helpers.ts",
   "source": {
     "file_path": "helpers/phone_number_helpers.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/phone_number_helpers.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/phone_number_helpers.ts.json"
   },
   "summary": {
     "purpose": "Provides utility functions for phone number validation, classification, SIM provider detection, and format conversion between short (local) and long (international) formats.",
@@ -30,8 +30,8 @@
         "import_path": "../types/enums",
         "resolved_file_path": "types/enums/index.ts",
         "why_used": "Imports the SimProvider enum for SIM provider classification.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/enums/index.ts"
       }
     ]
   },
@@ -123,7 +123,7 @@
       "examples": {
         "minimal_correct": {"title": "Check international format", "code": "is_long_phone_number('+972501234567'); // => true\nis_long_phone_number('0501234567'); // => false"}
       },
-      "locations": {"source_line_start": 4, "source_line_end": 6, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L4", "nx_kb_anchor": "is_long_phone_number"}
+      "locations": {"source_line_start": 4, "source_line_end": 6, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L4", "nx_kb_anchor": "is_long_phone_number"}
     },
     {
       "symbol_id": "is_israel_long_phone_number",
@@ -138,7 +138,7 @@
       "examples": {
         "minimal_correct": {"title": "Check Israeli international number", "code": "is_israel_long_phone_number('+972501234567'); // => true"}
       },
-      "locations": {"source_line_start": 8, "source_line_end": 10, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L8", "nx_kb_anchor": "is_israel_long_phone_number"}
+      "locations": {"source_line_start": 8, "source_line_end": 10, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L8", "nx_kb_anchor": "is_israel_long_phone_number"}
     },
     {
       "symbol_id": "is_thailand_long_phone_number",
@@ -153,7 +153,7 @@
       "examples": {
         "minimal_correct": {"title": "Check Thai number", "code": "is_thailand_long_phone_number('+66812345678'); // => true"}
       },
-      "locations": {"source_line_start": 12, "source_line_end": 14, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L12", "nx_kb_anchor": "is_thailand_long_phone_number"}
+      "locations": {"source_line_start": 12, "source_line_end": 14, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L12", "nx_kb_anchor": "is_thailand_long_phone_number"}
     },
     {
       "symbol_id": "is_international_phone_number",
@@ -168,7 +168,7 @@
       "examples": {
         "minimal_correct": {"title": "Check non-Israeli international number", "code": "is_international_phone_number('+12025551234'); // => true\nis_international_phone_number('+972501234567'); // => false"}
       },
-      "locations": {"source_line_start": 16, "source_line_end": 18, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L16", "nx_kb_anchor": "is_international_phone_number"}
+      "locations": {"source_line_start": 16, "source_line_end": 18, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L16", "nx_kb_anchor": "is_international_phone_number"}
     },
     {
       "symbol_id": "is_iccid",
@@ -183,7 +183,7 @@
       "examples": {
         "minimal_correct": {"title": "Validate an ICCID", "code": "is_iccid('8972012345678901234'); // => true\nis_iccid('0501234567'); // => false"}
       },
-      "locations": {"source_line_start": 20, "source_line_end": 25, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L20", "nx_kb_anchor": "is_iccid"}
+      "locations": {"source_line_start": 20, "source_line_end": 25, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L20", "nx_kb_anchor": "is_iccid"}
     },
     {
       "symbol_id": "convert_to_short_israel_phone",
@@ -198,7 +198,7 @@
       "examples": {
         "minimal_correct": {"title": "Convert to short format", "code": "convert_to_short_israel_phone('+972501234567'); // => '0501234567'"}
       },
-      "locations": {"source_line_start": 27, "source_line_end": 29, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L27", "nx_kb_anchor": "convert_to_short_israel_phone"}
+      "locations": {"source_line_start": 27, "source_line_end": 29, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L27", "nx_kb_anchor": "convert_to_short_israel_phone"}
     },
     {
       "symbol_id": "is_sim_provider_partner",
@@ -213,7 +213,7 @@
       "examples": {
         "minimal_correct": {"title": "Check Partner SIM", "code": "is_sim_provider_partner('0541234567'); // => true"}
       },
-      "locations": {"source_line_start": 31, "source_line_end": 34, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L31", "nx_kb_anchor": "is_sim_provider_partner"}
+      "locations": {"source_line_start": 31, "source_line_end": 34, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L31", "nx_kb_anchor": "is_sim_provider_partner"}
     },
     {
       "symbol_id": "is_sim_provider_pelephone",
@@ -228,7 +228,7 @@
       "examples": {
         "minimal_correct": {"title": "Check Pelephone SIM", "code": "is_sim_provider_pelephone('0501234567'); // => true"}
       },
-      "locations": {"source_line_start": 36, "source_line_end": 39, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L36", "nx_kb_anchor": "is_sim_provider_pelephone"}
+      "locations": {"source_line_start": 36, "source_line_end": 39, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L36", "nx_kb_anchor": "is_sim_provider_pelephone"}
     },
     {
       "symbol_id": "is_sim_provider_celcom",
@@ -243,7 +243,7 @@
       "examples": {
         "minimal_correct": {"title": "Check Celcom SIM", "code": "is_sim_provider_celcom('0521234567'); // => true"}
       },
-      "locations": {"source_line_start": 41, "source_line_end": 44, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L41", "nx_kb_anchor": "is_sim_provider_celcom"}
+      "locations": {"source_line_start": 41, "source_line_end": 44, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L41", "nx_kb_anchor": "is_sim_provider_celcom"}
     },
     {
       "symbol_id": "is_sim_provider_monogoto",
@@ -258,7 +258,7 @@
       "examples": {
         "minimal_correct": {"title": "Check Monogoto ICCID", "code": "is_sim_provider_monogoto('8972012345678901234'); // => true"}
       },
-      "locations": {"source_line_start": 46, "source_line_end": 48, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L46", "nx_kb_anchor": "is_sim_provider_monogoto"}
+      "locations": {"source_line_start": 46, "source_line_end": 48, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L46", "nx_kb_anchor": "is_sim_provider_monogoto"}
     },
     {
       "symbol_id": "get_sim_provider",
@@ -273,7 +273,7 @@
       "examples": {
         "minimal_correct": {"title": "Get SIM provider", "code": "get_sim_provider('0541234567'); // => SimProvider.partner"}
       },
-      "locations": {"source_line_start": 50, "source_line_end": 64, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L50", "nx_kb_anchor": "get_sim_provider"}
+      "locations": {"source_line_start": 50, "source_line_end": 64, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L50", "nx_kb_anchor": "get_sim_provider"}
     },
     {
       "symbol_id": "long_short_phone_numbers",
@@ -294,7 +294,7 @@
         "minimal_correct": {"title": "Get both formats for an Israeli number", "code": "long_short_phone_numbers('0501234567');\n// => { short_phone_number: '0501234567', long_phone_number: '+972501234567', is_israeli: true }"},
         "extensive_correct": {"title": "Get both formats for an international number", "code": "long_short_phone_numbers('+972501234567');\n// => { short_phone_number: '0501234567', long_phone_number: '+972501234567', is_israeli: true }"}
       },
-      "locations": {"source_line_start": 66, "source_line_end": 100, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/phone_number_helpers.ts#L66", "nx_kb_anchor": "long_short_phone_numbers"}
+      "locations": {"source_line_start": 66, "source_line_end": 100, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/phone_number_helpers.ts#L66", "nx_kb_anchor": "long_short_phone_numbers"}
     }
   ],
   "quality": {

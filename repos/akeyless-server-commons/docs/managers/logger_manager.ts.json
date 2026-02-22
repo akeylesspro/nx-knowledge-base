@@ -6,12 +6,12 @@
   "file_name": "logger_manager.ts",
   "source": {
     "file_path": "managers/logger_manager.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/logger_manager.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/logger_manager.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/logger_manager.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/logger_manager.ts.json"
   },
   "summary": {
     "purpose": "Implements a singleton structured logger that prefixes all output with ISO timestamps and supports log, error, warn, and table output.",
@@ -63,7 +63,7 @@
       "locations": {
         "source_line_start": 1,
         "source_line_end": 54,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/logger_manager.ts#L1",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/logger_manager.ts#L1",
         "nx_kb_anchor": "LoggerManager"
       }
     },
@@ -84,7 +84,7 @@
       "locations": {
         "source_line_start": 56,
         "source_line_end": 58,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/logger_manager.ts#L56",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/logger_manager.ts#L56",
         "nx_kb_anchor": "logger_instance"
       }
     }

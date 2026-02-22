@@ -1,582 +1,1605 @@
 {
-  "repo": {
-    "name": "akeyless-server-commons",
-    "source_default_branch": "main"
-  },
-  "file_name": "firebase_helpers.ts",
-  "source": {
-    "file_path": "helpers/firebase_helpers.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
-    "language": "ts",
-    "framework_tags": ["node", "firebase"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts"
-  },
-  "summary": {
-    "purpose": "Comprehensive Firebase utility layer providing Firestore CRUD operations, Firebase Auth token verification, Firebase Storage file management, real-time snapshot listeners, and audit logging.",
-    "problem_solved": "Centralises all Firebase interactions into typed, reusable helpers, eliminating boilerplate Firestore query construction, snapshot listener management, and storage operations across microservices."
-  },
-  "dependencies": {
-    "external": [
-      {
-        "name": "firebase-admin",
-        "kind": "runtime",
-        "why_used": "Core dependency for Firestore, Auth, and Storage operations."
-      },
-      {
-        "name": "akeyless-types-commons",
-        "kind": "runtime",
-        "why_used": "Provides TObject, NxUser, and other shared types."
-      }
-    ],
-    "internal": [
-      {
-        "import_path": "../managers",
-        "resolved_file_path": "managers/index.ts",
-        "why_used": "Imports cache_manager and logger singletons.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/managers/index.ts"
-      },
-      {
-        "import_path": "../types",
-        "resolved_file_path": "types/index.ts",
-        "why_used": "Imports OnSnapshotConfig, OnSnapshotParsers, ExtraSnapshotConfig, AddAuditRecord, SaveFileOptions, and WhereCondition types.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
-      }
-    ]
-  },
-  "exports": [
-    {
-      "name": "init_firebase",
-      "kind": "function",
-      "description_one_line": "Initialises the Firebase Admin SDK using environment credentials.",
-      "symbol_id": "init_firebase"
+    "repo": {
+        "name": "akeyless-server-commons",
+        "source_default_branch": "main"
     },
-    {
-      "name": "get_all_documents",
-      "kind": "function",
-      "description_one_line": "Fetches all documents from a Firestore collection.",
-      "symbol_id": "get_all_documents"
+    "file_name": "firebase_helpers.ts",
+    "source": {
+        "file_path": "helpers/firebase_helpers.ts",
+        "commit_sha": "39596d3",
+        "generated_at_iso": "2026-02-22T00:00:00.000Z",
+        "language": "ts",
+        "framework_tags": ["node", "firebase"],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts",
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/firebase_helpers.ts.json"
     },
-    {
-      "name": "query_documents",
-      "kind": "function",
-      "description_one_line": "Queries Firestore documents by a single field condition.",
-      "symbol_id": "query_documents"
+    "summary": {
+        "purpose": "Initialises Firebase Admin SDK and exports Firestore CRUD helpers, real-time snapshot listeners, Firebase Auth token verification, Firebase Storage file operations, and audit logging utilities.",
+        "problem_solved": "Centralises all Firebase Admin interactions into typed, reusable helpers so microservices avoid duplicating Firestore query construction, snapshot lifecycle management, storage file handling, and audit trail writes."
     },
-    {
-      "name": "query_documents_by_conditions",
-      "kind": "function",
-      "description_one_line": "Queries Firestore documents by multiple where conditions.",
-      "symbol_id": "query_documents_by_conditions"
-    },
-    {
-      "name": "query_document",
-      "kind": "function",
-      "description_one_line": "Queries a single Firestore document by a field condition, throwing if not found.",
-      "symbol_id": "query_document"
-    },
-    {
-      "name": "query_document_optional",
-      "kind": "function",
-      "description_one_line": "Queries a single Firestore document by a field condition, returning null if not found.",
-      "symbol_id": "query_document_optional"
-    },
-    {
-      "name": "query_document_by_conditions",
-      "kind": "function",
-      "description_one_line": "Queries a single Firestore document by multiple conditions, throwing if not found.",
-      "symbol_id": "query_document_by_conditions"
-    },
-    {
-      "name": "get_document_by_id",
-      "kind": "function",
-      "description_one_line": "Fetches a Firestore document by its ID, throwing if not found.",
-      "symbol_id": "get_document_by_id"
-    },
-    {
-      "name": "get_document_by_id_optional",
-      "kind": "function",
-      "description_one_line": "Fetches a Firestore document by its ID, returning null if not found.",
-      "symbol_id": "get_document_by_id_optional"
-    },
-    {
-      "name": "set_document",
-      "kind": "function",
-      "description_one_line": "Creates or updates a Firestore document by ID (merge by default).",
-      "symbol_id": "set_document"
-    },
-    {
-      "name": "add_document",
-      "kind": "function",
-      "description_one_line": "Adds a new Firestore document with an auto-generated ID.",
-      "symbol_id": "add_document"
-    },
-    {
-      "name": "delete_document",
-      "kind": "function",
-      "description_one_line": "Deletes a Firestore document by collection path and document ID.",
-      "symbol_id": "delete_document"
-    },
-    {
-      "name": "verify_token",
-      "kind": "function",
-      "description_one_line": "Verifies a Firebase Auth ID token and returns the decoded token.",
-      "symbol_id": "verify_token"
-    },
-    {
-      "name": "on_snapshot",
-      "kind": "function",
-      "description_one_line": "Sets up a real-time Firestore collection listener with configurable parsers.",
-      "symbol_id": "on_snapshot"
-    },
-    {
-      "name": "on_snapshot_bulk",
-      "kind": "function",
-      "description_one_line": "Initialises multiple Firestore snapshot listeners in parallel.",
-      "symbol_id": "on_snapshot_bulk"
-    },
-    {
-      "name": "on_snapshot_bulk_by_names",
-      "kind": "function",
-      "description_one_line": "Initialises multiple Firestore snapshot listeners by collection name strings or config objects.",
-      "symbol_id": "on_snapshot_bulk_by_names"
-    },
-    {
-      "name": "init_snapshots",
-      "kind": "function",
-      "description_one_line": "Initialises all standard Firestore snapshot listeners for the application.",
-      "symbol_id": "init_snapshots"
-    },
-    {
-      "name": "add_audit_record",
-      "kind": "function",
-      "description_one_line": "Writes an audit log entry to the Firestore 'nx-audit' collection.",
-      "symbol_id": "add_audit_record"
-    },
-    {
-      "name": "save_file_to_storage",
-      "kind": "function",
-      "description_one_line": "Uploads a file buffer to Firebase Storage and returns a signed URL.",
-      "symbol_id": "save_file_to_storage"
-    },
-    {
-      "name": "parse_object_snapshot",
-      "kind": "function",
-      "description_one_line": "Default snapshot parser that stores documents as a keyed object in cache.",
-      "symbol_id": "parse_object_snapshot"
-    },
-    {
-      "name": "parse_array_snapshot",
-      "kind": "function",
-      "description_one_line": "Default snapshot parser that stores documents as an array in cache.",
-      "symbol_id": "parse_array_snapshot"
-    }
-  ],
-  "symbols": [
-    {
-      "symbol_id": "init_firebase",
-      "name": "init_firebase",
-      "kind": "function",
-      "description_one_line": "Initialises the Firebase Admin SDK using environment credentials.",
-      "signature": {
-        "params": [],
-        "returns": {"type": "void", "description": "Initialises the Firebase Admin SDK as a side effect."}
-      },
-      "details": {
-        "what_it_does": "Reads firebase_project_id, firebase_client_email, firebase_private_key, and firebase_storage_bucket from process.env and calls firebase-admin initializeApp() with the credential and storageBucket.",
-        "side_effects": ["Initialises the Firebase Admin SDK singleton."],
-        "error_cases": [{"condition": "Missing required env variables", "behavior": "Throws an error from firebase-admin."}]
-      },
-      "examples": {
-        "minimal_correct": {"title": "Initialise Firebase on startup", "code": "init_firebase();"}
-      },
-      "locations": {"source_line_start": 10, "source_line_end": 22, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L10", "nx_kb_anchor": "init_firebase"}
-    },
-    {
-      "symbol_id": "get_all_documents",
-      "name": "get_all_documents",
-      "kind": "function",
-      "description_one_line": "Fetches all documents from a Firestore collection.",
-      "signature": {
-        "params": [{"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."}],
-        "returns": {"type": "Promise<TObject<any>[]>", "description": "Array of all documents in the collection, each with its Firestore ID as the 'id' field."}
-      },
-      "details": {"what_it_does": "Calls firestore().collection(collection_path).get() and maps each document to { id, ...data() }."},
-      "examples": {
-        "minimal_correct": {"title": "Fetch all users", "code": "const users = await get_all_documents('nx-users');"}
-      },
-      "locations": {"source_line_start": 24, "source_line_end": 30, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L24", "nx_kb_anchor": "get_all_documents"}
-    },
-    {
-      "symbol_id": "query_documents",
-      "name": "query_documents",
-      "kind": "function",
-      "description_one_line": "Queries Firestore documents by a single field condition.",
-      "signature": {
-        "params": [
-          {"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."},
-          {"name": "field_name", "type": "string", "required": true, "description": "The field to filter on."},
-          {"name": "operator", "type": "FirebaseFirestore.WhereFilterOp", "required": true, "description": "Comparison operator (e.g., '==', '>', 'in')."},
-          {"name": "value", "type": "any", "required": true, "description": "The value to compare against."}
+    "dependencies": {
+        "external": [
+            {
+                "name": "firebase-admin",
+                "kind": "runtime",
+                "why_used": "Core SDK for Firestore, Auth, Storage, and Messaging operations."
+            },
+            {
+                "name": "akeyless-types-commons",
+                "kind": "runtime",
+                "why_used": "Provides TObject, CollectionConfig, RedisUpdatePayload, and other shared types."
+            },
+            {
+                "name": "dotenv",
+                "kind": "runtime",
+                "why_used": "Loads environment variables for Firebase service account credentials."
+            },
+            {
+                "name": "perf_hooks",
+                "kind": "runtime",
+                "why_used": "Used for performance timing in snapshot_bulk."
+            }
         ],
-        "returns": {"type": "Promise<TObject<any>[]>", "description": "Array of matching documents."}
-      },
-      "details": {"what_it_does": "Builds a Firestore where query and returns all matching documents with their IDs."},
-      "examples": {
-        "minimal_correct": {"title": "Query documents by field", "code": "const activeUsers = await query_documents('nx-users', 'status', '==', 'active');"}
-      },
-      "locations": {"source_line_start": 32, "source_line_end": 40, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L32", "nx_kb_anchor": "query_documents"}
-    },
-    {
-      "symbol_id": "query_documents_by_conditions",
-      "name": "query_documents_by_conditions",
-      "kind": "function",
-      "description_one_line": "Queries Firestore documents by multiple where conditions.",
-      "signature": {
-        "params": [
-          {"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."},
-          {"name": "where_conditions", "type": "WhereCondition[]", "required": true, "description": "Array of { field_name, operator, value } conditions."}
-        ],
-        "returns": {"type": "Promise<TObject<any>[]>", "description": "Array of matching documents."}
-      },
-      "details": {"what_it_does": "Chains multiple .where() calls on a Firestore collection reference and returns all matching documents."},
-      "examples": {
-        "minimal_correct": {"title": "Query with multiple conditions", "code": "const docs = await query_documents_by_conditions('nx-devices', [\n  { field_name: 'status', operator: '==', value: 'active' },\n  { field_name: 'type', operator: '==', value: 'gps' }\n]);"}
-      },
-      "locations": {"source_line_start": 42, "source_line_end": 55, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L42", "nx_kb_anchor": "query_documents_by_conditions"}
-    },
-    {
-      "symbol_id": "query_document",
-      "name": "query_document",
-      "kind": "function",
-      "description_one_line": "Queries a single Firestore document by a field condition, throwing if not found.",
-      "signature": {
-        "params": [
-          {"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."},
-          {"name": "field_name", "type": "string", "required": true, "description": "The field to filter on."},
-          {"name": "operator", "type": "FirebaseFirestore.WhereFilterOp", "required": true, "description": "Comparison operator."},
-          {"name": "value", "type": "any", "required": true, "description": "The value to compare against."},
-          {"name": "ignore_log", "type": "boolean", "required": false, "description": "If true, suppresses not-found logging."}
-        ],
-        "returns": {"type": "Promise<TObject<any>>", "description": "The first matching document."}
-      },
-      "details": {
-        "what_it_does": "Queries the collection and returns the first result. Throws if no document is found.",
-        "error_cases": [{"condition": "No document matches the condition", "behavior": "Throws Error(`No document found in ${collection_path} where ${field_name} ${operator} ${value}`)"}]
-      },
-      "examples": {
-        "minimal_correct": {"title": "Query a single document", "code": "const user = await query_document('nx-users', 'email', '==', 'admin@example.com');"}
-      },
-      "locations": {"source_line_start": 57, "source_line_end": 75, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L57", "nx_kb_anchor": "query_document"}
-    },
-    {
-      "symbol_id": "query_document_optional",
-      "name": "query_document_optional",
-      "kind": "function",
-      "description_one_line": "Queries a single Firestore document by a field condition, returning null if not found.",
-      "signature": {
-        "params": [
-          {"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."},
-          {"name": "field_name", "type": "string", "required": true, "description": "The field to filter on."},
-          {"name": "operator", "type": "FirebaseFirestore.WhereFilterOp", "required": true, "description": "Comparison operator."},
-          {"name": "value", "type": "any", "required": true, "description": "The value to compare against."},
-          {"name": "ignore_log", "type": "boolean", "required": false, "description": "If true, suppresses not-found logging."}
-        ],
-        "returns": {"type": "Promise<TObject<any> | null>", "description": "The first matching document, or null if not found."}
-      },
-      "details": {"what_it_does": "Same as query_document but returns null instead of throwing when no document is found."},
-      "examples": {
-        "minimal_correct": {"title": "Optional document query", "code": "const client = await query_document_optional('nx-clients', 'api_token', '==', token);\nif (!client) { return res.status(403).send('Unauthorized'); }"}
-      },
-      "locations": {"source_line_start": 77, "source_line_end": 90, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L77", "nx_kb_anchor": "query_document_optional"}
-    },
-    {
-      "symbol_id": "query_document_by_conditions",
-      "name": "query_document_by_conditions",
-      "kind": "function",
-      "description_one_line": "Queries a single Firestore document by multiple conditions, throwing if not found.",
-      "signature": {
-        "params": [
-          {"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."},
-          {"name": "where_conditions", "type": "WhereCondition[]", "required": true, "description": "Array of where conditions."},
-          {"name": "log", "type": "boolean", "required": false, "description": "If true, logs the query result."}
-        ],
-        "returns": {"type": "Promise<TObject<any>>", "description": "The first matching document."}
-      },
-      "details": {
-        "what_it_does": "Chains multiple .where() calls and returns the first result. Throws if not found.",
-        "error_cases": [{"condition": "No document matches", "behavior": "Throws Error with collection path and conditions."}]
-      },
-      "examples": {
-        "minimal_correct": {"title": "Query by multiple conditions", "code": "const doc = await query_document_by_conditions('nx-sessions', [\n  { field_name: 'user_id', operator: '==', value: 'u1' },\n  { field_name: 'active', operator: '==', value: true }\n]);"}
-      },
-      "locations": {"source_line_start": 92, "source_line_end": 110, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L92", "nx_kb_anchor": "query_document_by_conditions"}
-    },
-    {
-      "symbol_id": "get_document_by_id",
-      "name": "get_document_by_id",
-      "kind": "function",
-      "description_one_line": "Fetches a Firestore document by its ID, throwing if not found.",
-      "signature": {
-        "params": [
-          {"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."},
-          {"name": "document_id", "type": "string", "required": true, "description": "The document ID to fetch."}
-        ],
-        "returns": {"type": "Promise<TObject<any>>", "description": "The document data with its ID."}
-      },
-      "details": {
-        "what_it_does": "Calls firestore().collection(collection_path).doc(document_id).get() and returns the data. Throws if the document does not exist.",
-        "error_cases": [{"condition": "Document does not exist", "behavior": "Throws Error(`No document found in ${collection_path} with id: ${document_id}`)"}]
-      },
-      "examples": {
-        "minimal_correct": {"title": "Get a document by ID", "code": "const settings = await get_document_by_id('nx-settings', 'emails');"}
-      },
-      "locations": {"source_line_start": 112, "source_line_end": 125, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L112", "nx_kb_anchor": "get_document_by_id"}
-    },
-    {
-      "symbol_id": "get_document_by_id_optional",
-      "name": "get_document_by_id_optional",
-      "kind": "function",
-      "description_one_line": "Fetches a Firestore document by its ID, returning null if not found.",
-      "signature": {
-        "params": [
-          {"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."},
-          {"name": "document_id", "type": "string", "required": true, "description": "The document ID to fetch."}
-        ],
-        "returns": {"type": "Promise<TObject<any> | null>", "description": "The document data or null if not found."}
-      },
-      "details": {"what_it_does": "Same as get_document_by_id but returns null instead of throwing when the document does not exist."},
-      "examples": {
-        "minimal_correct": {"title": "Optionally get a document by ID", "code": "const task = await get_document_by_id_optional('nx-tasks', TaskName.collect_devices_health);"}
-      },
-      "locations": {"source_line_start": 127, "source_line_end": 138, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L127", "nx_kb_anchor": "get_document_by_id_optional"}
-    },
-    {
-      "symbol_id": "set_document",
-      "name": "set_document",
-      "kind": "function",
-      "description_one_line": "Creates or updates a Firestore document by ID (merge by default).",
-      "signature": {
-        "params": [
-          {"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."},
-          {"name": "document_id", "type": "string", "required": true, "description": "The document ID to create or update."},
-          {"name": "data", "type": "TObject<any>", "required": true, "description": "The data to write."},
-          {"name": "merge", "type": "boolean", "required": false, "description": "If true (default), merges with existing data. If false, overwrites."}
-        ],
-        "returns": {"type": "Promise<void>", "description": "Resolves when the write completes."}
-      },
-      "details": {"what_it_does": "Calls firestore().collection(collection_path).doc(document_id).set(data, { merge }) to create or update the document."},
-      "examples": {
-        "minimal_correct": {"title": "Update a document", "code": "await set_document('nx-tasks', 'collect_devices_health', { status: 'running', source: 'devices-service' });"}
-      },
-      "locations": {"source_line_start": 140, "source_line_end": 148, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L140", "nx_kb_anchor": "set_document"}
-    },
-    {
-      "symbol_id": "add_document",
-      "name": "add_document",
-      "kind": "function",
-      "description_one_line": "Adds a new Firestore document with an auto-generated ID.",
-      "signature": {
-        "params": [
-          {"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."},
-          {"name": "data", "type": "TObject<any>", "required": true, "description": "The data to write."}
-        ],
-        "returns": {"type": "Promise<string>", "description": "The auto-generated document ID."}
-      },
-      "details": {"what_it_does": "Calls firestore().collection(collection_path).add(data) and returns the new document's ID."},
-      "examples": {
-        "minimal_correct": {"title": "Add a new document", "code": "const id = await add_document('nx-audit', { action: 'login', user: 'admin' });"}
-      },
-      "locations": {"source_line_start": 150, "source_line_end": 156, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L150", "nx_kb_anchor": "add_document"}
-    },
-    {
-      "symbol_id": "delete_document",
-      "name": "delete_document",
-      "kind": "function",
-      "description_one_line": "Deletes a Firestore document by collection path and document ID.",
-      "signature": {
-        "params": [
-          {"name": "collection_path", "type": "string", "required": true, "description": "Firestore collection path."},
-          {"name": "document_id", "type": "string", "required": true, "description": "The document ID to delete."}
-        ],
-        "returns": {"type": "Promise<void>", "description": "Resolves when the document is deleted."}
-      },
-      "details": {"what_it_does": "Calls firestore().collection(collection_path).doc(document_id).delete()."},
-      "examples": {
-        "minimal_correct": {"title": "Delete a document", "code": "await delete_document('nx-sessions', sessionId);"}
-      },
-      "locations": {"source_line_start": 158, "source_line_end": 162, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L158", "nx_kb_anchor": "delete_document"}
-    },
-    {
-      "symbol_id": "verify_token",
-      "name": "verify_token",
-      "kind": "function",
-      "description_one_line": "Verifies a Firebase Auth ID token and returns the decoded token.",
-      "signature": {
-        "params": [{"name": "token", "type": "string | undefined", "required": true, "description": "The Firebase Auth ID token from the Authorization header."}],
-        "returns": {"type": "Promise<DecodedIdToken>", "description": "The decoded Firebase Auth token payload."}
-      },
-      "details": {
-        "what_it_does": "Calls firebase-admin auth().verifyIdToken(token) and returns the decoded payload.",
-        "error_cases": [
-          {"condition": "Token is undefined or empty", "behavior": "Throws Error('Authorization token not found')"},
-          {"condition": "Token is invalid or expired", "behavior": "Throws the firebase-admin auth error."}
+        "internal": [
+            {
+                "import_path": "../managers",
+                "resolved_file_path": "managers/index.ts",
+                "why_used": "Imports cache_manager, logger, and translation_manager singletons.",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/managers/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/managers/index.ts"
+            },
+            {
+                "import_path": "../types",
+                "resolved_file_path": "types/index.ts",
+                "why_used": "Imports AddAuditRecord, ExtraSnapshotConfig, InitSnapshotsOptions, OnSnapshotCallback, OnSnapshotConfig, OnSnapshotParsers, QueryDocument, QueryDocumentByConditions, QueryDocumentOptional, QueryDocuments, QueryDocumentsByConditions, Snapshot, SnapshotBulk, SnapshotBulkByNames, and SaveFileOptions types.",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts"
+            },
+            {
+                "import_path": "./global_helpers",
+                "resolved_file_path": "helpers/global_helpers.ts",
+                "why_used": "Imports init_env_variables to load Firebase service account credentials from environment.",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/global_helpers.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/global_helpers.ts"
+            },
+            {
+                "import_path": "./redis",
+                "resolved_file_path": "helpers/redis/index.ts",
+                "why_used": "Imports redis_snapshots_bulk to route snapshot subscriptions to Redis when configured.",
+                "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/redis/index.ts.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/redis/index.ts"
+            }
         ]
-      },
-      "examples": {
-        "minimal_correct": {"title": "Verify a Firebase token", "code": "const decoded = await verify_token(req.headers.authorization);\nconst uid = decoded.uid;"}
-      },
-      "locations": {"source_line_start": 164, "source_line_end": 172, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L164", "nx_kb_anchor": "verify_token"}
     },
-    {
-      "symbol_id": "on_snapshot",
-      "name": "on_snapshot",
-      "kind": "function",
-      "description_one_line": "Sets up a real-time Firestore collection listener with configurable parsers.",
-      "signature": {
-        "params": [{"name": "config", "type": "OnSnapshotConfig", "required": true, "description": "Configuration including collection_name, parse_as, doc_key_property, conditions, extra_parsers, cache_name, subscription_type, and debug options."}],
-        "returns": {"type": "Promise<void>", "description": "Resolves after the initial snapshot is processed."}
-      },
-      "details": {
-        "what_it_does": "Subscribes to a Firestore collection with optional where conditions. On each change, categorises documents as added/modified/removed and calls the corresponding parsers (on_first_time, on_add, on_modify, on_remove). Stores results in cache_manager as either an array or keyed object based on parse_as. Supports 'redis' or 'firebase' subscription_type.",
-        "side_effects": ["Registers a persistent Firestore listener.", "Updates cache_manager on each change."]
-      },
-      "examples": {
-        "minimal_correct": {"title": "Subscribe to a collection", "code": "await on_snapshot({\n  collection_name: 'nx-devices',\n  parse_as: 'array',\n  cache_name: 'devices'\n});"}
-      },
-      "locations": {"source_line_start": 200, "source_line_end": 350, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L200", "nx_kb_anchor": "on_snapshot"}
-    },
-    {
-      "symbol_id": "on_snapshot_bulk",
-      "name": "on_snapshot_bulk",
-      "kind": "function",
-      "description_one_line": "Initialises multiple Firestore snapshot listeners in parallel.",
-      "signature": {
-        "params": [
-          {"name": "snapshots", "type": "ReturnType<Snapshot>[]", "required": true, "description": "Array of snapshot Promises to initialise."},
-          {"name": "label", "type": "string", "required": false, "description": "Optional label for logging."}
-        ],
-        "returns": {"type": "Promise<void>", "description": "Resolves when all snapshots are initialised."}
-      },
-      "details": {"what_it_does": "Calls Promise.all on the provided snapshot Promises and logs the label when done."},
-      "examples": {
-        "minimal_correct": {"title": "Initialise multiple snapshots", "code": "await on_snapshot_bulk([\n  on_snapshot({ collection_name: 'nx-devices', parse_as: 'array' }),\n  on_snapshot({ collection_name: 'nx-users', parse_as: 'array' })\n], 'core-data');"}
-      },
-      "locations": {"source_line_start": 352, "source_line_end": 360, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L352", "nx_kb_anchor": "on_snapshot_bulk"}
-    },
-    {
-      "symbol_id": "on_snapshot_bulk_by_names",
-      "name": "on_snapshot_bulk_by_names",
-      "kind": "function",
-      "description_one_line": "Initialises multiple Firestore snapshot listeners by collection name strings or config objects.",
-      "signature": {
-        "params": [
-          {"name": "params", "type": "SnapshotBulkByNamesParam[]", "required": true, "description": "Array of collection name strings or SnapshotBulkByNamesParamObject configs."},
-          {"name": "options", "type": "SnapshotBulkByNamesOptions", "required": false, "description": "Shared options: label, debug, subscription_type, parse_as, doc_key_property."}
-        ],
-        "returns": {"type": "Promise<void>", "description": "Resolves when all snapshots are initialised."}
-      },
-      "details": {"what_it_does": "Maps each param to an on_snapshot call (merging shared options with per-collection overrides) and calls on_snapshot_bulk."},
-      "examples": {
-        "minimal_correct": {"title": "Initialise snapshots by collection names", "code": "await on_snapshot_bulk_by_names(['nx-devices', 'nx-users', 'nx-settings'], { parse_as: 'array' });"}
-      },
-      "locations": {"source_line_start": 362, "source_line_end": 400, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L362", "nx_kb_anchor": "on_snapshot_bulk_by_names"}
-    },
-    {
-      "symbol_id": "init_snapshots",
-      "name": "init_snapshots",
-      "kind": "function",
-      "description_one_line": "Initialises all standard Firestore snapshot listeners for the application.",
-      "signature": {
-        "params": [{"name": "options", "type": "InitSnapshotsOptions", "required": false, "description": "Optional: subscription_type ('redis' | 'firebase') and debug settings."}],
-        "returns": {"type": "Promise<void>", "description": "Resolves when all standard snapshots are initialised."}
-      },
-      "details": {
-        "what_it_does": "Calls on_snapshot_bulk_by_names with the standard set of collections (nx-settings, etc.) using the provided subscription_type and debug options. This is the primary entry point for application data initialisation.",
-        "side_effects": ["Registers persistent Firestore listeners for all standard collections.", "Populates cache_manager with initial data."]
-      },
-      "examples": {
-        "minimal_correct": {"title": "Initialise all snapshots", "code": "await init_snapshots({ subscription_type: 'redis' });"}
-      },
-      "locations": {"source_line_start": 402, "source_line_end": 430, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L402", "nx_kb_anchor": "init_snapshots"}
-    },
-    {
-      "symbol_id": "add_audit_record",
-      "name": "add_audit_record",
-      "kind": "function",
-      "description_one_line": "Writes an audit log entry to the Firestore 'nx-audit' collection.",
-      "signature": {
-        "params": [
-          {"name": "action", "type": "string", "required": true, "description": "The action performed (e.g., 'create', 'update', 'delete')."},
-          {"name": "entity", "type": "string", "required": true, "description": "The entity type affected (e.g., 'nx-users', 'nx-devices')."},
-          {"name": "details", "type": "TObject<any>", "required": true, "description": "Additional details about the action."},
-          {"name": "user", "type": "NxUser", "required": false, "description": "The user who performed the action."}
-        ],
-        "returns": {"type": "Promise<void>", "description": "Resolves when the audit record is written."}
-      },
-      "details": {"what_it_does": "Adds a document to 'nx-audit' with action, entity, details, user info, and a server timestamp."},
-      "examples": {
-        "minimal_correct": {"title": "Write an audit record", "code": "await add_audit_record('send_email', 'email_service', { subject: 'Report' }, req.body.user);"}
-      },
-      "locations": {"source_line_start": 432, "source_line_end": 450, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L432", "nx_kb_anchor": "add_audit_record"}
-    },
-    {
-      "symbol_id": "save_file_to_storage",
-      "name": "save_file_to_storage",
-      "kind": "function",
-      "description_one_line": "Uploads a file buffer to Firebase Storage and returns a signed URL.",
-      "signature": {
-        "params": [{"name": "options", "type": "SaveFileOptions", "required": true, "description": "Object with file_name, buffer (Buffer | string), content_type, and optional expiry_days (default 7)."}],
-        "returns": {"type": "Promise<string>", "description": "A signed URL valid for the specified number of days."}
-      },
-      "details": {"what_it_does": "Uploads the buffer to Firebase Storage at the given file_name path, sets the content type, and generates a signed URL with the specified expiry."},
-      "examples": {
-        "minimal_correct": {"title": "Upload a file and get a signed URL", "code": "const url = await save_file_to_storage({\n  file_name: 'reports/2026-02.pdf',\n  buffer: pdfBuffer,\n  content_type: 'application/pdf'\n});"}
-      },
-      "locations": {"source_line_start": 452, "source_line_end": 480, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L452", "nx_kb_anchor": "save_file_to_storage"}
-    },
-    {
-      "symbol_id": "parse_object_snapshot",
-      "name": "parse_object_snapshot",
-      "kind": "function",
-      "description_one_line": "Default snapshot parser that stores documents as a keyed object in cache.",
-      "signature": {
-        "params": [
-          {"name": "documents", "type": "any[]", "required": true, "description": "Array of Firestore documents."},
-          {"name": "config", "type": "OnSnapshotConfig", "required": true, "description": "Snapshot configuration including cache_name and doc_key_property."}
-        ],
-        "returns": {"type": "void", "description": "Updates cache_manager as a side effect."}
-      },
-      "details": {"what_it_does": "Converts the documents array into a keyed object (using doc_key_property or 'id' as the key) and stores it in cache_manager."},
-      "examples": {
-        "minimal_correct": {"title": "Use as a snapshot parser", "code": "await on_snapshot({\n  collection_name: 'nx-settings',\n  parse_as: 'object',\n  on_first_time: parse_object_snapshot\n});"}
-      },
-      "locations": {"source_line_start": 174, "source_line_end": 190, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L174", "nx_kb_anchor": "parse_object_snapshot"}
-    },
-    {
-      "symbol_id": "parse_array_snapshot",
-      "name": "parse_array_snapshot",
-      "kind": "function",
-      "description_one_line": "Default snapshot parser that stores documents as an array in cache.",
-      "signature": {
-        "params": [
-          {"name": "documents", "type": "any[]", "required": true, "description": "Array of Firestore documents."},
-          {"name": "config", "type": "OnSnapshotConfig", "required": true, "description": "Snapshot configuration including cache_name."}
-        ],
-        "returns": {"type": "void", "description": "Updates cache_manager as a side effect."}
-      },
-      "details": {"what_it_does": "Stores the documents array directly in cache_manager under the cache_name key."},
-      "examples": {
-        "minimal_correct": {"title": "Use as a snapshot parser", "code": "await on_snapshot({\n  collection_name: 'nx-devices',\n  parse_as: 'array',\n  on_first_time: parse_array_snapshot\n});"}
-      },
-      "locations": {"source_line_start": 192, "source_line_end": 198, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/firebase_helpers.ts#L192", "nx_kb_anchor": "parse_array_snapshot"}
+    "exports": [
+        {
+            "name": "service_account_firebase",
+            "kind": "constant",
+            "description_one_line": "Firebase service account credentials object assembled from environment variables.",
+            "symbol_id": "constant_service_account_firebase"
+        },
+        {
+            "name": "db",
+            "kind": "constant",
+            "description_one_line": "Firestore database instance initialised from the Firebase Admin SDK.",
+            "symbol_id": "constant_db"
+        },
+        {
+            "name": "messaging",
+            "kind": "constant",
+            "description_one_line": "Firebase Cloud Messaging instance for sending push notifications.",
+            "symbol_id": "constant_messaging"
+        },
+        {
+            "name": "auth",
+            "kind": "constant",
+            "description_one_line": "Firebase Auth instance for token verification and user management.",
+            "symbol_id": "constant_auth"
+        },
+        {
+            "name": "storage",
+            "kind": "constant",
+            "description_one_line": "Firebase Storage instance for file upload and retrieval.",
+            "symbol_id": "constant_storage"
+        },
+        {
+            "name": "simple_extract_data",
+            "kind": "function",
+            "description_one_line": "Extracts document data and merges the Firestore document ID into the returned object.",
+            "symbol_id": "function_simple_extract_data"
+        },
+        {
+            "name": "get_all_documents",
+            "kind": "function",
+            "description_one_line": "Fetches all documents from a Firestore collection.",
+            "symbol_id": "function_get_all_documents"
+        },
+        {
+            "name": "query_documents",
+            "kind": "function",
+            "description_one_line": "Queries Firestore documents by a single field condition.",
+            "symbol_id": "function_query_documents"
+        },
+        {
+            "name": "query_documents_by_conditions",
+            "kind": "function",
+            "description_one_line": "Queries Firestore documents by multiple where conditions.",
+            "symbol_id": "function_query_documents_by_conditions"
+        },
+        {
+            "name": "query_document_by_conditions",
+            "kind": "function",
+            "description_one_line": "Queries a single Firestore document by multiple conditions, throwing if not found.",
+            "symbol_id": "function_query_document_by_conditions"
+        },
+        {
+            "name": "query_document",
+            "kind": "function",
+            "description_one_line": "Queries a single Firestore document by a field condition, throwing if not found.",
+            "symbol_id": "function_query_document"
+        },
+        {
+            "name": "query_document_optional",
+            "kind": "function",
+            "description_one_line": "Queries a single Firestore document by a field condition, returning null if not found.",
+            "symbol_id": "function_query_document_optional"
+        },
+        {
+            "name": "get_document_by_id",
+            "kind": "function",
+            "description_one_line": "Fetches a Firestore document by its document ID, throwing if not found.",
+            "symbol_id": "function_get_document_by_id"
+        },
+        {
+            "name": "get_document_by_id_optional",
+            "kind": "function",
+            "description_one_line": "Fetches a Firestore document by its document ID, returning null if not found.",
+            "symbol_id": "function_get_document_by_id_optional"
+        },
+        {
+            "name": "set_document",
+            "kind": "function",
+            "description_one_line": "Creates or updates a Firestore document by ID, merging by default.",
+            "symbol_id": "function_set_document"
+        },
+        {
+            "name": "add_document",
+            "kind": "function",
+            "description_one_line": "Adds a new document to a Firestore collection with an auto-generated or custom ID.",
+            "symbol_id": "function_add_document"
+        },
+        {
+            "name": "delete_document",
+            "kind": "function",
+            "description_one_line": "Deletes a Firestore document by collection path and document ID.",
+            "symbol_id": "function_delete_document"
+        },
+        {
+            "name": "verify_token",
+            "kind": "function",
+            "description_one_line": "Verifies a Bearer Firebase Auth ID token and returns the decoded token payload.",
+            "symbol_id": "function_verify_token"
+        },
+        {
+            "name": "parse_add_update_as_object",
+            "kind": "function",
+            "description_one_line": "Snapshot callback that stores or updates documents as a keyed object in cache_manager.",
+            "symbol_id": "function_parse_add_update_as_object"
+        },
+        {
+            "name": "parse_delete_as_object",
+            "kind": "function",
+            "description_one_line": "Snapshot callback that removes deleted documents from a keyed object in cache_manager.",
+            "symbol_id": "function_parse_delete_as_object"
+        },
+        {
+            "name": "parse_add_update_as_array",
+            "kind": "function",
+            "description_one_line": "Snapshot callback that appends new or modified documents to an array in cache_manager.",
+            "symbol_id": "function_parse_add_update_as_array"
+        },
+        {
+            "name": "parse_delete_as_array",
+            "kind": "function",
+            "description_one_line": "Snapshot callback that removes deleted documents from an array in cache_manager.",
+            "symbol_id": "function_parse_delete_as_array"
+        },
+        {
+            "name": "snapshot",
+            "kind": "function",
+            "description_one_line": "Sets up a real-time Firestore collection listener with configurable parsers and exponential-backoff reconnection.",
+            "symbol_id": "function_snapshot"
+        },
+        {
+            "name": "init_snapshots",
+            "kind": "function",
+            "description_one_line": "Initialises standard application snapshots (nx-settings, settings, nx-translations) using snapshot_bulk_by_names.",
+            "symbol_id": "function_init_snapshots"
+        },
+        {
+            "name": "snapshot_bulk",
+            "kind": "function",
+            "description_one_line": "Awaits multiple snapshot promises in parallel and logs total elapsed time.",
+            "symbol_id": "function_snapshot_bulk"
+        },
+        {
+            "name": "get_default_parsers",
+            "kind": "function",
+            "description_one_line": "Returns the default OnSnapshotParsers for a given parse_as mode (array or object).",
+            "symbol_id": "function_get_default_parsers"
+        },
+        {
+            "name": "snapshot_bulk_by_names",
+            "kind": "function",
+            "description_one_line": "Initialises multiple snapshot listeners from collection name strings or config objects, routing to Firebase or Redis based on subscription_type.",
+            "symbol_id": "function_snapshot_bulk_by_names"
+        },
+        {
+            "name": "add_audit_record",
+            "kind": "function",
+            "description_one_line": "Writes an audit log entry with action, entity, details, timestamp, and optional user to the nx-audit Firestore collection.",
+            "symbol_id": "function_add_audit_record"
+        },
+        {
+            "name": "SaveFileOptions",
+            "kind": "interface",
+            "description_one_line": "Options for configuring Firebase Storage file uploads including content type, caching, visibility, and signed URL TTL.",
+            "symbol_id": "interface_SaveFileOptions"
+        },
+        {
+            "name": "save_file_in_storage",
+            "kind": "function",
+            "description_one_line": "Uploads a buffer to Firebase Storage and returns a signed URL, optionally making the file public.",
+            "symbol_id": "function_save_file_in_storage"
+        },
+        {
+            "name": "get_file_url_from_storage",
+            "kind": "function",
+            "description_one_line": "Retrieves a signed URL for an existing file in Firebase Storage.",
+            "symbol_id": "function_get_file_url_from_storage"
+        },
+        {
+            "name": "get_nx_settings",
+            "kind": "function",
+            "description_one_line": "Returns the nx-settings object from cache or fetches and caches it from Firestore.",
+            "symbol_id": "function_get_nx_settings"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "constant_service_account_firebase",
+            "name": "service_account_firebase",
+            "kind": "constant",
+            "description_one_line": "Firebase service account credentials object assembled from environment variables.",
+            "details": {
+                "what_it_does": "Built at module load time from environment variables (type, project_id, private_key_id, private_key, client_email, etc.) via init_env_variables. The private_key newlines are restored by replacing \\\\n with \\n. Used to initialise the Firebase Admin SDK and exported for reference."
+            },
+            "locations": {
+                "source_line_start": 43,
+                "source_line_end": 55,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L43",
+                "nx_kb_anchor": "constant_service_account_firebase"
+            }
+        },
+        {
+            "symbol_id": "constant_db",
+            "name": "db",
+            "kind": "constant",
+            "description_one_line": "Firestore database instance initialised from the Firebase Admin SDK.",
+            "details": {
+                "what_it_does": "Holds the result of firebase_admin.firestore(). Exported so all helpers in this file and other modules share a single Firestore reference."
+            },
+            "locations": {
+                "source_line_start": 60,
+                "source_line_end": 60,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L60",
+                "nx_kb_anchor": "constant_db"
+            }
+        },
+        {
+            "symbol_id": "constant_messaging",
+            "name": "messaging",
+            "kind": "constant",
+            "description_one_line": "Firebase Cloud Messaging instance for sending push notifications.",
+            "details": {
+                "what_it_does": "Holds the result of firebase_admin.messaging(). Exported and used by notification_helpers for FCM multicast sends."
+            },
+            "locations": {
+                "source_line_start": 61,
+                "source_line_end": 61,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L61",
+                "nx_kb_anchor": "constant_messaging"
+            }
+        },
+        {
+            "symbol_id": "constant_auth",
+            "name": "auth",
+            "kind": "constant",
+            "description_one_line": "Firebase Auth instance for token verification and user management.",
+            "details": {
+                "what_it_does": "Holds the result of firebase_admin.auth(). Exported and used by verify_token and auth_mw for ID token verification."
+            },
+            "locations": {
+                "source_line_start": 62,
+                "source_line_end": 62,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L62",
+                "nx_kb_anchor": "constant_auth"
+            }
+        },
+        {
+            "symbol_id": "constant_storage",
+            "name": "storage",
+            "kind": "constant",
+            "description_one_line": "Firebase Storage instance for file upload and retrieval.",
+            "details": {
+                "what_it_does": "Holds the result of firebase_admin.storage(). Exported and used by save_file_in_storage and get_file_url_from_storage."
+            },
+            "locations": {
+                "source_line_start": 63,
+                "source_line_end": 63,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L63",
+                "nx_kb_anchor": "constant_storage"
+            }
+        },
+        {
+            "symbol_id": "function_simple_extract_data",
+            "name": "simple_extract_data",
+            "kind": "function",
+            "description_one_line": "Extracts document data and merges the Firestore document ID into the returned object.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "doc",
+                        "type": "FirebaseFirestore.DocumentSnapshot",
+                        "required": true,
+                        "description": "A Firestore document snapshot."
+                    }
+                ],
+                "returns": {
+                    "type": "TObject<any>",
+                    "description": "The document data merged with { id: doc.id }."
+                }
+            },
+            "details": {
+                "what_it_does": "Calls doc.data() and spreads the result together with the document's string ID into a plain object. Used by all query helpers as the standard document extraction step."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Extract a document snapshot",
+                    "code": "const docRef = await db.collection('nx-users').doc('abc').get();\nconst data = simple_extract_data(docRef);\n// data.id === 'abc'"
+                }
+            },
+            "locations": {
+                "source_line_start": 66,
+                "source_line_end": 72,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L66",
+                "nx_kb_anchor": "function_simple_extract_data"
+            }
+        },
+        {
+            "symbol_id": "function_get_all_documents",
+            "name": "get_all_documents",
+            "kind": "function",
+            "description_one_line": "Fetches all documents from a Firestore collection.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path (e.g., 'nx-users')."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<TObject<any>[]>",
+                    "description": "Array of all documents with their Firestore IDs merged in."
+                }
+            },
+            "details": {
+                "what_it_does": "Calls db.collection(collection_path).get() and maps each snapshot document through simple_extract_data. Throws and logs on Firestore error.",
+                "error_cases": [
+                    {
+                        "condition": "Firestore returns an error",
+                        "behavior": "Logs the error and re-throws it."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Fetch all nx-users",
+                    "code": "const users = await get_all_documents('nx-users');"
+                }
+            },
+            "locations": {
+                "source_line_start": 75,
+                "source_line_end": 86,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L75",
+                "nx_kb_anchor": "function_get_all_documents"
+            }
+        },
+        {
+            "symbol_id": "function_query_documents",
+            "name": "query_documents",
+            "kind": "function",
+            "description_one_line": "Queries Firestore documents by a single field condition.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path."
+                    },
+                    {
+                        "name": "field_name",
+                        "type": "string",
+                        "required": true,
+                        "description": "The document field to filter on."
+                    },
+                    {
+                        "name": "operator",
+                        "type": "FirebaseFirestore.WhereFilterOp",
+                        "required": true,
+                        "description": "Comparison operator (e.g., '==', '>', 'in')."
+                    },
+                    {
+                        "name": "value",
+                        "type": "any",
+                        "required": true,
+                        "description": "The value to compare against."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<TObject<any>[]>",
+                    "description": "Array of matching documents with IDs."
+                }
+            },
+            "details": {
+                "what_it_does": "Builds a single .where() query on the given collection and returns all matching documents via simple_extract_data.",
+                "error_cases": [
+                    {
+                        "condition": "Firestore returns an error",
+                        "behavior": "Logs the query details and re-throws."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Query active users",
+                    "code": "const activeUsers = await query_documents('nx-users', 'status', '==', 'active');"
+                }
+            },
+            "locations": {
+                "source_line_start": 88,
+                "source_line_end": 98,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L88",
+                "nx_kb_anchor": "function_query_documents"
+            }
+        },
+        {
+            "symbol_id": "function_query_documents_by_conditions",
+            "name": "query_documents_by_conditions",
+            "kind": "function",
+            "description_one_line": "Queries Firestore documents by multiple where conditions.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path."
+                    },
+                    {
+                        "name": "where_conditions",
+                        "type": "WhereCondition[]",
+                        "required": true,
+                        "description": "Array of { field_name, operator, value } conditions."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<TObject<any>[]>",
+                    "description": "Array of matching documents with IDs."
+                }
+            },
+            "details": {
+                "what_it_does": "Chains multiple .where() calls from the where_conditions array and returns all matching documents.",
+                "error_cases": [
+                    {
+                        "condition": "Firestore returns an error",
+                        "behavior": "Logs the collection path and conditions JSON, then re-throws."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Query with two conditions",
+                    "code": "const docs = await query_documents_by_conditions('nx-devices', [\n  { field_name: 'status', operator: '==', value: 'active' },\n  { field_name: 'type', operator: '==', value: 'gps' }\n]);"
+                }
+            },
+            "locations": {
+                "source_line_start": 100,
+                "source_line_end": 114,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L100",
+                "nx_kb_anchor": "function_query_documents_by_conditions"
+            }
+        },
+        {
+            "symbol_id": "function_query_document_by_conditions",
+            "name": "query_document_by_conditions",
+            "kind": "function",
+            "description_one_line": "Queries a single Firestore document by multiple conditions, throwing if not found.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path."
+                    },
+                    {
+                        "name": "where_conditions",
+                        "type": "WhereCondition[]",
+                        "required": true,
+                        "description": "Array of { field_name, operator, value } conditions."
+                    },
+                    {
+                        "name": "log",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "If true (default), logs errors. Set false to suppress logging."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<TObject<any>>",
+                    "description": "The first matching document."
+                }
+            },
+            "details": {
+                "what_it_does": "Chains multiple .where() calls and returns the first result. Throws the string 'no data returned from DB' if the query returns no documents.",
+                "error_cases": [
+                    {
+                        "condition": "No document matches the conditions",
+                        "behavior": "Throws the string 'no data returned from DB'."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Query a single document by conditions",
+                    "code": "const session = await query_document_by_conditions('nx-sessions', [\n  { field_name: 'user_id', operator: '==', value: 'u1' },\n  { field_name: 'active', operator: '==', value: true }\n]);"
+                }
+            },
+            "locations": {
+                "source_line_start": 116,
+                "source_line_end": 135,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L116",
+                "nx_kb_anchor": "function_query_document_by_conditions"
+            }
+        },
+        {
+            "symbol_id": "function_query_document",
+            "name": "query_document",
+            "kind": "function",
+            "description_one_line": "Queries a single Firestore document by a field condition, throwing if not found.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path."
+                    },
+                    {
+                        "name": "field_name",
+                        "type": "string",
+                        "required": true,
+                        "description": "The field to filter on."
+                    },
+                    {
+                        "name": "operator",
+                        "type": "FirebaseFirestore.WhereFilterOp",
+                        "required": true,
+                        "description": "Comparison operator."
+                    },
+                    {
+                        "name": "value",
+                        "type": "any",
+                        "required": true,
+                        "description": "The value to compare against."
+                    },
+                    {
+                        "name": "ignore_log",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "If true, suppresses error logging."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<TObject<any>>",
+                    "description": "The first matching document."
+                }
+            },
+            "details": {
+                "what_it_does": "Queries the collection with a single .where() and returns the first document. Throws a descriptive string if no document is found.",
+                "error_cases": [
+                    {
+                        "condition": "No document matches",
+                        "behavior": "Throws a string with collection, field, operator, and value details."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Query a user by email",
+                    "code": "const user = await query_document('nx-users', 'email', '==', 'admin@example.com');"
+                }
+            },
+            "locations": {
+                "source_line_start": 138,
+                "source_line_end": 153,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L138",
+                "nx_kb_anchor": "function_query_document"
+            }
+        },
+        {
+            "symbol_id": "function_query_document_optional",
+            "name": "query_document_optional",
+            "kind": "function",
+            "description_one_line": "Queries a single Firestore document by a field condition, returning null if not found.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path."
+                    },
+                    {
+                        "name": "field_name",
+                        "type": "string",
+                        "required": true,
+                        "description": "The field to filter on."
+                    },
+                    {
+                        "name": "operator",
+                        "type": "FirebaseFirestore.WhereFilterOp",
+                        "required": true,
+                        "description": "Comparison operator."
+                    },
+                    {
+                        "name": "value",
+                        "type": "any",
+                        "required": true,
+                        "description": "The value to compare against."
+                    },
+                    {
+                        "name": "ignore_log",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "If true (default), suppresses error logging."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<TObject<any> | null>",
+                    "description": "The first matching document, or null if not found or on error."
+                }
+            },
+            "details": {
+                "what_it_does": "Identical to query_document but returns null instead of throwing when no document matches or an error occurs."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Optional document query",
+                    "code": "const client = await query_document_optional('nx-clients', 'api_token', '==', token);\nif (!client) return res.status(403).send('Unauthorized');"
+                }
+            },
+            "locations": {
+                "source_line_start": 155,
+                "source_line_end": 167,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L155",
+                "nx_kb_anchor": "function_query_document_optional"
+            }
+        },
+        {
+            "symbol_id": "function_get_document_by_id",
+            "name": "get_document_by_id",
+            "kind": "function",
+            "description_one_line": "Fetches a Firestore document by its document ID, throwing if not found.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path."
+                    },
+                    {
+                        "name": "doc_id",
+                        "type": "string",
+                        "required": true,
+                        "description": "The document ID to fetch."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<TObject<any>>",
+                    "description": "Document data with its ID merged in."
+                }
+            },
+            "details": {
+                "what_it_does": "Calls db.collection(collection_path).doc(doc_id).get(). Throws the string 'Document not found, document id: <id>' if doc.exists is false.",
+                "error_cases": [
+                    {
+                        "condition": "Document does not exist",
+                        "behavior": "Throws 'Document not found, document id: ' + doc_id."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Get email settings by ID",
+                    "code": "const emailSettings = await get_document_by_id('nx-settings', 'emails');"
+                }
+            },
+            "locations": {
+                "source_line_start": 169,
+                "source_line_end": 181,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L169",
+                "nx_kb_anchor": "function_get_document_by_id"
+            }
+        },
+        {
+            "symbol_id": "function_get_document_by_id_optional",
+            "name": "get_document_by_id_optional",
+            "kind": "function",
+            "description_one_line": "Fetches a Firestore document by its document ID, returning null if not found.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path."
+                    },
+                    {
+                        "name": "doc_id",
+                        "type": "string",
+                        "required": true,
+                        "description": "The document ID to fetch."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<TObject<any> | null>",
+                    "description": "Document data or null if not found or on error."
+                }
+            },
+            "details": {
+                "what_it_does": "Same as get_document_by_id but catches errors and returns null instead of throwing."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Optionally fetch a task document",
+                    "code": "const task = await get_document_by_id_optional('nx-tasks', TaskName.collect_devices_health);"
+                }
+            },
+            "locations": {
+                "source_line_start": 183,
+                "source_line_end": 195,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L183",
+                "nx_kb_anchor": "function_get_document_by_id_optional"
+            }
+        },
+        {
+            "symbol_id": "function_set_document",
+            "name": "set_document",
+            "kind": "function",
+            "description_one_line": "Creates or updates a Firestore document by ID, merging by default.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path."
+                    },
+                    {
+                        "name": "doc_id",
+                        "type": "string",
+                        "required": true,
+                        "description": "The document ID to create or update."
+                    },
+                    {
+                        "name": "data",
+                        "type": "{}",
+                        "required": true,
+                        "description": "The data to write."
+                    },
+                    {
+                        "name": "merge",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "If true (default), merges with existing data. If false, overwrites the document."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves when the write operation completes."
+                }
+            },
+            "details": {
+                "what_it_does": "Calls db.collection(collection_path).doc(doc_id).set({ ...data }, { merge }). Throws on error.",
+                "error_cases": [
+                    {
+                        "condition": "Firestore write fails",
+                        "behavior": "Throws 'failed to create document by id <id> in collection <path>'."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Update a task document status",
+                    "code": "await set_document('nx-tasks', 'collect_devices_health', { status: 'running', started: new Date() });"
+                }
+            },
+            "locations": {
+                "source_line_start": 197,
+                "source_line_end": 207,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L197",
+                "nx_kb_anchor": "function_set_document"
+            }
+        },
+        {
+            "symbol_id": "function_add_document",
+            "name": "add_document",
+            "kind": "function",
+            "description_one_line": "Adds a new document to a Firestore collection with an auto-generated or custom ID.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path."
+                    },
+                    {
+                        "name": "data",
+                        "type": "{}",
+                        "required": true,
+                        "description": "The data to write."
+                    },
+                    {
+                        "name": "include_id",
+                        "type": "boolean",
+                        "required": false,
+                        "description": "If true, includes the generated document ID as a field named 'id' in the stored data."
+                    },
+                    {
+                        "name": "custom_id",
+                        "type": "string",
+                        "required": false,
+                        "description": "If provided, uses this value as the document ID instead of auto-generating one."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<string>",
+                    "description": "The document ID of the newly created document."
+                }
+            },
+            "details": {
+                "what_it_does": "Creates a new Firestore document. If custom_id is provided it uses db.collection().doc(custom_id). If include_id is true, the ID is also stored as a field named 'id' within the document.",
+                "error_cases": [
+                    {
+                        "condition": "Firestore write fails",
+                        "behavior": "Throws 'failed to create document in collection <path>'."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Add an audit record",
+                    "code": "const id = await add_document('nx-audit', { action: 'login', user: 'admin', timestamp: new Date() });"
+                }
+            },
+            "locations": {
+                "source_line_start": 209,
+                "source_line_end": 219,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L209",
+                "nx_kb_anchor": "function_add_document"
+            }
+        },
+        {
+            "symbol_id": "function_delete_document",
+            "name": "delete_document",
+            "kind": "function",
+            "description_one_line": "Deletes a Firestore document by collection path and document ID.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "collection_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "Firestore collection path."
+                    },
+                    {
+                        "name": "doc_id",
+                        "type": "string",
+                        "required": true,
+                        "description": "The document ID to delete."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves when the deletion completes."
+                }
+            },
+            "details": {
+                "what_it_does": "Calls db.collection(collection_path).doc(doc_id).delete().",
+                "error_cases": [
+                    {
+                        "condition": "Firestore delete fails",
+                        "behavior": "Throws 'Failed to delete document with id <id> from collection <path>'."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Delete a session document",
+                    "code": "await delete_document('nx-sessions', sessionId);"
+                }
+            },
+            "locations": {
+                "source_line_start": 221,
+                "source_line_end": 227,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L221",
+                "nx_kb_anchor": "function_delete_document"
+            }
+        },
+        {
+            "symbol_id": "function_verify_token",
+            "name": "verify_token",
+            "kind": "function",
+            "description_one_line": "Verifies a Bearer Firebase Auth ID token and returns the decoded token payload.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "authorization",
+                        "type": "string | undefined",
+                        "required": true,
+                        "description": "The full Authorization header value (e.g., 'Bearer <token>')."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<DecodedIdToken>",
+                    "description": "The decoded Firebase Auth ID token payload including uid, email, phone_number, etc."
+                }
+            },
+            "details": {
+                "what_it_does": "Validates that the header is present and starts with 'bearer', extracts the token portion, then calls firebase_admin.auth().verifyIdToken(token). Throws if authorization is missing, malformed, or the token is invalid.",
+                "error_cases": [
+                    {
+                        "condition": "authorization is undefined or empty",
+                        "behavior": "Throws 'Authorization token is required'."
+                    },
+                    {
+                        "condition": "Header does not start with 'bearer'",
+                        "behavior": "Throws 'Invalid authorization token'."
+                    },
+                    {
+                        "condition": "Token is expired or invalid",
+                        "behavior": "Throws the Firebase Auth SDK error."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Verify a token from a request header",
+                    "code": "const decoded = await verify_token(req.headers.authorization);\nconsole.log(decoded.uid);"
+                }
+            },
+            "locations": {
+                "source_line_start": 230,
+                "source_line_end": 252,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L230",
+                "nx_kb_anchor": "function_verify_token"
+            }
+        },
+        {
+            "symbol_id": "function_parse_add_update_as_object",
+            "name": "parse_add_update_as_object",
+            "kind": "function",
+            "description_one_line": "Snapshot callback that stores or updates documents as a keyed object in cache_manager.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "documents",
+                        "type": "any[]",
+                        "required": true,
+                        "description": "Array of Firestore documents to merge into the cache."
+                    },
+                    {
+                        "name": "config",
+                        "type": "OnSnapshotConfig",
+                        "required": true,
+                        "description": "Snapshot config providing collection_name, cache_name, and doc_key_property."
+                    }
+                ],
+                "returns": {
+                    "type": "void",
+                    "description": "Updates cache_manager as a side effect."
+                }
+            },
+            "details": {
+                "what_it_does": "Reads the existing object from cache_manager under cache_name (or collection_name), keyed by doc_key_property (defaults to 'id'). Merges each new document into the object and saves back with cache_manager.setObjectData.",
+                "side_effects": ["Mutates the cached object in cache_manager."]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use as an on_add/on_modify parser",
+                    "code": "await snapshot({\n  collection_name: 'nx-settings',\n  cache_name: 'nx-settings',\n  on_first_time: parse_add_update_as_object,\n  on_add: parse_add_update_as_object,\n  on_modify: parse_add_update_as_object,\n  on_remove: parse_delete_as_object\n});"
+                }
+            },
+            "locations": {
+                "source_line_start": 292,
+                "source_line_end": 299,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L292",
+                "nx_kb_anchor": "function_parse_add_update_as_object"
+            }
+        },
+        {
+            "symbol_id": "function_parse_delete_as_object",
+            "name": "parse_delete_as_object",
+            "kind": "function",
+            "description_one_line": "Snapshot callback that removes deleted documents from a keyed object in cache_manager.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "documents",
+                        "type": "any[]",
+                        "required": true,
+                        "description": "Array of deleted Firestore documents."
+                    },
+                    {
+                        "name": "config",
+                        "type": "OnSnapshotConfig",
+                        "required": true,
+                        "description": "Snapshot config providing collection_name, cache_name, and doc_key_property."
+                    }
+                ],
+                "returns": {
+                    "type": "void",
+                    "description": "Updates cache_manager as a side effect."
+                }
+            },
+            "details": {
+                "what_it_does": "Reads the existing object from cache_manager, deletes each document's entry by its doc_key_property value, and saves the updated object back.",
+                "side_effects": ["Mutates the cached object in cache_manager."]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use as an on_remove parser for object cache",
+                    "code": "await snapshot({\n  collection_name: 'nx-settings',\n  on_remove: parse_delete_as_object\n});"
+                }
+            },
+            "locations": {
+                "source_line_start": 301,
+                "source_line_end": 310,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L301",
+                "nx_kb_anchor": "function_parse_delete_as_object"
+            }
+        },
+        {
+            "symbol_id": "function_parse_add_update_as_array",
+            "name": "parse_add_update_as_array",
+            "kind": "function",
+            "description_one_line": "Snapshot callback that appends new or modified documents to an array in cache_manager.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "documents",
+                        "type": "any[]",
+                        "required": true,
+                        "description": "Array of new or modified Firestore documents."
+                    },
+                    {
+                        "name": "config",
+                        "type": "OnSnapshotConfig",
+                        "required": true,
+                        "description": "Snapshot config providing collection_name, cache_name, and optional on_remove callback."
+                    }
+                ],
+                "returns": {
+                    "type": "void",
+                    "description": "Updates cache_manager as a side effect."
+                }
+            },
+            "details": {
+                "what_it_does": "Optionally calls config.on_remove (for modified documents, to remove the old version), then spreads the existing cached array and new documents into a new array and saves with cache_manager.setArrayData.",
+                "side_effects": ["Mutates the cached array in cache_manager."]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use as an on_add parser for array cache",
+                    "code": "await snapshot({\n  collection_name: 'units',\n  on_first_time: parse_add_update_as_array,\n  on_add: parse_add_update_as_array,\n  on_modify: parse_add_update_as_array,\n  on_remove: parse_delete_as_array\n});"
+                }
+            },
+            "locations": {
+                "source_line_start": 312,
+                "source_line_end": 318,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L312",
+                "nx_kb_anchor": "function_parse_add_update_as_array"
+            }
+        },
+        {
+            "symbol_id": "function_parse_delete_as_array",
+            "name": "parse_delete_as_array",
+            "kind": "function",
+            "description_one_line": "Snapshot callback that removes deleted documents from an array in cache_manager.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "documents",
+                        "type": "any[]",
+                        "required": true,
+                        "description": "Array of deleted Firestore documents."
+                    },
+                    {
+                        "name": "config",
+                        "type": "OnSnapshotConfig",
+                        "required": true,
+                        "description": "Snapshot config providing collection_name and cache_name."
+                    }
+                ],
+                "returns": {
+                    "type": "void",
+                    "description": "Updates cache_manager as a side effect."
+                }
+            },
+            "details": {
+                "what_it_does": "Filters the cached array to exclude any documents whose 'id' field matches one of the deleted document IDs.",
+                "side_effects": ["Mutates the cached array in cache_manager."]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Use as an on_remove parser for array cache",
+                    "code": "await snapshot({\n  collection_name: 'units',\n  on_remove: parse_delete_as_array\n});"
+                }
+            },
+            "locations": {
+                "source_line_start": 320,
+                "source_line_end": 326,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L320",
+                "nx_kb_anchor": "function_parse_delete_as_array"
+            }
+        },
+        {
+            "symbol_id": "function_snapshot",
+            "name": "snapshot",
+            "kind": "function",
+            "description_one_line": "Sets up a real-time Firestore collection listener with configurable parsers and exponential-backoff reconnection.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "config",
+                        "type": "OnSnapshotConfig",
+                        "required": true,
+                        "description": "Configuration including collection_name, optional conditions, cache_name, on_first_time, on_add, on_modify, on_remove, extra_parsers, and debug options."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves after the initial snapshot is processed (or if an error prevents initial load)."
+                }
+            },
+            "details": {
+                "what_it_does": "Subscribes to a Firestore collection query. On first invocation for this cache_name it calls on_first_time with all current documents and resolves the promise. On subsequent changes, dispatches to on_add, on_modify, or on_remove based on change.type. On listener error, resolves the boot promise (so startup is not blocked) and schedules a reconnection attempt with exponential backoff (max 30 seconds).",
+                "side_effects": [
+                    "Registers a persistent Firestore onSnapshot listener.",
+                    "Updates cache_manager on each document change."
+                ],
+                "error_cases": [
+                    {
+                        "condition": "Firestore listener errors",
+                        "behavior": "Unsubscribes, resolves the boot promise, and retries after exponential backoff delay (max 30s)."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Subscribe to a collection",
+                    "code": "await snapshot({\n  collection_name: 'units',\n  cache_name: 'units',\n  on_first_time: parse_add_update_as_array,\n  on_add: parse_add_update_as_array,\n  on_modify: parse_add_update_as_array,\n  on_remove: parse_delete_as_array\n});"
+                },
+                "extensive_correct": {
+                    "title": "Subscribe with conditions and debug logging",
+                    "code": "await snapshot({\n  collection_name: 'nx-devices',\n  cache_name: 'active-devices',\n  conditions: [{ field_name: 'status', operator: '==', value: 'active' }],\n  on_first_time: parse_add_update_as_object,\n  on_add: parse_add_update_as_object,\n  on_modify: parse_add_update_as_object,\n  on_remove: parse_delete_as_object,\n  debug: { on_first_time: 'length', on_add: true }\n});"
+                }
+            },
+            "locations": {
+                "source_line_start": 331,
+                "source_line_end": 452,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L331",
+                "nx_kb_anchor": "function_snapshot"
+            }
+        },
+        {
+            "symbol_id": "function_init_snapshots",
+            "name": "init_snapshots",
+            "kind": "function",
+            "description_one_line": "Initialises standard application snapshots (nx-settings, settings, nx-translations) using snapshot_bulk_by_names.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "options",
+                        "type": "InitSnapshotsOptions",
+                        "required": false,
+                        "description": "Optional settings: subscription_type ('firebase' | 'redis') and debug configuration."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves when all standard snapshots are initialised."
+                }
+            },
+            "details": {
+                "what_it_does": "Calls snapshot_bulk_by_names with the standard collections ['nx-settings', 'settings', 'nx-translations'], where nx-translations has extra parsers to populate translation_manager. This is the primary entry point for initialising shared application state.",
+                "side_effects": [
+                    "Populates cache_manager with nx-settings and settings.",
+                    "Populates translation_manager with nx-translations data."
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Initialise standard snapshots on startup",
+                    "code": "await init_snapshots({ subscription_type: 'redis' });"
+                }
+            },
+            "locations": {
+                "source_line_start": 454,
+                "source_line_end": 479,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L454",
+                "nx_kb_anchor": "function_init_snapshots"
+            }
+        },
+        {
+            "symbol_id": "function_snapshot_bulk",
+            "name": "snapshot_bulk",
+            "kind": "function",
+            "description_one_line": "Awaits multiple snapshot promises in parallel and logs total elapsed time.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "snapshots",
+                        "type": "ReturnType<Snapshot>[]",
+                        "required": true,
+                        "description": "Array of snapshot Promises already started."
+                    },
+                    {
+                        "name": "label",
+                        "type": "string",
+                        "required": false,
+                        "description": "Optional label for log messages. Defaults to 'custom snapshots'."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves when all provided snapshot promises resolve."
+                }
+            },
+            "details": {
+                "what_it_does": "Logs a start message with the label, calls Promise.all on all snapshot promises, then logs an end message with total elapsed milliseconds."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Run multiple snapshots in parallel",
+                    "code": "await snapshot_bulk([\n  snapshot({ collection_name: 'units', on_first_time: parse_add_update_as_array }),\n  snapshot({ collection_name: 'nx-users', on_first_time: parse_add_update_as_array })\n], 'core-data');"
+                }
+            },
+            "locations": {
+                "source_line_start": 481,
+                "source_line_end": 486,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L481",
+                "nx_kb_anchor": "function_snapshot_bulk"
+            }
+        },
+        {
+            "symbol_id": "function_get_default_parsers",
+            "name": "get_default_parsers",
+            "kind": "function",
+            "description_one_line": "Returns the default OnSnapshotParsers for a given parse_as mode (array or object).",
+            "signature": {
+                "params": [
+                    {
+                        "name": "parse_as",
+                        "type": "ExtraSnapshotConfig[\"parse_as\"]",
+                        "required": true,
+                        "description": "Either 'array' or 'object' to determine which parser set to return."
+                    }
+                ],
+                "returns": {
+                    "type": "OnSnapshotParsers",
+                    "description": "An object with on_first_time, on_add, on_modify, and on_remove callbacks appropriate for the parse_as mode."
+                }
+            },
+            "details": {
+                "what_it_does": "Returns either the array parsers (parse_add_update_as_array / parse_delete_as_array) or the object parsers (parse_add_update_as_object / parse_delete_as_object) based on parse_as."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Get parsers for array mode",
+                    "code": "const parsers = get_default_parsers('array');\n// parsers.on_first_time === parse_add_update_as_array"
+                }
+            },
+            "locations": {
+                "source_line_start": 506,
+                "source_line_end": 512,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L506",
+                "nx_kb_anchor": "function_get_default_parsers"
+            }
+        },
+        {
+            "symbol_id": "function_snapshot_bulk_by_names",
+            "name": "snapshot_bulk_by_names",
+            "kind": "function",
+            "description_one_line": "Initialises multiple snapshot listeners from collection name strings or config objects, routing to Firebase or Redis based on subscription_type.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "params",
+                        "type": "SnapshotBulkByNamesParam[]",
+                        "required": true,
+                        "description": "Array of collection name strings or SnapshotBulkByNamesParamObject configs."
+                    },
+                    {
+                        "name": "options",
+                        "type": "SnapshotBulkByNamesOptions",
+                        "required": false,
+                        "description": "Shared options: label, subscription_type, debug, parse_as, doc_key_property."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves when all snapshot listeners are initialised."
+                }
+            },
+            "details": {
+                "what_it_does": "Deduplicates collections by name, builds an OnSnapshotConfig for each (merging default parsers and per-collection overrides), separates them into Redis and Firebase groups, awaits redis_snapshots_bulk first, then awaits all Firebase snapshot promises.",
+                "side_effects": [
+                    "Starts persistent Firestore and/or Redis listeners for all specified collections.",
+                    "Populates cache_manager with initial data."
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Initialise multiple collection snapshots",
+                    "code": "await snapshot_bulk_by_names(\n  ['units', 'nx-users', 'boards'],\n  { parse_as: 'array', subscription_type: 'redis' }\n);"
+                },
+                "extensive_correct": {
+                    "title": "Mix string and object params with extra parsers",
+                    "code": "await snapshot_bulk_by_names(\n  [\n    'nx-settings',\n    {\n      collection_name: 'nx-translations',\n      extra_parsers: [{ on_first_time: my_translation_parser }]\n    }\n  ],\n  { parse_as: 'object', label: 'App init' }\n);"
+                }
+            },
+            "locations": {
+                "source_line_start": 514,
+                "source_line_end": 560,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L514",
+                "nx_kb_anchor": "function_snapshot_bulk_by_names"
+            }
+        },
+        {
+            "symbol_id": "function_add_audit_record",
+            "name": "add_audit_record",
+            "kind": "function",
+            "description_one_line": "Writes an audit log entry with action, entity, details, timestamp, and optional user to the nx-audit Firestore collection.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "action",
+                        "type": "string",
+                        "required": true,
+                        "description": "The action performed (e.g., 'send_sms', 'send_email')."
+                    },
+                    {
+                        "name": "entity",
+                        "type": "string",
+                        "required": true,
+                        "description": "The entity type or context for the action (e.g., 'general', 'devices-service')."
+                    },
+                    {
+                        "name": "details",
+                        "type": "TObject<any>",
+                        "required": true,
+                        "description": "Additional details about the action."
+                    },
+                    {
+                        "name": "user",
+                        "type": "NxUser",
+                        "required": false,
+                        "description": "The NxUser who performed the action, or null if system-initiated."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<void>",
+                    "description": "Resolves when the audit record is written."
+                }
+            },
+            "details": {
+                "what_it_does": "Adds a document to the 'nx-audit' Firestore collection with { action, entity, details, datetime: Timestamp.now(), user }.",
+                "error_cases": [
+                    {
+                        "condition": "Firestore write fails",
+                        "behavior": "Throws { msg: 'unable to add audit record', data, error }."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Write an audit record",
+                    "code": "await add_audit_record('send_sms', 'devices-service', { recipient: '+972501234567', message: 'Alert' });"
+                }
+            },
+            "locations": {
+                "source_line_start": 562,
+                "source_line_end": 575,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L562",
+                "nx_kb_anchor": "function_add_audit_record"
+            }
+        },
+        {
+            "symbol_id": "interface_SaveFileOptions",
+            "name": "SaveFileOptions",
+            "kind": "interface",
+            "description_one_line": "Options for configuring Firebase Storage file uploads including content type, caching, visibility, and signed URL TTL.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "void",
+                    "description": "Interface — not callable."
+                }
+            },
+            "details": {
+                "what_it_does": "Passed to save_file_in_storage to control upload metadata and signed URL generation. All fields are optional. content_type sets the MIME type; content_disposition and cache_control set HTTP headers; make_public (default true) calls file.makePublic(); signed_url_ttl_ms (default 7 days) controls URL expiry; resumable (default false) toggles resumable upload protocol."
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Minimal options",
+                    "code": "const options: SaveFileOptions = { content_type: 'application/pdf' };"
+                }
+            },
+            "locations": {
+                "source_line_start": 577,
+                "source_line_end": 584,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L577",
+                "nx_kb_anchor": "interface_SaveFileOptions"
+            }
+        },
+        {
+            "symbol_id": "function_save_file_in_storage",
+            "name": "save_file_in_storage",
+            "kind": "function",
+            "description_one_line": "Uploads a buffer to Firebase Storage and returns a signed URL, optionally making the file public.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "file_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "The path within the storage bucket (leading slashes are stripped)."
+                    },
+                    {
+                        "name": "buffer",
+                        "type": "Buffer | Uint8Array",
+                        "required": true,
+                        "description": "The file content to upload."
+                    },
+                    {
+                        "name": "options",
+                        "type": "SaveFileOptions",
+                        "required": false,
+                        "description": "Upload configuration. Defaults: make_public=true, resumable=false, signed_url_ttl_ms=7 days."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<string>",
+                    "description": "A signed URL valid for signed_url_ttl_ms milliseconds."
+                }
+            },
+            "details": {
+                "what_it_does": "Normalises the file path, saves the buffer with optional metadata, optionally makes the file public, then generates a signed URL with the configured TTL.",
+                "error_cases": [
+                    {
+                        "condition": "Firebase Storage operation fails",
+                        "behavior": "Logs the error and re-throws."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Upload a PDF and get a signed URL",
+                    "code": "const url = await save_file_in_storage('reports/2026-02.pdf', pdfBuffer, { content_type: 'application/pdf' });"
+                }
+            },
+            "locations": {
+                "source_line_start": 586,
+                "source_line_end": 616,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L586",
+                "nx_kb_anchor": "function_save_file_in_storage"
+            }
+        },
+        {
+            "symbol_id": "function_get_file_url_from_storage",
+            "name": "get_file_url_from_storage",
+            "kind": "function",
+            "description_one_line": "Retrieves a signed URL for an existing file in Firebase Storage.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "file_path",
+                        "type": "string",
+                        "required": true,
+                        "description": "The path within the storage bucket (leading slashes are stripped)."
+                    }
+                ],
+                "returns": {
+                    "type": "Promise<string>",
+                    "description": "A signed URL valid for 7 days."
+                }
+            },
+            "details": {
+                "what_it_does": "Checks that the file exists in Firebase Storage, then generates a signed URL with a 7-day TTL.",
+                "error_cases": [
+                    {
+                        "condition": "File does not exist in storage",
+                        "behavior": "Throws Error('file not exist')."
+                    },
+                    {
+                        "condition": "Storage operation fails",
+                        "behavior": "Logs the file_path and re-throws."
+                    }
+                ]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Get URL for an existing storage file",
+                    "code": "const url = await get_file_url_from_storage('tasks_data/collect_devices_health.json');"
+                }
+            },
+            "locations": {
+                "source_line_start": 618,
+                "source_line_end": 638,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L618",
+                "nx_kb_anchor": "function_get_file_url_from_storage"
+            }
+        },
+        {
+            "symbol_id": "function_get_nx_settings",
+            "name": "get_nx_settings",
+            "kind": "function",
+            "description_one_line": "Returns the nx-settings object from cache or fetches and caches it from Firestore.",
+            "signature": {
+                "params": [],
+                "returns": {
+                    "type": "Promise<TObject<any>>",
+                    "description": "The nx-settings keyed object, either from cache_manager or freshly fetched from Firestore."
+                }
+            },
+            "details": {
+                "what_it_does": "Checks cache_manager for 'nx-settings'. If present, returns immediately. Otherwise fetches all documents from the 'nx-settings' Firestore collection, indexes them by id, stores in cache_manager, and returns the result.",
+                "side_effects": ["Populates cache_manager with nx-settings data on first call if not already cached."]
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Get nx-settings",
+                    "code": "const nx_settings = await get_nx_settings();\nconst google = nx_settings.google;"
+                }
+            },
+            "locations": {
+                "source_line_start": 640,
+                "source_line_end": 653,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/firebase_helpers.ts#L640",
+                "nx_kb_anchor": "function_get_nx_settings"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high",
+        "known_gaps": []
     }
-  ],
-  "quality": {
-    "generation_confidence": "medium",
-    "known_gaps": ["Exact line numbers for on_snapshot, on_snapshot_bulk, on_snapshot_bulk_by_names, init_snapshots, add_audit_record, save_file_to_storage, parse_object_snapshot, and parse_array_snapshot are estimated from the 653-line file structure. The file is complex and contains additional private helpers not documented here."]
-  }
 }

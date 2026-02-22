@@ -6,12 +6,12 @@
   "file_name": "global.ts",
   "source": {
     "file_path": "types/enums/global.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/global.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/global.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/enums/global.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/enums/global.ts.json"
   },
   "summary": {
     "purpose": "Defines global enums and type aliases used across the server-commons library.",
@@ -60,7 +60,7 @@
       "examples": {
         "minimal_correct": {"title": "Use SimProvider in a switch", "code": "switch (provider) {\n  case SimProvider.monogoto: return send_via_monogoto(msg);\n  case SimProvider.celcom: return send_via_multisend(msg);\n  default: return send_via_twilio(msg);\n}"}
       },
-      "locations": {"source_line_start": 1, "source_line_end": 8, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/global.ts#L1", "nx_kb_anchor": "SimProvider"}
+      "locations": {"source_line_start": 1, "source_line_end": 8, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/enums/global.ts#L1", "nx_kb_anchor": "SimProvider"}
     },
     {
       "symbol_id": "NxServiceName",
@@ -70,7 +70,7 @@
       "details": {
         "what_it_does": "A string literal union type representing all known Nx microservice names (e.g., 'devices', 'users', 'notifications', etc.)."
       },
-      "locations": {"source_line_start": 10, "source_line_end": 10, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/global.ts#L10", "nx_kb_anchor": "NxServiceName"}
+      "locations": {"source_line_start": 10, "source_line_end": 10, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/enums/global.ts#L10", "nx_kb_anchor": "NxServiceName"}
     },
     {
       "symbol_id": "NxServiceNameMap",
@@ -80,7 +80,7 @@
       "details": {
         "what_it_does": "A Record<NxServiceName, string> type used by get_nx_service_urls to return environment-specific service URL maps."
       },
-      "locations": {"source_line_start": 12, "source_line_end": 12, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/enums/global.ts#L12", "nx_kb_anchor": "NxServiceNameMap"}
+      "locations": {"source_line_start": 12, "source_line_end": 12, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/enums/global.ts#L12", "nx_kb_anchor": "NxServiceNameMap"}
     }
   ],
   "quality": {

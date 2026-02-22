@@ -6,12 +6,12 @@
   "file_name": "email.ts",
   "source": {
     "file_path": "types/interfaces/email.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/email.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/email.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/email.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/interfaces/email.ts.json"
   },
   "summary": {
     "purpose": "Defines TypeScript interfaces for email-related data structures used by email_helpers.ts.",
@@ -55,7 +55,7 @@
           {"name": "filename", "type": "string", "description": "The filename to display in the email client."}
         ]
       },
-      "locations": {"source_line_start": 1, "source_line_end": 6, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/email.ts#L1", "nx_kb_anchor": "EmailAttachment"}
+      "locations": {"source_line_start": 1, "source_line_end": 6, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/email.ts#L1", "nx_kb_anchor": "EmailAttachment"}
     },
     {
       "symbol_id": "EmailData",
@@ -71,7 +71,7 @@
           {"name": "attachments", "type": "EmailAttachment[]", "description": "Optional array of attachments.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 8, "source_line_end": 16, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/email.ts#L8", "nx_kb_anchor": "EmailData"}
+      "locations": {"source_line_start": 8, "source_line_end": 16, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/email.ts#L8", "nx_kb_anchor": "EmailData"}
     },
     {
       "symbol_id": "EmailSettings",
@@ -86,7 +86,7 @@
           {"name": "from_name", "type": "string", "description": "Sender display name.", "optional": true}
         ]
       },
-      "locations": {"source_line_start": 18, "source_line_end": 28, "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/interfaces/email.ts#L18", "nx_kb_anchor": "EmailSettings"}
+      "locations": {"source_line_start": 18, "source_line_end": 28, "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/interfaces/email.ts#L18", "nx_kb_anchor": "EmailSettings"}
     }
   ],
   "quality": {

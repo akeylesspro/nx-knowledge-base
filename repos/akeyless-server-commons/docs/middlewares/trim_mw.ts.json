@@ -6,12 +6,12 @@
   "file_name": "trim_mw.ts",
   "source": {
     "file_path": "middlewares/trim_mw.ts",
-    "commit_sha": "fdd501a3d2595ba30c43f5272500f5ccdefa5308",
-    "generated_at_iso": "2026-02-18T08:11:51.000Z",
+    "commit_sha": "39596d3",
+    "generated_at_iso": "2026-02-22T00:00:00.000Z",
     "language": "ts",
     "framework_tags": ["node", "express"],
-    "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/trim_mw.ts",
-    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/trim_mw.ts"
+    "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/trim_mw.ts",
+    "link_to_nx_kb": "/repos/akeyless-server-commons/docs/middlewares/trim_mw.ts.json"
   },
   "summary": {
     "purpose": "Provides an Express middleware factory that recursively trims whitespace from all string values in the request body.",
@@ -24,15 +24,15 @@
         "import_path": "../helpers",
         "resolved_file_path": "helpers/index.ts",
         "why_used": "Imports the trim_strings utility function.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/helpers/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/helpers/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/helpers/index.ts"
       },
       {
         "import_path": "../types",
         "resolved_file_path": "types/index.ts",
         "why_used": "Imports the MW type for Express middleware signature.",
-        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts",
-        "link_to_github": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/types/index.ts"
+        "link_to_nx_kb": "/repos/akeyless-server-commons/docs/types/index.ts.json",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/types/index.ts"
       }
     ]
   },
@@ -67,7 +67,7 @@
       "locations": {
         "source_line_start": 4,
         "source_line_end": 9,
-        "github_permalink": "https://github.com/akeyless/akeyless-server-commons/blob/fdd501a3d2595ba30c43f5272500f5ccdefa5308/src/middlewares/trim_mw.ts#L4",
+        "github_permalink": "https://github.com/akeylesspro/akeyless-server-commons/blob/39596d3/src/middlewares/trim_mw.ts#L4",
         "nx_kb_anchor": "trim_body_middleware"
       }
     }
