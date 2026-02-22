@@ -49,9 +49,9 @@
             {
                 "import_path": "./loaders",
                 "why_used": "Loader component.",
-                "resolved_file_path": "../../client-side/nx-kb/src/components/utils/loaders",
-                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/../../client-side/nx-kb/src/components/utils/loaders.json",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/../../client-side/nx-kb/src/components/utils/loaders"
+                "resolved_file_path": "components/utils/loaders",
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/components/utils/loaders.json",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/components/utils/loaders"
             }
         ]
     },

@@ -1,13 +1,21 @@
 # Sync Agent — Commands
 
+## Invocation Note
+These commands describe the logical operations the agent performs. They are **not** CLI arguments.
+When the agent is invoked via `claude --print --dangerously-skip-permissions "<prompt>"`, all context
+(payload, repo, branch, files list) is passed inside the prompt text. The agent reads this context
+and executes the appropriate command sequence described below.
+
 ## Available Commands
 
 ### `sync`
 Full sync for a repository based on dispatch payload.
 ```
-Input: { repo, files[], diffs[], commit_sha, branch, timestamp }
-Output: Branch with updated docs + PR
+Input: { repo, files[], commit_sha, branch, timestamp }  ← from prompt context
+Output: Updated docs files + meta.json committed to the current branch
 ```
+Note: Process ONLY the files listed in `files[]`. Source files are at `_source/<repo>/`.
+The workflow creates the branch and opens the PR — the agent only writes files and commits.
 
 ### `sync:file`
 Generate or update documentation for a single file.

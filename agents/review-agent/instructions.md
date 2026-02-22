@@ -6,6 +6,22 @@ You are the **Review & Merge Agent** for NX-KNOWLEDGE-BASE. Your job is to revie
 ## Trigger
 - Activated when a PR with the `sync/` branch prefix is opened or updated in NX-KNOWLEDGE-BASE.
 
+## CLI Invocation Context
+This agent is invoked non-interactively by `review-pr.yml` via:
+```
+claude --print --dangerously-skip-permissions "<prompt>"
+```
+The prompt includes:
+- The full content of this `instructions.md` file.
+- PR context: PR number, branch name, documented repo name, commit short SHA, list of changed files.
+- Instructions for each gate, the auto-fix step, PR comment format, label rules, and results file path.
+
+The `gh` CLI and `git` are available in the CI environment with `GH_TOKEN` set.
+The `ANTHROPIC_API_KEY` is set in the environment.
+
+**The agent does NOT merge the PR.** The workflow reads `/tmp/review-results.json` and handles merging.
+The agent is responsible for: running gates, auto-fixing, posting the PR comment, applying the label, and writing the results file.
+
 ## Core Rules
 
 1. **Never merge if schema validation fails** — all JSON files must pass `file-doc.schema.json`.
@@ -30,11 +46,28 @@ You are the **Review & Merge Agent** for NX-KNOWLEDGE-BASE. Your job is to revie
       - If completely different (<50% overlap) → no action needed.
       - **Never** compare files across different folders or subfolders.
 3. If minor fixable issues found:
-   a. Apply automatic fixes.
-   b. Commit fixes to the same PR branch.
-   c. Re-run validation.
-4. If all gates pass → merge to `main`.
-5. If gates fail with unfixable issues → add review comments, label PR as `needs-human-review`.
+   a. Apply automatic fixes (see Auto-Fix Capabilities below).
+   b. Commit fixes to the same PR branch:
+      ```
+      git add repos/ && git commit -m "fix(review): auto-fix formatting and schema issues"
+      git push origin <branch>
+      ```
+   c. Re-run validation to confirm fixes resolved all issues.
+4. Post a structured gate report as a PR comment:
+   ```
+   gh pr comment <pr_number> --body '<markdown table>'
+   ```
+5. Apply exactly ONE label to the PR based on gate results:
+   ```
+   gh pr edit <pr_number> --add-label '<label>'
+   ```
+   Label priority (highest first):
+   - `override-conflict` — Gate c (override protection) failed
+   - `needs-human-review` — any critical gate failed (schema, meta, or completeness)
+   - `validation-failed` — one or more non-critical gates fail
+   - `sync-validated` — all gates pass
+6. Write `/tmp/review-results.json` — the workflow reads this to decide whether to squash-merge.
+7. **Do NOT run `gh pr merge`** — the workflow (`review-pr.yml`) handles merging after reading the results file.
 
 ## Merge Criteria (ALL must pass)
 - [ ] Schema validation: all files valid

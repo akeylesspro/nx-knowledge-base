@@ -1,6 +1,6 @@
 # =========================================================
 # EXAMPLE: Place this workflow in each SOURCE REPOSITORY
-# Triggers NX-KNOWLEDGE-BASE sync on merge to develop
+# Triggers NX-KNOWLEDGE-BASE sync on merge to main
 # =========================================================
 # File: .github/workflows/trigger-nx-kb-sync.yml
 
@@ -8,7 +8,7 @@ name: Trigger NX-KB Sync
 
 on:
   push:
-    branches: [develop]
+    branches: [main]
     paths:
       - "src/**"
 

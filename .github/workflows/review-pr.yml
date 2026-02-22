@@ -1,5 +1,5 @@
 # =========================================================
-# NX-KNOWLEDGE-BASE — Review & Merge Agent
+# NX-KNOWLEDGE-BASE — Review & Merge Sync PRs
 # Triggered when a sync/ branch PR is opened or updated
 # =========================================================
 
@@ -7,83 +7,207 @@ name: Review Sync PR
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
     branches: [main]
-    types: [opened, synchronize]
 
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  review:
-    # Only run on sync agent PRs
+  review-pr:
+    # Only run on PRs from the sync agent
     if: startsWith(github.head_ref, 'sync/')
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout PR branch
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Install dependencies
-        run: npm install ajv ajv-formats
-
-      - name: Validate JSON Schema
+      - name: Extract PR metadata
+        id: meta
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
         run: |
-          echo "Validating all doc JSON files against schema..."
-          node -e "
-            const Ajv = require('ajv');
-            const addFormats = require('ajv-formats');
-            const fs = require('fs');
-            const path = require('path');
+          # Parse "docs(sync): <repo> @ <short-sha>" from PR title
+          REPO=$(echo "$PR_TITLE" | sed 's/^docs(sync): \(.*\) @ .*$/\1/')
+          SHORT_SHA=$(echo "$PR_TITLE" | sed 's/^docs(sync): .* @ \(.*\)$/\1/')
+          echo "repo=$REPO" >> $GITHUB_OUTPUT
+          echo "short_sha=$SHORT_SHA" >> $GITHUB_OUTPUT
 
-            const ajv = new Ajv({ allErrors: true });
-            addFormats(ajv);
+          # Get changed files relative to main
+          CHANGED=$(git diff --name-only origin/main...HEAD)
+          echo "changed_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGED" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
-            const schema = JSON.parse(fs.readFileSync('schemas/file-doc.schema.json', 'utf8'));
-            const validate = ajv.compile(schema);
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-            const reposDir = path.join(process.cwd(), 'repos');
-            const repos = fs.readdirSync(reposDir, { withFileTypes: true })
-              .filter(d => d.isDirectory() && !d.name.startsWith('_'))
-              .map(d => d.name);
+      - name: Install Claude CLI
+        run: npm install -g @anthropic-ai/claude-code
 
-            let errors = 0;
-            let validated = 0;
+      - name: Invoke Review Agent
+        id: review
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_BRANCH: ${{ github.head_ref }}
+          REPO: ${{ steps.meta.outputs.repo }}
+          SHORT_SHA: ${{ steps.meta.outputs.short_sha }}
+        run: |
+          CHANGED_FILES="${{ steps.meta.outputs.changed_files }}"
 
-            function walkDir(dir) {
-              const entries = fs.readdirSync(dir, { withFileTypes: true });
-              for (const entry of entries) {
-                const fullPath = path.join(dir, entry.name);
-                if (entry.isDirectory()) walkDir(fullPath);
-                else if (entry.name.endsWith('.json')) {
-                  const data = JSON.parse(fs.readFileSync(fullPath, 'utf8'));
-                  const valid = validate(data);
-                  validated++;
-                  if (!valid) {
-                    console.error('INVALID:', fullPath);
-                    console.error(validate.errors);
-                    errors++;
-                  }
-                }
-              }
+          claude --print --dangerously-skip-permissions "
+          Read agents/review-agent/instructions.md and follow those instructions exactly.
+
+          ## PR Context
+          - PR number: $PR_NUMBER
+          - Branch: $PR_BRANCH
+          - Documented repository: $REPO
+          - Commit short SHA: $SHORT_SHA
+
+          ## Changed Files in This PR
+          $CHANGED_FILES
+
+          ## Task — Run All 7 Validation Gates
+
+          ### Gate 1 — Schema Validation
+          Validate every changed JSON doc file against schemas/file-doc.schema.json.
+          PASS if all files are valid. FAIL if any file fails validation.
+
+          ### Gate 2 — Link Validation
+          Check that all link_to_nx_kb paths resolve within this repo.
+          Check that all link_to_github URLs are well-formed (contain the correct repo and commit SHA).
+          PASS if all links are valid. FAIL if any link is broken or malformed.
+
+          ### Gate 3 — Override Protection
+          Check the overrides/ directory for any patches affecting the changed files.
+          PASS if no overrides exist for these files, or all overrides are correctly applied.
+          FAIL (flag as override-conflict) if a human override was overwritten.
+
+          ### Gate 4 — Completeness Check
+          Every symbol in every changed doc file must have description_one_line and what_it_does.
+          PASS if all symbols have both fields. FAIL if any symbol is missing either.
+
+          ### Gate 5 — Meta Lifecycle
+          repos/$REPO/meta.json must exist and pass schemas/repo-meta.schema.json.
+          file_count and symbol_count must match the actual number of doc files and symbols.
+          last_synced_at must be a valid ISO UTC timestamp.
+          PASS if meta.json is valid and consistent. FAIL otherwise.
+
+          ### Gate 6 — Extension Preservation
+          Every doc filename must preserve the full source file extension before .json.
+          Example: auth.ts.json is correct; auth.json is WRONG.
+          PASS if all filenames are correct. FAIL if any strip the source extension.
+
+          ### Gate 7 — Duplicate Detection
+          Within each folder, check for doc files with the same base name but different source extensions.
+          If found and >=80% symbol overlap: flag as duplicate (auto-fixable — keep the more complete file).
+          PASS if no problematic duplicates. FAIL if same-folder duplicates with identical content exist.
+
+          ## Auto-Fix Step
+          After running all gates, automatically fix any of the following if found:
+          - JSON formatting and indentation issues
+          - Missing optional fields (add sensible defaults per schema)
+          - meta.json field recalculation (file_count, symbol_count, last_synced_at, last_synced_commit)
+          - Trailing whitespace in string values
+          - Timestamps not normalized to ISO UTC format
+          - Doc files with stripped source extensions — rename them correctly
+          - Duplicate doc files with identical content in the same folder — remove the less complete one
+          If any fixes were applied, commit them to branch $PR_BRANCH with:
+            git add repos/ && git commit -m 'fix(review): auto-fix formatting and schema issues'
+            git push origin $PR_BRANCH
+
+          ## PR Comment Step
+          Post a structured comment on PR #$PR_NUMBER using:
+            gh pr comment $PR_NUMBER --body '<comment>'
+          Use this exact table format:
+          ## Review Gate Results
+          | Gate | Status | Details |
+          |------|--------|---------|
+          | Schema Validation | ✅ PASS / ❌ FAIL | <details> |
+          | Link Validation | ✅ PASS / ❌ FAIL | <details> |
+          | Override Protection | ✅ PASS / ❌ FAIL | <details> |
+          | Completeness | ✅ PASS / ❌ FAIL | <details> |
+          | Meta Lifecycle | ✅ PASS / ❌ FAIL | <details> |
+          | Extension Preservation | ✅ PASS / ❌ FAIL | <details> |
+          | Duplicate Detection | ✅ PASS / ❌ FAIL | <details> |
+
+          **Auto-fixes applied:** <yes — list what was fixed, or no>
+          **Merge decision:** <Ready to merge / Needs human review>
+
+          ## PR Label Step
+          Apply exactly ONE label to PR #$PR_NUMBER using:
+            gh pr edit $PR_NUMBER --add-label '<label>'
+          Label selection rules (in priority order):
+          - override-conflict      → Gate 3 failed (override overwritten)
+          - needs-human-review     → any critical gate failed (schema, meta, or completeness)
+          - validation-failed      → one or more non-critical gates fail
+          - sync-validated         → all 7 gates pass
+
+          ## Results File
+          Write the final gate results to /tmp/review-results.json before exiting:
+          {
+            \"all_pass\": <true if all 7 gates pass, false otherwise>,
+            \"critical_failure\": <true if schema, meta, or completeness gate failed>,
+            \"override_conflict\": <true if gate 3 failed>,
+            \"gates\": {
+              \"schema\": \"pass\" or \"fail\",
+              \"links\": \"pass\" or \"fail\",
+              \"overrides\": \"pass\" or \"fail\",
+              \"completeness\": \"pass\" or \"fail\",
+              \"meta\": \"pass\" or \"fail\",
+              \"naming\": \"pass\" or \"fail\",
+              \"duplicates\": \"pass\" or \"fail\"
             }
-
-            for (const repo of repos) {
-              const docsDir = path.join(reposDir, repo, 'docs');
-              if (fs.existsSync(docsDir)) walkDir(docsDir);
-            }
-
-            console.log('Validated ' + validated + ' files, ' + errors + ' errors');
-            if (errors > 0) process.exit(1);
+          }
           "
 
-      # TODO: Add link validation, override check, and auto-merge logic
-      - name: Review Summary
+      - name: Read review results
+        id: results
+        if: always()
         run: |
-          echo "Review Agent — PR #${{ github.event.pull_request.number }}"
-          echo "Schema validation: PASSED"
-          echo "Implement full Review Agent logic here"
+          if [ -f /tmp/review-results.json ]; then
+            ALL_PASS=$(cat /tmp/review-results.json | jq -r '.all_pass')
+            CRITICAL=$(cat /tmp/review-results.json | jq -r '.critical_failure')
+            OVERRIDE=$(cat /tmp/review-results.json | jq -r '.override_conflict')
+          else
+            echo "::warning::Review agent did not produce /tmp/review-results.json — treating as critical failure"
+            ALL_PASS="false"
+            CRITICAL="true"
+            OVERRIDE="false"
+          fi
+          echo "all_pass=$ALL_PASS" >> $GITHUB_OUTPUT
+          echo "critical_failure=$CRITICAL" >> $GITHUB_OUTPUT
+          echo "override_conflict=$OVERRIDE" >> $GITHUB_OUTPUT
+
+      - name: Auto-merge if all gates pass
+        if: steps.review.outcome == 'success' && steps.results.outputs.all_pass == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr merge ${{ github.event.pull_request.number }} \
+            --squash \
+            --subject "docs(merge): ${{ steps.meta.outputs.repo }} @ ${{ steps.meta.outputs.short_sha }}" \
+            --delete-branch
+
+      - name: Request human review fallback
+        if: always() && steps.results.outputs.all_pass == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "One or more validation gates failed — merge skipped."
+          echo "Applying needs-human-review label as fallback (agent may have already done this)."
+          gh pr edit ${{ github.event.pull_request.number }} \
+            --add-label "needs-human-review" 2>/dev/null || true

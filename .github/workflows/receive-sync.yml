@@ -32,14 +32,137 @@ jobs:
           echo "Commit: ${{ github.event.client_payload.commit_sha }}"
           echo "Files changed: ${{ github.event.client_payload.file_count }}"
 
-      # TODO: Invoke Sync Agent here
-      # The Sync Agent will:
-      # 1. Create a branch
-      # 2. Process changed files
-      # 3. Generate/update documentation JSON files
-      # 4. Open a PR
-
-      - name: Placeholder — Sync Agent
+      - name: Skip if no files changed
+        id: pre-check
         run: |
-          echo "Sync Agent would process ${{ github.event.client_payload.file_count }} files from ${{ github.event.client_payload.repo }}"
-          echo "This is a placeholder — implement the actual Sync Agent logic here"
+          COUNT="${{ github.event.client_payload.file_count }}"
+          if [ "$COUNT" -eq "0" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "No files changed in src/. Skipping sync."
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Checkout source repository
+        if: steps.pre-check.outputs.skip == 'false'
+        uses: actions/checkout@v4
+        with:
+          # NX_KB_DISPATCH_TOKEN must be a PAT with repo scope added to this repo's secrets
+          token: ${{ secrets.NX_KB_DISPATCH_TOKEN }}
+          repository: akeylesspro/${{ github.event.client_payload.repo }}
+          ref: ${{ github.event.client_payload.commit_sha }}
+          path: _source/${{ github.event.client_payload.repo }}
+
+      - name: Install Claude CLI
+        if: steps.pre-check.outputs.skip == 'false'
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Configure Git
+        if: steps.pre-check.outputs.skip == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Create sync branch
+        if: steps.pre-check.outputs.skip == 'false'
+        id: branch
+        run: |
+          SHORT_SHA=$(echo "${{ github.event.client_payload.commit_sha }}" | cut -c1-7)
+          TS=$(date -u +%Y%m%d%H%M%S)
+          SYNC_BRANCH="sync/${{ github.event.client_payload.repo }}-${SHORT_SHA}-${TS}"
+          git checkout -b "$SYNC_BRANCH"
+          echo "name=$SYNC_BRANCH" >> $GITHUB_OUTPUT
+          echo "short_sha=$SHORT_SHA" >> $GITHUB_OUTPUT
+
+      - name: Write dispatch payload to file
+        if: steps.pre-check.outputs.skip == 'false'
+        env:
+          PAYLOAD: ${{ toJson(github.event.client_payload) }}
+        run: echo "$PAYLOAD" > /tmp/sync-payload.json
+
+      - name: Invoke Sync Agent
+        if: steps.pre-check.outputs.skip == 'false'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          REPO: ${{ github.event.client_payload.repo }}
+          BRANCH_NAME: ${{ steps.branch.outputs.name }}
+          SHORT_SHA: ${{ steps.branch.outputs.short_sha }}
+          COMMIT_SHA: ${{ github.event.client_payload.commit_sha }}
+        run: |
+          PAYLOAD=$(cat /tmp/sync-payload.json)
+          claude --print --dangerously-skip-permissions "
+          Read agents/sync-agent/instructions.md and follow those instructions exactly.
+
+          ## Dispatch Payload
+          $PAYLOAD
+
+          ## Source Files
+          The source repository has been checked out at: _source/$REPO/
+          Read changed files from that directory.
+
+          ## Task
+          You are already on branch \`$BRANCH_NAME\` in the NX-KNOWLEDGE-BASE repository.
+          Process each file listed in the payload from the \`$REPO\` repository.
+          - Generate or update documentation JSON files under \`repos/$REPO/docs/\`
+          - Update \`repos/$REPO/meta.json\`
+          - Use commit SHA \`$COMMIT_SHA\` when constructing GitHub links (link_to_github)
+          - Source repo for GitHub links: \`akeylesspro/$REPO\`
+
+          Do NOT create a new branch and do NOT open a PR.
+          Only generate/update the documentation files and meta.json, then stop.
+          "
+
+      - name: Stage documentation changes
+        if: steps.pre-check.outputs.skip == 'false'
+        id: changes
+        run: |
+          git add repos/
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No documentation changes to commit."
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit changes
+        if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'true'
+        run: |
+          git commit -m "docs(sync): ${{ github.event.client_payload.repo }} @ ${{ steps.branch.outputs.short_sha }}"
+
+      - name: Push sync branch
+        if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'true'
+        run: git push origin ${{ steps.branch.outputs.name }}
+
+      - name: Create Pull Request
+        if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          FILES_LIST=$(cat /tmp/sync-payload.json | jq -r '.files[]' 2>/dev/null || echo "N/A")
+          gh pr create \
+            --title "docs(sync): ${{ github.event.client_payload.repo }} @ ${{ steps.branch.outputs.short_sha }}" \
+            --body "$(cat <<EOF
+          ## Sync Summary
+
+          **Repository:** \`${{ github.event.client_payload.repo }}\`
+          **Branch:** \`${{ github.event.client_payload.branch }}\`
+          **Commit:** [\`${{ steps.branch.outputs.short_sha }}\`](https://github.com/akeylesspro/${{ github.event.client_payload.repo }}/commit/${{ github.event.client_payload.commit_sha }})
+          **Timestamp:** \`${{ github.event.client_payload.timestamp }}\`
+          **Files processed:** ${{ github.event.client_payload.file_count }}
+
+          ### Changed Source Files
+          \`\`\`
+          $FILES_LIST
+          \`\`\`
+
+          > Generated by the Sync Agent via \`receive-sync.yml\`
+          EOF
+          )" \
+            --base main \
+            --head ${{ steps.branch.outputs.name }}
+
+      - name: No changes detected
+        if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'false'
+        run: |
+          echo "Sync agent ran but produced no documentation changes. No PR will be created."
+          echo "This may indicate the changed files have no exported symbols to document."

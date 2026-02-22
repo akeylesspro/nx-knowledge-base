@@ -3,7 +3,7 @@
     "display_name": "Akeyless Client Commons",
     "description": "Shared React/TypeScript component and utility library for Akeyless web applications — including UI components (shadcn/Radix), form builders, data tables, Firebase integration, real-time hooks, Excel export, and theming.",
     "github_url": "https://github.com/akeylesspro/akeyless-client-commons",
-    "default_branch": "test-kb-v-1",
+    "default_branch": "main",
     "language": "typescript",
     "framework_tags": ["react", "typescript", "firebase", "tailwindcss"],
     "capabilities": ["Shared React Components", "Form Building", "Data Tables", "Firebase Integration", "Real-time State Management", "Excel Export", "SVG Assets", "UI Component Library"],

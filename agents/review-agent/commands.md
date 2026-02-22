@@ -1,5 +1,11 @@
 # Review & Merge Agent — Commands
 
+## Invocation Note
+These commands describe the logical operations the agent performs. They are **not** CLI arguments.
+When invoked via `claude --print --dangerously-skip-permissions "<prompt>"`, all context (PR number,
+branch, repo, changed files) is passed inside the prompt text. The agent reads this context and
+executes the gate sequence described below using `gh` CLI and `git` commands available in the CI runner.
+
 ## Available Commands
 
 ### `review`
@@ -50,16 +56,33 @@ Input: { pr_number, fixes: Fix[] }
 Output: { applied: Fix[], failed: Fix[] }
 ```
 
-### `review:merge`
-Merge the PR to main (only if all gates pass).
+### `review:post-comment`
+Post the gate results table as a PR comment.
 ```
-Input: { pr_number }
-Output: { merged: boolean, reason?: string }
+Command: gh pr comment <pr_number> --body '<markdown>'
+Output: PR comment with gate results table, auto-fix summary, and merge decision
+```
+
+### `review:label`
+Apply a label to the PR based on gate results.
+```
+Command: gh pr edit <pr_number> --add-label '<label>'
+Labels: sync-validated | validation-failed | needs-human-review | override-conflict
+```
+
+### `review:write-results`
+Write the gate results to /tmp/review-results.json for the workflow to read.
+```
+Output file: /tmp/review-results.json
+  { all_pass, critical_failure, override_conflict, gates: { schema, links, overrides,
+    completeness, meta, naming, duplicates } }
+Note: The workflow (not the agent) runs gh pr merge --squash based on this file.
 ```
 
 ### `review:request-human`
-Label the PR for human review and add comments.
+Label the PR for human review (used as a fallback if critical gates fail).
 ```
-Input: { pr_number, issues: Issue[] }
-Output: { labeled: boolean, comments_added: number }
+Command: gh pr edit <pr_number> --add-label 'needs-human-review'
+Output: { labeled: boolean }
+Note: The workflow also applies this label as a safety fallback.
 ```
