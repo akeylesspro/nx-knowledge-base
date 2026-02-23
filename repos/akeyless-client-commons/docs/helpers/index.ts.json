@@ -6,14 +6,14 @@
     "file_name": "index.ts",
     "source": {
         "file_path": "helpers/index.ts",
-        "commit_sha": "844185137ce1390e1c325518f954aaf0e22f09ff",
-        "generated_at_iso": "2026-02-16T00:00:00.000Z",
+        "commit_sha": "325ebf9328a2cf21c4d432072580e663e36c52c2",
+        "generated_at_iso": "2026-02-23T00:00:00.000Z",
         "language": "ts",
         "framework_tags": [
             "barrel-export",
             "helpers"
         ],
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/index.ts.json"
     },
     "summary": {
@@ -28,84 +28,91 @@
                 "why_used": "Re-exports Firebase integration and Firestore functions",
                 "import_path": "./firebase",
                 "resolved_file_path": "helpers/firebase.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/firebase.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/firebase.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/global.ts.json",
                 "why_used": "Re-exports global utilities and environment configuration",
                 "import_path": "./global",
                 "resolved_file_path": "helpers/global.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/global.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/global.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/forms.ts.json",
                 "why_used": "Re-exports form validation patterns and handlers",
                 "import_path": "./forms",
                 "resolved_file_path": "helpers/forms.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/forms.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/forms.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/store.ts.json",
                 "why_used": "Re-exports Zustand store utilities",
                 "import_path": "./store",
                 "resolved_file_path": "helpers/store.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/store.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/store.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/cars.ts.json",
                 "why_used": "Re-exports vehicle license plate formatting",
                 "import_path": "./cars",
                 "resolved_file_path": "helpers/cars.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/cars.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/cars.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/phoneNumber.ts.json",
                 "why_used": "Re-exports phone number validation and formatting",
                 "import_path": "./phoneNumber",
                 "resolved_file_path": "helpers/phoneNumber.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/phoneNumber.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/phoneNumber.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/lib/utils.ts.json",
                 "why_used": "Re-exports utility functions from lib/utils (external reexport)",
                 "import_path": "../lib/utils",
                 "resolved_file_path": "lib/utils.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/lib/utils.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/lib/utils.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/time_helpers.ts.json",
                 "why_used": "Re-exports timestamp conversion and formatting utilities",
                 "import_path": "./time_helpers",
                 "resolved_file_path": "helpers/time_helpers.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/time_helpers.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/time_helpers.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/api.ts.json",
                 "why_used": "Re-exports API client and domain constants",
                 "import_path": "./api",
                 "resolved_file_path": "helpers/api.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/api.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/api.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/permissions.ts.json",
                 "why_used": "Re-exports permission checking and parsing utilities",
                 "import_path": "./permissions",
                 "resolved_file_path": "helpers/permissions.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/permissions.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/permissions.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/emails.ts.json",
                 "why_used": "Re-exports email attachment utilities",
                 "import_path": "./emails",
                 "resolved_file_path": "helpers/emails.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/emails.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/emails.ts"
             },
             {
                 "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/socket.ts.json",
                 "why_used": "Re-exports WebSocket service and real-time data operations",
                 "import_path": "./socket",
                 "resolved_file_path": "helpers/socket.ts",
-                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/socket.ts"
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/socket.ts"
+            },
+            {
+                "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/math.ts.json",
+                "why_used": "Re-exports math utility functions (multiply, etc.)",
+                "import_path": "./math",
+                "resolved_file_path": "helpers/math.ts",
+                "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/math.ts"
             }
         ]
     },
@@ -193,6 +200,13 @@
             "line": 12,
             "description_one_line": "Re-export WebSocket service singleton",
             "symbol_id": "reexport_socket"
+        },
+        {
+            "name": "*",
+            "kind": "value",
+            "line": 13,
+            "description_one_line": "Re-export math utilities (multiply, etc.)",
+            "symbol_id": "reexport_math"
         }
     ],
     "symbols": [
@@ -207,7 +221,7 @@
             "locations": {
                 "source_line_start": 1,
                 "source_line_end": 1,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L1",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L1",
                 "nx_kb_anchor": "reexport_firebase"
             }
         },
@@ -222,7 +236,7 @@
             "locations": {
                 "source_line_start": 2,
                 "source_line_end": 2,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L2",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L2",
                 "nx_kb_anchor": "reexport_global"
             }
         },
@@ -237,7 +251,7 @@
             "locations": {
                 "source_line_start": 3,
                 "source_line_end": 3,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L3",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L3",
                 "nx_kb_anchor": "reexport_forms"
             }
         },
@@ -252,7 +266,7 @@
             "locations": {
                 "source_line_start": 4,
                 "source_line_end": 4,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L4",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L4",
                 "nx_kb_anchor": "reexport_store"
             }
         },
@@ -267,7 +281,7 @@
             "locations": {
                 "source_line_start": 5,
                 "source_line_end": 5,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L5",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L5",
                 "nx_kb_anchor": "reexport_cars"
             }
         },
@@ -282,7 +296,7 @@
             "locations": {
                 "source_line_start": 6,
                 "source_line_end": 6,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L6",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L6",
                 "nx_kb_anchor": "reexport_phone_number"
             }
         },
@@ -297,7 +311,7 @@
             "locations": {
                 "source_line_start": 7,
                 "source_line_end": 7,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L7",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L7",
                 "nx_kb_anchor": "reexport_lib_utils"
             }
         },
@@ -312,7 +326,7 @@
             "locations": {
                 "source_line_start": 8,
                 "source_line_end": 8,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L8",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L8",
                 "nx_kb_anchor": "reexport_time_helpers"
             }
         },
@@ -327,7 +341,7 @@
             "locations": {
                 "source_line_start": 9,
                 "source_line_end": 9,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L9",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L9",
                 "nx_kb_anchor": "reexport_api"
             }
         },
@@ -342,7 +356,7 @@
             "locations": {
                 "source_line_start": 10,
                 "source_line_end": 10,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L10",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L10",
                 "nx_kb_anchor": "reexport_permissions"
             }
         },
@@ -357,7 +371,7 @@
             "locations": {
                 "source_line_start": 11,
                 "source_line_end": 11,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L11",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L11",
                 "nx_kb_anchor": "reexport_emails"
             }
         },
@@ -372,8 +386,23 @@
             "locations": {
                 "source_line_start": 12,
                 "source_line_end": 12,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/844185137ce1390e1c325518f954aaf0e22f09ff/src/helpers/index.ts#L12",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L12",
                 "nx_kb_anchor": "reexport_socket"
+            }
+        },
+        {
+            "symbol_id": "reexport_math",
+            "name": "* from './math'",
+            "kind": "value",
+            "description_one_line": "Math utility exports.",
+            "details": {
+                "what_it_does": "Re-exports all exports from math.ts including: multiply for computing the product of two numbers."
+            },
+            "locations": {
+                "source_line_start": 13,
+                "source_line_end": 13,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/index.ts#L13",
+                "nx_kb_anchor": "reexport_math"
             }
         }
     ],
