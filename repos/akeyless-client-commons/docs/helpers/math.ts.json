@@ -1,0 +1,87 @@
+{
+    "repo": {
+        "name": "akeyless-client-commons",
+        "source_default_branch": "main"
+    },
+    "file_name": "math.ts",
+    "source": {
+        "file_path": "helpers/math.ts",
+        "commit_sha": "325ebf9328a2cf21c4d432072580e663e36c52c2",
+        "generated_at_iso": "2026-02-23T07:24:20.000Z",
+        "language": "ts",
+        "framework_tags": [
+            "helpers",
+            "math"
+        ],
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/math.ts",
+        "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/math.ts.json"
+    },
+    "summary": {
+        "purpose": "Math utility functions for numeric arithmetic operations.",
+        "problem_solved": "Provides reusable, type-safe arithmetic helper functions for use throughout Akeyless client applications, avoiding inline repetition of common numeric operations."
+    },
+    "dependencies": {
+        "external": [],
+        "internal": []
+    },
+    "exports": [
+        {
+            "name": "multiply",
+            "kind": "function",
+            "description_one_line": "Multiplies two numbers and returns the product.",
+            "symbol_id": "multiply"
+        }
+    ],
+    "symbols": [
+        {
+            "symbol_id": "multiply",
+            "name": "multiply",
+            "kind": "function",
+            "description_one_line": "Multiplies two numbers and returns the product.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "a",
+                        "type": "number",
+                        "required": true,
+                        "description": "The first factor."
+                    },
+                    {
+                        "name": "b",
+                        "type": "number",
+                        "required": true,
+                        "description": "The second factor."
+                    }
+                ],
+                "returns": {
+                    "type": "number",
+                    "description": "The product of a and b."
+                }
+            },
+            "details": {
+                "what_it_does": "Takes two numeric arguments and returns their product (a × b). Pure function with no side effects or external dependencies.",
+                "side_effects": [],
+                "error_cases": []
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic multiplication",
+                    "code": "import { multiply } from 'akeyless-client-commons';\nconst result = multiply(3, 4); // 12"
+                },
+                "extensive_correct": {
+                    "title": "Using multiply in calculations",
+                    "code": "import { multiply } from 'akeyless-client-commons';\n\nconst area = multiply(width, height);\nconst total = multiply(price, quantity);\nconst scaled = multiply(value, 0.5); // 50% scaling"
+                }
+            },
+            "locations": {
+                "source_line_start": 1,
+                "source_line_end": 3,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/math.ts#L1",
+                "nx_kb_anchor": "multiply"
+            }
+        }
+    ],
+    "quality": {
+        "generation_confidence": "high"
+    }
+}
