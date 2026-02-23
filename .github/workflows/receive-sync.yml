@@ -90,6 +90,11 @@ jobs:
           COMMIT_SHA: ${{ github.event.client_payload.commit_sha }}
         run: |
           PAYLOAD=$(cat /tmp/sync-payload.json)
+
+          echo "================ FULL PROMPT SENT TO CLAUDE ================"
+          echo "$PAYLOAD"
+          echo "============================================================"
+
           claude --print --dangerously-skip-permissions "
           Read agents/sync-agent/instructions.md and follow those instructions exactly.
 
@@ -111,6 +116,23 @@ jobs:
           Do NOT create a new branch and do NOT open a PR.
           Only generate/update the documentation files and meta.json, then stop.
           "
+
+          echo "================ GIT DEBUG AFTER AGENT ================="
+          echo "PWD:"
+          pwd
+          echo ""
+          echo "Git status:"
+          git status
+          echo ""
+          echo "Git status porcelain:"
+          git status --porcelain
+          echo ""
+          echo "List repos directory:"
+          ls -la repos/ || true
+          echo ""
+          echo "Git diff repos:"
+          git diff -- repos/ || true
+          echo "========================================================="
 
       - name: Stage documentation changes
         if: steps.pre-check.outputs.skip == 'false'
