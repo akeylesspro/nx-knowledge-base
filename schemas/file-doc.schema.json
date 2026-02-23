@@ -93,7 +93,7 @@
                 "required": ["name", "kind", "description_one_line", "symbol_id"],
                 "properties": {
                     "name": { "type": "string" },
-                    "kind": { "type": "string", "enum": ["function", "class", "component", "interface", "type", "enum", "value", "constant"] },
+                    "kind": { "type": "string", "enum": ["function", "class", "component", "hook", "interface", "type", "enum", "value", "constant"] },
                     "description_one_line": { "type": "string" },
                     "symbol_id": {
                         "type": "string",

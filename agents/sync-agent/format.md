@@ -26,7 +26,7 @@
 - Report any deduplication actions in the PR summary.
 
 ## Schema Version
-- Current schema version: `1.0.0`
+- Current schema version: `1.0.1`
 - Schema location: `schemas/file-doc.schema.json`
 - All generated files must pass schema validation before commit.
 - Repo metadata schema location: `schemas/repo-meta.schema.json`
@@ -68,8 +68,8 @@ Body:
 | Deleted  | N     |
 
 ## Per-Folder Breakdown (processing order)
-src/components/  — touched: N | added: N | updated: N | deleted: N | skipped: N
-src/hooks/       — touched: N | added: N | updated: N | deleted: N | skipped: N
+components/  — touched: N | added: N | updated: N | deleted: N | skipped: N
+hooks/       — touched: N | added: N | updated: N | deleted: N | skipped: N
 
 ## Files
 <collapsible list of changed files>

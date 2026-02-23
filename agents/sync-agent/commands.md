@@ -1,12 +1,12 @@
-# Sync Agent — Commands
+# Sync Agent — Logical Operations
 
 ## Invocation Note
-These commands describe the logical operations the agent performs. They are **not** CLI arguments.
+These operations describe the logical phases the agent performs. They are **not** CLI commands or arguments.
 When the agent is invoked via `claude --print --dangerously-skip-permissions "<prompt>"`, all context
 (payload, repo, branch, files list) is passed inside the prompt text. The agent reads this context
-and executes the appropriate command sequence described below.
+and executes the appropriate operation sequence described below.
 
-## Available Commands
+## Operations
 
 ### `sync`
 Full sync for a repository based on dispatch payload.

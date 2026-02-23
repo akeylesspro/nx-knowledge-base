@@ -5,7 +5,7 @@
     "description": "Schema for repository-level metadata in NX-KNOWLEDGE-BASE",
     "version": "1.0.0",
     "type": "object",
-    "required": ["name", "display_name", "description", "story", "github_url", "default_branch", "language", "framework_tags", "capabilities"],
+    "required": ["name", "display_name", "description", "story", "github_url", "default_branch", "language", "framework_tags", "capabilities", "file_count", "symbol_count", "last_synced_at", "last_synced_commit"],
     "properties": {
         "name": { "type": "string", "description": "Repository name (must match folder name)" },
         "display_name": { "type": "string", "description": "Human-readable display name" },

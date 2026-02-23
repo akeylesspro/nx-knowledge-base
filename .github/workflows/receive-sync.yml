@@ -13,6 +13,11 @@ permissions:
   contents: write
   pull-requests: write
 
+# Issue #15: Prevent concurrent syncs for the same source repo
+concurrency:
+  group: sync-${{ github.event.client_payload.repo }}
+  cancel-in-progress: false
+
 jobs:
   sync-docs:
     runs-on: ubuntu-latest
@@ -36,9 +41,10 @@ jobs:
         id: pre-check
         run: |
           COUNT="${{ github.event.client_payload.file_count }}"
-          if [ "$COUNT" -eq "0" ]; then
+          COUNT="${COUNT:-0}"
+          if ! [[ "$COUNT" =~ ^[0-9]+$ ]] || [ "$COUNT" -eq "0" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
-            echo "No files changed in src/. Skipping sync."
+            echo "No files changed in src/ (file_count=$COUNT). Skipping sync."
           else
             echo "skip=false" >> $GITHUB_OUTPUT
           fi
@@ -94,17 +100,16 @@ jobs:
           SHORT_SHA: ${{ steps.branch.outputs.short_sha }}
           COMMIT_SHA: ${{ github.event.client_payload.commit_sha }}
         run: |
-          PAYLOAD=$(cat /tmp/sync-payload.json)
-
-          echo "================ FULL PROMPT SENT TO CLAUDE ================"
-          echo "$PAYLOAD"
-          echo "============================================================"
+          echo "================ DISPATCH PAYLOAD ================"
+          cat /tmp/sync-payload.json
+          echo ""
+          echo "===================================================="
 
           claude --print --dangerously-skip-permissions "
-          Read agents/sync-agent/instructions.md and follow those instructions exactly.
+          Read ALL files in agents/sync-agent/ (instructions.md, format.md, style.md, commands.md, skills.md) and follow those instructions exactly.
 
           ## Dispatch Payload
-          $PAYLOAD
+          Read the dispatch payload from the file: /tmp/sync-payload.json
 
           ## Source Files
           The source repository has been checked out at: _source/$REPO/
@@ -121,7 +126,7 @@ jobs:
           IMPORTANT:
           - Do NOT create a new branch.
           - Do NOT open a PR.
-          - Prefer NOT to run 'git commit' or 'git push'. Only modify files in the working tree.
+          - Do NOT run 'git commit' or 'git push'. Only modify files in the working tree.
           Only generate/update the documentation files and meta.json, then stop.
           "
 
@@ -138,7 +143,7 @@ jobs:
 
       - name: Detect changes (working tree OR commits)
         if: steps.pre-check.outputs.skip == 'false'
-        id: changes
+        id: detect-changes
         run: |
           BASE_SHA="${{ steps.branch.outputs.base_sha }}"
           HEAD_SHA="$(git rev-parse HEAD)"
@@ -146,7 +151,7 @@ jobs:
           echo "BASE_SHA=$BASE_SHA"
           echo "HEAD_SHA=$HEAD_SHA"
 
-          # Case A: agent created commits
+          # Case A: agent created commits (despite being told not to)
           if [ "$BASE_SHA" != "$HEAD_SHA" ]; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
             echo "change_mode=commits" >> $GITHUB_OUTPUT
@@ -154,7 +159,7 @@ jobs:
             exit 0
           fi
 
-          # Case B: agent modified working tree (no commits)
+          # Case B: agent modified working tree (expected behavior)
           git add repos/ || true
           if git diff --staged --quiet; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
@@ -167,17 +172,17 @@ jobs:
           fi
 
       - name: Commit changes (only if agent did NOT commit)
-        if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'true' && steps.changes.outputs.change_mode == 'working_tree'
+        if: steps.pre-check.outputs.skip == 'false' && steps.detect-changes.outputs.has_changes == 'true' && steps.detect-changes.outputs.change_mode == 'working_tree'
         run: |
           git commit -m "docs(sync): ${{ github.event.client_payload.repo }} @ ${{ steps.branch.outputs.short_sha }}"
 
-      - name: Push sync branch (best-effort)
-        if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'true'
+      - name: Push sync branch
+        if: steps.pre-check.outputs.skip == 'false' && steps.detect-changes.outputs.has_changes == 'true'
         run: |
-          git push origin ${{ steps.branch.outputs.name }} || true
+          git push origin ${{ steps.branch.outputs.name }}
 
       - name: Create Pull Request
-        if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'true'
+        if: steps.pre-check.outputs.skip == 'false' && steps.detect-changes.outputs.has_changes == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -205,7 +210,19 @@ jobs:
             --head ${{ steps.branch.outputs.name }}
 
       - name: No changes detected
-        if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'false'
+        if: steps.pre-check.outputs.skip == 'false' && steps.detect-changes.outputs.has_changes == 'false'
         run: |
-          echo "Sync agent ran but produced no documentation changes. No PR will be created."
+          echo "::warning::Sync agent ran but produced no documentation changes for ${{ github.event.client_payload.repo }} @ ${{ steps.branch.outputs.short_sha }}."
           echo "This may indicate the changed files have no exported symbols to document."
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "::error::Sync pipeline failed for repo=${{ github.event.client_payload.repo }} commit=${{ github.event.client_payload.commit_sha }}"
+          echo "## Sync Failure Report" >> $GITHUB_STEP_SUMMARY
+          echo "**Repository:** \`${{ github.event.client_payload.repo }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** \`${{ github.event.client_payload.commit_sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Timestamp:** \`${{ github.event.client_payload.timestamp }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Files:** ${{ github.event.client_payload.file_count }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Check the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details." >> $GITHUB_STEP_SUMMARY

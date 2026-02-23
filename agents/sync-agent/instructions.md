@@ -21,6 +21,15 @@ The prompt includes:
 
 When invoked this way, read the payload from the prompt context. Do not expect CLI arguments.
 
+## Related Files — READ THESE FIRST
+Before processing any files, read ALL of the following companion documents in `agents/sync-agent/`:
+- `format.md` — file naming, duplicate prevention, ignore patterns, PR format, schema version
+- `style.md` — language style, completeness rules by symbol kind, naming conventions
+- `commands.md` — logical operations reference
+- `skills.md` — code analysis, documentation generation, and metadata lifecycle capabilities
+
+All rules in these files are **mandatory** and complement the rules below.
+
 ## Core Rules
 
 1. **Always work in a separate branch** — never commit directly to `main`.
@@ -89,8 +98,7 @@ When invoked this way, read the payload from the prompt context. Do not expect C
    - Recalculate and update all relevant metadata fields impacted by the sync.
    - At minimum ensure: `file_count`, `symbol_count`, `last_synced_at`, `last_synced_commit` (if available).
    - Validate `repos/<repo>/meta.json` against `schemas/repo-meta.schema.json`.
-7. Commit and push the branch.
-8. Open a PR with a structured summary of all changes.
+7. **Stop.** Do NOT commit, push, or open a PR — the calling workflow (`receive-sync.yml`) handles all of that automatically.
 
 ## Folder Completion Gate
 - Never advance to the next folder if the current one has:
@@ -110,8 +118,8 @@ When invoked this way, read the payload from the prompt context. Do not expect C
 - PR body must include a per-folder breakdown in processing order.
 
 ## Error Handling
-- If schema validation fails → do NOT open a PR. Log the error and exit with a non-zero code.
+- If schema validation fails → do NOT write the invalid file. Log the error and exit with a non-zero code so the workflow does not create a PR.
 - If `repos/<repo>/meta.json` is missing and cannot be created → fail the sync and exit with a non-zero code.
 - If `meta.json` fails validation against `schemas/repo-meta.schema.json` and cannot be repaired → fail the sync and exit with a non-zero code.
-- If override merge conflicts → flag in PR body as `⚠️ OVERRIDE CONFLICT` and request human review.
-- If a file cannot be parsed or repaired to schema-compliant output → fail the sync, Mention this in the body of the PR.
+- If override merge conflicts → leave a clearly visible `⚠️ OVERRIDE CONFLICT` comment in the affected file's JSON (in a `known_gaps` entry) so reviewers can spot it in the PR.
+- If a file cannot be parsed or repaired to schema-compliant output → skip it, log the error, and exit with a non-zero code.
