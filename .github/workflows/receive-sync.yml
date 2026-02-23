@@ -47,7 +47,7 @@ jobs:
         if: steps.pre-check.outputs.skip == 'false'
         uses: actions/checkout@v4
         with:
-          # NX_KB_DISPATCH_TOKEN must be a PAT with repo scope added to this repo's secrets
+          # Must exist as a secret in THIS repo (nx-knowledge-base) and have read access to source repos
           token: ${{ secrets.NX_KB_DISPATCH_TOKEN }}
           repository: akeylesspro/${{ github.event.client_payload.repo }}
           ref: ${{ github.event.client_payload.commit_sha }}
@@ -71,8 +71,12 @@ jobs:
           TS=$(date -u +%Y%m%d%H%M%S)
           SYNC_BRANCH="sync/${{ github.event.client_payload.repo }}-${SHORT_SHA}-${TS}"
           git checkout -b "$SYNC_BRANCH"
+
+          BASE_SHA=$(git rev-parse HEAD)
+
           echo "name=$SYNC_BRANCH" >> $GITHUB_OUTPUT
           echo "short_sha=$SHORT_SHA" >> $GITHUB_OUTPUT
+          echo "base_sha=$BASE_SHA" >> $GITHUB_OUTPUT
 
       - name: Write dispatch payload to file
         if: steps.pre-check.outputs.skip == 'false'
@@ -82,6 +86,7 @@ jobs:
 
       - name: Invoke Sync Agent
         if: steps.pre-check.outputs.skip == 'false'
+        timeout-minutes: 15
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           REPO: ${{ github.event.client_payload.repo }}
@@ -113,7 +118,10 @@ jobs:
           - Use commit SHA \`$COMMIT_SHA\` when constructing GitHub links (link_to_github)
           - Source repo for GitHub links: \`akeylesspro/$REPO\`
 
-          Do NOT create a new branch and do NOT open a PR.
+          IMPORTANT:
+          - Do NOT create a new branch.
+          - Do NOT open a PR.
+          - Prefer NOT to run 'git commit' or 'git push'. Only modify files in the working tree.
           Only generate/update the documentation files and meta.json, then stop.
           "
 
@@ -121,39 +129,52 @@ jobs:
           echo "PWD:"
           pwd
           echo ""
-          echo "Git status:"
-          git status
-          echo ""
           echo "Git status porcelain:"
           git status --porcelain
-          echo ""
-          echo "List repos directory:"
-          ls -la repos/ || true
           echo ""
           echo "Git diff repos:"
           git diff -- repos/ || true
           echo "========================================================="
 
-      - name: Stage documentation changes
+      - name: Detect changes (working tree OR commits)
         if: steps.pre-check.outputs.skip == 'false'
         id: changes
         run: |
-          git add repos/
-          if git diff --staged --quiet; then
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-            echo "No documentation changes to commit."
-          else
+          BASE_SHA="${{ steps.branch.outputs.base_sha }}"
+          HEAD_SHA="$(git rev-parse HEAD)"
+
+          echo "BASE_SHA=$BASE_SHA"
+          echo "HEAD_SHA=$HEAD_SHA"
+
+          # Case A: agent created commits
+          if [ "$BASE_SHA" != "$HEAD_SHA" ]; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "change_mode=commits" >> $GITHUB_OUTPUT
+            echo "Agent created commits."
+            exit 0
           fi
 
-      - name: Commit changes
-        if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'true'
+          # Case B: agent modified working tree (no commits)
+          git add repos/ || true
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "change_mode=none" >> $GITHUB_OUTPUT
+            echo "No documentation changes detected."
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "change_mode=working_tree" >> $GITHUB_OUTPUT
+            echo "Detected documentation changes in working tree."
+          fi
+
+      - name: Commit changes (only if agent did NOT commit)
+        if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'true' && steps.changes.outputs.change_mode == 'working_tree'
         run: |
           git commit -m "docs(sync): ${{ github.event.client_payload.repo }} @ ${{ steps.branch.outputs.short_sha }}"
 
-      - name: Push sync branch
+      - name: Push sync branch (best-effort)
         if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'true'
-        run: git push origin ${{ steps.branch.outputs.name }}
+        run: |
+          git push origin ${{ steps.branch.outputs.name }} || true
 
       - name: Create Pull Request
         if: steps.pre-check.outputs.skip == 'false' && steps.changes.outputs.has_changes == 'true'
