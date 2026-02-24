@@ -6,11 +6,11 @@
     "file_name": "math.ts",
     "source": {
         "file_path": "helpers/math.ts",
-        "commit_sha": "325ebf9328a2cf21c4d432072580e663e36c52c2",
-        "generated_at_iso": "2026-02-24T10:05:39.000Z",
+        "commit_sha": "0ebfc90702144a6e8cc82c8db4ed58c2602576c0",
+        "generated_at_iso": "2026-02-24T14:43:48.000Z",
         "language": "ts",
         "framework_tags": [],
-        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/math.ts",
+        "link_to_github": "https://github.com/akeylesspro/akeyless-client-commons/blob/0ebfc90702144a6e8cc82c8db4ed58c2602576c0/src/helpers/math.ts",
         "link_to_nx_kb": "/repos/akeyless-client-commons/docs/helpers/math.ts.json"
     },
     "summary": {
@@ -27,6 +27,18 @@
             "kind": "function",
             "description_one_line": "Multiplies two numbers together and returns the product.",
             "symbol_id": "multiply"
+        },
+        {
+            "name": "add",
+            "kind": "function",
+            "description_one_line": "Adds two numbers together and returns their sum.",
+            "symbol_id": "function_add"
+        },
+        {
+            "name": "subtract",
+            "kind": "function",
+            "description_one_line": "Subtracts the second number from the first and returns the difference.",
+            "symbol_id": "function_subtract"
         }
     ],
     "symbols": [
@@ -73,8 +85,102 @@
             "locations": {
                 "source_line_start": 1,
                 "source_line_end": 3,
-                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/325ebf9328a2cf21c4d432072580e663e36c52c2/src/helpers/math.ts#L1-L3",
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/0ebfc90702144a6e8cc82c8db4ed58c2602576c0/src/helpers/math.ts#L1-L3",
                 "nx_kb_anchor": "multiply"
+            }
+        },
+        {
+            "symbol_id": "function_add",
+            "name": "add",
+            "kind": "function",
+            "description_one_line": "Adds two numbers together and returns their sum.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "a",
+                        "type": "number",
+                        "required": true,
+                        "description": "The first addend."
+                    },
+                    {
+                        "name": "b",
+                        "type": "number",
+                        "required": true,
+                        "description": "The second addend."
+                    }
+                ],
+                "returns": {
+                    "type": "number",
+                    "description": "The sum of a and b."
+                }
+            },
+            "details": {
+                "what_it_does": "Accepts two numeric arguments and returns their sum using the JavaScript + operator. Pure function with no side effects.",
+                "side_effects": [],
+                "error_cases": []
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic addition",
+                    "code": "import { add } from 'akeyless-client-commons/helpers';\n\nconst result = add(3, 4); // 7"
+                },
+                "extensive_correct": {
+                    "title": "Using add to accumulate values",
+                    "code": "import { add } from 'akeyless-client-commons/helpers';\n\nconst subtotal = 99.99;\nconst tax = 8.50;\nconst total = add(subtotal, tax); // 108.49"
+                }
+            },
+            "locations": {
+                "source_line_start": 5,
+                "source_line_end": 7,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/0ebfc90702144a6e8cc82c8db4ed58c2602576c0/src/helpers/math.ts#L5-L7",
+                "nx_kb_anchor": "function_add"
+            }
+        },
+        {
+            "symbol_id": "function_subtract",
+            "name": "subtract",
+            "kind": "function",
+            "description_one_line": "Subtracts the second number from the first and returns the difference.",
+            "signature": {
+                "params": [
+                    {
+                        "name": "a",
+                        "type": "number",
+                        "required": true,
+                        "description": "The minuend (number to subtract from)."
+                    },
+                    {
+                        "name": "b",
+                        "type": "number",
+                        "required": true,
+                        "description": "The subtrahend (number to subtract)."
+                    }
+                ],
+                "returns": {
+                    "type": "number",
+                    "description": "The difference of a minus b."
+                }
+            },
+            "details": {
+                "what_it_does": "Accepts two numeric arguments and returns their difference using the JavaScript - operator. Pure function with no side effects.",
+                "side_effects": [],
+                "error_cases": []
+            },
+            "examples": {
+                "minimal_correct": {
+                    "title": "Basic subtraction",
+                    "code": "import { subtract } from 'akeyless-client-commons/helpers';\n\nconst result = subtract(10, 4); // 6"
+                },
+                "extensive_correct": {
+                    "title": "Using subtract to calculate a discount",
+                    "code": "import { subtract } from 'akeyless-client-commons/helpers';\n\nconst originalPrice = 149.99;\nconst discount = 20.00;\nconst finalPrice = subtract(originalPrice, discount); // 129.99"
+                }
+            },
+            "locations": {
+                "source_line_start": 9,
+                "source_line_end": 11,
+                "github_permalink": "https://github.com/akeylesspro/akeyless-client-commons/blob/0ebfc90702144a6e8cc82c8db4ed58c2602576c0/src/helpers/math.ts#L9-L11",
+                "nx_kb_anchor": "function_subtract"
             }
         }
     ],
