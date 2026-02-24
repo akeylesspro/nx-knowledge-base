@@ -8,8 +8,8 @@
     "framework_tags": ["react", "typescript", "firebase", "tailwindcss"],
     "capabilities": ["Shared React Components", "Form Building", "Data Tables", "Firebase Integration", "Real-time State Management", "Excel Export", "SVG Assets", "UI Component Library"],
     "story": "akeyless-client-commons is a comprehensive shared library for Akeyless web applications. It provides a curated set of React components built with shadcn/ui and Radix UI, form utilities with validation, interactive data tables, Firebase authentication and real-time database integration, custom React hooks for data management, Excel export functionality, and a collection of SVG icon assets. The library is designed to promote code reuse and consistency across multiple Akeyless applications.",
-    "last_synced_at": "2026-02-19T00:00:00.000Z",
-    "last_synced_commit": "844185137ce1390e1c325518f954aaf0e22f09ff",
-    "file_count": 66,
-    "symbol_count": 180
+    "last_synced_at": "2026-02-24T09:45:06.000Z",
+    "last_synced_commit": "325ebf9328a2cf21c4d432072580e663e36c52c2",
+    "file_count": 67,
+    "symbol_count": 182
 }
