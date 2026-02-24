@@ -13,7 +13,6 @@ permissions:
   contents: write
   pull-requests: write
 
-# Issue #15: Prevent concurrent syncs for the same source repo
 concurrency:
   group: sync-${{ github.event.client_payload.repo }}
   cancel-in-progress: false
@@ -53,7 +52,6 @@ jobs:
         if: steps.pre-check.outputs.skip == 'false'
         uses: actions/checkout@v4
         with:
-          # Must exist as a secret in THIS repo (nx-knowledge-base) and have read access to source repos
           token: ${{ secrets.NX_KB_DISPATCH_TOKEN }}
           repository: akeylesspro/${{ github.event.client_payload.repo }}
           ref: ${{ github.event.client_payload.commit_sha }}
@@ -184,7 +182,7 @@ jobs:
       - name: Create Pull Request
         if: steps.pre-check.outputs.skip == 'false' && steps.detect-changes.outputs.has_changes == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.NX_KB_DISPATCH_TOKEN }}
         run: |
           FILES_LIST=$(cat /tmp/sync-payload.json | jq -r '.files[]' 2>/dev/null || echo "N/A")
           gh pr create \
