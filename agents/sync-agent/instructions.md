@@ -32,10 +32,10 @@ All rules in these files are **mandatory** and complement the rules below.
 
 ## Core Rules
 
-1. **Always work in a separate branch** — never commit directly to `main`.
+1. **Never modify `main` directly** — the workflow has already created a sync branch for you. Do NOT create branches, commit, push, or open PRs. Only modify files in the working tree.
 2. **Never overwrite manual edits** — check the `overrides/` folder for human patches; merge them on top of generated output.
-3. **One PR per sync** — batch all file changes from a single trigger into one PR.
-4. **Validate before committing** — every generated JSON file must pass the `file-doc.schema.json` validation.
+3. **One sync per dispatch** — process all file changes from a single trigger together.
+4. **Validate before writing** — every generated JSON file must pass the `file-doc.schema.json` validation.
 5. **Preserve deep links** — always include `link_to_github` (with commit SHA) and `link_to_nx_kb` paths.
 6. **Repository metadata is mandatory** — `repos/<repo>/meta.json` must exist at the documentation root (sibling of `docs`) and pass `schemas/repo-meta.schema.json`.
 
@@ -98,7 +98,7 @@ All rules in these files are **mandatory** and complement the rules below.
    - Recalculate and update all relevant metadata fields impacted by the sync.
    - At minimum ensure: `file_count`, `symbol_count`, `last_synced_at`, `last_synced_commit` (if available).
    - Validate `repos/<repo>/meta.json` against `schemas/repo-meta.schema.json`.
-7. **Stop.** Do NOT commit, push, or open a PR — the calling workflow (`receive-sync.yml`) handles all of that automatically.
+7. **Stop.** Do NOT run `git add`, `git commit`, `git push`, or `gh pr create` — the calling workflow (`receive-sync.yml`) handles all git operations and PR creation automatically. Only modify files using Write/Edit tools.
 
 ## Folder Completion Gate
 - Never advance to the next folder if the current one has:
@@ -113,9 +113,7 @@ All rules in these files are **mandatory** and complement the rules below.
 - Metadata file placement: `repos/<repo-name>/meta.json` (sibling of `docs`).
 - `file_path` in JSON must be relative to source root **without** a leading `src/` segment.
   - Example: `src/components/Button.tsx` → `file_path: "components/Button.tsx"`.
-- PR title format: `docs(sync): <repo-name> @ <short-sha>`.
-- PR body must include: files added, modified, deleted counts and a change summary.
-- PR body must include a per-folder breakdown in processing order.
+- The workflow will create the PR automatically. You do NOT need to format or create it.
 
 ## Error Handling
 - If schema validation fails → do NOT write the invalid file. Log the error and exit with a non-zero code so the workflow does not create a PR.

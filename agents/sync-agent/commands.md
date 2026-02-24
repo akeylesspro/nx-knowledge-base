@@ -6,16 +6,18 @@ When the agent is invoked via `claude --print --dangerously-skip-permissions "<p
 (payload, repo, branch, files list) is passed inside the prompt text. The agent reads this context
 and executes the appropriate operation sequence described below.
 
+**CRITICAL:** The agent must NEVER run git commands (`git add`, `git commit`, `git push`) or create PRs (`gh pr create`). The workflow handles all git operations. The agent only reads source files and writes/updates documentation JSON files using Read/Write/Edit tools.
+
 ## Operations
 
 ### `sync`
 Full sync for a repository based on dispatch payload.
 ```
 Input: { repo, files[], commit_sha, branch, timestamp }  ← from prompt context
-Output: Updated docs files + meta.json committed to the current branch
+Output: Updated/created docs files + meta.json in the working tree (uncommitted)
 ```
 Note: Process ONLY the files listed in `files[]`. Source files are at `_source/<repo>/`.
-The workflow creates the branch and opens the PR — the agent only writes files and commits.
+The workflow creates the branch, commits, pushes, and opens the PR — the agent ONLY modifies files in the working tree. Do NOT run `git commit`, `git push`, or `gh pr create`.
 
 ### `sync:file`
 Generate or update documentation for a single file.

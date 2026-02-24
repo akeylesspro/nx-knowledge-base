@@ -50,36 +50,9 @@
 - GitHub links must include commit SHA: `https://github.com/<org>/<repo>/blob/<sha>/<path>`
 - NX-KB links use internal routing: `/repos/<repo>/docs/<path>`
 
-## PR Format
-```
-Title: docs(sync): <repo-name> @ <7-char-sha>
-
-Body:
-## Sync Summary
-- **Repo**: <repo-name>
-- **Commit**: <full-sha>
-- **Timestamp**: <ISO>
-
-## Changes
-| Action   | Count |
-|----------|-------|
-| Added    | N     |
-| Modified | N     |
-| Deleted  | N     |
-
-## Per-Folder Breakdown (processing order)
-components/  — touched: N | added: N | updated: N | deleted: N | skipped: N
-hooks/       — touched: N | added: N | updated: N | deleted: N | skipped: N
-
-## Files
-<collapsible list of changed files>
-
-## Validation
-- Schema: ✅ / ❌
-- Repo Meta Schema: ✅ / ❌
-- Links: ✅ / ❌
-- Overrides: ✅ No conflicts / ⚠️ N conflicts
-```
+## PR Format (reference only — the workflow creates the PR, NOT the agent)
+The workflow (`receive-sync.yml`) handles PR creation automatically. The agent does NOT create PRs.
+The agent's final text output should include a summary of changes for logging purposes.
 
 ## Ignore Patterns
 Do not generate documentation for:
